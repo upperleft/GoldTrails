@@ -1,0 +1,13 @@
+{
+  "name": "gold-trails",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Gold Trails static website and Hostinger deployment configuration",
+  "type": "module",
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "build": "node scripts/check-site.mjs",
+    "start": "node server.js",
+    "check": "node scripts/check-site.mjs"
+  }
+}
