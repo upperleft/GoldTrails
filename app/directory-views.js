@@ -1,5 +1,6 @@
-import { readFile } from 'node:fs/promises';
-const shell = await readFile(new URL('./page-shell.html', import.meta.url), 'utf8');
+import { readFileSync } from 'node:fs';
+// Hostinger loads the entry through require(), so startup must remain synchronous.
+const shell = readFileSync(new URL('./page-shell.html', import.meta.url), 'utf8');
 export const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
 export function display(value) {
   if (value === null || value === undefined || (typeof value === 'string' && !value.trim())) return 'TBD';
