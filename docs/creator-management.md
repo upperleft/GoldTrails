@@ -33,3 +33,7 @@ The helper does not store or transmit the password. To rotate it, generate a new
 Node 22 tests cover hash verification, invalid config, form validation, anonymous access, forged-origin/CSRF rejection, session rotation/logout, escaped output, transaction rollback, channel ownership, archive audit and draft restoration. Public directory tests and build link checks pass; require()-based Hostinger startup also passes. Administrator database writing and browser sign-in still need a live end-to-end check after owner credentials are configured. No live profile was edited by tests.
 
 References: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html and https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html
+
+## Field-heavy page layout preference
+
+Use compact workspaces for pages with many editable fields: short heading, persistent Home/list links, two columns on wide screens, compact labeled controls and a visible save action. The basic new-creator fields fit together at 1280×720. Long sets of existing channel records can scroll inside their pane; small screens use one readable column. Ordinary public browsing and reading pages retain the full themed header and sidebars. Apply this pattern to future data-entry screens.
