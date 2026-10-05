@@ -1,6 +1,6 @@
 # Gold Trails
 
-A static visual foundation for a gold-prospecting knowledge and research website.
+A frontier-themed gold-prospecting field library with static topic pages and a server-rendered prospector directory.
 
 ## Preview
 
@@ -19,11 +19,11 @@ Open http://localhost:4173.
 - `dist/assets/`: artwork
 - Category, collection, guide, prospector, location, resource, and tool pages use directory-based URLs with their own `index.html`.
 
-This version includes 47 static pages. Content and fictional sample profiles are placeholders. Login, subscriptions, social destinations, searches, and database integration are not implemented yet.
+This version includes 48 static pages and server-rendered prospector search/profile routes. Content and the fictional sample profile remain placeholders. Login, subscriptions and social destinations are not implemented. The live directory needs server-only database settings; see [directory setup](docs/directory-connection.md).
 
 ## Hostinger GitHub deployment
 
-The site is plain HTML and CSS. The package configuration adds a small dependency-free Node server for Hostinger's app deployment workflow; it does not implement membership or database features.
+The site is plain HTML and CSS. The package configuration adds a Node server and MariaDB connector for Hostinger's app deployment workflow. Membership and payments remain a later phase.
 
 - Repository root: `/`
 - Branch: `main`
@@ -35,8 +35,8 @@ The site is plain HTML and CSS. The package configuration adds a small dependenc
 - Entry file: `server.js`
 - Start: `npm start`
 - Port: 3000 by default; the server respects `PORT` if provided.
-- No secrets or database settings are needed for this visual version.
+- Database settings: DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME. Enter privately in Hostinger Environment variables; never commit a filled .env file. Static pages remain available if these are absent.
 
 For local preview, run `npm start` and visit http://localhost:3000.
 
-Commit and push this entire project, including package.json, package-lock.json, server.js, scripts/, and dist/. In Hostinger, choose the repository and confirm these settings before deploying. If Hostinger offers a static-only mode, it can serve dist/ directly without starting the Node server.
+Commit and push this entire project, including package.json, package-lock.json, server.js, app/, scripts/, database/, and dist/. In Hostinger, choose the repository and confirm these settings before deploying. If Hostinger offers a static-only mode, it can serve dist/ directly without starting the Node server.

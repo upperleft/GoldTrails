@@ -2,12 +2,19 @@
   "name": "gold-trails",
   "version": "0.1.0",
   "private": true,
-  "description": "Gold Trails static website and Hostinger deployment configuration",
+  "description": "Gold Trails field library with a server-rendered prospector directory",
   "type": "module",
-  "engines": { "node": "22.x" },
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "build": "node scripts/check-site.mjs",
     "start": "node server.js",
-    "check": "node scripts/check-site.mjs"
+    "check": "node scripts/check-site.mjs",
+    "test": "node --test tests/*.test.js",
+    "db:check": "node scripts/check-database.mjs"
+  },
+  "dependencies": {
+    "mariadb": "3.5.4"
   }
 }
