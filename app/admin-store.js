@@ -32,7 +32,7 @@ export function createAdminStore(db, credentialVersion = '') {
   async get(id) {
    const p=(await db.query(`SELECT ${columns} FROM people WHERE id=? AND is_sample=FALSE`,[id]))[0];
    if (!p) return null;
-   p.channels=await db.query('SELECT id,platform,channel_name,canonical_url,description,publication_status FROM channels WHERE person_id=? AND archived_at IS NULL ORDER BY created_at,id',[id]);
+   p.channels=await db.query('SELECT id,platform,channel_name,canonical_url,description,publication_status,publishing_since_year FROM channels WHERE person_id=? AND archived_at IS NULL ORDER BY created_at,id',[id]);
    p.sources=await db.query(`SELECT DISTINCT r.title,r.canonical_url FROM person_fact_sources f JOIN source_references s ON s.id=f.source_reference_id JOIN resources r ON r.id=s.resource_id WHERE f.person_id=? AND f.archived_at IS NULL AND s.archived_at IS NULL AND r.archived_at IS NULL`,[id]);
    p.roles=await db.query('SELECT v.id FROM person_public_roles a JOIN public_roles v ON v.id=a.role_id WHERE a.person_id=? AND a.archived_at IS NULL AND v.archived_at IS NULL',[id]);
    p.topics=await db.query("SELECT v.id FROM person_topics a JOIN topics v ON v.id=a.topic_id WHERE a.person_id=? AND a.relationship_type='content_topic' AND a.archived_at IS NULL AND v.archived_at IS NULL",[id]);
@@ -80,8 +80,8 @@ export function createAdminStore(db, credentialVersion = '') {
      if (ch.id) {
       const rows=await conn.query('SELECT id FROM channels WHERE id=? AND person_id=? AND archived_at IS NULL FOR UPDATE',[ch.id,id]);
       if (!rows.length) throw new EditConflict();
-      await conn.query("UPDATE channels SET channel_name=?,canonical_url=?,description=?,publication_status=?,verification_status='unverified',link_status='unchecked' WHERE id=? AND person_id=?",[ch.name,ch.url,ch.description,ch.status,ch.id,id]);
-     } else await conn.query('INSERT INTO channels(id,person_id,platform,channel_name,canonical_url,description,publication_status) VALUES(?,?,?,?,?,?,?)',[randomUUID(),id,ch.platform,ch.name,ch.url,ch.description,ch.status]);
+      await conn.query("UPDATE channels SET channel_name=?,canonical_url=?,description=?,publication_status=?,publishing_since_year=IF(?=1,?,publishing_since_year),verification_status='unverified',link_status='unchecked' WHERE id=? AND person_id=?",[ch.name,ch.url,ch.description,ch.status,ch.publishingSince!==undefined?1:0,ch.publishingSince??null,ch.id,id]);
+     } else await conn.query('INSERT INTO channels(id,person_id,platform,channel_name,canonical_url,description,publication_status,publishing_since_year) VALUES(?,?,?,?,?,?,?,?)',[randomUUID(),id,ch.platform,ch.name,ch.url,ch.description,ch.status,ch.publishingSince??null]);
     }
     if(input.associates!==null&&input.associates!==undefined) {
      if(!(await conn.query("SELECT version FROM schema_migrations WHERE version='003_creator_associates'")).length)throw new EditConflict();

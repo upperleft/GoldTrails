@@ -9,3 +9,5 @@ Live records added 5 October 2026:
 - Hip Bee Explorer: /prospectors/hip-bee-explorer/; supplied official YouTube and public creator page https://www.patreon.com/user/about?u=37215000. Individual names and regions unconfirmed; no associate names guessed.
 
 Profiles remain sources-pending. No manufacturer role or personal relationships inferred. No authentication rights are created by associates.
+
+003_creator_associates applied 5 October 2026. Full backup downloaded beforehand (u474324596_goldtrails.sql-2, 55,053 bytes). CREATE TABLE and migration marker succeeded in phpMyAdmin. Live Hip Bee Explorer editor verified with the People & associates section enabled; no speculative member names inserted. Database now has 31 base tables.

@@ -101,3 +101,12 @@ test('associates validate public names, relationships, ownership and safe URLs',
  await assert.rejects(()=>createAdminStore({getConnection:async()=>conn}).save(creatorInput(form({...fields,a0_id:id}),id),'owner'),EditConflict);
  assert(rolled);assert(!statements.some(([sql])=>sql.startsWith('UPDATE creator_associates')));
 });
+
+test('channel publishing years distinguish unknown, known and stale forms',()=>{
+ const ch={c0_name:'Videos',c0_url:'https://www.youtube.com/@example',c0_platform:'YouTube',c0_status:'published'};
+ assert.equal(creatorInput(form(ch)).channels[0].publishingSince,undefined);
+ assert.equal(creatorInput(form({...ch,c0_since:''})).channels[0].publishingSince,null);
+ assert.equal(creatorInput(form({...ch,c0_since:'2023'})).channels[0].publishingSince,2023);
+ assert.throws(()=>creatorInput(form({...ch,c0_since:'1985'})),FormError);
+ assert.throws(()=>creatorInput(form({...ch,c0_since:'2200'})),FormError);
+});
