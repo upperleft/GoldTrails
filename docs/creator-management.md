@@ -37,3 +37,11 @@ References: https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Ch
 ## Field-heavy page layout preference
 
 Use compact workspaces for pages with many editable fields: short heading, persistent Home/list links, two columns on wide screens, compact labeled controls and a visible save action. The basic new-creator fields fit together at 1280×720. Long sets of existing channel records can scroll inside their pane; small screens use one readable column. Ordinary public browsing and reading pages retain the full themed header and sidebars. Apply this pattern to future data-entry screens.
+
+## Public roles and content topics
+
+The editor now loads public role checkboxes and content-topic checkboxes from the existing vocabularies. A compact classification pane joins the two main panels on wide screens. Unknown classifications remain unchecked. Role selections describe creators and do not affect administrator access.
+
+Starter topic choices: gold panning, gold sniping, metal detecting, sluicing/highbanking, geology/placer deposits and maps/field research. Missing starter vocabulary rows are inserted only when explicitly selected and saved, inside the profile transaction. Existing/archived slugs are not silently overwritten or recreated. No schema migration is required.
+
+Deselecting a role or content_topic archives that association; selecting it again restores the same record and source reference. Specialized topic relationships (specialty, equipment_discussed, etc.) are preserved. Current form marker is required so a stale pre-classification form cannot accidentally clear associations. Public profile topic links and directory topic filtering already read these associations. Validation includes vocabulary ID allowlisting, transactional rollback and tests for preservation of evidence and specialized relationships.

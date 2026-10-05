@@ -1,5 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { digest, token } from './admin-auth.js';
+import { starterTopics, topicChoices } from './creator-taxonomy.js';
 export class EditConflict extends Error {}
 export function createAdminStore(db, credentialVersion = '') {
  const sessionDigest = raw => digest(raw + '|' + credentialVersion);
@@ -21,11 +22,19 @@ export function createAdminStore(db, credentialVersion = '') {
   },
   async list() { return db.query('SELECT id,display_name,slug,publication_status,archived_at FROM people WHERE is_sample=FALSE ORDER BY display_name LIMIT 500'); },
   async regions() { return db.query("SELECT id,name FROM regions WHERE archived_at IS NULL AND publication_status='published' ORDER BY name"); },
+  async taxonomy() {
+   const roles=await db.query('SELECT id,name FROM public_roles WHERE archived_at IS NULL ORDER BY name');
+   // Include archived slugs in merging so they cannot be recreated implicitly.
+   const topics=await db.query('SELECT id,slug,name,archived_at FROM topics ORDER BY name');
+   return {roles,topics:topicChoices(topics).filter(t=>!t.archived_at)};
+  },
   async get(id) {
    const p=(await db.query(`SELECT ${columns} FROM people WHERE id=? AND is_sample=FALSE`,[id]))[0];
    if (!p) return null;
    p.channels=await db.query('SELECT id,platform,channel_name,canonical_url,description,publication_status FROM channels WHERE person_id=? AND archived_at IS NULL ORDER BY created_at,id',[id]);
    p.sources=await db.query(`SELECT DISTINCT r.title,r.canonical_url FROM person_fact_sources f JOIN source_references s ON s.id=f.source_reference_id JOIN resources r ON r.id=s.resource_id WHERE f.person_id=? AND f.archived_at IS NULL AND s.archived_at IS NULL AND r.archived_at IS NULL`,[id]);
+   p.roles=await db.query('SELECT v.id FROM person_public_roles a JOIN public_roles v ON v.id=a.role_id WHERE a.person_id=? AND a.archived_at IS NULL AND v.archived_at IS NULL',[id]);
+   p.topics=await db.query("SELECT v.id FROM person_topics a JOIN topics v ON v.id=a.topic_id WHERE a.person_id=? AND a.relationship_type='content_topic' AND a.archived_at IS NULL AND v.archived_at IS NULL",[id]);
    return p;
   },
   async save(input,actor) {
@@ -38,6 +47,19 @@ export function createAdminStore(db, credentialVersion = '') {
      current=(await conn.query('SELECT edit_version,archived_at FROM people WHERE id=? AND is_sample=FALSE FOR UPDATE',[id]))[0];
      if (!current || current.edit_version!==input.version || current.archived_at) throw new EditConflict();
     }
+    // Validate submitted IDs against public vocabularies before changing records.
+    const roles=await conn.query('SELECT id FROM public_roles WHERE archived_at IS NULL FOR UPDATE');
+    if(input.roles.some(id=>!roles.some(r=>r.id===id)))throw new EditConflict();
+    for(const topicId of input.topics) {
+     const seed=starterTopics.find(t=>t.id===topicId);
+     if(seed) {
+      // Preserve existing rows with the same slug, including archived vocabulary.
+      const rows=await conn.query('SELECT id,archived_at FROM topics WHERE id=? OR slug=? FOR UPDATE',[seed.id,seed.slug]);
+      if(!rows.length)await conn.query('INSERT INTO topics(id,slug,name,topic_group) VALUES(?,?,?,?)',[seed.id,seed.slug,seed.name,'Prospecting']);
+     }
+    }
+    const topics=await conn.query('SELECT id FROM topics WHERE archived_at IS NULL FOR UPDATE');
+    if(input.topics.some(id=>!topics.some(t=>t.id===id)))throw new EditConflict();
     if (input.region) {
      const region=await conn.query("SELECT id FROM regions WHERE id=? AND archived_at IS NULL AND publication_status='published'",[input.region]);
      if (!region.length) throw new Error('Invalid region');
@@ -45,6 +67,13 @@ export function createAdminStore(db, credentialVersion = '') {
     const values=[input.name,input.slug,input.nickname,input.introduction,input.biography,input.country,input.province,input.region,input.since,input.instruction,input.instructionDescription,input.status];
     if (current) await conn.query(`UPDATE people SET display_name=?,slug=?,nickname=?,short_introduction=?,biography=?,country_code=?,state_province=?,primary_region_id=?,experience_since_year=?,offers_instruction=?,instruction_description=?,publication_status=?,verification_status='unverified',edit_version=edit_version+1 WHERE id=?`,[...values,id]);
     else await conn.query(`INSERT INTO people(display_name,slug,nickname,short_introduction,biography,country_code,state_province,primary_region_id,experience_since_year,offers_instruction,instruction_description,publication_status,id) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)`,[...values,id]);
+    // Archive deselected links; restoration reuses the original composite key and evidence.
+    const oldRoles=await conn.query('SELECT role_id FROM person_public_roles WHERE person_id=? AND archived_at IS NULL',[id]);
+    for(const row of oldRoles)if(!input.roles.includes(row.role_id))await conn.query('UPDATE person_public_roles SET archived_at=UTC_TIMESTAMP(6) WHERE person_id=? AND role_id=?',[id,row.role_id]);
+    for(const roleId of input.roles)await conn.query('INSERT INTO person_public_roles(person_id,role_id) VALUES(?,?) ON DUPLICATE KEY UPDATE archived_at=NULL',[id,roleId]);
+    const oldTopics=await conn.query("SELECT topic_id FROM person_topics WHERE person_id=? AND relationship_type='content_topic' AND archived_at IS NULL",[id]);
+    for(const row of oldTopics)if(!input.topics.includes(row.topic_id))await conn.query("UPDATE person_topics SET archived_at=UTC_TIMESTAMP(6) WHERE person_id=? AND topic_id=? AND relationship_type='content_topic'",[id,row.topic_id]);
+    for(const topicId of input.topics)await conn.query("INSERT INTO person_topics(person_id,topic_id,relationship_type) VALUES(?,?,'content_topic') ON DUPLICATE KEY UPDATE archived_at=NULL",[id,topicId]);
     for (const ch of input.channels) {
      if (ch.id) {
       const rows=await conn.query('SELECT id FROM channels WHERE id=? AND person_id=? AND archived_at IS NULL FOR UPDATE',[ch.id,id]);

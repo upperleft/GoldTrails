@@ -7,7 +7,7 @@ import { createAdminStore,EditConflict } from '../app/admin-store.js';
 import { createServer } from '../app/server.js';
 const origin='https://gold.example';
 const csrf='a'.repeat(64), raw='b'.repeat(64), id='11111111-1111-4111-8111-111111111111';
-function form(extra={}) { return new URLSearchParams({name:'Pioneer Pauly',slug:'pioneer-pauly',status:'draft',version:'0',instruction:'',channelCount:'1',...extra}); }
+function form(extra={}) { return new URLSearchParams({name:'Pioneer Pauly',slug:'pioneer-pauly',status:'draft',version:'0',instruction:'',channelCount:'1',taxonomy:'1',...extra}); }
 test('password hashes are salted and verify without exposing plaintext',async()=>{
  const hash=await hashPassword('a long test-only passphrase');assert(!hash.includes('passphrase'));
  assert(await verifyPassword('a long test-only passphrase',hash));assert(!await verifyPassword('wrong',hash));
@@ -26,7 +26,7 @@ test('validation preserves unknowns, rejects unsafe links and future years',()=>
 test('HTTP workspace rejects anonymous, expired and forged writes; rotates login; saves and logs out',async()=>{
  const hash=await hashPassword('a long test-only passphrase');
  const sessions=new Map([[raw,{csrf_token:csrf,authenticated:0}]]);let saves=0,attempts=0;
- const store={session:async k=>sessions.get(k),newSession:async auth=>{const k='c'.repeat(64);const s={raw:k,csrf_token:csrf,authenticated:auth};sessions.set(k,s);return s;},logout:async k=>sessions.delete(k),allowLogin:async()=>++attempts<=10,list:async()=>[{id,display_name:'<script>bad</script>',slug:'pauly',publication_status:'draft'}],regions:async()=>[],get:async()=>({id,display_name:'Pauly',slug:'pauly',channels:[],sources:[],edit_version:0}),save:async()=>{saves++;return id;}};
+ const store={session:async k=>sessions.get(k),newSession:async auth=>{const k='c'.repeat(64);const s={raw:k,csrf_token:csrf,authenticated:auth};sessions.set(k,s);return s;},logout:async k=>sessions.delete(k),allowLogin:async()=>++attempts<=10,list:async()=>[{id,display_name:'<script>bad</script>',slug:'pauly',publication_status:'draft'}],regions:async()=>[],taxonomy:async()=>({roles:[],topics:[]}),get:async()=>({id,display_name:'Pauly',slug:'pauly',channels:[],sources:[],edit_version:0}),save:async()=>{saves++;return id;}};
  const admin=createAdminHandler({store,config:{username:'owner',passwordHash:hash,origin},log:()=>{}});
  const server=createServer({admin});server.listen(0,'127.0.0.1');await once(server,'listening');const base=`http://127.0.0.1:${server.address().port}`;
  const request=(path,opts={})=>fetch(base+path,{redirect:'manual',...opts});
@@ -58,4 +58,34 @@ test('archive writes an audit row, and restore returns to draft',async()=>{
  const statements=[];const conn={beginTransaction:async()=>{},query:async(sql,args)=>{statements.push([sql,args]);return sql.startsWith('SELECT')?[{edit_version:3,archived_at:'2026-10-05'}]:[];},commit:async()=>{},rollback:async()=>{},release:()=>{}};
  await createAdminStore({getConnection:async()=>conn}).archive(id,3,true,'owner');
  assert(statements.some(([sql])=>sql.includes("publication_status='draft'")));assert(statements.some(([sql,args])=>sql.includes('creator_change_log')&&args[3]==='restore'));
+});
+
+test('classification validates IDs and requires a current form to prevent accidental clearing',()=>{
+ assert.throws(()=>creatorInput(form({role_admin:'1'})),FormError);
+ const old=form();old.delete('taxonomy');assert.throws(()=>creatorInput(old),FormError);
+ const input=creatorInput(form({['role_'+id]:'1',['topic_'+id]:'1'}));assert.deepEqual(input.roles,[id]);assert.deepEqual(input.topics,[id]);
+});
+test('classification save archives deselections, restores selected links and preserves specialized topics',async()=>{
+ const chosen='22222222-2222-4222-8222-222222222222',removed='33333333-3333-4333-8333-333333333333';
+ const statements=[];let committed=false;
+ const conn={beginTransaction:async()=>{},query:async(sql,args)=>{
+  statements.push([sql,args]);
+  if(sql.startsWith('SELECT edit_version'))return[{edit_version:0,archived_at:null}];
+  if(sql.startsWith('SELECT id FROM public_roles')||sql.startsWith('SELECT id FROM topics'))return[{id:chosen}];
+  if(sql.startsWith('SELECT role_id'))return[{role_id:removed}];
+  if(sql.startsWith('SELECT topic_id'))return[{topic_id:removed}];
+  return[];
+ },commit:async()=>{committed=true},rollback:async()=>{},release:()=>{}};
+ const input=creatorInput(form({['role_'+chosen]:'1',['topic_'+chosen]:'1'}),id);
+ await createAdminStore({getConnection:async()=>conn}).save(input,'owner');assert(committed);
+ assert(statements.some(([sql,args])=>sql.startsWith('UPDATE person_public_roles')&&args[1]===removed));
+ assert(statements.some(([sql])=>sql.startsWith('UPDATE person_topics')&&sql.includes("relationship_type='content_topic'")));
+ assert(statements.some(([sql])=>sql.startsWith('INSERT INTO person_public_roles')&&sql.endsWith('archived_at=NULL')));
+ assert(!statements.some(([sql])=>sql.startsWith('DELETE')||sql.includes('UPDATE source_references')));
+});
+test('unknown vocabulary rolls back before profile or associations change',async()=>{
+ let rolled=false,writes=0;
+ const conn={beginTransaction:async()=>{},query:async(sql)=>{if(sql.startsWith('SELECT edit_version'))return[{edit_version:0,archived_at:null}];if(sql.startsWith('UPDATE')||sql.startsWith('INSERT'))writes++;return[];},commit:async()=>{},rollback:async()=>{rolled=true},release:()=>{}};
+ await assert.rejects(()=>createAdminStore({getConnection:async()=>conn}).save(creatorInput(form({['role_'+id]:'1'}),id),'owner'),EditConflict);
+ assert(rolled);assert.equal(writes,0);
 });
