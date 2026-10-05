@@ -40,3 +40,7 @@ The site is plain HTML and CSS. The package configuration adds a Node server and
 For local preview, run `npm start` and visit http://localhost:3000.
 
 Commit and push this entire project, including package.json, package-lock.json, server.js, app/, scripts/, database/, and dist/. In Hostinger, choose the repository and confirm these settings before deploying. If Hostinger offers a static-only mode, it can serve dist/ directly without starting the Node server.
+
+## Creator administration
+
+The owner-only workspace is implemented at `/admin/login/` and `/admin/creators/`. It stays disabled until private ADMIN_* settings are configured. Setup, migration status, security controls and limits: [Creator management](docs/creator-management.md).

@@ -17,7 +17,7 @@ const list = values => values.length ? values.map(x => x.name).join(', ') : null
 const fact = (label, value) => `<div><dt>${escapeHtml(label)}</dt><dd>${html(value)}</dd></div>`;
 const section = (title, body, id = '') => `<section class="resource-placeholder"${id ? ` id="${id}"` : ''}><h2>${escapeHtml(title)}</h2>${body}</section>`;
 const queryLink = (key, value, label) => `<a href="/prospectors/?${key}=${encodeURIComponent(value)}">${escapeHtml(label)}</a>`;
-function page(title, description, content, context, introduction) {
+export function page(title, description, content, context, introduction) {
   const intro = `<section class="category-intro rust"><div><span class="eyebrow">GOLD TRAILS / PROSPECTOR DIRECTORY</span><h1>${escapeHtml(title)}</h1><p>${escapeHtml(introduction)}</p></div></section>`;
   const tokens = { TITLE: escapeHtml(title), DESCRIPTION: escapeHtml(description), INTRO: intro, CONTENT: content, CONTEXT: context };
   return shell.replace(/\{\{(TITLE|DESCRIPTION|INTRO|CONTENT|CONTEXT)\}\}/g, (_, key) => tokens[key]);

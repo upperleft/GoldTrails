@@ -6,19 +6,20 @@ import { directoryPage, profilePage, messagePage } from './directory-views.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
-export function createServer({ directory = null, root = resolve('dist'), log = console.error } = {}) {
+export function createServer({ directory = null, admin = null, root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
   function send(req, res, status, body, headers = {}) {
     res.writeHead(status, { 'Content-Type':'text/html; charset=utf-8', 'X-Content-Type-Options':'nosniff', 'Cache-Control':'no-store', ...headers });
     res.end(req.method === 'HEAD' ? undefined : body);
   }
   return http.createServer(async (req, res) => {
-    if (!['GET','HEAD'].includes(req.method)) {
-      res.writeHead(405, { Allow:'GET, HEAD' }); res.end(); return;
-    }
     let url, path;
     try { url = new URL(req.url,'http://localhost'); path = decodeURIComponent(url.pathname); }
     catch { send(req,res,400,messagePage('That trail marker is unclear','Please check the address and try again.')); return; }
+    if (admin && await admin(req,res,url)) return;
+    if (!['GET','HEAD'].includes(req.method)) {
+      res.writeHead(405, { Allow:'GET, HEAD' }); res.end(); return;
+    }
     const match = path.match(/^\/prospectors\/([^/]+)\/$/);
     const dynamic = path === '/prospectors/' || (match && path !== samplePath);
     // Canonical directory URLs also retain the active search.
