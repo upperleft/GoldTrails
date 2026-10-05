@@ -54,8 +54,8 @@ test('active profile uses explicit fields and excludes archived/unpublished conn
   assert.equal(result.display_name,profile.display_name);
   assert.ok(Array.isArray(result.channels) && Array.isArray(result.sources));
   for(const query of queries){assert.ok(!query.sql.includes('SELECT *'));assert.equal((query.sql.match(/\?/g)||[]).length,query.values.length);}
-  assert.ok(queries.slice(1).every(q=>q.sql.includes('archived_at IS NULL')));
-  const sourceQuery=queries.at(-1).sql;
+  assert.ok(queries.slice(1).filter(q=>!q.sql.includes('schema_migrations')).every(q=>q.sql.includes('archived_at IS NULL')));
+  const sourceQuery=queries.find(q=>q.sql.includes("SELECT DISTINCT r.id,r.title")).sql;
   assert.ok(!sourceQuery.includes('reviewer_note'));assert.ok(!sourceQuery.includes('evidence_note'));
   assert.match(sourceQuery,/r.publication_status='published'/);
 });

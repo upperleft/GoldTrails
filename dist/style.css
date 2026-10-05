@@ -94,3 +94,5 @@ header{flex-wrap:wrap;gap:20px}header>nav{margin-left:auto}.header-tools{display
 .admin-editor .admin-form label.taxonomy-option{display:flex;flex-direction:row;justify-content:flex-start;align-items:center;gap:5px;line-height:16px;margin:0;padding:0;min-height:18px}
 .admin-editor .admin-form label.taxonomy-option input[type=checkbox]{width:16px;min-width:16px;max-width:16px;height:16px;flex:none;margin:0;padding:0}
 .admin-editor .admin-form label.taxonomy-option span{flex:1;min-width:0}
+
+.admin-editor .editor-associates{grid-column:1/-1}.admin-editor .editor-associates fieldset{grid-template-columns:repeat(3,minmax(0,1fr));padding:9px;gap:6px 10px;margin:8px 0}.admin-editor .editor-associates h3{margin:0 0 5px}@media(max-width:800px){.admin-editor .editor-associates fieldset{grid-template-columns:1fr}}

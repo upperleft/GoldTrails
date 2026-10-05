@@ -77,7 +77,9 @@ export function createDirectoryStore(db) {
         EXISTS (SELECT 1 FROM person_fact_sources f WHERE f.person_id=? AND f.source_reference_id=s.id AND f.archived_at IS NULL)
         OR EXISTS (SELECT 1 FROM channel_fact_sources f JOIN channels c ON c.id=f.channel_id WHERE c.person_id=? AND c.archived_at IS NULL AND c.publication_status='published' AND f.source_reference_id=s.id AND f.archived_at IS NULL))
       ORDER BY r.title,r.id LIMIT 20`, [id, id]);
-    return { ...p, roles, languages, audience, formats, topics, regions, channels, contacts, resources, sources };
+    const enabled=(await query("SELECT version FROM schema_migrations WHERE version='003_creator_associates'")).length>0;
+    const associates=enabled?await query("SELECT a.display_name,a.relationship_type,a.description,a.canonical_url,a.source_url,p.slug AS linked_slug FROM creator_associates a LEFT JOIN people p ON p.id=a.linked_person_id AND p.publication_status='published' AND p.archived_at IS NULL AND p.is_sample=0 WHERE a.creator_id=? AND a.archived_at IS NULL AND a.publication_status='published' ORDER BY a.created_at,a.id LIMIT 30",[id]):[];
+    return { ...p, associates, roles, languages, audience, formats, topics, regions, channels, contacts, resources, sources };
   }
   return { search, profile };
 }

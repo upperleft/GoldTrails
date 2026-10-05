@@ -26,7 +26,7 @@ test('validation preserves unknowns, rejects unsafe links and future years',()=>
 test('HTTP workspace rejects anonymous, expired and forged writes; rotates login; saves and logs out',async()=>{
  const hash=await hashPassword('a long test-only passphrase');
  const sessions=new Map([[raw,{csrf_token:csrf,authenticated:0}]]);let saves=0,attempts=0;
- const store={session:async k=>sessions.get(k),newSession:async auth=>{const k='c'.repeat(64);const s={raw:k,csrf_token:csrf,authenticated:auth};sessions.set(k,s);return s;},logout:async k=>sessions.delete(k),allowLogin:async()=>++attempts<=10,list:async()=>[{id,display_name:'<script>bad</script>',slug:'pauly',publication_status:'draft'}],regions:async()=>[],taxonomy:async()=>({roles:[],topics:[]}),get:async()=>({id,display_name:'Pauly',slug:'pauly',channels:[],sources:[],edit_version:0}),save:async()=>{saves++;return id;}};
+ const store={session:async k=>sessions.get(k),newSession:async auth=>{const k='c'.repeat(64);const s={raw:k,csrf_token:csrf,authenticated:auth};sessions.set(k,s);return s;},logout:async k=>sessions.delete(k),allowLogin:async()=>++attempts<=10,list:async()=>[{id,display_name:'<script>bad</script>',slug:'pauly',publication_status:'draft'}],regions:async()=>[],taxonomy:async()=>({roles:[],topics:[],associatesEnabled:true}),get:async()=>({id,display_name:'Pauly',slug:'pauly',channels:[],sources:[],edit_version:0}),save:async()=>{saves++;return id;}};
  const admin=createAdminHandler({store,config:{username:'owner',passwordHash:hash,origin},log:()=>{}});
  const server=createServer({admin});server.listen(0,'127.0.0.1');await once(server,'listening');const base=`http://127.0.0.1:${server.address().port}`;
  const request=(path,opts={})=>fetch(base+path,{redirect:'manual',...opts});
@@ -39,7 +39,7 @@ test('HTTP workspace rejects anonymous, expired and forged writes; rotates login
   const login=await post('/admin/login/',form({csrf,username:'owner',password:'a long test-only passphrase'}));assert.equal(login.status,303);assert.match(login.headers.get('set-cookie'),/HttpOnly/);assert(!sessions.has(raw));
   const fresh='c'.repeat(64),headers={Cookie:'__Host-gold-admin='+fresh};
   const list=await request('/admin/creators/',{headers});assert.equal(list.status,200);assert.equal(list.headers.get('cache-control'),'no-store');assert((await list.text()).includes('&lt;script&gt;'));
-  const edit=await request('/admin/creators/'+id+'/',{headers});assert((await edit.text()).includes('Save profile'));
+  const edit=await request('/admin/creators/'+id+'/',{headers});const markup=await edit.text();assert(markup.includes('Save profile'));assert(markup.includes('People &amp; associates'));assert(markup.includes('name="associateCount"'));assert(markup.includes('Draft — private'));
   assert.equal((await post('/admin/creators/new/',form({csrf}),fresh)).status,303);assert.equal(saves,1);
   assert.equal((await post('/admin/logout/',new URLSearchParams({csrf}),fresh)).status,303);assert(!sessions.has(fresh));
   assert.equal((await request('/%ZZ')).status,400);
@@ -88,4 +88,16 @@ test('unknown vocabulary rolls back before profile or associations change',async
  const conn={beginTransaction:async()=>{},query:async(sql)=>{if(sql.startsWith('SELECT edit_version'))return[{edit_version:0,archived_at:null}];if(sql.startsWith('UPDATE')||sql.startsWith('INSERT'))writes++;return[];},commit:async()=>{},rollback:async()=>{rolled=true},release:()=>{}};
  await assert.rejects(()=>createAdminStore({getConnection:async()=>conn}).save(creatorInput(form({['role_'+id]:'1'}),id),'owner'),EditConflict);
  assert(rolled);assert.equal(writes,0);
+});
+
+test('associates validate public names, relationships, ownership and safe URLs',async()=>{
+ const fields={associates:'1',associateCount:'1',a0_name:'A collaborator',a0_relationship:'co_creator',a0_status:'draft'};
+ assert.equal(creatorInput(form(fields)).associates[0].name,'A collaborator');
+ assert.equal(creatorInput(form()).associates,null);
+ assert.throws(()=>creatorInput(form({...fields,a0_url:'javascript:alert(1)'})),FormError);
+ assert.throws(()=>creatorInput(form({...fields,a0_relationship:'admin'})),FormError);
+ let rolled=false;const statements=[];
+ const conn={beginTransaction:async()=>{},query:async(sql,args)=>{statements.push([sql,args]);if(sql.startsWith('SELECT edit_version'))return[{edit_version:0,archived_at:null}];if(sql.includes('schema_migrations'))return[{version:'003_creator_associates'}];return[];},commit:async()=>{throw new Error('Must not commit');},rollback:async()=>{rolled=true},release:()=>{}};
+ await assert.rejects(()=>createAdminStore({getConnection:async()=>conn}).save(creatorInput(form({...fields,a0_id:id}),id),'owner'),EditConflict);
+ assert(rolled);assert(!statements.some(([sql])=>sql.startsWith('UPDATE creator_associates')));
 });

@@ -26,7 +26,8 @@ export function createAdminStore(db, credentialVersion = '') {
    const roles=await db.query('SELECT id,name FROM public_roles WHERE archived_at IS NULL ORDER BY name');
    // Include archived slugs in merging so they cannot be recreated implicitly.
    const topics=await db.query('SELECT id,slug,name,archived_at FROM topics ORDER BY name');
-   return {roles,topics:topicChoices(topics).filter(t=>!t.archived_at)};
+   const associatesEnabled=(await db.query("SELECT version FROM schema_migrations WHERE version='003_creator_associates'")).length>0;
+   return {associatesEnabled,roles,topics:topicChoices(topics).filter(t=>!t.archived_at)};
   },
   async get(id) {
    const p=(await db.query(`SELECT ${columns} FROM people WHERE id=? AND is_sample=FALSE`,[id]))[0];
@@ -35,6 +36,7 @@ export function createAdminStore(db, credentialVersion = '') {
    p.sources=await db.query(`SELECT DISTINCT r.title,r.canonical_url FROM person_fact_sources f JOIN source_references s ON s.id=f.source_reference_id JOIN resources r ON r.id=s.resource_id WHERE f.person_id=? AND f.archived_at IS NULL AND s.archived_at IS NULL AND r.archived_at IS NULL`,[id]);
    p.roles=await db.query('SELECT v.id FROM person_public_roles a JOIN public_roles v ON v.id=a.role_id WHERE a.person_id=? AND a.archived_at IS NULL AND v.archived_at IS NULL',[id]);
    p.topics=await db.query("SELECT v.id FROM person_topics a JOIN topics v ON v.id=a.topic_id WHERE a.person_id=? AND a.relationship_type='content_topic' AND a.archived_at IS NULL AND v.archived_at IS NULL",[id]);
+   if((await db.query("SELECT version FROM schema_migrations WHERE version='003_creator_associates'")).length)p.associates=await db.query('SELECT id,display_name,relationship_type,description,canonical_url,source_url,publication_status,archived_at FROM creator_associates WHERE creator_id=? ORDER BY created_at,id',[id]);
    return p;
   },
   async save(input,actor) {
@@ -80,6 +82,15 @@ export function createAdminStore(db, credentialVersion = '') {
       if (!rows.length) throw new EditConflict();
       await conn.query("UPDATE channels SET channel_name=?,canonical_url=?,description=?,publication_status=?,verification_status='unverified',link_status='unchecked' WHERE id=? AND person_id=?",[ch.name,ch.url,ch.description,ch.status,ch.id,id]);
      } else await conn.query('INSERT INTO channels(id,person_id,platform,channel_name,canonical_url,description,publication_status) VALUES(?,?,?,?,?,?,?)',[randomUUID(),id,ch.platform,ch.name,ch.url,ch.description,ch.status]);
+    }
+    if(input.associates!==null&&input.associates!==undefined) {
+     if(!(await conn.query("SELECT version FROM schema_migrations WHERE version='003_creator_associates'")).length)throw new EditConflict();
+     for(const a of input.associates) {
+      if(a.id) {
+       if(!(await conn.query('SELECT id FROM creator_associates WHERE id=? AND creator_id=? FOR UPDATE',[a.id,id])).length)throw new EditConflict();
+       await conn.query('UPDATE creator_associates SET display_name=?,relationship_type=?,description=?,canonical_url=?,source_url=?,publication_status=?,archived_at=IF(?=1,COALESCE(archived_at,UTC_TIMESTAMP(6)),NULL) WHERE id=? AND creator_id=?',[a.name,a.relationship,a.description,a.url,a.source,a.status==='published'?'published':'draft',a.status==='archived'?1:0,a.id,id]);
+      } else await conn.query('INSERT INTO creator_associates(id,creator_id,display_name,relationship_type,description,canonical_url,source_url,publication_status) VALUES(?,?,?,?,?,?,?,?)',[randomUUID(),id,a.name,a.relationship,a.description,a.url,a.source,a.status==='published'?'published':'draft']);
+     }
     }
     if (input.source) {
      const resource=randomUUID(), reference=randomUUID();
