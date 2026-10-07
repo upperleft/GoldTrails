@@ -97,11 +97,12 @@ test('HTTP handles archive, empty directory, and DB outage without exposing deta
     const response=await fetch(base+'/prospectors/');assert.equal(response.status,503);assert.ok(!(await response.text()).includes('secret'));
   });
 });
-test('static routes and fictional preview remain usable before DB configuration', async () => {
+test('published static routes work and unfinished previews stay unpublished', async () => {
   await withServer(null,async base=>{
     assert.equal((await fetch(base+'/')).status,200);
-    assert.equal((await fetch(base+'/geology-gold/')).status,200);
-    const preview=await fetch(base+'/prospectors/jack-riverbend-morgan/');assert.equal(preview.status,200);assert.ok((await preview.text()).includes('Fictional example'));
+    assert.equal((await fetch(base+'/articles/')).status,200);
+    assert.equal((await fetch(base+'/geology-gold/')).status,404);
+    assert.equal((await fetch(base+'/prospectors/jack-riverbend-morgan/')).status,404);
     assert.equal((await fetch(base+'/prospectors/')).status,503);
     assert.equal((await fetch(base+'/.env')).status,404);
     assert.equal((await fetch(base+'/database/migrations/001_directory_foundation.sql')).status,404);

@@ -1,0 +1,47 @@
+# Unpublished design backlog
+
+These previous placeholder layouts are retained for reference, outside the public website. Create real content before restoring a route.
+
+- /beginners-camp/
+- /tools/prospecting-journal/
+- /tools/first-trip-checklist/
+- /prospectors/jack-riverbend-morgan/
+- /maps-field-tools/
+- /resources/mineral-reference/
+- /saved-trails/
+- /rivers-locations/
+- /panning-techniques/
+- /guides/first-day-by-the-river/
+- /guides/panning-basics/
+- /locations/gold-country/
+- /creators/featured-teacher/
+- /geology-gold/
+- /collections/first-trip-gear-checklist/
+- /collections/trip-planning-collection/
+- /collections/river-etiquette/
+- /collections/featured-lessons-collection/
+- /collections/glossary-collection/
+- /collections/frequently-consulted-references/
+- /collections/river-conditions-references/
+- /collections/historic-mining-archives/
+- /collections/regional-resource-collections/
+- /collections/equipment-reference-list/
+- /collections/access-rules-reference/
+- /collections/geology-glossary/
+- /collections/common-panning-mistakes/
+- /collections/editor-s-reference-picks/
+- /collections/useful-field-checklists/
+- /collections/recommended-starting-points/
+- /collections/official-mapping-resources/
+- /collections/placer-deposit-references/
+- /collections/geological-map-collection/
+- /collections/beginner-glossary/
+- /collections/technique-demonstrations/
+- /collections/coordinate-basics/
+- /collections/related-field-guides/
+- /collections/mineral-identification-collection/
+- /collections/creator-resource-lists/
+- /collections/map-legends-amp-symbols/
+- /collections/panning-terminology/
+- /collections/land-management-information/
+- /resource-library/
