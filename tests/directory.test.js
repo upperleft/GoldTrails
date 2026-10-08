@@ -35,6 +35,7 @@ test('directory queries bind hostile input and escape literal LIKE wildcards', a
   assert.ok(!queries[0].sql.includes(q)); assert.equal(queries[0].values[0],"%x=%' OR 1==1 --%");
   assert.match(queries[0].sql,/p.is_sample = 0/); assert.match(queries[0].sql,/p.archived_at IS NULL/);
   assert.match(queries[0].sql,/p.publication_status = 'published'/);
+  for(const field of ['short_introduction','biography','state_province','country_code']) assert.ok(queries[0].sql.includes('p.'+field+' LIKE ?'));
   assert.deepEqual(queries[1].values.slice(-2),[20,20]);
   for(const query of queries) assert.equal((query.sql.match(/\?/g)||[]).length,query.values.length);
 });

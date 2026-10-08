@@ -26,12 +26,14 @@ export function createDirectoryStore(db) {
     const values = [];
     if (q) {
       where += ` AND (p.display_name LIKE ? ESCAPE '=' OR p.nickname LIKE ? ESCAPE '='
+        OR p.short_introduction LIKE ? ESCAPE '=' OR p.biography LIKE ? ESCAPE '='
+        OR p.state_province LIKE ? ESCAPE '=' OR p.country_code LIKE ? ESCAPE '='
         OR EXISTS (SELECT 1 FROM person_aliases a WHERE a.person_id=p.id AND a.archived_at IS NULL AND a.alias LIKE ? ESCAPE '=')
         OR EXISTS (SELECT 1 FROM person_topics pt JOIN topics t ON t.id=pt.topic_id WHERE pt.person_id=p.id AND pt.archived_at IS NULL AND t.archived_at IS NULL AND t.name LIKE ? ESCAPE '=')
         OR EXISTS (SELECT 1 FROM person_regions pr JOIN regions r ON r.id=pr.region_id WHERE pr.person_id=p.id AND pr.archived_at IS NULL AND r.archived_at IS NULL AND r.publication_status='published' AND r.name LIKE ? ESCAPE '=')
         OR EXISTS (SELECT 1 FROM regions r WHERE r.id=p.primary_region_id AND r.archived_at IS NULL AND r.publication_status='published' AND r.name LIKE ? ESCAPE '=')
         OR EXISTS (SELECT 1 FROM channels c WHERE c.person_id=p.id AND c.archived_at IS NULL AND c.publication_status='published' AND (c.channel_name LIKE ? ESCAPE '=' OR c.handle LIKE ? ESCAPE '=')))`;
-      values.push(...Array(8).fill(like(q)));
+      values.push(...Array(12).fill(like(q)));
     }
     if (topic) {
       where += ' AND EXISTS (SELECT 1 FROM person_topics pt JOIN topics t ON t.id=pt.topic_id WHERE pt.person_id=p.id AND pt.archived_at IS NULL AND t.archived_at IS NULL AND t.slug=?)';
