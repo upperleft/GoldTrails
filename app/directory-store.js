@@ -102,9 +102,16 @@ export function createDirectoryStore(db) {
     return { ...p, researchClaims, waterways, associates, roles, languages, audience, formats, topics, regions, channels, contacts, resources, sources };
   }
   async function map() {
-    const people=await query(`SELECT p.id,p.slug,p.display_name,p.short_introduction FROM people p WHERE ${publicPerson} ORDER BY p.display_name,p.id`);
-    const regions=await query(`SELECT p.id AS person_id,r.name FROM people p JOIN person_regions pr ON pr.person_id=p.id JOIN regions r ON r.id=pr.region_id WHERE ${publicPerson} AND pr.archived_at IS NULL AND pr.relationship_type='covers' AND r.archived_at IS NULL AND r.publication_status='published' UNION SELECT p.id AS person_id,r.name FROM people p JOIN regions r ON r.id=p.primary_region_id WHERE ${publicPerson} AND r.archived_at IS NULL AND r.publication_status='published'`);
-    const topics=await query(`SELECT p.id AS person_id,t.name FROM people p JOIN person_topics pt ON pt.person_id=p.id JOIN topics t ON t.id=pt.topic_id WHERE ${publicPerson} AND pt.archived_at IS NULL AND pt.relationship_type IN ('specialty','technique_demonstrated','deposit_interest','content_topic') AND t.archived_at IS NULL`);
+    const people=await query(`SELECT p.id,p.slug,p.display_name,p.short_introduction,p.nickname,p.biography,p.state_province,p.country_code FROM people p WHERE ${publicPerson} ORDER BY p.display_name,p.id`);
+    const regions=await query(`SELECT p.id AS person_id,r.name,r.slug FROM people p JOIN person_regions pr ON pr.person_id=p.id JOIN regions r ON r.id=pr.region_id WHERE ${publicPerson} AND pr.archived_at IS NULL AND pr.relationship_type='covers' AND r.archived_at IS NULL AND r.publication_status='published' UNION SELECT p.id AS person_id,r.name,r.slug FROM people p JOIN regions r ON r.id=p.primary_region_id WHERE ${publicPerson} AND r.archived_at IS NULL AND r.publication_status='published'`);
+    const topics=await query(`SELECT p.id AS person_id,t.name,t.slug,pt.relationship_type FROM people p JOIN person_topics pt ON pt.person_id=p.id JOIN topics t ON t.id=pt.topic_id WHERE ${publicPerson} AND pt.archived_at IS NULL AND t.archived_at IS NULL`);
+    const aliases=await query(`SELECT p.id AS person_id,a.alias AS name FROM people p JOIN person_aliases a ON a.person_id=p.id WHERE ${publicPerson} AND a.archived_at IS NULL UNION SELECT p.id AS person_id,CONCAT_WS(' ',c.channel_name,c.handle) AS name FROM people p JOIN channels c ON c.person_id=p.id WHERE ${publicPerson} AND c.archived_at IS NULL AND c.publication_status='published'`);
+    for(const p of people)p.search_aliases=aliases.filter(a=>a.person_id===p.id).map(a=>a.name).join(' ');
+    const researchEnabled=(await query("SELECT version FROM schema_migrations WHERE version='005_creator_research'")).length>0;
+    if(researchEnabled){
+      const claims=await query(`SELECT p.id AS person_id,cp.field_key,cp.claim_value FROM creator_profile_claims cp JOIN people p ON p.id=cp.person_id WHERE ${publicPerson} AND cp.field_key IN ('region','specialty') AND cp.review_state='accepted' AND cp.publication_status='published' AND cp.archived_at IS NULL`);
+      for(const claim of claims){if(claim.field_key==='region')regions.push({person_id:claim.person_id,name:claim.claim_value,slug:'coverage-'+identity(claim.claim_value).replaceAll('-','')});else topics.push({person_id:claim.person_id,name:claim.claim_value.replaceAll('-',' '),slug:claim.claim_value,is_specialty:true});}
+    }
     const excludedSlugs=(await query(`SELECT p.slug FROM people p WHERE NOT (${publicPerson})`)).map(p=>p.slug);
     return {people,regions,topics,excludedSlugs};
   }

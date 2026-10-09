@@ -1,6 +1,7 @@
 import http from 'node:http';
 import {mergeCatalog,catalogBySlug,catalogProfile} from './creator-catalog.js';
-import {creatorMapPage,mapRecords} from './creator-map.js';
+import {mapRecords} from './creator-map.js';
+import {prospectorsPage,explorerCriteria} from './prospectors-page.js';
 import { readFile, realpath, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import { searchCriteria } from './directory-store.js';
@@ -23,12 +24,9 @@ export function createServer({ directory = null, admin = null, members = null, r
     if (!['GET','HEAD'].includes(req.method)) {
       res.writeHead(405, { Allow:'GET, HEAD' }); res.end(); return;
     }
-    if(path==='/creator-map') {res.writeHead(308,{Location:'/creator-map/'+url.search});res.end();return;}
-    if(path==='/creator-map/') {
-      if(!directory?.map){send(req,res,503,messagePage('The atlas is being prepared','The creator map needs the directory database connection.'));return;}
-      try {const data=mergeCatalog(await directory.map());send(req,res,200,creatorMapPage(mapRecords(data.people,data.regions,data.topics)));}
-      catch {log('Gold Trails creator map unavailable');send(req,res,503,messagePage('A pause along the trail','The creator map is temporarily unavailable.'));}
-      return;
+    if(path==='/creator-map'||path==='/creator-map/') {
+      const params=new URLSearchParams(url.searchParams);params.set('view','map');
+      res.writeHead(308,{Location:'/prospectors/?'+params.toString()});res.end();return;
     }
     const match = path.match(/^\/prospectors\/([^/]+)\/$/);
     const dynamic = path === '/prospectors/' || (match && path !== samplePath);
@@ -48,7 +46,12 @@ export function createServer({ directory = null, admin = null, members = null, r
         send(req,res,503,messagePage('The directory is being prepared','Prospector search will open when the database connection is ready. The rest of Gold Trails is yours to explore.')); return;
       }
       try {
-        if (criteria) {
+        if (criteria && directory.map) {
+          const filters=explorerCriteria(url.searchParams,criteria);
+          if(!filters){send(req,res,400,messagePage('Let’s adjust those filters','Choose a valid view, setting, and sort order.'));return;}
+          const data=mergeCatalog(await directory.map());
+          send(req,res,200,prospectorsPage(mapRecords(data.people,data.regions,data.topics),filters));
+        } else if (criteria) {
           const result = await directory.search(criteria);
           if (criteria.page > Math.max(1, Math.ceil(result.total / criteria.pageSize))) {
             send(req,res,404,messagePage('No results on that page','Return to the directory to start a new search.')); return;

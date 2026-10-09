@@ -127,7 +127,7 @@ export function createAdminHandler({store,config,log=console.error}) {
     if(req.method==='POST') {
      if(!['published','draft'].includes(f.get('visibility')))throw new FormError('Choose a valid visibility.');
      const result=await store.catalogImport({expectedDigest:f.get('digest'),visibility:f.get('visibility'),actor:config.username});
-     send(200,frame('Creator batch imported',`<section class="resource-placeholder"><h2>Profiles are ready to edit</h2><p>${result.created} profiles added. ${result.preserved} existing profiles preserved. ${result.conflicts.length} channel conflicts skipped.</p><p><a href="/admin/creators/">Open the creator editor list</a></p><p><a href="/creator-map/">View the creator map</a></p><p><a href="/prospectors/">Browse the directory</a></p></section>`));
+     send(200,frame('Creator batch imported',`<section class="resource-placeholder"><h2>Profiles are ready to edit</h2><p>${result.created} profiles added. ${result.preserved} existing profiles preserved. ${result.conflicts.length} channel conflicts skipped.</p><p><a href="/admin/creators/">Open the creator editor list</a></p><p><a href="/prospectors/">Browse prospectors</a></p></section>`));
     }else send(200,importView(await store.catalogPreview(),s));
     return true;
    }
