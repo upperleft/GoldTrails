@@ -1,13 +1,13 @@
 import {createHash} from 'node:crypto';
 import {ownedCategories,experience,goals,equipment} from './profile.js';
 export const activityMap=state=>new Map(state.activity.map(a=>[a.item_id,a]));
-export function fingerprint(state,content){return createHash('sha256').update(JSON.stringify([state.answers,state.inventory,state.activity,content.version,'compass-1'])).digest('hex');}
+export function fingerprint(state,content){return createHash('sha256').update(JSON.stringify([state.answers,state.inventory,state.activity,content.version,'compass-2'])).digest('hex');}
 export function recommend(state,content){const p=state.answers,activity=activityMap(state),owned=ownedCategories(p,state.inventory),advanced=['intermediate','experienced','expert'].includes(p.experience),interests=new Set(p.interests||[]);const ranking=[];
  for(const r of content.records){const a=activity.get(r.id);if(a?.dismissed||a?.already_known||a?.completed)continue;
  if(r.kind==='product'){
   if(owned.has(r.category)||r.category==='other')continue;
   // Core tools first. Large powered equipment needs an explicit interest and existing basics.
-  const desired=new Set(['pan','classifier','snuffer']);if(interests.has('sluicing')||p.goal==='sluice'){desired.add('sluice');if(advanced)desired.add('highbanker');}if(interests.has('detecting')||p.goal==='detecting'){desired.add('detector');desired.add('pinpointer');}if(advanced&&interests.has('river'))desired.add('crevice');
+  const handsOn=['panning','river','sluicing'].some(x=>interests.has(x))||['first','panning','sluice','fine','equipment'].includes(p.goal);const desired=new Set(handsOn?['pan','classifier','snuffer']:[]);if(interests.has('sluicing')||p.goal==='sluice'){desired.add('sluice');if(advanced)desired.add('highbanker');}if(interests.has('detecting')||p.goal==='detecting'){desired.add('detector');desired.add('pinpointer');}if(advanced&&interests.has('river'))desired.add('crevice');
   if(!desired.has(r.category))continue;
   if(p.budget!=null&&p.currency&&r.price!=null&&r.currency===p.currency&&r.price>p.budget)continue;
  }
@@ -26,7 +26,8 @@ export function recommend(state,content){const p=state.answers,activity=activity
  ranking.sort((a,b)=>b.score-a.score||a.id.localeCompare(b.id));const ids=kind=>ranking.filter(x=>content.records.find(r=>r.id===x.id)?.kind===kind).slice(0,kind==='article'?5:3);
  const lessons=ids('article');if(!advanced)lessons.sort((a,b)=>content.records.find(r=>r.id===a.id).order-content.records.find(r=>r.id===b.id).order);
  const adventure=lessons[0]||ids('video')[0]||null;
- return {persona:advanced?'Seasoned Trail Reader':p.goal==='detecting'?'Gold Signal Seeker':p.goal==='first'||p.experience==='new'?'First-Gold Explorer':'Curious Prospector',experience:experience[p.experience]||'Your pace, your trail',adventure,lessons,creators:ids('creator'),products:ids('product'),videos:ids('video'),destinations:ids('destination'),owned:[...owned].map(k=>equipment[k]).filter(Boolean),generatedAt:new Date().toISOString()};
+ const seenEquipment=new Set();const usefulProducts=ranking.filter(x=>content.records.find(r=>r.id===x.id)?.kind==='product').filter(x=>{const category=content.records.find(r=>r.id===x.id).category;if(seenEquipment.has(category))return false;seenEquipment.add(category);return true;}).slice(0,3);
+ return {persona:advanced?'Seasoned Trail Reader':p.goal==='detecting'?'Gold Signal Seeker':p.goal==='first'||p.experience==='new'?'First-Gold Explorer':'Curious Prospector',experience:experience[p.experience]||'Your pace, your trail',adventure,lessons,creators:ids('creator'),products:usefulProducts,videos:ids('video'),destinations:ids('destination'),owned:[...owned].map(k=>equipment[k]).filter(Boolean),generatedAt:new Date().toISOString()};
 }
 export function achievements(state,records){const a=activityMap(state),completed=id=>Boolean(a.get(id)?.completed),savedDestination=state.activity.some(x=>x.saved&&records.some(r=>r.id===x.item_id&&r.kind==='destination'));
  return [{id:'first',name:'FIRST STEPS',note:'Completed your prospecting profile.',earned:Boolean(state.completedAt)},{id:'stream',name:'STREAM READER',note:'Marked the stream-reading article complete.',earned:completed('article:where-gold-settles')},{id:'sand',name:'BLACK SAND STUDENT',note:'Completed the article and knowledge check.',earned:completed('article:black-sands')&&completed('challenge:black-sand')},{id:'gear',name:'GEAR INVENTORY',note:'Reviewed and confirmed your equipment inventory.',earned:completed('challenge:inventory')},{id:'explorer',name:'TRAIL EXPLORER',note:'Saved a destination with current access evidence.',earned:savedDestination}];
