@@ -1,4 +1,6 @@
 import http from 'node:http';
+import {mergeCatalog,catalogBySlug,catalogProfile} from './creator-catalog.js';
+import {creatorMapPage,mapRecords} from './creator-map.js';
 import { readFile, realpath, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import { searchCriteria } from './directory-store.js';
@@ -20,6 +22,13 @@ export function createServer({ directory = null, admin = null, members = null, r
     if (members && await members(req,res,url)) return;
     if (!['GET','HEAD'].includes(req.method)) {
       res.writeHead(405, { Allow:'GET, HEAD' }); res.end(); return;
+    }
+    if(path==='/creator-map') {res.writeHead(308,{Location:'/creator-map/'+url.search});res.end();return;}
+    if(path==='/creator-map/') {
+      if(!directory?.map){send(req,res,503,messagePage('The atlas is being prepared','The creator map needs the directory database connection.'));return;}
+      try {const data=mergeCatalog(await directory.map());send(req,res,200,creatorMapPage(mapRecords(data.people,data.regions,data.topics)));}
+      catch {log('Gold Trails creator map unavailable');send(req,res,503,messagePage('A pause along the trail','The creator map is temporarily unavailable.'));}
+      return;
     }
     const match = path.match(/^\/prospectors\/([^/]+)\/$/);
     const dynamic = path === '/prospectors/' || (match && path !== samplePath);
@@ -47,7 +56,7 @@ export function createServer({ directory = null, admin = null, members = null, r
           send(req,res,200,directoryPage(criteria,result));
         } else {
           const profile = await directory.profile(match[1]);
-          if (!profile) send(req,res,404,messagePage('Trail not found','This profile is not available.'));
+          if (!profile) {const entry=catalogBySlug(match[1]);if(entry && directory.catalogAllowed && await directory.catalogAllowed(match[1]))send(req,res,200,catalogProfile(entry));else send(req,res,404,messagePage('Trail not found','This profile is not available.'));}
           else if (profile.archived) send(req,res,410,messagePage('An archived trail', `${profile.display_name}’s profile has been archived. Browse the directory for current profiles.`));
           else send(req,res,200,profilePage(profile));
         }

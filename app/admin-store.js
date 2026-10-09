@@ -1,3 +1,4 @@
+import {previewCatalog,importCatalog} from './catalog-import.js';
 import { randomUUID } from 'node:crypto';
 import { digest, token } from './admin-auth.js';
 import { starterTopics, topicChoices } from './creator-taxonomy.js';
@@ -6,6 +7,8 @@ export function createAdminStore(db, credentialVersion = '') {
  const sessionDigest = raw => digest(raw + '|' + credentialVersion);
  const columns = 'id,slug,display_name,nickname,short_introduction,biography,country_code,state_province,primary_region_id,experience_since_year,offers_instruction,instruction_description,publication_status,verification_status,archived_at,edit_version';
  return {
+  async catalogPreview(){return previewCatalog(db);},
+  async catalogImport(input){return importCatalog(db,input);},
   async session(raw) { if (!raw) return null; return (await db.query('SELECT csrf_token,authenticated FROM admin_sessions WHERE token_hash=? AND expires_at>UTC_TIMESTAMP(6)',[sessionDigest(raw)]))[0] || null; },
   async newSession(authenticated) {
    const raw=token(), csrf=token();

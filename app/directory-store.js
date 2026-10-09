@@ -101,5 +101,13 @@ export function createDirectoryStore(db) {
     const waterways=researchEnabled?await query("SELECT w.name,w.state_province,w.country,w.resolution,e.source_url,e.title,e.kind,e.publication_date,e.timestamp_seconds,e.techniques_json,e.public_note,e.location_status,e.inspection_basis,e.visit_key,e.checked_at,e.waterway_key FROM creator_waterway_evidence e JOIN waterways w ON w.identity_key=e.waterway_key WHERE e.person_id=? AND e.archived_at IS NULL AND w.archived_at IS NULL AND e.publication_status='published' ORDER BY w.name,e.publication_date,e.id",[id]):[];
     return { ...p, researchClaims, waterways, associates, roles, languages, audience, formats, topics, regions, channels, contacts, resources, sources };
   }
-  return { search, profile };
+  async function map() {
+    const people=await query(`SELECT p.id,p.slug,p.display_name,p.short_introduction FROM people p WHERE ${publicPerson} ORDER BY p.display_name,p.id`);
+    const regions=await query(`SELECT p.id AS person_id,r.name FROM people p JOIN person_regions pr ON pr.person_id=p.id JOIN regions r ON r.id=pr.region_id WHERE ${publicPerson} AND pr.archived_at IS NULL AND pr.relationship_type='covers' AND r.archived_at IS NULL AND r.publication_status='published' UNION SELECT p.id AS person_id,r.name FROM people p JOIN regions r ON r.id=p.primary_region_id WHERE ${publicPerson} AND r.archived_at IS NULL AND r.publication_status='published'`);
+    const topics=await query(`SELECT p.id AS person_id,t.name FROM people p JOIN person_topics pt ON pt.person_id=p.id JOIN topics t ON t.id=pt.topic_id WHERE ${publicPerson} AND pt.archived_at IS NULL AND pt.relationship_type IN ('specialty','technique_demonstrated','deposit_interest','content_topic') AND t.archived_at IS NULL`);
+    const excludedSlugs=(await query(`SELECT p.slug FROM people p WHERE NOT (${publicPerson})`)).map(p=>p.slug);
+    return {people,regions,topics,excludedSlugs};
+  }
+  async function catalogAllowed(slug){return (await query('SELECT slug FROM people WHERE slug=? LIMIT 1',[slug])).length===0;}
+  return { search, profile, map, catalogAllowed };
 }

@@ -1,0 +1,547 @@
+[
+  {
+    "slug": "andythraxx-mining",
+    "name": "ANDYTHRAXX MINING",
+    "official_url": "https://www.youtube.com/user/ANDYTHRAXX",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "adventure-gold",
+    "name": "Adventure Gold",
+    "official_url": "https://www.youtube.com/user/19andrew72/",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "alan-robertson",
+    "name": "Alan Robertson",
+    "official_url": "https://www.youtube.com/watch?v=mtsqzGIVSHw",
+    "region": "Washington beach trip, USA",
+    "status": "verified",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "ask-jeff-williams",
+    "name": "Ask Jeff Williams",
+    "official_url": "https://www.askjeffwilliams.com/",
+    "region": null,
+    "status": "published",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "bill-southern",
+    "name": "Bill Southern / Nugget Shooter Journals",
+    "official_url": "https://www.patreon.com/nuggetshooterjournals/about",
+    "region": "Arizona, USA",
+    "status": "verified",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "busted-knuckles-prospecting",
+    "name": "Busted Knuckles Prospecting",
+    "official_url": "https://www.youtube.com/channel/UC-FXgmftIXDVF9QTSMUpo1A",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "california-mother-lode-prospectors",
+    "name": "California Mother Lode Prospectors",
+    "official_url": "https://www.youtube.com/channel/UC4UEOWPrLaqFXriPUONmEtw",
+    "region": "California, USA",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "canadian-gold-mining",
+    "name": "Canadian Gold Mining",
+    "official_url": "https://www.youtube.com/c/CanadianGoldMining",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "chasing-gold-australia",
+    "name": "Chasing Gold Australia",
+    "official_url": "https://www.youtube.com/channel/UCOX7wXytTbri0xCG3Kk8gdw",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "chris-ralph",
+    "name": "Chris Ralph",
+    "official_url": "https://nevada-outback-gems.com/prospect/chris_prospect.htm",
+    "region": "California and Nevada, USA",
+    "status": "verified",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "crux-prospecting",
+    "name": "Crux Prospecting / Cyle Haddon",
+    "official_url": "https://cruxprospecting.com/?setCurrencyId=1",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "dan-hurd",
+    "name": "Dan Hurd",
+    "official_url": "https://www.youtube.com/@Danhurd",
+    "region": "British Columbia, Canada",
+    "status": "published",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "dave-mccracken",
+    "name": "Dave McCracken / The New 49’ers",
+    "official_url": "https://goldgold.com/gold-prospectinggold-panning-instructions.html",
+    "region": "Northern California, USA",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "diggin-for-gold",
+    "name": "Diggin’ For Gold",
+    "official_url": "https://www.youtube.com/channel/UCwoDAcQoBnuiJpPRaLqwo3g/",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "dirtfishmish",
+    "name": "DirtFishMish",
+    "official_url": "https://www.youtube.com/watch?v=f_-fMw8oh6g",
+    "region": "Southern Australia",
+    "status": "verified",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "dons-mining-office",
+    "name": "Don’s Mining Office",
+    "official_url": "https://donsminingoffice.com/eating-crow/",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "flash-in-your-pan",
+    "name": "Flash In Your Pan / Ed Marvin",
+    "official_url": "https://www.flashinyourpan.com/contact",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "flour-gold-wizards",
+    "name": "Flour Gold Wizards",
+    "official_url": "https://www.youtube.com/@flourgoldwizards",
+    "region": "Wisconsin and Michigan, USA",
+    "status": "published",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "gerrys-detectors",
+    "name": "Gerry McMullen / Gerry’s Detectors team",
+    "official_url": "https://gerrysdetectors.com/about/meet-the-team/",
+    "region": "Idaho and western USA",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "glacial-gold-hunter",
+    "name": "Glacial Gold Hunter / Lucas Lundgren",
+    "official_url": "https://www.glacialgoldhunter.com/",
+    "region": "Midwestern USA",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "gold-cube",
+    "name": "Gold Cube / Mike Pung and Red Wilcox",
+    "official_url": "https://goldcube.net/gold-cube-university/",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "gold-digger-nz",
+    "name": "Gold Digger NZ",
+    "official_url": "https://www.youtube.com/channel/UC8YCvjtwVHsUtz8ZXIjDTpw",
+    "region": "New Zealand",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "gold-fever-adventures",
+    "name": "Gold Fever Adventures",
+    "official_url": "https://www.goldfeveradventures.com/",
+    "region": "Arizona, USA (documented desert episode)",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "gold-hog",
+    "name": "Gold Hog / Doc",
+    "official_url": "https://goldhog.com/category/gold-prospecting-videos/",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "goldsnoop",
+    "name": "GoldSnoop / Vivien Laïlle",
+    "official_url": "https://www.goldsnoop.com/category/ressources/livres/",
+    "region": "Ariège, French Pyrenees",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "goldbay",
+    "name": "Goldbay / Dave Varabioff",
+    "official_url": "https://goldbay.com/",
+    "region": "USA coverage; exact region pending",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "golden-submarine",
+    "name": "Golden Submarine",
+    "official_url": "https://www.goldsnoop.com/2019/09/23/videos-le-prospecteur-golden-submarine/",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "golden-triangle-prospecting",
+    "name": "Golden Triangle Prospecting",
+    "official_url": "https://www.youtube.com/channel/UCbQ0RBA7QiCBJWeCfvmwkiw",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "green-mountain-gold-trap",
+    "name": "Green Mountain Gold Trap",
+    "official_url": "https://greenmountaingoldtrap.com/blog/welcome-to-green-mountain-gold-trap/",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "have-a-go-prospecting",
+    "name": "Have A Go Prospecting",
+    "official_url": "https://www.haveagoprospecting.com.au/",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "hip-bee-explorer",
+    "name": "Hip Bee Explorer",
+    "official_url": "https://www.youtube.com/@hipbeeexplorer",
+    "region": "New England, USA; Maine, USA",
+    "status": "published",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "prospector-nic",
+    "name": "How to Find Gold / Prospector Nic",
+    "official_url": "https://www.youtube.com/channel/UCZVigrxLbuXmTB1NL6YA0xQ",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "i-brake-for-bedrock",
+    "name": "I Brake For Bedrock",
+    "official_url": "https://www.youtube.com/channel/UCObciZukJa3K5IOIF2_4ZdA",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "internal-compass-of-nc",
+    "name": "Internal Compass of NC",
+    "official_url": "https://www.youtube.com/channel/UCYJo4kYbczOvIwOiZm_dk2Q",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "krazynutz",
+    "name": "KRAZYNUTZ / HOOTERHILLS",
+    "official_url": "https://hooterhills.com/",
+    "region": "Indiana, USA",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "kevin-singel",
+    "name": "Kevin Singel / Finding Gold in Colorado",
+    "official_url": "https://findinggoldincolorado.com/gold-rush-ghost-towns/",
+    "region": "Colorado, USA",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "klesh",
+    "name": "Klesh",
+    "official_url": "https://kleshgold.com/",
+    "region": "Colorado, USA",
+    "status": "verified",
+    "checked_at": "2026-10-09",
+    "region_source": "https://kleshgold.com/about"
+  },
+  {
+    "slug": "lxr-postal-prospecting",
+    "name": "LXR Postal Prospecting",
+    "official_url": "https://www.lxrprospecting.com/youtube",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "liz-kreate",
+    "name": "Liz Kreate",
+    "official_url": "https://www.youtube.com/watch?v=mAfy-Nq-aX0",
+    "region": "NSW, Australia",
+    "status": "verified",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "mbmmllc",
+    "name": "MBMMLLC / Jason Gaber",
+    "official_url": "https://mbmmllc.myshopify.com/pages/about",
+    "region": "Washington, USA",
+    "status": "verified",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "mad-scientist-prospecting",
+    "name": "Mad Scientist Prospecting",
+    "official_url": "https://www.youtube.com/channel/UCDyHfPuM0HLmwLodJkQx0xQ",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "mantis-gold-mining",
+    "name": "Mantis Gold Mining",
+    "official_url": "https://www.mantisgoldmining.com/blogs/news/now-carrying-green-mountain-gold-traps",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "michigan-prospectors",
+    "name": "Michigan Prospectors / Troy",
+    "official_url": "https://michiganprospectors.com/about.html",
+    "region": "Michigan, USA",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "miller-prospecting",
+    "name": "Miller Prospecting / Dylan",
+    "official_url": "https://www.millerprospecting.com/about-me/",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "misha-boylan",
+    "name": "Misha Boylan",
+    "official_url": "https://www.youtube.com/watch?v=zGLRYbTPEnY",
+    "region": "California Mother Lode, USA",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "mrdazp1",
+    "name": "MrDazP1",
+    "official_url": "https://www.youtube.com/watch?v=S4IYY4HWGpA",
+    "region": "United Kingdom; Wales coverage",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "northeast-prospecting",
+    "name": "Northeast Prospecting",
+    "official_url": "https://www.youtube.com/channel/UCBy9deWNcZf4PRuE_bHDD8A",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "northern-pickers",
+    "name": "Northern Pickers",
+    "official_url": "https://www.youtube.com/channel/UCw2xS_huzcJVhx38PNvl_Cg",
+    "region": "Scotland, UK (channel coverage)",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "nugget-noggin",
+    "name": "Nugget Noggin",
+    "official_url": "https://www.nuggetnoggin.com/about",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "outback-gold-fever",
+    "name": "Outback Gold Fever / Krissy",
+    "official_url": "https://www.patreon.com/outbackgoldfever",
+    "region": "Western Australia, including Pilbara",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "pioneer-pauly",
+    "name": "Pioneer Pauly",
+    "official_url": "https://www.youtube.com/@PioneerPauly",
+    "region": "Vancouver Island, Canada",
+    "status": "published",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "prospection-de-loisir",
+    "name": "Prospection de loisir",
+    "official_url": "https://www.youtube.com/watch?v=O3I_00cUA8c",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "rob-parsons",
+    "name": "Rob Parsons",
+    "official_url": "https://www.patreon.com/robparsons/sitemap",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "rookie-gold-prospector",
+    "name": "Rookie Gold Prospector",
+    "official_url": "https://www.youtube.com/channel/UC3UOAabudJhKKINePMOtAZA",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "sluice-goose",
+    "name": "Sluice Goose / John Richmond",
+    "official_url": "https://buythegoldrop.com/",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "snake-river-products",
+    "name": "Snake River Products",
+    "official_url": "https://snakeriverproducts.com/videos/",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "steve-herschbach",
+    "name": "Steve Herschbach / DetectorProspector",
+    "official_url": "https://www.detectorprospector.com/magazine/steves-guides/steves-guides/",
+    "region": "Alaska and western USA coverage",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "tassie-boys-prospecting",
+    "name": "Tassie Boys Prospecting",
+    "official_url": "https://www.youtube.com/watch?v=8d8g5L6G_oM",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "the-sluicers",
+    "name": "The Sluicers — Dillon and Anthony Thom",
+    "official_url": "https://thesluicers.co.nz/about-us/",
+    "region": "South Island / West Coast, New Zealand",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "the-uranium-hunter",
+    "name": "The Uranium Hunter",
+    "official_url": "https://theuraniumhunter.co.uk/2026/06/25/the-missing-gold-of-the-cheviots-tracking-an-ancient-epithermal-system/",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "tony-ledford",
+    "name": "Tony Ledford / Buckeye Gold educators",
+    "official_url": "https://buckeyegold.com/scouting/",
+    "region": "Ohio and Indiana, USA; historical Nome, Alaska coverage",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "two-toes",
+    "name": "Two Toes",
+    "official_url": "https://www.goldminingbasics.com/",
+    "region": "Northern California, USA",
+    "status": "published",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "tyler-mahoney",
+    "name": "Tyler Mahoney / The Prospectors Club",
+    "official_url": "https://subscription-tpc.com.au/about",
+    "region": "Western Australia",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "vo-gus-prospecting",
+    "name": "Vo-Gus Prospecting",
+    "official_url": "https://www.youtube.com/@VoGusProspecting",
+    "region": "Australia",
+    "status": "published",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "walk-about-prospecting",
+    "name": "Walk About Prospecting",
+    "official_url": "https://www.youtube.com/user/TheElmoRider",
+    "region": null,
+    "status": "lead",
+    "checked_at": "2026-10-07"
+  },
+  {
+    "slug": "washington-beach-mining",
+    "name": "Washington Beach Mining",
+    "official_url": "https://www.youtube.com/watch?v=Cyp0ZO7H9b0",
+    "region": "Washington, USA",
+    "status": "verified",
+    "checked_at": "2026-10-08"
+  },
+  {
+    "slug": "x4prospecting",
+    "name": "X4PROSPECTING / Justin Stanfield",
+    "official_url": "https://x4prospecting.com/about/",
+    "region": null,
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "yukon-dan",
+    "name": "Yukon Dan",
+    "official_url": "https://www.yukondan.com/index.html",
+    "region": "Yukon and British Columbia, Canada",
+    "status": "verified",
+    "checked_at": "2026-10-09"
+  }
+]
