@@ -11,3 +11,5 @@ The atlas now merges the 68-person public research roster from app/creator-catal
 The full local preview checks all 68 profile destinations: seven use live published profiles, and the other 61 use local basic research profiles. Known broad international areas can be mapped, while unknown locations remain in the list. Nearby access locations and winter resources are separate future features and have not been advertised as functioning tools.
 
 External HTTP links open a separate tab/window with noopener/noreferrer. The shared external-links.js also covers map attribution and links inserted later. Internal profile/map navigation stays in the current tab. The browser chooses whether _blank opens a tab or a window.
+
+Map nuggets now render at 18 pixels rather than 26 pixels, with matching centered marker anchors. Versioned map asset URLs refresh the smaller markers after deployment.
