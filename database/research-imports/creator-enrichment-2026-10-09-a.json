@@ -1,0 +1,441 @@
+{
+  "batch_id": "creator-enrichment-2026-10-09-a",
+  "checked_at": "2026-10-09",
+  "claims": [
+    {
+      "creator": "dan-hurd",
+      "field": "public_name",
+      "value": "Dan Hurd",
+      "source_url": "https://danhurdprospecting.com/about/",
+      "locator": "About — Who am I?",
+      "note": "Own About page describes his teaching and prospecting videos.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dan-hurd",
+      "field": "short_bio",
+      "value": "Prospecting educator and former high-school shop teacher who shares mineral-prospecting knowledge through YouTube.",
+      "source_url": "https://danhurdprospecting.com/about/",
+      "locator": "About — Who am I?",
+      "note": "Own About page describes his teaching and prospecting videos.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dan-hurd",
+      "field": "website",
+      "value": "https://danhurdprospecting.com/",
+      "source_url": "https://danhurdprospecting.com/about/",
+      "locator": "About — Who am I?",
+      "note": "Own About page describes his teaching and prospecting videos.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dan-hurd",
+      "field": "specialty",
+      "value": "beginner-instruction",
+      "source_url": "https://danhurdprospecting.com/about/",
+      "locator": "About — Who am I?",
+      "note": "Own About page describes his teaching and prospecting videos.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dan-hurd",
+      "field": "specialty",
+      "value": "geology",
+      "source_url": "https://danhurdprospecting.com/about/",
+      "locator": "About — Who am I?",
+      "note": "Own About page describes his teaching and prospecting videos.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dan-hurd",
+      "field": "youtube_channel_id",
+      "value": "UCOReOAYx8VDLwC0pOEcQD-g",
+      "source_url": "https://www.youtube.com/watch?v=JyPHddM--ic",
+      "locator": "Expanded description — Videos / About channel links",
+      "note": "Original uploader links expose the stable channel ID.",
+      "assessment": "verified"
+    },
+    {
+      "creator": "dan-hurd",
+      "field": "youtube_canonical_url",
+      "value": "https://www.youtube.com/channel/UCOReOAYx8VDLwC0pOEcQD-g",
+      "source_url": "https://www.youtube.com/watch?v=JyPHddM--ic",
+      "locator": "Expanded description — Videos / About channel links",
+      "note": "Original uploader links expose the stable channel ID.",
+      "assessment": "verified"
+    },
+    {
+      "creator": "dan-hurd",
+      "field": "region",
+      "value": "British Columbia, Canada",
+      "source_url": "https://danhurdprospecting.com/product/half-pound-bag-of-gold-nugget-and-picker-paydirt/",
+      "locator": "Product description — source claims",
+      "note": "Creator describes his prospecting claims in British Columbia; not a residence claim.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "youtube_channel_id",
+      "value": "UC3JbaLlHoskb_Oggv_iKSXw",
+      "source_url": "https://www.youtube.com/@hipbeeexplorer",
+      "locator": "Channel About / public links",
+      "note": "Channel join and Posts links identify the channel ID.",
+      "assessment": "verified"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "youtube_canonical_url",
+      "value": "https://www.youtube.com/channel/UC3JbaLlHoskb_Oggv_iKSXw",
+      "source_url": "https://www.youtube.com/@hipbeeexplorer",
+      "locator": "Channel About / public links",
+      "note": "Stable channel URL observed in original channel links.",
+      "assessment": "verified"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "joined_youtube",
+      "value": "2020-01-03",
+      "source_url": "https://www.youtube.com/@hipbeeexplorer",
+      "locator": "Channel About / public links",
+      "note": "About dialog displays Joined Jan 3, 2020; not a prospecting start date.",
+      "assessment": "verified"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "public_video_count",
+      "value": 881,
+      "source_url": "https://www.youtube.com/@hipbeeexplorer",
+      "locator": "Channel About / public links",
+      "note": "About dialog shows 881 videos. This is YouTube’s displayed public channel count, not a prospecting-only census.",
+      "assessment": "verified"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "video_count_basis",
+      "value": "exact",
+      "source_url": "https://www.youtube.com/@hipbeeexplorer",
+      "locator": "Channel About / public links",
+      "note": "Displayed as an integer rather than rounded shorthand, checked on 2026-10-09.",
+      "assessment": "verified"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "short_bio",
+      "value": "New England adventure channel covering gold prospecting, camping, nature trails and beekeeping.",
+      "source_url": "https://www.youtube.com/@hipbeeexplorer",
+      "locator": "Channel About / public links",
+      "note": "Original channel description lists these activities.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "region",
+      "value": "New England, USA",
+      "source_url": "https://www.youtube.com/@hipbeeexplorer",
+      "locator": "Channel About / public links",
+      "note": "Channel description explicitly identifies New England adventures.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "social_link",
+      "value": "https://www.facebook.com/Hip-Bee-Explorer-112926606895697/",
+      "source_url": "https://www.youtube.com/@hipbeeexplorer",
+      "locator": "Channel About / public links",
+      "note": "Creator links this Facebook page in About and video descriptions.",
+      "assessment": "verified"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "region",
+      "value": "Maine, USA",
+      "source_url": "https://www.youtube.com/watch?v=e4GyQQBf1DE",
+      "locator": "Title and expanded description",
+      "note": "Creator names Maine and describes sluicing on the East Branch of the Swift River.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "specialty",
+      "value": "sluicing",
+      "source_url": "https://www.youtube.com/watch?v=e4GyQQBf1DE",
+      "locator": "Title and expanded description",
+      "note": "Creator names Maine and describes sluicing on the East Branch of the Swift River.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "field": "specialty",
+      "value": "panning",
+      "source_url": "https://www.youtube.com/watch?v=LjcvSeEq2Aw",
+      "locator": "Title",
+      "note": "Original video title explicitly identifies gold pans; detailed technique review pending.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dave-mccracken",
+      "field": "short_bio",
+      "value": "Author of surface-prospecting instruction covering sampling, sluicing and highbanking.",
+      "source_url": "https://goldgold.com/digging-for-gold.html",
+      "locator": "Author attribution and instructional sections",
+      "note": "Original article attribution and inspected sections support this summary.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dave-mccracken",
+      "field": "region",
+      "value": "Northern California, USA",
+      "source_url": "https://goldgold.com/digging-for-gold.html",
+      "locator": "Regional examples",
+      "note": "Content coverage, not residence.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dave-mccracken",
+      "field": "specialty",
+      "value": "sluicing",
+      "source_url": "https://goldgold.com/digging-for-gold.html",
+      "locator": "Instructional sections",
+      "note": "Inspected article discusses this method; tag indicates coverage, not certified expertise.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dave-mccracken",
+      "field": "specialty",
+      "value": "highbanking",
+      "source_url": "https://goldgold.com/digging-for-gold.html",
+      "locator": "Instructional sections",
+      "note": "Inspected article discusses this method; tag indicates coverage, not certified expertise.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "dave-mccracken",
+      "field": "specialty",
+      "value": "bedrock",
+      "source_url": "https://goldgold.com/digging-for-gold.html",
+      "locator": "Instructional sections",
+      "note": "Inspected article discusses this method; tag indicates coverage, not certified expertise.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "kevin-singel",
+      "field": "short_bio",
+      "value": "Finding Gold in Colorado guidebook author and recreational prospector who writes about sampling and fine-gold recovery.",
+      "source_url": "https://findinggoldincolorado.com/prospecting-colorado-skim-bars/",
+      "locator": "Author attribution and instructional sections",
+      "note": "Original article attribution and inspected sections support this summary.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "kevin-singel",
+      "field": "region",
+      "value": "Colorado, USA",
+      "source_url": "https://findinggoldincolorado.com/prospecting-colorado-skim-bars/",
+      "locator": "Regional examples",
+      "note": "Content coverage, not residence.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "kevin-singel",
+      "field": "specialty",
+      "value": "fine-flour-gold",
+      "source_url": "https://findinggoldincolorado.com/prospecting-colorado-skim-bars/",
+      "locator": "Instructional sections",
+      "note": "Inspected article discusses this method; tag indicates coverage, not certified expertise.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "kevin-singel",
+      "field": "specialty",
+      "value": "panning",
+      "source_url": "https://findinggoldincolorado.com/prospecting-colorado-skim-bars/",
+      "locator": "Instructional sections",
+      "note": "Inspected article discusses this method; tag indicates coverage, not certified expertise.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "kevin-singel",
+      "field": "specialty",
+      "value": "river-reading",
+      "source_url": "https://findinggoldincolorado.com/prospecting-colorado-skim-bars/",
+      "locator": "Instructional sections",
+      "note": "Inspected article discusses this method; tag indicates coverage, not certified expertise.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "chris-ralph",
+      "field": "specialty",
+      "value": "geology",
+      "source_url": "https://www.youtube.com/watch?v=iB6VEBJIPAc",
+      "locator": "Original video description",
+      "note": "Uploader identifies this as placer-deposit geology, part 1; spoken content not inspected.",
+      "assessment": "creator_stated"
+    },
+    {
+      "creator": "chris-ralph",
+      "field": "specialty",
+      "value": "river-reading",
+      "source_url": "https://www.youtube.com/watch?v=iB6VEBJIPAc",
+      "locator": "Original title",
+      "note": "Original title identifies river-reading instruction; not a reviewed claim about where gold accumulates.",
+      "assessment": "creator_stated"
+    }
+  ],
+  "waterways": [
+    {
+      "key": "fraser-bc-ca",
+      "name": "Fraser River",
+      "kind": "river",
+      "state_province": "British Columbia",
+      "country": "Canada",
+      "context": "British Columbia river identified in creator content",
+      "resolution": "verified",
+      "identity_source": "https://danhurdprospecting.com/product/half-pound-bag-of-gold-nugget-and-picker-paydirt/",
+      "identity_note": "BC coverage corroborated by creator claims description; original video explicitly names Fraser River. No specific spot stored."
+    },
+    {
+      "key": "east-branch-swift-byron-me-us",
+      "name": "East Branch of the Swift River",
+      "kind": "river",
+      "state_province": "Maine",
+      "country": "USA",
+      "context": "Byron, Maine",
+      "resolution": "verified",
+      "identity_source": "https://www.youtube.com/watch?v=e4GyQQBf1DE",
+      "identity_note": "Original title specifies East Branch, Byron and Maine; do not merge with New Hampshire’s Swift River."
+    },
+    {
+      "key": "klamath-northern-ca-us",
+      "name": "Klamath River",
+      "kind": "river",
+      "state_province": "California",
+      "country": "USA",
+      "context": "Northern California reach",
+      "resolution": "verified",
+      "identity_source": "https://goldgold.com/digging-for-gold.html",
+      "identity_note": "Author explicitly names Klamath River in northern California; relationship describes article coverage, not a currently visited spot."
+    },
+    {
+      "key": "yampa-colorado-us",
+      "name": "Yampa River",
+      "kind": "river",
+      "state_province": "Colorado",
+      "country": "USA",
+      "context": "Colorado river in skim-bar article",
+      "resolution": "verified",
+      "identity_source": "https://findinggoldincolorado.com/prospecting-colorado-skim-bars/",
+      "identity_note": "Original caption identifies his skim-bar gold as Yampa River gold; article identifies Colorado context."
+    }
+  ],
+  "connections": [
+    {
+      "creator": "dan-hurd",
+      "waterway": "fraser-bc-ca",
+      "source_url": "https://www.youtube.com/watch?v=JyPHddM--ic",
+      "title": "You Can Always Find Gold On The Fraser River!",
+      "kind": "video",
+      "publication_date": "2022-11-03",
+      "timestamp_seconds": null,
+      "techniques": [],
+      "note": "Title and description explicitly name Fraser River. Footage not reviewed; title’s universal wording is not accepted as a factual guarantee.",
+      "location_status": "explicit",
+      "inspection_basis": "title_description",
+      "visit_key": null
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "waterway": "east-branch-swift-byron-me-us",
+      "source_url": "https://www.youtube.com/watch?v=e4GyQQBf1DE",
+      "title": "Gold Prospecting in Maine / Coos Canyon / East Branch of the Swift River / Byron ME",
+      "kind": "video",
+      "publication_date": "2021-08-04",
+      "timestamp_seconds": null,
+      "techniques": [
+        "sluicing"
+      ],
+      "note": "Description states they sluice this named waterway. YouTube chapter labels include first sluice run at 10:42; footage not reviewed.",
+      "location_status": "explicit",
+      "inspection_basis": "title_description",
+      "visit_key": "hip-swift-2021-first"
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "waterway": "east-branch-swift-byron-me-us",
+      "source_url": "https://www.youtube.com/watch?v=LjcvSeEq2Aw",
+      "title": "Huge Pans of Maine Gold! / Swift River/ Coos Canyon/ Byron Maine",
+      "kind": "video",
+      "publication_date": "2021-08-11",
+      "timestamp_seconds": null,
+      "techniques": [
+        "panning"
+      ],
+      "note": "Description explicitly reports returning after the previous week’s rain. Multiple visits are creator-reported, not independently verified footage.",
+      "location_status": "explicit",
+      "inspection_basis": "title_description",
+      "visit_key": "hip-swift-2021-return"
+    },
+    {
+      "creator": "dave-mccracken",
+      "waterway": "klamath-northern-ca-us",
+      "source_url": "https://goldgold.com/digging-for-gold.html",
+      "title": "Digging for Gold",
+      "kind": "webpage",
+      "publication_date": null,
+      "timestamp_seconds": null,
+      "techniques": [
+        "sluicing",
+        "highbanking",
+        "bedrock"
+      ],
+      "note": "Sampling section describes Klamath flood-layer deposits. Original publication is May/June 1992; exact day unknown. No current access claim.",
+      "location_status": "explicit",
+      "inspection_basis": "article",
+      "visit_key": null
+    },
+    {
+      "creator": "kevin-singel",
+      "waterway": "yampa-colorado-us",
+      "source_url": "https://findinggoldincolorado.com/prospecting-colorado-skim-bars/",
+      "title": "Prospecting Colorado Skim Bars",
+      "kind": "webpage",
+      "publication_date": null,
+      "timestamp_seconds": null,
+      "techniques": [
+        "fine-flour-gold",
+        "panning"
+      ],
+      "note": "Author labels his pictured skim-bar sample as Yampa River gold; this is an article-backed connection, not evidence of repeated visits.",
+      "location_status": "explicit",
+      "inspection_basis": "article",
+      "visit_key": null
+    }
+  ],
+  "progress": [
+    {
+      "creator": "dave-mccracken",
+      "status": "partial",
+      "note": "Article-backed regions and methods added; YouTube chronology and counts still pending."
+    },
+    {
+      "creator": "kevin-singel",
+      "status": "partial",
+      "note": "Article-backed regions and methods added; YouTube chronology and counts still pending."
+    },
+    {
+      "creator": "dan-hurd",
+      "status": "partial",
+      "note": "Original profile/video metadata checked; oldest/latest prospecting video census and experience statements remain pending."
+    },
+    {
+      "creator": "hip-bee-explorer",
+      "status": "partial",
+      "note": "Original profile/video metadata checked; oldest/latest prospecting video census and experience statements remain pending."
+    },
+    {
+      "creator": "chris-ralph",
+      "status": "partial",
+      "note": "Original profile/video metadata checked; oldest/latest prospecting video census and experience statements remain pending."
+    }
+  ]
+}

@@ -1,3 +1,4 @@
+import { identity } from './creator-research.js';
 const publicPerson = "p.publication_status = 'published' AND p.archived_at IS NULL AND p.is_sample = 0";
 const like = value => `%${value.replace(/[=%_]/g, char => '=' + char)}%`;
 
@@ -5,12 +6,13 @@ export function searchCriteria(params) {
   const q = (params.get('q') || '').trim();
   const topic = params.get('topic') || '';
   const region = params.get('region') || '';
+  const specialty = params.get('specialty') || '';
   const rawPage = params.get('page') || '1';
   if (q.length > 100 || !/^\d{1,5}$/.test(rawPage) || Number(rawPage) < 1 || Number(rawPage) > 10000 ||
-      [topic, region].some(value => value && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)) || topic.length > 160 || region.length > 160) {
+      [topic, region, specialty].some(value => value && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)) || topic.length > 160 || region.length > 160 || specialty.length > 160) {
     return null;
   }
-  return { q, topic, region, page: Number(rawPage), pageSize: 20 };
+  return { q, topic, region, specialty, page: Number(rawPage), pageSize: 20 };
 }
 
 export function createDirectoryStore(db) {
@@ -18,10 +20,17 @@ export function createDirectoryStore(db) {
   async function options() {
     const topics = await query('SELECT slug, name FROM topics WHERE archived_at IS NULL ORDER BY name, id');
     const regions = await query("SELECT slug, name FROM regions WHERE publication_status='published' AND archived_at IS NULL ORDER BY name, id");
-    return { topics, regions };
+    const researchEnabled=(await query("SELECT version FROM schema_migrations WHERE version='005_creator_research'")).length>0;
+    let specialties=[];
+    if(researchEnabled){
+      const claims=await query("SELECT DISTINCT field_key,claim_value FROM creator_profile_claims cp JOIN people p ON p.id=cp.person_id WHERE cp.field_key IN ('region','specialty') AND cp.review_state='accepted' AND cp.publication_status='published' AND cp.archived_at IS NULL AND p.publication_status='published' AND p.archived_at IS NULL AND p.is_sample=0 ORDER BY cp.claim_value");
+      for(const r of claims){if(r.field_key==='region')regions.push({slug:'coverage-'+identity(r.claim_value).replaceAll('-',''),name:r.claim_value,claimValue:r.claim_value});else specialties.push({slug:r.claim_value,name:r.claim_value.replaceAll('-',' ')});}
+    }
+    return { topics, regions, specialties, researchEnabled };
   }
   async function search(criteria) {
-    const { q, topic, region, page, pageSize } = criteria;
+    const { q, topic, region, specialty, page, pageSize } = criteria;
+    const choices=await options();
     let where = publicPerson;
     const values = [];
     if (q) {
@@ -39,7 +48,13 @@ export function createDirectoryStore(db) {
       where += ' AND EXISTS (SELECT 1 FROM person_topics pt JOIN topics t ON t.id=pt.topic_id WHERE pt.person_id=p.id AND pt.archived_at IS NULL AND t.archived_at IS NULL AND t.slug=?)';
       values.push(topic);
     }
-    if (region) {
+    if (specialty) {
+      if(!choices.researchEnabled) where += ' AND 1=0';
+      else {where += " AND EXISTS (SELECT 1 FROM creator_profile_claims cp WHERE cp.person_id=p.id AND cp.field_key='specialty' AND cp.claim_value=? AND cp.review_state='accepted' AND cp.publication_status='published' AND cp.archived_at IS NULL)";values.push(specialty);}
+    }
+    const coverage=choices.regions.find(r=>r.slug===region && r.claimValue);
+    if (coverage) {where += " AND EXISTS (SELECT 1 FROM creator_profile_claims cp WHERE cp.person_id=p.id AND cp.field_key='region' AND cp.claim_value=? AND cp.review_state='accepted' AND cp.publication_status='published' AND cp.archived_at IS NULL)";values.push(coverage.claimValue);}
+    else if (region) {
       where += ` AND (EXISTS (SELECT 1 FROM person_regions pr JOIN regions r ON r.id=pr.region_id WHERE pr.person_id=p.id AND pr.archived_at IS NULL AND r.archived_at IS NULL AND r.publication_status='published' AND r.slug=?)
         OR EXISTS (SELECT 1 FROM regions r WHERE r.id=p.primary_region_id AND r.archived_at IS NULL AND r.publication_status='published' AND r.slug=?))`;
       values.push(region, region);
@@ -49,7 +64,7 @@ export function createDirectoryStore(db) {
     const people = await query(`SELECT p.slug, p.display_name, p.short_introduction, r.name AS primary_region
       FROM people p LEFT JOIN regions r ON r.id=p.primary_region_id AND r.archived_at IS NULL AND r.publication_status='published'
       WHERE ${where} ORDER BY p.display_name, p.id LIMIT ? OFFSET ?`, [...values, pageSize, (page - 1) * pageSize]);
-    return { people, total, ...await options() };
+    return { people, total, ...choices };
   }
   async function profile(slug) {
     const rows = await query(`SELECT p.id, p.slug, p.display_name, p.nickname, p.short_introduction, p.biography,
@@ -81,7 +96,10 @@ export function createDirectoryStore(db) {
       ORDER BY r.title,r.id LIMIT 20`, [id, id]);
     const enabled=(await query("SELECT version FROM schema_migrations WHERE version='003_creator_associates'")).length>0;
     const associates=enabled?await query("SELECT a.display_name,a.relationship_type,a.description,a.canonical_url,a.source_url,p.slug AS linked_slug FROM creator_associates a LEFT JOIN people p ON p.id=a.linked_person_id AND p.publication_status='published' AND p.archived_at IS NULL AND p.is_sample=0 WHERE a.creator_id=? AND a.archived_at IS NULL AND a.publication_status='published' ORDER BY a.created_at,a.id LIMIT 30",[id]):[];
-    return { ...p, associates, roles, languages, audience, formats, topics, regions, channels, contacts, resources, sources };
+    const researchEnabled=(await query("SELECT version FROM schema_migrations WHERE version='005_creator_research'")).length>0;
+    const researchClaims=researchEnabled?await query("SELECT field_key,claim_value,source_url,locator,assessment,checked_at,statement_date FROM creator_profile_claims WHERE person_id=? AND review_state='accepted' AND publication_status='published' AND archived_at IS NULL ORDER BY field_key,checked_at DESC,id",[id]):[];
+    const waterways=researchEnabled?await query("SELECT w.name,w.state_province,w.country,w.resolution,e.source_url,e.title,e.kind,e.publication_date,e.timestamp_seconds,e.techniques_json,e.public_note,e.location_status,e.inspection_basis,e.visit_key,e.checked_at,e.waterway_key FROM creator_waterway_evidence e JOIN waterways w ON w.identity_key=e.waterway_key WHERE e.person_id=? AND e.archived_at IS NULL AND w.archived_at IS NULL AND e.publication_status='published' ORDER BY w.name,e.publication_date,e.id",[id]):[];
+    return { ...p, researchClaims, waterways, associates, roles, languages, audience, formats, topics, regions, channels, contacts, resources, sources };
   }
   return { search, profile };
 }

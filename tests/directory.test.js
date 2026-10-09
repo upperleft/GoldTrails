@@ -24,7 +24,7 @@ test('search validates input before querying', () => {
   assert.equal(searchCriteria(new URLSearchParams('q='+'x'.repeat(101))),null);
   assert.equal(searchCriteria(new URLSearchParams('topic=bad/slash')),null);
   assert.equal(searchCriteria(new URLSearchParams('page=0')),null);
-  assert.deepEqual(searchCriteria(new URLSearchParams()),{q:'',topic:'',region:'',page:1,pageSize:20});
+  assert.deepEqual(searchCriteria(new URLSearchParams()),{q:'',topic:'',region:'',specialty:'',page:1,pageSize:20});
 });
 
 test('directory queries bind hostile input and escape literal LIKE wildcards', async () => {
@@ -32,11 +32,12 @@ test('directory queries bind hostile input and escape literal LIKE wildcards', a
   const db={query:async (options,values)=>{ queries.push({sql:options.sql,values}); return options.sql.includes('COUNT(*)') ? [{total:0n}] : []; }};
   const q="x%' OR 1=1 --";
   await createDirectoryStore(db).search({q,topic:'panning',region:'california',page:2,pageSize:20});
-  assert.ok(!queries[0].sql.includes(q)); assert.equal(queries[0].values[0],"%x=%' OR 1==1 --%");
-  assert.match(queries[0].sql,/p.is_sample = 0/); assert.match(queries[0].sql,/p.archived_at IS NULL/);
-  assert.match(queries[0].sql,/p.publication_status = 'published'/);
-  for(const field of ['short_introduction','biography','state_province','country_code']) assert.ok(queries[0].sql.includes('p.'+field+' LIKE ?'));
-  assert.deepEqual(queries[1].values.slice(-2),[20,20]);
+  const bound=queries.filter(x=>x.sql.includes('FROM people p'));
+  assert.ok(!bound[0].sql.includes(q)); assert.equal(bound[0].values[0],"%x=%' OR 1==1 --%");
+  assert.match(bound[0].sql,/p.is_sample = 0/); assert.match(bound[0].sql,/p.archived_at IS NULL/);
+  assert.match(bound[0].sql,/p.publication_status = 'published'/);
+  for(const field of ['short_introduction','biography','state_province','country_code']) assert.ok(bound[0].sql.includes('p.'+field+' LIKE ?'));
+  assert.deepEqual(bound[1].values.slice(-2),[20,20]);
   for(const query of queries) assert.equal((query.sql.match(/\?/g)||[]).length,query.values.length);
 });
 
