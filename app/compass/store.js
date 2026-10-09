@@ -1,0 +1,29 @@
+import {randomUUID} from 'node:crypto';
+import {ProfileError} from './profile.js';
+const json=v=>typeof v==='string'?JSON.parse(v):v;
+export function createCompassStore(db){
+ const tx=async fn=>{const c=await db.getConnection();try{await c.beginTransaction();const result=await fn(c);await c.commit();return result;}catch(e){await c.rollback();throw e;}finally{c.release();}};
+ const invalidate=(c,id)=>c.query('DELETE FROM compass_recommendation_cache WHERE account_id=?',[id]);
+ return {
+ async ready(){return (await db.query("SELECT version FROM schema_migrations WHERE version='006_gold_trails_compass'")).length>0;},
+ async load(id){const [p,inventory,activity]=await Promise.all([db.query('SELECT answers_json,revision,onboarding_step,completed_at FROM compass_profiles WHERE account_id=?',[id]),db.query('SELECT id,category,product_id,manufacturer,model,quantity FROM compass_equipment WHERE account_id=? ORDER BY created_at,id',[id]),db.query('SELECT item_id,saved,completed,dismissed,already_known,preference FROM compass_activity WHERE account_id=?',[id])]);return {answers:p[0]?json(p[0].answers_json):{},revision:p[0]?.revision||0,step:p[0]?.onboarding_step||0,completedAt:p[0]?.completed_at||null,inventory,activity};},
+ async save(id,{patch,revision,step,finish}){return tx(async c=>{
+ // Account lock also serializes the initial insert on two devices.
+ await c.query('SELECT id FROM member_accounts WHERE id=? FOR UPDATE',[id]);
+ const p=(await c.query('SELECT answers_json,revision,completed_at FROM compass_profiles WHERE account_id=? FOR UPDATE',[id]))[0];
+ if(Number(p?.revision||0)!==revision)throw new ProfileError('Your profile changed on another screen. Reload before saving.',409);
+ const answers={...(p?json(p.answers_json):{}),...patch};
+ await c.query(`INSERT INTO compass_profiles(account_id,answers_json,revision,onboarding_step,completed_at) VALUES(?,?,1,?,IF(?,UTC_TIMESTAMP(6),NULL)) ON DUPLICATE KEY UPDATE answers_json=VALUES(answers_json),revision=revision+1,onboarding_step=VALUES(onboarding_step),completed_at=IF(?,COALESCE(completed_at,UTC_TIMESTAMP(6)),completed_at)`,[id,JSON.stringify(answers),step,finish?1:0,finish?1:0]);if(Object.hasOwn(patch,'equipment'))await c.query("DELETE FROM compass_activity WHERE account_id=? AND item_id='challenge:inventory'",[id]);await invalidate(c,id);return answers;
+ });},
+ async feedback(id,item,action){const columns={save:['saved',1],unsave:['saved',0],complete:['completed',1],undo:['completed',0],dismiss:['dismissed',1],known:['already_known',1],more:['preference',1],less:['preference',-1]};const [column,value]=columns[action];return tx(async c=>{await c.query(`INSERT INTO compass_activity(account_id,item_id,${column}) VALUES(?,?,?) ON DUPLICATE KEY UPDATE ${column}=VALUES(${column})`,[id,item,value]);await invalidate(c,id);});},
+ async inventory(id,item){return tx(async c=>{await c.query('SELECT id FROM member_accounts WHERE id=? FOR UPDATE',[id]);const count=(await c.query('SELECT COUNT(*) AS n FROM compass_equipment WHERE account_id=?',[id]))[0];if(Number(count.n)>=100)throw new ProfileError('Your inventory has reached 100 entries.');await c.query('INSERT INTO compass_equipment(id,account_id,category,product_id,manufacturer,model,quantity) VALUES(?,?,?,?,?,?,?)',[randomUUID(),id,item.category,item.productId||null,item.manufacturer||null,item.model||null,item.quantity]);await c.query("DELETE FROM compass_activity WHERE account_id=? AND item_id='challenge:inventory'",[id]);await invalidate(c,id);});},
+ async removeInventory(id,item){return tx(async c=>{await c.query('DELETE FROM compass_equipment WHERE account_id=? AND id=?',[id,item]);await c.query("DELETE FROM compass_activity WHERE account_id=? AND item_id='challenge:inventory'",[id]);await invalidate(c,id);});},
+ async cache(id,fingerprint){const row=(await db.query('SELECT result_json FROM compass_recommendation_cache WHERE account_id=? AND fingerprint=? AND expires_at>UTC_TIMESTAMP(6)',[id,fingerprint]))[0];return row?json(row.result_json):null;},
+ async putCache(id,fingerprint,result){await db.query('INSERT INTO compass_recommendation_cache(account_id,fingerprint,result_json,expires_at) VALUES(?,?,?,DATE_ADD(UTC_TIMESTAMP(6),INTERVAL 6 HOUR)) ON DUPLICATE KEY UPDATE fingerprint=VALUES(fingerprint),result_json=VALUES(result_json),expires_at=VALUES(expires_at)',[id,fingerprint,JSON.stringify(result)]);},
+ async reset(id){return tx(async c=>{await c.query('UPDATE compass_activity SET dismissed=FALSE,already_known=FALSE,preference=0 WHERE account_id=?',[id]);await invalidate(c,id);});},
+ async refresh(id){await invalidate(db,id);},
+ async erase(id){return tx(async c=>{await c.query('SELECT id FROM member_accounts WHERE id=? FOR UPDATE',[id]);for(const table of ['compass_recommendation_cache','compass_guide_usage','compass_activity','compass_equipment','compass_profiles'])await c.query(`DELETE FROM ${table} WHERE account_id=?`,[id]);});},
+ async allowGuide(id){return tx(async c=>{await c.query('SELECT id FROM member_accounts WHERE id=? FOR UPDATE',[id]);const row=(await c.query('SELECT attempts,usage_day=UTC_DATE() AS today,last_call_at>DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 10 SECOND) AS recent FROM compass_guide_usage WHERE account_id=?',[id]))[0];if(row?.recent||(row?.today&&row.attempts>=10))return false;await c.query('INSERT INTO compass_guide_usage(account_id,usage_day,attempts,last_call_at) VALUES(?,UTC_DATE(),1,UTC_TIMESTAMP(6)) ON DUPLICATE KEY UPDATE attempts=IF(usage_day=UTC_DATE(),attempts+1,1),usage_day=UTC_DATE(),last_call_at=UTC_TIMESTAMP(6)',[id]);return true;});},
+ async destinations(){return db.query("SELECT * FROM compass_destinations WHERE publication_status='published' AND archived_at IS NULL AND access_verified=TRUE AND access_checked_at<=UTC_DATE() AND access_valid_until>=UTC_DATE()");}
+ };
+}

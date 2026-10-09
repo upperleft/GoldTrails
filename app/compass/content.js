@@ -1,0 +1,29 @@
+import {readFileSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {mergeCatalog} from '../creator-catalog.js';
+import {safeUrl} from '../directory-views.js';
+const products=JSON.parse(readFileSync(new URL('../product-catalog.json',import.meta.url),'utf8')).tables.products;
+const articles=[
+ ['where-gold-settles','Where Gold Settles in a River—and How to Test Your Hunch','Read a stream, then test your hunch with repeatable samples.',['river','locations','geology','panning'],['first','locations','vacation','learn'],1],
+ ['is-that-really-gold','Is That Really Gold? A Careful Look at Fool’s Gold','Use careful observation to distinguish gold from lookalikes.',['geology','panning'],['first','learn'],2],
+ ['black-sands','Black Sands in Your Pan: A Clue, Not a Gold Count','Understand what black sands can and cannot tell you.',['geology','panning'],['fine','panning','learn'],3],
+ ['classification-basics','Classification: What Your Screen Separates—and What It Doesn’t','Separate by size and avoid confusing classification with gold recovery.',['equipment','panning','sluicing'],['sluice','panning','fine','learn'],4],
+ ['compare-test-pans','How to Compare Test Pans Without Fooling Yourself','Control sample size and technique before comparing results.',['river','locations','panning'],['locations','panning','fine','learn'],5]
+];
+export function tagsFor(text){const t=String(text).toLowerCase(),out=[];for(const [tag,re] of Object.entries({panning:/pann|cleanup|concentrate|fine gold/,river:/river|stream|creek/,sluicing:/sluic|highbank/,detecting:/detect|pinpoint/,geology:/geolog|rock|minerals|black sand/,locations:/location|sampling|bedrock|gravel|deposit/,history:/history|historic/,equipment:/equipment|tools|technology/,creators:/youtube|video/,family:/family|children/}))if(re.test(t))out.push(tag);return out;}
+export function productCategory(p){const s=(p.subcategory+' '+p.product_name).toLowerCase();if(/coil|holster|attachment|replacement|conversion|concentrator|machine/.test(p.subcategory.toLowerCase()))return'other';if(/gold pan|panning kit|pan kit/.test(s))return'pan';if(/highbank/.test(s))return'highbanker';if(/sluic/.test(s))return'sluice';if(/pinpoint/.test(s))return'pinpointer';if(/detector/.test(s))return'detector';if(/snuffer|guzzler/.test(s))return'snuffer';if(/classif|screen|sieve/.test(s))return'classifier';if(/gold pan|panning kit|pan kit/.test(s))return'pan';if(/crevic|scrap|hook/.test(s))return'crevice';if(/shovel|digging|pick/.test(s))return'shovel';if(/magnif|scale/.test(s))return'magnifier';if(/pump/.test(s))return'pump';return'other';}
+export const publishedArticles=()=>articles.filter(a=>existsSync(new URL('../../dist/articles/'+a[0]+'/index.html',import.meta.url))).map(([slug,title,summary,tags,goals,order])=>({id:'article:'+slug,kind:'article',title,summary,tags,goals,order,url:'/articles/'+slug+'/',source:'Gold Trails published article'}));
+export function createCompassContent({directory,store}){let cache=null,until=0;
+ return async()=>{
+  if(cache&&Date.now()<until)return structuredClone(cache);
+  // Only the public directory projection enters personalization, never private creator notes.
+  const data=directory?.map?mergeCatalog(await directory.map()):{people:[],regions:[],topics:[]};
+  const creators=data.people.map(p=>{const topics=data.topics.filter(t=>t.person_id===p.id&&t.relationship_type!=='equipment_discussed');const regions=data.regions.filter(r=>r.person_id===p.id).map(r=>r.name);return {id:'creator:'+p.slug,kind:'creator',title:p.display_name,summary:p.short_introduction||'',tags:tagsFor(topics.map(t=>t.name).join(' ')),topics:topics.map(t=>t.name),regions,url:'/prospectors/'+p.slug+'/',source:p.id.startsWith('catalog:')?'Research roster; specific teaching topics are still under review':'Public creator profile',reviewed:!p.id.startsWith('catalog:')};});
+  const resources=directory?.compassResources?await directory.compassResources():[];
+  const videos=resources.filter(r=>safeUrl(r.canonical_url)).map(r=>({id:'resource:'+r.id,kind:r.format==='video'?'video':'resource',title:r.title,summary:r.summary||'',tags:tagsFor(r.title+' '+(r.summary||'')),url:safeUrl(r.canonical_url),source:r.publisher_name||'Published Gold Trails resource',external:true}));
+  const gear=products.filter(p=>safeUrl(p.official_product_url)&&p.availability!=='out_of_stock').map(p=>({id:'product:'+p.product_id,kind:'product',title:p.product_name,summary:p.short_description,category:productCategory(p),tags:tagsFor(p.techniques+' '+p.intended_gold_prospecting_use+' '+p.category),url:'/products/#'+p.product_id,source:p.manufacturer_or_brand,officialUrl:safeUrl(p.official_product_url),priceSource:safeUrl(p.price_source_url),price:p.listed_price!==''&&Number.isFinite(Number(p.listed_price))?Number(p.listed_price):null,currency:p.price_currency||p.currency||null,checkedAt:p.date_checked||p.price_checked_date||null,availability:p.availability}));
+  const destinations=(store?await store.destinations():[]).filter(p=>safeUrl(p.access_source_url)).map(p=>({id:'destination:'+p.id,kind:'destination',title:p.title,summary:p.summary,regions:[p.state_province,p.country],tags:['locations'],url:safeUrl(p.access_source_url),external:true,restrictions:p.restrictions,checkedAt:p.access_checked_at instanceof Date?p.access_checked_at.toISOString().slice(0,10):String(p.access_checked_at).slice(0,10),validUntil:p.access_valid_until instanceof Date?p.access_valid_until.toISOString().slice(0,10):String(p.access_valid_until).slice(0,10),source:'Verified access source'}));
+  const records=[...publishedArticles(),...creators,...videos,...gear,...destinations];
+  cache={records,version:createHash('sha256').update(JSON.stringify(records)).digest('hex')};until=Date.now()+300000;return structuredClone(cache);
+ };
+}

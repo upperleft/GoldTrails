@@ -84,7 +84,7 @@ export function createDirectoryStore(db) {
     const regions = await query("SELECT r.slug,r.name,j.relationship_type FROM person_regions j JOIN regions r ON r.id=j.region_id WHERE j.person_id=? AND j.archived_at IS NULL AND r.archived_at IS NULL AND r.publication_status='published' ORDER BY r.name,j.relationship_type LIMIT 60", [id]);
     const channels = await query("SELECT platform,channel_name,canonical_url,description,publishing_since_year FROM channels WHERE person_id=? AND archived_at IS NULL AND publication_status='published' ORDER BY platform,channel_name,id LIMIT 60", [id]);
     const contacts = await query('SELECT contact_type,public_value FROM public_contacts WHERE person_id=? AND archived_at IS NULL ORDER BY contact_type,id LIMIT 20', [id]);
-    const resources = await query(`SELECT r.title,r.summary,r.canonical_url,f.name AS format
+    const resources = await query(`SELECT r.id,r.title,r.summary,r.canonical_url,f.name AS format
       FROM person_featured_resources j JOIN resources r ON r.id=j.resource_id JOIN formats f ON f.id=r.format_id
       WHERE j.person_id=? AND j.archived_at IS NULL AND r.archived_at IS NULL AND r.publication_status='published' AND f.archived_at IS NULL
       ORDER BY j.position,r.id LIMIT 20`, [id]);
@@ -116,5 +116,6 @@ export function createDirectoryStore(db) {
     return {people,regions,topics,excludedSlugs};
   }
   async function catalogAllowed(slug){return (await query('SELECT slug FROM people WHERE slug=? LIMIT 1',[slug])).length===0;}
-  return { search, profile, map, catalogAllowed };
+  async function compassResources(){return query(`SELECT r.id,r.title,r.summary,r.canonical_url,r.publisher_name,f.code AS format FROM resources r JOIN formats f ON f.id=r.format_id WHERE r.publication_status='published' AND r.archived_at IS NULL AND r.verification_status IN ('source_checked','creator_confirmed') AND r.link_status<>'broken' AND f.archived_at IS NULL ORDER BY r.title LIMIT 500`);}
+  return { search, profile, map, catalogAllowed, compassResources };
 }
