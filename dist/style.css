@@ -114,3 +114,24 @@ header{flex-wrap:nowrap;gap:20px}.header-tools{width:auto;border:0;padding:0;mar
 .member-form .member-form-guidance,.member-form .member-form-feedback{grid-column:1/-1;margin:4px 0;padding:10px 12px;border:1px solid #ad9670;border-radius:7px;background:#fff9ed;font-size:13px;line-height:1.5}.member-form .member-form-feedback[data-state="error"]{border-color:#9b422d;color:#752e20;background:#fff1e8}.member-form input[aria-invalid="true"]{outline:2px solid #9b422d;outline-offset:2px}.member-form button[aria-disabled="true"]{opacity:.75;cursor:wait}.member-confirmation{margin:16px 0;padding:16px;border:2px solid #9b7d39;border-radius:10px;background:#fff8db}.member-confirmation h3{margin:0 0 8px;font-size:20px}.member-form [hidden]{display:none}
 
 .member-password-controls{grid-column:1/-1;display:flex;align-items:center}.member-form .member-password-toggle{padding:6px 10px;font:inherit;font-size:13px;color:#614322;background:#fff9ed;border:1px solid #ad9670;border-radius:6px;cursor:pointer}.member-password-toggle:focus-visible{outline:2px solid #855b14;outline-offset:3px}.member-form label:has(input[name="password"]){grid-column:1/-1}
+
+/* Gold Trails visual polish: a full view of our guide and quiet natural gold accents. */
+.home-page .layout{padding-top:8px}
+.home-page .hero{height:auto;background:#264c51;border-color:#60462b;border-width:4px;box-shadow:0 0 0 1px #c4a366,0 8px 22px #4b351823}
+.home-page .hero>img{display:block;width:100%;height:auto;object-fit:contain;object-position:center}
+.home-page .hero:after{background:linear-gradient(90deg,#183b39ec 0%,#1e3b35b0 31%,#27443228 47%,transparent 58%)}
+.home-page .hero-copy{top:34px;left:32px;max-width:44%}
+.home-page .hero h1{font-size:clamp(31px,3.5vw,46px)}
+.home-page .home-featured-reading{position:relative;padding-right:190px;border-top:4px solid #b88935;background:linear-gradient(120deg,#fff9eb,#f0e0bc);overflow:hidden}
+.home-gold-accent{position:absolute;right:8px;bottom:14px;width:180px;height:auto;pointer-events:none}
+.home-page .home-glossary-note{background:linear-gradient(110deg,#e1e8df,#edf3eb);border-color:#b4c5b4;border-left:4px solid #647f70}
+.category-intro{position:relative;isolation:isolate}
+body:not(.member-page):not(.admin-editor) .category-intro{padding-right:260px}
+body:not(.member-page):not(.admin-editor) .category-intro:after{content:'';position:absolute;right:18px;bottom:8px;width:230px;height:115px;background:url('/assets/gold-nuggets-dust.png') center/contain no-repeat;pointer-events:none;z-index:-1}
+body:not(.compass-page):not(.member-page):not(.admin-editor) .category-intro{background:linear-gradient(115deg,#ead6a9,#f9eccc)}
+.category-intro .eyebrow{color:#7b3e26}
+footer{background:radial-gradient(ellipse at 50% 0,#684a29,#352d23 70%)}
+@media(min-width:1600px){.home-page .hero h1{font-size:50px}}
+@media(min-width:751px) and (max-width:1000px){.home-page .hero-copy{top:24px;left:22px;max-width:46%}.home-page .hero h1{font-size:30px;margin:8px 0 10px}.home-page .hero p{font-size:14px;line-height:1.5;margin-bottom:14px}.home-page .hero .gold-button{padding:10px 16px}.home-page .home-featured-reading{padding-right:30px;padding-bottom:105px}.home-gold-accent{width:160px;bottom:5px}}
+@media(max-width:750px){.home-page .hero-copy{position:relative;top:auto;left:auto;max-width:none;padding:24px;background:linear-gradient(125deg,#234a4f,#385d51)}.home-page .hero:after{display:none}.home-page .hero h1{font-size:34px;margin:10px 0 13px}.home-page .hero h1 br{display:none}.home-page .hero p{font-size:16px;line-height:1.6}.home-page .hero p br{display:none}.home-page .home-featured-reading{padding-right:22px;padding-bottom:108px}.home-gold-accent{width:175px;bottom:8px}.home-page .home-glossary-note{border-left-width:4px}body:not(.member-page):not(.admin-editor) .category-intro{padding-right:23px;padding-bottom:100px}body:not(.member-page):not(.admin-editor) .category-intro:after{width:170px;height:85px;right:12px;bottom:5px}}
+.compass-page .category-intro .eyebrow{color:#efd494}
