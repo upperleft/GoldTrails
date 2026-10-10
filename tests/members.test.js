@@ -15,3 +15,29 @@ test('signup normalizes identity and reserves administration names',()=>{const f
 test('signup writes profile, free membership and member role atomically, rolls back failures',async()=>{let committed=false,rolledBack=false,released=false;const queries=[];const connection={beginTransaction:async()=>{},commit:async()=>committed=true,rollback:async()=>rolledBack=true,release:()=>released=true,query:async(sql,args)=>{queries.push([sql,args]);if(sql.includes('member_role_grants'))throw Error('role insert failed');}};const store=createMemberStore({getConnection:async()=>connection});await assert.rejects(store.signup({username:'paul',email:'me@example.com',passwordHash:'hash',displayName:null}));assert.equal(committed,false);assert.ok(rolledBack&&released);assert.ok(queries.some(([sql])=>sql==='INSERT INTO member_memberships(account_id) VALUES(?)'));});
 test('token consumption rechecks expiry under lock and refuses replay',async()=>{const queries=[];let consumed=false;const connection={beginTransaction:async()=>{},commit:async()=>{},rollback:async()=>{},release:()=>{},query:async(sql)=>{queries.push(sql);if(sql.startsWith('SELECT account_id'))return [{account_id:'account'}];if(sql.startsWith('SELECT status'))return [{status:'active'}];if(sql.startsWith('SELECT token_hash'))return consumed?[]:[{token_hash:digest(link)}];if(sql.startsWith('UPDATE member_tokens SET consumed'))consumed=true;return [];}};const store=createMemberStore({getConnection:async()=>connection});assert.equal(await store.consume(link,'reset_password','new-hash'),true);assert.equal(await store.consume(link,'reset_password','another-hash'),false);assert.ok(queries.some(sql=>sql.includes('auth_version=auth_version+1')));assert.ok(queries.some(sql=>sql.includes('UPDATE member_sessions SET revoked_at')));assert.ok(queries.find(sql=>sql.startsWith('SELECT token_hash')).includes('expires_at>UTC_TIMESTAMP(6) FOR UPDATE'));});
 test('email adapter stays disabled until configured and sends only expected message',async()=>{assert.equal(memberMail({}),null);let payload;await memberMail({RESEND_API_KEY:'example-only',MEMBER_MAIL_FROM:'Gold <mail@example.com>'},async(url,options)=>{assert.equal(url,'https://api.resend.com/emails');payload=JSON.parse(options.body);return {ok:true};})({to:'me@example.com',purpose:'verify_email',url:origin+'/verify-email/?token='+link});assert.deepEqual(payload.to,['me@example.com']);assert.match(payload.text,/24 hours/);});
+test('signup with normal multi-cookie headers sends verification and shows a clear confirmation',async t=>{
+ let created=0,sent=0;
+ const request=await fixture(t,{mail:async message=>{assert.equal(message.purpose,'verify_email');sent++;},store:{ready:async()=>true,allow:async()=>true,signup:async data=>{assert.match(data.passwordHash,/^scrypt:/);created++;return{id:'member',email:data.email};},issue:async()=>link}});
+ const page=await request('/signup/');
+ assert.match(page.headers.get('content-security-policy'),/script-src 'self'/);
+ assert.match(await page.text(),/member-forms\.js/);
+ const result=await request('/signup/',{username:'newmember',email:'member@example.com',password:'an example long password',confirmPassword:'an example long password'},{Cookie:`other=value; __Host-gold-member=${session}; __Host-gold-form=${csrf}`});
+ assert.equal(result.status,200);
+ assert.match(await result.text(),/Your signup request was received/);
+ assert.equal(created,1);assert.equal(sent,1);
+});
+test('signup rejects short and mismatched passwords without creating an account',async t=>{
+ let writes=0;
+ const request=await fixture(t,{mail:async()=>{},store:{ready:async()=>true,allow:async()=>true,signup:async()=>writes++}});
+ for(const fields of [{password:'short',confirmPassword:'short'},{password:'an example long password',confirmPassword:'a different long password'}]){
+  const result=await request('/signup/',{username:'newmember',email:'member@example.com',...fields});
+  assert.equal(result.status,400);assert.match(await result.text(),/role="alert"/);
+ }
+ assert.equal(writes,0);
+});
+test('signup email outage gives an actionable recovery page after account creation',async t=>{
+ let created=false;
+ const request=await fixture(t,{mail:async()=>{throw Error('private mail failure');},store:{ready:async()=>true,allow:async()=>true,signup:async()=>{created=true;return{id:'member',email:'member@example.com'};},issue:async()=>link}});
+ const result=await request('/signup/',{username:'newmember',email:'member@example.com',password:'an example long password',confirmPassword:'an example long password'});
+ assert.equal(result.status,503);const html=await result.text();assert.match(html,/Request a verification email/);assert.doesNotMatch(html,/private mail failure/);assert.ok(created);
+});
