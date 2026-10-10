@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createServer} from '../app/server.js';
 import {createMemberHandler,memberConfig,memberIdentity} from '../app/members.js';
 import {createMemberStore} from '../app/member-store.js';
-import {hashPassword,digest} from '../app/admin-auth.js';
+import {hashPassword,digest,verifyPassword} from '../app/admin-auth.js';
 import {memberMail} from '../app/member-mail.js';
 const origin='https://gold.example',csrf='a'.repeat(64),session='b'.repeat(64),link='c'.repeat(64);
 async function fixture(t,options={}){const server=createServer({members:createMemberHandler({config:{origin,open:true},log:()=>{},...options})});await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));return async(path,fields,extra={})=>fetch(`http://127.0.0.1:${server.address().port}${path}`,{redirect:'manual',...(fields?{method:'POST',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded',Cookie:`__Host-gold-form=${csrf}`, ...extra},body:new URLSearchParams({csrf,...fields})}:extra)});}
@@ -40,4 +40,18 @@ test('signup email outage gives an actionable recovery page after account creati
  const request=await fixture(t,{mail:async()=>{throw Error('private mail failure');},store:{ready:async()=>true,allow:async()=>true,signup:async()=>{created=true;return{id:'member',email:'member@example.com'};},issue:async()=>link}});
  const result=await request('/signup/',{username:'newmember',email:'member@example.com',password:'an example long password',confirmPassword:'an example long password'});
  assert.equal(result.status,503);const html=await result.text();assert.match(html,/Request a verification email/);assert.doesNotMatch(html,/private mail failure/);assert.ok(created);
+});
+
+test('eight-character member signup and reset work with one password input',async t=>{
+ let created=0,reset=0;
+ const request=await fixture(t,{mail:async()=>{},store:{ready:async()=>true,allow:async()=>true,signup:async data=>{assert.ok(await verifyPassword('12345678',data.passwordHash));created++;return{id:'member',email:data.email};},issue:async()=>link,consume:async(raw,purpose,hash)=>{assert.equal(purpose,'reset_password');assert.ok(await verifyPassword('abcdefgh',hash));reset++;return true;}}});
+ const fields={username:'newmember',email:'member@example.com',password:'12345678'};
+ assert.equal((await request('/signup/',fields)).status,200);assert.equal(created,1);
+ assert.equal((await request('/signup/',{...fields,password:'1234567'})).status,400);assert.equal(created,1);
+ assert.equal((await request('/reset-password/',{token:link,password:'abcdefgh'})).status,200);assert.equal(reset,1);
+ assert.equal((await request('/reset-password/',{token:link,password:'abcdefg'})).status,400);assert.equal(reset,1);
+ for(const path of ['/signup/','/reset-password/?token='+link]){
+  const html=await (await request(path)).text();assert.match(html,/minlength="8"/);assert.match(html,/autocomplete="new-password"/);assert.match(html,/data-password-toggle/);assert.doesNotMatch(html,/name="confirmPassword"/);
+ }
+ await assert.rejects(hashPassword('12345678'));
 });

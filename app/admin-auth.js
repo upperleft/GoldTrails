@@ -4,8 +4,8 @@ const derive = promisify(scrypt);
 export const token = () => randomBytes(32).toString('hex');
 export const digest = value => createHash('sha256').update(value).digest('hex');
 const options = { N:131072, r:8, p:1, maxmem:160 * 1024 * 1024 };
-export async function hashPassword(password) {
-  if (password.length < 15 || password.length > 128) throw new Error('Use 15–128 characters');
+export async function hashPassword(password, { minLength = 15 } = {}) {
+  if (typeof password !== 'string' || password.length < minLength || password.length > 128) throw new Error(`Use ${minLength}–128 characters`);
   const salt = randomBytes(16).toString('hex');
   return `scrypt:${salt}:${(await derive(password,salt,64,options)).toString('hex')}`;
 }
