@@ -1,7 +1,7 @@
 import {createHash} from 'node:crypto';
 import {ownedCategories,experience,goals,equipment} from './profile.js';
 export const activityMap=state=>new Map(state.activity.map(a=>[a.item_id,a]));
-export function fingerprint(state,content){return createHash('sha256').update(JSON.stringify([state.answers,state.inventory,state.activity,content.version,'compass-2'])).digest('hex');}
+export function fingerprint(state,content){const {dashboardLayout,...answers}=state.answers;return createHash('sha256').update(JSON.stringify([answers,state.inventory,state.activity,content.version,'compass-2'])).digest('hex');}
 export function recommend(state,content){const p=state.answers,activity=activityMap(state),owned=ownedCategories(p,state.inventory),advanced=['intermediate','experienced','expert'].includes(p.experience),interests=new Set(p.interests||[]);const ranking=[];
  for(const r of content.records){const a=activity.get(r.id);if(a?.dismissed||a?.already_known||a?.completed)continue;
  if(r.kind==='product'){
