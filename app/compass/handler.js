@@ -13,7 +13,7 @@ export function createCompassHandler({members,store,content,config,ai=aiConfig()
  return async(req,res,url)=>{
   if(url.pathname==='/compass'){res.writeHead(308,{Location:'/compass/'+url.search});res.end();return true;}
   if(!url.pathname.startsWith('/compass/'))return false;
-  const send=(status,html,headers={})=>{res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','X-Robots-Tag':'noindex','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...headers});res.end(req.method==='HEAD'?undefined:html);};
+  const send=(status,html,headers={})=>{res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...headers});res.end(req.method==='HEAD'?undefined:html);};
   const redirect=path=>{res.writeHead(303,{Location:path,'Cache-Control':'no-store'});res.end();};
   try{
    if(!routes.has(url.pathname)){send(404,errorPage('Trail not found','That Compass page does not exist.'));return true;}
