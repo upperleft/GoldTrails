@@ -1,3 +1,4 @@
+import {businessContacts} from './business-contacts.js';
 import {randomUUID} from 'node:crypto';
 import {digest} from './admin-auth.js';
 import {safeUrl} from './directory-views.js';
@@ -27,6 +28,7 @@ export function editVersion(f){const v=f.get('version');if(!/^(0|[1-9]\d{0,8})$/
 export function createProductWorkspace(db){
  const tx=async fn=>{const c=await db.getConnection();try{await c.beginTransaction();const out=await fn(c);await c.commit();return out;}catch(e){await c.rollback();if(e.code==='ER_DUP_ENTRY')throw new ProductConflict('Another edit came first.');throw e;}finally{c.release();}};
  const api={
+ async contactResearch(){return businessContacts(db);},
  async ready(){return (await db.query("SELECT version FROM schema_migrations WHERE version='007_admin_products_reports'")).length>0;},
  async overrides(){return await api.ready()?db.query('SELECT product_id,changes_json,edit_version,updated_at,updated_by FROM product_overrides'):[];},
  async products(){return mergedProducts(await api.overrides());},

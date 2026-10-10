@@ -1,3 +1,4 @@
+import {businessContacts} from './business-contacts.js';
 import {previewCatalog,importCatalog,backupCreators} from './catalog-import.js';
 import { randomUUID } from 'node:crypto';
 import { digest, token } from './admin-auth.js';
@@ -41,6 +42,7 @@ export function createAdminStore(db, credentialVersion = '') {
    p.roles=await db.query('SELECT v.id FROM person_public_roles a JOIN public_roles v ON v.id=a.role_id WHERE a.person_id=? AND a.archived_at IS NULL AND v.archived_at IS NULL',[id]);
    p.topics=await db.query("SELECT v.id FROM person_topics a JOIN topics v ON v.id=a.topic_id WHERE a.person_id=? AND a.relationship_type='content_topic' AND a.archived_at IS NULL AND v.archived_at IS NULL",[id]);
    if((await db.query("SELECT version FROM schema_migrations WHERE version='003_creator_associates'")).length)p.associates=await db.query('SELECT id,display_name,relationship_type,description,canonical_url,source_url,publication_status,archived_at FROM creator_associates WHERE creator_id=? ORDER BY created_at,id',[id]);
+   p.contactResearch=(await businessContacts(db)).rows.filter(r=>r.person_id===id);
    return p;
   },
   async save(input,actor) {

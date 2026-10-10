@@ -1,0 +1,2331 @@
+{
+  "batch_id": "GT-OUTREACH-001",
+  "date_researched": "2026-10-10",
+  "contacts": [
+    {
+      "entity_key": "kleshgold.com",
+      "name": "Klesh / Klesh Gold Paydirt",
+      "categories": [
+        "creator",
+        "retailer"
+      ],
+      "website": "https://kleshgold.com/",
+      "primary_specialty": "Prospecting videos, paydirt and starter panning kits",
+      "source_urls": [
+        "https://kleshgold.com/contact-1",
+        "https://kleshgold.com/about"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "Kleshkrums@gmail.com",
+          "source_url": "https://kleshgold.com/contact-1",
+          "purpose": "orders, custom paydirt and shipping",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "Ask whether this is the right inbox for a catalog-review invitation.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "c84f354c-eb5f-5140-8136-19d5d7fa1510",
+          "record_id": "GT-O-87feeb83-f636-5dd6-8acf-e1ecc5f7a52a",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Klesh",
+      "creator_slug": "klesh",
+      "primary_contact_name": "Shane",
+      "geographic_region": "Colorado, USA (prospecting region)",
+      "region_source_url": "https://kleshgold.com/about",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Your Gold Panning Kit is in our equipment catalog, and Klesh is in our creator directory.",
+      "research_notes": "One record covers the creator and shop. Kit seller/assembler does not establish manufacture of every component. About page signs as Shane; no surname inferred here.",
+      "aliases": [
+        "Klesh",
+        "Klesh Gold Paydirt",
+        "Klesh Guitars"
+      ],
+      "social_urls": [
+        "https://www.facebook.com/KleshOfficial/",
+        "https://www.instagram.com/shaneklesh/"
+      ],
+      "youtube_url": "https://www.youtube.com/channel/UCW59FgUrYH16PeAf1Ttczng",
+      "source_freshness_note": "Contact copy indexed four months ago; About copy three weeks ago. Social URLs are linked from the official contact page; messaging availability was not verified.",
+      "record_id": "GT-O-87feeb83-f636-5dd6-8acf-e1ecc5f7a52a",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": "https://lightcoral-hedgehog-977933.hostingersite.com/prospectors/klesh/",
+      "existing_catalog_status": "verified",
+      "public_business_email": "Kleshkrums@gmail.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": null,
+      "preferred_outreach_channel": "email",
+      "preferred_contact_value": "Kleshkrums@gmail.com",
+      "preferred_contact_method_id": "c84f354c-eb5f-5140-8136-19d5d7fa1510",
+      "preferred_contact_purpose": "orders, custom paydirt and shipping",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": "catalog:klesh",
+      "catalog_region_reference": "Colorado, USA",
+      "linked_product_ids": [
+        "GT-P0001"
+      ],
+      "linked_product_names": [
+        "Klesh Gold Panning Kit"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M001"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "9bec71f5-0758-5518-8ddd-64516a0612cf",
+          "record_id": "GT-O-87feeb83-f636-5dd6-8acf-e1ecc5f7a52a",
+          "source_url": "https://kleshgold.com/contact-1",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "One record covers the creator and shop. Kit seller/assembler does not establish manufacture of every component. About page signs as Shane; no surname inferred here. Contact copy indexed four months ago; About copy three weeks ago. Social URLs are linked from the official contact page; messaging availability was not verified."
+        },
+        {
+          "observation_id": "c36499f2-db01-5292-9c52-6a25cb779b9d",
+          "record_id": "GT-O-87feeb83-f636-5dd6-8acf-e1ecc5f7a52a",
+          "source_url": "https://kleshgold.com/about",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "One record covers the creator and shop. Kit seller/assembler does not establish manufacture of every component. About page signs as Shane; no surname inferred here. Contact copy indexed four months ago; About copy three weeks ago. Social URLs are linked from the official contact page; messaging availability was not verified."
+        }
+      ]
+    },
+    {
+      "entity_key": "glakesfab.com",
+      "name": "Great Lakes Fabrication / Arbor Fabricating storefront",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://www.glakesfab.com/",
+      "primary_specialty": "Stainless mesh prospecting classifiers",
+      "source_urls": [
+        "https://www.glakesfab.com/crm.asp?action=contactus",
+        "https://www.glakesfab.com/About-Us_ep_7.html"
+      ],
+      "methods": [
+        {
+          "kind": "form",
+          "value": "https://www.glakesfab.com/crm.asp?action=contactus",
+          "source_url": "https://www.glakesfab.com/crm.asp?action=contactus",
+          "purpose": "general business inquiries",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "Form includes a department selection.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "0c0a08b6-ccfd-5ab2-982b-efd63c5daf48",
+          "record_id": "GT-O-24469976-15a5-5324-b7f6-016380224ab8",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "business_phone",
+          "value": "734-334-3573",
+          "source_url": "https://www.glakesfab.com/crm.asp?action=contactus",
+          "purpose": "general business inquiries",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "4f652af9-ad26-5908-9a30-30db8ab39e11",
+          "record_id": "GT-O-24469976-15a5-5324-b7f6-016380224ab8",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Arbor Fabricating / Great Lakes Fabrication storefront",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Maybee / Southeast Michigan, USA",
+      "region_source_url": "https://www.glakesfab.com/crm.asp?action=contactus",
+      "outreach_priority": "medium",
+      "research_confidence": "high",
+      "invitation_connection": "Your 10.125-inch prospecting classifier is in our equipment catalog.",
+      "research_notes": "Official page combines Arbor branding and Great Lakes storefront contact. Relationship is a storefront association, not a finding that legal entities are identical. Email is obscured in the research text; no address decoded or guessed.",
+      "aliases": [
+        "Arbor Fabricating",
+        "Great Lakes Fabrication"
+      ],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-24469976-15a5-5324-b7f6-016380224ab8",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": "https://www.glakesfab.com/crm.asp?action=contactus",
+      "preferred_outreach_channel": "form",
+      "preferred_contact_value": "https://www.glakesfab.com/crm.asp?action=contactus",
+      "preferred_contact_method_id": "0c0a08b6-ccfd-5ab2-982b-efd63c5daf48",
+      "preferred_contact_purpose": "general business inquiries",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0003"
+      ],
+      "linked_product_names": [
+        "Prospecting Filter Classifier"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M003"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "3ffaca3c-812f-586a-a728-a4a1a569b43a",
+          "record_id": "GT-O-24469976-15a5-5324-b7f6-016380224ab8",
+          "source_url": "https://www.glakesfab.com/crm.asp?action=contactus",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official page combines Arbor branding and Great Lakes storefront contact. Relationship is a storefront association, not a finding that legal entities are identical. Email is obscured in the research text; no address decoded or guessed. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "02f1cb00-025c-5aa0-aa07-a36a15a2b208",
+          "record_id": "GT-O-24469976-15a5-5324-b7f6-016380224ab8",
+          "source_url": "https://www.glakesfab.com/About-Us_ep_7.html",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official page combines Arbor branding and Great Lakes storefront contact. Relationship is a storefront association, not a finding that legal entities are identical. Email is obscured in the research text; no address decoded or guessed. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "desertfoxspiralpanner.com",
+      "name": "Camel Mining Products",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://www.desertfoxspiralpanner.com/",
+      "primary_specialty": "Spiral gold panners and recovery equipment",
+      "source_urls": [
+        "https://www.desertfoxspiralpanner.com/contact-us",
+        "https://www.desertfoxspiralpanner.com/new-page"
+      ],
+      "methods": [
+        {
+          "kind": "business_phone",
+          "value": "1-928-927-4009",
+          "source_url": "https://www.desertfoxspiralpanner.com/contact-us",
+          "purpose": "general office / international orders",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "4698c745-96d3-58f5-9fb8-fae1d3ea06b1",
+          "record_id": "GT-O-da08cd65-5b4e-569d-bf3b-c1b3b55b721d",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "business_phone",
+          "value": "1-800-331-5311",
+          "source_url": "https://www.desertfoxspiralpanner.com/contact-us",
+          "purpose": "US orders",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": false,
+          "notes": "Order number; general office route preferred.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "18b50263-af9a-5d1a-abe8-01c0687d2cce",
+          "record_id": "GT-O-da08cd65-5b4e-569d-bf3b-c1b3b55b721d",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Camel Mining Products",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Quartzsite, Arizona, USA",
+      "region_source_url": "https://www.desertfoxspiralpanner.com/contact-us",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Our catalog includes your Desert Fox and Pro-Camel spiral recovery equipment.",
+      "research_notes": "Ordering page mentions email but an actual address was not exposed on the reviewed pages. Ask the office for a suitable written invitation route; no call placed.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Contact copy indexed four months ago; ordering copy six months ago.",
+      "record_id": "GT-O-da08cd65-5b4e-569d-bf3b-c1b3b55b721d",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": null,
+      "preferred_outreach_channel": "business_phone",
+      "preferred_contact_value": "1-928-927-4009",
+      "preferred_contact_method_id": "4698c745-96d3-58f5-9fb8-fae1d3ea06b1",
+      "preferred_contact_purpose": "general office / international orders",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0037",
+        "GT-P0038",
+        "GT-P0043"
+      ],
+      "linked_product_names": [
+        "Desert Fox Automatic Gold Panning Machine",
+        "Mountain Goat Trommel",
+        "Pro-Camel Automatic Gold Panning Machine"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M019"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "d44d9da5-8119-5d66-9a5d-bec1c9dabf23",
+          "record_id": "GT-O-da08cd65-5b4e-569d-bf3b-c1b3b55b721d",
+          "source_url": "https://www.desertfoxspiralpanner.com/contact-us",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Ordering page mentions email but an actual address was not exposed on the reviewed pages. Ask the office for a suitable written invitation route; no call placed. Contact copy indexed four months ago; ordering copy six months ago."
+        },
+        {
+          "observation_id": "22410a36-1feb-5f95-91f4-ee6a864f977e",
+          "record_id": "GT-O-da08cd65-5b4e-569d-bf3b-c1b3b55b721d",
+          "source_url": "https://www.desertfoxspiralpanner.com/new-page",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Ordering page mentions email but an actual address was not exposed on the reviewed pages. Ask the office for a suitable written invitation route; no call placed. Contact copy indexed four months ago; ordering copy six months ago."
+        }
+      ]
+    },
+    {
+      "entity_key": "cruxprospecting.com",
+      "name": "Crux Prospecting",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://cruxprospecting.com/",
+      "primary_specialty": "Backpack highbankers, crevice brushes and recovery matting",
+      "source_urls": [
+        "https://cruxprospecting.com/contact/",
+        "https://cruxprospecting.com/distributors/"
+      ],
+      "methods": [
+        {
+          "kind": "form",
+          "value": "https://cruxprospecting.com/contact/",
+          "source_url": "https://cruxprospecting.com/contact/",
+          "purpose": "general questions and partnership routing",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "be9bfe23-f9f8-5022-afc5-4e4bf5f75128",
+          "record_id": "GT-O-6fad2c8c-d5d9-55e7-bd16-d810cc81aefb",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Crux Prospecting",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": null,
+      "region_source_url": null,
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Our catalog includes the Gold Trek Pro backpack highbanker and Original Gold Brush.",
+      "research_notes": "Distributor page lists Dan Hurd and Pioneer Pauly as partners and invites prospective partners to contact the business. No public email found.",
+      "aliases": [],
+      "social_urls": [
+        "https://www.facebook.com/groups/cruxprospectingclub"
+      ],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-6fad2c8c-d5d9-55e7-bd16-d810cc81aefb",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": "https://cruxprospecting.com/contact/",
+      "preferred_outreach_channel": "form",
+      "preferred_contact_value": "https://cruxprospecting.com/contact/",
+      "preferred_contact_method_id": "be9bfe23-f9f8-5022-afc5-4e4bf5f75128",
+      "preferred_contact_purpose": "general questions and partnership routing",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0014",
+        "GT-P0035"
+      ],
+      "linked_product_names": [
+        "Gold Trek Pro Backpack Highbanker, Gen 5",
+        "Crux Original Gold Brush"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M009"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "ce9ca4bd-3819-57f1-b8bd-0c6f101c018f",
+          "record_id": "GT-O-6fad2c8c-d5d9-55e7-bd16-d810cc81aefb",
+          "source_url": "https://cruxprospecting.com/contact/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Distributor page lists Dan Hurd and Pioneer Pauly as partners and invites prospective partners to contact the business. No public email found. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "e981ba3a-61b3-5aee-b39f-b2278404c0ec",
+          "record_id": "GT-O-6fad2c8c-d5d9-55e7-bd16-d810cc81aefb",
+          "source_url": "https://cruxprospecting.com/distributors/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Distributor page lists Dan Hurd and Pioneer Pauly as partners and invites prospective partners to contact the business. No public email found. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "garrett.com",
+      "name": "Garrett Metal Detectors",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://garrett.com/",
+      "primary_specialty": "Gold pans and metal detectors",
+      "source_urls": [
+        "https://garrett.com/contact/",
+        "https://garrett.com/sites/default/files/pdf/2022-09/1540121.D_2022_Sport_Buyer%27s-Guide.pdf"
+      ],
+      "methods": [
+        {
+          "kind": "form",
+          "value": "https://garrett.com/contact/",
+          "source_url": "https://garrett.com/contact/",
+          "purpose": "Sport / Hobby Division",
+          "verification_status": "official_search_index_only",
+          "invitation_route_candidate": true,
+          "notes": "Select Sport / Hobby, not security or countermine. Direct fetch was blocked; form identified in the official search result, not submission-tested.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "2582119b-4b79-5092-b10e-1d8318602486",
+          "record_id": "GT-O-0525df4a-a934-5653-b882-6d7db335b2ee",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "email",
+          "value": "sales@garrett.com",
+          "source_url": "https://garrett.com/sites/default/files/pdf/2022-09/1540121.D_2022_Sport_Buyer%27s-Guide.pdf",
+          "purpose": "sales",
+          "verification_status": "historical_official_publication",
+          "invitation_route_candidate": false,
+          "notes": "2022 guide; current use must be reconfirmed. Not counted as a current confirmed email.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "a0cead3b-9da9-5c66-9c17-4c962b0b90b4",
+          "record_id": "GT-O-0525df4a-a934-5653-b882-6d7db335b2ee",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Garrett",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Garland, Texas, USA",
+      "region_source_url": "https://garrett.com/contact/",
+      "outreach_priority": "high",
+      "research_confidence": "medium",
+      "invitation_connection": "Your 15-inch SuperSluice pan is in our catalog.",
+      "research_notes": "Contact page indexed recently but direct retrieval returned 403. Prefer current division form over an older email publication.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-0525df4a-a934-5653-b882-6d7db335b2ee",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": null,
+      "email_verification_status": "historical_or_unverified_lead_only",
+      "contact_form": "https://garrett.com/contact/",
+      "preferred_outreach_channel": "form",
+      "preferred_contact_value": "https://garrett.com/contact/",
+      "preferred_contact_method_id": "2582119b-4b79-5092-b10e-1d8318602486",
+      "preferred_contact_purpose": "Sport / Hobby Division",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0002"
+      ],
+      "linked_product_names": [
+        "Garrett 15 in SuperSluice Gold Pan"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M002"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "3f22ff74-7e4d-5775-a8c6-45069c446d66",
+          "record_id": "GT-O-0525df4a-a934-5653-b882-6d7db335b2ee",
+          "source_url": "https://garrett.com/contact/",
+          "date_researched": "2026-10-10",
+          "source_status": "official_search_index_only_direct_fetch_blocked",
+          "research_notes": "Contact page indexed recently but direct retrieval returned 403. Prefer current division form over an older email publication. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "880184a4-6dec-5e6b-b78d-29d81b2e0ba1",
+          "record_id": "GT-O-0525df4a-a934-5653-b882-6d7db335b2ee",
+          "source_url": "https://garrett.com/sites/default/files/pdf/2022-09/1540121.D_2022_Sport_Buyer%27s-Guide.pdf",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Contact page indexed recently but direct retrieval returned 403. Prefer current division form over an older email publication. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "goldclaw.com",
+      "name": "Gold Claw",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://www.goldclaw.com/",
+      "primary_specialty": "Gold panning and cleanup pans",
+      "source_urls": [
+        "https://www.goldclaw.com/pages/contact-us"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "Info@GoldClaw.com",
+          "source_url": "https://www.goldclaw.com/pages/contact-us",
+          "purpose": "product questions and comments",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "93f89543-4f32-532d-8e45-b3d05fb3900c",
+          "record_id": "GT-O-fa86d1a5-5f8e-5a69-a6ab-6f905007ef82",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "form",
+          "value": "https://www.goldclaw.com/pages/contact-us",
+          "source_url": "https://www.goldclaw.com/pages/contact-us",
+          "purpose": "product questions and comments",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "1337a868-1955-5a60-9b90-a834e5cb9065",
+          "record_id": "GT-O-fa86d1a5-5f8e-5a69-a6ab-6f905007ef82",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Gold Claw",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Willard, Utah, USA",
+      "region_source_url": "https://www.goldclaw.com/pages/contact-us",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Our catalog includes your original Gold Claw pan and Pocket Gold Claw.",
+      "research_notes": "",
+      "aliases": [],
+      "social_urls": [
+        "https://www.facebook.com/goldclawpan/"
+      ],
+      "youtube_url": null,
+      "source_freshness_note": "Official contact copy indexed nine months ago; recheck before sending.",
+      "record_id": "GT-O-fa86d1a5-5f8e-5a69-a6ab-6f905007ef82",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": "Info@GoldClaw.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": "https://www.goldclaw.com/pages/contact-us",
+      "preferred_outreach_channel": "email",
+      "preferred_contact_value": "Info@GoldClaw.com",
+      "preferred_contact_method_id": "93f89543-4f32-532d-8e45-b3d05fb3900c",
+      "preferred_contact_purpose": "product questions and comments",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0033",
+        "GT-P0055"
+      ],
+      "linked_product_names": [
+        "Gold Claw Original Gold Pan",
+        "Gold Claw Stainless Steel Folding Shovel"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M017"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "145cc404-8f8c-5ca7-ae3d-a9b90c089d92",
+          "record_id": "GT-O-fa86d1a5-5f8e-5a69-a6ab-6f905007ef82",
+          "source_url": "https://www.goldclaw.com/pages/contact-us",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": " Official contact copy indexed nine months ago; recheck before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "goldcube.net",
+      "name": "Gold Cube",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://goldcube.net/",
+      "primary_specialty": "Fine-gold recovery systems and accessories",
+      "source_urls": [
+        "https://goldcube.net/"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "sales@goldcube.net",
+          "source_url": "https://goldcube.net/",
+          "purpose": "sales",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "b1a73aff-1919-51d5-ae41-54f2cf48180f",
+          "record_id": "GT-O-8fca2edd-8659-588b-9847-2ae47390b9d3",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "business_phone",
+          "value": "405-650-0542",
+          "source_url": "https://goldcube.net/",
+          "purpose": "sales",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "6ceaff9c-4963-51d4-8849-75d05d0edf72",
+          "record_id": "GT-O-8fca2edd-8659-588b-9847-2ae47390b9d3",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Gold Cube",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": null,
+      "region_source_url": null,
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Our catalog includes Gold Cube recovery systems, the Banjo Pan and related accessories.",
+      "research_notes": "Office region and a named partnership contact were not established; no region inferred from the phone area code.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-8fca2edd-8659-588b-9847-2ae47390b9d3",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": "sales@goldcube.net",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": null,
+      "preferred_outreach_channel": "email",
+      "preferred_contact_value": "sales@goldcube.net",
+      "preferred_contact_method_id": "b1a73aff-1919-51d5-ae41-54f2cf48180f",
+      "preferred_contact_purpose": "sales",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0004",
+        "GT-P0015",
+        "GT-P0016",
+        "GT-P0019",
+        "GT-P0053",
+        "GT-P0056"
+      ],
+      "linked_product_names": [
+        "Banjo Pan",
+        "Gold Cube Trommel",
+        "Gold Cube 2000 GPH Bilge Pump",
+        "Gold Cube 3 Stack Deluxe",
+        "Gold Cube Blank Tray, No Mat",
+        "Gold Cube Gold Banker"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M004"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "2c4e7f5e-3b51-5720-8452-dd5d564e5ad2",
+          "record_id": "GT-O-8fca2edd-8659-588b-9847-2ae47390b9d3",
+          "source_url": "https://goldcube.net/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Office region and a named partnership contact were not established; no region inferred from the phone area code. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "goldhog.com",
+      "name": "GoldHog",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://goldhog.com/",
+      "primary_specialty": "Stream sluices, highbankers, recovery matting and pans",
+      "source_urls": [
+        "https://goldhog.com/contact-us/"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "office@goldhog.com",
+          "source_url": "https://goldhog.com/contact-us/",
+          "purpose": "general customer service",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "2f000df3-05a7-5e16-8bad-7db13dee4748",
+          "record_id": "GT-O-3448cc97-69d7-5935-bf60-c2eb5d73f109",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "email",
+          "value": "tina.goldhog@gmail.com",
+          "source_url": "https://goldhog.com/contact-us/",
+          "purpose": "general customer service",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "Second address offered on the same contact page; use one inbox, not both.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "c3810da0-2b95-53c7-8c2c-a08d3f0ffe93",
+          "record_id": "GT-O-3448cc97-69d7-5935-bf60-c2eb5d73f109",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "form",
+          "value": "https://goldhog.com/contact-us/",
+          "source_url": "https://goldhog.com/contact-us/",
+          "purpose": "general customer service",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "d6905c9d-c5be-5d76-9b4d-2c5e6cf6886e",
+          "record_id": "GT-O-3448cc97-69d7-5935-bf60-c2eb5d73f109",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "GoldHog",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": null,
+      "region_source_url": null,
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Several GoldHog sluices, highbankers and pans already appear in our equipment catalog.",
+      "research_notes": "Official page explicitly prefers email/form and says no phone support. Tina surname and role not established. Do not send duplicate invitations to both addresses.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-3448cc97-69d7-5935-bf60-c2eb5d73f109",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": "office@goldhog.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": "https://goldhog.com/contact-us/",
+      "preferred_outreach_channel": "email",
+      "preferred_contact_value": "office@goldhog.com",
+      "preferred_contact_method_id": "2f000df3-05a7-5e16-8bad-7db13dee4748",
+      "preferred_contact_purpose": "general customer service",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0005",
+        "GT-P0006",
+        "GT-P0012",
+        "GT-P0017",
+        "GT-P0054",
+        "GT-P0057"
+      ],
+      "linked_product_names": [
+        "Mini Stream Sluice",
+        "Talon Mat",
+        "Piglet Mini Highbanker",
+        "Multi-Sluice",
+        "GoldHog Pig Flare Stream Head Conversion",
+        "GoldHog DownDraft Mat"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M005"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "a406749a-912c-5ae2-9c02-171b6db0fb7b",
+          "record_id": "GT-O-3448cc97-69d7-5935-bf60-c2eb5d73f109",
+          "source_url": "https://goldhog.com/contact-us/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official page explicitly prefers email/form and says no phone support. Tina surname and role not established. Do not send duplicate invitations to both addresses. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "goldquestllc.com",
+      "name": "Goldquest LLC / CrazyCrusher",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://goldquestllc.com/",
+      "primary_specialty": "Manual rock crushers for ore sampling",
+      "source_urls": [
+        "https://goldquestllc.com/"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "crazycrushersales@gmail.com",
+          "source_url": "https://goldquestllc.com/",
+          "purpose": "sales and product questions",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "d8bddae2-8902-5ae4-9441-4df51045d98c",
+          "record_id": "GT-O-99a13b5b-3137-5190-9d6b-6085a45b8716",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Goldquest LLC",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Bullhead City, Arizona, USA",
+      "region_source_url": "https://goldquestllc.com/",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "The CrazyCrusher is in our catalog as a tool for ore sampling.",
+      "research_notes": "Official page describes a sampling tool rather than a production crusher; invitation should retain that distinction.",
+      "aliases": [
+        "Goldquest LLC",
+        "CrazyCrusher"
+      ],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-99a13b5b-3137-5190-9d6b-6085a45b8716",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": "crazycrushersales@gmail.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": null,
+      "preferred_outreach_channel": "email",
+      "preferred_contact_value": "crazycrushersales@gmail.com",
+      "preferred_contact_method_id": "d8bddae2-8902-5ae4-9441-4df51045d98c",
+      "preferred_contact_purpose": "sales and product questions",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0020"
+      ],
+      "linked_product_names": [
+        "Crazycrusher, Without Hitch Mount"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M010"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "14a5c0d8-da18-5629-b138-81cee366f88d",
+          "record_id": "GT-O-99a13b5b-3137-5190-9d6b-6085a45b8716",
+          "source_url": "https://goldquestllc.com/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official page describes a sampling tool rather than a production crusher; invitation should retain that distinction. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "keeneeng.com",
+      "name": "Keene Engineering",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://www.keeneeng.com/",
+      "primary_specialty": "Sluices, drywashers, highbankers, dredges and recovery equipment",
+      "source_urls": [
+        "https://www.keene.store/mm5/merchant.mvc?Screen=CTUS"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "admin@keeneeng.com",
+          "source_url": "https://www.keene.store/mm5/merchant.mvc?Screen=CTUS",
+          "purpose": "order questions",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": false,
+          "notes": "Published specifically for orders; prefer broader product/store-experience contact form for the invitation.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "8c553a8f-3789-5573-8c9c-37344ab5eaaa",
+          "record_id": "GT-O-c8824eea-c821-50ae-b284-c18d617c31e5",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "form",
+          "value": "https://www.keene.store/mm5/merchant.mvc?Screen=CTUS",
+          "source_url": "https://www.keene.store/mm5/merchant.mvc?Screen=CTUS",
+          "purpose": "product questions, store experiences and more",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "79bdc822-a74c-5bdf-8072-37e8672a03cb",
+          "record_id": "GT-O-c8824eea-c821-50ae-b284-c18d617c31e5",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Keene Engineering",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Chatsworth, California, USA",
+      "region_source_url": "https://www.keene.store/mm5/merchant.mvc?Screen=CTUS",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Eight Keene equipment records are in our catalog, covering sluicing, drywashing and dredging.",
+      "research_notes": "One organization record covers the main website and official store. No marketing department inferred.",
+      "aliases": [
+        "Keene Engineering",
+        "Keene store"
+      ],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-c8824eea-c821-50ae-b284-c18d617c31e5",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": "admin@keeneeng.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": "https://www.keene.store/mm5/merchant.mvc?Screen=CTUS",
+      "preferred_outreach_channel": "form",
+      "preferred_contact_value": "https://www.keene.store/mm5/merchant.mvc?Screen=CTUS",
+      "preferred_contact_method_id": "79bdc822-a74c-5bdf-8072-37e8672a03cb",
+      "preferred_contact_purpose": "product questions, store experiences and more",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0007",
+        "GT-P0022",
+        "GT-P0023",
+        "GT-P0034",
+        "GT-P0039",
+        "GT-P0040",
+        "GT-P0041",
+        "GT-P0042"
+      ],
+      "linked_product_names": [
+        "High Production Hand Sluice",
+        "Super Crevice Sucker",
+        "Crevice Tool",
+        "Keene Crevice Trowel",
+        "Keene Vibrostatic Drywasher with Hot Air Induction",
+        "Keene MiniMax Power Sluice Concentrator Kit",
+        "Keene 2 Inch Dredge with Suction Nozzle",
+        "Keene Magic Fingers"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M006"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "207a4047-03eb-5b72-a123-0e455cf1ed93",
+          "record_id": "GT-O-c8824eea-c821-50ae-b284-c18d617c31e5",
+          "source_url": "https://www.keene.store/mm5/merchant.mvc?Screen=CTUS",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "One organization record covers the main website and official store. No marketing department inferred. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "minelab.com",
+      "name": "Minelab",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://www.minelab.com/",
+      "primary_specialty": "Gold-focused metal detectors",
+      "source_urls": [
+        "https://www.minelab.com/contact-us"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "info@minelabamericas.com",
+          "source_url": "https://www.minelab.com/contact-us",
+          "purpose": "Americas consumer products",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "b7f95d70-2942-51ad-8582-2efb5d3824af",
+          "record_id": "GT-O-116d9344-f179-5087-860d-23d77d42f24b",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "email",
+          "value": "minelab@minelab.com.au",
+          "source_url": "https://www.minelab.com/contact-us",
+          "purpose": "Australia / Asia sales",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": false,
+          "notes": "Regional alternative only; use Americas for the first US-based invitation.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "64c8ccd7-aec6-5106-b298-eacc69f85546",
+          "record_id": "GT-O-116d9344-f179-5087-860d-23d77d42f24b",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "email",
+          "value": "minelab@minelab.ie",
+          "source_url": "https://www.minelab.com/contact-us",
+          "purpose": "Europe / UK sales",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": false,
+          "notes": "Regional alternative only; do not send duplicate invitations.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "700a8d25-b344-5f52-8dbc-c8916ec7ffdf",
+          "record_id": "GT-O-116d9344-f179-5087-860d-23d77d42f24b",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Minelab",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Australia headquarters; Aurora, Illinois, USA office",
+      "region_source_url": "https://www.minelab.com/contact-us",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Our gold-focused detector catalog includes the Gold Monster 1000 bundle, GM05 coil and GPX 6000.",
+      "research_notes": "Primary route is Americas consumer-products inbox; no service or countermine address used for outreach.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-116d9344-f179-5087-860d-23d77d42f24b",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": "info@minelabamericas.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": null,
+      "preferred_outreach_channel": "email",
+      "preferred_contact_value": "info@minelabamericas.com",
+      "preferred_contact_method_id": "b7f95d70-2942-51ad-8582-2efb5d3824af",
+      "preferred_contact_purpose": "Americas consumer products",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0026",
+        "GT-P0027",
+        "GT-P0044"
+      ],
+      "linked_product_names": [
+        "GOLD MONSTER 1000, 5 in Coil Bundle",
+        "GM05 DD 5 in Coil",
+        "Minelab GPX 6000"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M012"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "4df80677-a8fd-5027-870c-0af74edf9a23",
+          "record_id": "GT-O-116d9344-f179-5087-860d-23d77d42f24b",
+          "source_url": "https://www.minelab.com/contact-us",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Primary route is Americas consumer-products inbox; no service or countermine address used for outreach. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "noktadetectors.com",
+      "name": "Nokta Detectors",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://www.noktadetectors.com/",
+      "primary_specialty": "Gold-focused metal detectors",
+      "source_urls": [
+        "https://www.noktadetectors.com/contact-us/"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "info@noktadetectors.com",
+          "source_url": "https://www.noktadetectors.com/contact-us/",
+          "purpose": "general inquiries",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "79aa4f63-d30c-5017-9b1e-09b4b2eb1ad6",
+          "record_id": "GT-O-b8f1aaf9-6b14-5d60-b413-d5657be88bf5",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "form",
+          "value": "https://www.noktadetectors.com/contact-us/",
+          "source_url": "https://www.noktadetectors.com/contact-us/",
+          "purpose": "general inquiries",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "658ecb59-6cd2-54d4-b3d7-2ecb3c955742",
+          "record_id": "GT-O-b8f1aaf9-6b14-5d60-b413-d5657be88bf5",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Nokta Detectors",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Istanbul, T\u00fcrkiye",
+      "region_source_url": "https://www.noktadetectors.com/contact-us/",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "The Gold Kruzer is listed in our catalog for gold prospecting.",
+      "research_notes": "",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-b8f1aaf9-6b14-5d60-b413-d5657be88bf5",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": "info@noktadetectors.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": "https://www.noktadetectors.com/contact-us/",
+      "preferred_outreach_channel": "email",
+      "preferred_contact_value": "info@noktadetectors.com",
+      "preferred_contact_method_id": "79aa4f63-d30c-5017-9b1e-09b4b2eb1ad6",
+      "preferred_contact_purpose": "general inquiries",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0045"
+      ],
+      "linked_product_names": [
+        "Nokta Gold Kruzer"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M020"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "05aa28d3-53d7-5846-9476-6292c59eea52",
+          "record_id": "GT-O-b8f1aaf9-6b14-5d60-b413-d5657be88bf5",
+          "source_url": "https://www.noktadetectors.com/contact-us/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": " Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "pioneermining.com",
+      "name": "Pioneer Mining Supplies",
+      "categories": [
+        "retailer",
+        "educator"
+      ],
+      "website": "https://www.pioneermining.com/",
+      "primary_specialty": "Prospecting supplies and Blue Bowl recovery guidance",
+      "source_urls": [
+        "https://www.pioneermining.com/"
+      ],
+      "methods": [
+        {
+          "kind": "business_phone",
+          "value": "530-823-9000",
+          "source_url": "https://www.pioneermining.com/",
+          "purpose": "store inquiries",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "cd7e907c-2f73-5041-8411-dca8d920199a",
+          "record_id": "GT-O-2ac5a4d1-f743-5ef1-b6e1-35ef7503f3b6",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Pioneer Mining Supplies",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Auburn, California, USA",
+      "region_source_url": "https://www.pioneermining.com/",
+      "outreach_priority": "medium",
+      "research_confidence": "high",
+      "invitation_connection": "Our catalog includes the Blue Bowl and links to your setup guidance.",
+      "research_notes": "Public store phone found; no email or form identified on reviewed homepage. Ask for the appropriate written contact. Retailer role does not establish manufacture of all stocked products.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-2ac5a4d1-f743-5ef1-b6e1-35ef7503f3b6",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": null,
+      "preferred_outreach_channel": "business_phone",
+      "preferred_contact_value": "530-823-9000",
+      "preferred_contact_method_id": "cd7e907c-2f73-5041-8411-dca8d920199a",
+      "preferred_contact_purpose": "store inquiries",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0036"
+      ],
+      "linked_product_names": [
+        "Blue Bowl Concentrator"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M018"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "3f44fea4-17e7-538b-bc99-86d42f340635",
+          "record_id": "GT-O-2ac5a4d1-f743-5ef1-b6e1-35ef7503f3b6",
+          "source_url": "https://www.pioneermining.com/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Public store phone found; no email or form identified on reviewed homepage. Ask for the appropriate written contact. Retailer role does not establish manufacture of all stocked products. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "prospectorsdream.com",
+      "name": "Prospectors Dream / Dream Mat",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://prospectorsdream.com/",
+      "primary_specialty": "Recovery mats, sluices and highbankers",
+      "source_urls": [
+        "https://prospectorsdream.com/pages/collab",
+        "https://contact.gorgias.help/en-US/forms/ucm0s10r",
+        "https://prospectorsdream.com/policies/privacy-policy"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "contact@prospectorsdream.com",
+          "source_url": "https://prospectorsdream.com/pages/collab",
+          "purpose": "general help / business routing",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "7b5003dd-0344-58c1-9cec-5915684ca66b",
+          "record_id": "GT-O-19fab614-e322-5099-b744-5f9c726db824",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "form",
+          "value": "https://contact.gorgias.help/en-US/forms/ucm0s10r",
+          "source_url": "https://prospectorsdream.com/pages/collab",
+          "purpose": "customer support / business routing",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "Third-party form is explicitly linked from the official site; form inspected separately.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "c78ccaeb-dc72-5e8d-b07a-c38f901e9f51",
+          "record_id": "GT-O-19fab614-e322-5099-b744-5f9c726db824",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "partnership_application",
+          "value": "https://prospectorsdream.com/pages/collab",
+          "source_url": "https://prospectorsdream.com/pages/collab",
+          "purpose": "creator affiliate program",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": false,
+          "notes": "Relevant future partnership lead, not an application submitted in this project.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "784d6af7-6d87-533a-98e6-1cad5aa02359",
+          "record_id": "GT-O-19fab614-e322-5099-b744-5f9c726db824",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Prospectors Dream",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Columbia Falls, Montana, USA (published business contact location)",
+      "region_source_url": "https://prospectorsdream.com/policies/privacy-policy",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Four Dream Mat / Prospectors Dream equipment records appear in our catalog.",
+      "research_notes": "Official site has a creator partnership program. Privacy-policy inbox excluded from outreach. Similarly named prospectorsdreamoutfitters.shop was not accepted as an official contact.",
+      "aliases": [
+        "Prospectors Dream",
+        "Dream Mat"
+      ],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-19fab614-e322-5099-b744-5f9c726db824",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": "contact@prospectorsdream.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": "https://contact.gorgias.help/en-US/forms/ucm0s10r",
+      "preferred_outreach_channel": "email",
+      "preferred_contact_value": "contact@prospectorsdream.com",
+      "preferred_contact_method_id": "7b5003dd-0344-58c1-9cec-5915684ca66b",
+      "preferred_contact_purpose": "general help / business routing",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0009",
+        "GT-P0010",
+        "GT-P0013",
+        "GT-P0018"
+      ],
+      "linked_product_names": [
+        "4 x 16 Adventure Sluice, Micro/Mini Dredge Edition",
+        "10 x 38 Compact Combo Mat Sluice",
+        "4 x 16 Micro Banker, No Pump",
+        "Switchback Clean-Up Sluice Box Kit"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M008"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "c72d01be-d630-5b71-a012-16e1562fda2c",
+          "record_id": "GT-O-19fab614-e322-5099-b744-5f9c726db824",
+          "source_url": "https://prospectorsdream.com/pages/collab",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official site has a creator partnership program. Privacy-policy inbox excluded from outreach. Similarly named prospectorsdreamoutfitters.shop was not accepted as an official contact. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "723fc140-0a5a-5749-89e0-bd5414f9c415",
+          "record_id": "GT-O-19fab614-e322-5099-b744-5f9c726db824",
+          "source_url": "https://contact.gorgias.help/en-US/forms/ucm0s10r",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official site has a creator partnership program. Privacy-policy inbox excluded from outreach. Similarly named prospectorsdreamoutfitters.shop was not accepted as an official contact. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "20663d92-917e-5b08-8e6e-ed33cdffb1fd",
+          "record_id": "GT-O-19fab614-e322-5099-b744-5f9c726db824",
+          "source_url": "https://prospectorsdream.com/policies/privacy-policy",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official site has a creator partnership program. Privacy-policy inbox excluded from outreach. Similarly named prospectorsdreamoutfitters.shop was not accepted as an official contact. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "royalmfgind.com",
+      "name": "Royal Manufacturing Industries",
+      "categories": [
+        "manufacturer"
+      ],
+      "website": "https://royalmfgind.com/",
+      "primary_specialty": "Folding sluices, highbankers and prospecting tools",
+      "source_urls": [
+        "https://royalmfgind.com/contact-us/"
+      ],
+      "methods": [
+        {
+          "kind": "form",
+          "value": "https://royalmfgind.com/contact-us/",
+          "source_url": "https://royalmfgind.com/contact-us/",
+          "purpose": "general business inquiries",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "47bff82a-ab99-5c09-bc7b-ae3d8ae47fa1",
+          "record_id": "GT-O-dc75cff2-7be1-5a41-a41c-0660dff5d925",
+          "date_researched": "2026-10-10"
+        },
+        {
+          "kind": "email",
+          "value": "shipping@royalmfgind.com",
+          "source_url": "https://royalmfgind.com/contact-us/",
+          "purpose": "published shipping-named inbox",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": false,
+          "notes": "Prefer the general form; address is published but its role suggests shipping, not partnerships.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "c712b052-9f90-5399-b185-a3362ac58d14",
+          "record_id": "GT-O-dc75cff2-7be1-5a41-a41c-0660dff5d925",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": "Royal Manufacturing Industries",
+      "creator_slug": null,
+      "primary_contact_name": null,
+      "geographic_region": "Santa Ana, California, USA",
+      "region_source_url": "https://royalmfgind.com/contact-us/",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Four of your sluice and prospecting-tool records are in our equipment catalog.",
+      "research_notes": "Distinguished from unrelated Royal lubricant, bathroom and skincare companies. No legal corporate relationship inferred from similar names.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-dc75cff2-7be1-5a41-a41c-0660dff5d925",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": null,
+      "public_business_email": "shipping@royalmfgind.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": "https://royalmfgind.com/contact-us/",
+      "preferred_outreach_channel": "form",
+      "preferred_contact_value": "https://royalmfgind.com/contact-us/",
+      "preferred_contact_method_id": "47bff82a-ab99-5c09-bc7b-ae3d8ae47fa1",
+      "preferred_contact_purpose": "general business inquiries",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": null,
+      "catalog_region_reference": null,
+      "linked_product_ids": [
+        "GT-P0008",
+        "GT-P0011",
+        "GT-P0021",
+        "GT-P0032"
+      ],
+      "linked_product_names": [
+        "Original Backpacking Self-Locking Folding Sluice Box",
+        "Royal Gold Mini Highbanker",
+        "18 in Royal Gold Digger Pick",
+        "Royal Pick Holster"
+      ],
+      "linked_manufacturer_ids": [
+        "GT-M007"
+      ],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "28b571eb-5ca7-5ff9-beb0-048e365492cf",
+          "record_id": "GT-O-dc75cff2-7be1-5a41-a41c-0660dff5d925",
+          "source_url": "https://royalmfgind.com/contact-us/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Distinguished from unrelated Royal lubricant, bathroom and skincare companies. No legal corporate relationship inferred from similar names. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "danhurdprospecting.com",
+      "name": "Dan Hurd Prospecting",
+      "categories": [
+        "creator",
+        "educator"
+      ],
+      "website": "https://danhurdprospecting.com/",
+      "primary_specialty": "Gold panning, mineral prospecting and educational videos",
+      "source_urls": [
+        "https://danhurdprospecting.com/contact/"
+      ],
+      "methods": [
+        {
+          "kind": "form",
+          "value": "https://danhurdprospecting.com/contact/",
+          "source_url": "https://danhurdprospecting.com/contact/",
+          "purpose": "direct creator inquiries",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "c5eee903-ed8c-5e9c-abf4-84e276f83df4",
+          "record_id": "GT-O-ea640a62-4c54-5219-a259-62b9bf8ec6c8",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": null,
+      "creator_slug": "dan-hurd",
+      "primary_contact_name": "Dan Hurd",
+      "geographic_region": "Peachland, British Columbia, Canada",
+      "region_source_url": "https://danhurdprospecting.com/contact/",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Dan Hurd is already listed in our creator directory.",
+      "research_notes": "No business email exposed on reviewed contact page. Form requires JavaScript; no submission attempted.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": "https://www.youtube.com/@Danhurd",
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-ea640a62-4c54-5219-a259-62b9bf8ec6c8",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": "https://lightcoral-hedgehog-977933.hostingersite.com/prospectors/dan-hurd/",
+      "existing_catalog_status": "published",
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": "https://danhurdprospecting.com/contact/",
+      "preferred_outreach_channel": "form",
+      "preferred_contact_value": "https://danhurdprospecting.com/contact/",
+      "preferred_contact_method_id": "c5eee903-ed8c-5e9c-abf4-84e276f83df4",
+      "preferred_contact_purpose": "direct creator inquiries",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": "catalog:dan-hurd",
+      "catalog_region_reference": "British Columbia, Canada",
+      "linked_product_ids": [],
+      "linked_product_names": [],
+      "linked_manufacturer_ids": [],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "1d8d85ce-1d3c-582f-bd7b-6c8b0a36a55d",
+          "record_id": "GT-O-ea640a62-4c54-5219-a259-62b9bf8ec6c8",
+          "source_url": "https://danhurdprospecting.com/contact/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "No business email exposed on reviewed contact page. Form requires JavaScript; no submission attempted. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "pioneerpauly",
+      "name": "Pioneer Pauly",
+      "categories": [
+        "creator"
+      ],
+      "website": "https://www.pioneerpauly.com/",
+      "primary_specialty": "River prospecting and underwater gold recovery",
+      "source_urls": [
+        "https://www.pioneerpauly.com/",
+        "https://www.youtube.com/@PioneerPauly",
+        "https://cruxprospecting.com/distributors/"
+      ],
+      "methods": [],
+      "manufacturer_name_match": null,
+      "creator_slug": "pioneer-pauly",
+      "primary_contact_name": null,
+      "geographic_region": null,
+      "region_source_url": null,
+      "outreach_priority": "high",
+      "research_confidence": "low",
+      "invitation_connection": "Pioneer Pauly is already listed in our creator directory.",
+      "research_notes": "Shop currently redirects to a password-protected unavailable notice. YouTube retrieval exposed only generic footer. Crux official partner listing corroborates identity; no usable email or messaging route verified. Do not treat platform-wide YouTube Contact Us as the creator contact.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": "https://www.youtube.com/@PioneerPauly",
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-fd879d87-a4a5-5613-9d5e-be669475bdef",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": "https://lightcoral-hedgehog-977933.hostingersite.com/prospectors/pioneer-pauly/",
+      "existing_catalog_status": "published",
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": null,
+      "preferred_outreach_channel": "manual_contact_discovery_needed",
+      "preferred_contact_value": null,
+      "preferred_contact_method_id": null,
+      "preferred_contact_purpose": null,
+      "invitation_route_found": false,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": "catalog:pioneer-pauly",
+      "catalog_region_reference": "Vancouver Island, Canada",
+      "linked_product_ids": [],
+      "linked_product_names": [],
+      "linked_manufacturer_ids": [],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "756c68ff-3c51-500d-b097-1178329e7895",
+          "record_id": "GT-O-fd879d87-a4a5-5613-9d5e-be669475bdef",
+          "source_url": "https://www.pioneerpauly.com/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Shop currently redirects to a password-protected unavailable notice. YouTube retrieval exposed only generic footer. Crux official partner listing corroborates identity; no usable email or messaging route verified. Do not treat platform-wide YouTube Contact Us as the creator contact. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "a159bba5-4950-5694-8688-b5d9d13b17c5",
+          "record_id": "GT-O-fd879d87-a4a5-5613-9d5e-be669475bdef",
+          "source_url": "https://www.youtube.com/@PioneerPauly",
+          "date_researched": "2026-10-10",
+          "source_status": "retrieval_incomplete_contact_unverified",
+          "research_notes": "Shop currently redirects to a password-protected unavailable notice. YouTube retrieval exposed only generic footer. Crux official partner listing corroborates identity; no usable email or messaging route verified. Do not treat platform-wide YouTube Contact Us as the creator contact. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "b3214bb4-33fd-5fbb-9c61-a1ca85330477",
+          "record_id": "GT-O-fd879d87-a4a5-5613-9d5e-be669475bdef",
+          "source_url": "https://cruxprospecting.com/distributors/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Shop currently redirects to a password-protected unavailable notice. YouTube retrieval exposed only generic footer. Crux official partner listing corroborates identity; no usable email or messaging route verified. Do not treat platform-wide YouTube Contact Us as the creator contact. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "hip-bee-explorer",
+      "name": "Hip Bee Explorer",
+      "categories": [
+        "creator"
+      ],
+      "website": null,
+      "primary_specialty": "New England prospecting and outdoor adventures",
+      "source_urls": [
+        "https://www.youtube.com/@hipbeeexplorer",
+        "https://www.patreon.com/user/about?u=37215000",
+        "https://www.facebook.com/100057115703831/posts/check-this-out-all-you-gold-prospectors-from-massachusetts-we-get-asked-a-lot-if/1056341896279657/"
+      ],
+      "methods": [],
+      "manufacturer_name_match": null,
+      "creator_slug": "hip-bee-explorer",
+      "primary_contact_name": null,
+      "geographic_region": null,
+      "region_source_url": null,
+      "outreach_priority": "medium",
+      "research_confidence": "low",
+      "invitation_connection": "Hip Bee Explorer is listed in our creator directory; we would welcome your review of the team information.",
+      "research_notes": "Public creator Patreon page found; ability to send a business message was not established. Facebook result leads to a login gate. No email confirmed. Do not confuse this channel with similarly named skincare/honey businesses. Wes Perron and Tom are user-supplied existing profile information, not newly verified contact people.",
+      "aliases": [],
+      "social_urls": [
+        "https://www.patreon.com/user/about?u=37215000"
+      ],
+      "youtube_url": "https://www.youtube.com/@hipbeeexplorer",
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-e6980ddd-84e2-5ec0-952c-81db35214f23",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": "https://lightcoral-hedgehog-977933.hostingersite.com/prospectors/hip-bee-explorer/",
+      "existing_catalog_status": "published",
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": null,
+      "preferred_outreach_channel": "manual_contact_discovery_needed",
+      "preferred_contact_value": null,
+      "preferred_contact_method_id": null,
+      "preferred_contact_purpose": null,
+      "invitation_route_found": false,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": "catalog:hip-bee-explorer",
+      "catalog_region_reference": "New England, USA; Maine, USA",
+      "linked_product_ids": [],
+      "linked_product_names": [],
+      "linked_manufacturer_ids": [],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "f27b281d-4cc3-5b2f-9764-6fe43bb5ea50",
+          "record_id": "GT-O-e6980ddd-84e2-5ec0-952c-81db35214f23",
+          "source_url": "https://www.youtube.com/@hipbeeexplorer",
+          "date_researched": "2026-10-10",
+          "source_status": "retrieval_incomplete_contact_unverified",
+          "research_notes": "Public creator Patreon page found; ability to send a business message was not established. Facebook result leads to a login gate. No email confirmed. Do not confuse this channel with similarly named skincare/honey businesses. Wes Perron and Tom are user-supplied existing profile information, not newly verified contact people. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "7602409f-a192-5dd4-ae2d-df77de111326",
+          "record_id": "GT-O-e6980ddd-84e2-5ec0-952c-81db35214f23",
+          "source_url": "https://www.patreon.com/user/about?u=37215000",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Public creator Patreon page found; ability to send a business message was not established. Facebook result leads to a login gate. No email confirmed. Do not confuse this channel with similarly named skincare/honey businesses. Wes Perron and Tom are user-supplied existing profile information, not newly verified contact people. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "3b96e9ea-dfa8-5e8b-9c2d-6979c1eff25e",
+          "record_id": "GT-O-e6980ddd-84e2-5ec0-952c-81db35214f23",
+          "source_url": "https://www.facebook.com/100057115703831/posts/check-this-out-all-you-gold-prospectors-from-massachusetts-we-get-asked-a-lot-if/1056341896279657/",
+          "date_researched": "2026-10-10",
+          "source_status": "search_result_login_gate",
+          "research_notes": "Public creator Patreon page found; ability to send a business message was not established. Facebook result leads to a login gate. No email confirmed. Do not confuse this channel with similarly named skincare/honey businesses. Wes Perron and Tom are user-supplied existing profile information, not newly verified contact people. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "vo-gus-prospecting",
+      "name": "Vo-Gus Prospecting",
+      "categories": [
+        "creator",
+        "retailer"
+      ],
+      "website": "https://theoldmouldy.com.au/",
+      "primary_specialty": "Australian gold prospecting and detecting; prospecting shop",
+      "source_urls": [
+        "https://theoldmouldy.com.au/",
+        "https://theoldmouldy.com.au/pages/contact",
+        "https://www.youtube.com/@VoGusProspecting"
+      ],
+      "methods": [
+        {
+          "kind": "form",
+          "value": "https://theoldmouldy.com.au/pages/contact",
+          "source_url": "https://theoldmouldy.com.au/pages/contact",
+          "purpose": "shop and order questions only",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": false,
+          "notes": "Published preference excludes general gold/location/property questions. Do not use for a broad creator invitation without establishing that the shop accepts it.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "066a4eff-1bd5-5c80-ab63-afee83ce404f",
+          "record_id": "GT-O-1db46d2c-0ba0-5831-ab86-48d0e11c023f",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": null,
+      "creator_slug": "vo-gus-prospecting",
+      "primary_contact_name": null,
+      "geographic_region": "Beechworth, Victoria, Australia (shop location)",
+      "region_source_url": "https://theoldmouldy.com.au/pages/contact",
+      "outreach_priority": "high",
+      "research_confidence": "medium",
+      "invitation_connection": "Vo-Gus Prospecting is already in our creator directory, including its Australian prospecting focus.",
+      "research_notes": "Store has Vo-Gus merchandise and contact form, supporting a commercial association; exact ownership and a creator-specific business inbox were not independently established. Store form is restricted. YouTube retrieval failed. Leave creator invitation on hold.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": "https://www.youtube.com/@VoGusProspecting",
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-1db46d2c-0ba0-5831-ab86-48d0e11c023f",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": "https://lightcoral-hedgehog-977933.hostingersite.com/prospectors/vo-gus-prospecting/",
+      "existing_catalog_status": "published",
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": "https://theoldmouldy.com.au/pages/contact",
+      "preferred_outreach_channel": "manual_contact_discovery_needed",
+      "preferred_contact_value": null,
+      "preferred_contact_method_id": null,
+      "preferred_contact_purpose": null,
+      "invitation_route_found": false,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": "catalog:vo-gus-prospecting",
+      "catalog_region_reference": "Australia",
+      "linked_product_ids": [],
+      "linked_product_names": [],
+      "linked_manufacturer_ids": [],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "62d579ac-5104-58fe-acd7-8b42ef53c933",
+          "record_id": "GT-O-1db46d2c-0ba0-5831-ab86-48d0e11c023f",
+          "source_url": "https://theoldmouldy.com.au/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Store has Vo-Gus merchandise and contact form, supporting a commercial association; exact ownership and a creator-specific business inbox were not independently established. Store form is restricted. YouTube retrieval failed. Leave creator invitation on hold. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "5f867b77-f8e2-530e-9df6-9561cd63ef37",
+          "record_id": "GT-O-1db46d2c-0ba0-5831-ab86-48d0e11c023f",
+          "source_url": "https://theoldmouldy.com.au/pages/contact",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Store has Vo-Gus merchandise and contact form, supporting a commercial association; exact ownership and a creator-specific business inbox were not independently established. Store form is restricted. YouTube retrieval failed. Leave creator invitation on hold. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "a44759f9-028d-5e0e-a400-c8d3045b29a3",
+          "record_id": "GT-O-1db46d2c-0ba0-5831-ab86-48d0e11c023f",
+          "source_url": "https://www.youtube.com/@VoGusProspecting",
+          "date_researched": "2026-10-10",
+          "source_status": "retrieval_incomplete_contact_unverified",
+          "research_notes": "Store has Vo-Gus merchandise and contact form, supporting a commercial association; exact ownership and a creator-specific business inbox were not independently established. Store form is restricted. YouTube retrieval failed. Leave creator invitation on hold. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "nevada-outback-gems.com",
+      "name": "Chris Ralph / Nevada Outback Gems",
+      "categories": [
+        "creator",
+        "educator"
+      ],
+      "website": "https://nevada-outback-gems.com/",
+      "primary_specialty": "Prospecting education, geology, placer methods and prospecting books",
+      "source_urls": [
+        "https://nevada-outback-gems.com/contact_us/contact_us.htm",
+        "https://nevada-outback-gems.com/prospect/chris_prospect.htm"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "chrisralph218@gmail.com",
+          "source_url": "https://nevada-outback-gems.com/contact_us/contact_us.htm",
+          "purpose": "small-business questions and inquiries",
+          "verification_status": "published_on_official_source",
+          "invitation_route_candidate": true,
+          "notes": "",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "de0b912a-00d3-5db0-832e-2c6a83c64ccb",
+          "record_id": "GT-O-791c26c2-db7b-509b-9813-842011c3b681",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": null,
+      "creator_slug": "chris-ralph",
+      "primary_contact_name": "Chris Ralph",
+      "geographic_region": "Reno, Nevada, USA (published business contact location)",
+      "region_source_url": "https://nevada-outback-gems.com/contact_us/contact_us.htm",
+      "outreach_priority": "high",
+      "research_confidence": "high",
+      "invitation_connection": "Chris Ralph is listed in our creator directory; your prospecting encyclopedia spans many of the learning topics we are organizing.",
+      "research_notes": "Official contact page identifies Chris Ralph and notes occasional fieldwork/weekend response delays. Allow time before any follow-up.",
+      "aliases": [
+        "Chris Ralph",
+        "Nevada Outback Gems"
+      ],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-791c26c2-db7b-509b-9813-842011c3b681",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": "https://lightcoral-hedgehog-977933.hostingersite.com/prospectors/chris-ralph/",
+      "existing_catalog_status": "verified",
+      "public_business_email": "chrisralph218@gmail.com",
+      "email_verification_status": "published_on_official_source_not_delivery_tested",
+      "contact_form": null,
+      "preferred_outreach_channel": "email",
+      "preferred_contact_value": "chrisralph218@gmail.com",
+      "preferred_contact_method_id": "de0b912a-00d3-5db0-832e-2c6a83c64ccb",
+      "preferred_contact_purpose": "small-business questions and inquiries",
+      "invitation_route_found": true,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": "catalog:chris-ralph",
+      "catalog_region_reference": "California and Nevada, USA",
+      "linked_product_ids": [],
+      "linked_product_names": [],
+      "linked_manufacturer_ids": [],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "b128a2f0-8b60-56aa-9c9c-b36889130574",
+          "record_id": "GT-O-791c26c2-db7b-509b-9813-842011c3b681",
+          "source_url": "https://nevada-outback-gems.com/contact_us/contact_us.htm",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official contact page identifies Chris Ralph and notes occasional fieldwork/weekend response delays. Allow time before any follow-up. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "8996960e-133a-5394-aee8-5fb9e4cd8565",
+          "record_id": "GT-O-791c26c2-db7b-509b-9813-842011c3b681",
+          "source_url": "https://nevada-outback-gems.com/prospect/chris_prospect.htm",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official contact page identifies Chris Ralph and notes occasional fieldwork/weekend response delays. Allow time before any follow-up. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "askjeffwilliams.com",
+      "name": "Ask Jeff Williams",
+      "categories": [
+        "creator",
+        "educator"
+      ],
+      "website": "https://www.askjeffwilliams.com/",
+      "primary_specialty": "Gold geology, hard-rock mining, detecting and drywashing",
+      "source_urls": [
+        "https://www.askjeffwilliams.com/",
+        "https://www.askjeffwilliams.com/gold-mining-adventures"
+      ],
+      "methods": [],
+      "manufacturer_name_match": null,
+      "creator_slug": "ask-jeff-williams",
+      "primary_contact_name": "Jeff Williams",
+      "geographic_region": null,
+      "region_source_url": null,
+      "outreach_priority": "high",
+      "research_confidence": "low",
+      "invitation_connection": "Ask Jeff Williams is already listed in our creator directory; your geology and field-technique teaching fits our educational focus.",
+      "research_notes": "Official site suggests site/Patreon contact for tour questions, but no general form or business email was exposed. Patron messaging eligibility not verified and not counted as an unrestricted contact route. No certification independently verified.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": null,
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-586ee668-13d3-5de1-9bb8-064f886c0520",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": "https://lightcoral-hedgehog-977933.hostingersite.com/prospectors/ask-jeff-williams/",
+      "existing_catalog_status": "published",
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": null,
+      "preferred_outreach_channel": "manual_contact_discovery_needed",
+      "preferred_contact_value": null,
+      "preferred_contact_method_id": null,
+      "preferred_contact_purpose": null,
+      "invitation_route_found": false,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": "catalog:ask-jeff-williams",
+      "catalog_region_reference": null,
+      "linked_product_ids": [],
+      "linked_product_names": [],
+      "linked_manufacturer_ids": [],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "e91e90f1-a215-5c0c-87bb-155069bb81b6",
+          "record_id": "GT-O-586ee668-13d3-5de1-9bb8-064f886c0520",
+          "source_url": "https://www.askjeffwilliams.com/",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official site suggests site/Patreon contact for tour questions, but no general form or business email was exposed. Patron messaging eligibility not verified and not counted as an unrestricted contact route. No certification independently verified. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "3dfea483-20d6-55a9-8d54-dac2520b6552",
+          "record_id": "GT-O-586ee668-13d3-5de1-9bb8-064f886c0520",
+          "source_url": "https://www.askjeffwilliams.com/gold-mining-adventures",
+          "date_researched": "2026-10-10",
+          "source_status": "primary_source_reviewed",
+          "research_notes": "Official site suggests site/Patreon contact for tour questions, but no general form or business email was exposed. Patron messaging eligibility not verified and not counted as an unrestricted contact route. No certification independently verified. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "flour-gold-wizards",
+      "name": "Flour Gold Wizards",
+      "categories": [
+        "creator"
+      ],
+      "website": null,
+      "primary_specialty": "Fine-gold prospecting and cleanup",
+      "source_urls": [
+        "https://www.youtube.com/@flourgoldwizards",
+        "https://open.subsub.io/channels/flourgoldwizards/view"
+      ],
+      "methods": [
+        {
+          "kind": "email",
+          "value": "70jasonthemason@gmail.com",
+          "source_url": "https://open.subsub.io/channels/flourgoldwizards/view",
+          "purpose": "channel-description email lead",
+          "verification_status": "unverified_third_party_lead",
+          "invitation_route_candidate": false,
+          "notes": "Seen in an analytics mirror, not confirmed on an official source. Do not send until the creator publishes or confirms it.",
+          "deliverability_tested": false,
+          "submission_tested": false,
+          "method_id": "980d9fdd-1e7a-592a-bd23-f39896559378",
+          "record_id": "GT-O-809ca6db-7815-565c-8e9c-a6df92cb2eee",
+          "date_researched": "2026-10-10"
+        }
+      ],
+      "manufacturer_name_match": null,
+      "creator_slug": "flour-gold-wizards",
+      "primary_contact_name": null,
+      "geographic_region": null,
+      "region_source_url": null,
+      "outreach_priority": "high",
+      "research_confidence": "low",
+      "invitation_connection": "Flour Gold Wizards is in our creator directory; its fine-gold focus could help readers looking beyond larger nuggets.",
+      "research_notes": "YouTube retrieval failed. Analytics mirror makes inconsistent channel-status claims; do not infer inactivity or deletion. Email retained solely as a clearly unverified research lead; not included in confirmed-email totals.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": "https://www.youtube.com/@flourgoldwizards",
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-809ca6db-7815-565c-8e9c-a6df92cb2eee",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": "https://lightcoral-hedgehog-977933.hostingersite.com/prospectors/flour-gold-wizards/",
+      "existing_catalog_status": "published",
+      "public_business_email": null,
+      "email_verification_status": "historical_or_unverified_lead_only",
+      "contact_form": null,
+      "preferred_outreach_channel": "manual_contact_discovery_needed",
+      "preferred_contact_value": null,
+      "preferred_contact_method_id": null,
+      "preferred_contact_purpose": null,
+      "invitation_route_found": false,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": "catalog:flour-gold-wizards",
+      "catalog_region_reference": "Wisconsin and Michigan, USA",
+      "linked_product_ids": [],
+      "linked_product_names": [],
+      "linked_manufacturer_ids": [],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "06ac9ed3-9fe7-5f85-85cb-d2ab454cf793",
+          "record_id": "GT-O-809ca6db-7815-565c-8e9c-a6df92cb2eee",
+          "source_url": "https://www.youtube.com/@flourgoldwizards",
+          "date_researched": "2026-10-10",
+          "source_status": "retrieval_incomplete_contact_unverified",
+          "research_notes": "YouTube retrieval failed. Analytics mirror makes inconsistent channel-status claims; do not infer inactivity or deletion. Email retained solely as a clearly unverified research lead; not included in confirmed-email totals. Index age varies; recheck the route before sending."
+        },
+        {
+          "observation_id": "8067bd14-c7e8-5112-870e-44314e74997d",
+          "record_id": "GT-O-809ca6db-7815-565c-8e9c-a6df92cb2eee",
+          "source_url": "https://open.subsub.io/channels/flourgoldwizards/view",
+          "date_researched": "2026-10-10",
+          "source_status": "third_party_unverified_lead",
+          "research_notes": "YouTube retrieval failed. Analytics mirror makes inconsistent channel-status claims; do not infer inactivity or deletion. Email retained solely as a clearly unverified research lead; not included in confirmed-email totals. Index age varies; recheck the route before sending."
+        }
+      ]
+    },
+    {
+      "entity_key": "adventure-gold-19andrew72",
+      "name": "Adventure Gold",
+      "categories": [
+        "creator"
+      ],
+      "website": null,
+      "primary_specialty": "Gold prospecting videos (existing catalog lead)",
+      "source_urls": [
+        "https://www.youtube.com/user/19andrew72/about"
+      ],
+      "methods": [],
+      "manufacturer_name_match": null,
+      "creator_slug": "adventure-gold",
+      "primary_contact_name": null,
+      "geographic_region": null,
+      "region_source_url": null,
+      "outreach_priority": "low",
+      "research_confidence": "low",
+      "invitation_connection": "Adventure Gold is a lead in our research roster; verify the current public listing before proposing an invitation.",
+      "research_notes": "Existing creator catalog marks this as a lead, not a confirmed profile. YouTube About retrieval failed. No current business contact or active-status confirmation; identity and activity follow-up required. Do not infer current status from old forum posts.",
+      "aliases": [],
+      "social_urls": [],
+      "youtube_url": "https://www.youtube.com/user/19andrew72/",
+      "source_freshness_note": "Index age varies; recheck the route before sending.",
+      "record_id": "GT-O-e36eace1-f45f-5933-bca3-69b145d3a319",
+      "batch_id": "GT-OUTREACH-001",
+      "date_researched": "2026-10-10",
+      "existing_gold_trails_profile_id": null,
+      "catalog_profile_url": null,
+      "existing_catalog_status": "lead",
+      "public_business_email": null,
+      "email_verification_status": "not_found_in_reviewed_sources",
+      "contact_form": null,
+      "preferred_outreach_channel": "manual_contact_discovery_needed",
+      "preferred_contact_value": null,
+      "preferred_contact_method_id": null,
+      "preferred_contact_purpose": null,
+      "invitation_route_found": false,
+      "is_new_gold_trails_candidate": false,
+      "existing_creator_catalog_reference": "catalog:adventure-gold",
+      "catalog_region_reference": null,
+      "linked_product_ids": [],
+      "linked_product_names": [],
+      "linked_manufacturer_ids": [],
+      "research_scope": "bounded_first_pass",
+      "invitation_status": "not_contacted",
+      "complimentary_membership_offered": 0,
+      "profile_claimed": null,
+      "profile_corrections_submitted": null,
+      "last_contact_date": null,
+      "follow_up_date": null,
+      "do_not_contact": null,
+      "outreach_authorized": 0,
+      "newsletter_opt_in": 0,
+      "source_observations": [
+        {
+          "observation_id": "caea9296-cdbe-5b10-be6e-def6463d3486",
+          "record_id": "GT-O-e36eace1-f45f-5933-bca3-69b145d3a319",
+          "source_url": "https://www.youtube.com/user/19andrew72/about",
+          "date_researched": "2026-10-10",
+          "source_status": "retrieval_incomplete_contact_unverified",
+          "research_notes": "Existing creator catalog marks this as a lead, not a confirmed profile. YouTube About retrieval failed. No current business contact or active-status confirmation; identity and activity follow-up required. Do not infer current status from old forum posts. Index age varies; recheck the route before sending."
+        }
+      ]
+    }
+  ]
+}
