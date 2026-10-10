@@ -18,6 +18,60 @@ for (const form of document.querySelectorAll('.member-form')) {
   }
   let sending = false;
   let slowRequest;
+  const resetButton = () => {
+    sending = false;
+    button.removeAttribute('aria-disabled');
+    button.textContent = originalLabel;
+    form.removeAttribute('aria-busy');
+  };
+  const recoveryLink = () => {
+    if (feedback.querySelector('a')) return;
+    const link = document.createElement('a');
+    link.href = '/resend-verification/';
+    link.textContent = 'Request a verification email';
+    feedback.append(document.createTextNode(' '), link);
+  };
+  const sendSignup = async () => {
+    const controller = new AbortController();
+    const deadline = window.setTimeout(() => controller.abort(), 30000);
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST', credentials: 'same-origin', redirect: 'error',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)), signal: controller.signal,
+      });
+      if (!response.headers.get('content-type')?.includes('application/json')) throw new Error('Unexpected response');
+      const result = await response.json();
+      if (typeof result.title !== 'string' || typeof result.message !== 'string') throw new Error('Unexpected response');
+      if (!response.ok || result.outcome !== 'email_requested') {
+        tell(`${result.title}: ${result.message}`, true);
+        if (response.status === 403) {
+          const refresh = document.createElement('a');
+          refresh.href = '/signup/'; refresh.textContent = 'Open a fresh signup form';
+          feedback.append(document.createTextNode(' '), refresh);
+        } else if (response.status >= 500) recoveryLink();
+        return;
+      }
+      const card = form.closest('.member-card');
+      const heading = document.createElement('h2'); heading.textContent = result.title;
+      const confirmation = document.createElement('div');
+      confirmation.className = 'member-confirmation'; confirmation.setAttribute('role', 'status');
+      const message = document.createElement('p'); message.textContent = result.message;
+      confirmation.append(message);
+      const recovery = document.createElement('a'); recovery.href = '/resend-verification/'; recovery.textContent = 'Request another verification email';
+      const login = document.createElement('a'); login.href = '/login/'; login.textContent = 'Return to member sign-in';
+      const links = document.createElement('p'); links.append(recovery, document.createTextNode(' · '), login);
+      card.replaceChildren(heading, confirmation, links);
+      card.setAttribute('tabindex', '-1'); card.focus();
+    } catch {
+      tell('We could not confirm that your signup finished. Check your email before retrying; if an account was created, you can request a new verification link.', true);
+      recoveryLink();
+    } finally {
+      window.clearTimeout(deadline);
+      window.clearTimeout(slowRequest);
+      resetButton();
+    }
+  };
   const tell = (message, error = false) => {
     feedback.textContent = message;
     feedback.hidden = false;
@@ -49,6 +103,8 @@ for (const form of document.querySelectorAll('.member-form')) {
       field.focus();
       return;
     }
+    const direct = form.hasAttribute('data-async-signup') && typeof fetch === 'function' && typeof AbortController === 'function';
+    if (direct) event.preventDefault();
     sending = true;
     button.setAttribute('aria-disabled', 'true');
     button.textContent = 'Sending your request…';
@@ -56,14 +112,12 @@ for (const form of document.querySelectorAll('.member-form')) {
     tell('Sending your request. Please wait for the confirmation page.');
     slowRequest = window.setTimeout(() => {
       tell('This is taking longer than expected. If the page does not change, check your connection. For signup, check your email before trying again.');
-    }, 20000);
+    }, 15000);
+    if (direct) void sendSignup();
   });
   window.addEventListener('pageshow', () => {
     window.clearTimeout(slowRequest);
-    sending = false;
-    button.removeAttribute('aria-disabled');
-    button.textContent = originalLabel;
-    form.removeAttribute('aria-busy');
+    resetButton();
     feedback.hidden = true;
     if (password && toggle) {
       password.type = 'password';

@@ -55,3 +55,12 @@ test('eight-character member signup and reset work with one password input',asyn
  }
  await assert.rejects(hashPassword('12345678'));
 });
+
+test('JSON signup retains origin and CSRF enforcement and reports confirmed server outcomes',async t=>{
+ let writes=0,sends=0;const request=await fixture(t,{mail:async()=>sends++,store:{ready:async()=>true,allow:async()=>true,signup:async data=>{writes++;return{id:'member',email:data.email};},issue:async()=>link}});
+ const fields={username:'newmember',email:'member@example.com',password:'12345678'},headers={Accept:'application/json'};
+ const invalid=await request('/signup/',{...fields,password:'short'},headers);assert.equal(invalid.status,400);assert.equal((await invalid.json()).outcome,'error');assert.equal(writes,0);
+ const forged=await request('/signup/',fields,{...headers,Origin:'https://other.example'});assert.equal(forged.status,403);assert.equal((await forged.json()).outcome,'error');
+ const stale=await request('/signup/',{...fields,csrf:'b'.repeat(64)},headers);assert.equal(stale.status,403);assert.equal((await stale.json()).outcome,'error');
+ const result=await request('/signup/',fields,headers);assert.equal(result.status,200);assert.match(result.headers.get('content-type'),/application\/json/);const data=await result.json();assert.equal(data.outcome,'email_requested');assert.equal(data.title,'Check your email');assert.doesNotMatch(JSON.stringify(data),/12345678|member@example.com|scrypt:/);assert.equal(writes,1);assert.equal(sends,1);
+});
