@@ -13,17 +13,22 @@ import {createCompassStore} from './app/compass/store.js';
 import {createCompassContent} from './app/compass/content.js';
 import {createCompassHandler} from './app/compass/handler.js';
 
+import {createProductWorkspace} from './app/product-workspace.js';
+import {createProductsHandler} from './app/product-reports.js';
+
 let db = null;
 try { db = createDatabase(); }
 catch { console.error('Gold Trails database settings need attention'); }
 let config=null;
 try { config=adminConfig(); } catch { console.error('Gold Trails administrator settings need attention'); }
-const admin=createAdminHandler({store:db?createAdminStore(db,config?.passwordHash):null,config});
+const productWorkspace=db?createProductWorkspace(db):null;
+const admin=createAdminHandler({workspace:productWorkspace,store:db?createAdminStore(db,config?.passwordHash):null,config});
 const memberStore=db?createMemberStore(db):null, memberSettings=memberConfig();
 const directory=db?createDirectoryStore(db):null, compassStore=db?createCompassStore(db):null;
 const members=createMemberHandler({store:memberStore,config:memberSettings,mail:memberMail()});
-const compass=createCompassHandler({members:memberStore,store:compassStore,config:memberSettings,content:createCompassContent({directory,store:compassStore})});
-const server = createServer({ members, directory, admin, compass });
+const compass=createCompassHandler({members:memberStore,store:compassStore,config:memberSettings,content:createCompassContent({directory,store:compassStore,productsStore:productWorkspace})});
+const products=createProductsHandler({store:productWorkspace,members:memberStore,config:memberSettings});
+const server = createServer({ members, directory, admin, compass, products });
 const port = Number(process.env.PORT || 3000);
 server.listen(port,'0.0.0.0',() => console.log(`Gold Trails listening on port ${port}`));
 for (const signal of ['SIGTERM','SIGINT']) process.on(signal,() => {

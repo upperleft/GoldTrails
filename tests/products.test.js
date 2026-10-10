@@ -24,6 +24,9 @@ test('all supplied products render without a database, with unique anchors and o
   const response=await fetch(origin+'/products/');assert.equal(response.status,200);
   const html=await response.text();
   const ids=[...html.matchAll(/class="product-row" id="([^"]+)"/g)].map(m=>m[1]);
+  const reports=[...html.matchAll(/href="\/products\/report\/\?product=(GT-P\d+)"/g)].map(m=>m[1]);
+  assert.equal(reports.length,57);assert.deepEqual(reports.sort(),catalog.tables.products.map(p=>p.product_id).sort());
+  assert.doesNotMatch(html,/mailto:/);
   assert.equal(ids.length,57);assert.equal(new Set(ids).size,57);
   assert.deepEqual(ids.sort(),catalog.tables.products.map(p=>p.product_id).sort());
   for(const match of html.matchAll(/<a\b[^>]*href="https?:[^>]*>/g)){
