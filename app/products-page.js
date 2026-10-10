@@ -1,3 +1,4 @@
+import {assetUrl} from './asset-url.js';
 import {readFileSync} from 'node:fs';
 import {escapeHtml as h,safeUrl} from './directory-views.js';
 
@@ -43,7 +44,7 @@ const content=`${notice?`<p role="status" class="product-catalog-note">${h(notic
 let shell=shellTemplate;
 shell=shell.replace(/<nav class="breadcrumb"[\s\S]*?<\/nav>/,'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Products</span></nav>');
 shell=shell.replace('<a href="/products/">Products</a>','<a href="/products/" aria-current="page">Products</a>');
-shell=shell.replace('</head>','<link rel="stylesheet" href="/products.css"></head>').replace('</body>','<script type="module" src="/products.js"></script></body>');
+shell=shell.replace('</head>',`<link rel="stylesheet" href="${assetUrl('products.css')}"></head>`).replace('</body>','<script type="module" src="/products.js"></script></body>');
 const intro='<section class="category-intro rust"><div><span class="eyebrow">GOLD TRAILS / EQUIPMENT &amp; FIELD GEAR</span><h1>Products</h1><p>Tools for muddy boots, curious minds, and a day beside the water.</p></div></section>';
 const tokens={TITLE:'Products',DESCRIPTION:'Search and explore gold-prospecting equipment, specifications, source links, and documented creator connections.',INTRO:intro,CONTENT:content};
 shell=shell.replace(/\{\{(TITLE|DESCRIPTION|INTRO|CONTENT)\}\}/g,(_,key)=>tokens[key]);
