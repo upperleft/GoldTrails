@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "reviewedAt": "2026-10-11",
   "sources": [
     {
@@ -321,6 +321,46 @@
       "locator": "1:500,000 statewide map; Carroll County locality 6 and Grafton County locality group 49; compiled historical records, not entrance surveys",
       "inspectionBasis": "document_text",
       "checkedAt": "2026-10-11"
+    },
+    {
+      "id": "usgs-quartz-1904",
+      "title": "Quartz veins in Maine and Vermont · G. O. Smith (1904)",
+      "publisher": "U.S. Geological Survey · Bulletin 225",
+      "url": "https://pubs.usgs.gov/bul/0225/report.pdf#page=86",
+      "year": 1904,
+      "locator": "Printed/PDF pp. 81–88; original scans checked at pp. 85–88. Field observations from 1903, published 1904.",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "vt-plymouth-smith",
+      "title": "The Plymouth Gold Rush · Beth R. Smith",
+      "publisher": "Vermont Life · Vermont Division for Historic Preservation archive",
+      "url": "https://accdservices.vermont.gov/ORCDocs/Plymouth_TownFile__Miscellaneous_00000053.pdf#page=5",
+      "year": 1952,
+      "locator": "Article pp. 8–13 in the Plymouth town-file compilation (PDF pp. 1–6); Rooks diagram and 1908 Fox photo at PDF p. 5, auction account at p. 6. VGS bibliography dates the article 1952; scan reviewed.",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nh-ross-1923",
+      "title": "The Geology of a Part of the Ammonoosuc Mining District, New Hampshire · Clyde P. Ross",
+      "publisher": "American Journal of Science · original field study",
+      "url": "https://ajsonline.org/article/60988-the-geology-of-a-part-of-the-ammonoosuc-mining-district-new-hampshire.pdf#page=26",
+      "year": 1923,
+      "locator": "Fifth series, vol. V, no. 28, April 1923, pp. 267–302. Printed pp. 291–293 / PDF pp. 25–27; geological map Fig. 2, printed p. 274 / PDF p. 8. Based on summer 1914–1915 fieldwork; scan reviewed.",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nh-dublin-allison",
+      "title": "Dublin days, old and new · Henry Darracott Allison",
+      "publisher": "Exposition Press (1952) · Internet Archive scan",
+      "url": "https://archive.org/download/dublindaysoldnew00alli/dublindaysoldnew00alli.pdf#page=121",
+      "year": 1952,
+      "locator": "Printed p. 99 / PDF p. 121, Nathan Methley section; distinct Dublin Diamond Ledge company and Gold Mine Road. Original scan and catalog metadata reviewed.",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text"
     }
   ],
   "states": [
@@ -871,6 +911,45 @@
             }
           ],
           "researchNote": "Confirm the company-to-prospect link before assigning an operator or operating period."
+        },
+        {
+          "id": "US-ME:mine:pittston",
+          "title": "Pittston gold-seeking working",
+          "kind": "disputed_gold_working",
+          "text": "Smith inspected pegmatitic workings locally called the Pittston gold mine during his 1903 fieldwork. A quartz sample chosen with the owners’ advice returned no gold or silver. The account documents an unsuccessful gold search, not a confirmed producing gold mine.",
+          "dates": "Work and a mill preceded the 1903 visit; opening and closing dates unresolved.",
+          "location": {
+            "description": "Pittston, Kennebec County; about three miles east of the Kennebec River in the historical account.",
+            "precision": "unresolved"
+          },
+          "sourceIds": [
+            "usgs-quartz-1904"
+          ],
+          "locator": "Printed/PDF p. 85",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-ME:mine:pittston:mill",
+              "title": "The mill at Nehumkeag Pond",
+              "text": "Smith reports a quartz mill about a mile from the working, on Nehumkeag Pond. A mill’s existence did not establish a profitable gold deposit.",
+              "sourceIds": [
+                "usgs-quartz-1904"
+              ],
+              "locator": "Printed/PDF p. 85",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "usgs-quartz-1904",
+              "locator": "Original field account · printed/PDF p. 85",
+              "inspection": "document_reviewed",
+              "page": 85
+            }
+          ],
+          "researchNote": "A precise mine-to-mill map and named operator are still needed. No point has been substituted from a town or pond centroid."
         }
       ]
     },
@@ -1036,8 +1115,8 @@
           "id": "US-NH:mine:dodge",
           "title": "Dodge Gold Mine",
           "kind": "gold_mine",
-          "text": "The original 1903 Lyman history places Dodge Gold Mine on the old Hall farm. The present conservation account provides another connection to that landscape, but not a surveyed mine entrance.",
-          "dates": "Worked before the 1903 town history; individual opening and closing dates unresolved.",
+          "text": "Hoskins places Dodge Gold Mine on the old Hall farm in Lyman. Ross’s field study adds a later chapter: intermittent work and a cyanide mill, with the mine already abandoned when he visited in summer 1915. Its exact modern entrance remains unresolved.",
+          "dates": "Worked before 1903; abandoned by Ross’s summer-1915 visit. Exact opening and final closing dates unresolved.",
           "location": {
             "description": "Old Hall farm, Lyman; precise workings not reconciled.",
             "precision": "unresolved"
@@ -1047,7 +1126,8 @@
             "nh-gold-2020",
             "nh-hoskins-1903",
             "nh-act-lyman",
-            "nh-minerals-map-1957"
+            "nh-minerals-map-1957",
+            "nh-ross-1923"
           ],
           "locator": "Lyman Master Plan, printed page 10; NHDES GEO-1 historical summary",
           "reviewedAt": "2026-10-11",
@@ -1096,9 +1176,37 @@
               "locator": "Grafton County locality group 49",
               "reviewedAt": "2026-10-11",
               "status": "source_checked"
+            },
+            {
+              "id": "US-NH:mine:dodge:1915",
+              "title": "Summer 1915 · already abandoned",
+              "text": "Ross reports a cyanide mill erected after Hitchcock’s 1878 account and intermittent later work. On his summer-1915 visit, Dodge was abandoned. This establishes its condition at that visit, not the exact date it closed.",
+              "sourceIds": [
+                "nh-ross-1923"
+              ],
+              "locator": "Printed p. 292 / PDF p. 26",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-NH:mine:dodge:ross-map",
+              "title": "A closer geological map",
+              "text": "Ross includes a district geological map and structural sections. They help place the workings in their geological setting; no modern entrance coordinate has been derived from them here.",
+              "sourceIds": [
+                "nh-ross-1923"
+              ],
+              "locator": "Fig. 2, printed p. 274 / PDF p. 8; Fig. 3, printed p. 300 / PDF p. 34",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
             }
           ],
           "furtherReading": [
+            {
+              "sourceId": "nh-ross-1923",
+              "locator": "Original field report · printed p. 292 / PDF p. 26; geological map at PDF p. 8",
+              "inspection": "document_reviewed",
+              "page": 26
+            },
             {
               "sourceId": "nh-hoskins-1903",
               "locator": "Original town history · printed pp. 15 and 102 / PDF pp. 21 and 128",
@@ -1115,7 +1223,7 @@
               "inspection": "document_reviewed"
             }
           ],
-          "researchNote": "A parcel-to-workings match and detailed mine plan are still needed before adding a marker. Present-day ownership and access must be checked separately."
+          "researchNote": "Reconcile the Ross and Hitchcock maps with a modern parcel and workings survey before adding a marker. The report narrows the history to an abandoned site by 1915, but does not supply an exact closing date or current access permission."
         },
         {
           "id": "US-NH:mine:diamond-ledge",
@@ -1129,7 +1237,8 @@
           },
           "sourceIds": [
             "nh-gold-2020",
-            "nh-minerals-map-1957"
+            "nh-minerals-map-1957",
+            "nh-dublin-allison"
           ],
           "locator": "NHDES GEO-1 (2020), historical summary",
           "reviewedAt": "2026-10-11",
@@ -1146,6 +1255,17 @@
               "locator": "USGS MR-6, Carroll County locality 6; NHDES GEO-1 historical summary",
               "reviewedAt": "2026-10-11",
               "status": "source_checked"
+            },
+            {
+              "id": "US-NH:mine:diamond-ledge:dublin-name",
+              "title": "Another Diamond Ledge · Dublin",
+              "text": "Allison’s Dublin history names a Diamond Ledge Gold Mine Company and connects it to Gold Mine Road there. That is a separate town and account, not evidence locating the Ossipee working.",
+              "sourceIds": [
+                "nh-dublin-allison"
+              ],
+              "locator": "Printed p. 99 / PDF p. 121",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
             }
           ],
           "furtherReading": [
@@ -1156,6 +1276,90 @@
             }
           ],
           "researchNote": "Do not substitute a mountain summit or county-centre coordinate for a mine. A primary document must reconcile the name and town before the site is plotted."
+        },
+        {
+          "id": "US-NH:mine:tunnel",
+          "title": "Tunnel Mine · below Dodge",
+          "kind": "gold_mine",
+          "text": "A separate tunnel intended to reach the Dodge veins at depth. Ross describes it as about 900 feet long and says it failed to reach its intended target. It is retained as a distinct historical working, without an invented entrance point.",
+          "dates": "Worked in Hoskins’s 1903 account; already abandoned in Ross’s 1914–1915 field study.",
+          "location": {
+            "description": "Lyman; hillside below Dodge Mine in the historical descriptions.",
+            "precision": "unresolved"
+          },
+          "sourceIds": [
+            "nh-hoskins-1903",
+            "nh-ross-1923"
+          ],
+          "locator": "Hoskins printed p. 15 / PDF p. 21; Ross printed p. 292 / PDF p. 26",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-NH:mine:tunnel:purpose",
+              "title": "An unsuccessful crosscut",
+              "text": "Ross explains that the tunnel was driven below Dodge to intersect one of its large veins. Smaller veins were encountered, but the intended intersection was not achieved. Reported assays are not converted into a production total.",
+              "sourceIds": [
+                "nh-ross-1923"
+              ],
+              "locator": "Printed p. 292 / PDF p. 26",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "nh-ross-1923",
+              "locator": "Original tunnel description · printed p. 292 / PDF p. 26",
+              "inspection": "document_reviewed",
+              "page": 26
+            },
+            {
+              "sourceId": "nh-hoskins-1903",
+              "locator": "Earlier town-history account · printed p. 15 / PDF p. 21",
+              "inspection": "document_reviewed"
+            }
+          ],
+          "researchNote": "Find a separate entrance plan and reconcile the two accounts before assigning coordinates or a full operating span. The tunnel is not an open visitor destination."
+        },
+        {
+          "id": "US-NH:mine:dublin-diamond",
+          "title": "Diamond Ledge company working · Dublin",
+          "kind": "disputed_gold_working",
+          "text": "Allison describes brief work by the Diamond Ledge Gold Mine Company in Dublin and says it found no gold. He associates the enterprise with the name Gold Mine Road. This gold-seeking working is kept separate from the unresolved Ossipee account.",
+          "dates": "Before Allison’s 1952 history; individual operating dates not established.",
+          "location": {
+            "description": "Dublin, Cheshire County; Gold Mine Road association, exact working unresolved.",
+            "precision": "unresolved"
+          },
+          "sourceIds": [
+            "nh-dublin-allison"
+          ],
+          "locator": "Printed p. 99 / PDF p. 121, Nathan Methley section",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-NH:mine:dublin-diamond:name",
+              "title": "A road name, not a gold confirmation",
+              "text": "The town history preserves the company name and its road-name legacy. It supplies no entrance coordinates, operating dates or successful gold yield.",
+              "sourceIds": [
+                "nh-dublin-allison"
+              ],
+              "locator": "Printed p. 99 / PDF p. 121",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "nh-dublin-allison",
+              "locator": "Original town-history passage · printed p. 99 / PDF p. 121",
+              "inspection": "document_reviewed",
+              "page": 121
+            }
+          ],
+          "researchNote": "Locate corporate filings and a dated mine plan. Do not merge Dublin, Ossipee and White Diamond records because their names resemble one another."
         }
       ]
     },
@@ -1249,8 +1453,8 @@
           "id": "US-VT:mine:rooks",
           "title": "Rooks Mine / Fox Mine",
           "kind": "gold_mine",
-          "text": "A quartz-vein gold working near Plymouth. The MRDS record lists production in 1883–1887. State Parks gives an 1889 purchase by Henry Fox and continued searching until his death in 1919. The dates describe different accounts, not a verified continuous production period. Perry’s 1929 account describes irregular, low-grade gold and an unprofitable investment.",
-          "dates": "1883–1887 production in MRDS; later Fox activity reported through 1919.",
+          "text": "A quartz-vein gold working near Plymouth, also known as Fox Mine. MRDS records production in 1883–1887. Later accounts disagree about when Henry Fox acquired it: Beth R. Smith gives a late-1887 auction, while State Parks says 1889. Neither establishes uninterrupted commercial production through his death in 1919.",
+          "dates": "1883–1887 production in MRDS; Fox purchase dated 1887 or 1889 in different accounts; later searching through 1919.",
           "location": {
             "description": "Plymouth, Windsor County; Reading Pond / Buffalo Brook area",
             "precision": "recorded_approximate",
@@ -1266,11 +1470,96 @@
           "sourceIds": [
             "vt-mrds-records",
             "vt-camp-plymouth",
-            "vt-gold-1998"
+            "vt-gold-1998",
+            "usgs-quartz-1904",
+            "vt-plymouth-smith"
           ],
           "locator": "MRDS DEP_ID 10081526; State Parks history; Perry 1929 excerpt, PDF pages 10–11",
           "reviewedAt": "2026-10-11",
-          "status": "source_checked"
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-VT:mine:rooks:1903-fieldwork",
+              "title": "1903 · a geologist visits",
+              "text": "G. O. Smith visited the old Rooks workings near Tyson. He could not inspect the openings and found little encouraging material on the dumps. His report describes an ambitious operation with no apparent profit.",
+              "sourceIds": [
+                "usgs-quartz-1904"
+              ],
+              "locator": "Printed/PDF pp. 87–88; published 1904",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-VT:mine:rooks:1929-workings",
+              "title": "1929 · the hillside workings",
+              "text": "Perry describes a brook-level adit and mill ruins, with upper shaft workings about 170 feet higher. He identifies native gold but describes its distribution as too irregular and low-grade for profitable mining. These are historical observations, not present conditions.",
+              "sourceIds": [
+                "vt-gold-1998"
+              ],
+              "locator": "Perry 1929 excerpt, PDF pp. 10–11",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-VT:mine:rooks:fox-auction",
+              "title": "Henry Fox · two purchase dates",
+              "text": "Beth R. Smith recounts Fox’s lawsuit for unpaid salary and a sheriff’s sale at Ludlow, placing his ownership in late 1887. State Parks instead gives 1889. The deed or court record is still needed to reconcile them.",
+              "sourceIds": [
+                "vt-plymouth-smith",
+                "vt-camp-plymouth"
+              ],
+              "locator": "Smith, article p. 13 / compilation PDF p. 6; State Parks, History",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-VT:mine:rooks:archive-images",
+              "title": "A diagram and a face from the past",
+              "text": "Smith’s article reproduces a cross-section from the company’s 1884 annual report and a photograph captioned as Henry Fox at his house in 1908. These appear in the linked scan. The company illustration is promotional, not a surveyed modern mine plan.",
+              "sourceIds": [
+                "vt-plymouth-smith"
+              ],
+              "locator": "Article p. 12 / compilation PDF p. 5",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-VT:mine:rooks:claims",
+              "title": "Reading the old claims carefully",
+              "text": "The article questions the reliability of advertised returns. Its newspaper and company figures remain attributed historical claims, rather than verified production totals or evidence of gold available today.",
+              "sourceIds": [
+                "vt-plymouth-smith"
+              ],
+              "locator": "Article p. 13 / compilation PDF p. 6",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "vt-plymouth-smith",
+              "locator": "Original article scan · diagram and Fox photo at PDF p. 5; auction story at p. 6",
+              "inspection": "document_reviewed",
+              "page": 5
+            },
+            {
+              "sourceId": "usgs-quartz-1904",
+              "locator": "Original field report · printed/PDF pp. 87–88",
+              "inspection": "document_reviewed",
+              "page": 87
+            },
+            {
+              "sourceId": "vt-gold-1998",
+              "locator": "Perry’s later description · PDF pp. 10–11",
+              "inspection": "document_reviewed"
+            },
+            {
+              "sourceId": "vt-camp-plymouth",
+              "locator": "Current park history · separate from historical workings and ownership",
+              "inspection": "document_reviewed"
+            }
+          ],
+          "researchNote": "Confirm the acquisition year from the court sale or deed, locate the full 1884 annual report, and reconcile the old workings with a modern survey. Historical photographs are linked for inspection; no photograph or promotional diagram has been republished as a current site view."
         },
         {
           "id": "US-VT:mine:taggart",
@@ -1292,11 +1581,61 @@
           },
           "sourceIds": [
             "vt-mrds-records",
-            "vt-gold-1998"
+            "vt-gold-1998",
+            "usgs-quartz-1904"
           ],
           "locator": "DEP_ID 10081187; 1904 and Perry 1929 excerpts, PDF pages 7–11",
           "reviewedAt": "2026-10-11",
-          "status": "source_checked"
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-VT:mine:taggart:thompson",
+              "title": "1859 onward · the Thompson farm vein",
+              "text": "Smith places the Taggart vein on the old Thompson farm, one mile west of Bridgewater Center, with intermittent work beginning in 1859 and openings along a small stream gulch.",
+              "sourceIds": [
+                "usgs-quartz-1904"
+              ],
+              "locator": "Printed/PDF p. 86",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-VT:mine:taggart:assay",
+              "title": "An assay that did not confirm the gold claims",
+              "text": "A sample from quartz and galena beside an opening returned no gold in the Survey laboratory, despite earlier claimed returns. One sample does not prove every part of the vein is gold-free; it does explain why the gold results remain disputed.",
+              "sourceIds": [
+                "usgs-quartz-1904"
+              ],
+              "locator": "Printed/PDF p. 87; assay by Doctor Allen",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-VT:mine:taggart:district",
+              "title": "Separate nearby projects",
+              "text": "Perry also describes a distinct Dailey Hollow project with a road to a mill at Chatauguay. Nearby mills and claims should not automatically be merged into Taggart’s history.",
+              "sourceIds": [
+                "vt-gold-1998"
+              ],
+              "locator": "Perry 1929 excerpt, PDF p. 10",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "usgs-quartz-1904",
+              "locator": "Original description and assay · printed/PDF pp. 86–87",
+              "inspection": "document_reviewed",
+              "page": 86
+            },
+            {
+              "sourceId": "vt-gold-1998",
+              "locator": "Compare the 1904 and 1929 excerpts · PDF pp. 7–11",
+              "inspection": "document_reviewed"
+            }
+          ],
+          "researchNote": "A documented owner/operator chain, a reliable full operating span and a plan matching the various openings remain to be established. The historic MRDS point has unknown accuracy and is not a surveyed entrance."
         }
       ]
     },

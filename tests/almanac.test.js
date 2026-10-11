@@ -37,7 +37,7 @@ test('access guidance requires checked, attributed records and renders its own s
 });
 test('historic gold records distinguish prospects and disputed results, retain uncertainty and credit location sources',()=>{
  const me=content.states.find(s=>s.id==='US-ME'),vt=content.states.find(s=>s.id==='US-VT'),nh=content.states.find(s=>s.id==='US-NH');
- assert.equal(me.mines.length,6);assert.equal(vt.mines.length,2);assert.equal(nh.mines.length,2);
+ assert.equal(me.mines.length,7);assert.equal(vt.mines.length,2);assert.equal(nh.mines.length,4);
  assert.ok(me.mines.some(m=>m.kind==='gold_prospect'));assert.ok(vt.mines.some(m=>m.kind==='disputed_gold_working'));
  for(const slug of ['maine','vermont','new-hampshire']){
   const html=dashboard(assembleState(stateBySlug(slug)));
@@ -114,4 +114,32 @@ test('mine paper trails preserve per-note provenance and distinguish reviewed do
  const unsafe=structuredClone(me.mines);unsafe[0].historyNotes[0].text='<script>evil()</script>';unsafe[0].researchNote='<img onerror=evil()> ';
  const escaped=historicMines(unsafe);assert.ok(!escaped.includes('<script>evil()'));assert.ok(!escaped.includes('<img'));assert.match(escaped,/&lt;script&gt;/);
  const nhHtml=dashboard(assembleState(stateBySlug('new-hampshire')));assert.match(nhHtml,/Godfrey Memorial/);assert.match(nhHtml,/have not been proven/);assert.ok(!nhHtml.includes('data-mine-coordinate'));
+});
+
+test('historical accounts preserve conflicting dates, separate similar mine names and do not invent map points',()=>{
+ const vt=content.states.find(s=>s.id==='US-VT'),nh=content.states.find(s=>s.id==='US-NH'),me=content.states.find(s=>s.id==='US-ME');
+ const rooks=vt.mines.find(m=>m.id==='US-VT:mine:rooks');
+ assert.match(rooks.dates,/1887 or 1889/);assert.match(rooks.text,/Neither establishes uninterrupted/);
+ assert.ok(rooks.historyNotes.some(n=>n.sourceIds.includes('vt-plymouth-smith')));
+ const dodge=nh.mines.find(m=>m.id==='US-NH:mine:dodge');assert.match(dodge.dates,/summer-1915/);
+ const tunnel=nh.mines.find(m=>m.id==='US-NH:mine:tunnel');assert.match(tunnel.text,/distinct historical working/);
+ const dublin=nh.mines.find(m=>m.id==='US-NH:mine:dublin-diamond');assert.equal(dublin.kind,'disputed_gold_working');
+ assert.ok(nh.mines.every(m=>m.location.precision==='unresolved'&&!m.location.coordinates));
+ const pittston=me.mines.find(m=>m.id==='US-ME:mine:pittston');assert.equal(pittston.kind,'disputed_gold_working');assert.equal(pittston.location.precision,'unresolved');
+ for(const slug of ['maine','vermont','new-hampshire']){
+  const html=dashboard(assembleState(stateBySlug(slug))),ids=new Set([...html.matchAll(/id="(source-[^"]+)"/g)].map(m=>m[1]));
+  for(const ref of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(ids.has(ref[1]),ref[1]);
+ }
+});
+
+test('document links open the inspected PDF page and reject malformed page references',()=>{
+ const vt=dashboard(assembleState(stateBySlug('vermont'))),me=dashboard(assembleState(stateBySlug('maine')));
+ assert.ok(vt.includes('https://pubs.usgs.gov/bul/0225/report.pdf#page=87" target="_blank" rel="noopener noreferrer"'));
+ assert.ok(me.includes('https://pubs.usgs.gov/bul/0225/report.pdf#page=85" target="_blank" rel="noopener noreferrer"'));
+ for(const page of [0,-1,1.5,'87','87&evil=1',10001]){
+  const data=structuredClone(content);data.states.find(s=>s.id==='US-VT').mines[0].furtherReading[0].page=page;
+  assert.throws(()=>validateContent(data),/archival link/);
+ }
+ const catalog=structuredClone(content);catalog.states.find(s=>s.id==='US-ME').mines[0].furtherReading[0].page=1;
+ assert.throws(()=>validateContent(catalog),/archival link/);
 });

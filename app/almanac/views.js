@@ -1,6 +1,6 @@
 import {page,escapeHtml as h,safeUrl} from '../directory-views.js';
 import {assetUrl} from '../asset-url.js';
-import {states,content,stateUrl,sourceVideoUrl} from './model.js';
+import {states,content,stateUrl,sourceVideoUrl,sourceDocumentUrl} from './model.js';
 const date=value=>value instanceof Date?value.toISOString().slice(0,10):String(value||'Not documented').slice(0,10);
 const external=(url,label)=>safeUrl(url)?`<a href="${h(safeUrl(url))}" target="_blank" rel="noopener noreferrer">${h(label)} <span aria-label="opens a new tab">↗</span></a>`:'<span>Link not documented</span>';
 const section=(id,title,body)=>`<section class="almanac-section" id="${id}" aria-labelledby="${id}-heading"><h3 id="${id}-heading">${title}</h3>${body}</section>`;
@@ -10,7 +10,7 @@ const notes=items=>items.map(i=>`<article class="almanac-note" data-record-id="$
 const mineKinds={gold_mine:'Historic gold working',gold_silver_mine:'Gold & silver working',gold_prospect:'Gold prospect',disputed_gold_working:'Disputed gold results'};
 function minePaperTrail(m){
  const history=(m.historyNotes||[]).map(n=>`<li data-record-id="${h(n.id)}"><h5>${h(n.title)}</h5><p>${h(n.text)}</p>${citations(n.sourceIds,n.locator)}</li>`).join('');
- const reading=(m.furtherReading||[]).map(link=>{const source=content.sources.find(s=>s.id===link.sourceId);return `<li>${external(source.url,source.title)}<small>${h(link.locator)} · ${link.inspection==='catalog_only'?'Catalog checked; original pages not yet inspected':'Source reviewed'}</small></li>`;}).join('');
+ const reading=(m.furtherReading||[]).map(link=>{const source=content.sources.find(s=>s.id===link.sourceId);return `<li>${external(sourceDocumentUrl(source.url,link.page),source.title)}<small>${h(link.locator)} · ${link.inspection==='catalog_only'?'Catalog checked; original pages not yet inspected':'Source reviewed'}</small></li>`;}).join('');
  if(!history&&!reading&&!m.researchNote)return '';
  return `<details class="almanac-mine-trail"><summary>Follow the paper trail${history?' · '+(m.historyNotes.length)+(m.historyNotes.length===1?' note':' notes'):''}</summary>${history?`<ol class="almanac-mine-history">${history}</ol>`:''}${reading?`<h5>Original documents &amp; archive leads</h5><ul class="almanac-resource-list">${reading}</ul>`:''}${m.researchNote?`<p class="almanac-research-gap"><strong>Still to establish:</strong> ${h(m.researchNote)}</p>`:''}</details>`;
 }

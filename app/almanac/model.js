@@ -21,7 +21,7 @@ export function validateContent(data){
    if(loc.precision==='unresolved'&&loc.coordinates!==undefined)throw new Error('Unresolved mine cannot have a map coordinate');
    if(loc.precision==='recorded_approximate'&&(!Array.isArray(loc.coordinates)||loc.coordinates.length!==2||!loc.coordinates.every(Number.isFinite)||Math.abs(loc.coordinates[0])>90||Math.abs(loc.coordinates[1])>180||loc.datum!=='WGS84'||!mine.sourceIds?.includes(loc.sourceId)||!loc.locator||!(loc.accuracyMeters===null||(Number.isFinite(loc.accuracyMeters)&&loc.accuracyMeters>0))))throw new Error('Invalid sourced mine coordinate');
    if(mine.historyNotes!==undefined&&(!Array.isArray(mine.historyNotes)||mine.historyNotes.some(n=>!n.title||!n.text||!n.locator||n.status!=='source_checked'||!n.sourceIds?.length||n.sourceIds.some(id=>!mine.sourceIds?.includes(id)))))throw new Error('Invalid mine history note');
-   if(mine.furtherReading!==undefined&&(!Array.isArray(mine.furtherReading)||mine.furtherReading.some(link=>!mine.sourceIds?.includes(link.sourceId)||!sources.has(link.sourceId)||!link.locator||!['document_reviewed','catalog_only'].includes(link.inspection)||(sources.get(link.sourceId)?.inspectionBasis==='catalog_metadata'&&link.inspection!=='catalog_only'))))throw new Error('Invalid mine archival link');
+   if(mine.furtherReading!==undefined&&(!Array.isArray(mine.furtherReading)||mine.furtherReading.some(link=>!mine.sourceIds?.includes(link.sourceId)||!sources.has(link.sourceId)||!link.locator||!['document_reviewed','catalog_only'].includes(link.inspection)||(sources.get(link.sourceId)?.inspectionBasis==='catalog_metadata'&&link.inspection!=='catalog_only')||(link.page!==undefined&&!sourceDocumentUrl(sources.get(link.sourceId)?.url,link.page)))))throw new Error('Invalid mine archival link');
    if(mine.researchNote!==undefined&&(typeof mine.researchNote!=='string'||!mine.researchNote.trim()))throw new Error('Invalid mine research note');
   }
   for(const item of [r.overview,...r.facts,...r.history,...r.places,...(r.accessNotes||[]),...(r.mines||[]),...(r.mines||[]).flatMap(m=>m.historyNotes||[])].filter(Boolean)){
@@ -40,6 +40,15 @@ export function statesInCoverage(text){
   const re=new RegExp('\\b'+state.name+'\\b','gi');if(re.test(remaining)){ids.push(state.id);remaining=remaining.replace(re,' ');}
  }
  return ids;
+}
+export function sourceDocumentUrl(url,page){
+ const safe=safeUrl(url);if(!safe)return null;
+ const u=new URL(safe);
+ if(page!==undefined){
+  if(!Number.isInteger(page)||page<1||page>10000||!/\.pdf$/i.test(u.pathname))return null;
+  u.hash='page='+page;
+ }
+ return u.href;
 }
 export function sourceVideoUrl(url,seconds,basis){
  const safe=safeUrl(url);if(!safe)return null;

@@ -1,0 +1,54 @@
+{
+  "purpose": "Reproducible public-document inspection log; no full article text or private data stored.",
+  "records": [
+    {
+      "sourceId": "usgs-quartz-1904",
+      "url": "https://pubs.usgs.gov/bul/0225/report.pdf#page=86",
+      "checkedAt": "2026-10-11",
+      "sha256": "386308b0c884f4d903824748ea48467fde2f5e5a394d78a11ac4af03f88cebf9",
+      "bytes": 40212476,
+      "visuallyInspectedPdfPages": [
+        85,
+        86,
+        87,
+        88
+      ]
+    },
+    {
+      "sourceId": "vt-plymouth-smith",
+      "url": "https://accdservices.vermont.gov/ORCDocs/Plymouth_TownFile__Miscellaneous_00000053.pdf#page=5",
+      "checkedAt": "2026-10-11",
+      "sha256": "37a87ea2424905bb627b8ecf2b6e799ac45143db3ed1a8b247e0fb4fa6842929",
+      "bytes": 7630798,
+      "visuallyInspectedPdfPages": [
+        5,
+        6
+      ]
+    },
+    {
+      "sourceId": "nh-ross-1923",
+      "url": "https://ajsonline.org/article/60988-the-geology-of-a-part-of-the-ammonoosuc-mining-district-new-hampshire.pdf#page=26",
+      "checkedAt": "2026-10-11",
+      "sha256": "ad124c89a44d97b02303402b4751413a9d809922c844d43632b19f890ad468c4",
+      "bytes": 3577259,
+      "visuallyInspectedPdfPages": [
+        1,
+        8,
+        25,
+        26,
+        27,
+        34
+      ]
+    },
+    {
+      "sourceId": "nh-dublin-allison",
+      "url": "https://archive.org/download/dublindaysoldnew00alli/dublindaysoldnew00alli.pdf#page=121",
+      "checkedAt": "2026-10-11",
+      "sha256": "cb69734d600f91413ecb1cdb8dd29581c895e42eb253ea1fc8468f025229e145",
+      "bytes": 11046517,
+      "visuallyInspectedPdfPages": [
+        121
+      ]
+    }
+  ]
+}
