@@ -13,15 +13,16 @@ export function validateContent(data){
  for(const s of data.sources){register(s);if(!safeUrl(s.url)||!s.publisher||!/^\d{4}-\d{2}-\d{2}$/.test(s.checkedAt))throw new Error('Invalid Almanac source');}
  for(const a of data.archives){register(a);reviewed(a);if(!stateById(a.stateId)||!safeUrl(a.url)||a.status!=='metadata_only')throw new Error('Invalid archival lead');}
  for(const r of data.states){register(r);if(!stateById(r.id))throw new Error('Invalid Almanac state');
+  if(r.articleIds.some(id=>!articles.has(id))||r.archiveIds.some(id=>!archives.has(id)||archives.get(id).stateId!==r.id)||r.accessSourceIds.some(id=>!sources.has(id)))throw new Error('Invalid Almanac relationship');
   if(r.accessNotes!==undefined&&(!Array.isArray(r.accessNotes)||r.accessNotes.some(n=>n.status!=='source_checked')))throw new Error('Invalid Almanac access note');
   if(r.mines!==undefined&&!Array.isArray(r.mines))throw new Error('Invalid historic mine collection');
   if(r.destinations!==undefined&&!Array.isArray(r.destinations))throw new Error('Invalid panning destinations');
   for(const destination of r.destinations||[]){
    const authority=sources.get(destination.permissionSourceId)?.authority;
-   if(!destination.title||!destination.text||destination.status!=='source_checked'||!['public_hand_panning','operator_river_access','supervised_practice'].includes(destination.kind)||!destination.sourceIds?.includes(destination.permissionSourceId)||authority!==(destination.kind==='public_hand_panning'?'land_manager':'operator')||!destination.locator||destination.coordinates!==undefined)throw new Error('Invalid destination access evidence');
+   if(!destination.title||!destination.text||destination.status!=='source_checked'||!['public_hand_panning','operator_river_access','supervised_practice'].includes(destination.kind)||!destination.sourceIds?.includes(destination.permissionSourceId)||!({public_hand_panning:['land_manager'],operator_river_access:['operator'],supervised_practice:['operator','land_manager']}[destination.kind]||[]).includes(authority)||!destination.locator||destination.coordinates!==undefined)throw new Error('Invalid destination access evidence');
    const keys=['where','entry','equipment','fees','season','facilities'];
    if(!Array.isArray(destination.tripFacts)||destination.tripFacts.length!==keys.length||new Set(destination.tripFacts.map(f=>f.key)).size!==keys.length||destination.tripFacts.some(f=>!keys.includes(f.key)||!f.text||!f.locator||!f.sourceIds?.length||f.sourceIds.some(id=>!destination.sourceIds.includes(id))))throw new Error('Invalid destination trip facts');
-   if(!Array.isArray(destination.beforeYouGo)||!destination.beforeYouGo.length||destination.beforeYouGo.some(t=>typeof t!=='string'||!t.trim())||!Array.isArray(destination.articleIds)||destination.articleIds.some(id=>!articles.has(id)))throw new Error('Invalid destination preparation');
+   if(!Array.isArray(destination.beforeYouGo)||!destination.beforeYouGo.length||destination.beforeYouGo.some(t=>typeof t!=='string'||!t.trim())||!Array.isArray(destination.articleIds)||destination.articleIds.some(id=>!articles.has(id)||!r.articleIds.includes(id)))throw new Error('Invalid destination preparation');
   }
   for(const mine of r.mines||[]){
    const loc=mine.location;
@@ -36,7 +37,6 @@ export function validateContent(data){
    register(item);reviewed(item);if(!['source_checked','reported_occurrence'].includes(item.status))throw new Error('Unreviewed Almanac claim');if(!item.sourceIds?.length||item.sourceIds.some(id=>!sources.has(id)))throw new Error('Unattributed Almanac claim');
    if(item.value!==undefined&&(!Number.isFinite(item.value)||item.value<0||!item.period||!item.unit||item.scope!==r.id||!item.definition||!item.locator||item.status!=='source_checked'))throw new Error('Invalid Almanac statistic');
   }
-  if(r.articleIds.some(id=>!articles.has(id))||r.archiveIds.some(id=>!archives.has(id)||archives.get(id).stateId!==r.id)||r.accessSourceIds.some(id=>!sources.has(id)))throw new Error('Invalid Almanac relationship');
  }
  return data;
 }

@@ -145,7 +145,7 @@ test('document links open the inspected PDF page and reject malformed page refer
 });
 
 test('panning destinations require appropriate access evidence and attributed trip facts',()=>{
- const destinations=content.states.flatMap(s=>s.destinations||[]);assert.equal(destinations.length,3);
+ const destinations=content.states.flatMap(s=>s.destinations||[]);assert.equal(destinations.length,6);
  assert.deepEqual(new Set(destinations.map(d=>d.kind)),new Set(['public_hand_panning','operator_river_access','supervised_practice']));
  const mutate=fn=>{const data=structuredClone(content);fn(data.states.find(s=>s.id==='US-VT').destinations[0],data);assert.throws(()=>validateContent(data),/destination|Unattributed|Duplicate/);};
  for(const change of [d=>d.permissionSourceId='maine-gold',d=>d.status='reported_occurrence',d=>d.coordinates=[43,-72],d=>d.tripFacts[0].sourceIds=['fiction'],d=>d.tripFacts.pop(),d=>d.tripFacts[1].key=d.tripFacts[0].key,d=>d.tripFacts[0].locator='',d=>d.articleIds=['article:fictional'],d=>d.beforeYouGo=[]])mutate(change);
@@ -175,4 +175,26 @@ test('destination output escapes content, opens operator links separately and on
  const html=panningDestinations(items,data.articles);assert.ok(!html.includes('<img'));assert.ok(!html.includes('<script>evil()'));assert.match(html,/&lt;img/);assert.match(html,/&lt;script&gt;/);
  assert.match(html,/https:\/\/cooscanyonrockandgift.com\/gold-prospecting" target="_blank" rel="noopener noreferrer"/);
  for(const ref of html.matchAll(/href="(\/articles\/[^\"]+)"/g))assert.ok(data.articles.some(a=>a.url===ref[1]));
+});
+
+test('government-run practice has scoped authority and destination lessons must be visible',()=>{
+ const nc=content.states.find(s=>s.id==='US-NC').destinations[0];
+ assert.equal(nc.kind,'supervised_practice');assert.equal(content.sources.find(s=>s.id===nc.permissionSourceId).authority,'land_manager');
+ assert.doesNotThrow(()=>validateContent(structuredClone(content)));
+ const practiceAsRiver=structuredClone(content);practiceAsRiver.states.find(s=>s.id==='US-NC').destinations[0].kind='operator_river_access';assert.throws(()=>validateContent(practiceAsRiver),/destination access/);
+ const operatorAsPublic=structuredClone(content);operatorAsPublic.states.find(s=>s.id==='US-GA').destinations[0].kind='public_hand_panning';assert.throws(()=>validateContent(operatorAsPublic),/destination access/);
+ const hiddenLesson=structuredClone(content);hiddenLesson.states.find(s=>s.id==='US-NC').articleIds=[];assert.throws(()=>validateContent(hiddenLesson),/destination preparation/);
+});
+
+test('expanded panning visits retain price and seasonal qualifications and correct visitor links',()=>{
+ const htmls=['california','north-carolina','georgia'].map(slug=>dashboard(assembleState(stateBySlug(slug))));
+ const [ca,nc,ga]=htmls;
+ assert.match(ca,/Park hand-panning policy checked/);assert.match(ca,/hands and pan only/);assert.match(ca,/\$10/);assert.match(ca,/\$12 per person/);assert.match(ca,/differing closing times/);
+ assert.match(nc,/Supervised practice program checked/);assert.match(nc,/Site visitor information/);assert.ok(!nc.includes('Operator activity information'));assert.match(nc,/\$5 plus tax/);assert.match(nc,/Call before a winter visit/);assert.match(nc,/does not grant access/);
+ assert.match(ga,/Operator activity information/);assert.match(ga,/Panning-only starts at \$60/);assert.match(ga,/\$24.95/);assert.match(ga,/Indoor panning/);assert.match(ga,/Cherokee Nation/);
+ for(const html of htmls){
+  assert.equal((html.match(/class="almanac-destination"/g)||[]).length,1);
+  const ids=new Set([...html.matchAll(/id="(source-[^"]+)"/g)].map(m=>m[1]));for(const ref of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(ids.has(ref[1]),ref[1]);
+  for(const link of html.matchAll(/<a href="https:[^"]+"([^>]+)>/g)){assert.match(link[1],/target="_blank"/);assert.match(link[1],/rel="noopener noreferrer"/);}
+ }
 });

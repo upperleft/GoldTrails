@@ -1,5 +1,5 @@
 {
-  "purpose": "Public source retrieval and text-review metadata for three panning-visit entries; no full source text, personal data, geocoded points or live availability claims.",
+  "purpose": "Public source retrieval and text-review metadata for six panning-visit entries; no full source text, personal data, geocoded points or live availability claims.",
   "sources": [
     {
       "sourceId": "maine-gold",
@@ -16,7 +16,7 @@
       "url": "https://www.des.nh.gov/sites/g/files/ehbemt341/files/documents/2020-01/geo-1.pdf",
       "checkedAt": "2026-10-11",
       "inspectionBasis": "official_indexed_text",
-      "locator": "2020 fact sheet; pp. 1\u20132: history, panning, dredging and Ammonoosuc district",
+      "locator": "2020 fact sheet; pp. 1–2: history, panning, dredging and Ammonoosuc district",
       "retrievalNote": "Official indexed text reviewed; direct PDF retrieval was blocked. Dated 2020 guidance, not confirmation of current equipment permitting."
     },
     {
@@ -104,6 +104,108 @@
       "httpStatus": 200,
       "sha256": "bbd843a5340e55cdf91554a0ead7aa12a494d06d8d3876b92f276ba52ef916a7",
       "bytes": 143837
+    },
+    {
+      "sourceId": "nc-reed-visit",
+      "url": "https://historicsites.nc.gov/all-sites/reed-gold-mine",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Hours; address; current panning charge; contact",
+      "httpStatus": 200,
+      "sha256": "4ab25e2b635830c35d885e2cbb33fd92760a689ff2d1fa78c9ed8d35dee22ea1",
+      "bytes": 58206
+    },
+    {
+      "sourceId": "nc-reed-trip",
+      "url": "https://historicsites.nc.gov/all-sites/reed-gold-mine/plan-your-visit",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Gold Panning; Accessibility; Picnic Facilities; seasonal summaries",
+      "httpStatus": 200,
+      "sha256": "93802b8da8eab871d3748d5373b7826fe87a256df90c44a0ceb427ad9a5afac6",
+      "bytes": 56869,
+      "resolvedUrl": "https://historicsites.nc.gov/plan-your-visit"
+    },
+    {
+      "sourceId": "ca-marshall-visit",
+      "url": "https://www.parks.ca.gov/?page_id=484",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Park Hours; Operating Hours and Fees; address; facilities",
+      "httpStatus": 200,
+      "sha256": "db8bf7fc670d8a285b1c30cb6245481f52e0c52ddd97089612875eab7d18a6f9",
+      "bytes": 113947
+    },
+    {
+      "sourceId": "ca-marshall-panning",
+      "url": "https://www.parks.ca.gov/?page_id=26364",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Gold panning lessons; designated river panning; fees; contact",
+      "httpStatus": 200,
+      "sha256": "d85b1b1a16c21249ee28a3b093ba871ac4d0325b828f7d5cb1522a54c2507eff",
+      "bytes": 56259
+    },
+    {
+      "sourceId": "ca-marshall-brochure",
+      "url": "https://www.parks.ca.gov/pages/484/files/MarshallGoldFinalWebLayout2017.pdf",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "PDF p. 6: Please Remember; p. 7: park map with designated panning area",
+      "httpStatus": 200,
+      "sha256": "b2f2066a6e252549c180cd39a1ab51901587e44a652600a098d87ba9e9201f46",
+      "bytes": 679355,
+      "visualInspection": "Rendered and inspected PDF pp. 6–7: hands-and-pan limits and map label. Brochure revised 2017; no map coordinates inferred."
+    },
+    {
+      "sourceId": "ga-consolidated-visit",
+      "url": "https://consolidatedgoldmine.com/",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Hours of Operation; holidays",
+      "httpStatus": 200,
+      "sha256": "30e73f72413ad3eba5a647a9cdd4a085d49eada60e17bf0cfb621f3867715b47",
+      "bytes": 56591
+    },
+    {
+      "sourceId": "ga-consolidated-panning",
+      "url": "https://consolidatedgoldmine.com/gold-panning/",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Sample pan with paid tour; panning-only option; instruction",
+      "httpStatus": 200,
+      "sha256": "204f1de87c37e5bc8f6de58d68b7a87534b2fa22df6b1fec39126e5baf3cd341",
+      "bytes": 39986
+    },
+    {
+      "sourceId": "ga-consolidated-tour",
+      "url": "https://consolidatedgoldmine.com/underground-adventures/",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Underground Tour pricing; stairs and mobility devices; indoor panning",
+      "httpStatus": 200,
+      "sha256": "53918c2435b54c825646b3d2137f6b1a0c375f1afd95f4bdf878a00a942e3d0a",
+      "bytes": 61088
+    },
+    {
+      "sourceId": "ga-consolidated-contact",
+      "url": "https://consolidatedgoldmine.com/directions/",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Address and phone",
+      "httpStatus": 200,
+      "sha256": "251b13347fc04a890a8ff395677004a0188434b82f2f6238fd1069d767a9ab43",
+      "bytes": 45474
+    },
+    {
+      "sourceId": "ga-dahlonega-museum",
+      "url": "https://gastateparks.org/DahlonegaGoldMuseum",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Gold-rush history; branch mint; 1836 courthouse",
+      "httpStatus": 200,
+      "sha256": "e2a66f711aee3021bf1c5e4aefc474e9057fcce2b0eaec2e214477ff4b8cb723",
+      "bytes": 98859
     }
   ]
 }

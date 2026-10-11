@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "reviewedAt": "2026-10-11",
   "sources": [
     {
@@ -439,6 +439,116 @@
       "checkedAt": "2026-10-11",
       "year": null,
       "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nc-reed-visit",
+      "title": "Reed Gold Mine · visitor information",
+      "publisher": "North Carolina Historic Sites",
+      "url": "https://historicsites.nc.gov/all-sites/reed-gold-mine",
+      "authority": "land_manager",
+      "locator": "Hours; address; current panning charge; contact",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nc-reed-trip",
+      "title": "Reed Gold Mine · plan your visit",
+      "publisher": "North Carolina Historic Sites",
+      "url": "https://historicsites.nc.gov/all-sites/reed-gold-mine/plan-your-visit",
+      "authority": "land_manager",
+      "locator": "Gold Panning; Accessibility; Picnic Facilities; seasonal summaries",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ca-marshall-visit",
+      "title": "Marshall Gold Discovery · park visitor information",
+      "publisher": "California State Parks",
+      "url": "https://www.parks.ca.gov/?page_id=484",
+      "authority": "land_manager",
+      "locator": "Park Hours; Operating Hours and Fees; address; facilities",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ca-marshall-panning",
+      "title": "Marshall Gold Discovery · panning and Eureka Experience",
+      "publisher": "California State Parks",
+      "url": "https://www.parks.ca.gov/?page_id=26364",
+      "authority": "land_manager",
+      "locator": "Gold panning lessons; designated river panning; fees; contact",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ca-marshall-brochure",
+      "title": "Marshall Gold Discovery · park brochure (2017)",
+      "publisher": "California State Parks",
+      "url": "https://www.parks.ca.gov/pages/484/files/MarshallGoldFinalWebLayout2017.pdf",
+      "authority": "land_manager",
+      "locator": "PDF p. 6: Please Remember; p. 7: park map with designated panning area",
+      "checkedAt": "2026-10-11",
+      "year": 2017,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ga-consolidated-visit",
+      "title": "Consolidated Gold Mine · hours and holidays",
+      "publisher": "Consolidated Gold Mine",
+      "url": "https://consolidatedgoldmine.com/",
+      "authority": "operator",
+      "locator": "Hours of Operation; holidays",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ga-consolidated-panning",
+      "title": "Consolidated Gold Mine · gold panning",
+      "publisher": "Consolidated Gold Mine",
+      "url": "https://consolidatedgoldmine.com/gold-panning/",
+      "authority": "operator",
+      "locator": "Sample pan with paid tour; panning-only option; instruction",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ga-consolidated-tour",
+      "title": "Consolidated Gold Mine · tour prices and accessibility",
+      "publisher": "Consolidated Gold Mine",
+      "url": "https://consolidatedgoldmine.com/underground-adventures/",
+      "authority": "operator",
+      "locator": "Underground Tour pricing; stairs and mobility devices; indoor panning",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ga-consolidated-contact",
+      "title": "Consolidated Gold Mine · directions and contact",
+      "publisher": "Consolidated Gold Mine",
+      "url": "https://consolidatedgoldmine.com/directions/",
+      "authority": "operator",
+      "locator": "Address and phone",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ga-dahlonega-museum",
+      "title": "Dahlonega Gold Museum · regional history",
+      "publisher": "Georgia Department of Natural Resources",
+      "url": "https://gastateparks.org/DahlonegaGoldMuseum",
+      "authority": "land_manager",
+      "locator": "Gold-rush history; branch mint; 1836 courthouse",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
     }
   ],
   "states": [
@@ -509,6 +619,85 @@
       "accessSourceIds": [
         "blm-ca",
         "blm-claims"
+      ],
+      "destinations": [
+        {
+          "id": "US-CA:marshall-panning",
+          "title": "Marshall Gold Discovery · designated river panning",
+          "text": "Try hand panning in the park’s designated river area in Coloma. Ask staff to identify the permitted reach of the South Fork of the American River. The paid trough lesson is a separate option.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "ca-marshall-panning",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "310 Back Street, Coloma, CA 95613. Gold Discovery Museum: 530-622-3470.",
+              "sourceIds": [
+                "ca-marshall-visit",
+                "ca-marshall-panning"
+              ],
+              "locator": "Address; program contact"
+            },
+            {
+              "key": "entry",
+              "text": "River panning is permitted in a designated area during park hours. Ask a park employee where to pan; this permission does not cover the entire river.",
+              "sourceIds": [
+                "ca-marshall-panning"
+              ],
+              "locator": "Designated river-panning paragraph"
+            },
+            {
+              "key": "equipment",
+              "text": "The 2017 park brochure specifies hands and pan only. Its map labels the recreational panning area. Confirm the current boundary and equipment limits with staff.",
+              "sourceIds": [
+                "ca-marshall-brochure"
+              ],
+              "locator": "PDF p. 6: Please Remember; p. 7: map"
+            },
+            {
+              "key": "fees",
+              "text": "Published vehicle day use is $10. The optional trough lesson is $12 per person; it is separate from river panning. Check current charges before travel.",
+              "sourceIds": [
+                "ca-marshall-visit",
+                "ca-marshall-panning"
+              ],
+              "locator": "Operating Hours and Fees; Gold Panning lessons"
+            },
+            {
+              "key": "season",
+              "text": "Day-use hours vary by season. The park page currently gives differing closing times in its header and seasonal schedule, so confirm today’s hours. Closed Thanksgiving and Christmas; lessons may be canceled by weather or heat.",
+              "sourceIds": [
+                "ca-marshall-visit",
+                "ca-marshall-panning"
+              ],
+              "locator": "Park Hours; Operating Hours; program conditions"
+            },
+            {
+              "key": "facilities",
+              "text": "Museum, picnic areas, restrooms, drinking water and parking. Ask staff about the river approach and mobility needs; park amenities do not establish an accessible riverbank.",
+              "sourceIds": [
+                "ca-marshall-visit"
+              ],
+              "locator": "Activities and facilities"
+            }
+          ],
+          "articleIds": [
+            "article:where-gold-settles",
+            "article:classification-basics"
+          ],
+          "beforeYouGo": [
+            "Ask staff for the designated panning reach before taking equipment to the river.",
+            "Check current river conditions and opening hours; a historical map is not a live access report.",
+            "Confirm lesson availability if you want instruction rather than independent river panning."
+          ],
+          "sourceIds": [
+            "ca-marshall-visit",
+            "ca-marshall-panning",
+            "ca-marshall-brochure"
+          ],
+          "locator": "Published activity policy and visitor details; see field-level references",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
       ]
     },
     {
@@ -575,6 +764,83 @@
       ],
       "accessSourceIds": [
         "nc-access"
+      ],
+      "destinations": [
+        {
+          "id": "US-NC:reed-panning",
+          "title": "Reed Gold Mine · learn at the troughs",
+          "text": "A supervised panning experience at the historic site near Midland. Practice at the site’s troughs with instructor help; this program does not grant access to pan in Little Meadow Creek.",
+          "kind": "supervised_practice",
+          "permissionSourceId": "nc-reed-trip",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "9621 Reed Mine Road, Midland, NC 28107. Call 704-721-4653.",
+              "sourceIds": [
+                "nc-reed-visit"
+              ],
+              "locator": "Address; Contact"
+            },
+            {
+              "key": "entry",
+              "text": "Buy panning tickets at the gift-shop counter, first come, first served. Advance booking is not offered for individual panning sessions.",
+              "sourceIds": [
+                "nc-reed-trip"
+              ],
+              "locator": "Gold Panning: tickets and sessions"
+            },
+            {
+              "key": "equipment",
+              "text": "Use the managed trough program and follow instructor guidance. Children under eight can help an adult but cannot have their own pan.",
+              "sourceIds": [
+                "nc-reed-trip"
+              ],
+              "locator": "Gold Panning: instruction and age limits"
+            },
+            {
+              "key": "fees",
+              "text": "Panning is $5 plus tax. The detailed guide describes a per-pan ticket; the main page says per person. Confirm your party’s ticket needs at the desk. General site admission is free.",
+              "sourceIds": [
+                "nc-reed-trip",
+                "nc-reed-visit"
+              ],
+              "locator": "Gold Panning; Admission"
+            },
+            {
+              "key": "season",
+              "text": "Tuesday–Saturday, weather permitting. The detailed guide describes March–November outdoor troughs and December–February visitor-center troughs, but an older April–October summary remains. Call before a winter visit. The Sunday pilot has ended.",
+              "sourceIds": [
+                "nc-reed-trip",
+                "nc-reed-visit"
+              ],
+              "locator": "Gold Panning; Hours; older seasonal summary"
+            },
+            {
+              "key": "facilities",
+              "text": "Visitor center, accessible panning area and restrooms, shaded picnic area and trails. Underground tours are a separate guided activity.",
+              "sourceIds": [
+                "nc-reed-trip"
+              ],
+              "locator": "Accessibility; Picnic Facilities; Tours"
+            }
+          ],
+          "articleIds": [
+            "article:is-that-really-gold",
+            "article:compare-test-pans"
+          ],
+          "beforeYouGo": [
+            "Confirm the current session schedule, especially during winter.",
+            "Check weather closures before setting out.",
+            "Ask how many pan tickets your family needs, including children under eight."
+          ],
+          "sourceIds": [
+            "nc-reed-visit",
+            "nc-reed-trip"
+          ],
+          "locator": "Published activity policy and visitor details; see field-level references",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
       ]
     },
     {
@@ -1246,7 +1512,8 @@
       "articleIds": [
         "article:where-gold-settles",
         "article:is-that-really-gold",
-        "article:compare-test-pans"
+        "article:compare-test-pans",
+        "article:black-sands"
       ],
       "archiveIds": [],
       "accessSourceIds": [
@@ -2138,6 +2405,122 @@
       "articleIds": [],
       "archiveIds": [],
       "accessSourceIds": []
+    },
+    {
+      "id": "US-GA",
+      "overview": {
+        "id": "US-GA:overview",
+        "text": "Dahlonega anchors North Georgia’s gold-mining history. Georgia DNR describes a gold rush into the Cherokee Nation before the California rush. Today, a managed panning lesson offers a way to practice without treating historical mining districts as open-access sites.",
+        "sourceIds": [
+          "ga-dahlonega-museum",
+          "ga-consolidated-panning"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [],
+      "history": [
+        {
+          "id": "US-GA:dahlonega-mint",
+          "title": "Dahlonega’s mint and museum",
+          "text": "The U.S. branch mint operated here from 1838 to 1861. The Gold Museum occupies the 1836 Lumpkin County Courthouse and interprets the region’s mining history; its museum listing is not a prospecting permit.",
+          "sourceIds": [
+            "ga-dahlonega-museum"
+          ],
+          "locator": "Branch mint and courthouse history",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "places": [],
+      "articleIds": [
+        "article:is-that-really-gold",
+        "article:classification-basics"
+      ],
+      "archiveIds": [],
+      "accessSourceIds": [
+        "ga-consolidated-panning"
+      ],
+      "destinations": [
+        {
+          "id": "US-GA:consolidated-panning",
+          "title": "Consolidated Gold Mine · indoor panning practice",
+          "text": "An instructor-assisted indoor panning experience in Dahlonega. A sample pan comes with paid underground-tour admission, or the operator offers a separate panning-only package. This is managed practice, not permission to work nearby streams.",
+          "kind": "supervised_practice",
+          "permissionSourceId": "ga-consolidated-panning",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "185 Consolidated Gold Mine Road, Dahlonega, GA 30533. Call 706-864-8473.",
+              "sourceIds": [
+                "ga-consolidated-contact"
+              ],
+              "locator": "Directions: address and phone"
+            },
+            {
+              "key": "entry",
+              "text": "Choose a paid underground tour with its included sample pan, or ask about the separate panning-only option. The tour and panning area have different accessibility conditions.",
+              "sourceIds": [
+                "ga-consolidated-panning",
+                "ga-consolidated-tour"
+              ],
+              "locator": "Gold Panning; tour accessibility"
+            },
+            {
+              "key": "equipment",
+              "text": "Instructors help with the panning technique, and a souvenir bottle is provided. Ask which pan package suits your visit. Closed-toe shoes are recommended for the optional mine tour.",
+              "sourceIds": [
+                "ga-consolidated-panning",
+                "ga-consolidated-tour"
+              ],
+              "locator": "Instruction and bottle; tour footwear"
+            },
+            {
+              "key": "fees",
+              "text": "Published tour admission: $24.95 ages 13+ and $15.95 ages 3–12, plus tax, with a sample pan. Panning-only starts at $60. Confirm the package before purchase.",
+              "sourceIds": [
+                "ga-consolidated-tour",
+                "ga-consolidated-panning"
+              ],
+              "locator": "Underground Tour pricing; separate panning price"
+            },
+            {
+              "key": "season",
+              "text": "Open daily 10am–5pm, rain or shine. Closed Easter Sunday, Thanksgiving and Christmas. Christmas Eve has shortened hours; check the operator’s current schedule.",
+              "sourceIds": [
+                "ga-consolidated-visit"
+              ],
+              "locator": "Hours of Operation; holidays"
+            },
+            {
+              "key": "facilities",
+              "text": "Indoor panning and gift shop. Mobility devices are welcomed in the panning area, but the optional underground tour has stairs and excludes wheelchairs, walkers and strollers. Confirm your access needs directly.",
+              "sourceIds": [
+                "ga-consolidated-tour"
+              ],
+              "locator": "Indoor panning; stairs; mobility-device policy"
+            }
+          ],
+          "articleIds": [
+            "article:is-that-really-gold",
+            "article:classification-basics"
+          ],
+          "beforeYouGo": [
+            "Ask for the current panning-only package price if you do not want the mine tour.",
+            "Confirm accessible arrangements for the panning area separately from the underground tour.",
+            "Check holiday hours and group arrangements before traveling."
+          ],
+          "sourceIds": [
+            "ga-consolidated-visit",
+            "ga-consolidated-panning",
+            "ga-consolidated-tour",
+            "ga-consolidated-contact"
+          ],
+          "locator": "Published activity policy and visitor details; see field-level references",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ]
     }
   ],
   "archives": [
