@@ -44,3 +44,7 @@ Commit and push this entire project, including package.json, package-lock.json, 
 ## Creator administration
 
 The owner-only workspace is implemented at `/admin/login/` and `/admin/creators/`. It stays disabled until private ADMIN_* settings are configured. Setup, migration status, security controls and limits: [Creator management](docs/creator-management.md).
+
+## Gold Almanac
+
+The state map and source-backed guides are available at `/gold-almanac/`. See [Gold Almanac implementation and editorial guide](docs/gold-almanac.md) for data structure, existing database connections, source requirements, and verification notes. No new migration or API credentials are needed.

@@ -1,4 +1,4 @@
-import {explainControl, helpPreferenceKey} from './site-help-content.js?v=213e445e9c32';
+import {explainControl, helpPreferenceKey} from './site-help-content.js?v=a2ee3a66cee6';
 
 const menu = document.querySelector('.left .trail-menu');
 if(menu) {
@@ -33,7 +33,7 @@ if(menu) {
   button.setAttribute('aria-label',`Explain ${name}`);button.setAttribute('aria-controls',bubble.id);
   navigationHelp.set(button,{label:name,text});row.append(button);
  }
- function target(node){const el=node?.closest?.(targets);return el&&!el.closest('.site-nav-row,.site-help-switch,.site-help-tooltip,.source-preview,.leaflet-container')&&!el.classList.contains('term')&&!el.disabled&&!el.closest('[hidden],fieldset[disabled]')&&description(el)?el:null;}
+ function target(node){const el=node?.closest?.(targets);return el&&!el.closest('.site-nav-row,.site-help-switch,.site-help-tooltip,.source-preview,.leaflet-container,.almanac-map')&&!el.classList.contains('term')&&!el.disabled&&!el.closest('[hidden],fieldset[disabled]')&&description(el)?el:null;}
  function clearTimers(){clearTimeout(showTimer);clearTimeout(hideTimer);clearTimeout(dismissTimer);}
  function hide(){clearTimers();if(active){const ids=(active.getAttribute('aria-describedby')||'').split(/\s+/).filter(id=>id&&id!==bubble.id);if(ids.length)active.setAttribute('aria-describedby',ids.join(' '));else active.removeAttribute('aria-describedby');}active=null;bubble.hidden=true;}
  function position(){if(!active)return;const v=window.visualViewport,left=v?.offsetLeft||0,top=v?.offsetTop||0,w=v?.width||innerWidth,h=v?.height||innerHeight,r=active.getBoundingClientRect(),b=bubble.getBoundingClientRect();if(navigationHelp.has(active)){const edge=menu.getBoundingClientRect().right+12;const beside=w>750&&edge+b.width<=left+w-12;bubble.style.left=(beside?edge:Math.max(left+12,left+(w-b.width)/2))+'px';bubble.style.top=(beside?Math.max(top+12,Math.min(r.top,top+h-b.height-12)):Math.max(top+12,top+h-b.height-12))+'px';return;}bubble.style.left=Math.max(left+12,Math.min(r.left,left+w-b.width-12))+'px';const below=r.bottom+9;const y=below+b.height<=top+h-12?below:r.top-b.height-9;bubble.style.top=Math.max(top+12,Math.min(y,top+h-b.height-12))+'px';}

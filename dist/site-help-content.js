@@ -2,6 +2,7 @@
 export const helpPreferenceKey = 'gold-trails-explanations-v1';
 const routes = {
  '/': '', // The Home link is self-explanatory.
+ '/gold-almanac/': 'Choose a U.S. state to explore its gold history, creators, waterways, and original sources. State details appear below the map.',
  '/articles/': 'Browse the article library. Search by subject and change the order of the list.',
  '/glossary/': 'Look up prospecting, geology, river, and weather terms. Hover, focus, or tap a term to read its definition.',
  '/prospectors/': 'Explore the same creator directory as a list or a map. Filter by name, region, topic, or prospecting setting.',

@@ -1,7 +1,9 @@
+// Fail the build on unattributed facts or dangling state/article relationships.
+import '../app/almanac/model.js';
 import {readdir,readFile,access} from 'node:fs/promises';
 import {resolve,dirname,join} from 'node:path';
 // These routes are supplied by the server and covered by HTTP tests.
-const serverRoutes=new Set(['/admin/login/','/creator-map/','/compass/','/products/report/']);
+const serverRoutes=new Set(['/admin/login/','/creator-map/','/compass/','/products/report/','/gold-almanac/']);
 const root=resolve('dist');let count=0,links=0;const errors=[];
 async function walk(dir){for(const ent of await readdir(dir,{withFileTypes:true})){const file=join(dir,ent.name);if(ent.isDirectory())await walk(file);else if(ent.name.endsWith('.html')){
  count++;const html=await readFile(file,'utf8');

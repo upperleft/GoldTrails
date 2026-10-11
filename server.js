@@ -1,3 +1,5 @@
+import {createAlmanacHandler} from './app/almanac/handler.js';
+import {createAlmanacStore} from './app/almanac/store.js';
 import { createDatabase } from './app/database.js';
 import { createDirectoryStore } from './app/directory-store.js';
 import { createServer } from './app/server.js';
@@ -28,7 +30,7 @@ const directory=db?createDirectoryStore(db):null, compassStore=db?createCompassS
 const members=createMemberHandler({store:memberStore,config:memberSettings,mail:memberMail()});
 const compass=createCompassHandler({members:memberStore,store:compassStore,config:memberSettings,content:createCompassContent({directory,store:compassStore,productsStore:productWorkspace})});
 const products=createProductsHandler({store:productWorkspace,members:memberStore,config:memberSettings});
-const server = createServer({ members, directory, admin, compass, products });
+const server = createServer({ members, directory, admin, compass, products, almanac:createAlmanacHandler({store:db?createAlmanacStore(db):null,log:console.error}) });
 const port = Number(process.env.PORT || 3000);
 server.listen(port,'0.0.0.0',() => console.log(`Gold Trails listening on port ${port}`));
 for (const signal of ['SIGTERM','SIGINT']) process.on(signal,() => {

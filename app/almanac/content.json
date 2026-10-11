@@ -1,0 +1,1616 @@
+{
+  "version": 4,
+  "reviewedAt": "2026-10-11",
+  "sources": [
+    {
+      "id": "cgs-gold",
+      "title": "Gold: California’s state mineral",
+      "publisher": "California Geological Survey",
+      "url": "https://www.conservation.ca.gov/cgs/minerals/gold",
+      "locator": "Gold discovery; Gold in California; Gold maps",
+      "checkedAt": "2026-10-11",
+      "year": null
+    },
+    {
+      "id": "cgs-discovery",
+      "title": "The discovery of gold in California",
+      "publisher": "Donald C. Cutter / California Division of Mines",
+      "url": "https://www.conservation.ca.gov/cgs/pages/program-minerals/golddiscovery.aspx",
+      "locator": "Historical account originally published in Bulletin 141",
+      "checkedAt": "2026-10-11",
+      "year": 1948
+    },
+    {
+      "id": "reed-history",
+      "title": "Reed Gold Mine: history",
+      "publisher": "North Carolina Historic Sites",
+      "url": "https://historicsites.nc.gov/all-sites/reed-gold-mine/history",
+      "locator": "Opening history and early mining paragraphs",
+      "checkedAt": "2026-10-11",
+      "year": null
+    },
+    {
+      "id": "nc-access",
+      "title": "Gems / Gold Panning",
+      "publisher": "North Carolina DEQ",
+      "url": "https://www.deq.nc.gov/about/divisions/environmental-assistance-and-customer-service/z-topic-index/gemsgold-panning",
+      "locator": "Landowner permission and public-land restrictions",
+      "checkedAt": "2026-10-11",
+      "year": null
+    },
+    {
+      "id": "maine-gold",
+      "title": "Gold in Maine",
+      "publisher": "Maine Geological Survey",
+      "url": "https://www.maine.gov/dacf/mgs/explore/minerals/facts/goldfact.htm",
+      "locator": "Opening geology; General Regulations; Gold Panning Streams",
+      "checkedAt": "2026-10-11",
+      "year": 2023
+    },
+    {
+      "id": "nevada-2024",
+      "title": "Major Mines of Nevada 2024, Special Publication P-36",
+      "publisher": "Rob Ghiglieri and Lucia Patterson / Nevada Division of Minerals & Nevada Bureau of Mines and Geology",
+      "url": "https://www.minerals.nv.gov/siteassets/content/programs/mining/p036_text.pdf",
+      "locator": "Printed pp. 22–24; PDF pp. 25–27",
+      "checkedAt": "2026-10-11",
+      "year": 2025
+    },
+    {
+      "id": "blm-claims",
+      "title": "Mining claims: locatable minerals",
+      "publisher": "Bureau of Land Management",
+      "url": "https://www.blm.gov/programs/energy-and-minerals/mining-and-minerals/locatable-minerals/mining-claims",
+      "locator": "Federal mineral rights and mining claims",
+      "checkedAt": "2026-10-11",
+      "year": null
+    },
+    {
+      "id": "blm-ca",
+      "title": "Mining and minerals in California",
+      "publisher": "Bureau of Land Management",
+      "url": "https://www.blm.gov/programs/energy-and-minerals/mining-and-minerals/about/california",
+      "locator": "California mining and minerals guidance",
+      "checkedAt": "2026-10-11",
+      "year": null
+    },
+    {
+      "id": "nh-gold-2020",
+      "title": "Gold in New Hampshire · GEO-1",
+      "publisher": "New Hampshire Department of Environmental Services",
+      "url": "https://www.des.nh.gov/sites/g/files/ehbemt341/files/documents/2020-01/geo-1.pdf",
+      "locator": "2020 fact sheet; pp. 1–2: history, panning, dredging and Ammonoosuc district",
+      "checkedAt": "2026-10-11",
+      "year": 2020,
+      "inspectionBasis": "official_indexed_text"
+    },
+    {
+      "id": "vt-gold-1998",
+      "title": "Gold in Vermont · historical source collection",
+      "publisher": "Vermont Geological Survey / Vermont Department of Environmental Conservation",
+      "url": "https://dec.vermont.gov/sites/dec/files/geo/MiscPubs/GoldInVT_1998.pdf",
+      "locator": "PDF pp. 10–11: E. L. Perry (1929), Bridgewater and Plymouth; historical accounts, not present-day access",
+      "checkedAt": "2026-10-11",
+      "year": 1998,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "vt-camp-plymouth",
+      "title": "Camp Plymouth State Park",
+      "publisher": "Vermont State Parks",
+      "url": "https://www.vtstateparks.com/parks/camp-plymouth",
+      "locator": "History; Gold Panning; Park Information; Facilities and Amenities",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "vt-panning-rules",
+      "title": "Other activities · gold panning rules",
+      "publisher": "Vermont State Parks",
+      "url": "https://www.vtstateparks.com/other-activities#goldPanning",
+      "locator": "Gold Panning: hand tools, streambed limits and wildlife management areas",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "vt-sluice-2023",
+      "title": "Six Tips on Gold Panning and Guidance for the use of Sluice Boxes",
+      "publisher": "Vermont Agency of Natural Resources · Rivers Program",
+      "url": "https://anr.vermont.gov/sites/anr/files/documents/rv_Panning_Sluicing_Guidance.pdf",
+      "locator": "May 12, 2023; PDF pp. 1–2: private land, sluice approval and suction dredges",
+      "checkedAt": "2026-10-11",
+      "year": 2023,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ma-surficial-2018",
+      "title": "Surficial materials of Massachusetts · Scientific Investigations Map 3402",
+      "publisher": "Janet R. Stone and colleagues / U.S. Geological Survey and Massachusetts Geological Survey",
+      "url": "https://pubs.usgs.gov/publication/sim3402",
+      "locator": "Abstract; map units and statewide quadrangle coverage; published 2018, posted March 1, 2019",
+      "checkedAt": "2026-10-11",
+      "year": 2018,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ma-boston-1932",
+      "title": "Geology of the Boston area, Massachusetts · Bulletin 839",
+      "publisher": "Laurence La Forge / U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/bul/0839/report.pdf",
+      "locator": "Printed p. 88 / PDF p. 107: reported metallic deposits; scope is the Boston area, not the entire state",
+      "checkedAt": "2026-10-11",
+      "year": 1932,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ma-dcr-regulations",
+      "title": "DCR Agency Regulations",
+      "publisher": "Massachusetts Department of Conservation and Recreation",
+      "url": "https://www.mass.gov/info-details/dcr-agency-regulations",
+      "locator": "Current regulations; 302 CMR 12.00 Parks and Recreation Rules; drafts under review",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "official_indexed_text"
+    },
+    {
+      "id": "ct-mines-2022",
+      "title": "Connecticut Bedrock Mining Sites Database",
+      "publisher": "Connecticut Geological and Natural History Survey / Department of Energy and Environmental Protection",
+      "url": "https://portal.ct.gov/deep/geology/connecticut-bedrock-mining-sites-database-2022",
+      "locator": "2022 inventory; commodity data, validation and landowner-access qualifications",
+      "checkedAt": "2026-10-11",
+      "year": 2022,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ct-mines-report-2022",
+      "title": "Bedrock Mines and Quarries of Connecticut · final technical report",
+      "publisher": "Connecticut Geological Survey / Department of Energy and Environmental Protection",
+      "url": "https://portal.ct.gov/-/media/DEEP/geology/Maps/GeoGISdata/BedrockMines/MinesProjectFinalTechnicalReportVer101.pdf",
+      "locator": "PDF pp. 2–3; 2022 version 1.01 inventory; historical gold described as possible, not established",
+      "checkedAt": "2026-10-11",
+      "year": 2022,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ct-collecting-rules",
+      "title": "Rock and Mineral Collecting",
+      "publisher": "Connecticut Department of Energy and Environmental Protection",
+      "url": "https://portal.ct.gov/deep/geology/rock-and-mineral-collecting",
+      "locator": "State-land collecting restrictions; written educational or scientific authorization",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ri-bedrock-1971",
+      "title": "Bedrock geology of Rhode Island · Bulletin 1295",
+      "publisher": "Alonzo W. Quinn / U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/bul/1295/report.pdf",
+      "locator": "Printed p. 58 / PDF p. 66: Metal Deposits; historical mine names and limits of knowledge",
+      "checkedAt": "2026-10-11",
+      "year": 1971,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ri-campground-policies",
+      "title": "Camping Policies · protection of state property",
+      "publisher": "Rhode Island State Parks / Department of Environmental Management",
+      "url": "https://riparks.ri.gov/campgrounds/camping-policies",
+      "locator": "Protection Of State Property; minerals, rocks and fossils on state lands",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "me-mineral-records",
+      "title": "Maine Mineral Resources — database and downloadable records",
+      "publisher": "Maine Geological Survey",
+      "url": "https://www.maine.gov/dacf/mgs/explore/mining/mrds/mrds.htm",
+      "year": 2009,
+      "locator": "MGS_RECNO identifiers in linked CSV; WGS84 coordinates and LOCAT_ACC",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "vt-mrds-records",
+      "title": "USGS Mineral Resources Data System — Vermont GIS records",
+      "publisher": "Vermont ANR / USGS",
+      "url": "https://anrmaps.vermont.gov/arcgis/rest/services/map_services/MAP_ANR_ANRATLASGEOLOGY_WM_NOCACHE/MapServer/14",
+      "locator": "DEP_ID 10081526 and 10081187; attribute records, not current access information",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nh-lyman-history",
+      "title": "Town of Lyman Master Plan (2007)",
+      "publisher": "Town of Lyman, New Hampshire",
+      "url": "https://www.lymannh.org/sites/g/files/vyhlif821/f/uploads/town_of_lyman_master_plan_2007.pdf",
+      "year": 2007,
+      "locator": "Printed page 10 — historical background",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "official_indexed_text"
+    },
+    {
+      "id": "ny-mineral-history",
+      "title": "Mineral Industry of the State of New York, 2007–2010",
+      "publisher": "New York State Museum",
+      "url": "https://www.nysm.nysed.gov/sites/default/files/nysmrecord-vol3_0.pdf",
+      "year": 2011,
+      "locator": "William M. Kelly, Record 3, chapter 1, printed page 1",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "me-emj-1880",
+      "title": "Maine Mining News · Engineering and Mining Journal, July 31, 1880",
+      "publisher": "Engineering and Mining Journal · contemporary correspondence",
+      "year": 1880,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/66/The_Engineering_and_Mining_Journal_1880-07-31-_Vol_30_Iss_5_%28IA_sim_engineering-and-mining-journal_1880-07-31_30_5%29.pdf#page=4",
+      "locator": "Vol. 30, no. 5, printed p. 72 (PDF p. 4); Douglass, Ellsworth, July 26; scan inspected",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "id": "me-emj-1881",
+      "title": "Maine Mining News · Engineering and Mining Journal, February 5, 1881",
+      "publisher": "Engineering and Mining Journal · contemporary correspondence",
+      "year": 1881,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/The_Engineering_and_Mining_Journal_1881-02-05-_Vol_31_Iss_6_%28IA_sim_engineering-and-mining-journal_1881-02-05_31_6%29.pdf#page=5",
+      "locator": "Vol. 31, no. 6, printed p. 93 (PDF p. 5); Douglass, Ellsworth, February 1; scan inspected",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "id": "me-corporations-1887",
+      "title": "Business Corporations, 1820–1887 · Maine state register",
+      "publisher": "State of Maine · Law and Legislative Digital Library",
+      "year": 1887,
+      "url": "https://lldc.mainelegislature.org/Open/Rpts/PubDocs/PubDocs1887v1/PD1887v1_13.pdf",
+      "locator": "General-law section lists certificate filing dates; printed pp. 85 and 112 (PDF pp. 87 and 114); volume wrapper printed 1888",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "id": "me-metal-catalog-1958",
+      "title": "Maine metal mines and prospects · MRI-3 (1958)",
+      "publisher": "Maine Geological Survey · Digital Maine",
+      "year": 1958,
+      "url": "https://digitalmaine.com/mgs_publications/133/",
+      "locator": "Hussey, Rand and Austin; 53 pages with geological sketch maps. Catalog checked; full scan not available to inspect in this session",
+      "inspectionBasis": "catalog_metadata",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "id": "me-hancock-catalog-1962",
+      "title": "Prospect evaluations, Hancock County, Maine · SESS-2 (1962)",
+      "publisher": "Maine Geological Survey · Digital Maine",
+      "year": 1962,
+      "url": "https://digitalmaine.com/mgs_publications/523/",
+      "locator": "Robert S. Young; 113 pages. Catalog checked; full scan not available to inspect in this session",
+      "inspectionBasis": "catalog_metadata",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "id": "nh-hoskins-1903",
+      "title": "Historical sketches of Lyman, New Hampshire (1903)",
+      "publisher": "E. B. Hoskins · published by Charles P. Hibbard",
+      "year": 1903,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Historical_sketches_of_Lyman%2C_New_Hampshire_%28IA_historicalsketch00hosk%29.pdf#page=21",
+      "locator": "Printed pp. 15 and 102 (PDF pp. 21 and 128); original scanned pages and Internet Archive catalog inspected",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "id": "nh-act-lyman",
+      "title": "Lyman conservation areas · Godfrey Memorial Conservation Area",
+      "publisher": "Ammonoosuc Conservation Trust",
+      "url": "https://act-nh.org/lyman",
+      "locator": "Godfrey Memorial Conservation Area section; land-manager account, undated",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-11"
+    },
+    {
+      "id": "nh-minerals-map-1957",
+      "title": "Mineral deposits and occurrences in New Hampshire · Resource Map MR-6 (1957)",
+      "publisher": "U.S. Geological Survey · Nancy C. Pearre and James A. Calkins",
+      "year": 1957,
+      "url": "https://pubs.usgs.gov/mr/06/plate-1.pdf",
+      "locator": "1:500,000 statewide map; Carroll County locality 6 and Grafton County locality group 49; compiled historical records, not entrance surveys",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-11"
+    }
+  ],
+  "states": [
+    {
+      "id": "US-CA",
+      "overview": {
+        "id": "US-CA:overview",
+        "text": "California’s gold story includes placer deposits, hard-rock mining, and the rush triggered by the 1848 discovery at Sutter’s sawmill. The California Geological Survey’s historical account also describes discoveries before 1848; the rush date is not the state’s first discovery date.",
+        "sourceIds": [
+          "cgs-gold",
+          "cgs-discovery"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [
+        {
+          "id": "US-CA:historic-sites",
+          "key": "historic-sites",
+          "label": "Historic gold sites mapped",
+          "value": 13500,
+          "unit": "mine sites",
+          "period": "1998–2000 map program",
+          "scope": "US-CA",
+          "definition": "Sites on CGS Gold Districts of California map MM009. This is a historical map inventory, not a count of active mines.",
+          "sourceIds": [
+            "cgs-gold"
+          ],
+          "locator": "Gold in California / MM009",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "history": [
+        {
+          "id": "US-CA:rush",
+          "title": "The discovery that sparked the rush",
+          "text": "CGS dates James Marshall’s discovery at Sutter’s sawmill on the South Fork of the American River to January 24, 1848. Treat that landmark separately from earlier discoveries.",
+          "sourceIds": [
+            "cgs-gold"
+          ],
+          "locator": "Gold discovery",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "places": [
+        {
+          "id": "US-CA:south-fork-american",
+          "title": "South Fork of the American River",
+          "text": "The river associated with Marshall’s 1848 discovery, according to CGS. This historical connection does not establish a present-day place to pan.",
+          "sourceIds": [
+            "cgs-gold"
+          ],
+          "locator": "Gold discovery",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "articleIds": [
+        "article:where-gold-settles",
+        "article:classification-basics"
+      ],
+      "archiveIds": [
+        "ia:basicplacerminin41cali",
+        "ia:placergoldrecove87silv"
+      ],
+      "accessSourceIds": [
+        "blm-ca",
+        "blm-claims"
+      ]
+    },
+    {
+      "id": "US-NC",
+      "overview": {
+        "id": "US-NC:overview",
+        "text": "North Carolina’s Reed Gold Mine history begins with Conrad Reed’s 1799 find in Little Meadow Creek. The official account describes the growth of early mining and the work of enslaved people, whose contributions belong in the story alongside mine owners.",
+        "sourceIds": [
+          "reed-history"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [
+        {
+          "id": "US-NC:first-discovery",
+          "key": "first-discovery",
+          "label": "First documented discovery",
+          "value": 1799,
+          "unit": "year",
+          "period": "1799",
+          "scope": "US-NC",
+          "definition": "Reed Gold Mine is identified by North Carolina Historic Sites as the first documented gold find in the United States; the find was in Cabarrus County.",
+          "sourceIds": [
+            "reed-history"
+          ],
+          "locator": "Opening history paragraph",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "history": [
+        {
+          "id": "US-NC:peter",
+          "title": "Remembering Peter’s contribution",
+          "text": "North Carolina Historic Sites identifies Peter, an enslaved boy, as the finder of a large nugget during the first year of John Reed’s 1803 mining partnership. The account also records that the partnership supplied enslaved labor.",
+          "sourceIds": [
+            "reed-history"
+          ],
+          "locator": "Early mining partnership paragraphs",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "places": [
+        {
+          "id": "US-NC:little-meadow-creek",
+          "title": "Little Meadow Creek · Cabarrus County",
+          "text": "The official Reed Gold Mine history locates Conrad Reed’s 1799 discovery here. It is a historical reference, not an open-access prospecting recommendation.",
+          "sourceIds": [
+            "reed-history"
+          ],
+          "locator": "Opening history paragraph",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "articleIds": [
+        "article:is-that-really-gold",
+        "article:compare-test-pans"
+      ],
+      "archiveIds": [
+        "ia:golddepositsofno01nitz"
+      ],
+      "accessSourceIds": [
+        "nc-access"
+      ]
+    },
+    {
+      "id": "US-ME",
+      "overview": {
+        "id": "US-ME:overview",
+        "text": "Maine Geological Survey describes gold in bedrock, glacial sediments, and stream deposits, with much of the gold found coming from stream-bed placers. Its published stream list is a starting point for research, not proof of permission or a promise of gold.",
+        "sourceIds": [
+          "maine-gold"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [],
+      "history": [],
+      "places": [
+        {
+          "id": "US-ME:swift-river",
+          "title": "Swift River and tributaries · Byron area",
+          "text": "Maine Geological Survey lists reported gold occurrences in the Byron area, in Oxford and Franklin counties. Check current ownership, land-manager requirements, and the rules for your intended equipment.",
+          "sourceIds": [
+            "maine-gold"
+          ],
+          "locator": "Gold Panning Streams table; page updated April 12, 2023",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "articleIds": [
+        "article:where-gold-settles",
+        "article:black-sands",
+        "article:compare-test-pans"
+      ],
+      "archiveIds": [],
+      "accessSourceIds": [
+        "maine-gold"
+      ],
+      "accessNotes": [
+        {
+          "id": "US-ME:permission-and-equipment",
+          "title": "Hand tools and motorized equipment are different categories",
+          "text": "Maine Geological Survey’s 2023 guidance distinguishes hand-tool panning from motorized recreational prospecting and requires landowner permission. Motorized work has additional seasonal, equipment and closed-water restrictions. Check the current rules with DEP or LUPC for the township you plan to visit.",
+          "sourceIds": [
+            "maine-gold"
+          ],
+          "locator": "General Regulations; Organized Or Unorganized Township?",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "mines": [
+        {
+          "id": "US-ME:mine:674",
+          "title": "Bean Mountain Mine",
+          "kind": "gold_mine",
+          "text": "Listed as a past producer with gold as its major commodity.",
+          "dates": "Operating dates not established.",
+          "location": {
+            "description": "Milton Twp, Oxford County",
+            "precision": "recorded_approximate",
+            "coordinates": [
+              44.46,
+              -70.5697
+            ],
+            "accuracyMeters": null,
+            "datum": "WGS84",
+            "sourceId": "me-mineral-records",
+            "locator": "MGS_RECNO 674"
+          },
+          "sourceIds": [
+            "me-mineral-records"
+          ],
+          "locator": "MGS_RECNO 674",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-ME:mine:674:bibliography",
+              "title": "The earlier record",
+              "text": "The Maine Geological Survey record cites Morrill and others, Maine Mines and Minerals, vol. 1, Western Maine (1958), p. 29. That is a specific lead for the mine’s history; the original book pages have not yet been inspected. The database entry does not supply an operating period, named operator or workings description.",
+              "sourceIds": [
+                "me-mineral-records"
+              ],
+              "locator": "MGS_RECNO 674, REFERENCE and record fields",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "researchNote": "Opening and closing dates, named operators and a mine-specific photograph or plan remain to be established.",
+          "furtherReading": [
+            {
+              "sourceId": "me-mineral-records",
+              "locator": "MGS_RECNO 674; downloadable CSV bibliography",
+              "inspection": "document_reviewed"
+            }
+          ]
+        },
+        {
+          "id": "US-ME:mine:782",
+          "title": "Page Mine",
+          "kind": "gold_mine",
+          "text": "Listed as a past producer; gold is the major commodity.",
+          "dates": "Operating dates not established.",
+          "location": {
+            "description": "Rockport, Knox County",
+            "precision": "recorded_approximate",
+            "coordinates": [
+              44.1792,
+              -69.0622
+            ],
+            "accuracyMeters": null,
+            "datum": "WGS84",
+            "sourceId": "me-mineral-records",
+            "locator": "MGS_RECNO 782"
+          },
+          "sourceIds": [
+            "me-mineral-records"
+          ],
+          "locator": "MGS_RECNO 782",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-ME:mine:782:bibliography",
+              "title": "The earlier record",
+              "text": "The Maine Geological Survey record cites Morrill and Hinckley, Maine Mines and Minerals, vol. 2, Eastern Maine (1959), pp. 43 and 64. That is a specific lead for the mine’s history; the original book pages have not yet been inspected. The database entry does not supply an operating period, named operator or workings description.",
+              "sourceIds": [
+                "me-mineral-records"
+              ],
+              "locator": "MGS_RECNO 782, REFERENCE and record fields",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "researchNote": "Opening and closing dates, named operators and a mine-specific photograph or plan remain to be established.",
+          "furtherReading": [
+            {
+              "sourceId": "me-mineral-records",
+              "locator": "MGS_RECNO 782; downloadable CSV bibliography",
+              "inspection": "document_reviewed"
+            }
+          ]
+        },
+        {
+          "id": "US-ME:mine:1039",
+          "title": "Gold Mine, Paris",
+          "kind": "gold_mine",
+          "text": "A historic database entry named Gold Mine; recorded as a past producer.",
+          "dates": "Operating dates not established.",
+          "location": {
+            "description": "Paris, Oxford County",
+            "precision": "recorded_approximate",
+            "coordinates": [
+              44.28719999,
+              -70.4639
+            ],
+            "accuracyMeters": null,
+            "datum": "WGS84",
+            "sourceId": "me-mineral-records",
+            "locator": "MGS_RECNO 1039"
+          },
+          "sourceIds": [
+            "me-mineral-records"
+          ],
+          "locator": "MGS_RECNO 1039",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-ME:mine:1039:bibliography",
+              "title": "The earlier record",
+              "text": "The Maine Geological Survey record cites Morrill, Maine Mines and Minerals, vol. 1, Western Maine (1958), p. 72. That is a specific lead for the mine’s history; the original book pages have not yet been inspected. The database entry does not supply an operating period, named operator or workings description.",
+              "sourceIds": [
+                "me-mineral-records"
+              ],
+              "locator": "MGS_RECNO 1039, REFERENCE and record fields",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "researchNote": "Opening and closing dates, named operators and a mine-specific photograph or plan remain to be established.",
+          "furtherReading": [
+            {
+              "sourceId": "me-mineral-records",
+              "locator": "MGS_RECNO 1039; downloadable CSV bibliography",
+              "inspection": "document_reviewed"
+            }
+          ]
+        },
+        {
+          "id": "US-ME:mine:1681",
+          "title": "Millbrook Mine",
+          "kind": "gold_silver_mine",
+          "text": "Gold and silver are listed in this past-producer record. Its surviving descriptions give a much more tangible picture of the workings.",
+          "dates": "Operating dates not established.",
+          "location": {
+            "description": "Sullivan, Hancock County",
+            "precision": "recorded_approximate",
+            "coordinates": [
+              44.5280199,
+              -68.21915276
+            ],
+            "accuracyMeters": 100,
+            "datum": "WGS84",
+            "sourceId": "me-mineral-records",
+            "locator": "MGS_RECNO 1681"
+          },
+          "sourceIds": [
+            "me-mineral-records",
+            "me-hancock-catalog-1962",
+            "me-metal-catalog-1958"
+          ],
+          "locator": "MGS_RECNO 1681",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-ME:mine:1681:workings",
+              "title": "A shaft beside the brook",
+              "text": "MGS records a 105-foot vertical shaft with a six-foot crosscut at that depth, along with old foundations and a dump. It also notes bedrock exposed in the brook. These are historical record descriptions, not a current condition survey.",
+              "sourceIds": [
+                "me-mineral-records"
+              ],
+              "locator": "MGS_RECNO 1681, WORKINGS and GEOL_COMM",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-ME:mine:1681:name",
+              "title": "Another name to search",
+              "text": "The database lists West Sullivan Group as a synonym. Its bibliography points to Young’s 1962 Hancock County evaluation, pp. 97, 99 and 104; the 1958 metal-mines index, pp. 28 and 49; and Morrill and Hinckley’s 1959 Eastern Maine volume, pp. 46 and 73.",
+              "sourceIds": [
+                "me-mineral-records"
+              ],
+              "locator": "MGS_RECNO 1681, SYNONYM and REFERENCE",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "me-hancock-catalog-1962",
+              "locator": "MGS bibliography: pp. 97, 99, 104; original pages await inspection",
+              "inspection": "catalog_only"
+            },
+            {
+              "sourceId": "me-metal-catalog-1958",
+              "locator": "MGS bibliography: pp. 28, 49; original pages await inspection",
+              "inspection": "catalog_only"
+            }
+          ],
+          "researchNote": "The named operating company and operating dates remain unresolved. No verified mine-specific photograph has been located."
+        },
+        {
+          "id": "US-ME:mine:1475",
+          "title": "Golden Circle Mine",
+          "kind": "gold_silver_mine",
+          "text": "An island gold-and-silver working with contemporary newspaper reports as well as a later state mineral record. Its history includes a proposed mainland stamp mill.",
+          "dates": "Activity reported in July 1880 and February 1881; full operating span unresolved.",
+          "location": {
+            "description": "Sorrento, Hancock County; MGS comments associate the working with Treasure Island.",
+            "precision": "recorded_approximate",
+            "coordinates": [
+              44.47896933,
+              -68.15551848
+            ],
+            "accuracyMeters": 100,
+            "datum": "WGS84",
+            "sourceId": "me-mineral-records",
+            "locator": "MGS_RECNO 1475"
+          },
+          "sourceIds": [
+            "me-mineral-records",
+            "me-corporations-1887",
+            "me-emj-1880",
+            "me-emj-1881",
+            "me-metal-catalog-1958"
+          ],
+          "locator": "MGS_RECNO 1475",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-ME:mine:1475:filing",
+              "title": "March 27, 1880 · company certificate",
+              "text": "Maine’s corporate register lists Golden Circle Mining and Milling Company, Sullivan, with a certificate filing date of March 27, 1880. This dates a company record, rather than the first excavation or present-day ownership.",
+              "sourceIds": [
+                "me-corporations-1887"
+              ],
+              "locator": "Printed p. 85 (PDF p. 87); general-law section definition",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-ME:mine:1475:1880",
+              "title": "July 1880 · a shallow shaft",
+              "text": "An Ellsworth correspondent reported the Golden Circle shaft at roughly 30 feet, with quartz said to contain gold. This is a contemporary report of work and claimed mineralization, not an independently established gold yield.",
+              "sourceIds": [
+                "me-emj-1880"
+              ],
+              "locator": "Printed p. 72, Maine Mining News; correspondence dated July 26",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-ME:mine:1475:1881",
+              "title": "February 1881 · a mill proposed",
+              "text": "A later report said the directors planned a stamp mill in Portland because island accommodation was inadequate. It supports the proposal, but does not establish that the mill was built or operated.",
+              "sourceIds": [
+                "me-emj-1881"
+              ],
+              "locator": "Printed p. 93, Maine Mining News; correspondence dated February 1",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-ME:mine:1475:later-record",
+              "title": "Names and later observations",
+              "text": "MGS lists Silver Isle Mine and Silver Isle Mining Mine among the synonyms, and describes a 35-foot, two-compartment shaft. Its comments record a Treasure Island visit on November 21, 1997: steep ground, snow and ice prevented the shaft from being located.",
+              "sourceIds": [
+                "me-mineral-records"
+              ],
+              "locator": "MGS_RECNO 1475, SYNONYM, WORKINGS and GEOL_COMM",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "me-emj-1880",
+              "locator": "Open the original report · printed p. 72 / PDF p. 4",
+              "inspection": "document_reviewed"
+            },
+            {
+              "sourceId": "me-emj-1881",
+              "locator": "Open the original report · printed p. 93 / PDF p. 5",
+              "inspection": "document_reviewed"
+            },
+            {
+              "sourceId": "me-corporations-1887",
+              "locator": "Company filing · printed p. 85 / PDF p. 87",
+              "inspection": "document_reviewed"
+            },
+            {
+              "sourceId": "me-metal-catalog-1958",
+              "locator": "MGS bibliography: pp. 21, 49; original pages await inspection",
+              "inspection": "catalog_only"
+            }
+          ],
+          "researchNote": "A complete ownership chain, closing date and confirmation of the proposed mill are still needed. No unverified photograph is presented as this mine."
+        },
+        {
+          "id": "US-ME:mine:426",
+          "title": "Silver Brook Mine",
+          "kind": "gold_prospect",
+          "text": "Despite its name, the record lists gold. Classified as a prospect, not a producing mine.",
+          "dates": "Operating dates not established.",
+          "location": {
+            "description": "Franklin, Hancock County",
+            "precision": "recorded_approximate",
+            "coordinates": [
+              44.59309999,
+              -68.28389999
+            ],
+            "accuracyMeters": null,
+            "datum": "WGS84",
+            "sourceId": "me-mineral-records",
+            "locator": "MGS_RECNO 426"
+          },
+          "sourceIds": [
+            "me-mineral-records",
+            "me-corporations-1887",
+            "me-metal-catalog-1958"
+          ],
+          "locator": "MGS_RECNO 426",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-ME:mine:426:company-lead",
+              "title": "1881 · a related company lead",
+              "text": "The state register lists Silver Brook Silver Mining Company, Franklin, with a certificate filing date of February 12, 1881. The matching name and town provide a research lead; a document connecting that company to this exact MGS prospect has not yet been checked. This is not an established opening date or proof of production.",
+              "sourceIds": [
+                "me-corporations-1887"
+              ],
+              "locator": "Printed p. 112 (PDF p. 114); general-law section definition",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-ME:mine:426:bibliography",
+              "title": "Follow the original descriptions",
+              "text": "MGS cites the 1958 metal-mines index, pp. 34 and 49, and Morrill and Hinckley’s 1959 Eastern Maine volume, p. 27. The database supplies no workings description or operating dates.",
+              "sourceIds": [
+                "me-mineral-records"
+              ],
+              "locator": "MGS_RECNO 426, REFERENCE and record fields",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "me-corporations-1887",
+              "locator": "Related company entry · printed p. 112 / PDF p. 114",
+              "inspection": "document_reviewed"
+            },
+            {
+              "sourceId": "me-metal-catalog-1958",
+              "locator": "MGS bibliography: pp. 34, 49; original pages await inspection",
+              "inspection": "catalog_only"
+            }
+          ],
+          "researchNote": "Confirm the company-to-prospect link before assigning an operator or operating period."
+        }
+      ]
+    },
+    {
+      "id": "US-NV",
+      "overview": {
+        "id": "US-NV:overview",
+        "text": "Nevada’s state mining report provides a recent, dated view of industrial gold production. Those statewide totals describe commercial output; they do not predict what an individual prospector will find.",
+        "sourceIds": [
+          "nevada-2024"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [
+        {
+          "id": "US-NV:annual-production",
+          "key": "annual-production",
+          "label": "Reported annual gold production",
+          "value": 3479748,
+          "unit": "troy ounces",
+          "period": "Calendar year 2024",
+          "scope": "US-NV",
+          "definition": "Statewide production reported by mine operators. Published in 2025; not a current-year forecast or recreational yield.",
+          "sourceIds": [
+            "nevada-2024"
+          ],
+          "locator": "Printed p. 23, Production Highlights and Table 1; PDF p. 26",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "history": [],
+      "places": [],
+      "articleIds": [
+        "article:is-that-really-gold"
+      ],
+      "archiveIds": [
+        "ia:placergolddeposi001356"
+      ],
+      "accessSourceIds": [
+        "blm-claims"
+      ]
+    },
+    {
+      "id": "US-ID",
+      "facts": [],
+      "history": [],
+      "places": [],
+      "articleIds": [],
+      "archiveIds": [
+        "ia:finegold"
+      ],
+      "accessSourceIds": []
+    },
+    {
+      "id": "US-AK",
+      "facts": [],
+      "history": [],
+      "places": [],
+      "articleIds": [],
+      "archiveIds": [
+        "ia:bulletinofunited236wrig",
+        "ia:mapofalaskashowi00geol"
+      ],
+      "accessSourceIds": []
+    },
+    {
+      "id": "US-AZ",
+      "facts": [],
+      "history": [],
+      "places": [],
+      "articleIds": [],
+      "archiveIds": [
+        "ia:placergolddeposi00john"
+      ],
+      "accessSourceIds": []
+    },
+    {
+      "id": "US-NM",
+      "facts": [],
+      "history": [],
+      "places": [],
+      "articleIds": [],
+      "archiveIds": [
+        "ia:placergolddeposi001972"
+      ],
+      "accessSourceIds": []
+    },
+    {
+      "id": "US-UT",
+      "facts": [],
+      "history": [],
+      "places": [],
+      "articleIds": [],
+      "archiveIds": [
+        "ia:placergolddeposi001357"
+      ],
+      "accessSourceIds": []
+    },
+    {
+      "id": "US-NH",
+      "overview": {
+        "id": "US-NH:overview",
+        "text": "New Hampshire has documented gold in bedrock veins and stream gravels. NHDES describes small quantities and a short-lived nineteenth-century mining rush around Lyman and Bath. The Ammonoosuc district is a useful place to begin geological reading; it is not a map of places where you have permission to prospect.",
+        "sourceIds": [
+          "nh-gold-2020"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [],
+      "history": [
+        {
+          "id": "US-NH:lyman-rush",
+          "title": "Lyman and Bath’s short-lived gold rush",
+          "text": "NHDES dates the Lyman discovery that sparked a local rush to 1864. Mines near Bath supplied two mills, but the operations were short-lived. This is a regional history date, not a verified first discovery for the whole state.",
+          "sourceIds": [
+            "nh-gold-2020"
+          ],
+          "locator": "Fact sheet p. 1",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "places": [
+        {
+          "id": "US-NH:ammonoosuc-district",
+          "title": "Ammonoosuc gold district · historical reference",
+          "text": "The official fact sheet identifies a district centered on Lyman, Monroe and Bath, with gold in quartz veins and associated sulfide minerals. A historic district name does not establish current ownership, permission or an expected yield.",
+          "sourceIds": [
+            "nh-gold-2020"
+          ],
+          "locator": "Fact sheet p. 2",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "articleIds": [
+        "article:where-gold-settles",
+        "article:is-that-really-gold",
+        "article:compare-test-pans"
+      ],
+      "archiveIds": [],
+      "accessSourceIds": [
+        "nh-gold-2020"
+      ],
+      "accessNotes": [
+        {
+          "id": "US-NH:panning-guidance",
+          "title": "Hand panning and larger equipment follow different rules",
+          "text": "NHDES’s 2020 guidance calls for landowner permission, prohibits shoveling into streambeds or banks for hand panning, and describes permits for dredging or similar work. Check current NHDES requirements and the relevant land manager before choosing equipment.",
+          "sourceIds": [
+            "nh-gold-2020"
+          ],
+          "locator": "Fact sheet p. 2 · dated guidance, reconfirm before a trip",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "mines": [
+        {
+          "id": "US-NH:mine:dodge",
+          "title": "Dodge Gold Mine",
+          "kind": "gold_mine",
+          "text": "The original 1903 Lyman history places Dodge Gold Mine on the old Hall farm. The present conservation account provides another connection to that landscape, but not a surveyed mine entrance.",
+          "dates": "Worked before the 1903 town history; individual opening and closing dates unresolved.",
+          "location": {
+            "description": "Old Hall farm, Lyman; precise workings not reconciled.",
+            "precision": "unresolved"
+          },
+          "sourceIds": [
+            "nh-lyman-history",
+            "nh-gold-2020",
+            "nh-hoskins-1903",
+            "nh-act-lyman",
+            "nh-minerals-map-1957"
+          ],
+          "locator": "Lyman Master Plan, printed page 10; NHDES GEO-1 historical summary",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-NH:mine:dodge:hall-family",
+              "title": "The Hall family connection",
+              "text": "Hoskins identifies the site with the farm settled by Abram Hall and Sarah Floyd. He says Abram lived there until his death in 1855, and that Abram Jr. later remained on the home place. These are farm-family details, not evidence that either man operated the gold mine.",
+              "sourceIds": [
+                "nh-hoskins-1903"
+              ],
+              "locator": "Printed p. 102 (PDF p. 128), Abram Hall biography",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-NH:mine:dodge:1903",
+              "title": "1903 · mining remembered",
+              "text": "Hoskins describes earlier extensive work at Dodge, and a separate nearby Tunnel Mine then being worked. His monetary and ore-quality claims are not independently verified here and are not used as production statistics.",
+              "sourceIds": [
+                "nh-hoskins-1903"
+              ],
+              "locator": "Printed p. 15 (PDF p. 21)",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-NH:mine:dodge:conservation",
+              "title": "The landscape today",
+              "text": "Ammonoosuc Conservation Trust identifies the former Dodge Mine within its account of the Godfrey Memorial Conservation Area and says forest has reclaimed the site. The account does not establish permission to prospect or supply a mine-entrance coordinate.",
+              "sourceIds": [
+                "nh-act-lyman"
+              ],
+              "locator": "Godfrey Memorial Conservation Area section",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            },
+            {
+              "id": "US-NH:mine:dodge:regional-map",
+              "title": "A historical map connection",
+              "text": "The 1957 USGS statewide mineral map lists Dodge alongside Allen, Atwood and Lisbon in Grafton County locality group 49. The grouped symbol and 1:500,000 scale are too broad to identify a precise entrance.",
+              "sourceIds": [
+                "nh-minerals-map-1957"
+              ],
+              "locator": "Grafton County locality group 49",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "nh-hoskins-1903",
+              "locator": "Original town history · printed pp. 15 and 102 / PDF pp. 21 and 128",
+              "inspection": "document_reviewed"
+            },
+            {
+              "sourceId": "nh-minerals-map-1957",
+              "locator": "Original mineral map · Grafton County group 49",
+              "inspection": "document_reviewed"
+            },
+            {
+              "sourceId": "nh-act-lyman",
+              "locator": "Land-manager account · Godfrey Memorial section",
+              "inspection": "document_reviewed"
+            }
+          ],
+          "researchNote": "A parcel-to-workings match and detailed mine plan are still needed before adding a marker. Present-day ownership and access must be checked separately."
+        },
+        {
+          "id": "US-NH:mine:diamond-ledge",
+          "title": "Diamond Ledge Mine — identity under review",
+          "kind": "gold_mine",
+          "text": "NHDES reports a small gold shipment to the mint from a Diamond Ledge Mine in Ossipee. Similar names also occur in mineral-locality indexes. A reliable match between this account and a mine coordinate has not yet been established.",
+          "dates": "Operating dates unresolved.",
+          "location": {
+            "description": "Ossipee in the NHDES account; exact mine identity unresolved.",
+            "precision": "unresolved"
+          },
+          "sourceIds": [
+            "nh-gold-2020",
+            "nh-minerals-map-1957"
+          ],
+          "locator": "NHDES GEO-1 (2020), historical summary",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked",
+          "historyNotes": [
+            {
+              "id": "US-NH:mine:diamond-ledge:name-conflict",
+              "title": "A map lead, not a resolved identity",
+              "text": "The 1957 USGS map separately lists White Diamond gold mine as Carroll County locality 6, referring to Meyers (1941). That name is a lead to compare with the NHDES Diamond Ledge account; the two records have not been proven to describe the same working.",
+              "sourceIds": [
+                "nh-minerals-map-1957",
+                "nh-gold-2020"
+              ],
+              "locator": "USGS MR-6, Carroll County locality 6; NHDES GEO-1 historical summary",
+              "reviewedAt": "2026-10-11",
+              "status": "source_checked"
+            }
+          ],
+          "furtherReading": [
+            {
+              "sourceId": "nh-minerals-map-1957",
+              "locator": "Original mineral map · Carroll County locality 6",
+              "inspection": "document_reviewed"
+            }
+          ],
+          "researchNote": "Do not substitute a mountain summit or county-centre coordinate for a mine. A primary document must reconcile the name and town before the site is plotted."
+        }
+      ]
+    },
+    {
+      "id": "US-VT",
+      "overview": {
+        "id": "US-VT:overview",
+        "text": "Vermont’s gold history includes quartz-vein workings and stream placers around Bridgewater and Plymouth. Historical geological accounts describe uneven deposits and unreliable profit claims. For a practical starting point, Vermont State Parks publishes a specific hand-panning opportunity at Camp Plymouth, with clear equipment limits.",
+        "sourceIds": [
+          "vt-gold-1998",
+          "vt-camp-plymouth"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [],
+      "history": [
+        {
+          "id": "US-VT:bridgewater-plymouth",
+          "title": "Two kinds of deposits, two different histories",
+          "text": "E. L. Perry’s 1929 account distinguishes quartz veins from placer deposits. It dates a Bridgewater vein discovery to 1851 and reports Plymouth placer activity by about 1855. These district dates are not presented as Vermont’s first gold discovery.",
+          "sourceIds": [
+            "vt-gold-1998"
+          ],
+          "locator": "1998 collection, PDF pp. 10–11, Perry (1929)",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        },
+        {
+          "id": "US-VT:historic-yields",
+          "title": "Old production claims need careful handling",
+          "text": "The same account warns that Plymouth’s reported historical dollar totals are unreliable. They are not converted here into a statewide production total or a prediction of what a visitor can find today.",
+          "sourceIds": [
+            "vt-gold-1998"
+          ],
+          "locator": "PDF p. 11",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "places": [
+        {
+          "id": "US-VT:camp-plymouth-buffalo",
+          "title": "Buffalo Brook · official hand-panning opportunity",
+          "text": "Camp Plymouth’s park page permits recreational hand panning in Buffalo Brook. Sluices and commercial mining are not allowed. Confirm the park boundary, current opening arrangements and day-use fees with park staff; nearby abandoned mines are not places to enter.",
+          "sourceIds": [
+            "vt-camp-plymouth"
+          ],
+          "locator": "Gold Panning; History; Park Information",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "articleIds": [
+        "article:where-gold-settles",
+        "article:black-sands",
+        "article:classification-basics"
+      ],
+      "archiveIds": [],
+      "accessSourceIds": [
+        "vt-camp-plymouth",
+        "vt-panning-rules",
+        "vt-sluice-2023"
+      ],
+      "accessNotes": [
+        {
+          "id": "US-VT:state-land-panning",
+          "title": "State-park hand tools and streambed limits",
+          "text": "Vermont State Parks allows traditional hand panning with small hand tools. Its rules exclude sluices, rocker boxes and powered or moving equipment, and limit material removal to the streambed rather than banks. The same page says gold panning is not allowed in state wildlife management areas.",
+          "sourceIds": [
+            "vt-panning-rules"
+          ],
+          "locator": "Gold Panning rules",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        },
+        {
+          "id": "US-VT:private-land-sluices",
+          "title": "Private-land sluicing needs separate approval",
+          "text": "The Rivers Program’s May 2023 guidance requires landowner permission for private-land panning and both owner permission and state approval for sluicing on private land. It states that suction dredges for mineral prospecting in streams are prohibited. Ask the Rivers Program about current requirements for your proposed activity.",
+          "sourceIds": [
+            "vt-sluice-2023"
+          ],
+          "locator": "PDF p. 1; contact details on p. 2",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "mines": [
+        {
+          "id": "US-VT:mine:rooks",
+          "title": "Rooks Mine / Fox Mine",
+          "kind": "gold_mine",
+          "text": "A quartz-vein gold working near Plymouth. The MRDS record lists production in 1883–1887. State Parks gives an 1889 purchase by Henry Fox and continued searching until his death in 1919. The dates describe different accounts, not a verified continuous production period. Perry’s 1929 account describes irregular, low-grade gold and an unprofitable investment.",
+          "dates": "1883–1887 production in MRDS; later Fox activity reported through 1919.",
+          "location": {
+            "description": "Plymouth, Windsor County; Reading Pond / Buffalo Brook area",
+            "precision": "recorded_approximate",
+            "coordinates": [
+              43.4875,
+              -72.68842
+            ],
+            "accuracyMeters": null,
+            "datum": "WGS84",
+            "sourceId": "vt-mrds-records",
+            "locator": "DEP_ID 10081526"
+          },
+          "sourceIds": [
+            "vt-mrds-records",
+            "vt-camp-plymouth",
+            "vt-gold-1998"
+          ],
+          "locator": "MRDS DEP_ID 10081526; State Parks history; Perry 1929 excerpt, PDF pages 10–11",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked"
+        },
+        {
+          "id": "US-VT:mine:taggart",
+          "title": "Taggart vein / Bridgewater Gold Mines",
+          "kind": "disputed_gold_working",
+          "text": "Worked intermittently around 1859 west of Bridgewater Center. Historical accounts describe mills and claimed gold returns, but a sampled ore assay reported no gold. The GIS commodity fields emphasize lead and copper. This is evidence of gold-seeking activity, with disputed gold results.",
+          "dates": "Intermittent work around 1859; full operating span unresolved.",
+          "location": {
+            "description": "Bridgewater, Windsor County; Dailey Hollow vicinity",
+            "precision": "recorded_approximate",
+            "coordinates": [
+              43.6211,
+              -72.68451
+            ],
+            "accuracyMeters": null,
+            "datum": "WGS84",
+            "sourceId": "vt-mrds-records",
+            "locator": "DEP_ID 10081187"
+          },
+          "sourceIds": [
+            "vt-mrds-records",
+            "vt-gold-1998"
+          ],
+          "locator": "DEP_ID 10081187; 1904 and Perry 1929 excerpts, PDF pages 7–11",
+          "reviewedAt": "2026-10-11",
+          "status": "source_checked"
+        }
+      ]
+    },
+    {
+      "id": "US-MA",
+      "overview": {
+        "id": "US-MA:overview",
+        "text": "Massachusetts is worth approaching with a geological map rather than a promise of a gold-bearing stream. USGS’s statewide surficial mapping distinguishes glacial till, meltwater deposits and younger river sediments. Those maps help explain the ground beneath a stream, but do not show that gold occurs there. No specific Massachusetts placer site has been verified in this first research pass.",
+        "sourceIds": [
+          "ma-surficial-2018"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [],
+      "history": [
+        {
+          "id": "US-MA:boston-reports",
+          "title": "Reported deposits are not the same as proven gold",
+          "text": "Laurence La Forge’s 1932 Boston-area report records gold, copper and lead reports prompted by sulfide veins in quarries, but says valuable recoveries there were not established. This historical assessment concerns the Boston area; it does not prove that Massachusetts has no gold.",
+          "sourceIds": [
+            "ma-boston-1932"
+          ],
+          "locator": "Printed p. 88 / PDF p. 107",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        },
+        {
+          "id": "US-MA:surficial-maps",
+          "title": "A useful map for reading the landscape",
+          "text": "The statewide USGS compilation covers 189 quadrangles at 1:24,000 scale and distinguishes bedrock exposure, glacial deposits and postglacial sediments. Use it as a geology research aid, not a prospecting-access map.",
+          "sourceIds": [
+            "ma-surficial-2018"
+          ],
+          "locator": "Abstract; suggested citation",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "places": [],
+      "articleIds": [
+        "article:where-gold-settles",
+        "article:is-that-really-gold",
+        "article:compare-test-pans"
+      ],
+      "archiveIds": [],
+      "accessSourceIds": [
+        "ma-dcr-regulations"
+      ],
+      "accessNotes": [
+        {
+          "id": "US-MA:dcr-approval",
+          "title": "Check the land manager before collecting",
+          "text": "For DCR parks and forests, begin with DCR’s current Parks and Recreation rules and ask the park manager about your exact collecting activity. The agency separately lists draft rules under review; a draft or geological map does not establish permission. No public hand-panning site is verified here yet.",
+          "sourceIds": [
+            "ma-dcr-regulations"
+          ],
+          "locator": "Current regulations · 302 CMR 12.00",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "id": "US-CT",
+      "overview": {
+        "id": "US-CT:overview",
+        "text": "Connecticut’s official mine inventory is a good starting point for researching historical mineral workings. Its technical report describes historical gold mining only as possible, while documenting many other commodities. This first pass has not verified a Connecticut placer-gold destination or a statewide gold-production figure. A mine symbol on a map should not be read as a gold find or visitor access.",
+        "sourceIds": [
+          "ct-mines-report-2022"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [],
+      "history": [
+        {
+          "id": "US-CT:inventory-not-gold-count",
+          "title": "A mining inventory, not a gold-mine count",
+          "text": "The 2022 version 1.01 inventory documents 1,070 bedrock mining sites across many commodities, including mines and quarries of different activity statuses. That total is deliberately excluded from the gold statistics cards: it is not a count of gold mines.",
+          "sourceIds": [
+            "ct-mines-2022",
+            "ct-mines-report-2022"
+          ],
+          "locator": "Database description; report PDF pp. 2–3",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "places": [],
+      "articleIds": [
+        "article:is-that-really-gold",
+        "article:compare-test-pans"
+      ],
+      "archiveIds": [],
+      "accessSourceIds": [
+        "ct-collecting-rules",
+        "ct-mines-2022"
+      ],
+      "accessNotes": [
+        {
+          "id": "US-CT:state-land-collecting",
+          "title": "State-land collecting is restricted",
+          "text": "Connecticut DEEP says collecting rocks and minerals on state land is not allowed without authorization. Scientific or educational collecting may be considered through written application. Its mining database also warns that many listed sites are private property and that a mapped site grants no visiting permission.",
+          "sourceIds": [
+            "ct-collecting-rules",
+            "ct-mines-2022"
+          ],
+          "locator": "Rock and Mineral Collecting; database access qualification",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "id": "US-RI",
+      "overview": {
+        "id": "US-RI:overview",
+        "text": "Rhode Island has historical prospects and small mines named for gold in USGS’s 1971 bedrock-geology report. The author emphasizes how little was known about when some deposits were worked, the extent of mining or even the commodity sought. Treat these as historical research leads, not established modern panning destinations.",
+        "sourceIds": [
+          "ri-bedrock-1971"
+        ],
+        "status": "source_checked",
+        "reviewedAt": "2026-10-11"
+      },
+      "facts": [],
+      "history": [
+        {
+          "id": "US-RI:historical-uncertainty",
+          "title": "What an old gold-mine name can tell us",
+          "text": "Quinn’s report preserves names such as Durfee Hill, Snake Den and Bald Hill, while warning that mining records are sparse. The names alone do not provide reliable production totals, workable deposits or permission to collect.",
+          "sourceIds": [
+            "ri-bedrock-1971"
+          ],
+          "locator": "Printed p. 58 / PDF p. 66 · Metal Deposits",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "places": [
+        {
+          "id": "US-RI:durfee-hill",
+          "title": "Durfee Hill · historical mine reference",
+          "text": "Listed as a gold mine in the Chepachet quadrangle in the 1971 report. Present-day access and recoverable gold have not been verified here.",
+          "sourceIds": [
+            "ri-bedrock-1971"
+          ],
+          "locator": "Printed p. 58 / PDF p. 66",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-11"
+        },
+        {
+          "id": "US-RI:snake-den-bald-hill",
+          "title": "Snake Den and Bald Hill · historical references",
+          "text": "The report lists Snake Den in the North Scituate quadrangle and Bald Hill in the East Greenwich quadrangle. These are old mine references, not directions to publicly accessible gold-bearing streams.",
+          "sourceIds": [
+            "ri-bedrock-1971"
+          ],
+          "locator": "Printed p. 58 / PDF p. 66",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-11"
+        }
+      ],
+      "articleIds": [
+        "article:is-that-really-gold"
+      ],
+      "archiveIds": [],
+      "accessSourceIds": [
+        "ri-campground-policies"
+      ],
+      "accessNotes": [
+        {
+          "id": "US-RI:state-property-protection",
+          "title": "State camping access does not grant collecting rights",
+          "text": "Rhode Island State Parks’ camping policies prohibit visitors from removing or disturbing rocks, fossils and minerals on state lands. A campground booking or nearby historic mine name is not collecting permission. No specific publicly approved panning destination has been verified in this first pass.",
+          "sourceIds": [
+            "ri-campground-policies"
+          ],
+          "locator": "Protection Of State Property",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
+      ]
+    },
+    {
+      "id": "US-NY",
+      "overview": {
+        "id": "US-NY:overview",
+        "text": "New York’s rich mining history does not imply a comparable history of producing gold mines. The State Museum’s historical overview says colonial searches did not find gold and silver in economic quantities. No individual historic gold mine has been verified for this guide yet; that is a research gap, not proof that gold is absent.",
+        "sourceIds": [
+          "ny-mineral-history"
+        ],
+        "reviewedAt": "2026-10-11",
+        "status": "source_checked"
+      },
+      "facts": [],
+      "history": [],
+      "places": [],
+      "mines": [],
+      "articleIds": [],
+      "archiveIds": [],
+      "accessSourceIds": []
+    }
+  ],
+  "archives": [
+    {
+      "id": "ia:finegold",
+      "identifier": "finegold",
+      "stateId": "US-ID",
+      "title": "Notes on the fine gold of Snake River, Idaho",
+      "author": "Hill, J. M., United States Geological Survey",
+      "year": "1915",
+      "url": "https://archive.org/details/finegold",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    },
+    {
+      "id": "ia:basicplacerminin41cali",
+      "identifier": "basicplacerminin41cali",
+      "stateId": "US-CA",
+      "title": "Basic placer mining",
+      "author": "California. Division of Mines and Geology",
+      "year": "1963",
+      "url": "https://archive.org/details/basicplacerminin41cali",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    },
+    {
+      "id": "ia:placergoldrecove87silv",
+      "identifier": "placergoldrecove87silv",
+      "stateId": "US-CA",
+      "title": "Placer gold recovery methods",
+      "author": "Silva, Michael A; California. Division of Mines and Geology",
+      "year": "1986",
+      "url": "https://archive.org/details/placergoldrecove87silv",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    },
+    {
+      "id": "ia:bulletinofunited236wrig",
+      "identifier": "bulletinofunited236wrig",
+      "stateId": "US-AK",
+      "title": "Bulletin of the United States Geological Survey--The Porcupine Placer District, Alaska",
+      "author": "Wright, Charles W.",
+      "year": "1904",
+      "url": "https://archive.org/details/bulletinofunited236wrig",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    },
+    {
+      "id": "ia:golddepositsofno01nitz",
+      "identifier": "golddepositsofno01nitz",
+      "stateId": "US-NC",
+      "title": "Gold deposits of North Carolina.",
+      "author": "Nitze, Henry B. C. (Henry Benjamin Charles); Hanna, George B",
+      "year": "1896",
+      "url": "https://archive.org/details/golddepositsofno01nitz",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    },
+    {
+      "id": "ia:mapofalaskashowi00geol",
+      "identifier": "mapofalaskashowi00geol",
+      "stateId": "US-AK",
+      "title": "Map of Alaska showing known gold-bearing rocks with descriptive text containing sketches of the geography, geology, and gold deposits and routes to the gold fields",
+      "author": "Geological Survey (U.S.); Emmons, Samuel Franklin, 1841-1911",
+      "year": "1898",
+      "url": "https://archive.org/details/mapofalaskashowi00geol",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    },
+    {
+      "id": "ia:placergolddeposi00john",
+      "identifier": "placergolddeposi00john",
+      "stateId": "US-AZ",
+      "title": "Placer Gold Deposits of Arizona",
+      "author": "Johnson, Maureen",
+      "year": "1972",
+      "url": "https://archive.org/details/placergolddeposi00john",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    },
+    {
+      "id": "ia:placergolddeposi001356",
+      "identifier": "placergolddeposi001356",
+      "stateId": "US-NV",
+      "title": "Placer Gold Deposits of Nevada",
+      "author": "Johnson, Maureen",
+      "year": "1973",
+      "url": "https://archive.org/details/placergolddeposi001356",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    },
+    {
+      "id": "ia:placergolddeposi001972",
+      "identifier": "placergolddeposi001972",
+      "stateId": "US-NM",
+      "title": "Placer Gold Deposits of New Mexico",
+      "author": "Johnson, Maureen",
+      "year": "1972",
+      "url": "https://archive.org/details/placergolddeposi001972",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    },
+    {
+      "id": "ia:placergolddeposi001357",
+      "identifier": "placergolddeposi001357",
+      "stateId": "US-UT",
+      "title": "Placer Gold Deposits of Utah",
+      "author": "Johnson, Maureen",
+      "year": "1973",
+      "url": "https://archive.org/details/placergolddeposi001357",
+      "status": "metadata_only",
+      "reviewedAt": "2026-10-11"
+    }
+  ]
+}
