@@ -38,20 +38,21 @@ test('static pages and server-rendered shell load versioned optional help',()=>{
 });
 
 // Exercise the actual delegated event handlers with a small DOM fixture.
-function helpFixture({stored=null,blocked=false}={}) {
+function helpFixture({stored=null,blocked=false,navigation=false}={}) {
  const events=new Map(),timers=new Map(),elements=[],saved=new Map();let timerId=0;
  const element=(tag='div')=>{
-  const attrs=new Map(),classes=new Set(),el={tagName:tag.toUpperCase(),dataset:{},textContent:'',hidden:false,isConnected:true,style:{},children:[],matches:s=>s==='button'&&tag==='button',querySelectorAll:()=>[],cloneNode:()=>({textContent:el.textContent,querySelectorAll:()=>[]}),getAttribute:k=>attrs.get(k)||null,setAttribute:(k,v)=>attrs.set(k,v),removeAttribute:k=>attrs.delete(k),getBoundingClientRect:()=>({left:30,top:80,bottom:110,width:260,height:95}),contains:node=>node===el,hasAttribute:k=>attrs.has(k),append:(...nodes)=>el.children.push(...nodes),addEventListener:(name,fn)=>el.events.set(name,fn),events:new Map(),classList:{contains:k=>classes.has(k),toggle:(k,v)=>v?classes.add(k):classes.delete(k)}};
-  el.closest=s=>s.startsWith('a[href]')?el:null;elements.push(el);return el;
+  const attrs=new Map(),classes=new Set(),el={tagName:tag.toUpperCase(),dataset:{},textContent:'',hidden:false,isConnected:true,style:{},children:[],matches:s=>s==='button'&&tag==='button',querySelectorAll:()=>[],cloneNode:()=>({textContent:el.textContent,querySelectorAll:()=>[]}),getAttribute:k=>attrs.get(k)||null,setAttribute:(k,v)=>attrs.set(k,v),removeAttribute:k=>attrs.delete(k),getBoundingClientRect:()=>({left:30,right:290,top:80,bottom:110,width:260,height:95}),contains:node=>node===el,hasAttribute:k=>attrs.has(k),replaceWith:node=>{el.replacement=node;},append:(...nodes)=>{el.children.push(...nodes);for(const n of nodes)n.parentElement=el;},addEventListener:(name,fn)=>el.events.set(name,fn),events:new Map(),classList:{contains:k=>classes.has(k),toggle:(k,v)=>v?classes.add(k):classes.delete(k)}};
+  el.closest=s=>{if(s.startsWith('a[href]'))return el;for(let node=el;node;node=node.parentElement){if(s.split(',').some(part=>part.startsWith('.')&&node.className?.split(' ').includes(part.slice(1))||part==='button.site-nav-help'&&node.className==='site-nav-help'))return node;}return null;};elements.push(el);return el;
  };
- const toggle=element('input'),menu={prepend:()=>{}},body=element(),doc={activeElement:null,body,querySelector:()=>menu,querySelectorAll:()=>[],createElement:tag=>{const e=element(tag);e.querySelector=()=>toggle;return e;},addEventListener:(name,fn)=>events.set(name,fn)};
+ const navLink=element('a'),home=element('a');navLink.setAttribute('href','/articles/');navLink.textContent='Articles';home.setAttribute('href','/');home.textContent='Gold Trails home';
+ const toggle=element('input'),menu={prepend:()=>{},querySelectorAll:()=>navigation?[home,navLink]:[],getBoundingClientRect:()=>({right:290})},body=element(),doc={activeElement:null,body,querySelector:()=>menu,querySelectorAll:()=>[],createElement:tag=>{const e=element(tag);e.querySelector=()=>toggle;return e;},addEventListener:(name,fn)=>events.set(name,fn)};
  const runtime=readFileSync(new URL('../dist/site-help.js',import.meta.url),'utf8').replace(/^import[^\n]+\n/,'');
  runInNewContext(runtime,{explainControl,helpPreferenceKey,document:doc,window:{addEventListener:()=>{}},location:{href:'https://gold-trails.invalid/',origin:'https://gold-trails.invalid'},innerWidth:390,innerHeight:844,URL,Set,Math,localStorage:{getItem:()=>{if(blocked)throw Error();return stored;},setItem:(k,v)=>{if(blocked)throw Error();saved.set(k,v);}},setTimeout:(fn,ms)=>{timers.set(++timerId,{fn,ms});return timerId;},clearTimeout:id=>timers.delete(id)});
  const bubble=elements.find(e=>e.id==='site-help-tooltip'),link=element('a');link.setAttribute('href','/articles/');link.textContent='Articles';
  const fire=(name,options={})=>{const e={target:link,prevented:false,stopped:false,preventDefault(){this.prevented=true;},stopImmediatePropagation(){this.stopped=true;},...options};events.get(name)?.(e);return e;};
  const tick=ms=>{for(const[id,t]of [...timers])if(t.ms===ms){timers.delete(id);t.fn();}};
  const enable=value=>{toggle.checked=value;toggle.events.get('change')();};
- return{bubble,link,fire,tick,enable,toggle,saved};
+ return{bubble,link,fire,tick,enable,toggle,saved,navLink,home,navButtons:elements.filter(e=>e.className==='site-nav-help')};
 }
 test('help starts off, preserves existing descriptions, closes with Escape and remembers its setting',()=>{
  const f=helpFixture();assert.equal(f.toggle.checked,false);
@@ -77,4 +78,20 @@ test('a touch hold explains without navigating; a normal subsequent tap still ac
 });
 test('touch scrolling cancels the hold and does not activate a help bubble',()=>{
  const f=helpFixture({stored:'on'});f.fire('pointerdown',{pointerType:'touch',clientX:20,clientY:20});f.fire('pointermove',{pointerType:'touch',clientX:20,clientY:50});f.tick(550);assert.equal(f.bubble.hidden,true);assert.equal(f.fire('click').prevented,false);
+});
+
+test('navigation links stay usable; separate question marks open one timed explanation and skip Home',()=>{
+ const f=helpFixture({stored:'on',navigation:true});assert.equal(f.navButtons.length,1);
+ const button=f.navButtons[0];assert.equal(button.getAttribute('aria-label'),'Explain Articles');assert.equal(button.hidden,false);
+ assert.equal(button.parentElement,f.navLink.parentElement);assert.notEqual(button.parentElement,f.navLink);
+ f.fire('pointerover',{target:f.navLink,pointerType:'mouse'});f.tick(220);assert.equal(f.bubble.hidden,true);
+ f.fire('focusin',{target:f.navLink});assert.equal(f.bubble.hidden,true);
+ const click=f.fire('click',{target:button});assert.equal(click.prevented,true);assert.equal(f.bubble.hidden,false);
+ assert.equal(f.bubble.children[0].textContent,'Articles');assert.equal(f.bubble.dataset.mode,'navigation');
+ assert.equal(button.getAttribute('aria-describedby'),'site-help-tooltip');
+ f.fire('pointerover',{target:f.home,pointerType:'mouse'});f.tick(220);assert.equal(f.bubble.hidden,false);
+ f.tick(6000);assert.equal(f.bubble.hidden,true);assert.equal(button.getAttribute('aria-describedby'),null);
+ f.fire('click',{target:button});f.fire('keydown',{key:'Escape'});assert.equal(f.bubble.hidden,true);
+ assert.equal(f.fire('click',{target:f.navLink}).prevented,false);
+ f.enable(false);assert.equal(button.hidden,true);f.fire('click',{target:button});assert.equal(f.bubble.hidden,true);
 });
