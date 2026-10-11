@@ -3,10 +3,13 @@
 .site-help-switch input{appearance:auto!important;width:17px!important;height:17px!important;flex:0 0 17px;margin:0!important;accent-color:#84551b}
 .site-help-switch p{font:12px/1.5 'DM Sans',sans-serif;margin:7px 0 0;color:#655039}
 .site-help-switch:focus-within{outline:2px solid #91641f;outline-offset:3px}
-.site-help-tooltip{position:fixed;z-index:10000;width:max-content;max-width:min(330px,calc(100vw - 24px));max-height:50vh;overflow:auto;padding:15px 17px;background:#fff6df;color:#49341f;border:1px solid #b58a3d;border-top:3px solid #d4a140;border-radius:7px;box-shadow:0 6px 24px #33251935;font:14px/1.55 'DM Sans',sans-serif;overflow-wrap:anywhere}
+/* Parchment field notes in a brass, frontier-style frame. */
+.site-help-tooltip{position:fixed;z-index:10000;width:max-content;max-width:min(350px,calc(100vw - 24px));max-height:50vh;overflow:auto;padding:24px 25px 22px;color:#49341f;border:3px double #93652b;border-radius:14px 4px 14px 4px;background-color:#fff3d5;background-image:radial-gradient(circle at 12px 12px,#fff0ab 0 1px,#ad772c 2px 3px,transparent 4px),radial-gradient(circle at calc(100% - 12px) 12px,#fff0ab 0 1px,#ad772c 2px 3px,transparent 4px),radial-gradient(circle at 12px calc(100% - 12px),#fff0ab 0 1px,#ad772c 2px 3px,transparent 4px),radial-gradient(circle at calc(100% - 12px) calc(100% - 12px),#fff0ab 0 1px,#ad772c 2px 3px,transparent 4px),linear-gradient(115deg,#eed5a361,transparent 35%,#fff9e9 65%,#e6c59145);box-shadow:inset 0 0 0 2px #fce9b7,inset 0 0 18px #ad772c20,0 8px 24px #33251940;font:14px/1.55 'DM Sans',sans-serif;overflow-wrap:anywhere}
+.site-help-tooltip::before{content:"";position:absolute;inset:7px;border:1px solid #b58a3d70;border-radius:8px 2px 8px 2px;pointer-events:none}
 .site-help-tooltip[hidden]{display:none!important}
-.site-help-tooltip strong{display:block;font-size:11px;letter-spacing:.1em;color:#7c521c;margin-bottom:5px}
-.site-help-tooltip p{margin:0}
+.site-help-tooltip strong{position:relative;display:block;padding:0 3px 12px;margin-bottom:13px;border-bottom:1px solid #b58a3d80;color:#714717;font:400 16px/1.45 Rye,Georgia,serif;letter-spacing:.025em;text-align:center}
+.site-help-tooltip strong::after{content:"";position:absolute;bottom:-3px;left:50%;width:5px;height:5px;transform:translateX(-50%) rotate(45deg);background:#a5742c;box-shadow:0 0 0 7px #fff3d5}
+.site-help-tooltip p{position:relative;margin:0}
 .help-enabled .trail-menu a,.help-enabled [data-module] h2[data-help]{text-decoration:underline dotted #a97c33;text-underline-offset:4px}
 .help-enabled [data-module] h2[data-help]{cursor:help}
 @media print{.site-help-switch,.site-help-tooltip{display:none!important}}

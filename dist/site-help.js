@@ -1,4 +1,4 @@
-import {explainControl, helpPreferenceKey} from './site-help-content.js?v=7e10487203d9';
+import {explainControl, helpPreferenceKey} from './site-help-content.js?v=aa05cb0caabf';
 
 const menu = document.querySelector('.left .trail-menu');
 if(menu) {
