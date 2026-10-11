@@ -9,7 +9,7 @@
 .site-help-tooltip[hidden]{display:none!important}
 .site-help-tooltip strong{position:relative;display:block;margin-bottom:3px;color:#714717;font:400 12px/1.3 Rye,Georgia,serif;letter-spacing:.015em;text-align:left}
 .site-help-tooltip p{position:relative;margin:0}
-.help-enabled .trail-menu a,.help-enabled [data-module] h2[data-help]{text-decoration:underline dotted #a97c33;text-underline-offset:4px}
+.help-enabled .trail-menu a:not([href="/"]),.help-enabled [data-module] h2[data-help]{text-decoration:underline dotted #a97c33;text-underline-offset:4px}
 .help-enabled [data-module] h2[data-help]{cursor:help}
 @media print{.site-help-switch,.site-help-tooltip{display:none!important}}
 

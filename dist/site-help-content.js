@@ -1,7 +1,7 @@
 // Descriptions use control metadata only, never entered field values or account data.
 export const helpPreferenceKey = 'gold-trails-explanations-v1';
 const routes = {
- '/': 'Return to the Gold Trails homepage and the latest reading suggestions.',
+ '/': '', // The Home link is self-explanatory.
  '/articles/': 'Browse the article library. Search by subject and change the order of the list.',
  '/glossary/': 'Look up prospecting, geology, river, and weather terms. Hover, focus, or tap a term to read its definition.',
  '/prospectors/': 'Explore the same creator directory as a list or a map. Filter by name, region, topic, or prospecting setting.',
@@ -76,7 +76,7 @@ export function explainControl(c) {
   if(url.pathname === '/products/report/') return 'Submit a product correction or updated information to our private review queue. Changes are reviewed before publication.';
   if(url.pathname.startsWith('/articles/') && url.pathname !== '/articles/') return 'Read this Gold Trails article, including its source references. You stay on Gold Trails.';
   if(url.pathname.startsWith('/prospectors/') && url.pathname !== '/prospectors/') return 'Open this creator’s profile for their background, broad regions, channels, and recorded sources.';
-  return routes[url.pathname] || 'Open this linked Gold Trails page. You can return using the left navigation.';
+  return routes[url.pathname] ?? 'Open this linked Gold Trails page. You can return using the left navigation.';
  }
  if(c.tag === 'summary') return c.label?.includes('Specifications') ? 'Expand this product’s specifications, source links, and recorded creator connections. Select again to collapse it.' : 'Expand or collapse the details in this section.';
  if(c.name === 'view') return c.value === 'map' ? 'Show creators as gold nuggets on a zoomable map. Placements represent approximate regions, not prospecting sites.' : 'Show the creator directory as a readable list. Your current filters still apply.';
