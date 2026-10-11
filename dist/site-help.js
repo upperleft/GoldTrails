@@ -7,7 +7,7 @@ if(menu) {
  (document.querySelector('.admin-editor .editor-toolbar') || menu).prepend(switchBox);
  const toggle=switchBox.querySelector('input'),bubble=document.createElement('div');
  bubble.id='site-help-tooltip';bubble.className='site-help-tooltip';bubble.role='tooltip';bubble.hidden=true;
- const heading=document.createElement('strong'),copy=document.createElement('p');heading.textContent='THE OLD TIMER’S TIP';bubble.append(heading,copy);document.body.append(bubble);
+ const heading=document.createElement('strong'),copy=document.createElement('p');bubble.append(heading,copy);document.body.append(bubble);
  let enabled=false,active=null,showTimer,hideTimer,touchTimer,suppressedClick=null,touchStart=null;
  const targets='a[href],button,input:not([type="hidden"]),select,textarea,summary,[data-help]';
  const moduleHeadings=document.querySelectorAll('[data-module] > header h2');
@@ -25,7 +25,7 @@ if(menu) {
  function clearTimers(){clearTimeout(showTimer);clearTimeout(hideTimer);}
  function hide(){clearTimers();if(active){const ids=(active.getAttribute('aria-describedby')||'').split(/\s+/).filter(id=>id&&id!==bubble.id);if(ids.length)active.setAttribute('aria-describedby',ids.join(' '));else active.removeAttribute('aria-describedby');}active=null;bubble.hidden=true;}
  function position(){if(!active)return;const v=window.visualViewport,left=v?.offsetLeft||0,top=v?.offsetTop||0,w=v?.width||innerWidth,h=v?.height||innerHeight,r=active.getBoundingClientRect(),b=bubble.getBoundingClientRect();bubble.style.left=Math.max(left+12,Math.min(r.left,left+w-b.width-12))+'px';const below=r.bottom+9;const y=below+b.height<=top+h-12?below:r.top-b.height-9;bubble.style.top=Math.max(top+12,Math.min(y,top+h-b.height-12))+'px';}
- function show(el){if(!enabled||!el?.isConnected)return;hide();const text=description(el);if(!text)return;active=el;copy.textContent=text;bubble.hidden=false;const ids=new Set((el.getAttribute('aria-describedby')||'').split(/\s+/).filter(Boolean));ids.add(bubble.id);el.setAttribute('aria-describedby',[...ids].join(' '));position();}
+ function show(el){if(!enabled||!el?.isConnected)return;hide();const text=description(el);if(!text)return;active=el;heading.textContent=label(el)||'Help';copy.textContent=text;bubble.hidden=false;const ids=new Set((el.getAttribute('aria-describedby')||'').split(/\s+/).filter(Boolean));ids.add(bubble.id);el.setAttribute('aria-describedby',[...ids].join(' '));position();}
  function setEnabled(value,persist=false){enabled=value;toggle.checked=value;document.body.classList.toggle('help-enabled',value);hide();for(const title of moduleHeadings){if(value)title.tabIndex=0;else title.removeAttribute('tabindex');}if(persist){try{localStorage.setItem(helpPreferenceKey,value?'on':'off');}catch{/* Still usable for this page if browser storage is blocked. */}}}
  try{setEnabled(localStorage.getItem(helpPreferenceKey)==='on');}catch{setEnabled(false);}
  toggle.addEventListener('change',()=>setEnabled(toggle.checked,true));
