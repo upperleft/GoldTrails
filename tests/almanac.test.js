@@ -4,7 +4,7 @@ import {createServer} from '../app/server.js';
 import {createAlmanacHandler} from '../app/almanac/handler.js';
 import {createAlmanacStore} from '../app/almanac/store.js';
 import {states,content,validateContent,assembleState,stateBySlug,statesInCoverage,sourceVideoUrl} from '../app/almanac/model.js';
-import {dashboard,almanacPage,historicMines} from '../app/almanac/views.js';
+import {dashboard,almanacPage,historicMines,panningDestinations} from '../app/almanac/views.js';
 
 test('all 50 states have distinct stable URLs, real outlines and readable names including insets',()=>{
  assert.equal(states.length,50);assert.equal(new Set(states.map(s=>s.slug)).size,50);assert.equal(new Set(states.map(s=>s.fips)).size,50);
@@ -142,4 +142,37 @@ test('document links open the inspected PDF page and reject malformed page refer
  }
  const catalog=structuredClone(content);catalog.states.find(s=>s.id==='US-ME').mines[0].furtherReading[0].page=1;
  assert.throws(()=>validateContent(catalog),/archival link/);
+});
+
+test('panning destinations require appropriate access evidence and attributed trip facts',()=>{
+ const destinations=content.states.flatMap(s=>s.destinations||[]);assert.equal(destinations.length,3);
+ assert.deepEqual(new Set(destinations.map(d=>d.kind)),new Set(['public_hand_panning','operator_river_access','supervised_practice']));
+ const mutate=fn=>{const data=structuredClone(content);fn(data.states.find(s=>s.id==='US-VT').destinations[0],data);assert.throws(()=>validateContent(data),/destination|Unattributed|Duplicate/);};
+ for(const change of [d=>d.permissionSourceId='maine-gold',d=>d.status='reported_occurrence',d=>d.coordinates=[43,-72],d=>d.tripFacts[0].sourceIds=['fiction'],d=>d.tripFacts.pop(),d=>d.tripFacts[1].key=d.tripFacts[0].key,d=>d.tripFacts[0].locator='',d=>d.articleIds=['article:fictional'],d=>d.beforeYouGo=[]])mutate(change);
+ const undated=structuredClone(content);undated.states.find(s=>s.id==='US-VT').destinations[0].reviewedAt='';assert.throws(()=>validateContent(undated),/Review/);
+ mutate((d,data)=>{data.sources.find(s=>s.id===d.permissionSourceId).authority='operator';});
+ mutate(d=>d.id='US-VT');
+});
+
+test('destination planning keeps training separate from river access and resolves every source anchor',()=>{
+ const me=dashboard(assembleState(stateBySlug('maine'))),nh=dashboard(assembleState(stateBySlug('new-hampshire'))),vt=dashboard(assembleState(stateBySlug('vermont')));
+ assert.match(me,/Supervised practice program checked/);assert.match(me,/not evidence of natural river yields/);assert.match(me,/not a river-access pass/);
+ assert.match(nh,/Operator day-pass access checked/);assert.match(nh,/confirm current state requirements before bringing a sluice/);assert.match(nh,/current panning-pass price was not published/);
+ assert.match(vt,/Park hand-panning policy checked/);assert.match(vt,/does not establish off-season brook access/);assert.match(vt,/\$5 ages 14\+/);
+ assert.equal((vt.match(/data-record-id="US-VT:camp-plymouth-buffalo"/g)||[]).length,1);
+ for(const html of [me,nh,vt]){
+  assert.ok(html.indexOf('id="destinations"')<html.indexOf('id="numbers"'));
+  const ids=new Set([...html.matchAll(/id="(source-[^"]+)"/g)].map(m=>m[1]));
+  for(const ref of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(ids.has(ref[1]),ref[1]);
+  assert.match(html,/<details class="almanac-trip-details"><summary>/);
+ }
+ const sparse=dashboard(assembleState(stateBySlug('delaware')));assert.ok(!sparse.includes('id="destinations"'));assert.ok(!sparse.includes('href="#destinations"'));
+});
+
+test('destination output escapes content, opens operator links separately and only links existing lessons',()=>{
+ const data=assembleState(stateBySlug('maine')),items=structuredClone(data.record.destinations);
+ items[0].title='<img src=x onerror=evil()>';items[0].tripFacts[0].text='<script>evil()</script>';items[0].beforeYouGo=['<img src=x>'];
+ const html=panningDestinations(items,data.articles);assert.ok(!html.includes('<img'));assert.ok(!html.includes('<script>evil()'));assert.match(html,/&lt;img/);assert.match(html,/&lt;script&gt;/);
+ assert.match(html,/https:\/\/cooscanyonrockandgift.com\/gold-prospecting" target="_blank" rel="noopener noreferrer"/);
+ for(const ref of html.matchAll(/href="(\/articles\/[^\"]+)"/g))assert.ok(data.articles.some(a=>a.url===ref[1]));
 });

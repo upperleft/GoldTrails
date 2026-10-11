@@ -1,0 +1,109 @@
+{
+  "purpose": "Public source retrieval and text-review metadata for three panning-visit entries; no full source text, personal data, geocoded points or live availability claims.",
+  "sources": [
+    {
+      "sourceId": "maine-gold",
+      "url": "https://www.maine.gov/dacf/mgs/explore/minerals/facts/goldfact.htm",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Opening geology; General Regulations; Gold Panning Streams",
+      "httpStatus": 200,
+      "sha256": "67a703074fb90c310c7a985b728b69c743d860afad3e47495ad8da5851288c12",
+      "bytes": 28839
+    },
+    {
+      "sourceId": "nh-gold-2020",
+      "url": "https://www.des.nh.gov/sites/g/files/ehbemt341/files/documents/2020-01/geo-1.pdf",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "official_indexed_text",
+      "locator": "2020 fact sheet; pp. 1\u20132: history, panning, dredging and Ammonoosuc district",
+      "retrievalNote": "Official indexed text reviewed; direct PDF retrieval was blocked. Dated 2020 guidance, not confirmation of current equipment permitting."
+    },
+    {
+      "sourceId": "vt-camp-plymouth",
+      "url": "https://www.vtstateparks.com/parks/camp-plymouth",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "History; Gold Panning; Park Information; Facilities and Amenities",
+      "httpStatus": 200,
+      "sha256": "090b478da0b95ce5ffd4ef43b509e7a0ab56a3c83bed3d60cbe72490fd675d0c",
+      "bytes": 84919
+    },
+    {
+      "sourceId": "vt-panning-rules",
+      "url": "https://www.vtstateparks.com/other-activities#goldPanning",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Gold Panning: hand tools, streambed limits and wildlife management areas",
+      "httpStatus": 200,
+      "sha256": "e70014deb7a57e7ff1f2766196154cbadf320adc8f28a6520c0c176f3f0cb12a",
+      "bytes": 71871
+    },
+    {
+      "sourceId": "me-coos-panning",
+      "url": "https://cooscanyonrockandgift.com/gold-prospecting",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Learn to Pan for Gold; Equipment for Rent; Paydirt",
+      "httpStatus": 200,
+      "sha256": "0f900567ea8cba0db3bbc583e5b871e6963f0a42cd0552f26dd246712fe88544",
+      "bytes": 195918
+    },
+    {
+      "sourceId": "me-coos-visitor",
+      "url": "https://cooscanyonrockandgift.com/",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Contact phone; shop and Swift River setting",
+      "httpStatus": 200,
+      "sha256": "fbc333274d324312c12a588d1bafcd2945c1d57c84ff6b857af8bb448aea136f",
+      "bytes": 169832
+    },
+    {
+      "sourceId": "nh-twin-panning",
+      "url": "https://twinrivernh.com/gold-panning/",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Day-pass paragraph; prospecting store; dredging permit conditions",
+      "httpStatus": 406,
+      "retrievalNote": "Direct shell retrieval blocked; text reviewed through web search/open tool."
+    },
+    {
+      "sourceId": "nh-twin-contact",
+      "url": "https://twinrivernh.com/contact/",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "General Information; GPS arrival address",
+      "httpStatus": 406,
+      "retrievalNote": "Direct shell retrieval blocked; text reviewed through web search/open tool."
+    },
+    {
+      "sourceId": "nh-twin-faq",
+      "url": "https://twinrivernh.com/frequently-asked-questions/",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Opening dates; visitor registration; day use",
+      "httpStatus": 406,
+      "retrievalNote": "Direct shell retrieval blocked; text reviewed through web search/open tool."
+    },
+    {
+      "sourceId": "nh-twin-facilities",
+      "url": "https://twinrivernh.com/facilities/",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Rentals and amenities",
+      "httpStatus": 406,
+      "retrievalNote": "Direct shell retrieval blocked; text reviewed through web search/open tool."
+    },
+    {
+      "sourceId": "vt-day-use",
+      "url": "https://www.vtstateparks.com/day-use#dayUseFees",
+      "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text",
+      "locator": "Day Use Fees; standard rates effective July 1, 2025",
+      "httpStatus": 200,
+      "sha256": "bbd843a5340e55cdf91554a0ead7aa12a494d06d8d3876b92f276ba52ef916a7",
+      "bytes": 143837
+    }
+  ]
+}

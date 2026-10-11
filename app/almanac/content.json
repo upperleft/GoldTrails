@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "reviewedAt": "2026-10-11",
   "sources": [
     {
@@ -102,7 +102,8 @@
       "locator": "History; Gold Panning; Park Information; Facilities and Amenities",
       "checkedAt": "2026-10-11",
       "year": null,
-      "inspectionBasis": "document_text"
+      "inspectionBasis": "document_text",
+      "authority": "land_manager"
     },
     {
       "id": "vt-panning-rules",
@@ -360,6 +361,83 @@
       "year": 1952,
       "locator": "Printed p. 99 / PDF p. 121, Nathan Methley section; distinct Dublin Diamond Ledge company and Gold Mine Road. Original scan and catalog metadata reviewed.",
       "checkedAt": "2026-10-11",
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "me-coos-panning",
+      "title": "Gold prospecting · demonstrations and supervised practice",
+      "publisher": "Coos Canyon Rock & Gift",
+      "url": "https://cooscanyonrockandgift.com/gold-prospecting",
+      "locator": "Learn to Pan for Gold; Equipment for Rent; Paydirt",
+      "authority": "operator",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "me-coos-visitor",
+      "title": "Coos Canyon Rock & Gift · visitor information",
+      "publisher": "Coos Canyon Rock & Gift",
+      "url": "https://cooscanyonrockandgift.com/",
+      "locator": "Contact phone; shop and Swift River setting",
+      "authority": "operator",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nh-twin-panning",
+      "title": "Gold panning · river-frontage day passes",
+      "publisher": "Twin River Campground & Cottages",
+      "url": "https://twinrivernh.com/gold-panning/",
+      "locator": "Day-pass paragraph; prospecting store; dredging permit conditions",
+      "authority": "operator",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nh-twin-contact",
+      "title": "Twin River · contact and arrival address",
+      "publisher": "Twin River Campground & Cottages",
+      "url": "https://twinrivernh.com/contact/",
+      "locator": "General Information; GPS arrival address",
+      "authority": "operator",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nh-twin-faq",
+      "title": "Twin River · season and visitor check-in",
+      "publisher": "Twin River Campground & Cottages",
+      "url": "https://twinrivernh.com/frequently-asked-questions/",
+      "locator": "Opening dates; visitor registration; day use",
+      "authority": "operator",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nh-twin-facilities",
+      "title": "Twin River · facilities",
+      "publisher": "Twin River Campground & Cottages",
+      "url": "https://twinrivernh.com/facilities/",
+      "locator": "Rentals and amenities",
+      "authority": "operator",
+      "checkedAt": "2026-10-11",
+      "year": null,
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "vt-day-use",
+      "title": "Vermont State Parks · day-use fees",
+      "publisher": "Vermont State Parks",
+      "url": "https://www.vtstateparks.com/day-use#dayUseFees",
+      "locator": "Day Use Fees; standard rates effective July 1, 2025",
+      "authority": "land_manager",
+      "checkedAt": "2026-10-11",
+      "year": null,
       "inspectionBasis": "document_text"
     }
   ],
@@ -951,6 +1029,83 @@
           ],
           "researchNote": "A precise mine-to-mill map and named operator are still needed. No point has been substituted from a town or pond centroid."
         }
+      ],
+      "destinations": [
+        {
+          "id": "US-ME:destination:coos-practice",
+          "title": "Coos Canyon Rock & Gift",
+          "text": "Try the motions before heading into a river. The shop offers a free panning demonstration and supervised tub practice using purchased paydirt. Added gold in paydirt is a practice aid, not evidence of natural river yields.",
+          "kind": "supervised_practice",
+          "permissionSourceId": "me-coos-panning",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Byron · Coos Canyon on the Swift River. Visitor contact: 207-364-4900.",
+              "sourceIds": [
+                "me-coos-visitor",
+                "maine-gold"
+              ],
+              "locator": "Shop homepage; MGS Gold Panning Equipment and Advice"
+            },
+            {
+              "key": "entry",
+              "text": "Ask staff for a demonstration or supervised paydirt session. Tell the shop ahead if your group exceeds eight.",
+              "sourceIds": [
+                "me-coos-panning"
+              ],
+              "locator": "Learn to Pan for Gold; Paydirt"
+            },
+            {
+              "key": "equipment",
+              "text": "A pan and water tub are provided for supervised practice. Panning equipment can also be rented.",
+              "sourceIds": [
+                "me-coos-panning"
+              ],
+              "locator": "Paydirt; Equipment for Rent"
+            },
+            {
+              "key": "fees",
+              "text": "Demonstration advertised as free. Panning setup rental: $5 plus a $15 refundable deposit. Paydirt costs extra; ask for today’s price.",
+              "sourceIds": [
+                "me-coos-panning"
+              ],
+              "locator": "Learn to Pan for Gold; Equipment for Rent; Paydirt"
+            },
+            {
+              "key": "season",
+              "text": "Call the shop to confirm current hours and demonstration availability; an operating calendar was not established in this review.",
+              "sourceIds": [
+                "me-coos-visitor"
+              ],
+              "locator": "Contact phone; no published operating calendar located"
+            },
+            {
+              "key": "facilities",
+              "text": "Rock and gift shop, prospecting supplies and supervised practice. Ask about other facilities before visiting.",
+              "sourceIds": [
+                "me-coos-panning",
+                "me-coos-visitor"
+              ],
+              "locator": "Shop introduction; prospecting equipment; Paydirt"
+            }
+          ],
+          "articleIds": [
+            "article:where-gold-settles",
+            "article:black-sands"
+          ],
+          "beforeYouGo": [
+            "Confirm hours, group arrangements and the current paydirt price.",
+            "If moving on to the Swift River, identify the landowner and get permission for the exact stretch. Shop advice or equipment rental is not a river-access pass."
+          ],
+          "sourceIds": [
+            "me-coos-panning",
+            "me-coos-visitor",
+            "maine-gold"
+          ],
+          "locator": "Operator / land-manager activity policy and visitor details; see field-level references",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
       ]
     },
     {
@@ -1361,6 +1516,86 @@
           ],
           "researchNote": "Locate corporate filings and a dated mine plan. Do not merge Dublin, Ossipee and White Diamond records because their names resemble one another."
         }
+      ],
+      "destinations": [
+        {
+          "id": "US-NH:destination:twin-river",
+          "title": "Twin River Campground · Wild Ammonoosuc River",
+          "text": "A managed river visit in Bath. The operator sells panning day passes at its store for about a mile of campground-controlled frontage. Get the pass and ask staff to show the permitted stretch.",
+          "kind": "operator_river_access",
+          "permissionSourceId": "nh-twin-panning",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "4 Twin River Lane, Bath, NH 03740 · junction of Routes 302 and 112. Contact: 603-747-3640.",
+              "sourceIds": [
+                "nh-twin-contact"
+              ],
+              "locator": "General Information; GPS arrival address"
+            },
+            {
+              "key": "entry",
+              "text": "Day visitors purchase a prospecting pass at the campground store. Access covers the operator’s frontage, not the whole river.",
+              "sourceIds": [
+                "nh-twin-panning",
+                "nh-twin-faq"
+              ],
+              "locator": "Gold Panning day passes; visitor registration"
+            },
+            {
+              "key": "equipment",
+              "text": "Start with a pan. NHDES’s 2020 guide excludes shoveling into the streambed or banks. The operator advertises sluicing passes, but confirm current state requirements before bringing a sluice. Dredging requires a state permit and the operator’s approval.",
+              "sourceIds": [
+                "nh-twin-panning",
+                "nh-gold-2020"
+              ],
+              "locator": "Operator equipment and dredging conditions; GEO-1 p. 2"
+            },
+            {
+              "key": "fees",
+              "text": "A paid day pass is required for day visitors; a current panning-pass price was not published on the reviewed activity page. Ask the store.",
+              "sourceIds": [
+                "nh-twin-panning"
+              ],
+              "locator": "Gold Panning day-pass paragraph"
+            },
+            {
+              "key": "season",
+              "text": "The operator lists May 1–October 15. Call for day-pass availability and early/late-season office hours.",
+              "sourceIds": [
+                "nh-twin-faq"
+              ],
+              "locator": "What dates are you open?; How late can I arrive?"
+            },
+            {
+              "key": "facilities",
+              "text": "Campsites, cabins, cottages, restrooms with showers and a prospecting-supply store. Ask which amenities a panning-only day pass includes.",
+              "sourceIds": [
+                "nh-twin-facilities"
+              ],
+              "locator": "Rentals; Amenities"
+            }
+          ],
+          "articleIds": [
+            "article:where-gold-settles",
+            "article:black-sands"
+          ],
+          "beforeYouGo": [
+            "Confirm the day-pass price, check-in hours and permitted frontage with the store.",
+            "Tell staff exactly what equipment you plan to use; owner permission does not replace state requirements.",
+            "Check river conditions before entering the water; a pass does not establish safe conditions."
+          ],
+          "sourceIds": [
+            "nh-twin-panning",
+            "nh-twin-contact",
+            "nh-twin-faq",
+            "nh-gold-2020",
+            "nh-twin-facilities"
+          ],
+          "locator": "Operator / land-manager activity policy and visitor details; see field-level references",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
+        }
       ]
     },
     {
@@ -1400,19 +1635,7 @@
           "reviewedAt": "2026-10-11"
         }
       ],
-      "places": [
-        {
-          "id": "US-VT:camp-plymouth-buffalo",
-          "title": "Buffalo Brook · official hand-panning opportunity",
-          "text": "Camp Plymouth’s park page permits recreational hand panning in Buffalo Brook. Sluices and commercial mining are not allowed. Confirm the park boundary, current opening arrangements and day-use fees with park staff; nearby abandoned mines are not places to enter.",
-          "sourceIds": [
-            "vt-camp-plymouth"
-          ],
-          "locator": "Gold Panning; History; Park Information",
-          "status": "source_checked",
-          "reviewedAt": "2026-10-11"
-        }
-      ],
+      "places": [],
       "articleIds": [
         "article:where-gold-settles",
         "article:black-sands",
@@ -1636,6 +1859,83 @@
             }
           ],
           "researchNote": "A documented owner/operator chain, a reliable full operating span and a plan matching the various openings remain to be established. The historic MRDS point has unknown accuracy and is not a surveyed entrance."
+        }
+      ],
+      "destinations": [
+        {
+          "id": "US-VT:camp-plymouth-buffalo",
+          "title": "Camp Plymouth · Buffalo Brook",
+          "text": "A state-park hand-panning opportunity near Ludlow. The park explicitly allows visitors to pan in Buffalo Brook for personal enjoyment. Stay within the park’s permitted area; nearby historic mines are outside this invitation.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "vt-camp-plymouth",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "2008 Scout Camp Road, Ludlow, VT 05149. Park contact: 802-228-2025.",
+              "sourceIds": [
+                "vt-camp-plymouth"
+              ],
+              "locator": "Park Information: Address and Phone"
+            },
+            {
+              "key": "entry",
+              "text": "Use the park’s day-use entrance and confirm the boundary and panning area with staff. Permission is for recreational hand panning in Buffalo Brook.",
+              "sourceIds": [
+                "vt-camp-plymouth"
+              ],
+              "locator": "Gold Panning; Park Information; History"
+            },
+            {
+              "key": "equipment",
+              "text": "Hand panning only. State Parks permits small hand tools for streambed material; leave the banks intact. No sluices, rocker boxes or powered/moving equipment.",
+              "sourceIds": [
+                "vt-panning-rules",
+                "vt-camp-plymouth"
+              ],
+              "locator": "Gold panning rules; Gold Panning"
+            },
+            {
+              "key": "fees",
+              "text": "Standard day use: $5 ages 14+, $2 ages 4–13, free ages 0–3. Rates effective July 1, 2025; check the current fee page before travel.",
+              "sourceIds": [
+                "vt-day-use"
+              ],
+              "locator": "Day Use Fees: Standard Rates"
+            },
+            {
+              "key": "season",
+              "text": "Day use: Friday of Memorial Day weekend to the second September weekend, 10am–sunset. Cottages/group camping run later; that does not establish off-season brook access.",
+              "sourceIds": [
+                "vt-camp-plymouth"
+              ],
+              "locator": "Park Information: Season and Day Use Hours"
+            },
+            {
+              "key": "facilities",
+              "text": "Picnic areas, beach, boat rentals, group camping and cottages. Ask staff about the brook approach and any mobility needs.",
+              "sourceIds": [
+                "vt-camp-plymouth"
+              ],
+              "locator": "Park amenities; Group Camping; Cabins / Cottages"
+            }
+          ],
+          "articleIds": [
+            "article:where-gold-settles",
+            "article:black-sands"
+          ],
+          "beforeYouGo": [
+            "Check park alerts, day-use opening dates and current entry fees.",
+            "Ask staff to identify the park boundary and the permitted brook section.",
+            "Keep to hand panning; do not enter abandoned shafts or adits."
+          ],
+          "sourceIds": [
+            "vt-camp-plymouth",
+            "vt-panning-rules",
+            "vt-day-use"
+          ],
+          "locator": "Operator / land-manager activity policy and visitor details; see field-level references",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-11"
         }
       ]
     },

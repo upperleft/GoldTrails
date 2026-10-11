@@ -15,6 +15,14 @@ export function validateContent(data){
  for(const r of data.states){register(r);if(!stateById(r.id))throw new Error('Invalid Almanac state');
   if(r.accessNotes!==undefined&&(!Array.isArray(r.accessNotes)||r.accessNotes.some(n=>n.status!=='source_checked')))throw new Error('Invalid Almanac access note');
   if(r.mines!==undefined&&!Array.isArray(r.mines))throw new Error('Invalid historic mine collection');
+  if(r.destinations!==undefined&&!Array.isArray(r.destinations))throw new Error('Invalid panning destinations');
+  for(const destination of r.destinations||[]){
+   const authority=sources.get(destination.permissionSourceId)?.authority;
+   if(!destination.title||!destination.text||destination.status!=='source_checked'||!['public_hand_panning','operator_river_access','supervised_practice'].includes(destination.kind)||!destination.sourceIds?.includes(destination.permissionSourceId)||authority!==(destination.kind==='public_hand_panning'?'land_manager':'operator')||!destination.locator||destination.coordinates!==undefined)throw new Error('Invalid destination access evidence');
+   const keys=['where','entry','equipment','fees','season','facilities'];
+   if(!Array.isArray(destination.tripFacts)||destination.tripFacts.length!==keys.length||new Set(destination.tripFacts.map(f=>f.key)).size!==keys.length||destination.tripFacts.some(f=>!keys.includes(f.key)||!f.text||!f.locator||!f.sourceIds?.length||f.sourceIds.some(id=>!destination.sourceIds.includes(id))))throw new Error('Invalid destination trip facts');
+   if(!Array.isArray(destination.beforeYouGo)||!destination.beforeYouGo.length||destination.beforeYouGo.some(t=>typeof t!=='string'||!t.trim())||!Array.isArray(destination.articleIds)||destination.articleIds.some(id=>!articles.has(id)))throw new Error('Invalid destination preparation');
+  }
   for(const mine of r.mines||[]){
    const loc=mine.location;
    if(mine.status!=='source_checked'||!mine.title||!mine.text||!mine.dates||!['gold_mine','gold_silver_mine','gold_prospect','disputed_gold_working'].includes(mine.kind)||!loc?.description||!['unresolved','recorded_approximate'].includes(loc.precision))throw new Error('Invalid historic mine record');
@@ -24,7 +32,7 @@ export function validateContent(data){
    if(mine.furtherReading!==undefined&&(!Array.isArray(mine.furtherReading)||mine.furtherReading.some(link=>!mine.sourceIds?.includes(link.sourceId)||!sources.has(link.sourceId)||!link.locator||!['document_reviewed','catalog_only'].includes(link.inspection)||(sources.get(link.sourceId)?.inspectionBasis==='catalog_metadata'&&link.inspection!=='catalog_only')||(link.page!==undefined&&!sourceDocumentUrl(sources.get(link.sourceId)?.url,link.page)))))throw new Error('Invalid mine archival link');
    if(mine.researchNote!==undefined&&(typeof mine.researchNote!=='string'||!mine.researchNote.trim()))throw new Error('Invalid mine research note');
   }
-  for(const item of [r.overview,...r.facts,...r.history,...r.places,...(r.accessNotes||[]),...(r.mines||[]),...(r.mines||[]).flatMap(m=>m.historyNotes||[])].filter(Boolean)){
+  for(const item of [r.overview,...r.facts,...r.history,...r.places,...(r.destinations||[]),...(r.accessNotes||[]),...(r.mines||[]),...(r.mines||[]).flatMap(m=>m.historyNotes||[])].filter(Boolean)){
    register(item);reviewed(item);if(!['source_checked','reported_occurrence'].includes(item.status))throw new Error('Unreviewed Almanac claim');if(!item.sourceIds?.length||item.sourceIds.some(id=>!sources.has(id)))throw new Error('Unattributed Almanac claim');
    if(item.value!==undefined&&(!Number.isFinite(item.value)||item.value<0||!item.period||!item.unit||item.scope!==r.id||!item.definition||!item.locator||item.status!=='source_checked'))throw new Error('Invalid Almanac statistic');
   }
