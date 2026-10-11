@@ -117,6 +117,14 @@ header{flex-wrap:nowrap;gap:20px}.header-tools{width:auto;border:0;padding:0;mar
 
 /* Gold Trails visual polish: a full view of our guide and quiet natural gold accents. */
 .home-page .layout{padding-top:8px}
+
+/* A small brass price plaque, below the field-desk navigation. */
+.gold-price-box{width:100%;flex-basis:100%;margin-top:20px;padding:15px 12px;background:linear-gradient(145deg,#fff5d8,#ebd5a0);border:1px solid #b89145;border-radius:5px;box-shadow:inset 0 0 0 3px #fff6df60;color:#49341f}
+.gold-price-heading{display:flex;align-items:center;gap:8px}.gold-price-heading>span{color:#ad7720;font-size:23px}.gold-price-heading h3{font-size:18px;line-height:1.3}
+.gold-price-box .gold-price-unit{font-size:10px;font-weight:700;letter-spacing:.05em;margin:2px 0 9px;color:#745b36}
+.gold-price-box dl{margin:0}.gold-price-box dl>div{padding:7px 0;border-top:1px solid #b7924750}.gold-price-box dt{font-size:11px;color:#73542e}.gold-price-box dd{margin:0;font-size:21px;font-weight:700;line-height:1.4;font-variant-numeric:tabular-nums}
+.gold-price-box .gold-price-status,.gold-price-box .gold-price-date{font-size:10px;line-height:1.5;margin:6px 0 0;color:#735b39}.gold-price-box .gold-price-source{display:inline-block;font-size:10px;text-decoration:underline;text-underline-offset:3px;margin-top:8px}
+@media(max-width:750px){.gold-price-box{margin-top:10px}.gold-price-box dl{display:grid;grid-template-columns:1fr 1fr;gap:15px}}
 .home-page .hero{height:auto;background:#264c51;border-color:#60462b;border-width:4px;box-shadow:0 0 0 1px #c4a366,0 8px 22px #4b351823}
 .home-page .hero>img{display:block;width:100%;height:auto;object-fit:contain;object-position:center}
 .home-page .hero:after{background:linear-gradient(90deg,#183b39ec 0%,#1e3b35b0 31%,#27443228 47%,transparent 58%)}
