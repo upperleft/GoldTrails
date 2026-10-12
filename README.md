@@ -48,3 +48,7 @@ The owner-only workspace is implemented at `/admin/login/` and `/admin/creators/
 ## Gold Almanac
 
 The state map and source-backed guides are available at `/gold-almanac/`. See [Gold Almanac implementation and editorial guide](docs/gold-almanac.md) for data structure, existing database connections, source requirements, and verification notes. No new migration or API credentials are needed.
+
+## Private member calendar
+
+Phase 1 integrates native personal calendars at `/calendar/` with the existing member sign-in and MariaDB database. Setup, phased implementation plan, migration and verification: [Calendar](docs/calendar.md).

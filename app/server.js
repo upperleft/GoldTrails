@@ -11,13 +11,13 @@ import {createGoldPriceFeed} from './gold-price.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
-export function createServer({ directory = null, admin = null, members = null, compass = null, products = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
+export function createServer({ directory = null, admin = null, members = null, compass = null, products = null, calendar = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
   function send(req, res, status, body, headers = {}) {
     res.writeHead(status, { 'Content-Type':'text/html; charset=utf-8', 'X-Content-Type-Options':'nosniff', 'Cache-Control':'no-store', ...headers });
     res.end(req.method === 'HEAD' ? undefined : body);
   }
-  return http.createServer(async (req, res) => {
+  const server = http.createServer(async (req, res) => {
     let url, path;
     try { url = new URL(req.url,'http://localhost'); path = decodeURIComponent(url.pathname); }
     catch { send(req,res,400,messagePage('That trail marker is unclear','Please check the address and try again.')); return; }
@@ -33,6 +33,7 @@ export function createServer({ directory = null, admin = null, members = null, c
     if (members && await members(req,res,url)) return;
     if (compass && await compass(req,res,url)) return;
     if (products && await products(req,res,url)) return;
+    if (calendar && await calendar(req,res,url)) return;
     if (!['GET','HEAD'].includes(req.method)) {
       res.writeHead(405, { Allow:'GET, HEAD' }); res.end(); return;
     }
@@ -97,4 +98,6 @@ export function createServer({ directory = null, admin = null, members = null, c
       res.end(req.method === 'HEAD' ? undefined : data);
     } catch { send(req,res,404,messagePage('Trail not found','That page is not available.')); }
   });
+  server.on('close', () => { calendar?.close?.().catch(() => {}); });
+  return server;
 }
