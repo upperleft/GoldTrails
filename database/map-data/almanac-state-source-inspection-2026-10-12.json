@@ -1,0 +1,1521 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-12",
+  "contentVersion": 8,
+  "stateIds": [
+    "US-ID",
+    "US-AK",
+    "US-AZ",
+    "US-NM",
+    "US-UT",
+    "US-CO",
+    "US-OR",
+    "US-WY",
+    "US-MI",
+    "US-WI",
+    "US-MN",
+    "US-IN",
+    "US-OH",
+    "US-PA",
+    "US-NJ",
+    "US-MD",
+    "US-MT",
+    "US-SD",
+    "US-WA",
+    "US-FL",
+    "US-HI",
+    "US-AL",
+    "US-AR",
+    "US-LA",
+    "US-MS",
+    "US-OK",
+    "US-TX",
+    "US-IL",
+    "US-IA",
+    "US-KS",
+    "US-MO",
+    "US-NE",
+    "US-ND",
+    "US-DE",
+    "US-KY",
+    "US-SC",
+    "US-TN",
+    "US-VA",
+    "US-WV"
+  ],
+  "scope": "Primary-source research for 39 additive state enrichments. Historical production periods are preserved; occurrence is not current access permission.",
+  "exclusions": "Unresolved findings remain in a separate private research queue and are absent from public editorial content. No new mine coordinates, active-operation counts or complete destination trip cards were inferred.",
+  "sources": [
+    {
+      "id": "usgs-pp610-1968",
+      "title": "Principal gold-producing districts of the United States · Professional Paper 610",
+      "publisher": "A. H. Koschmann and M. H. Bergendahl / U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/pp/0610/report.pdf",
+      "locator": "Printed pp. 32, 84, 120, 216 and 240 / PDF pp. 38, 90, 126, 222 and 246; historical state totals and their periods; Figure 1, printed p. 4 (PDF p. 10); Montana, printed p. 143 (PDF p. 149); South Dakota, printed p. 232 (PDF p. 238); estimate caveats, printed p. 3; South Carolina, printed p.231 / PDF p.237; Virginia, printed p.253 / PDF p.259; Figure3 on printed p.7; estimate caveats printed p.3; Alabama opening, printed p.6 / PDF p.12",
+      "year": 1968,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text",
+        "document_reviewed",
+        "document_text",
+        "document_text"
+      ],
+      "limitations": [],
+      "retrievedDocument": {
+        "fileName": "usgs-pp610-northwest.pdf",
+        "sha256": "f4c1f048aaffe1e8d1431983e0a7b3f1bb543fab0f5380cd42e85c0a6a840896",
+        "bytes": 39132819,
+        "inspectionNotes": "Printed pp. 4, 120, 143 and 232: figure, Idaho total, Montana total and South Dakota total; selected pages rendered and inspected."
+      },
+      "additionalDocumentInspections": [
+        {
+          "fileName": "usgs-pp610-northwest.pdf",
+          "sha256": "f4c1f048aaffe1e8d1431983e0a7b3f1bb543fab0f5380cd42e85c0a6a840896",
+          "bytes": 39132819,
+          "evidence": {
+            "inspectedPdfPages": [
+              12
+            ],
+            "visuallyInspectedPdfPages": [
+              12
+            ]
+          }
+        },
+        {
+          "fileName": "usgs-pp610-northwest.pdf",
+          "sha256": "f4c1f048aaffe1e8d1431983e0a7b3f1bb543fab0f5380cd42e85c0a6a840896",
+          "bytes": 39132819,
+          "evidence": {
+            "inspectedPdfPages": [
+              237,
+              259
+            ],
+            "visuallyInspectedPdfPages": [
+              237,
+              259
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ak-minerals-2022-sr79",
+      "title": "Alaska’s mineral industry 2022 · Special Report 79",
+      "publisher": "David J. Szumigala / Alaska Division of Geological & Geophysical Surveys",
+      "url": "https://dggs.alaska.gov/webpubs/dggs/sr/text/sr079.pdf",
+      "locator": "Printed pp. 60–62 / PDF pp. 70–72; Table 17 gold row and Table 18 placer estimation method",
+      "year": 2026,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": [],
+      "retrievedDocument": {
+        "fileName": "ak-minerals-2022-sr79.pdf",
+        "sha256": "3a059f7fe78bbe30912df4c9ad3eca29785cea4cd04a59aeb9422fe344a0d393",
+        "bytes": 7113837,
+        "inspectionNotes": "Table 17 on printed p. 61 / PDF p. 71 rendered and inspected; accompanying placer estimation discussion read."
+      }
+    },
+    {
+      "id": "ak-minerals-overview",
+      "title": "Alaska’s Mineral Industry",
+      "publisher": "Alaska Division of Geological & Geophysical Surveys",
+      "url": "https://dggs.alaska.gov/pubs/pubs?reqtype=minerals",
+      "locator": "Overview: lode and placer gold; Interior and Southeast mining regions",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "ak-nps-stampede",
+      "title": "The Stampede North: The Alaska Gold Rushes, 1897–1904",
+      "publisher": "National Park Service",
+      "url": "https://www.nps.gov/articles/alaska-goldrush-national-historic-landmarks.htm",
+      "locator": "The Stampede North; Cape Nome Mining District Discovery Sites; Tlingit trade and gold-rush impacts",
+      "year": null,
+      "authority": "historical_agency",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "ak-blm-panning",
+      "title": "Alaska recreation activities · gold panning",
+      "publisher": "Bureau of Land Management",
+      "url": "https://www.blm.gov/programs/recreation/recreation-activities/alaska",
+      "locator": "Recreational Gold Panning and Rockhounding; Interior Alaska; current closure notices",
+      "year": null,
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "az-usgs-placer-1972",
+      "title": "Placer Gold Deposits of Arizona · Bulletin 1355",
+      "publisher": "Maureen G. Johnson / U.S. Geological Survey, hosted by Arizona Geological Survey",
+      "url": "https://data.azgs.arizona.edu/api/v1/collections/ADMM-1552428007790-374/usgsbull1355placergolddepositsarizonatextsmaller.pdf",
+      "locator": "Printed p. 1 / PDF p. 8: abstract; printed pp. 50–52 and 60–62: Lynx Creek and Weaver districts",
+      "year": 1972,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": [],
+      "retrievedDocument": {
+        "fileName": "az-placer-b1355.pdf",
+        "sha256": "fd8d5766a27e77e0708d22923ecb73b447de0a8318255165c32442010d9c32ee",
+        "bytes": 10058439,
+        "inspectionNotes": "Printed p. 1 / PDF p. 8 rendered and inspected; Lynx Creek and Weaver district passages read."
+      }
+    },
+    {
+      "id": "az-gold-prospecting",
+      "title": "Gold Prospecting in Arizona",
+      "publisher": "Arizona Geological Survey",
+      "url": "https://azgs.arizona.edu/mineral-resources/mining-arizona/gold-prospecting",
+      "locator": "Lode and placer publication guides; ownership and designated-land guidance",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "co-cgs-metals",
+      "title": "Metals · gold and historical mining",
+      "publisher": "Colorado Geological Survey",
+      "url": "https://coloradogeologicalsurvey.org/minerals/metals/",
+      "locator": "Intro: Auraria and California Gulch; Gold: deposit diversity and historic producing districts",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "co-cache-creek-map",
+      "title": "Cache Creek Placer Area · official map and visitor guidance",
+      "publisher": "Bureau of Land Management · Royal Gorge Field Office",
+      "url": "https://www.blm.gov/royal-gorge-fo/public-room/map/blm-co-rgfo-cache-creek-placer-area-map",
+      "locator": "Visitor paragraph; linked March 10, 2022 map: designated digging boundary, parking, kiosks and seasonal motorized gate",
+      "year": 2022,
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "id-igs-minerals",
+      "title": "Mines & Minerals",
+      "publisher": "Idaho Geological Survey",
+      "url": "https://www.idahogeology.org/geologic-resources/mines-minerals",
+      "locator": "Idaho’s Mineral Resources: Pierce discovery, mineral settings, district publications and inactive-mine hazards",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "or-dogami-provinces",
+      "title": "Geologic Provinces",
+      "publisher": "Oregon Department of Geology and Mineral Industries",
+      "url": "https://www.oregon.gov/dogami/learnmore/pages/geologicsightseeing.aspx",
+      "locator": "Klamath Mountains; Blue Mountains; Basin & Range and Owyhee Uplands",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "or-sumpter-dredge",
+      "title": "Sumpter Valley Dredge State Heritage Area",
+      "publisher": "Oregon Parks and Recreation Department",
+      "url": "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=174",
+      "locator": "Park Overview; Visiting the Dredge; History: 1935 dredge operated until August 1954",
+      "year": null,
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "ut-ugs-gold",
+      "title": "Utah Gold · History, Placers, and Recreational Regulations",
+      "publisher": "Utah Geological Survey",
+      "url": "https://geology.utah.gov/popular/rocks-minerals/utah-gold/",
+      "locator": "Lode and Placer Deposits; Early Discoveries; Where are Utah’s gold placers?; historical content only",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "wy-wsgs-gold",
+      "title": "Gold in Wyoming",
+      "publisher": "Wyoming State Geological Survey",
+      "url": "https://main.wsgs.wyo.gov/mineral-resources/metals/gold",
+      "locator": "Gold geology; History; South Pass–Atlantic City and Douglas Creek district descriptions",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "mi-gold-compilation",
+      "state": "MI",
+      "url": "https://www.michigan.gov/-/media/Project/Websites/egle/Documents/Programs/GRMD/Catalog/06/GIMDL-OFR8001.PDF",
+      "title": "Gold in Michigan — Open File Report MGSD OFR GOLD 80-1",
+      "publisher": "Michigan Department of Natural Resources, Geological Survey Division; hosted by Michigan EGLE",
+      "authority": "state_geological_survey",
+      "publicationDate": "1980",
+      "locator": "Section 'Placer Gold'; historical Ropes Gold Mine sections; preliminary-report notice on first page",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "A preliminary historical compilation of earlier publications, not a current site-access guide."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official 34-page PDF text, including the placer section and historical mine discussion."
+      ]
+    },
+    {
+      "id": "mi-nonferrous",
+      "state": "MI",
+      "url": "https://www.michigan.gov/egle/about/organization/geologic-resources-management/mining/nonferrous-metallic",
+      "title": "Nonferrous metallic mining",
+      "publisher": "Michigan Department of Environment, Great Lakes, and Energy, Geologic Resources Management Division",
+      "authority": "state_mining_regulator",
+      "publicationDate": null,
+      "locator": "Humboldt Mill section, paragraph discussing gold processing and Ropes Mine's 1989 closure",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "Industrial mine and mill history does not establish recreational access."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the current official agency page, including the Humboldt Mill history."
+      ]
+    },
+    {
+      "id": "wi-gold-panning",
+      "state": "WI",
+      "url": "https://dnr.wisconsin.gov/topic/Mines/GoldPanning.html",
+      "title": "Gold Panning in Wisconsin",
+      "publisher": "Wisconsin Department of Natural Resources",
+      "authority": "state_land_manager_and_mining_regulator",
+      "publicationDate": null,
+      "locator": "Introductory geology paragraphs; Property Considerations / Private Land / Public Land",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "Statewide regulatory guidance; no named panning destination is authorized by this page."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the complete official page."
+      ]
+    },
+    {
+      "id": "wi-gold-prospecting",
+      "state": "WI",
+      "url": "https://data.wgnhs.wisc.edu/pubshare/WOFR1985-05.pdf",
+      "title": "Gold Prospecting — Open File Report 1985-05",
+      "publisher": "Wisconsin Geological and Natural History Survey / University of Wisconsin Extension",
+      "authority": "state_geological_survey",
+      "publicationDate": "Report identifier 1985-05; hosted text includes later historical updates",
+      "locator": "PDF pp. 1–2, numbered occurrence list: massive sulfide deposits and St. Croix Dalles; final poorly documented/fraudulent reports section",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "The occurrence list explicitly separates better-supported records from poorly documented or fraudulent reports. Its old regulatory paragraphs were not used for current permission."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official two-page PDF."
+      ]
+    },
+    {
+      "id": "mn-history",
+      "state": "MN",
+      "url": "https://www.dnr.state.mn.us/education/geology/digging/history.html",
+      "title": "Minnesota mining history",
+      "publisher": "Minnesota Department of Natural Resources",
+      "authority": "state_natural_resources_agency",
+      "publicationDate": null,
+      "locator": "'Gold Rush!' section",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "Historical context only; it does not authorize prospecting at the named locations."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official history page."
+      ]
+    },
+    {
+      "id": "mn-recreational-geology",
+      "state": "MN",
+      "url": "https://www.dnr.state.mn.us/geologyrec/index.html",
+      "title": "Recreational Geology",
+      "publisher": "Minnesota Department of Natural Resources",
+      "authority": "state_land_manager_and_minerals_agency",
+      "publicationDate": null,
+      "locator": "Gold Panning paragraphs; recreational collecting restrictions",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "Defined low-impact activity and ownership-specific guidance do not establish permission for a particular visitor location."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official page, including gold geology and the conditions for limited recreational panning."
+      ]
+    },
+    {
+      "id": "mn-little-american-visit",
+      "state": "MN",
+      "url": "https://home.nps.gov/thingstodo/visit-little-american-island.htm",
+      "title": "Visit Little American Island",
+      "publisher": "National Park Service, Voyageurs National Park",
+      "authority": "federal_land_manager",
+      "publicationDate": "Last updated 2021-10-28",
+      "locator": "Self-guided walk description and boat-only access paragraph",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "A heritage walking visit, not permission to collect gold, minerals, or mining artifacts. No current boat transport schedule was established."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official visitor page."
+      ]
+    },
+    {
+      "id": "in-recreational-gold",
+      "state": "IN",
+      "url": "https://secure.in.gov/dnr/water/recreational-gold-prospecting",
+      "title": "Recreational Gold Prospecting",
+      "publisher": "Indiana Department of Natural Resources, Division of Water",
+      "authority": "state_water_regulator",
+      "publicationDate": null,
+      "locator": "Opening glacial-origin paragraph; general-license and property paragraphs",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "The page's gold-location link points to a third-party website; those location claims were not treated as primary evidence."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official agency page."
+      ]
+    },
+    {
+      "id": "in-survey-book",
+      "state": "IN",
+      "url": "https://store.igws.indiana.edu/gold-and-diamonds-in-indiana/",
+      "title": "Gold and Diamonds in Indiana",
+      "publisher": "Indiana Geological and Water Survey",
+      "authority": "state_geological_survey",
+      "publicationDate": null,
+      "locator": "Official publication description naming Morgan and Brown Counties",
+      "inspectionBasis": "official_publication_description",
+      "limitations": [
+        "Supports county-level occurrence context, not a particular stream or parcel."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official Survey publication-store description; did not inspect the full book."
+      ]
+    },
+    {
+      "id": "in-forest-panning",
+      "state": "IN",
+      "url": "https://faqs.in.gov/hc/en-us/articles/115005242428-Is-gold-panning-allowed-on-Indiana-state-forests",
+      "title": "Is gold panning allowed on Indiana state forests?",
+      "publisher": "Indiana State Government / Department of Natural Resources guidance",
+      "authority": "state_land_manager",
+      "publicationDate": "Updated 2026-06-05",
+      "locator": "Permission, required free permit, prohibited equipment, and forest-office paragraphs",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "Permission is expressly scoped to hobby panning at Morgan-Monroe and Yellowwood State Forests under a required permit, with equipment restrictions."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official FAQ."
+      ]
+    },
+    {
+      "id": "oh-geofacts9",
+      "state": "OH",
+      "url": "https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/geology/GF9_Fakhari_2022.pdf",
+      "title": "Gold in Ohio — GeoFacts No. 9",
+      "publisher": "Ohio Department of Natural Resources, Division of Geological Survey",
+      "authority": "state_geological_survey",
+      "publicationDate": "2022",
+      "authors": [
+        "Mohammad Fakhari",
+        "Michael C. Hansen"
+      ],
+      "locator": "PDF p. 1, 'Where to find gold in Ohio' and Figure 1 caption; p. 2 permission paragraph and Figure 2 caption",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "Reported occurrence waterways are not designated public panning sites."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official two-page PDF, including occurrence captions and access guidance."
+      ]
+    },
+    {
+      "id": "pa-metals-catalog",
+      "state": "PA",
+      "url": "https://maps.dcnr.pa.gov/publications/Default.aspx?id=393",
+      "title": "Atlas of Pennsylvania's mineral resources—Part 3, Metal mines and occurrences in Pennsylvania (M 50)",
+      "publisher": "Pennsylvania Geological Survey / Department of Conservation and Natural Resources",
+      "authority": "state_geological_survey",
+      "publicationDate": "1970",
+      "authors": [
+        "Arthur W. Rose"
+      ],
+      "locator": "Publication entry, abstract, and document download link",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "The linked document is delivered as a ZIP containing the report PDF."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official publication catalog and followed its actual document wrapper/download."
+      ]
+    },
+    {
+      "id": "pa-metals-atlas",
+      "state": "PA",
+      "url": "https://elibrary.dcnr.pa.gov/GetDocument?DocName=M50_Pt3_MetalMines_Pa&docId=1751361",
+      "downloadUrl": "https://elibrary.dcnr.pa.gov/PDFProvider.ashx?action=PDFStream&docID=1751361&chksum=&revision=0&docName=M50_Pt3_MetalMines_Pa&nativeExt=zip&PromptToSave=True&Size=8149244&ViewerMode=1&overlay=0",
+      "title": "Atlas of Pennsylvania's Mineral Resources, Part 3: Metal Mines and Occurrences in Pennsylvania",
+      "publisher": "Pennsylvania Geological Survey",
+      "authority": "state_geological_survey",
+      "publicationDate": "1970; reprinted 1973",
+      "authors": [
+        "Arthur W. Rose"
+      ],
+      "locator": "Printed p. 9 / PDF p. 11, Triassic Host Rock Group, Type M; introduction on PDF p. 3",
+      "inspectionBasis": "document_text",
+      "localEvidence": "work/east-source-documents/pa-metals/M_050_Pt3_text.pdf",
+      "limitations": [
+        "A historical literature compilation. Its Type M paragraph supports the county-level record and the report-era assessment, not current prospecting access or economic potential."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Retrieved the actual official DCNR ZIP; opened its 17-page M_050_Pt3_text.pdf with pypdf and read the cover, introduction, and Type M paragraph."
+      ],
+      "retrievedDocument": {
+        "fileName": "M_050_Pt3_text.pdf",
+        "sha256": "c7604448f76b6d98f63f344aa6abeef67649866294817ee2b9008fd291b6e72b",
+        "bytes": 8357329,
+        "inspectionNotes": "Official atlas text PDF read; Type M descriptions on printed p. 9 / PDF p. 11."
+      }
+    },
+    {
+      "id": "pa-prospecting-guidance",
+      "state": "PA",
+      "url": "https://www.pa.gov/agencies/dep/programs-and-services/mining/bureau-of-mining-programs/mining-for-gold-and-gemstones-in-pennsylvania",
+      "title": "Mining for Gold and Gemstones in Pennsylvania",
+      "publisher": "Pennsylvania Department of Environmental Protection, Bureau of Mining Programs",
+      "authority": "state_mining_regulator",
+      "publicationDate": null,
+      "locator": "Main text on non-motorized waterway panning, landowner permission, and State Game Lands/National Parks/DCNR land",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "Permit guidance does not grant permission at a named stream, forest, park, or private parcel."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official current page."
+      ]
+    },
+    {
+      "id": "nj-survey-gold",
+      "state": "NJ",
+      "url": "https://dspace.njstatelib.org/server/api/core/bitstreams/6492c837-72ad-4bf0-9807-512ad0549d50/content",
+      "originalUrl": "https://www.nj.gov/dep/njgs/enviroed/newsletter/v7n1.pdf",
+      "title": "New Jersey Gold, in Unearthing New Jersey, Vol. 7, No. 1, Winter 2011",
+      "publisher": "New Jersey Geological Survey, Department of Environmental Protection; preserved by New Jersey State Library",
+      "authority": "state_geological_survey_primary_publication_in_official_state_archive",
+      "publicationDate": "Winter 2011",
+      "authors": [
+        "Ted Pallis"
+      ],
+      "locator": "Printed pp. 4–6; 'Gold in Copper' on p. 4; map caveat and 'Rush of 28' discussion",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "The article distinguishes actual small gold occurrences from uncertain gold-rush reports, and says map locations are approximate. Original agency PDF URL now returns 404."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official State Library 11-page PDF, including the gold article. The Survey masthead and Winter 2011 date are visible in the document."
+      ]
+    },
+    {
+      "id": "md-survey-gold",
+      "state": "MD",
+      "url": "https://www.mgs.md.gov/geology/minerals_energy_resources/gold.html",
+      "title": "Gold in Maryland",
+      "publisher": "Maryland Geological Survey",
+      "authority": "state_geological_survey",
+      "publicationDate": "1987",
+      "authors": [
+        "Karen R. Kuff"
+      ],
+      "locator": "Piedmont mineralization paragraph; Great Falls paragraph; discovery-history and site-map caveats",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "The historic page gives conflicting first-discovery versions and approximate mine locations; its old access/regulatory prose was not used as current permission."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official Survey page."
+      ]
+    },
+    {
+      "id": "md-gold-mine-trails",
+      "state": "MD",
+      "url": "https://www.nps.gov/choh/planyourvisit/upload/GreatFallsHikingTrailsMap_BGBClosed-Descriptions.pdf",
+      "title": "Hiking Trails of Great Falls Maryland — trail descriptions",
+      "publisher": "National Park Service, Chesapeake and Ohio Canal National Historical Park",
+      "authority": "federal_land_manager",
+      "publicationDate": null,
+      "locator": "Gold Mine Spur, Gold Mine Loop, and Woodland Trail descriptions",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "Heritage walking route information; not permission to collect or enter mine workings. The static file does not establish same-day trail conditions."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened the official one-page PDF and read its trail descriptions."
+      ]
+    },
+    {
+      "id": "md-park-compendium",
+      "state": "MD",
+      "url": "https://www.nps.gov/choh/learn/management/superintendent-s-compendium.htm",
+      "title": "Superintendent's Compendium — Chesapeake & Ohio Canal National Historical Park",
+      "publisher": "National Park Service, Chesapeake and Ohio Canal National Historical Park",
+      "authority": "federal_land_manager",
+      "publicationDate": null,
+      "locator": "Section 1.5, closed areas and Gold Mine Tract designated-trail restriction",
+      "inspectionBasis": "document_text",
+      "limitations": [
+        "Other closures may apply. This establishes the scope of heritage visitation, not mineral collection permission."
+      ],
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "Opened and read the official current compendium page, including Maryland gold mine enclosure closures and designated-trail restrictions."
+      ]
+    },
+    {
+      "id": "nm-nmbgmr-placer-2025",
+      "title": "Placer Gold Resources in New Mexico",
+      "publisher": "New Mexico Bureau of Geology & Mineral Resources",
+      "url": "https://geoinfo.nmt.edu/resources/minerals/metallic/gold/placer/home.html",
+      "locator": "Opening history paragraphs and placer geology paragraphs; revised April 9, 2025",
+      "checkedAt": "2026-10-12",
+      "year": 2025,
+      "inspectionBasis": "document_text",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "nm-nmg-placer-1994",
+      "title": "Placer gold deposits in New Mexico",
+      "publisher": "Virginia T. McLemore / New Mexico Bureau of Mines and Mineral Resources",
+      "url": "https://geoinfo.nmt.edu/publications/periodicals/nmg/16/n2/nmg_v16_n2_p21.pdf",
+      "locator": "New Mexico Geology 16(2), printed pp. 21–25; Table 1, printed p. 23 (PDF p. 5)",
+      "checkedAt": "2026-10-12",
+      "year": 1994,
+      "inspectionBasis": "document_reviewed",
+      "inspectionNotes": [
+        "document_reviewed"
+      ],
+      "limitations": [],
+      "retrievedDocument": {
+        "fileName": "nm-placer-1994.pdf",
+        "sha256": "24f913ca2a3dac79d3eb72232f321f26beebba9fe37f44b2eb7a9f451b06342b",
+        "bytes": 912430,
+        "inspectionNotes": "Table 1 on printed p. 23 / PDF p. 5 rendered and inspected."
+      }
+    },
+    {
+      "id": "nm-nmbgmr-hillsboro-2016",
+      "title": "Geology and evolution of the Copper Flat porphyry system, Sierra County, New Mexico",
+      "publisher": "Virginia T. McLemore / New Mexico Bureau of Geology & Mineral Resources",
+      "url": "https://geoinfo.nmt.edu/staff/mclemore/projects/mineralresources/hillsboro.html",
+      "locator": "Summary; Location and Mining History; Local Geology; November 4, 2016",
+      "checkedAt": "2026-10-12",
+      "year": 2016,
+      "inspectionBasis": "document_text",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "sd-usgs-circular699-1974",
+      "title": "Gold in the Black Hills, South Dakota, and how new deposits might be found",
+      "publisher": "James Jennings Norton / U.S. Geological Survey",
+      "url": "https://www.usgs.gov/publications/gold-black-hills-south-dakota-and-how-new-deposits-might-be-found",
+      "locator": "USGS official publication abstract: ore hosts, distribution and Homestake Formation; Circular 699",
+      "checkedAt": "2026-10-12",
+      "year": 1974,
+      "inspectionBasis": "official_abstract",
+      "inspectionNotes": [
+        "official_abstract"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "sd-nps-fort-laramie-2026",
+      "title": "Fort Laramie in 1876",
+      "publisher": "National Park Service",
+      "url": "https://www.nps.gov/articles/000/fort-laramie-in-1876.htm",
+      "locator": "Gold in the Black Hills! opening paragraphs; updated August 27, 2026",
+      "checkedAt": "2026-10-12",
+      "year": 2026,
+      "inspectionBasis": "document_text",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "sd-danr-mining-history",
+      "title": "History of Mining Regulation in South Dakota",
+      "publisher": "South Dakota Department of Agriculture & Natural Resources",
+      "url": "https://danr.sd.gov/Environment/MineralsMining/MiningHistory.aspx",
+      "locator": "2001 and 2002 entries: Homestake mine and mill closure",
+      "checkedAt": "2026-10-12",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "mt-fwp-bannack",
+      "title": "Bannack State Park",
+      "publisher": "Montana Fish, Wildlife & Parks",
+      "url": "https://fwp.mt.gov/stateparks/bannack/",
+      "locator": "About the Park; Bannack National Landmark Preservation Plan",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "mt-mhc-alder-history",
+      "title": "History of Alder Gulch",
+      "publisher": "Montana Heritage Commission",
+      "url": "https://prod-virginiacitymt.mt.gov/Preservation/Area-History",
+      "locator": "The Discovery; mining-method paragraphs",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "mt-mbmg-metallic-deposits-sp122",
+      "title": "Metallic Ore Deposits of Montana",
+      "publisher": "Christopher H. Gammons, Stanley L. Korzeb and Phyllis A. Hargrave / Montana Bureau of Mines and Geology",
+      "url": "https://mbmg.mtech.edu/mbmgcat/public/FileDirector.asp?fn=3418",
+      "locator": "Special Publication 122, vol. 2; Gold Placers, printed pp. 19–20 (PDF pp. 19–20)",
+      "year": null,
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_reviewed"
+      ],
+      "limitations": [],
+      "retrievedDocument": {
+        "fileName": "mt-mbmg-metallic-deposits.pdf",
+        "sha256": "771dd965e2e2ae0f0e3531387916aebdea27a2992a8d8155ac1462a95bc1e84b",
+        "bytes": 1398330,
+        "inspectionNotes": "Relevant geology and the contradictory placer-only figure inspected; contradictory figure excluded."
+      }
+    },
+    {
+      "id": "wa-dmg-b42-1955",
+      "title": "Gold in Washington, Bulletin 42",
+      "publisher": "Marshall T. Huntting / Washington Division of Mines and Geology",
+      "url": "https://file.dnr.wa.gov/publications/ger_b42_gold_in_washington.pdf",
+      "locator": "Printed pp. 10, 12, 30, 32–33 and 123–124; PDF page number = printed page + 2",
+      "year": 1955,
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_reviewed"
+      ],
+      "limitations": [],
+      "retrievedDocument": {
+        "fileName": "wa-b42-gold.pdf",
+        "sha256": "30edded87498e80464bc1eeda7e4ce24647f32df7be8455489c34f36bee5f29f",
+        "bytes": 7109920,
+        "inspectionNotes": "Printed pp. 10, 32–33 and district descriptions read; production table inspected by the state researcher."
+      }
+    },
+    {
+      "id": "fl-fgs-geologic-history",
+      "title": "Florida’s Geologic History and Formations",
+      "publisher": "Florida Geological Survey / Florida Department of Environmental Protection",
+      "url": "https://floridadep.gov/fgs/geologic-topics/content/floridas-geologic-history-and-formations",
+      "locator": "Opening history paragraphs: shallow-sea limestone and later Appalachian sand and clay",
+      "publicationDate": null,
+      "inspectionBasis": "document_text",
+      "authority": "geological_survey",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "fl-fgs-rocks-minerals",
+      "title": "Florida Rocks & Minerals",
+      "publisher": "Florida Geological Survey / Florida Department of Environmental Protection",
+      "url": "https://floridadep.gov/fgs/geologic-topics/content/florida-rocks-minerals",
+      "locator": "Minerals of Florida table: pyrite; guide-age notice",
+      "publicationDate": "Updated 2026-01-12",
+      "inspectionBasis": "document_text",
+      "authority": "geological_survey",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "hi-usgs-native-gold-2003",
+      "title": "Native gold in Hawaiian alkalic magma",
+      "publisher": "T. W. Sisson / U.S. Geological Survey",
+      "url": "https://www.usgs.gov/publications/native-gold-hawaiian-alkalic-magma",
+      "locator": "Official abstract: sample S508-R3 off Kīlauea’s south flank; submarine basanite glass",
+      "publicationDate": "2003",
+      "inspectionBasis": "official_abstract",
+      "authority": "geological_survey",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "official_abstract"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "hi-usgs-mineral-industry",
+      "title": "The Mineral Industry of Hawaii",
+      "publisher": "U.S. Geological Survey / National Minerals Information Center",
+      "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-industry-hawaii",
+      "locator": "Sources of information; nonfuel mineral commodity table for 2018–2019",
+      "publicationDate": "2018–2019 data; tables released through January 2023",
+      "inspectionBasis": "document_text",
+      "authority": "geological_survey",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "al-usgs-gold-deposits-1908",
+      "title": "Notes on some gold deposits of Alabama · Bulletin 340, pp. 36–52",
+      "publisher": "H. D. McCaskey / U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/bul/0340a/report.pdf",
+      "locator": "Printed pp. 36–42 and 47–49 / chapter PDF pp. 30–36 and 41–43: introductory geology, Gold Ridge, Hog Mountain history and vein geology",
+      "year": 1908,
+      "authority": "geological_survey",
+      "inspectionBasis": "downloaded_document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "downloaded_document_text"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "al-usgs-b340a.pdf",
+          "sha256": "e3726484b672e8db26ff65a653c72fd2958320a5fccd6e74f2d6206e320a509a",
+          "bytes": 11701914,
+          "evidence": {
+            "method": "HTTPS public download with TLS verification, then pypdf text inspection",
+            "inspectedPdfPages": [
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              41,
+              42,
+              43
+            ],
+            "printedPages": "36–42; 47–49",
+            "textPath": "/Users/paulshoemaker/Documents/Codex/2026-10-11/this-is-a-continuation-of-the/work/south-gap-source-documents/al-usgs-b340a-inspected-pages.txt",
+            "retrievalNote": "Web parser returned 403; direct HTTPS download succeeded. No figures or numeric statistics used."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ar-ags-gold",
+      "title": "Gold",
+      "publisher": "Arkansas Geological Survey / Office of the State Geologist",
+      "url": "https://geology.arkansas.gov/minerals/metallic/gold.html",
+      "locator": "Gold: historical investigations paragraph, early 1880s/1888 Ouachita inquiry and 1923 Hot Springs vein material; references",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "ms-mdeq-gold-1994",
+      "title": "Is There Gold in Mississippi? · Mississippi Geology, Volume 15, Number 1",
+      "publisher": "Michael B. E. Bograd / Mississippi Department of Environmental Quality, Office of Geology",
+      "url": "https://www.mdeq.ms.gov/wp-content/uploads/2013/10/Vol_15_1.pdf",
+      "locator": "Printed/PDF pp. 1–2: transported trace particles, Jackson Dome drill samples, Harper 1857, unsubstantiated nugget reports and economic caveats",
+      "year": 1994,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "ok-usgs-mapping-2023",
+      "title": "Bipartisan Infrastructure Law funds geologic mapping in Oklahoma",
+      "publisher": "U.S. Geological Survey",
+      "url": "https://www.usgs.gov/special-topics/bipartisan-infrastructure-law-investments/news/bipartisan-infrastructure-law-11",
+      "locator": "January 27, 2023 announcement: Wichita Mountains mapping and geochemistry; literature-reported trace gold and silver",
+      "year": 2023,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "ok-ogs-geology-notes-spring2014",
+      "title": "Field Trip to Oklahoma’s LIP · Oklahoma Geology Notes, Volume 74, Number 1",
+      "publisher": "Neil H. Suneson / Oklahoma Geological Survey, University of Oklahoma",
+      "url": "https://ogs.ou.edu/docs/geologynotes/GN-V74N1.pdf",
+      "locator": "Printed/PDF pp. 1–4, especially p. 4 Figure 4 caption: Burford Lake geology trail sign and 1901–1907 gold rush; Taff 1904 sample conclusion",
+      "year": 2014,
+      "authority": "geological_survey",
+      "inspectionBasis": "downloaded_document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "downloaded_document_text"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "ok-geology-notes-spring2014.pdf",
+          "sha256": "58ce200a3e9ca7f2498edaaa91476cafcadb0536e474e7da93943041b1a868f1",
+          "bytes": 12913222,
+          "evidence": {
+            "method": "HTTPS public download with TLS verification, then pypdf text inspection",
+            "inspectedPdfPages": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "printedPages": "1–4",
+            "textPath": "/Users/paulshoemaker/Documents/Codex/2026-10-11/this-is-a-continuation-of-the/work/south-gap-source-documents/ok-spring2014-inspected-pages.txt",
+            "retrievalNote": "Web PDF parser rejected document size; direct HTTPS download succeeded. Caption text inspected; no interpretation of sign-image detail used."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ok-fws-wichita-rules",
+      "title": "Wichita Mountains Wildlife Refuge · Rules & Policies",
+      "publisher": "U.S. Fish & Wildlife Service",
+      "url": "https://www.fws.gov/refuge/wichita-mountains/visit-us/rules-policies",
+      "locator": "General Regulations: collection of rocks/minerals, metal detectors/treasure activities, caves/tunnels/mines, and special-use collection permits",
+      "year": null,
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "tx-beg-common-minerals-1927",
+      "title": "A List of the Common Minerals and Mineral Products of Texas, with Notes on Occurrence and Use",
+      "publisher": "Bureau of Economic Geology, University of Texas",
+      "url": "https://store.beg.utexas.edu/files/MR/BEG-MR0001D.pdf",
+      "locator": "Cover / PDF p. 1, dated June 1927; GOLD section, printed p. 14 / PDF p. 14: small quantities in ores and quartz veins, past production",
+      "year": 1927,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "la-nps-jean-lafitte-geology",
+      "title": "NPS Geodiversity Atlas—Jean Lafitte National Historical Park and Preserve, Louisiana",
+      "publisher": "National Park Service",
+      "url": "https://www.nps.gov/articles/nps-geodiversity-atlas-jean-lafitte-national-historical-park-and-preserve-louisiana.htm",
+      "locator": "Geologic Setting: Mississippi Alluvial Plain, Cenozoic river and delta deposits, sand/silt/clay; regional context only",
+      "year": 2024,
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "la-lgs-education-catalog",
+      "title": "Educational Series",
+      "publisher": "Louisiana Geological Survey",
+      "url": "https://lsu.edu/lgs/publications/educational-series.php",
+      "locator": "Black Gold Beneath the Bayous (2000) description concerns oil/gas; Guide to Rocks and Minerals of Louisiana (2003) catalog entry",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "official_publication_description",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "official_publication_description"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "tx-tpwd-park-rulebook-2021",
+      "title": "Texas State Parks Rules and Regulations",
+      "publisher": "Texas Parks and Wildlife Department",
+      "url": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_br_p4000_0000a.pdf",
+      "locator": "PDF pp. 1–2: updated 2021; §59.134(l), geological features require a director-issued permit; §59.134(i), metal detectors",
+      "year": 2021,
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "il-isgs-gold-possibilities-1968",
+      "title": "Gold and Diamond Possibilities in Illinois",
+      "publisher": "J. E. Lamar / Illinois State Geological Survey",
+      "url": "https://files.isgs.illinois.edu/sites/default/files/files/gold-poss.pdf",
+      "locator": "June 1968 cover; foreword; printed pp. 2–5 and Table 2, p. 20 / PDF pp. 2–4, 7, 9 and 26",
+      "year": 1968,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "il-gold-poss.pdf",
+          "sha256": "852abfdd1727695f406cbfa9d137feb04cf57ce2f5e1cf25847a46e5552a0fa4",
+          "bytes": 3433301,
+          "evidence": {
+            "inspectedPdfPages": [
+              1,
+              2,
+              3,
+              4,
+              7,
+              9,
+              26
+            ],
+            "inspection": "Scanned original visually inspected. Foreword and p. 2 warn that the compilation is preliminary and includes speculative targets. Table 2 item 4 is Channahon correspondence; item 7 cites Rock River panning. Greenup provenance caveat and memory-based assay values are held."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ia-igs-gold-em16-1999",
+      "title": "Gold in Iowa · Educational Materials 16",
+      "publisher": "Raymond R. Anderson / Iowa Geological Survey",
+      "url": "https://www.iihr.uiowa.edu/igs/publications/uploads/EM-16.pdf",
+      "locator": "January 1999, printed sheet p. 1: glacial material, historic waterways and Eldora account",
+      "year": 1999,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "ia-igs-em16.pdf",
+          "sha256": "1ac215f5cd1bb9eae3ecb0a40f842894e84a3d3f0b51b73dd454631fb8fa7314",
+          "bytes": 50586,
+          "evidence": {
+            "inspectedPdfPages": [
+              1
+            ],
+            "inspection": "Original text inspected. Public claims use the Iowa-specific geology and named historical reports. Outdated world production, prices, daily recoveries and categorical commercial claims are excluded."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ks-usgs-shale-b202-1902",
+      "title": "Tests for gold and silver in shales from western Kansas · Bulletin 202",
+      "publisher": "Waldemar Lindgren / U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/bul/0202/report.pdf",
+      "locator": "Printed pp. 5–6: investigation and claims; pp. 18–19 / PDF pp. 18–19: Summary and Conclusions",
+      "year": 1902,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "ks-usgs-b202.pdf",
+          "sha256": "6faa75507311e7b1befe005e2415e2b3c3b3bdf336e33f61b00e35533363d08a",
+          "bytes": 1188916,
+          "evidence": {
+            "inspectedPdfPages": [
+              5,
+              6,
+              18,
+              19
+            ],
+            "inspection": "Original report text and rendered summary pages inspected. The conclusion concerns sampled Benton shale in Ellis and Rush counties, chiefly along Smoky Hill River. Very small gold in some assays and inconsistent repetitions are preserved; extrapolation to all Kansas is held."
+          }
+        }
+      ]
+    },
+    {
+      "id": "usgs-useful-minerals-b624-1917",
+      "title": "Useful minerals of the United States · Bulletin 624",
+      "publisher": "Frank C. Schrader, Ralph W. Stone and Samuel Sanford / U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/bul/0624/report.pdf",
+      "locator": "Title page, 1917; Nebraska, printed p. 188 / PDF p. 188: Gold (placer)",
+      "year": 1917,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "usgs-b624-useful-minerals.pdf",
+          "sha256": "ff4d9e783951ce1a9ffa1cc9b77c760108246f222dda4c2027214fad93015bb9",
+          "bytes": 33788468,
+          "evidence": {
+            "inspectedPdfPages": [
+              1,
+              188
+            ],
+            "inspection": "Original Nebraska entry inspected as text and rendered page. It records placer gold in Platte River sands and glacial drift without specific localities. Its dated economic judgment is not presented as a modern finding."
+          }
+        }
+      ]
+    },
+    {
+      "id": "ne-csd-leshara-surficial-2023",
+      "title": "Surficial Geology of the Leshara 7.5 Minute Quadrangle, Nebraska",
+      "publisher": "P. R. Hanson and C. L. Reinier / Conservation and Survey Division, University of Nebraska–Lincoln",
+      "url": "https://snr.unl.edu/csd-esic/download/geologysoils/digitalgeologicmapscleaned/Leshara/Leshara_Units.pdf",
+      "locator": "Version 1.0, March 2023, sheet 1: Description of Mapping Units, Qap1–Qap3 and Qp",
+      "year": 2023,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_visual",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_visual"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "ne-leshara-2023.pdf",
+          "sha256": "c44844feba7e9f8b38363bca4b1f4d19f7625fe8088679341d60a6fb645f4392",
+          "bytes": 9494867,
+          "evidence": {
+            "inspectedPdfPages": [
+              1
+            ],
+            "inspection": "Original scanned map visually inspected, with agency-indexed unit descriptions. Used solely for regional sediment geology; mapped alluvium is not treated as evidence of gold at Leshara."
+          }
+        }
+      ]
+    },
+    {
+      "id": "nd-ndgs-gold-notes6",
+      "title": "Gold in North Dakota · North Dakota Notes No. 6",
+      "publisher": "John P. Bluemle / North Dakota Geological Survey",
+      "url": "https://www.dmr.nd.gov/ndgs/ndnotes/ndn6_h.htm",
+      "locator": "Ransom County; Lake Souris–Denbigh Deposit; 1934 Gold Investigation; footer last modified August 31, 2007",
+      "year": 2007,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "mo-mgs-broadhead-drift-catalog",
+      "title": "Missouri Geology Bibliography · Drift formation and gold in Missouri",
+      "publisher": "Missouri Geological Survey / Missouri Department of Natural Resources",
+      "url": "https://dnr.mo.gov/content/drift-formation-and-gold-missouri-extracted-mines-metals-and-arts-vol-4-no-4-p-150-december-9-1875-reports-particles-gold-not-larger-grain-wheat-adair-county",
+      "locator": "Catalogue item 352, RPR-001465: author, article subject, American Journal of Science 3rd series 11(62), p. 150, February 1876",
+      "year": 1876,
+      "authority": "geological_survey",
+      "inspectionBasis": "catalog_metadata",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "catalog_metadata"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "mo-mgs-sand-gravel-pub2903-2020",
+      "title": "Sand and Gravel · PUB2903",
+      "publisher": "Missouri Geological Survey / Missouri Department of Natural Resources",
+      "url": "https://dnr.mo.gov/document-search/sand-gravel-pub2903/pub2903",
+      "locator": "October 13, 2020; Composition of Sand and Gravel: Glacial Till Plains of northern Missouri",
+      "year": 2020,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "de-dgs-minerals",
+      "title": "Minerals in Delaware",
+      "publisher": "Delaware Geological Survey",
+      "url": "https://www.dgs.udel.edu/delaware-geology/minerals-delaware",
+      "locator": "Main text: Delaware Piedmont mineral localities and Coastal Plain depositional environments",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "de-dgs-piedmont-history",
+      "title": "Geologic History of the Delaware Piedmont",
+      "publisher": "Delaware Geological Survey",
+      "url": "https://www.dgs.udel.edu/delaware-geology/geologic-history-delaware-piedmont",
+      "locator": "Main text: Taconic metamorphism, Appalachian mountain roots and continuing erosion",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "de-dgs-mineral-catalog",
+      "title": "Catalog of Delaware Minerals",
+      "publisher": "Delaware Geological Survey",
+      "url": "https://www.dgs.udel.edu/delaware-geology/catalog-delaware-minerals",
+      "locator": "Introductory scope statement and full mineral list; used only to delimit inspected evidence",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "ky-kgs-rocks-minerals-1994",
+      "title": "Rocks and Minerals of Kentucky · Special Publication 20, Series XI",
+      "publisher": "Warren H. Anderson / Kentucky Geological Survey",
+      "url": "https://kgs.uky.edu/kgsweb/olops/pub/kgs/s_11/kgs11sp201994.pdf",
+      "locator": "Gold and Silver, printed pp. 49–50 / PDF pp. 31–32 (two printed pages per PDF sheet)",
+      "year": 1994,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_reviewed"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "kgs-rocks-minerals-1994.pdf",
+          "sha256": "8178ad6c629b3e5d85cca2b20d44ff2e315195c7e795fd2bcf51c16d1c606112",
+          "bytes": 22278015,
+          "evidence": {
+            "sha256": "8178ad6c629b3e5d85cca2b20d44ff2e315195c7e795fd2bcf51c16d1c606112",
+            "inspectedPdfPages": [
+              31,
+              32
+            ],
+            "visuallyInspectedPdfPages": [
+              1,
+              31,
+              32
+            ],
+            "pageNumbering": "One-based PDF pages; printed locators are recorded separately."
+          }
+        }
+      ]
+    },
+    {
+      "id": "sc-scgs-gold-faq",
+      "title": "Geology FAQs · Where can gold be found in South Carolina?",
+      "publisher": "South Carolina Geological Survey / Department of Natural Resources",
+      "url": "https://www.dnr.sc.gov/admin/geofaqs.html",
+      "locator": "Question 3: Piedmont, volcanic host rocks, erosion and stream sediments",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "sc-scgs-survey-history",
+      "title": "History of the South Carolina Geological Survey",
+      "publisher": "N. K. Olson and H. S. Johnson, Jr. / South Carolina Geological Survey",
+      "url": "https://www.dnr.sc.gov/geology/about.html",
+      "locator": "History of the South Carolina Geological Survey: Vanuxem’s 1825–26 survey and report to the Legislature",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "sc-scgs-gold-vol35",
+      "title": "South Carolina Geology · Volume 35 (1993 for 1992)",
+      "publisher": "South Carolina Geological Survey",
+      "url": "https://www.dnr.sc.gov/geology/pdfs/Publications/SC_Geology/Vol_35/Vol.%2035.pdf",
+      "locator": "Haile article, printed p. 9 / PDF p. 13, abstract and introduction; Brewer article, printed p. 37 / PDF p. 41, abstract",
+      "year": 1993,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_reviewed"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "sc-geology-vol35.pdf",
+          "sha256": "d323a798aec421582e5c2092e3952296442fd08ae86aeb577fb0d439e20884f8",
+          "bytes": 1996740,
+          "evidence": {
+            "sha256": "d323a798aec421582e5c2092e3952296442fd08ae86aeb577fb0d439e20884f8",
+            "inspectedPdfPages": [
+              13,
+              41
+            ],
+            "visuallyInspectedPdfPages": [
+              13,
+              41
+            ],
+            "pageNumbering": "One-based PDF pages; printed locators are recorded separately."
+          }
+        }
+      ]
+    },
+    {
+      "id": "tn-usgs-big-frog-b1531",
+      "title": "Mineral Resources of the Big Frog Wilderness Study Area and Additions, Polk County, Tennessee, and Fannin County, Georgia · Bulletin 1531",
+      "publisher": "John F. Slack, Gertrude C. Gazdik and Maynard L. Dunn, Jr. / USGS and U.S. Bureau of Mines",
+      "url": "https://pubs.usgs.gov/bul/1531/report.pdf",
+      "locator": "Metallic Resources: Gold, printed p. 18 / PDF p. 26; title/date, PDF p. 3",
+      "year": 1982,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_reviewed"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "usgs-b1531.pdf",
+          "sha256": "180d1411b1f20aa48b0a2abac1aa8f0a685e9d252e243e4193cdd318c94cbe42",
+          "bytes": 6385763,
+          "evidence": {
+            "sha256": "180d1411b1f20aa48b0a2abac1aa8f0a685e9d252e243e4193cdd318c94cbe42",
+            "inspectedPdfPages": [
+              3,
+              26
+            ],
+            "visuallyInspectedPdfPages": [
+              26
+            ],
+            "pageNumbering": "One-based PDF pages; printed locators are recorded separately."
+          }
+        }
+      ]
+    },
+    {
+      "id": "tn-usfs-gold-draft-factsheet",
+      "title": "Fact Sheet – Gold Collecting · Cherokee National Forest (file name marked DRAFT)",
+      "publisher": "USDA Forest Service · Tellico Ranger District",
+      "url": "https://www.fs.usda.gov/sites/nfs/files/r08/cherokee/publication/2025%20JH%20DRAFT_Gold%20Collecting-Fact%20Sheet.pdf",
+      "locator": "PDF p. 1: hand collecting, mechanized restrictions and ranger contact; publication/finalization date unprinted",
+      "year": null,
+      "authority": "land_manager",
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_reviewed"
+      ],
+      "limitations": [],
+      "additionalDocumentInspections": [
+        {
+          "fileName": "cherokee-gold-factsheet-2025.pdf",
+          "sha256": "2971abdf7206f9b14b380fed706854802163a61a250c3d59bc8d6cacb5cbd1c3",
+          "bytes": 209340,
+          "evidence": {
+            "sha256": "2971abdf7206f9b14b380fed706854802163a61a250c3d59bc8d6cacb5cbd1c3",
+            "inspectedPdfPages": [
+              1
+            ],
+            "visuallyInspectedPdfPages": [
+              1
+            ],
+            "pageNumbering": "One-based PDF pages; printed locators are recorded separately."
+          }
+        }
+      ]
+    },
+    {
+      "id": "va-energy-gold",
+      "title": "Gold",
+      "publisher": "Virginia Department of Energy · Geology and Mineral Resources",
+      "url": "https://energy.virginia.gov/geology/Gold.shtml",
+      "locator": "Historic mining narrative and gold-pyrite belt description; summary fields are undated",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "wv-wvges-coal-gold",
+      "title": "Trace Elements in West Virginia Coals · Gold (Au)",
+      "publisher": "West Virginia Geological and Economic Survey",
+      "url": "https://www.wvgs.wvnet.edu/www/datastat/te/AuHome.htm",
+      "locator": "Geologic Occurrence and Economic Impact; page last revised March 2, 2002",
+      "year": 2002,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    },
+    {
+      "id": "wv-wvges-geology",
+      "title": "West Virginia Geology and the WVGES Geosciences Program",
+      "publisher": "West Virginia Geological and Economic Survey",
+      "url": "https://www.wvgs.wvnet.edu/www/geology/geology.htm",
+      "locator": "Physiographic Provinces; General Stratigraphy and Structural Geology; page revised January 20, 2022",
+      "year": 2022,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-12",
+      "inspectionNotes": [
+        "document_text"
+      ],
+      "limitations": []
+    }
+  ]
+}
