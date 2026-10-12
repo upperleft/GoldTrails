@@ -16,6 +16,7 @@ function shell(title, content, authenticated = false, scripts = false) {
     .replace(/<div class="layout"><aside class="left">[\s\S]*?<\/aside><div class="center" id="main-content">/, '<div class="calendar-layout"><div class="center" id="main-content">')
     .replace('</head>', `<link rel="stylesheet" href="/calendar.css?v=${hash}"></head>`);
   if (authenticated) html = html.replace('href="/login/">Login', 'href="/account/">My account');
+  else html = html.replace('href="/login/">Login', 'href="/login/?next=/calendar/">Login');
   if (scripts) html = html.replace('</body>', `<script src="/calendar-vendor/fullcalendar.js" defer></script><script src="/calendar-vendor/luxon.js" defer></script><script src="/calendar-vendor/luxon3.js" defer></script><script src="/calendar.js?v=${hash}" defer></script></body>`);
   return html;
 }
@@ -68,7 +69,7 @@ export function calendarPage({ csrf = '', member = null } = {}) {
 }
 
 export function calendarPreview() {
-  return shell('Your trail calendar', `<section class="calendar-preview"><div class="calendar-preview-symbol" aria-hidden="true">✦</div><span class="eyebrow">LEAVE ROOM FOR ADVENTURE</span><h2>A date with your next trail.</h2><p>Keep club meetings, panning days, classes, and personal plans together. Create separate calendars, choose their colors, and see your plans by month, week, day, or agenda.</p><a class="gold-button" href="/login/">Sign in to your calendar</a><p class="calendar-help">Your calendar is private to your Gold Trails account.</p></section>`);
+  return shell('Your trail calendar', `<section class="calendar-preview"><div class="calendar-preview-symbol" aria-hidden="true">✦</div><span class="eyebrow">LEAVE ROOM FOR ADVENTURE</span><h2>A date with your next trail.</h2><p>Keep club meetings, panning days, classes, and personal plans together. Create separate calendars, choose their colors, and see your plans by month, week, day, or agenda.</p><a class="gold-button" href="/login/?next=/calendar/">Sign in to Gold Trails</a><p class="calendar-help">Your personal calendar is included with your Gold Trails account. Once signed in, open My calendar from the website’s navigation.</p></section>`);
 }
 
 export function calendarUnavailable(message = 'Your calendar is temporarily unavailable. Please try again in a little while.') {
