@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-12",
+  "selection": "Three authentic reference photographs in two articles; each explains the adjacent passage.",
+  "images": [
+    {
+      "id": "smithsonian-gold-r6705",
+      "article": "is-that-really-gold",
+      "section": "look-alikes",
+      "file": "dist/assets/articles/gold-smithsonian-r6705.jpg",
+      "sourceUrl": "https://naturalhistory.si.edu/object/nmnhmineralsciences_1174297?geogallery=Gold+nugget&node=14403",
+      "assetUrl": "https://ids.si.edu/ids/deliveryService?id=ark%3A%2F65665%2Fm303f65ba1fac2435491a2c911b257b2ea&max=1200",
+      "identity": "Gold, NMNH R6705-00; Greenville, Plumas County, California",
+      "credit": "Smithsonian National Museum of Natural History",
+      "license": "CC0 1.0",
+      "licenseEvidence": "Official object record: Viewer Image Usage and Open Access Online Media explicitly Creative Commons Zero.",
+      "dimensions": [
+        800,
+        1200
+      ],
+      "sha256": "318fd1914d64226f5c551fc6ec9ac7e8060133f9941c387de8955dbc7c0972c7",
+      "bytes": 100483,
+      "checkedAt": "2026-10-12",
+      "visualReview": "Source image inspected; full frame preserved. No generative edits or inferred mineral identity, scale, gold yield or access."
+    },
+    {
+      "id": "usgs-pyrite-quartz",
+      "article": "is-that-really-gold",
+      "section": "look-alikes",
+      "file": "dist/assets/articles/pyrite-quartz-usgs-display.jpg",
+      "sourceUrl": "https://www.usgs.gov/media/images/pyrite-and-quartz",
+      "assetUrl": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/pyrite%20and%20quartz.JPG?itok=-k3Yy8wb",
+      "identity": "Pyrite and quartz; Spruce Claim, Washington; source size 6.2 cm without a named measurement axis",
+      "credit": "Carlin J. Green / U.S. Geological Survey",
+      "license": "Public domain",
+      "licenseEvidence": "Official media record explicitly marks Sources/Usage Public Domain and names the photographer.",
+      "dimensions": [
+        1336,
+        1355
+      ],
+      "sha256": "7fe137e6254d1fe715a0e4e015d4212e8f37c9bd6be9b5a86bcac1ade9b016f0",
+      "bytes": 120749,
+      "checkedAt": "2026-10-12",
+      "visualReview": "Source image inspected; full frame preserved. No generative edits or inferred mineral identity, scale, gold yield or access.",
+      "originalAssetUrl": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/pyrite%20and%20quartz.JPG",
+      "assetEvidence": "USGS media page main image link exposes this official full_width version. Full frame visually checked against the original."
+    },
+    {
+      "id": "usgs-powder-river-point-bars",
+      "article": "where-gold-settles",
+      "section": "places-to-test",
+      "file": "dist/assets/articles/powder-river-point-bars-usgs.gif",
+      "sourceUrl": "https://pubs.usgs.gov/fs/fs-004-03/",
+      "assetUrl": "https://pubs.usgs.gov/fs/fs-004-03/images/fig4.gif",
+      "identity": "Powder River aerial photograph with original point-bar and cutbank annotations; Figure 4",
+      "credit": "U.S. Geological Survey, Fact Sheet 004-03, Figure 4",
+      "license": "Public domain (USGS work)",
+      "licenseEvidence": "USGS-authored Fact Sheet 004-03 figure with no third-party copyright credit; USGS copyright policy and exact PD-USGS file provenance corroboration.",
+      "licensePolicyUrl": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+      "corroboratingLicenseRecord": "https://commons.wikimedia.org/wiki/File:Point_bar_and_cut_bank.jpg",
+      "dimensions": [
+        549,
+        785
+      ],
+      "captureDate": null,
+      "photographer": null,
+      "sha256": "60331f2f19dfc5128983ce544ce21925caee8fc07f691ee9fe6b5f7b32bca90e",
+      "bytes": 156861,
+      "checkedAt": "2026-10-12",
+      "visualReview": "Source image inspected; full frame preserved. No generative edits or inferred mineral identity, scale, gold yield or access."
+    }
+  ]
+}
