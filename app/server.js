@@ -6,7 +6,8 @@ import {prospectorsPage,explorerCriteria} from './prospectors-page.js';
 import { readFile, realpath, stat } from 'node:fs/promises';
 import { resolve, extname, sep } from 'node:path';
 import { searchCriteria } from './directory-store.js';
-import { directoryPage, profilePage, messagePage } from './directory-views.js';
+import { directoryPage, profilePage, messagePage, page, escapeHtml } from './directory-views.js';
+import {videoLibraryFor,videoLibraryBody} from './creator-video-library.js';
 import {createGoldPriceFeed} from './gold-price.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.ico':'image/x-icon' };
@@ -34,6 +35,31 @@ export function createServer({ directory = null, admin = null, members = null, c
     if (compass && await compass(req,res,url)) return;
     if (products && await products(req,res,url)) return;
     if (calendar && await calendar(req,res,url)) return;
+    const videoMatch=path.match(/^\/(api\/)?prospectors\/([^/]+)\/videos\/?$/);
+    if(videoMatch){
+      const json=Boolean(videoMatch[1]),slug=videoMatch[2];
+      const reply=(status,message,headers={})=>send(req,res,status,json?JSON.stringify({error:message}):messagePage('Video library',message),{...(json?{'Content-Type':'application/json; charset=utf-8'}:{}),...headers});
+      if(!['GET','HEAD'].includes(req.method)){reply(405,'Use GET or HEAD.',{Allow:'GET, HEAD'});return;}
+      if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)||slug.length>160){reply(404,'This video library is not available.');return;}
+      if(!path.endsWith('/')){res.writeHead(308,{Location:path+'/'+url.search});res.end();return;}
+      if(!directory){reply(503,'The creator directory is temporarily unavailable.');return;}
+      const library=videoLibraryFor(slug);
+      if(!library){reply(404,'No selected video library is published for this creator yet.');return;}
+      try{
+        // A roster match never overrides a draft, excluded or archived profile.
+        const profile=await directory.profile(slug);
+        if(profile?.archived){reply(410,'This creator profile has been archived.');return;}
+        if(!profile&&(!catalogBySlug(slug)||!directory.catalogAllowed||!await directory.catalogAllowed(slug))){reply(404,'This video library is not available.');return;}
+        if(json){send(req,res,200,JSON.stringify(library),{'Content-Type':'application/json; charset=utf-8'});return;}
+        const title=library.name+' · Video library';
+        const body=`<section class="resource-placeholder video-library-page" data-video-page><h2>${escapeHtml(title)}</h2>${videoLibraryBody(library)}<p><a href="/prospectors/${encodeURIComponent(slug)}/">← Back to the creator profile</a></p></section><script id="creator-video-page-data" type="application/json">${JSON.stringify(library).replace(/</g,'\\u003c')}</script>`;
+        send(req,res,200,page(title,'Selected videos from this creator’s checked YouTube channel.',body,'','Discover a lesson, a field story, or a fresh way to see the gold country.'));
+      }catch{
+        log('Gold Trails video library request unavailable');
+        reply(503,'The video library is temporarily unavailable. Please try again shortly.');
+      }
+      return;
+    }
     if (!['GET','HEAD'].includes(req.method)) {
       res.writeHead(405, { Allow:'GET, HEAD' }); res.end(); return;
     }

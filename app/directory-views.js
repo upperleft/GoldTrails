@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import {videoLibraryLink,videoLibraryAssets} from './creator-video-library.js';
 // Hostinger loads the entry through require(), so startup must remain synchronous.
 const shell = readFileSync(new URL('./page-shell.html', import.meta.url), 'utf8');
 export const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
@@ -20,7 +21,8 @@ const queryLink = (key, value, label) => `<a href="/prospectors/?${key}=${encode
 export function page(title, description, content, context, introduction) {
   const intro = `<section class="category-intro rust"><div><span class="eyebrow">GOLD TRAILS / PROSPECTOR DIRECTORY</span><h1>${escapeHtml(title)}</h1><p>${escapeHtml(introduction)}</p></div></section>`;
   const tokens = { TITLE: escapeHtml(title), DESCRIPTION: escapeHtml(description), INTRO: intro, CONTENT: content, CONTEXT: context };
-  return shell.replace(/\{\{(TITLE|DESCRIPTION|INTRO|CONTENT|CONTEXT)\}\}/g, (_, key) => tokens[key]);
+  const rendered = shell.replace(/\{\{(TITLE|DESCRIPTION|INTRO|CONTENT|CONTEXT)\}\}/g, (_, key) => tokens[key]);
+  return /data-video-(?:library|library-host|page)\b/.test(content + (context || '')) ? rendered.replace('</body>', videoLibraryAssets() + '</body>') : rendered;
 }
 function directoryContext() {
   return `<section class="panel related"><span class="eyebrow">AROUND THE CAMPFIRE</span><h2>Keep exploring</h2><a href="/creators-experts/">Creators &amp; Experts</a><a href="/articles/">Articles</a><a href="/glossary/">Glossary</a></section>`;
@@ -28,7 +30,7 @@ function directoryContext() {
 export function directoryPage(criteria, result) {
   const select = (name, label, items) => `<label>${label}<select name="${name}"><option value="">All ${label.toLowerCase()}</option>${items.map(x => `<option value="${escapeHtml(x.slug)}"${criteria[name] === x.slug ? ' selected' : ''}>${escapeHtml(x.name)}</option>`).join('')}</select></label>`;
   const search = `<form class="directory-search" action="/prospectors/" method="get"><label class="search-keyword">Search the campfire<input name="q" type="search" maxlength="100" value="${escapeHtml(criteria.q)}" placeholder="Name, topic, region, or channel"></label>${select('topic','Topics',result.topics)}${select('region','Regions',result.regions)}${(result.specialties||[]).length?select('specialty','Specialties',result.specialties):''}<button class="gold-button" type="submit">Find prospectors</button><a href="/prospectors/">Clear search</a></form>`;
-  const cards = result.people.map(p => `<article class="article-card"><div class="article-content"><span class="eyebrow">PROSPECTOR PROFILE</span><h3><a href="/prospectors/${encodeURIComponent(p.slug)}/">${escapeHtml(p.display_name)}</a></h3><p class="profile-region directory-region">⌖ ${html(p.primary_region || 'Location unknown at this time')}</p><p>${html(p.short_introduction)}</p><a href="/prospectors/${encodeURIComponent(p.slug)}/">Meet this prospector →</a></div></article>`).join('');
+  const cards = result.people.map(p => `<article class="article-card"><div class="article-content"><span class="eyebrow">PROSPECTOR PROFILE</span><h3><a href="/prospectors/${encodeURIComponent(p.slug)}/">${escapeHtml(p.display_name)}</a></h3><p class="profile-region directory-region">⌖ ${html(p.primary_region || 'Location unknown at this time')}</p><p>${html(p.short_introduction)}</p><a href="/prospectors/${encodeURIComponent(p.slug)}/">Meet this prospector →</a>${videoLibraryLink(p.slug,p.display_name)}</div></article>`).join('');
   const filtered = criteria.q || criteria.topic || criteria.region || criteria.specialty;
   const empty = section(filtered ? 'No matching prospectors yet' : 'The campfire is taking shape', `<p>${filtered ? 'Try a different name, topic, or region, or clear your search.' : 'Our first researched profiles will appear here as they are ready.'}</p><a href="/articles/">Browse articles</a>`);
   const pageLink = number => { const params = new URLSearchParams({ q:criteria.q, topic:criteria.topic, region:criteria.region, specialty:criteria.specialty||'', page:String(number) }); return '/prospectors/?' + escapeHtml(params.toString()); };
@@ -39,7 +41,7 @@ export function directoryPage(criteria, result) {
 export function profilePage(p) {
   const initials = p.display_name.trim().split(/\s+/).slice(0,2).map(x => Array.from(x)[0]).join('');
   const topicButtons = [...new Map(p.topics.map(t => [t.slug,t])).values()].map(t => queryLink('topic',t.slug,t.name)).join('');
-  const intro = `<section class="profile-summary"><div class="profile-avatar" aria-label="Portrait placeholder">${escapeHtml(initials)}<small>PORTRAIT<br>FORTHCOMING</small></div><div><span class="eyebrow">MEET THE PROSPECTOR</span><h2>${escapeHtml(p.display_name)}</h2><p class="profile-role">${html(list(p.roles))}</p><p class="profile-region">⌖ ${html(p.primary_region || 'Location unknown at this time')}</p><div class="topic-buttons">${topicButtons}</div></div></section>`;
+  const intro = `<section class="profile-summary"><div class="profile-avatar" aria-label="Portrait placeholder">${escapeHtml(initials)}<small>PORTRAIT<br>FORTHCOMING</small></div><div><span class="eyebrow">MEET THE PROSPECTOR</span><h2>${escapeHtml(p.display_name)}</h2><p class="profile-role">${html(list(p.roles))}</p><p class="profile-region">⌖ ${html(p.primary_region || 'Location unknown at this time')}</p><div class="topic-buttons">${topicButtons}</div>${videoLibraryLink(p.slug,p.display_name)}</div></section>`;
   const instruction = p.offers_instruction === null ? null : Boolean(p.offers_instruction);
   const facts = section('At a glance', `<dl class="profile-facts">${fact('Primary region',p.primary_region || 'Location unknown at this time')}${fact('State / province',p.state_province)}${fact('Country',p.country_code)}${fact('Prospecting since',p.experience_since_year)}${fact('Best for',list(p.audience))}${fact('Content formats',list(p.formats))}${fact('Languages',list(p.languages))}${fact('Offers instruction',instruction)}${fact('Also known as',p.nickname)}${fact('Profile status',({ unverified:'Sources pending',source_checked:'Sources checked',creator_confirmed:'Creator confirmed' })[p.verification_status])}</dl>`);
   const bio = section('Background', `<p class="preserve-lines">${html(p.biography)}</p>${instruction ? `<h3>Instruction</h3><p>${html(p.instruction_description)}</p>` : ''}`);
