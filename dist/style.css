@@ -108,6 +108,10 @@ header{flex-wrap:wrap;gap:20px}header>nav{margin-left:auto}.header-tools{display
 .center{min-width:0}
 header{flex-wrap:nowrap;gap:20px}.header-tools{width:auto;border:0;padding:0;margin-left:auto}
 .reading{max-width:none}.reading>p,.reading>section,.reading>.takeaways{max-width:78ch}
+/* Give highlighted article boxes an eighth-inch inset on every edge. */
+.article-page .reading>section:target{padding:12px;display:flow-root}
+.article-page .reading>section:target>:first-child{margin-top:0}
+.article-page .reading>section:target>:last-child{margin-bottom:0}
 .article-contents{margin-bottom:24px}.article-contents h2{font-size:20px}.article-contents a{display:inline-block;margin:8px 18px 0 0;padding:4px 0;font-size:14px}
 @media(max-width:750px){.layout{grid-template-columns:1fr}.layout>.left{display:block}.trail-menu{padding:15px}.trail-menu>a{display:inline-flex!important;margin:5px 15px 5px 0!important;padding:5px 0!important;border:0!important;background:none!important}.trail-menu .sub{display:none}.header-tools{width:auto}.brand{font-size:26px}}
 
