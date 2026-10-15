@@ -23,4 +23,4 @@ scripts/build-glossary-regional.mjs merges additions into the existing static ta
 - Browser: fossicking query; batee → Batée; yabbie → Yabby pump; category → 35 entries; descending sort; Escape closes definition; source links visible.
 - Phone viewport 390 × 844: no horizontal page overflow; definition and links remain accessible.
 
-Publication: pending final live verification.
+Published release 76ef08c to GitHub through GitHub Desktop; verified live on Hostinger 2026-10-15. Public glossary has 171 terms, 35 regional entries, 19 bibliography records, working query filtering, and expanded Fossicking citations opening in new tabs. Preview: https://lightcoral-hedgehog-977933.hostingersite.com/glossary/?q=fossicking
