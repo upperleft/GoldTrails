@@ -19,3 +19,5 @@ Existing saved credentials are not repaired retroactively. Paul can choose the e
 Sources:
 - https://developer.apple.com/documentation/security/enabling-password-autofill-on-an-html-input-element
 - https://support.apple.com/en-ca/guide/passwords/mchl9e425295/mac
+
+Published release `fea8abb` to the existing Hostinger application on October 15. Live checks confirmed email autocomplete="username" on signup and login, nickname on the separate signup username, and HTTP 400/no password form for an invalid reset token against the actual database. Creator profile/video routes remain public, and state research JSON remains restricted. A fresh browser rendered the explicit email-sign-in instruction and corrected email field. No user password was read, reset or changed; sign-in and a possible user-performed recovery remain pending.
