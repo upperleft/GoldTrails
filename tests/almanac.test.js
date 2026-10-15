@@ -1,16 +1,70 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {existsSync} from 'node:fs';
+import {readFileSync} from 'node:fs';
 import {createServer} from '../app/server.js';
 import {createAlmanacHandler} from '../app/almanac/handler.js';
 import {createAlmanacStore} from '../app/almanac/store.js';
 import {states,content,validateContent,assembleState,stateBySlug,statesInCoverage,sourceVideoUrl} from '../app/almanac/model.js';
 import {dashboard,almanacPage,historicMines,panningDestinations} from '../app/almanac/views.js';
+import {stateBirds} from '../app/almanac/ornaments.js';
+
+test('published research renders with citations, preserves legacy records and excludes held claims',()=>{
+ const baseline=JSON.parse(readFileSync(new URL('./fixtures/almanac-content-before-research.json',import.meta.url),'utf8'));
+ for(const previous of baseline.states){
+  const current=content.states.find(s=>s.id===previous.id);
+  for(const key of Object.keys(previous)){
+   if(key==='facts')for(const fact of previous.facts)assert.deepEqual(current.facts.find(f=>f.id===fact.id),fact);
+   else assert.deepEqual(current[key],previous[key],previous.id+':'+key);
+  }
+ }
+ const claims=JSON.parse(readFileSync(new URL('./fixtures/almanac-research-review-status.json',import.meta.url),'utf8'));
+ for(const state of states){
+  const html=dashboard(assembleState(state));
+  const anchors=new Set([...html.matchAll(/id="(source-[^"]+)"/g)].map(m=>m[1]));
+  for(const link of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(anchors.has(link[1]),state.name+':'+link[1]);
+  for(const note of content.states.find(s=>s.id===state.id).researchNotes||[]){
+   const original=claims.find(c=>c.id===note.researchClaimId);
+   assert.equal(original.evidenceStatus,'source_checked');assert.equal(original.publicationStatus,'editorial_review_required');
+   assert.ok(html.includes('data-record-id="'+note.id+'"'));assert.ok(html.includes(note.title.replaceAll('&','&amp;')));
+  }
+  for(const held of claims.filter(c=>c.stateId===state.id&&(!['editorial_review_required'].includes(c.publicationStatus)||c.evidenceStatus!=='source_checked')))assert.ok(!html.includes('data-record-id="'+held.id+'"'),held.id);
+ }
+ assert.equal(content.states.flatMap(s=>s.researchNotes||[]).length,76);
+ const ca=dashboard(assembleState(stateBySlug('california')));assert.match(ca,/106,130,214/);assert.match(ca,/1848–1965/);assert.match(ca,/historical estimates/);
+ const pa=content.states.find(s=>s.id==='US-PA');assert.ok(!pa.facts.some(f=>f.value===37459));
+ assert.match(dashboard(assembleState(stateBySlug('pennsylvania'))),/mine-specific historical figure/);
+});
+
+test('published research validation rejects unchecked notes, unknown categories and missing attribution',()=>{
+ const fixture=()=>structuredClone(content);
+ for(const mutate of [n=>n.status='held_draft',n=>n.category='invented',n=>n.researchClaimId='unreviewed',n=>n.title='']){
+  const data=fixture();mutate(data.states.find(s=>s.researchNotes?.length).researchNotes[0]);assert.throws(()=>validateContent(data),/published research/);
+ }
+ const data=fixture();data.states.find(s=>s.researchNotes?.length).researchNotes[0].sourceIds=[];assert.throws(()=>validateContent(data),/Unattributed/);
+});
 
 test('all 50 states have distinct stable URLs, real outlines and readable names including insets',()=>{
  assert.equal(states.length,50);assert.equal(new Set(states.map(s=>s.slug)).size,50);assert.equal(new Set(states.map(s=>s.fips)).size,50);
  for(const s of states){assert.ok(s.path.startsWith('M'));assert.ok(s.path.endsWith('Z'));assert.ok(s.label.every(Number.isFinite));}
  assert.ok(stateBySlug('alaska'));assert.ok(stateBySlug('hawaii'));assert.equal(stateBySlug('district-of-columbia'),undefined);
  const html=almanacPage(assembleState(stateBySlug('california')));assert.equal((html.match(/data-state="/g)||[]).length,50);assert.equal((html.match(/aria-pressed="true"/g)||[]).length,1);assert.ok(html.indexOf('id="state-details"')>html.indexOf('</svg>'));assert.ok(!html.includes('<title>California</title>'));
+});
+test('all state headers show only their sourced bird once, without tree or other accent rows',()=>{
+ assert.equal(stateBirds.length,50);
+ for(const state of states){
+  const html=dashboard(assembleState(state));
+  const bird=stateBirds.find(b=>b.stateId===state.id),header=html.match(/<header class="almanac-state-heading">([\s\S]*?)<\/header>/)[1];
+  const image='/assets/almanac/'+bird.asset+'.png';
+  assert.ok(header.includes('class="almanac-state-bird"'),state.name);assert.ok(header.includes(image),state.name);
+  assert.equal(html.split(image).length-1,1,state.name);assert.ok(!header.includes('<svg'),state.name);
+  assert.ok(!html.includes('almanac-local-motifs'),state.name);
+  assert.ok(!/\/assets\/almanac\/(?:pine|maple|lobster)\.png/.test(html),state.name);
+  assert.ok(!html.includes('State tree'),state.name);
+  assert.ok(existsSync(new URL('../dist/assets/almanac/'+bird.asset+'.png',import.meta.url)));
+  assert.match(bird.source,/^https:\/\//);assert.ok(html.includes(bird.source.replaceAll('&','&amp;')));
+ }
+ const root=almanacPage({state:null});assert.ok(!root.includes('almanac-local-motifs'));assert.ok(!root.includes('aria-pressed="true"'));
 });
 test('statistics retain periods, units and provenance; unsourced values and broken relationships fail validation',()=>{
  assert.equal(content.states.find(s=>s.id==='US-NV').facts[0].value,3479748);
@@ -22,7 +76,7 @@ test('statistics retain periods, units and provenance; unsourced values and brok
  x=altered();x.states[0].facts[0].id=x.states[0].id;assert.throws(()=>validateContent(x),/Duplicate/);
 });
 test('sparse states never imply zero; California rush date is not asserted as first discovery',()=>{
- const empty=dashboard(assembleState(stateBySlug('delaware')));assert.match(empty,/Not yet researched/);assert.ok(!empty.includes('0 ounces'));assert.match(empty,/No access claim/);
+ const empty=dashboard(assembleState(stateBySlug('delaware')));assert.ok(!empty.includes('Not yet researched'));assert.ok(!empty.includes('0 ounces'));assert.ok(!empty.includes('id="numbers"'));assert.match(empty,/A gold occurrence is not permission/);
  const california=dashboard(assembleState(stateBySlug('california')));assert.match(california,/not the state’s first discovery/);assert.match(california,/13,500/);assert.match(california,/not a count of active mines/);
  const nc=dashboard(assembleState(stateBySlug('north-carolina')));assert.match(nc,/Peter/);assert.match(nc,/enslaved/);
  assert.ok(content.archives.every(a=>a.author!=='Attribution not yet reviewed'&&a.year));
@@ -84,7 +138,7 @@ async function serve(handler,run){const server=createServer({almanac:handler,log
 test('canonical routes, refresh, all-state API and section anchors preserve selection',async()=>{
  await serve(createAlmanacHandler(),async root=>{
   const response=await fetch(root+'/gold-almanac/?state=maine',{redirect:'manual'});assert.equal(response.status,308);assert.equal(response.headers.get('location'),'/gold-almanac/maine/');
-  const html=await(await fetch(root+'/gold-almanac/maine/')).text();assert.match(html,/data-state-id="US-ME"/);assert.match(html,/value="maine" selected/);assert.match(html,/data-state="maine" aria-label="Maine" aria-pressed="true"/);assert.match(html,/href="#history"/);
+  const html=await(await fetch(root+'/gold-almanac/maine/')).text();assert.match(html,/data-state-id="US-ME"/);assert.ok(!html.includes('id="almanac-state"'));assert.match(html,/data-state="maine" aria-label="Maine" aria-pressed="true"/);assert.match(html,/href="#historic-mines"/);assert.ok(!html.includes('href="#history"'));
   for(const s of states){const r=await fetch(root+'/api/gold-almanac/'+s.slug+'/');assert.equal(r.status,200);const data=await r.json();assert.equal(data.state.id,s.id);assert.equal(data.url,'/gold-almanac/'+s.slug+'/');assert.match(data.html,new RegExp('Gold in '+s.name));}
   assert.equal((await fetch(root+'/gold-almanac/imaginary/')).status,404);assert.equal((await fetch(root+'/api/gold-almanac/imaginary/')).status,404);
   assert.equal((await fetch(root+'/api/gold-almanac/maine/',{method:'POST'})).status,405);assert.equal(await(await fetch(root+'/gold-almanac/maine/',{method:'HEAD'})).text(),'');
@@ -161,7 +215,7 @@ test('destination planning keeps training separate from river access and resolve
  assert.match(vt,/Park hand-panning policy checked/);assert.match(vt,/does not establish off-season brook access/);assert.match(vt,/\$5 ages 14\+/);
  assert.equal((vt.match(/data-record-id="US-VT:camp-plymouth-buffalo"/g)||[]).length,1);
  for(const html of [me,nh,vt]){
-  assert.ok(html.indexOf('id="destinations"')<html.indexOf('id="numbers"'));
+  assert.ok(html.indexOf('id="destinations"')<html.indexOf('id="access"'));if(html.includes('id="numbers"'))assert.ok(html.indexOf('id="destinations"')<html.indexOf('id="numbers"'));
   const ids=new Set([...html.matchAll(/id="(source-[^"]+)"/g)].map(m=>m[1]));
   for(const ref of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(ids.has(ref[1]),ref[1]);
   assert.match(html,/<details class="almanac-trip-details"><summary>/);
@@ -197,4 +251,51 @@ test('expanded panning visits retain price and seasonal qualifications and corre
   const ids=new Set([...html.matchAll(/id="(source-[^"]+)"/g)].map(m=>m[1]));for(const ref of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(ids.has(ref[1]),ref[1]);
   for(const link of html.matchAll(/<a href="https:[^"]+"([^>]+)>/g)){assert.match(link[1],/target="_blank"/);assert.match(link[1],/rel="noopener noreferrer"/);}
  }
+});
+
+test('discovery records distinguish reported events from authenticated finds and require inspected sources',()=>{
+ const altered=()=>structuredClone(content),get=d=>d.states.find(s=>s.id==='US-GA');
+ for(const change of [r=>r.discovery.sourceIds=[],r=>r.discovery.basis='first_known_to_humans',r=>r.discovery.dateText='',r=>r.discovery.status='draft',r=>r.discovery.reviewedAt='not-a-date']){
+  const d=altered();change(get(d));assert.throws(()=>validateContent(d));
+ }
+ const d=altered(),r=get(d);r.discovery.sourceIds=[d.sources[0].id];d.sources[0].inspectionBasis='catalog_metadata';assert.throws(()=>validateContent(d),/discovery/);
+ const nc=content.states.find(s=>s.id==='US-NC');get(d).discovery.sourceIds=['ga-dlg-gold-history'];get(d).facts.push({...nc.facts[0],id:'US-GA:duplicate-first',scope:'US-GA'});assert.throws(()=>validateContent(d),/discovery/);
+ const ga=dashboard(assembleState(stateBySlug('georgia')));assert.match(ga,/August 1, 1829/);assert.match(ga,/remain unsettled/);assert.match(ga,/id="source-ga-dlg-gold-history"/);
+ const nm=dashboard(assembleState(stateBySlug('new-mexico')));assert.match(nm,/1600s/);assert.match(nm,/not substituted/);
+ const ca=dashboard(assembleState(stateBySlug('california')));assert.match(ca,/March 9, 1842/);assert.match(ca,/First authenticated discovery/);assert.match(ca,/January 24, 1848/);
+ for(const state of content.states.filter(s=>s.discovery)){
+  const html=dashboard(assembleState(states.find(s=>s.id===state.id)));
+  for(const sourceId of state.discovery.sourceIds)assert.ok(html.includes(`id="source-${sourceId}"`),sourceId);
+ }
+});
+
+
+test('all state guides omit empty fields and sections while preserving supported facts and navigation',()=>{
+ for(const state of states){
+  const data=assembleState(state),html=dashboard(data),record=data.record;
+  assert.ok(!html.includes('almanac-missing'),state.name);
+  assert.ok(!html.includes('Not yet researched'),state.name);
+  assert.ok(!html.includes('almanac-pending'),state.name);assert.ok(!html.includes('almanac-picker'),state.name);assert.ok(!html.includes('Choose state'),state.name);
+  assert.equal(html.includes('id="numbers"'),Boolean(record.discovery||record.facts.length),state.name);
+  assert.equal(html.includes('id="creators"'),Boolean(data.creators.length),state.name);
+  assert.equal(html.includes('id="history"'),Boolean(record.history.length||data.archives.length),state.name);
+  for(const link of html.matchAll(/href="#([^"]+)"/g))assert.ok(html.includes(`id="${link[1]}"`),state.name+': '+link[1]);
+  for(const fact of record.facts)assert.ok(html.includes(`data-record-id="${fact.id}"`),fact.id);
+ }
+ const tx=content.states.find(s=>s.id==='US-TX'),html=dashboard(assembleState(stateBySlug('texas')));
+ assert.equal(tx.facts.find(f=>f.key==='historical-production').value,8277);
+ assert.equal(tx.facts.find(f=>f.key==='historic-sites').value,37);
+ assert.match(html,/through 1942/);assert.match(html,/not unique mines/);assert.match(html,/Sandy Creek drainage/);
+ assert.ok(!tx.discovery);assert.ok(!tx.facts.some(f=>['first-discovery','annual-production','active-operations'].includes(f.key)));
+ assert.ok(!html.includes('Current gold operations'));assert.ok(!html.includes('Recent annual production'));
+});
+
+
+test('the main Almanac opens with no selected state and no database lookup',async()=>{
+ let lookups=0;
+ await serve(createAlmanacHandler({store:async()=>{lookups++;return {};}}),async root=>{
+  const response=await fetch(root+'/gold-almanac/',{redirect:'manual'});assert.equal(response.status,200);assert.equal(response.headers.get('location'),null);
+  const html=await response.text();assert.equal((html.match(/data-state="/g)||[]).length,50);assert.ok(!html.includes('aria-pressed="true"'));assert.ok(!html.includes('almanac-picker'));assert.ok(!html.includes('id="state-heading"'));assert.match(html,/data-state-id="" hidden/);assert.match(html,/Selected: <strong id="selected-state">None/);assert.equal(lookups,0);const fresh=await fetch(root+'/gold-almanac/?view=map');assert.equal(fresh.status,200);assert.ok(!(await fresh.text()).includes('aria-pressed="true"'));
+  const bare=await fetch(root+'/gold-almanac',{redirect:'manual'});assert.equal(bare.status,308);assert.equal(bare.headers.get('location'),'/gold-almanac/');
+ });
 });

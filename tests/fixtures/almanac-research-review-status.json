@@ -1,0 +1,1040 @@
+[
+  {
+    "id": "US-AL:research:piedmont-hosts",
+    "stateId": "US-AL",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-AL:research:resource-index",
+    "stateId": "US-AL",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-AK:research:blm-panning-areas",
+    "stateId": "US-AK",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-AK:research:road-season",
+    "stateId": "US-AK",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-AK:research:widespread-historic-placers",
+    "stateId": "US-AK",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-AK:research:port-wells-veins",
+    "stateId": "US-AK",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-AK:research:resource-index",
+    "stateId": "US-AK",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-AZ:research:lynx-dayuse",
+    "stateId": "US-AZ",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-AZ:research:lynx-year-round",
+    "stateId": "US-AZ",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-AZ:research:resource-index",
+    "stateId": "US-AZ",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-AR:research:sparse-vein-gold",
+    "stateId": "US-AR",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-AR:research:resource-index",
+    "stateId": "US-AR",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-CA:research:marshall-river",
+    "stateId": "US-CA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CA:research:marshall-conditions",
+    "stateId": "US-CA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CA:research:keysville",
+    "stateId": "US-CA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CA:research:placer-lode-context",
+    "stateId": "US-CA",
+    "evidenceStatus": "inherited_not_rechecked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CA:research:historic-placer-province",
+    "stateId": "US-CA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CA:research:historical-gold-total",
+    "stateId": "US-CA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CA:research:mother-lode-association",
+    "stateId": "US-CA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CA:research:resource-index",
+    "stateId": "US-CA",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-CO:research:cache-creek-scope",
+    "stateId": "US-CO",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CO:research:cache-vehicle-season",
+    "stateId": "US-CO",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CO:research:cripple-creek-ore",
+    "stateId": "US-CO",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CO:research:clear-creek-permission",
+    "stateId": "US-CO",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CO:research:clear-creek-conditions",
+    "stateId": "US-CO",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CO:research:summit-placer-record",
+    "stateId": "US-CO",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CO:research:resource-index",
+    "stateId": "US-CO",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-CT:research:state-collecting-authorization",
+    "stateId": "US-CT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-CT:research:resource-index",
+    "stateId": "US-CT",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-DE:research:catalog-limit",
+    "stateId": "US-DE",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-DE:research:resource-index",
+    "stateId": "US-DE",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-FL:research:pyrite-and-heavy-sands",
+    "stateId": "US-FL",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-FL:research:resource-index",
+    "stateId": "US-FL",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-GA:research:dahlonega-context",
+    "stateId": "US-GA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-GA:research:historic-state-total",
+    "stateId": "US-GA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-GA:research:franklin-vein-association",
+    "stateId": "US-GA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-GA:research:forest-plan-scope",
+    "stateId": "US-GA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "historical_plan_requires_current_confirmation"
+  },
+  {
+    "id": "US-GA:research:resource-index",
+    "stateId": "US-GA",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-HI:research:offshore-native-gold",
+    "stateId": "US-HI",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-HI:research:resource-index",
+    "stateId": "US-HI",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-ID:research:hand-tool-thresholds",
+    "stateId": "US-ID",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ID:research:agency-scope",
+    "stateId": "US-ID",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ID:research:batholith-and-placers",
+    "stateId": "US-ID",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ID:research:salmon-challis-pan-scope",
+    "stateId": "US-ID",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ID:research:resource-index",
+    "stateId": "US-ID",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-IL:research:outwash-records",
+    "stateId": "US-IL",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-IL:research:resource-index",
+    "stateId": "US-IL",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-IN:research:glacial-source",
+    "stateId": "US-IN",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-IN:research:general-license-scope",
+    "stateId": "US-IN",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-IN:research:resource-index",
+    "stateId": "US-IN",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-IA:research:glacial-grains",
+    "stateId": "US-IA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-IA:research:klondike-history",
+    "stateId": "US-IA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-IA:research:resource-index",
+    "stateId": "US-IA",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-KS:research:assay-reproducibility",
+    "stateId": "US-KS",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-KS:research:resource-index",
+    "stateId": "US-KS",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-KY:research:rare-vs-generic",
+    "stateId": "US-KY",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-KY:research:collecting-source-scope",
+    "stateId": "US-KY",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-KY:research:resource-index",
+    "stateId": "US-KY",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-LA:research:delta-map-context",
+    "stateId": "US-LA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-LA:research:resource-index",
+    "stateId": "US-LA",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-ME:research:bedrock-glacial-streams",
+    "stateId": "US-ME",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ME:research:panning-permission",
+    "stateId": "US-ME",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ME:research:motorized-season",
+    "stateId": "US-ME",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ME:research:resource-index",
+    "stateId": "US-ME",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-MD:research:quartz-sulfide-association",
+    "stateId": "US-MD",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MD:research:fine-panned-gold",
+    "stateId": "US-MD",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MD:research:resource-index",
+    "stateId": "US-MD",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-MA:research:surficial-resource",
+    "stateId": "US-MA",
+    "evidenceStatus": "inherited_not_rechecked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MA:research:mapped-sediments",
+    "stateId": "US-MA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MA:research:resource-index",
+    "stateId": "US-MA",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-MI:research:state-rights-and-exclusions",
+    "stateId": "US-MI",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MI:research:permit-wording-conflict",
+    "stateId": "US-MI",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "hold_for_agency_clarification"
+  },
+  {
+    "id": "US-MI:research:historic-state-total",
+    "stateId": "US-MI",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MI:research:resource-index",
+    "stateId": "US-MI",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-MN:research:placer-expectations",
+    "stateId": "US-MN",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MN:research:handpan-statebeds",
+    "stateId": "US-MN",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MN:research:fish-sensitive-season",
+    "stateId": "US-MN",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MN:research:resource-index",
+    "stateId": "US-MN",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-MS:research:geochemistry-resources",
+    "stateId": "US-MS",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MS:research:iron-oxide-lookalikes",
+    "stateId": "US-MS",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MS:research:resource-index",
+    "stateId": "US-MS",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-MO:research:iron-mineral-caution",
+    "stateId": "US-MO",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MO:research:resource-index",
+    "stateId": "US-MO",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-MT:research:bannack-major-discovery",
+    "stateId": "US-MT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MT:research:bannack-learning",
+    "stateId": "US-MT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MT:research:bannack-season",
+    "stateId": "US-MT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MT:research:blm-claim-rights",
+    "stateId": "US-MT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-MT:research:resource-index",
+    "stateId": "US-MT",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-NE:research:regional-record-limit",
+    "stateId": "US-NE",
+    "evidenceStatus": "inherited_not_rechecked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NE:research:historic-placer-setting",
+    "stateId": "US-NE",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NE:research:resource-index",
+    "stateId": "US-NE",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-NV:research:placer-catalog",
+    "stateId": "US-NV",
+    "evidenceStatus": "catalog_lead",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NV:research:carson-placer-history",
+    "stateId": "US-NV",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NV:research:blm-handtools",
+    "stateId": "US-NV",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NV:research:wonder-gold-association",
+    "stateId": "US-NV",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NV:research:resource-index",
+    "stateId": "US-NV",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-NH:research:pan-only-scooping",
+    "stateId": "US-NH",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NH:research:summer-water",
+    "stateId": "US-NH",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NH:research:resource-index",
+    "stateId": "US-NH",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-NJ:research:pallis-occurrences",
+    "stateId": "US-NJ",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NJ:research:historic-assay-limit",
+    "stateId": "US-NJ",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NJ:research:resource-index",
+    "stateId": "US-NJ",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-NM:research:placer-setting",
+    "stateId": "US-NM",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NM:research:associated-minerals",
+    "stateId": "US-NM",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NM:research:water-limits",
+    "stateId": "US-NM",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NM:research:resource-index",
+    "stateId": "US-NM",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-NY:research:royal-mineral-interest",
+    "stateId": "US-NY",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NY:research:resource-index",
+    "stateId": "US-NY",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-NC:research:reed-and-peter",
+    "stateId": "US-NC",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NC:research:reed-trough-program",
+    "stateId": "US-NC",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NC:research:reed-season-disagreement",
+    "stateId": "US-NC",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "hold_season_until_confirmed"
+  },
+  {
+    "id": "US-NC:research:historic-state-total",
+    "stateId": "US-NC",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-NC:research:resource-index",
+    "stateId": "US-NC",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-ND:research:blm-claim-rights",
+    "stateId": "US-ND",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ND:research:two-sediment-histories",
+    "stateId": "US-ND",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ND:research:particle-scope",
+    "stateId": "US-ND",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-ND:research:resource-index",
+    "stateId": "US-ND",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-OH:research:glacial-small-flakes",
+    "stateId": "US-OH",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-OH:research:pan-particle-size",
+    "stateId": "US-OH",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-OH:research:hobby-permission",
+    "stateId": "US-OH",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-OH:research:resource-index",
+    "stateId": "US-OH",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-OK:research:refuge-prohibition",
+    "stateId": "US-OK",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-OK:research:resource-index",
+    "stateId": "US-OK",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-OR:research:sharps-creek-panning",
+    "stateId": "US-OR",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-OR:research:galice-mineral-association",
+    "stateId": "US-OR",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-OR:research:resource-index",
+    "stateId": "US-OR",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-PA:research:dep-nonmotorized",
+    "stateId": "US-PA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-PA:research:cornwall-byproduct",
+    "stateId": "US-PA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-PA:research:cornwall-ore-association",
+    "stateId": "US-PA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-PA:research:resource-index",
+    "stateId": "US-PA",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-RI:research:historic-leads-only",
+    "stateId": "US-RI",
+    "evidenceStatus": "inherited_not_rechecked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-RI:research:quinn-resource",
+    "stateId": "US-RI",
+    "evidenceStatus": "catalog_lead",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-RI:research:state-property-protection",
+    "stateId": "US-RI",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-RI:research:resource-index",
+    "stateId": "US-RI",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-SC:research:piedmont-gold",
+    "stateId": "US-SC",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-SC:research:survey-map-resources",
+    "stateId": "US-SC",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-SC:research:brewer-haile-association",
+    "stateId": "US-SC",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-SC:research:haile-brewer-placers",
+    "stateId": "US-SC",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-SC:research:resource-index",
+    "stateId": "US-SC",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-SD:research:blm-claim-rights",
+    "stateId": "US-SD",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-SD:research:handtools-vs-dredges",
+    "stateId": "US-SD",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-SD:research:resource-index",
+    "stateId": "US-SD",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-TN:research:draft-activity-hold",
+    "stateId": "US-TN",
+    "evidenceStatus": "held_draft",
+    "publicationStatus": "do_not_publish_as_current_rule"
+  },
+  {
+    "id": "US-TN:research:coker-creek-total",
+    "stateId": "US-TN",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-TN:research:ducktown-ore-association",
+    "stateId": "US-TN",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-TN:research:resource-index",
+    "stateId": "US-TN",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-TX:research:gold-through-1942",
+    "stateId": "US-TX",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-TX:research:llano-evidence-limit",
+    "stateId": "US-TX",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-TX:research:llano-host-rocks",
+    "stateId": "US-TX",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-TX:research:resource-index",
+    "stateId": "US-TX",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-UT:research:flour-gold",
+    "stateId": "US-UT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-UT:research:sanjuan-rush",
+    "stateId": "US-UT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-UT:research:jurisdictional-access",
+    "stateId": "US-UT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "agency_overview_requires_current_site_check"
+  },
+  {
+    "id": "US-UT:research:resource-index",
+    "stateId": "US-UT",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-VT:research:buffalo-brook-handpan",
+    "stateId": "US-VT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-VT:research:hand-tools-scope",
+    "stateId": "US-VT",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-VT:research:resource-index",
+    "stateId": "US-VT",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-VA:research:gold-pyrite-belt",
+    "stateId": "US-VA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-VA:research:production-scope-check",
+    "stateId": "US-VA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "hold_headline_total_pending_scope_review"
+  },
+  {
+    "id": "US-VA:research:resource-index",
+    "stateId": "US-VA",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-WA:research:gold-fish-framework",
+    "stateId": "US-WA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-WA:research:stream-specific-times",
+    "stateId": "US-WA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-WA:research:production-contamination-caution",
+    "stateId": "US-WA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "hold_harmonized_series"
+  },
+  {
+    "id": "US-WA:research:trust-vs-aquatic",
+    "stateId": "US-WA",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-WA:research:resource-index",
+    "stateId": "US-WA",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-WV:research:coal-trace-gold",
+    "stateId": "US-WV",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-WV:research:resource-index",
+    "stateId": "US-WV",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-WI:research:glacial-flour",
+    "stateId": "US-WI",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-WI:research:permission-and-volume",
+    "stateId": "US-WI",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-WI:research:resource-index",
+    "stateId": "US-WI",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  },
+  {
+    "id": "US-WY:research:uplifts-and-placers",
+    "stateId": "US-WY",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-WY:research:production-uncertainty",
+    "stateId": "US-WY",
+    "evidenceStatus": "source_checked",
+    "publicationStatus": "editorial_review_required"
+  },
+  {
+    "id": "US-WY:research:resource-index",
+    "stateId": "US-WY",
+    "evidenceStatus": "resource_index",
+    "publicationStatus": "staging_only"
+  }
+]

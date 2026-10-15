@@ -1,6 +1,6 @@
 {
-  "version": 8,
-  "reviewedAt": "2026-10-12",
+  "version": 10,
+  "reviewedAt": "2026-10-15",
   "sources": [
     {
       "id": "cgs-gold",
@@ -1430,6 +1430,438 @@
       "authority": "geological_survey",
       "inspectionBasis": "document_text",
       "checkedAt": "2026-10-12"
+    },
+    {
+      "id": "ca-ohp-1842",
+      "title": "Oak of the Golden Dream · Historical Landmark 168",
+      "publisher": "California Office of Historic Preservation / California State Parks",
+      "url": "https://ohp.parks.ca.gov/ListedResources/Detail/168",
+      "locator": "Landmark description: March 9, 1842; Placerita Canyon / Newhall",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "ga-dlg-gold-history",
+      "title": "Georgia Gold History",
+      "publisher": "Digital Library of Georgia / University System of Georgia",
+      "url": "https://dlg.usg.edu/collections/dlg_dahl/history",
+      "locator": "The Georgia Gold Rush: earliest clear documentation, August 1, 1829",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "co-arvada-first-gold",
+      "title": "The Founding of Our Community",
+      "publisher": "City of Arvada",
+      "url": "https://www.arvadaco.gov/589/The-Founding-of-Our-Community",
+      "locator": "Opening three paragraphs: June 22, 1850; recognition of the Arvada discovery",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "nv-shpo-first-gold",
+      "title": "Nevada’s First Gold Discovery · Historical Marker 257",
+      "publisher": "Nevada State Historic Preservation Office",
+      "url": "https://shpo.nv.gov/nevadas-historical-markers/historical-markers/nevadas-first-gold-discovery",
+      "locator": "Marker opening: July 1849; Gold Canyon / present-day Dayton",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "ak-usgs-fs58-1998",
+      "title": "Rivers of Gold: Placer Mining in Alaska · Fact Sheet 058-98",
+      "publisher": "U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/fs/1998/0058/report.pdf",
+      "locator": "PDF p. 2, historical map legend: Russian River report, 1834",
+      "year": 1998,
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "ak-usgs-of88-73",
+      "title": "History of Placer Discovery and Mining in Alaska · Open-File Report 88-73",
+      "publisher": "U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/of/1988/0073/report.pdf",
+      "locator": "PDF p. 61: Indigenous use of gold and the 1834 Russian River report",
+      "year": 1988,
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "or-dogami-orebin-1963",
+      "title": "Gold Mining in Southwestern Oregon · The Ore Bin, June 1963",
+      "publisher": "Len Ramp / Oregon Department of Geology and Mineral Industries",
+      "url": "https://pubs.oregon.gov/dogami/og/OBv25n06.pdf",
+      "locator": "Printed p. 94 / PDF p. 2: Josephine Creek, 1850; Jackson Creek, December 1851",
+      "year": 1963,
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "sd-gfp-french-creek",
+      "title": "Historical Sights throughout Custer State Park",
+      "publisher": "South Dakota Game, Fish and Parks",
+      "url": "https://gfp.sd.gov/csp-sights/",
+      "locator": "Gordon Stockade: French Creek discovery, summer 1874; treaty context",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "mn-dnr-mining-history",
+      "title": "Minnesota Mining History",
+      "publisher": "Minnesota Department of Natural Resources",
+      "url": "https://www.dnr.state.mn.us/education/geology/digging/history.html",
+      "locator": "Gold Rush!: Vermilion Lake, 1865–66; Little American Island, summer 1893",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "mi-msu-gold-history",
+      "title": "Gold in Michigan",
+      "publisher": "Michigan State University / Geography of Michigan",
+      "url": "https://project.geo.msu.edu/geogmich/gold.html",
+      "locator": "Small gold finds as early as 1845; Houghton and the later Ropes mine",
+      "year": null,
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "va-vgs-b47",
+      "title": "Outline of the Mineral Resources of Virginia · Bulletin 47",
+      "publisher": "William M. McGill / Virginia Geological Survey, hosted by Virginia Energy",
+      "url": "https://www.energy.virginia.gov/commercedocs/BUL_47.pdf",
+      "locator": "Printed p. 26 / PDF p. 49: earliest accredited reference, Jefferson, 1782",
+      "year": null,
+      "inspectionBasis": "document_reviewed",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "nv-nbmg-mining-history",
+      "title": "Mining History",
+      "publisher": "Nevada Bureau of Mines and Geology / University of Nevada, Reno",
+      "url": "https://www.nbmg.unr.edu/Mining/MiningHistory.html",
+      "locator": "Modern mining: 1849 placer gold near Dayton; Comstock Lode, 1859",
+      "inspectionBasis": "official_indexed_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "tx-beg-gold-1932",
+      "title": "Gold in Texas · Mineral Resource Circular 5",
+      "publisher": "C. L. Baker / Bureau of Economic Geology, University of Texas",
+      "url": "https://store.beg.utexas.edu/files/MC/BEG-MC0005D.pdf",
+      "locator": "March 1932, PDF pp. 1–4: production, Llano uplift and stream drainage",
+      "year": 1932,
+      "authority": "geological_survey",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "tx-tsha-gold-mining",
+      "title": "Gold Mining · Handbook of Texas",
+      "publisher": "Texas State Historical Association",
+      "url": "https://www.tshaonline.org/handbook/entries/gold-mining",
+      "locator": "Opening historical production account; bibliography cites Evans (1975) and Texas Looks Ahead (1944)",
+      "year": null,
+      "authority": "historical_association",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "tx-beg-gold-layer",
+      "title": "Texas Mineral Resources · Gold inventory layer",
+      "publisher": "Bureau of Economic Geology, University of Texas",
+      "url": "https://coastal.beg.utexas.edu/arcgis/rest/services/texas_mineral_resources/MapServer/7",
+      "locator": "Gold layer 7; 37 OBJECTID records retrieved without geometry on 2026-10-14; duplicate mine names present",
+      "year": null,
+      "authority": "geological_survey",
+      "inspectionBasis": "dataset_records",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "tx-tpwd-park-rules",
+      "title": "Texas State Parks · Rules and Regulations",
+      "publisher": "Texas Parks and Wildlife Department",
+      "url": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_br_p4000_0000a.pdf",
+      "locator": "2021 brochure, PDF p. 2, §59.134(l)(2) Geological features; (i) Metal detector",
+      "year": 2021,
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "tx-glo-hard-minerals",
+      "title": "Hard Minerals · prospect permits and leases",
+      "publisher": "Texas General Land Office",
+      "url": "https://www.glo.texas.gov/energy/hard-minerals",
+      "locator": "Opening guidance; Prospecting; Hard Mineral Leasing",
+      "year": null,
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "checkedAt": "2026-10-14"
+    },
+    {
+      "id": "az-lynx-dayuse",
+      "title": "Lynx Creek Gold Pan Day Use Area",
+      "publisher": "USDA Forest Service, Prescott National Forest",
+      "url": "https://www.fs.usda.gov/r03/prescott/recreation/lynx-creek-gold-pan-day-use-area",
+      "locator": "General Information; Seasons of Use; Facilities; last updated April 26, 2025",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text",
+      "publicationDate": "2025-04-26"
+    },
+    {
+      "id": "blm-mtdk-packet-2024",
+      "title": "Montana–Dakotas Mining Claims Packet",
+      "publisher": "Bureau of Land Management",
+      "url": "https://www.blm.gov/sites/default/files/docs/2024-09/MTDK%20Mining%20Claims%20Packet%202024.09.pdf",
+      "locator": "Recreational panning; claimant permission",
+      "checkedAt": "2026-10-15",
+      "year": 2024,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ca-keysville-2026",
+      "title": "Keysville Special Recreation Management Area",
+      "publisher": "Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/keysville-special-recreation-management-area",
+      "locator": "Overview; recreational gold panning; river safety",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "co-clear-creek-park",
+      "title": "Clear Creek Canyon Park",
+      "publisher": "Jefferson County Open Space, Colorado",
+      "url": "https://www.jeffco.us/1196/Clear-Creek-Canyon-Park",
+      "locator": "Prospecting restrictions; Big Easy exclusions; current trail/construction context",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "co-jeffco-recreation",
+      "title": "Recreation — Gold Prospecting",
+      "publisher": "Jefferson County Open Space, Colorado",
+      "url": "https://www.jeffco.us/1461/Recreation",
+      "locator": "Gold Prospecting; permitted creek sections; no-bank-disturbance and structures setback",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "id-idl-recreation",
+      "title": "Recreational Mining",
+      "publisher": "Idaho Department of Lands",
+      "url": "https://www.idl.idaho.gov/mining-minerals/dredge-placer-mining/recreational-mining/",
+      "locator": "Recreational mining and navigable waters; relationship to IDWR permit",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "id-idwr-smallscale",
+      "title": "Small Scale Mining Permits",
+      "publisher": "Idaho Department of Water Resources",
+      "url": "https://idwr.idaho.gov/water-resource-protection-safety/streams/small-scale-mining-permits/",
+      "locator": "Panning & Non-Mechanized Activity; Mineral Claims; 2026 program context",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "id-salmon-challis-guidance",
+      "title": "Salmon–Challis prospecting guidance",
+      "publisher": "USDA Forest Service, Salmon–Challis National Forest",
+      "url": "https://www.fs.usda.gov/media/112818",
+      "locator": "Placer Mining — Gold Panning; no designated area; incidental panning",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ky-mineral-groups",
+      "title": "Minerals Sorted by Mineral Group",
+      "publisher": "Kentucky Geological Survey",
+      "url": "https://www.uky.edu/KGS/rocksmineral/minerals-sortby-group.pdf",
+      "locator": "Native Elements; Gold, Silver, Platinum; Kentucky rarity vs general gold settings",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "mi-dnr-panning",
+      "title": "Recreational gold panning and sluicing on state land",
+      "publisher": "Michigan Department of Natural Resources",
+      "url": "https://www.michigan.gov/dnr/managing-resources/minerals/recreational-gold-panning-and-sluicing-on-state-land",
+      "locator": "Surface/mineral ownership; exclusions; sluicing permits",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "mo-iron-pub2895",
+      "title": "Iron — PUB2895",
+      "publisher": "Missouri Department of Natural Resources",
+      "url": "https://dnr.mo.gov/document-search/iron-pub2895/pub2895",
+      "locator": "Common Names; pyrite and magnetite; mineral identification",
+      "checkedAt": "2026-10-15",
+      "year": 2020,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ms-geochem-survey",
+      "title": "Mississippi Geochemical Survey",
+      "publisher": "Mississippi Department of Environmental Quality, Office of Geology",
+      "url": "https://www.mdeq.ms.gov/geology/announcements/mississippi-geochemical-survey/",
+      "locator": "1997–1998 soil/sediment survey; USGS OFR2004-1001 datasets; atlas links",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ms-lithic-materials",
+      "title": "Lithic Materials",
+      "publisher": "Mississippi Department of Environmental Quality, Office of Geology",
+      "url": "https://www.mdeq.ms.gov/geology/work-areas/surface-geology/lithic-materials/",
+      "locator": "Mineral identifications; iron-rich minerals; lithic map links",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "mt-bannack-education",
+      "title": "Montana State Parks Education Resources",
+      "publisher": "Montana Fish, Wildlife & Parks",
+      "url": "https://fwp.mt.gov/stateparks/education-resources",
+      "locator": "Bannack Tour; Gold Panning demonstration",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nh-ammonoosuc-plan-2013",
+      "title": "Ammonoosuc River Corridor Management Plan",
+      "publisher": "Ammonoosuc River Local Advisory Committee / NHDES host",
+      "url": "https://www.des.nh.gov/sites/g/files/ehbemt341/files/documents/ammonoosuc-mgmt-plan-2013.pdf",
+      "locator": "June 2013, printed p.64; summer water conditions",
+      "checkedAt": "2026-10-15",
+      "year": 2013,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nj-gold-pallis-2011",
+      "title": "Unearthing New Jersey, Volume 7, Number 1 — New Jersey Gold",
+      "publisher": "New Jersey Geological Survey",
+      "url": "https://www.nj.gov/dep/njgs/enviroed/newsletter/v7n1.pdf",
+      "locator": "New Jersey Gold, pp.4 onward; approximate occurrence map; copper/gold associations",
+      "checkedAt": "2026-10-15",
+      "year": 2011,
+      "authors": [
+        "Ted Pallis"
+      ],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "nv-blm-collecting",
+      "title": "Collecting on Public Lands — Nevada",
+      "publisher": "Bureau of Land Management",
+      "url": "https://www.blm.gov/sites/default/files/documents/files/collecting_on_publiclands.pdf",
+      "locator": "Gold and silver; hand tools; local restrictions",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "ny-pbl81",
+      "title": "Minerals subject to state ownership; exploration of mines on state lands",
+      "publisher": "New York State Senate / enacted statute",
+      "url": "https://www.nysenate.gov/legislation/laws/PBL/81",
+      "locator": "Public Lands Law Article 7, section 81; revision September 22, 2014",
+      "checkedAt": "2026-10-15",
+      "year": 2014,
+      "authors": [],
+      "inspectionBasis": "document_text",
+      "publicationDate": "2014-09-22"
+    },
+    {
+      "id": "or-sharps-creek",
+      "title": "Sharps Creek Recreation Site",
+      "publisher": "Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/sharps-creek-recreation-site",
+      "locator": "Overview; Facilities; payment information",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "sd-danr-recreational",
+      "title": "South Dakota Minerals and Mining Program",
+      "publisher": "South Dakota Department of Agriculture and Natural Resources",
+      "url": "https://danr.sd.gov/Environment/MineralsMining/default.aspx",
+      "locator": "Recreational mining; hand-held equipment and dredge permits",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "wa-dnr-rockhounding",
+      "title": "Rockhounding",
+      "publisher": "Washington Department of Natural Resources",
+      "url": "https://www.dnr.wa.gov/rockhounding",
+      "locator": "Gold Panning; State Trust lands vs state-owned aquatic lands",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
+    },
+    {
+      "id": "wa-gold-fish-2021",
+      "title": "Gold and Fish: Rules for Mineral Prospecting and Placer Mining (2021)",
+      "publisher": "Washington Department of Fish and Wildlife",
+      "url": "https://wdfw.wa.gov/publications/02150",
+      "locator": "Overview; validity; landowner/other agency approvals",
+      "checkedAt": "2026-10-15",
+      "year": 2021,
+      "authors": [],
+      "inspectionBasis": "document_text",
+      "publicationDate": "2021-05-19"
+    },
+    {
+      "id": "wa-wdfw-current",
+      "title": "Rules for mineral prospecting and placer mining",
+      "publisher": "Washington Department of Fish and Wildlife",
+      "url": "https://wdfw.wa.gov/licenses/environmental/hpa/types/prospecting",
+      "locator": "Current edition; nonmotorized methods; HPA scope",
+      "checkedAt": "2026-10-15",
+      "year": null,
+      "authors": [],
+      "inspectionBasis": "document_text"
     }
   ],
   "states": [
@@ -1461,6 +1893,23 @@
           "locator": "Gold in California / MM009",
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
+        },
+        {
+          "id": "US-CA:research:historical-gold-total",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 53, California opening",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CA:research:historical-gold-total",
+          "key": "historical-production",
+          "value": 106130214,
+          "period": "1848–1965",
+          "label": "Historical gold production",
+          "definition": "USGS compilation of California gold output, including historical estimates: about 68.2 million placer ounces and 37.9 million lode and byproduct ounces. This is a dated historical series, not a measured reserve or modern all-time total.",
+          "unit": "troy ounces",
+          "scope": "US-CA"
         }
       ],
       "history": [
@@ -1487,6 +1936,17 @@
           "locator": "Gold discovery",
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-11"
+        },
+        {
+          "id": "US-CA:discovery-place",
+          "title": "Placerita Canyon · Los Angeles County",
+          "text": "The state landmark record locates López’s authenticated 1842 find near Newhall. This identifies a historical site, not collecting permission.",
+          "sourceIds": [
+            "ca-ohp-1842"
+          ],
+          "locator": "Landmark 168, description",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "articleIds": [
@@ -1579,7 +2039,75 @@
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
         }
-      ]
+      ],
+      "discovery": {
+        "id": "US-CA:discovery-record",
+        "label": "First authenticated discovery",
+        "dateText": "March 9, 1842",
+        "basis": "authenticated_discovery",
+        "text": "California’s landmark record identifies Francisco López’s Placerita Canyon find as the state’s first authenticated gold discovery. It predates Marshall’s 1848 Sutter’s Mill find; earlier discovery stories are a separate question.",
+        "sourceIds": [
+          "ca-ohp-1842"
+        ],
+        "locator": "Landmark 168, description",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-CA:research:marshall-conditions",
+          "sourceIds": [
+            "ca-marshall-panning"
+          ],
+          "locator": "Gold Panning; designated river reach; heat-related schedule changes",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CA:research:marshall-conditions",
+          "category": "seasons",
+          "title": "Heat can change program hours",
+          "text": "Marshall program hours may change in extreme heat. This is a site-specific operating constraint, not evidence of the best statewide panning months."
+        },
+        {
+          "id": "US-CA:research:keysville",
+          "sourceIds": [
+            "ca-keysville-2026"
+          ],
+          "locator": "Overview; recreational gold panning; river safety",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CA:research:keysville",
+          "category": "access",
+          "title": "Keysville on the lower Kern River",
+          "text": "BLM lists recreational gold panning at Keysville on the lower Kern River. Confirm the actual collecting boundary and equipment rules with the field office. BLM warns visitors to exercise extreme caution at the river edge and discourages swimming."
+        },
+        {
+          "id": "US-CA:research:historic-placer-province",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 54",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CA:research:historic-placer-province",
+          "category": "geology",
+          "title": "Old channels and younger stream gravels",
+          "text": "USGS PP610 distinguishes buried Tertiary auriferous gravels from younger stream placers on California’s western Sierra slope, alongside major lode districts. The placer province spans numerous districts/counties; old channels may be buried, worked out or inaccessible."
+        },
+        {
+          "id": "US-CA:research:mother-lode-association",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 55, Mother Lode vein mineralogy",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CA:research:mother-lode-association",
+          "category": "geology",
+          "title": "Mother Lode quartz and sulfides",
+          "text": "PP610 describes Mother Lode ore as quartz veins and mineralized country rock along reverse-fault zones. Milky, locally ribboned quartz commonly accompanies small amounts of sulfides, mainly pyrite. This is a regional lode association; quartz or pyrite alone does not establish placer gold."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-NC",
@@ -1608,6 +2136,23 @@
           "locator": "Opening history paragraph",
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
+        },
+        {
+          "id": "US-NC:research:historic-state-total",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 211",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NC:research:historic-state-total",
+          "key": "historical-production",
+          "value": 1168000,
+          "period": "1799–1960",
+          "label": "Estimated historical gold production",
+          "definition": "USGS estimate of North Carolina lode and placer output for this historical period. It is not a current yield, remaining reserve or all-time total.",
+          "unit": "troy ounces",
+          "scope": "US-NC"
         }
       ],
       "history": [
@@ -1722,7 +2267,8 @@
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
         }
-      ]
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-ME",
@@ -2253,7 +2799,36 @@
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
         }
-      ]
+      ],
+      "researchNotes": [
+        {
+          "id": "US-ME:research:panning-permission",
+          "sourceIds": [
+            "maine-gold"
+          ],
+          "locator": "General Regulations; stream table; last updated April 12, 2023",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-ME:research:panning-permission",
+          "category": "access",
+          "title": "Landowner and forest permission",
+          "text": "MGS says hand panning needs landowner permission and must avoid disturbing banks or creating an unlicensed discharge. A separate free federal permit is required in the White Mountain National Forest; equipment and township jurisdiction matter."
+        },
+        {
+          "id": "US-ME:research:motorized-season",
+          "sourceIds": [
+            "maine-gold"
+          ],
+          "locator": "General Regulations; stream table; last updated April 12, 2023",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-ME:research:motorized-season",
+          "category": "seasons",
+          "title": "A separate season for motorized methods",
+          "text": "Maine’s published motorized recreational prospecting window is June 15–September 15, with written landowner permission and closed-water exclusions. This window does not apply as a universal hand-panning season."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-NV",
@@ -2284,8 +2859,33 @@
           "reviewedAt": "2026-10-11"
         }
       ],
-      "history": [],
-      "places": [],
+      "history": [
+        {
+          "id": "US-NV:gold-canyon-early-mining",
+          "title": "Gold Canyon before the Comstock boom",
+          "text": "The state marker records Blackburn’s 1849 find, William Prouse’s discovery farther up Gold Canyon in May 1850, and a placer-mining community by 1851. NBMG separates this early activity from the 1859 Comstock Lode discovery.",
+          "sourceIds": [
+            "nv-shpo-first-gold",
+            "nv-nbmg-mining-history"
+          ],
+          "locator": "Historical Marker 257, first two paragraphs; NBMG Mining History, modern mining paragraph",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-14"
+        }
+      ],
+      "places": [
+        {
+          "id": "US-NV:discovery-place",
+          "title": "Gold Canyon · Dayton area",
+          "text": "Nevada’s historical marker locates the Blackburn discovery in the Gold Canyon / present-day Dayton area.",
+          "sourceIds": [
+            "nv-shpo-first-gold"
+          ],
+          "locator": "Historical Marker 257, first paragraph",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
+        }
+      ],
       "articleIds": [
         "article:is-that-really-gold"
       ],
@@ -2294,7 +2894,50 @@
       ],
       "accessSourceIds": [
         "blm-claims"
-      ]
+      ],
+      "discovery": {
+        "id": "US-NV:discovery-record",
+        "label": "Discovery commemorated by the state",
+        "dateText": "July 1849",
+        "basis": "authenticated_discovery",
+        "text": "Nevada’s historical marker credits Abner Blackburn with the July 1849 Gold Canyon find near present-day Dayton. This is earlier than the Comstock discovery of 1859.",
+        "sourceIds": [
+          "nv-shpo-first-gold",
+          "nv-nbmg-mining-history"
+        ],
+        "locator": "Historical Marker 257, first paragraph",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-NV:research:blm-handtools",
+          "sourceIds": [
+            "nv-blm-collecting"
+          ],
+          "locator": "Gold and silver; hand tools; local restrictions",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NV:research:blm-handtools",
+          "category": "access",
+          "title": "BLM hand-tool guidance",
+          "text": "BLM’s Nevada collecting guide describes prospecting for gold and silver with hand tools, including pans and metal detectors, subject to restrictions. Obtain local land-status and claim information; this is not permission on an active claim or private parcel."
+        },
+        {
+          "id": "US-NV:research:wonder-gold-association",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 173, Wonder district",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NV:research:wonder-gold-association",
+          "category": "geology",
+          "title": "Wonder district’s silver-rich veins",
+          "text": "PP610 describes the Wonder district’s gold as partly included in argentite and partly free in silver-rich vein ore. The veins are associated with Tertiary rhyolite and nearby dacite. This district ore association does not imply that recreational pans commonly contain visible gold."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-ID",
@@ -2374,7 +3017,75 @@
         "locator": "Idaho’s Mineral Resources",
         "status": "source_checked",
         "reviewedAt": "2026-10-12"
-      }
+      },
+      "discovery": {
+        "id": "US-ID:discovery-record",
+        "label": "Initial discovery in the survey account",
+        "dateText": "1860",
+        "basis": "reported_discovery",
+        "text": "Idaho Geological Survey identifies the 1860 discovery near Pierce as the beginning of the state’s gold-mining settlement history. The survey account is the basis for this date; it does not document every earlier encounter with gold.",
+        "sourceIds": [
+          "id-igs-minerals"
+        ],
+        "locator": "Idaho’s Mineral Resources, opening history paragraph",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-ID:research:hand-tool-thresholds",
+          "sourceIds": [
+            "id-idwr-smallscale"
+          ],
+          "locator": "Panning & Non-Mechanized Activity; Mineral Claims; 2026 program context",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-ID:research:hand-tool-thresholds",
+          "category": "access",
+          "title": "IDWR limits for hand methods",
+          "text": "IDWR generally exempts nonmechanized hand methods from its small-scale permit, but requires a permit above ¼ cubic yard per hour, more than one-third of stream width, or more than five people working together. The agency lists mining prohibitions on the Middle Fork Clearwater, Middle Fork Salmon and St. Joe Rivers. Land-manager permission and mineral claims remain separate."
+        },
+        {
+          "id": "US-ID:research:agency-scope",
+          "sourceIds": [
+            "id-idl-recreation"
+          ],
+          "locator": "Recreational mining and navigable waters; relationship to IDWR permit",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-ID:research:agency-scope",
+          "category": "access",
+          "title": "State streambed requirements",
+          "text": "IDL provides separate guidance for recreational mining and state-managed navigable streambeds. Its permit overview and IDWR’s hand-tool exceptions must be read together; do not turn the overview into a blanket rule for every pan."
+        },
+        {
+          "id": "US-ID:research:batholith-and-placers",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 120",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-ID:research:batholith-and-placers",
+          "category": "geology",
+          "title": "The Idaho batholith and historic placers",
+          "text": "USGS PP610 relates many Idaho lodes to contacts of the Idaho batholith and describes the early substantial placer industry. Sedimentary, metamorphic and volcanic wallrocks occur around the granitic source terrain. Historical production and geology do not locate an unclaimed stream."
+        },
+        {
+          "id": "US-ID:research:salmon-challis-pan-scope",
+          "sourceIds": [
+            "id-salmon-challis-guidance"
+          ],
+          "locator": "Placer Mining — Gold Panning; no designated area; incidental panning",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-ID:research:salmon-challis-pan-scope",
+          "category": "access",
+          "title": "Incidental panning in Salmon–Challis",
+          "text": "Salmon–Challis guidance says it has no designated recreational panning area and generally accepts short-term incidental panning without excavation. This land-manager restriction is narrower than simply listing a shovel as nonmechanized in IDWR guidance. Confirm the district and claim status."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-AK",
@@ -2420,6 +3131,18 @@
           "locator": "Cape Nome Mining District Discovery Sites",
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-12"
+        },
+        {
+          "id": "US-AK:discovery-place",
+          "title": "Russian River drainage · Kenai Peninsula",
+          "text": "The 1834 exploration report cited by USGS concerns the Russian River drainage of the Kenai Peninsula.",
+          "sourceIds": [
+            "ak-usgs-fs58-1998",
+            "ak-usgs-of88-73"
+          ],
+          "locator": "Fact Sheet 058-98, PDF p. 2; Open-File Report 88-73, PDF p. 61",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "articleIds": [
@@ -2455,7 +3178,76 @@
         "locator": "Overview",
         "status": "source_checked",
         "reviewedAt": "2026-10-12"
-      }
+      },
+      "discovery": {
+        "id": "US-AK:discovery-record",
+        "label": "Early documented gold report",
+        "dateText": "1834",
+        "basis": "documented_report",
+        "text": "USGS records a Russian-American party’s 1834 report from the Russian River drainage on the Kenai Peninsula. Another USGS account notes Indigenous use of gold. This date identifies a written exploration report, not the first human knowledge of Alaska’s gold.",
+        "sourceIds": [
+          "ak-usgs-fs58-1998",
+          "ak-usgs-of88-73"
+        ],
+        "locator": "Fact Sheet 058-98, PDF p. 2; Open-File Report 88-73, PDF p. 61",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-AK:research:blm-panning-areas",
+          "sourceIds": [
+            "ak-blm-panning"
+          ],
+          "locator": "Recreational Gold Panning and Rockhounding; Temporary Closures; Scenic Driving",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-AK:research:blm-panning-areas",
+          "category": "access",
+          "title": "BLM recreational panning areas",
+          "text": "BLM identifies a four-mile recreational area in Nome Creek Valley and a bounded public reach on Jack Wade Creek. Adjacent mining claims are excluded. The Alaska guidance distinguishes hand tools/light equipment from motorized equipment requiring permits."
+        },
+        {
+          "id": "US-AK:research:road-season",
+          "sourceIds": [
+            "ak-blm-panning"
+          ],
+          "locator": "Recreational Gold Panning and Rockhounding; Temporary Closures; Scenic Driving",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-AK:research:road-season",
+          "category": "seasons",
+          "title": "Road access in the warmer months",
+          "text": "BLM describes May–October as generally favorable for scenic driving in Alaska. That is a road-travel guideline, not a guaranteed panning season. Check current road and trail notices before traveling to Nome Creek."
+        },
+        {
+          "id": "US-AK:research:widespread-historic-placers",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printedpp 9–10",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-AK:research:widespread-historic-placers",
+          "category": "geology",
+          "title": "River gravels and beach placers",
+          "text": "USGS PP610 describes widespread Alaska placers along major rivers/tributaries and coastal beach sands, with major Fairbanks, Nome and other district histories. This historical province-scale evidence does not establish remaining ore or open access."
+        },
+        {
+          "id": "US-AK:research:port-wells-veins",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 32, Prince William Sound / Port Wells",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-AK:research:port-wells-veins",
+          "category": "geology",
+          "title": "Port Wells vein minerals",
+          "text": "The Port Wells discussion in PP610 records quartz-vein gold with pyrite, galena, sphalerite, pyrrhotite, arsenopyrite, stibnite and chalcopyrite. This Prince William Sound lode association is geographically specific, not a universal recipe for Alaska placer concentrates."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-AZ",
@@ -2512,6 +3304,17 @@
           "locator": "Weaver (Rich Hill) district, printed pp. 60–62 / PDF pp. 67–69",
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-12"
+        },
+        {
+          "id": "US-AZ:discovery-place",
+          "title": "Quijotoa Mountains · Pima County",
+          "text": "The USGS history places the reported 1774 placer workings along the flanks of the Quijotoa Mountains.",
+          "sourceIds": [
+            "az-usgs-placer-1972"
+          ],
+          "locator": "History of Placer Mining in Arizona, printed p. 1 / PDF p. 8",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "articleIds": [
@@ -2546,7 +3349,49 @@
         "locator": "Abstract, printed p. 1 / PDF p. 8",
         "status": "source_checked",
         "reviewedAt": "2026-10-12"
-      }
+      },
+      "discovery": {
+        "id": "US-AZ:discovery-record",
+        "label": "Early recorded placer mining",
+        "dateText": "1774",
+        "basis": "early_mining",
+        "text": "USGS dates an early Quijotoa Mountains placer-mining account to 1774, involving Indigenous miners under Manuel Lopez’s direction. This is a mining-history record, not proof of when gold was first known in present-day Arizona.",
+        "sourceIds": [
+          "az-usgs-placer-1972"
+        ],
+        "locator": "History of Placer Mining in Arizona, printed p. 1 / PDF p. 8",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-AZ:research:lynx-dayuse",
+          "sourceIds": [
+            "az-lynx-dayuse"
+          ],
+          "locator": "General Information; Seasons of Use; Facilities; last updated April 26, 2025",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-AZ:research:lynx-dayuse",
+          "category": "access",
+          "title": "Lynx Creek Gold Pan Day Use Area",
+          "text": "The Forest Service identifies Lynx Creek Gold Pan Day Use Area as a recreational panning site. It lists no fee, vault toilets, and no drinking water or garbage service. Consult its linked prospecting rules for the activity boundary and equipment restrictions."
+        },
+        {
+          "id": "US-AZ:research:lynx-year-round",
+          "sourceIds": [
+            "az-lynx-dayuse"
+          ],
+          "locator": "General Information; Seasons of Use; Facilities; last updated April 26, 2025",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-AZ:research:lynx-year-round",
+          "category": "seasons",
+          "title": "Lynx Creek opening hours",
+          "text": "Lynx Creek Gold Pan Day Use Area lists year-round use with four seasonal daily-hour schedules. Year-round opening does not mean dependable water or a statewide best month."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-NM",
@@ -2630,7 +3475,62 @@
         "locator": "Opening history and placer geology paragraphs",
         "status": "source_checked",
         "reviewedAt": "2026-10-12"
-      }
+      },
+      "discovery": {
+        "id": "US-NM:discovery-record",
+        "label": "Earliest reported placer mining",
+        "dateText": "1600s",
+        "basis": "early_mining",
+        "text": "New Mexico’s geological bureau records placer mining along the northern Rio Grande in the 1600s. The 1828 discovery of large Ortiz Mountains placers began a later rush; it is not substituted for the earlier mining record.",
+        "sourceIds": [
+          "nm-nmbgmr-placer-2025"
+        ],
+        "locator": "Opening historical paragraph",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-NM:research:placer-setting",
+          "sourceIds": [
+            "nm-nmbgmr-placer-2025"
+          ],
+          "locator": "Placer geology; production; minerals; water limitations; revised April 9, 2025",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NM:research:placer-setting",
+          "category": "history",
+          "title": "Fans, terraces and river-bar placers",
+          "text": "McLemore estimates 662,000 ounces of New Mexico placer gold for 1828–1991. Four districts exceed 100,000 ounces each: Elizabethtown–Baldy, Hillsboro, Old Placers and New Placers. Deposits include fans, terraces, river bars and residual material over lodes; this is historical placer output, not all gold or a remaining reserve."
+        },
+        {
+          "id": "US-NM:research:associated-minerals",
+          "sourceIds": [
+            "nm-nmbgmr-placer-2025"
+          ],
+          "locator": "Placer geology; production; minerals; water limitations; revised April 9, 2025",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NM:research:associated-minerals",
+          "category": "geology",
+          "title": "Minerals and layers found with placer gold",
+          "text": "The Bureau lists quartz, magnetite, ilmenite, amphiboles, pyroxenes, pyrite, zircon, garnet and rutile with native gold/electrum. Pay streaks may sit on bedrock or clay/caliche lenses. These associations help interpret a deposit but do not demonstrate gold in a particular pan."
+        },
+        {
+          "id": "US-NM:research:water-limits",
+          "sourceIds": [
+            "nm-nmbgmr-placer-2025"
+          ],
+          "locator": "Placer geology; production; minerals; water limitations; revised April 9, 2025",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NM:research:water-limits",
+          "category": "seasons",
+          "title": "Water availability matters",
+          "text": "The Bureau identifies lack of water as a historical constraint in many districts. It does not supply a statewide best-month schedule; verify local water and legal access before choosing wet processing."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-UT",
@@ -2687,6 +3587,17 @@
           "locator": "Where are Utah’s gold placers? Item 1",
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-12"
+        },
+        {
+          "id": "US-UT:discovery-place",
+          "title": "Gold Hill · Tooele County",
+          "text": "UGS identifies Gold Hill as the location of the reported 1858 discovery by westbound travelers.",
+          "sourceIds": [
+            "ut-ugs-gold"
+          ],
+          "locator": "Early Discoveries, opening paragraphs",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "articleIds": [
@@ -2707,7 +3618,36 @@
         "locator": "Lode and Placer Deposits; What is a placer?",
         "status": "source_checked",
         "reviewedAt": "2026-10-12"
-      }
+      },
+      "discovery": {
+        "id": "US-UT:discovery-record",
+        "label": "First reported discovery in the survey account",
+        "dateText": "1858",
+        "basis": "reported_discovery",
+        "text": "Utah Geological Survey dates the reported discovery at Gold Hill, Tooele County, to 1858. Its history separately dates the Bingham Canyon placer find to 1864.",
+        "sourceIds": [
+          "ut-ugs-gold"
+        ],
+        "locator": "Early Discoveries, opening paragraphs",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-UT:research:sanjuan-rush",
+          "sourceIds": [
+            "ut-ugs-gold"
+          ],
+          "locator": "Lode and Placer Deposits; Utah’s Gold Placers; Bluff excitement; recreational rules",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-UT:research:sanjuan-rush",
+          "category": "history",
+          "title": "The Bluff gold excitement",
+          "text": "UGS recounts the 1892–93 Bluff excitement, when exaggerated San Juan River placer stories attracted prospectors who found fine gold difficult to recover. The episode is useful evidence against treating a rush story as a yield forecast."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-NH",
@@ -3101,7 +4041,36 @@
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
         }
-      ]
+      ],
+      "researchNotes": [
+        {
+          "id": "US-NH:research:pan-only-scooping",
+          "sourceIds": [
+            "nh-gold-2020"
+          ],
+          "locator": "Panning for Gold; Recreational Mineral Dredging; fact sheet GEO-1, 2020",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NH:research:pan-only-scooping",
+          "category": "access",
+          "title": "Scoop with the pan; check land permission",
+          "text": "NHDES’s 2020 fact sheet says to obtain landowner permission, scoop gravel with the pan, and not dig into stream bottoms or banks with a shovel. Dredging and similar work require a permit. State lands and the White Mountain National Forest have additional rules."
+        },
+        {
+          "id": "US-NH:research:summer-water",
+          "sourceIds": [
+            "nh-ammonoosuc-plan-2013"
+          ],
+          "locator": "June 2013, printed p.64; summer water conditions",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NH:research:summer-water",
+          "category": "seasons",
+          "title": "Summer flow in the Ammonoosuc corridor",
+          "text": "The 2013 Ammonoosuc corridor plan describes low summer water except after heavy rain. That supports checking summer flow for river access, but is neither a current condition report nor permission to pan at the confluence."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-VT",
@@ -3502,7 +4471,23 @@
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
         }
-      ]
+      ],
+      "researchNotes": [
+        {
+          "id": "US-MA:research:mapped-sediments",
+          "sourceIds": [
+            "ma-surficial-2018"
+          ],
+          "locator": "SIM3402 abstract; lithologic units; downloadable maps/geodatabases; posted March 1,2019",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MA:research:mapped-sediments",
+          "category": "resources",
+          "title": "Detailed surficial geology maps",
+          "text": "USGS SIM3402 maps till, glacial stratified deposits and postglacial sediments across 189 quadrangles at 1:24,000, with downloadable sheets and geodatabases. Its material classes support geological interpretation; they are not gold-occurrence measurements."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-CT",
@@ -3553,7 +4538,23 @@
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
         }
-      ]
+      ],
+      "researchNotes": [
+        {
+          "id": "US-CT:research:state-collecting-authorization",
+          "sourceIds": [
+            "ct-collecting-rules"
+          ],
+          "locator": "Stateland collecting restriction; educational applications; content updated October 2019",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CT:research:state-collecting-authorization",
+          "category": "access",
+          "title": "Collecting on DEEP land",
+          "text": "Connecticut DEEP’s collecting guidance quotes rules against removing earth or rock material on department lands except as authorized. Written scientific or educational collecting permission can be requested; a mineral-club listing does not itself authorize collecting."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-RI",
@@ -3623,7 +4624,23 @@
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
         }
-      ]
+      ],
+      "researchNotes": [
+        {
+          "id": "US-RI:research:state-property-protection",
+          "sourceIds": [
+            "ri-campground-policies"
+          ],
+          "locator": "Protection Of State Property; no removal/injury of rocks, fossils or minerals",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-RI:research:state-property-protection",
+          "category": "access",
+          "title": "Protecting minerals on state property",
+          "text": "Rhode Island State Parks’ camping policy prohibits visitors from removing or injuring rocks, fossils or minerals on state lands. Treat this as the policy’s stated scope, not evidence of an authorized gold site or a statewide ban on private-land prospecting."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-NY",
@@ -3642,7 +4659,23 @@
       "mines": [],
       "articleIds": [],
       "archiveIds": [],
-      "accessSourceIds": []
+      "accessSourceIds": [],
+      "researchNotes": [
+        {
+          "id": "US-NY:research:royal-mineral-interest",
+          "sourceIds": [
+            "ny-pbl81"
+          ],
+          "locator": "Public Lands Law Article 7, section 81; revision September 22, 2014",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NY:research:royal-mineral-interest",
+          "category": "access",
+          "title": "New York’s reserved gold and silver rights",
+          "text": "New York Public Lands Law §81 reserves gold and silver deposits to the state, including deposits on private land, and addresses permission to explore state land. It does not settle how incidental recreational flakes are treated. Ask the responsible state agencies before collecting; private landowner permission alone does not resolve the mineral-rights question."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-GA",
@@ -3656,7 +4689,25 @@
         "status": "source_checked",
         "reviewedAt": "2026-10-11"
       },
-      "facts": [],
+      "facts": [
+        {
+          "id": "US-GA:research:historic-state-total",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 119",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-GA:research:historic-state-total",
+          "key": "historical-production",
+          "value": 870665,
+          "period": "1830–1959",
+          "label": "Approximate historical gold production",
+          "definition": "Approximate statewide gold output reported in USGS Professional Paper 610 for this historical period. It is not a current yield, remaining reserve or all-time total.",
+          "unit": "troy ounces",
+          "scope": "US-GA"
+        }
+      ],
       "history": [
         {
           "id": "US-GA:dahlonega-mint",
@@ -3670,7 +4721,19 @@
           "reviewedAt": "2026-10-11"
         }
       ],
-      "places": [],
+      "places": [
+        {
+          "id": "US-GA:discovery-place",
+          "title": "Habersham County · early written record",
+          "text": "The 1829 Georgia Journal announcement cited by the state digital library describes two gold mines in Habersham County.",
+          "sourceIds": [
+            "ga-dlg-gold-history"
+          ],
+          "locator": "The Georgia Gold Rush, opening paragraph",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
+        }
+      ],
       "articleIds": [
         "article:is-that-really-gold",
         "article:classification-basics"
@@ -3758,6 +4821,35 @@
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
         }
+      ],
+      "discovery": {
+        "id": "US-GA:discovery-record",
+        "label": "Earliest clear written record",
+        "dateText": "August 1, 1829",
+        "basis": "documented_report",
+        "text": "The Digital Library of Georgia identifies a Georgia Journal notice about two Habersham County gold mines as the earliest clear documentation. The popular Benjamin Parks story dates to 1828, but the first discoverer and exact discovery date remain unsettled.",
+        "sourceIds": [
+          "ga-dlg-gold-history"
+        ],
+        "locator": "The Georgia Gold Rush, opening paragraph",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchReviewedAt": "2026-10-15",
+      "researchNotes": [
+        {
+          "id": "US-GA:research:franklin-vein-association",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 119",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-GA:research:franklin-vein-association",
+          "category": "geology",
+          "title": "Franklin district vein minerals",
+          "text": "The PP610 Franklin district description records gold-bearing quartz stringers and auriferous pyrite in mica schist/amphibole gneiss, with minor calcite, muscovite and chalcopyrite. It is historical lode geology, not a modern collection-site recommendation."
+        }
       ]
     },
     {
@@ -3825,6 +4917,17 @@
           "locator": "Gold: historical producing districts",
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-12"
+        },
+        {
+          "id": "US-CO:discovery-place",
+          "title": "Ralston Creek · present-day Arvada",
+          "text": "The city’s history identifies the stream where Ralston panned gold in 1850, near its junction with Clear Creek.",
+          "sourceIds": [
+            "co-arvada-first-gold"
+          ],
+          "locator": "Opening three history paragraphs",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "accessNotes": [
@@ -3847,7 +4950,88 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "discovery": {
+        "id": "US-CO:discovery-record",
+        "label": "First documented discovery",
+        "dateText": "June 22, 1850",
+        "basis": "authenticated_discovery",
+        "text": "Arvada’s official history dates Lewis Ralston’s gold find at present-day Ralston Creek to June 22, 1850. It records the Colorado Historical Society’s recognition of this as Colorado’s first discovery. The 1858 rush followed later.",
+        "sourceIds": [
+          "co-arvada-first-gold"
+        ],
+        "locator": "Opening three history paragraphs",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-CO:research:cache-vehicle-season",
+          "sourceIds": [
+            "co-cache-creek-map"
+          ],
+          "locator": "Opening description; panning/sluicing; seasonal motorized access; map dated 2022",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CO:research:cache-vehicle-season",
+          "category": "seasons",
+          "title": "Cache Creek vehicle access",
+          "text": "BLM limits motorized access to Cache Creek from Memorial Day weekend through November 30 to protect wintering elk. This is a vehicle-access window, not a general gold-panning closure or optimum recovery season."
+        },
+        {
+          "id": "US-CO:research:cripple-creek-ore",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 118",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CO:research:cripple-creek-ore",
+          "category": "geology",
+          "title": "Cripple Creek’s telluride ores",
+          "text": "The Cripple Creek chapter of PP610 describes gold tellurides with pyrite, quartz, fluorite and other minerals in successive mineralization stages. These district-specific lode associations must not be generalized to every Colorado pan concentrate."
+        },
+        {
+          "id": "US-CO:research:clear-creek-permission",
+          "sourceIds": [
+            "co-jeffco-recreation"
+          ],
+          "locator": "Gold Prospecting; permitted creek sections; no-bank-disturbance and structures setback",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CO:research:clear-creek-permission",
+          "category": "access",
+          "title": "Posted reaches in Clear Creek Canyon Park",
+          "text": "Jefferson County permits recreational gold prospecting in posted portions of Clear Creek within Clear Creek Canyon Park and prohibits it in other JCPOS parks. Stable banks/vegetation must not be disturbed, holes must be filled, and prospecting must stay 100 feet from structures. Current signs govern the allowed reaches."
+        },
+        {
+          "id": "US-CO:research:clear-creek-conditions",
+          "sourceIds": [
+            "co-clear-creek-park"
+          ],
+          "locator": "Prospecting restrictions; Big Easy exclusions; current trail/construction context",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CO:research:clear-creek-conditions",
+          "category": "seasons",
+          "title": "Clear Creek water and construction",
+          "text": "Clear Creek Canyon Park warns of fast-flowing water, localized prospecting exclusions at Big Easy and construction through 2026. A trail opening does not establish that every adjacent collecting spot is open or safe; check water restrictions and posted signs."
+        },
+        {
+          "id": "US-CO:research:summit-placer-record",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printedpp 116–117",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-CO:research:summit-placer-record",
+          "category": "history",
+          "title": "Summit County’s historic placers",
+          "text": "USGS PP610 reports 739,511 ounces of placer gold from Summit County through 1959. The Breckenridge discussion distinguishes shallow gulch gravels, bench placers and deep placers along the Swan and Blue Rivers. This historical mined output supports a substantial placer-industry classification, not a remaining reserve."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-OR",
@@ -3914,6 +5098,17 @@
           "locator": "Blue Mountains",
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-12"
+        },
+        {
+          "id": "US-OR:discovery-place",
+          "title": "Josephine Creek · Illinois River junction",
+          "text": "DOGAMI locates the reported 1850 pay gravels near Josephine Creek’s junction with the Illinois River.",
+          "sourceIds": [
+            "or-dogami-orebin-1963"
+          ],
+          "locator": "Placer mining in southern Oregon, printed p. 94 / PDF p. 2",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "accessNotes": [],
@@ -3922,7 +5117,49 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "discovery": {
+        "id": "US-OR:discovery-record",
+        "label": "Early documented placer workings",
+        "dateText": "1850",
+        "basis": "early_mining",
+        "text": "DOGAMI’s 1963 history describes pay gravels worked on Josephine Creek near the Illinois River in 1850, possibly Oregon’s first gold mining. It separates this from the December 1851 Jackson Creek find that led to the Jacksonville boom.",
+        "sourceIds": [
+          "or-dogami-orebin-1963"
+        ],
+        "locator": "Placer mining in southern Oregon, printed p. 94 / PDF p. 2",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-OR:research:sharps-creek-panning",
+          "sourceIds": [
+            "or-sharps-creek"
+          ],
+          "locator": "Overview; Facilities; payment information",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-OR:research:sharps-creek-panning",
+          "category": "access",
+          "title": "Sharps Creek Recreation Site",
+          "text": "BLM lists gold panning at Sharps Creek Recreation Site near Cottage Grove, associated with the Bohemia district. Its facilities include toilets and water, but the drainage has no cellular reception. Verify current equipment limits and the collecting reach with the managing office."
+        },
+        {
+          "id": "US-OR:research:galice-mineral-association",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 227, Galice district",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-OR:research:galice-mineral-association",
+          "category": "geology",
+          "title": "Galice vein minerals",
+          "text": "PP610 describes free gold in Galice district veins with pyrite, pyrrhotite and some chalcopyrite in quartz. Veins cut several Jurassic igneous rocks. These historical lode descriptions help explain source terrain but do not establish open collecting at old mines."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-WY",
@@ -3980,7 +5217,36 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "discovery": {
+        "id": "US-WY:discovery-record",
+        "label": "Early reported placer gold",
+        "dateText": "Around 1842",
+        "basis": "reported_discovery",
+        "text": "Wyoming State Geological Survey records an early report of placer gold near the Sweetwater River in what became the Lewiston district. The approximate 1842 report predates the 1867 Carissa lode discovery and gold rush.",
+        "sourceIds": [
+          "wy-wsgs-gold"
+        ],
+        "locator": "History, opening paragraph",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-WY:research:production-uncertainty",
+          "sourceIds": [
+            "wy-wsgs-gold"
+          ],
+          "locator": "History; deposit settings; recommended W.D. Hausel publications",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-WY:research:production-uncertainty",
+          "category": "history",
+          "title": "Why there is no reliable statewide total",
+          "text": "WSGS links the 1867 rush to the Carissa lode and states that total Wyoming production is unknown because early records were not kept. Its Carissa estimate of 50,000–180,000 ounces before 1911 is mine-specific and must not become a statewide total."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-MI",
@@ -3995,7 +5261,25 @@
         "status": "source_checked",
         "reviewedAt": "2026-10-12"
       },
-      "facts": [],
+      "facts": [
+        {
+          "id": "US-MI:research:historic-state-total",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 141",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MI:research:historic-state-total",
+          "key": "historical-production",
+          "value": 29000,
+          "period": "through 1959",
+          "label": "Approximate historical gold production",
+          "definition": "USGS historical estimate, mostly from Upper Peninsula mines. Later mining is outside this period; this is not Michigan’s modern all-time output or a recreational placer yield.",
+          "unit": "troy ounces",
+          "scope": "US-MI"
+        }
+      ],
       "history": [
         {
           "id": "US-MI:history-context",
@@ -4030,7 +5314,36 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "discovery": {
+        "id": "US-MI:discovery-record",
+        "label": "Early reported gold finds",
+        "dateText": "By 1845",
+        "basis": "reported_discovery",
+        "text": "Michigan State University’s geography resource reports small gold finds as early as 1845, before the Ropes mine opened in the early 1880s. The early date is retained as a reported historical account; no exact find location is inferred.",
+        "sourceIds": [
+          "mi-msu-gold-history"
+        ],
+        "locator": "Gold, early discoveries paragraphs",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-MI:research:state-rights-and-exclusions",
+          "sourceIds": [
+            "mi-dnr-panning"
+          ],
+          "locator": "Surface/mineral ownership; exclusions; sluicing permits",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MI:research:state-rights-and-exclusions",
+          "category": "access",
+          "title": "State mineral rights and protected waters",
+          "text": "Michigan DNR’s guidance applies where the state owns both surface and mineral rights. Power sluicing is prohibited, and closed habitats include designated trout streams, natural rivers and natural areas, and Great Lakes shores and bottomlands. Sluicing requires EGLE permitting. Confirm the permits for your exact hand-panning activity with DNR and EGLE before collecting."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-WI",
@@ -4103,7 +5416,23 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-WI:research:permission-and-volume",
+          "sourceIds": [
+            "wi-gold-panning"
+          ],
+          "locator": "Opening geology; Mining/Water Regulations; Property Considerations",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-WI:research:permission-and-volume",
+          "category": "access",
+          "title": "Water rules and property permission",
+          "text": "Wisconsin distinguishes nonmechanized recreational collection from commercial or powered prospecting. Its water guidance allows up to two cubic yards per waterway per year without that water permit; riparian permission is still required. Several DNR property categories prohibit collecting, while other properties can need a collector’s permit."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-MN",
@@ -4179,7 +5508,49 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "discovery": {
+        "id": "US-MN:discovery-record",
+        "label": "Vermilion Lake discovery and rush",
+        "dateText": "1865–1866",
+        "basis": "regional_discovery",
+        "text": "Minnesota DNR dates the Vermilion Lake gold rush to 1865–66. It separately records gold on Little American Island in Rainy Lake in summer 1893. These are regional milestones rather than a verified statewide first-discovery date.",
+        "sourceIds": [
+          "mn-dnr-mining-history"
+        ],
+        "locator": "Gold Rush! section",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-MN:research:handpan-statebeds",
+          "sourceIds": [
+            "mn-recreational-geology"
+          ],
+          "locator": "Gold prospects; state-owned beds; trout streams and spawning sensitivity",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MN:research:handpan-statebeds",
+          "category": "access",
+          "title": "Minimal-impact hand panning",
+          "text": "Minnesota describes minimal-impact, hand-powered panning without a state permit on eligible state-owned stream, river and lake beds. Collecting-prohibited areas such as state parks are excluded; contact the Area Fisheries Manager before entering designated trout streams. Local officers can stop damaging activity."
+        },
+        {
+          "id": "US-MN:research:fish-sensitive-season",
+          "sourceIds": [
+            "mn-recreational-geology"
+          ],
+          "locator": "Gold prospects; state-owned beds; trout streams and spawning sensitivity",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MN:research:fish-sensitive-season",
+          "category": "seasons",
+          "title": "Fish spawning and site conditions",
+          "text": "Minnesota DNR identifies fish spawning and other site sensitivities as reasons panning may be stopped. It gives no universal monthly panning season; seek site-specific fisheries advice."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-IN",
@@ -4253,7 +5624,36 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-IN:research:glacial-source",
+          "sourceIds": [
+            "in-recreational-gold"
+          ],
+          "locator": "General license; private permission; forest permits and state park/wildlife exclusions",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-IN:research:glacial-source",
+          "category": "geology",
+          "title": "Gold carried south by glaciers",
+          "text": "Indiana DNR attributes recreational gold to material carried from Canada by glaciers and cautions that it is a hobby rather than a route to riches. This concerns transported gold, not a claim that native gold is chemically impossible in Indiana."
+        },
+        {
+          "id": "US-IN:research:general-license-scope",
+          "sourceIds": [
+            "in-recreational-gold"
+          ],
+          "locator": "General license; private permission; forest permits and state park/wildlife exclusions",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-IN:research:general-license-scope",
+          "category": "access",
+          "title": "A floodway license is only one requirement",
+          "text": "Indiana’s general-license rules replace a Construction in a Floodway permit only for compliant activity. They do not permit trespass. DNR instructs prospectors to contact individual forests for additional free permission and says state parks and state wildlife properties do not authorize gold prospecting."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-OH",
@@ -4325,7 +5725,36 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-OH:research:pan-particle-size",
+          "sourceIds": [
+            "oh-geofacts9"
+          ],
+          "locator": "PDF p. 1, Where to find gold in Ohio",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-OH:research:pan-particle-size",
+          "category": "geology",
+          "title": "Usually small, flattened flakes",
+          "text": "The 2022 Ohio survey describes almost all recovered gold as flattened flakes about a millimeter in diameter. Wheat-grain pieces are less common and pea-sized pieces rare. This approximate source description is not a measured statewide size distribution."
+        },
+        {
+          "id": "US-OH:research:hobby-permission",
+          "sourceIds": [
+            "oh-geofacts9"
+          ],
+          "locator": "GeoFacts 9, 2022; gold geology; particle size; reported occurrences",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-OH:research:hobby-permission",
+          "category": "access",
+          "title": "Permission and the survey’s dated guidance",
+          "text": "Ohio’s 2022 survey says hobby panning needs landowner permission, including on state-owned land, and describes a no-state-permit interpretation for low-value recreational activity without adverse impacts. This dated summary still needs land/water-manager confirmation for a specific site."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-PA",
@@ -4397,7 +5826,49 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-PA:research:dep-nonmotorized",
+          "sourceIds": [
+            "pa-prospecting-guidance"
+          ],
+          "locator": "Mining for Gold and Gemstones; waterways; private and public lands",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-PA:research:dep-nonmotorized",
+          "category": "access",
+          "title": "DEP guidance for nonmotorized methods",
+          "text": "Pennsylvania DEP says nonmotorized waterway prospecting methods listed on its page do not require its permit. State Game Lands and national parks are excluded; private permission is required, and state forest/park rules must be checked with DCNR. Excavation and powered methods have different requirements."
+        },
+        {
+          "id": "US-PA:research:cornwall-byproduct",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 231",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-PA:research:cornwall-byproduct",
+          "category": "history",
+          "title": "Gold recovered at Cornwall mine",
+          "text": "USGS Professional Paper 610 reports 37,459 ounces of gold recovered from Cornwall mine through 1959, as a byproduct of copper concentrates. This mine-specific historical figure is not Pennsylvania’s statewide production total or evidence of a stream placer."
+        },
+        {
+          "id": "US-PA:research:cornwall-ore-association",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 231",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-PA:research:cornwall-ore-association",
+          "category": "geology",
+          "title": "Cornwall’s copper concentrates",
+          "text": "PP610 links Cornwall’s minor gold recovery to copper concentrates, suggesting association with chalcopyrite in the iron deposit. That industrial association is different from a verified native-gold stream placer."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-NJ",
@@ -4455,7 +5926,23 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-NJ:research:historic-assay-limit",
+          "sourceIds": [
+            "nj-gold-pallis-2011"
+          ],
+          "locator": "New Jersey Gold, pp.4 onward; approximate occurrence map; copper/gold associations",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-NJ:research:historic-assay-limit",
+          "category": "history",
+          "title": "An ore assay is not a production total",
+          "text": "The NJGS article quotes a small Griggstown gold assay from 1900–1905, not mine production. Do not convert a reported ore grade into a total or estimate a recreational yield from it."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-MD",
@@ -4532,7 +6019,36 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-MD:research:quartz-sulfide-association",
+          "sourceIds": [
+            "md-survey-gold"
+          ],
+          "locator": "Gold geology; sulfides; panned particle sizes; landowner permission",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MD:research:quartz-sulfide-association",
+          "category": "geology",
+          "title": "Piedmont quartz veins and sulfides",
+          "text": "Maryland Geological Survey describes grains, wires and sheets of gold in Piedmont quartz veins and mineralized faults. Associated sulfides can include pyrite, sphalerite and galena; gold is unevenly distributed within veins."
+        },
+        {
+          "id": "US-MD:research:fine-panned-gold",
+          "sourceIds": [
+            "md-survey-gold"
+          ],
+          "locator": "Gold geology; sulfides; panned particle sizes; landowner permission",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MD:research:fine-panned-gold",
+          "category": "geology",
+          "title": "Mostly very fine particles",
+          "text": "MGS says panned Maryland gold is mostly very fine grained, sometimes reaching coarse-sand size; nuggets are rare. The rare large finds are not the typical-particle evidence. Its geology guide is not current collecting permission for Great Falls."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-MT",
@@ -4628,7 +6144,62 @@
       ],
       "articleIds": [],
       "archiveIds": [],
-      "accessSourceIds": []
+      "accessSourceIds": [],
+      "discovery": {
+        "id": "US-MT:discovery-record",
+        "label": "Major Bannack gold strike",
+        "dateText": "July 28, 1862",
+        "basis": "regional_discovery",
+        "text": "Montana Fish, Wildlife & Parks dates Bannack’s first major strike to July 28, 1862. This is a well-sourced rush milestone. Earlier Gold Creek discovery accounts need a separate review before assigning a statewide first-discovery date.",
+        "sourceIds": [
+          "mt-fwp-bannack"
+        ],
+        "locator": "Bannack park history: first major strike",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-MT:research:bannack-learning",
+          "sourceIds": [
+            "mt-bannack-education"
+          ],
+          "locator": "Bannack Tour; Gold Panning demonstration",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MT:research:bannack-learning",
+          "category": "access",
+          "title": "Supervised learning at Bannack",
+          "text": "FWP describes a student gold-panning demonstration followed by supervised practice. Arrange the program with staff; this is an educational activity, not permission to excavate Grasshopper Creek."
+        },
+        {
+          "id": "US-MT:research:bannack-season",
+          "sourceIds": [
+            "mt-fwp-bannack"
+          ],
+          "locator": "About the Park; 2026 Seasons & Hours; visit context",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MT:research:bannack-season",
+          "category": "seasons",
+          "title": "Park hours and program schedules differ",
+          "text": "Bannack’s park is open year-round with seasonal visitor-center hours and some seasonal amenities. Those park hours do not establish a gold-panning program schedule; confirm the educational program separately."
+        },
+        {
+          "id": "US-MT:research:blm-claim-rights",
+          "sourceIds": [
+            "blm-mtdk-packet-2024"
+          ],
+          "locator": "Recreational panning; claimant permission",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MT:research:blm-claim-rights",
+          "category": "access",
+          "title": "BLM hand panning and claim rights",
+          "text": "The BLM Montana–Dakotas packet says recreational hand-tool panning does not need a special BLM permit on eligible BLM land, but another person’s claim requires claimant permission. This agency-specific guidance does not identify an open stream, authorize private access or waive state requirements."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-SD",
@@ -4718,11 +6289,64 @@
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-12",
           "title": "Deadwood Formation · northern Black Hills"
+        },
+        {
+          "id": "US-SD:discovery-place",
+          "title": "French Creek · Black Hills",
+          "text": "South Dakota’s park history identifies French Creek as the location of the 1874 expedition discovery.",
+          "sourceIds": [
+            "sd-gfp-french-creek"
+          ],
+          "locator": "Gordon Stockade, historical account",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "articleIds": [],
       "archiveIds": [],
-      "accessSourceIds": []
+      "accessSourceIds": [],
+      "discovery": {
+        "id": "US-SD:discovery-record",
+        "label": "French Creek expedition discovery",
+        "dateText": "Summer 1874",
+        "basis": "regional_discovery",
+        "text": "South Dakota’s park history dates the expedition’s French Creek discovery to summer 1874. The Black Hills were then within the Great Sioux Reservation under the Fort Laramie Treaty; the discovery does not imply lawful settlement or present-day access.",
+        "sourceIds": [
+          "sd-gfp-french-creek"
+        ],
+        "locator": "Gordon Stockade, historical account",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-SD:research:blm-claim-rights",
+          "sourceIds": [
+            "blm-mtdk-packet-2024"
+          ],
+          "locator": "Recreational panning; claimant permission",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-SD:research:blm-claim-rights",
+          "category": "access",
+          "title": "BLM hand panning and claim rights",
+          "text": "The BLM Montana–Dakotas packet says recreational hand-tool panning does not need a special BLM permit on eligible BLM land, but another person’s claim requires claimant permission. This agency-specific guidance does not identify an open stream, authorize private access or waive state requirements."
+        },
+        {
+          "id": "US-SD:research:handtools-vs-dredges",
+          "sourceIds": [
+            "sd-danr-recreational"
+          ],
+          "locator": "Recreational mining; hand-held equipment and dredge permits",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-SD:research:handtools-vs-dredges",
+          "category": "access",
+          "title": "Hand tools and dredges have different rules",
+          "text": "South Dakota DANR says hand-held picks, shovels, pans, detectors and sluice boxes used for placer mining do not require its mine permit. Any mineral-extraction dredge requires a mining permit. Water rights, claims, land-manager rules and private permission are separate questions."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-WA",
@@ -4804,7 +6428,62 @@
       ],
       "articleIds": [],
       "archiveIds": [],
-      "accessSourceIds": []
+      "accessSourceIds": [],
+      "discovery": {
+        "id": "US-WA:discovery-record",
+        "label": "Early reported discovery",
+        "dateText": "1853",
+        "basis": "reported_discovery",
+        "text": "Washington’s 1955 geological bulletin describes a gold report from McClellan’s railway-survey expedition in the Yakima Valley. It calls this probably the first discovery and leaves the exact locality unresolved; the later Colville rush dates to 1855.",
+        "sourceIds": [
+          "wa-dmg-b42-1955"
+        ],
+        "locator": "History of Gold in Washington, printed p. 28 / PDF p. 30",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-WA:research:gold-fish-framework",
+          "sourceIds": [
+            "wa-wdfw-current"
+          ],
+          "locator": "Current edition; nonmotorized methods; HPA scope",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-WA:research:gold-fish-framework",
+          "category": "access",
+          "title": "The Gold and Fish framework",
+          "text": "WDFW identifies May 19, 2021 as the current Gold and Fish pamphlet edition in the guidance checked for this guide. Work that complies with its applicable methods, locations and timing does not need an individual Hydraulic Project Approval (HPA). Other methods or work outside those conditions require agency review. Landowner permission and other approvals still apply."
+        },
+        {
+          "id": "US-WA:research:stream-specific-times",
+          "sourceIds": [
+            "wa-gold-fish-2021"
+          ],
+          "locator": "Overview; validity; landowner/other agency approvals",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-WA:research:stream-specific-times",
+          "category": "seasons",
+          "title": "Check the stream’s permitted work window",
+          "text": "Gold and Fish regulates activity by methods, locations and timing. Use the current pamphlet’s applicable stream table and restrictions rather than a single statewide “best season”; operating outside its authorization needs a written HPA."
+        },
+        {
+          "id": "US-WA:research:trust-vs-aquatic",
+          "sourceIds": [
+            "wa-dnr-rockhounding"
+          ],
+          "locator": "Gold Panning; State Trust lands vs state-owned aquatic lands",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-WA:research:trust-vs-aquatic",
+          "category": "access",
+          "title": "Trust lands and aquatic lands differ",
+          "text": "Washington DNR says gold panning is not authorized on its State Trust lands. State-owned aquatic lands require DNR use authorization in addition to compliance with Gold and Fish. General rockhounding permission must not be substituted for gold-panning permission."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-FL",
@@ -4836,7 +6515,23 @@
         ],
         "locator": "Opening history paragraphs; Minerals of Florida table: pyrite",
         "reviewedAt": "2026-10-12"
-      }
+      },
+      "researchNotes": [
+        {
+          "id": "US-FL:research:pyrite-and-heavy-sands",
+          "sourceIds": [
+            "fl-fgs-rocks-minerals"
+          ],
+          "locator": "Mineral table; pyrite, ilmenite and monazite",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-FL:research:pyrite-and-heavy-sands",
+          "category": "geology",
+          "title": "Heavy sands and gold look-alikes",
+          "text": "Florida Geological Survey lists yellow metallic pyrite flecks in limestone and heavy minerals including ilmenite and monazite. Such minerals are not proof of native gold or an economically useful black-sand gold deposit."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-HI",
@@ -4954,7 +6649,23 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-AL:research:piedmont-hosts",
+          "sourceIds": [
+            "al-usgs-gold-deposits-1908"
+          ],
+          "locator": "Printed pp.36–38; Hog Mountain/Gold Ridge districts; reconnaissance limitations",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-AL:research:piedmont-hosts",
+          "category": "geology",
+          "title": "Quartz veins and their host rocks",
+          "text": "McCaskey’s 1908 reconnaissance places Alabama gold districts in east-central metamorphic and crystalline rocks. It records quartz veins in granite, gneiss, schist and slate; at Pinetuckey, gold-bearing schist beside a vein contains garnets. This is a historical, site-specific association rather than a statewide indicator recipe."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-AR",
@@ -5071,7 +6782,36 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-MS:research:geochemistry-resources",
+          "sourceIds": [
+            "ms-geochem-survey"
+          ],
+          "locator": "1997–1998 soil/sediment survey; USGS OFR2004-1001 datasets; atlas links",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MS:research:geochemistry-resources",
+          "category": "resources",
+          "title": "Soil and sediment geochemistry",
+          "text": "MDEQ provides Mississippi’s statewide 1997–1998 soil/sediment geochemical survey through USGS OFR2004-1001 and extracted PDF/Excel datasets. Consult sampling methods and detection limits; a geochemical anomaly alone is not a recoverable gold placer."
+        },
+        {
+          "id": "US-MS:research:iron-oxide-lookalikes",
+          "sourceIds": [
+            "ms-lithic-materials"
+          ],
+          "locator": "Mineral identifications; iron-rich minerals; lithic map links",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MS:research:iron-oxide-lookalikes",
+          "category": "geology",
+          "title": "Iron-rich nodules are not gold evidence",
+          "text": "MDEQ’s lithic guide describes siderite, goethite and limonite among Mississippi materials. These iron-rich nodules and colors should not be treated as positive gold indicators without independent gold evidence."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-OK",
@@ -5132,21 +6872,71 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-OK:research:refuge-prohibition",
+          "sourceIds": [
+            "ok-fws-wichita-rules"
+          ],
+          "locator": "Prohibited activities; collection and metal detectors",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-OK:research:refuge-prohibition",
+          "category": "access",
+          "title": "Wichita Mountains refuge restrictions",
+          "text": "Wichita Mountains Wildlife Refuge prohibits collecting rocks and minerals and prohibits metal detectors and treasure/artifact searching. Historical gold reports in the Wichita Mountains do not override this refuge rule."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-TX",
       "overview": {
         "id": "US-TX:overview",
-        "text": "Texas’s Bureau of Economic Geology recorded small gold occurrences in its 1927 mineral inventory: quartz veins in several central and western counties, and gold associated with other metal ores in West Texas.",
+        "text": "Texas has a modest recorded gold history. Historical surveys describe gold in the Llano uplift and West Texas; the state’s reported production largely came alongside silver and copper mining. The records below describe geology and historical workings, with sources for further reading.",
         "sourceIds": [
-          "tx-beg-common-minerals-1927"
+          "tx-beg-gold-1932",
+          "tx-tsha-gold-mining"
         ],
-        "locator": "GOLD section, printed/PDF p. 14: occurrence",
+        "locator": "Circular 5, PDF p. 1; Handbook of Texas, opening production account",
         "status": "source_checked",
-        "reviewedAt": "2026-10-12"
+        "reviewedAt": "2026-10-14"
       },
-      "facts": [],
+      "facts": [
+        {
+          "id": "US-TX:historical-production",
+          "key": "historical-production",
+          "label": "Reported historical gold output",
+          "value": 8277,
+          "unit": "fine ounces",
+          "period": "through 1942",
+          "scope": "US-TX",
+          "definition": "The Handbook of Texas reports this historical total from the Presidio, Hazel and Heath mines, chiefly as a silver- and copper-mining byproduct. This is a dated historical account, not an all-time total or a modern panning yield.",
+          "sourceIds": [
+            "tx-tsha-gold-mining"
+          ],
+          "locator": "Opening production account",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-14"
+        },
+        {
+          "id": "US-TX:historic-sites",
+          "key": "historic-sites",
+          "label": "Gold-bearing inventory records",
+          "value": 37,
+          "unit": "records",
+          "period": "inventory retrieved 2026-10-14",
+          "scope": "US-TX",
+          "definition": "Entries in the Bureau’s Gold map layer, including occurrences, prospects and historical producers. Some mine names appear more than once. This counts database records, not unique mines or operations active today.",
+          "sourceIds": [
+            "tx-beg-gold-layer"
+          ],
+          "locator": "Layer 7; count of returned OBJECTID records",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-14"
+        }
+      ],
       "history": [
         {
           "id": "US-TX:historical-gold-record",
@@ -5158,6 +6948,17 @@
           "locator": "GOLD section, printed/PDF p. 14: Uses and past production",
           "status": "source_checked",
           "reviewedAt": "2026-10-12"
+        },
+        {
+          "id": "US-TX:byproduct-history",
+          "title": "Gold alongside silver and copper",
+          "text": "The Handbook identifies Presidio and Hazel in West Texas and Heath in the Llano district as the principal historical producers. It records Presidio’s closure in September 1942; that is a historical milestone, not a statement about present-day operations.",
+          "sourceIds": [
+            "tx-tsha-gold-mining"
+          ],
+          "locator": "Opening historical account",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "places": [
@@ -5182,15 +6983,90 @@
           "locator": "GOLD section, printed/PDF p. 14: mercury ores, Brewster County",
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-12"
+        },
+        {
+          "id": "US-TX:llano-river",
+          "title": "Llano River drainage",
+          "text": "The 1932 geological account discusses the Llano River drainage as a setting for placer investigation. It distinguishes geological possibilities from a demonstrated profitable deposit. A named river does not establish a place open to collecting.",
+          "sourceIds": [
+            "tx-beg-gold-1932"
+          ],
+          "locator": "PDF pp. 3–4, Llano Uplift of Central Texas",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-14"
+        },
+        {
+          "id": "US-TX:sandy-creek",
+          "title": "Sandy Creek drainage",
+          "text": "Baker’s 1932 report discusses Sandy Creek and its tributaries in relation to gold-bearing rocks and sediment concentration. This is historical geological context; present-day yield and collecting arrangements are not established here.",
+          "sourceIds": [
+            "tx-beg-gold-1932"
+          ],
+          "locator": "PDF pp. 3–4, Llano Uplift of Central Texas",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-14"
+        },
+        {
+          "id": "US-TX:heath-mine",
+          "title": "Heath Mine · Llano County",
+          "text": "The Bureau’s Gold layer lists Heath as a past producer in Llano County. The inventory’s undated status does not establish its current condition or access.",
+          "sourceIds": [
+            "tx-beg-gold-layer"
+          ],
+          "locator": "Layer 7, OBJECTID 13",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-14"
         }
       ],
-      "accessNotes": [],
-      "accessSourceIds": [],
+      "accessNotes": [
+        {
+          "id": "US-TX:state-park-collecting",
+          "title": "Check park rules before collecting",
+          "text": "TPWD’s published rules restrict disturbing or removing geological materials in state parks except by director-issued permit. Metal detectors also require authorization. Check the current park rules and contact staff before planning any collecting activity.",
+          "sourceIds": [
+            "tx-tpwd-park-rules"
+          ],
+          "locator": "PDF p. 2, §59.134(l)(2) and (i)",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-14"
+        },
+        {
+          "id": "US-TX:state-mineral-leasing",
+          "title": "State mineral permissions",
+          "text": "The General Land Office provides prospect-permit and hard-mineral lease procedures. Arrangements depend on the mineral and land category. A geological inventory or public access to a site does not itself provide mineral permission.",
+          "sourceIds": [
+            "tx-glo-hard-minerals"
+          ],
+          "locator": "Opening guidance; Prospecting; Hard Mineral Leasing",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-14"
+        }
+      ],
+      "accessSourceIds": [
+        "tx-tpwd-park-rules",
+        "tx-glo-hard-minerals"
+      ],
       "articleIds": [
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-TX:research:llano-host-rocks",
+          "sourceIds": [
+            "tx-beg-gold-1932"
+          ],
+          "locator": "PDF p. 1, Llano Uplift of Central Texas",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-TX:research:llano-host-rocks",
+          "category": "geology",
+          "title": "Llano’s veinlets and host rocks",
+          "text": "Baker’s 1932 Llano account places gold in quartz veinlets/stringers in metamorphic schist, quartzite, phyllite, slate and marble. It separately cautions that conspicuous broad milky-white quartz veins in the region were not known to contain gold. Do not equate every quartz vein with an auriferous source."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-IL",
@@ -5300,7 +7176,23 @@
       "articleIds": [],
       "archiveIds": [],
       "accessSourceIds": [],
-      "accessNotes": []
+      "accessNotes": [],
+      "researchNotes": [
+        {
+          "id": "US-IA:research:klondike-history",
+          "sourceIds": [
+            "ia-igs-gold-em16-1999"
+          ],
+          "locator": "EM16, January 1999, one page; glacial provenance; small grains/flakes; Klondike history",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-IA:research:klondike-history",
+          "category": "history",
+          "title": "Eldora and Iowa’s Klondike",
+          "text": "The Iowa survey identifies a small early-1900s placer operation near Klondike on the Big Sioux River as its only known commercial gold venture. Its 1853 Eldora rush account credits innkeeper John Ellsworth. Neither account supplies a statewide production total."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-KS",
@@ -5387,7 +7279,23 @@
       "articleIds": [],
       "archiveIds": [],
       "accessSourceIds": [],
-      "accessNotes": []
+      "accessNotes": [],
+      "researchNotes": [
+        {
+          "id": "US-MO:research:iron-mineral-caution",
+          "sourceIds": [
+            "mo-iron-pub2895"
+          ],
+          "locator": "Common Names; pyrite and magnetite; mineral identification",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-MO:research:iron-mineral-caution",
+          "category": "geology",
+          "title": "Pyrite, magnetite and hematite",
+          "text": "Missouri DNR’s iron guide identifies pyrite as fool’s gold and distinguishes magnetite from hematite. These are useful identification references, but their presence alone does not demonstrate a Missouri gold placer."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-NE",
@@ -5486,7 +7394,36 @@
       "articleIds": [],
       "archiveIds": [],
       "accessSourceIds": [],
-      "accessNotes": []
+      "accessNotes": [],
+      "researchNotes": [
+        {
+          "id": "US-ND:research:blm-claim-rights",
+          "sourceIds": [
+            "blm-mtdk-packet-2024"
+          ],
+          "locator": "Recreational panning; claimant permission",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-ND:research:blm-claim-rights",
+          "category": "access",
+          "title": "BLM hand panning and claim rights",
+          "text": "The BLM Montana–Dakotas packet says recreational hand-tool panning does not need a special BLM permit on eligible BLM land, but another person’s claim requires claimant permission. This agency-specific guidance does not identify an open stream, authorize private access or waive state requirements."
+        },
+        {
+          "id": "US-ND:research:particle-scope",
+          "sourceIds": [
+            "nd-ndgs-gold-notes6"
+          ],
+          "locator": "Ransom County; Lake Souris–Denbigh; Bentley Lake; summary; modified August 31,2007",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-ND:research:particle-scope",
+          "category": "history",
+          "title": "Fine grains and historical ventures",
+          "text": "The Denbigh investigation found small rounded, flattened grains; Bentley Lake accounts describe flour gold. A largest-nugget anecdote is not a statewide typical size. NDGS describes failed short-lived historical ventures rather than a proven commercial field."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-DE",
@@ -5556,7 +7493,23 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "researchNotes": [
+        {
+          "id": "US-KY:research:rare-vs-generic",
+          "sourceIds": [
+            "ky-mineral-groups"
+          ],
+          "locator": "Native Elements; Gold, Silver, Platinum; Kentucky rarity vs general gold settings",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-KY:research:rare-vs-generic",
+          "category": "geology",
+          "title": "Rare gold and general mineralogy",
+          "text": "KGS says native-element gold is not common in Kentucky. Its description of quartz veins, metamorphic rocks and placers is general mineralogy, not a list of proven Kentucky gold localities. No named gold stream is inferred from that discussion."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-SC",
@@ -5631,7 +7584,62 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "discovery": {
+        "id": "US-SC:discovery-record",
+        "label": "Early state-survey gold report",
+        "dateText": "1825–1826",
+        "basis": "documented_report",
+        "text": "The South Carolina Geological Survey’s history records Lardner Vanuxem’s report of gold in the then-named Spartanburg and Abbeville districts. This is a dated survey record; the source does not settle the state’s first discovery.",
+        "sourceIds": [
+          "sc-scgs-survey-history"
+        ],
+        "locator": "History of the South Carolina Geological Survey, Vanuxem paragraphs",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-SC:research:survey-map-resources",
+          "sourceIds": [
+            "sc-scgs-gold-faq"
+          ],
+          "locator": "Question 3 gold in South Carolina; Question 2 mapping/publications",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-SC:research:survey-map-resources",
+          "category": "resources",
+          "title": "Geological maps and publications",
+          "text": "SCGS offers a generalized statewide map, detailed quadrangle maps, drill-hole reports, bulletins and South Carolina Geology. Its gold FAQ points to Volume 35 on Carolina slate-belt deposits."
+        },
+        {
+          "id": "US-SC:research:brewer-haile-association",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 232",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-SC:research:brewer-haile-association",
+          "category": "geology",
+          "title": "Brewer and Haile ore minerals",
+          "text": "PP610 describes pyrite-associated gold at Brewer and quartz/pyrite mineralization at Haile, including very fine gold. These are specific hard-rock ore descriptions; they do not establish the typical size in recreational stream finds."
+        },
+        {
+          "id": "US-SC:research:haile-brewer-placers",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printedpp 231–232",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-SC:research:haile-brewer-placers",
+          "category": "history",
+          "title": "Placers before lode mining",
+          "text": "USGS PP610 describes Haile placer discovery in 1827 and placer working at Brewer before 1830, followed by lode development. These establish localized historical placer mining; the present industrial mines and old property names are not recreational access."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-TN",
@@ -5670,6 +7678,17 @@
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-12",
           "title": "Coker Creek district"
+        },
+        {
+          "id": "US-TN:discovery-place",
+          "title": "Coker Creek · Monroe County",
+          "text": "The USGS report identifies Coker Creek and its tributaries as a historic gold-mining district.",
+          "sourceIds": [
+            "tn-usgs-big-frog-b1531"
+          ],
+          "locator": "Metallic Resources: Gold, printed p. 18 / PDF p. 26",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "accessNotes": [],
@@ -5678,7 +7697,49 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "discovery": {
+        "id": "US-TN:discovery-record",
+        "label": "Coker Creek discovery",
+        "dateText": "1827",
+        "basis": "regional_discovery",
+        "text": "USGS dates the discovery of Coker Creek’s gold deposits in Monroe County to 1827. The district was most actively worked from that discovery through the Civil War. This regional date is not a verified statewide first-discovery claim.",
+        "sourceIds": [
+          "tn-usgs-big-frog-b1531"
+        ],
+        "locator": "Metallic Resources: Gold, printed p. 18 / PDF p. 26",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-TN:research:coker-creek-total",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 240",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-TN:research:coker-creek-total",
+          "category": "history",
+          "title": "A historical estimate for Coker Creek",
+          "text": "USGS Professional Paper 610 cites a historical estimate of about 9,000 ounces from the Coker Creek area, attributed to a 1962 account. This is an approximate district figure, not a statewide total or an estimate of gold remaining."
+        },
+        {
+          "id": "US-TN:research:ducktown-ore-association",
+          "sourceIds": [
+            "usgs-pp610-1968"
+          ],
+          "locator": "Printed p. 240",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-TN:research:ducktown-ore-association",
+          "category": "geology",
+          "title": "Ducktown’s sulfide ores",
+          "text": "PP610 reports small gold/silver amounts in Ducktown primary and secondary sulfide ores, with pyrrhotite, chalcopyrite, pyrite and other minerals. Ducktown ore gold and Coker Creek placer gold are different evidence types."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-VA",
@@ -5745,6 +7806,17 @@
           "status": "reported_occurrence",
           "reviewedAt": "2026-10-12",
           "title": "Goochland and Spotsylvania"
+        },
+        {
+          "id": "US-VA:discovery-place",
+          "title": "Rappahannock River · below the falls",
+          "text": "The survey’s account of Jefferson’s report places the ore on the river’s north side, about four miles below the falls; no precise coordinates are assigned.",
+          "sourceIds": [
+            "va-vgs-b47"
+          ],
+          "locator": "Gold Deposits: Historical, printed p. 26 / PDF p. 49",
+          "status": "reported_occurrence",
+          "reviewedAt": "2026-10-14"
         }
       ],
       "accessNotes": [],
@@ -5753,7 +7825,36 @@
         "article:where-gold-settles",
         "article:classification-basics"
       ],
-      "archiveIds": []
+      "archiveIds": [],
+      "discovery": {
+        "id": "US-VA:discovery-record",
+        "label": "Earliest reference cited by the survey",
+        "dateText": "1782",
+        "basis": "documented_report",
+        "text": "Virginia Geological Survey’s Bulletin 47 identifies Jefferson’s 1782 account as the earliest accredited reference, describing gold-bearing ore near the Rappahannock River below the falls. This is a cited historical report, distinct from later commercial production.",
+        "sourceIds": [
+          "va-vgs-b47"
+        ],
+        "locator": "Gold Deposits: Historical, printed p. 26 / PDF p. 49",
+        "status": "source_checked",
+        "reviewedAt": "2026-10-14"
+      },
+      "researchNotes": [
+        {
+          "id": "US-VA:research:gold-pyrite-belt",
+          "sourceIds": [
+            "va-energy-gold"
+          ],
+          "locator": "Gold associations; gold-pyrite belt; first/last production fields; cumulative lower bound",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchClaimId": "US-VA:research:gold-pyrite-belt",
+          "category": "geology",
+          "title": "Quartz and the gold-pyrite belt",
+          "text": "Virginia Energy describes gold with quartz, pyrite and other sulfides, sometimes tellurides. Historic mining concentrated in the northeast-trending gold-pyrite belt and included lodes, veins, weathered zones and placers. The lode-mining map is not a public panning map."
+        }
+      ],
+      "researchReviewedAt": "2026-10-15"
     },
     {
       "id": "US-WV",

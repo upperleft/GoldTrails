@@ -18,9 +18,13 @@ export function createAlmanacHandler({store=null,log=()=>{}}={}){
   if(!['GET','HEAD'].includes(req.method)){res.setHeader('Allow','GET, HEAD');send(405,api?JSON.stringify({error:'Use GET or HEAD.'}):'Use GET or HEAD.',api);return true;}
   const slug=api?url.pathname.match(/^\/api\/gold-almanac\/([a-z-]+)\/?$/)?.[1]:url.pathname.match(/^\/gold-almanac\/([a-z-]+)\/?$/)?.[1];
   const root=['/gold-almanac','/gold-almanac/'].includes(url.pathname);
-  const state=stateBySlug(root?(url.searchParams.get('state')||'california'):slug);
+  if(root&&!url.searchParams.get('state')){
+   if(url.pathname==='/gold-almanac'){res.writeHead(308,{'Cache-Control':'no-store',Location:'/gold-almanac/'});res.end();return true;}
+   send(200,almanacPage({state:null}));return true;
+  }
+  const state=stateBySlug(root?url.searchParams.get('state'):slug);
   if(!state){send(404,api?JSON.stringify({error:'State not found.'}):messagePage('State not found','Choose one of the 50 states from the Gold Almanac.'),api);return true;}
-  if(!api&&(root||url.pathname!==stateUrl(state))){res.writeHead(308,{Location:stateUrl(state)});res.end();return true;}
+  if(!api&&(root||url.pathname!==stateUrl(state))){res.writeHead(308,{'Cache-Control':'no-store',Location:stateUrl(state)});res.end();return true;}
   try{const data=await load(state);send(200,api?JSON.stringify({state:{id:state.id,slug:state.slug,name:state.name},url:stateUrl(state),html:dashboard(data)}):almanacPage(data),api);}
   catch{log('Gold Almanac request unavailable');send(503,api?JSON.stringify({error:'State notes are temporarily unavailable. Please try again.'}):messagePage('A pause at the field desk','The Almanac is temporarily unavailable. Please try again.'),api);}
   return true;

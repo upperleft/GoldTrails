@@ -1,0 +1,402 @@
+[
+  {
+    "stateId": "US-AK",
+    "asset": "willow-ptarmigan",
+    "label": "Willow ptarmigan",
+    "source": "https://www.adfg.alaska.gov/index.cfm?adfg=birdviewing.iconicbirds&species=willowptarmigan",
+    "publisher": "Alaska Department of Fish and Game",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-AL",
+    "asset": "yellowhammer",
+    "label": "Yellowhammer",
+    "source": "https://alison.legislature.state.al.us/code-of-alabama?section=1-2-7",
+    "publisher": "Alabama Legislature",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-AR",
+    "asset": "mockingbird",
+    "label": "Mockingbird",
+    "source": "https://dos.fl.gov/florida-facts/florida-state-symbols/state-bird/",
+    "publisher": "Florida Department of State (names all five states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-AZ",
+    "asset": "cactus-wren",
+    "label": "Cactus wren",
+    "source": "https://azlibrary.gov/state-bird/7089",
+    "publisher": "Arizona State Library",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-CA",
+    "asset": "california-quail",
+    "label": "California quail",
+    "source": "https://capitolmuseum.ca.gov/state-symbols/bird-california-valley-quail/",
+    "publisher": "California State Capitol Museum",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-CO",
+    "asset": "lark-bunting",
+    "label": "Lark bunting",
+    "source": "https://leg.colorado.gov/sites/default/files/coloradosymbolsandemblems-accessible.pdf",
+    "publisher": "Colorado General Assembly",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-CT",
+    "asset": "robin",
+    "label": "American robin",
+    "source": "https://portal.ct.gov/About/State-Symbols/The-State-Bird",
+    "publisher": "Connecticut Secretary of the State",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-DE",
+    "asset": "blue-hen",
+    "label": "Blue Hen",
+    "source": "https://delaware.gov/guides/facts/",
+    "publisher": "State of Delaware",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-FL",
+    "asset": "mockingbird",
+    "label": "Mockingbird",
+    "source": "https://dos.fl.gov/florida-facts/florida-state-symbols/state-bird/",
+    "publisher": "Florida Department of State (names all five states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-GA",
+    "asset": "brown-thrasher",
+    "label": "Brown thrasher",
+    "source": "https://georgiawildlife.com/out-my-backdoor-brown-thrashers-special-songster",
+    "publisher": "Georgia Department of Natural Resources",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-HI",
+    "asset": "nene",
+    "label": "Nēnē",
+    "source": "https://hawaiibirdingtrails.hawaii.gov/bird/hawaiian-goose/",
+    "publisher": "Hawaiʻi Division of Forestry and Wildlife",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-IA",
+    "asset": "goldfinch",
+    "label": "Eastern goldfinch",
+    "source": "https://www.iowa.gov/",
+    "publisher": "State of Iowa",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-ID",
+    "asset": "mountain-bluebird",
+    "label": "Mountain bluebird",
+    "source": "https://idaho.gov/about-idaho/facts-symbols/",
+    "publisher": "State of Idaho",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-IL",
+    "asset": "cardinal",
+    "label": "Northern cardinal",
+    "source": "https://dnr.illinois.gov/education/ilstatesymbols.html",
+    "publisher": "Illinois Department of Natural Resources (names all seven states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-IN",
+    "asset": "cardinal",
+    "label": "Northern cardinal",
+    "source": "https://dnr.illinois.gov/education/ilstatesymbols.html",
+    "publisher": "Illinois Department of Natural Resources (names all seven states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-KS",
+    "asset": "western-meadowlark",
+    "label": "Western meadowlark",
+    "source": "https://www.kansashistory.gov/kansapedia/western-meadowlark/17241",
+    "publisher": "Kansas Historical Society (also identifies Wyoming)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-KY",
+    "asset": "cardinal",
+    "label": "Northern cardinal",
+    "source": "https://dnr.illinois.gov/education/ilstatesymbols.html",
+    "publisher": "Illinois Department of Natural Resources (names all seven states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-LA",
+    "asset": "brown-pelican",
+    "label": "Brown pelican",
+    "source": "https://www.house.louisiana.gov/pubinfo/state.htm",
+    "publisher": "Louisiana House of Representatives",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-MA",
+    "asset": "chickadee",
+    "label": "Chickadee",
+    "source": "https://www.sec.state.ma.us/divisions/cis/ciskid/kid-facts/concise-facts2.htm",
+    "publisher": "Massachusetts Secretary of the Commonwealth",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-MD",
+    "asset": "baltimore-oriole",
+    "label": "Baltimore oriole",
+    "source": "https://www.msa.maryland.gov/msa/mdmanual/01glance/html/symbols/bird.html",
+    "publisher": "Maryland State Archives",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-ME",
+    "asset": "chickadee",
+    "label": "Chickadee",
+    "source": "https://www.maine.gov/legis/general/state/tree.htm",
+    "publisher": "Maine Legislature",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-MI",
+    "asset": "robin",
+    "label": "American robin",
+    "source": "https://www.michigan.gov/en/About-Michigan/State-Facts-and-Symbols",
+    "publisher": "State of Michigan",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-MN",
+    "asset": "common-loon",
+    "label": "Common loon",
+    "source": "https://sos.mn.gov/about-minnesota/state-symbols/state-bird-loon/",
+    "publisher": "Minnesota Secretary of State",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-MO",
+    "asset": "eastern-bluebird",
+    "label": "Eastern bluebird",
+    "source": "https://mdc.mo.gov/discover-nature/field-guide/eastern-bluebird",
+    "publisher": "Missouri Department of Conservation (also identifies New York)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-MS",
+    "asset": "mockingbird",
+    "label": "Mockingbird",
+    "source": "https://dos.fl.gov/florida-facts/florida-state-symbols/state-bird/",
+    "publisher": "Florida Department of State (names all five states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-MT",
+    "asset": "western-meadowlark",
+    "label": "Western meadowlark",
+    "source": "https://mhs.mt.gov/education/docs/Footlocker/Symbols.pdf",
+    "publisher": "Montana Historical Society",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-NC",
+    "asset": "cardinal",
+    "label": "Northern cardinal",
+    "source": "https://dnr.illinois.gov/education/ilstatesymbols.html",
+    "publisher": "Illinois Department of Natural Resources (names all seven states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-ND",
+    "asset": "western-meadowlark",
+    "label": "Western meadowlark",
+    "source": "https://gf.nd.gov/meadowlark-initiative",
+    "publisher": "North Dakota Game and Fish Department",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-NE",
+    "asset": "western-meadowlark",
+    "label": "Western meadowlark",
+    "source": "https://sos.nebraska.gov/state-symbols",
+    "publisher": "Nebraska Secretary of State",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-NH",
+    "asset": "purple-finch",
+    "label": "Purple finch",
+    "source": "https://www.visitnh.gov/press-media/travel-tourism-information/facts-firsts",
+    "publisher": "New Hampshire Division of Travel and Tourism Development",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-NJ",
+    "asset": "goldfinch",
+    "label": "Eastern goldfinch",
+    "source": "https://www.nj.gov/bpu/nj/about/symbols/",
+    "publisher": "State of New Jersey",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-NM",
+    "asset": "roadrunner",
+    "label": "Greater roadrunner",
+    "source": "https://www.sos.nm.gov/about-new-mexico/state-bird/",
+    "publisher": "New Mexico Secretary of State",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-NV",
+    "asset": "mountain-bluebird",
+    "label": "Mountain bluebird",
+    "source": "https://www.leg.state.nv.us/assembly/visit/education/primary/nevadas-state-symbols/",
+    "publisher": "Nevada State Assembly",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-NY",
+    "asset": "eastern-bluebird",
+    "label": "Eastern bluebird",
+    "source": "https://mdc.mo.gov/discover-nature/field-guide/eastern-bluebird",
+    "publisher": "Missouri Department of Conservation (also identifies New York)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-OH",
+    "asset": "cardinal",
+    "label": "Northern cardinal",
+    "source": "https://dnr.illinois.gov/education/ilstatesymbols.html",
+    "publisher": "Illinois Department of Natural Resources (names all seven states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-OK",
+    "asset": "scissor-tailed-flycatcher",
+    "label": "Scissor-tailed flycatcher",
+    "source": "https://oklahoma.gov/content/dam/ok/en/banking/documents/annual-reports/annualreport2010.pdf",
+    "publisher": "Oklahoma State Banking Department",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-OR",
+    "asset": "western-meadowlark",
+    "label": "Western meadowlark",
+    "source": "https://sos.oregon.gov/blue-book/explore/pages/state-symbols.aspx",
+    "publisher": "Oregon Secretary of State",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-PA",
+    "asset": "ruffed-grouse",
+    "label": "Ruffed grouse",
+    "source": "https://www.pa.gov/agencies/pgc/wildlife/discover-pa-wildlife/ruffed-grouse",
+    "publisher": "Pennsylvania Game Commission",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-RI",
+    "asset": "rhode-island-red",
+    "label": "Rhode Island Red",
+    "source": "https://www.ri.gov/facts/factsfigures.php",
+    "publisher": "State of Rhode Island",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-SC",
+    "asset": "carolina-wren",
+    "label": "Carolina wren",
+    "source": "https://www.scstatehouse.gov/studentpage/coolstuff/animals.shtml",
+    "publisher": "South Carolina Legislature",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-SD",
+    "asset": "ring-necked-pheasant",
+    "label": "Ring-necked pheasant",
+    "source": "https://sdlegislature.gov/api/Statutes/1-6-9.html?all=true",
+    "publisher": "South Dakota Legislature",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-TN",
+    "asset": "mockingbird",
+    "label": "Mockingbird",
+    "source": "https://dos.fl.gov/florida-facts/florida-state-symbols/state-bird/",
+    "publisher": "Florida Department of State (names all five states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-TX",
+    "asset": "mockingbird",
+    "label": "Mockingbird",
+    "source": "https://dos.fl.gov/florida-facts/florida-state-symbols/state-bird/",
+    "publisher": "Florida Department of State (names all five states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-UT",
+    "asset": "california-gull",
+    "label": "California gull",
+    "source": "https://onlinelibrary.utah.gov/state-symbol/bird/",
+    "publisher": "Utah State Library",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-VA",
+    "asset": "cardinal",
+    "label": "Northern cardinal",
+    "source": "https://dnr.illinois.gov/education/ilstatesymbols.html",
+    "publisher": "Illinois Department of Natural Resources (names all seven states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-VT",
+    "asset": "hermit-thrush",
+    "label": "Hermit thrush",
+    "source": "https://legislature.vermont.gov/statutes/section/01/011/00497",
+    "publisher": "Vermont General Assembly",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-WA",
+    "asset": "goldfinch",
+    "label": "Willow goldfinch",
+    "source": "https://leg.wa.gov/learn-and-participate/educational-resources/state-symbols/bird/",
+    "publisher": "Washington State Legislature",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-WI",
+    "asset": "robin",
+    "label": "American robin",
+    "source": "https://www.wisconsin.gov/Pages/WisconsinforKids.aspx",
+    "publisher": "State of Wisconsin",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-WV",
+    "asset": "cardinal",
+    "label": "Northern cardinal",
+    "source": "https://dnr.illinois.gov/education/ilstatesymbols.html",
+    "publisher": "Illinois Department of Natural Resources (names all seven states)",
+    "reviewedAt": "2026-10-14"
+  },
+  {
+    "stateId": "US-WY",
+    "asset": "western-meadowlark",
+    "label": "Western meadowlark",
+    "source": "https://www.kansashistory.gov/kansapedia/western-meadowlark/17241",
+    "publisher": "Kansas Historical Society (also identifies Wyoming)",
+    "reviewedAt": "2026-10-14"
+  }
+]
