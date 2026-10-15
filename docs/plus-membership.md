@@ -48,3 +48,10 @@ The future integration must:
 - https://support.stripe.com/questions/how-to-accept-donations-through-stripe — one-time gifts.
 
 Local preview is temporary on 127.0.0.1:4324 and has no real accounts or payments. Live staging publication and verification to be recorded below.
+
+## Staging publication verified
+Published release commit 20c51df9 through GitHub Desktop to Hostinger; hPanel shows Completed / Current. Live /plus/ returns 200, unsigned Nevada HTML and JSON return 403 with no full research, and /articles/ remains 200. Browser selected Texas on the live map and received the clear Plus panel without console warnings/errors. The support panel and existing feedback/statistics controls appear on the live Plus page. Screenshot: outputs/Gold-Trails-Plus-Staging-2026-10-15.png. No schema migration, credentials, payment products, charges or membership grants were needed.
+
+Stripe account setup is awaiting Paul’s reply. Live paid-member/owner browser access is not claimed verified; local access-boundary tests passed. Subscription billing, donations, renewals, cancellation and payment-failure handling remain required before the November 1 launch.
+
+The live signup page exposes the active free-account form (not the closed-registration preview). This confirms form availability, not end-to-end email delivery; signup/verification/recovery should be exercised in the launch acceptance run.
