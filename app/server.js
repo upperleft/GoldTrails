@@ -1,4 +1,5 @@
 import http from 'node:http';
+import {attachAnalyticsMarkup} from './analytics/handler.js';
 import {createAlmanacHandler} from './almanac/handler.js';
 import {mergeCatalog,catalogBySlug,catalogProfile} from './creator-catalog.js';
 import {mapRecords} from './creator-map.js';
@@ -12,7 +13,7 @@ import {createGoldPriceFeed} from './gold-price.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
-export function createServer({ directory = null, admin = null, members = null, compass = null, products = null, calendar = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
+export function createServer({ analytics = null, directory = null, admin = null, members = null, compass = null, products = null, calendar = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
   function send(req, res, status, body, headers = {}) {
     res.writeHead(status, { 'Content-Type':'text/html; charset=utf-8', 'X-Content-Type-Options':'nosniff', 'Cache-Control':'no-store', ...headers });
@@ -22,6 +23,7 @@ export function createServer({ directory = null, admin = null, members = null, c
     let url, path;
     try { url = new URL(req.url,'http://localhost'); path = decodeURIComponent(url.pathname); }
     catch { send(req,res,400,messagePage('That trail marker is unclear','Please check the address and try again.')); return; }
+    if(analytics){if(await analytics(req,res,url))return;if(await analytics.enabled())attachAnalyticsMarkup(req,res,url);}
     if(path === '/api/gold-price' || path === '/api/gold-price/') {
       const headers={'Content-Type':'application/json; charset=utf-8','X-Content-Type-Options':'nosniff','Cache-Control':'public, max-age=30'};
       if(!['GET','HEAD'].includes(req.method)){res.writeHead(405,{...headers,Allow:'GET, HEAD','Cache-Control':'no-store'});res.end(JSON.stringify({error:'Use GET or HEAD.'}));return;}

@@ -1,3 +1,7 @@
+## Traffic & clicks — October 15, 2026
+
+The new owner-only traffic report is implemented and tested in the prepared release. See [site-analytics.md](site-analytics.md) for collection definitions, privacy and pending Hostinger activation.
+
 # Gold Trails administration
 
 Open `/admin/` and sign in using the existing administrator username and password. Member sign-in remains separate.
