@@ -23,9 +23,7 @@ export function createCompassHandler({members,store,content,config,ai=aiConfig()
    if(url.pathname==='/compass/demo/'){if(req.method==='POST')throw new ProfileError('The example stores only layout choices in your browser.',405);const example=await dashboardExample(url.searchParams.get('persona'));send(200,dashboard(null,example.state,example.result,example.records,'',false,{demo:true,persona:example.persona}));return true;}
    const member=members&&config?await members.session(read(req,'member')):null;
    if(!member){if(url.pathname==='/compass/'&&req.method!=='POST')send(200,preview());else redirect('/login/');return true;}
-   // Expired subscribers retain access to export/delete their own private data.
-   const ownData=['/compass/privacy/','/compass/export/','/compass/delete/'].includes(url.pathname);
-   if(member.effective_level!=='subscriber'&&!ownData){send(403,preview(true));return true;}
+   // Personal dashboard tools are free account features; only the Almanac requires Plus.
    if(!store||!await store.ready()){send(503,errorPage('Compass is being prepared','The member profile database is not ready. Your account and the rest of Gold Trails are available.'));return true;}
    let f=null;const csrf=read(req,'form');
    if(req.method==='POST'){

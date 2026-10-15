@@ -14,7 +14,7 @@
  function browser(){let v=read(localStore,visitorKey);if(!v||Date.now()-v.at>=lifetime){v={id:crypto.randomUUID(),at:Date.now()};if(!save(localStore,visitorKey,v))return null;}return v.id;}
  function visit(){let v=read(tabStore,visitKey);if(!v||Date.now()-v.at>1800000){let referrer='';try{const u=new URL(document.referrer);if(u.origin!==location.origin)referrer=u.origin;}catch{}v={id:crypto.randomUUID(),referrer};}v.at=Date.now();return save(tabStore,visitKey,v)?v:null;}
  function send(type,target=''){
-  if(blocked()||choice()!=='allow'||protectedPath.test(location.pathname)||document.visibilityState==='prerender')return;
+  if(blocked()||choice()!=='allow'||protectedPath.test(location.pathname)||/^\/gold-almanac\/.+/.test(location.pathname)||document.visibilityState==='prerender')return;
   try{
    const visitor=browser(),session=visit();if(!visitor||!session)return;
    const data={version:1,consent:true,id:crypto.randomUUID(),visitor,session:session.id,type,page:location.pathname,target,referrer:session.referrer,device:innerWidth<600?'mobile':innerWidth<1000?'tablet':'desktop'},body=JSON.stringify(data);

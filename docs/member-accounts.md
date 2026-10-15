@@ -1,3 +1,5 @@
+> October 15 membership update: the full State Almanac is the sole planned $5/month Plus benefit; its map and public excerpt remain free. Existing personal dashboard/calendar tools are free verified-account features. Billing remains disabled pending provider integration, verification and approval, targeting November 1 launch. See [plus-membership.md](plus-membership.md) for current scope; older membership assumptions below are superseded.
+
 # Member account foundation
 
 Migration 004 creates ten private tables; only four role definitions are seeded. No user accounts, credentials, subscriptions, invitations or privileges are created. Existing owner login and public creator profiles remain independent.

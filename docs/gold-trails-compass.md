@@ -1,3 +1,5 @@
+> October 15 membership update: the full State Almanac is the sole planned $5/month Plus benefit; its map and public excerpt remain free. Existing personal dashboard/calendar tools are free verified-account features. Billing remains disabled pending provider integration, verification and approval, targeting November 1 launch. See [plus-membership.md](plus-membership.md) for current scope; older membership assumptions below are superseded.
+
 # Gold Trails Compass
 
 Compass is integrated into the existing buildless Node server, MariaDB member accounts, secure member sessions, published directory, product catalog, static article library, and Gold Trails page shell.

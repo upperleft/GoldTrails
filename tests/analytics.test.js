@@ -50,7 +50,7 @@ test('privacy signals, bots and owner sessions produce no recorded events',async
  const f=await fixture(t);for(const headers of [{'Sec-GPC':'1'},{DNT:'1'},{'User-Agent':'Googlebot'},{Cookie:'__Host-gold-admin='+ 'a'.repeat(64)}])assert.equal((await f.post(event(),headers)).status,204);assert.equal(f.store.events.length,0);
 });
 test('all public HTML renderers receive preference assets while private, error and disconnected pages do not',async t=>{
- const f=await fixture(t);for(const path of ['/','/glossary/','/gold-almanac/']){const r=await f.request(path);assert.equal(r.status,200);assert.match(await r.text(),/site-analytics\.js\?v=/);}
+ const f=await fixture(t);for(const path of ['/','/glossary/','/gold-almanac/','/plus/','/donate/']){const r=await f.request(path);assert.equal(r.status,200);assert.match(await r.text(),/site-analytics\.js\?v=/);}
  const owner=await f.request('/',{headers:{Cookie:'__Host-gold-admin='+ 'a'.repeat(64)}});assert.doesNotMatch(await owner.text(),/site-analytics\.js/);
  const no=await f.request('/not-found/');assert.equal(no.status,404);assert.doesNotMatch(await no.text(),/site-analytics\.js/);
  f.store.setReady(false);assert.doesNotMatch(await(await f.request('/')).text(),/site-analytics\.js/);

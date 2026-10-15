@@ -6,6 +6,7 @@ const uuid=/^[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12}$/i;
 export function publicPath(value){
  if(typeof value!=='string'||value.length>250||!/^\/(?:[a-z0-9-]+\/)*$/.test(value))return null;
  if(/^\/(?:admin|api|account|signup|login|logout|forgot-password|reset-password|verify-email|resend-verification|calendar|compass|dashboard-preview|privacy|suggestions)(?:\/|$)/.test(value))return null;
+ if(/^\/gold-almanac\/.+/.test(value))return null;
  return value;
 }
 export function targetUrl(value,origin){

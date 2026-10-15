@@ -136,7 +136,7 @@ test('database projection uses published sources and explicit coverage, not resi
 });
 async function serve(handler,run){const server=createServer({almanac:handler,log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));try{await run('http://127.0.0.1:'+server.address().port);}finally{await new Promise(r=>server.close(r));}}
 test('canonical routes, refresh, all-state API and section anchors preserve selection',async()=>{
- await serve(createAlmanacHandler(),async root=>{
+ await serve(createAlmanacHandler({members:{session:async()=>({effective_level:'subscriber'})}}),async root=>{
   const response=await fetch(root+'/gold-almanac/?state=maine',{redirect:'manual'});assert.equal(response.status,308);assert.equal(response.headers.get('location'),'/gold-almanac/maine/');
   const html=await(await fetch(root+'/gold-almanac/maine/')).text();assert.match(html,/data-state-id="US-ME"/);assert.ok(!html.includes('id="almanac-state"'));assert.match(html,/data-state="maine" aria-label="Maine" aria-pressed="true"/);assert.match(html,/href="#historic-mines"/);assert.ok(!html.includes('href="#history"'));
   for(const s of states){const r=await fetch(root+'/api/gold-almanac/'+s.slug+'/');assert.equal(r.status,200);const data=await r.json();assert.equal(data.state.id,s.id);assert.equal(data.url,'/gold-almanac/'+s.slug+'/');assert.match(data.html,new RegExp('Gold in '+s.name));}
@@ -146,7 +146,7 @@ test('canonical routes, refresh, all-state API and section anchors preserve sele
 });
 test('public connections cache by state; outages preserve sourced notes and never expose SQL diagnostics',async()=>{
  let calls=0;const fixture={creators:[{slug:'hip-bee-explorer',display_name:'Hip Bee Explorer',region_name:'Maine',relationship_type:'covers',source_url:'https://example.com/reference',checked_at:'2026-10-11'}],regions:[],waterways:[],resources:[],excludedSlugs:[]};
- await serve(createAlmanacHandler({store:async state=>{calls++;if(state.code==='NV')throw new Error('private database password SQL');return fixture;}}),async root=>{
+ await serve(createAlmanacHandler({members:{session:async()=>({effective_level:'subscriber'})},store:async state=>{calls++;if(state.code==='NV')throw new Error('private database password SQL');return fixture;}}),async root=>{
   for(let i=0;i<2;i++){const html=await(await fetch(root+'/gold-almanac/maine/')).text();assert.match(html,/href="\/prospectors\/hip-bee-explorer\/"/);assert.match(html,/Published database connections/);}assert.equal(calls,1);
   const html=await(await fetch(root+'/gold-almanac/nevada/')).text();assert.match(html,/3,479,748/);assert.match(html,/temporarily unavailable/);assert.ok(!html.includes('private database password'));assert.equal(calls,2);
  });

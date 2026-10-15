@@ -1,3 +1,5 @@
+> October 15 membership update: the full State Almanac is the sole planned $5/month Plus benefit; its map and public excerpt remain free. Existing personal dashboard/calendar tools are free verified-account features. Billing remains disabled pending provider integration, verification and approval, targeting November 1 launch. See [plus-membership.md](plus-membership.md) for current scope; older membership assumptions below are superseded.
+
 # Gold Almanac
 
 The public state guide lives at `/gold-almanac/<state-slug>/`. `/gold-almanac/` starts with California; a GET form can select any state without JavaScript. All 50 states have independent canonical URLs. Client selection updates history only after the new dashboard is received. Hover changes a map fill, never the selected data; arrow keys move focus and Enter/Space select. The reader explicitly chooses when to scroll to details. Alaska/Hawaii have insets; small-state labels and the dropdown provide alternate targets.

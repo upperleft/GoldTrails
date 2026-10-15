@@ -23,15 +23,16 @@
   panel.setAttribute('aria-busy','true');status.textContent='Loading '+stateName(slug)+' field notes…';
   try{
    const response=await fetch('/api/gold-almanac/'+slug+'/',{signal:controller.signal,headers:{Accept:'application/json'}});
-   if(!response.ok)throw new Error('Unavailable');
+   if(!response.ok&&response.status!==403)throw new Error('Unavailable');
    const result=await response.json();if(request!==serial)return;
+   if(!response.ok&&result.code!=='plus_required')throw new Error('Unavailable');
    if(result.state?.slug!==slug||result.url!==urlFor(slug)||typeof result.html!=='string')throw new Error('Unexpected response');
    window.goldTrailsMineMap?.destroy();panel.innerHTML=result.html;panel.hidden=false;window.goldTrailsMineMap?.mount(panel);panel.dataset.stateId=result.state.id;selected=slug;share.hidden=false;details.hidden=false;if(selectionMarker)selectionMarker.hidden=false;
    markers.forEach(m=>{const active=m.dataset.state===slug;m.classList.toggle('is-selected',active);m.setAttribute('aria-pressed',String(active));});
    setFocusStop(slug);document.getElementById('selected-state').textContent=result.state.name;
    document.title='Gold Almanac · '+result.state.name+' — Gold Trails';document.querySelector('link[rel="canonical"]').href=result.url;
    if(historyMode==='push')history.pushState({state:slug},'',result.url+location.hash);
-   status.textContent=result.state.name+' selected. Field notes are below the map.';pending=null;
+   status.textContent=result.state.name+' selected. '+(result.code==='plus_required'?'Plus access information is below the map.':'Field notes are below the map.');pending=null;
   }catch(error){
    if((error.name==='AbortError'&&!timedOut)||request!==serial)return;
    status.textContent='Could not load that state. Your previous selection is still here. Try again, or open the state link.';retry.hidden=false;
