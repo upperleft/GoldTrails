@@ -111,3 +111,24 @@ test('verification welcomes only after consumption; invalid origins, CSRF and re
  const success=await request('/verify-email/',{token:link});assert.equal(success.status,200);const html=await success.text();assert.match(html,/Welcome to Gold Trails/);assert.match(html,/Your email is verified/);assert.match(html,/href="\/login\/">Sign in to Gold Trails/);assert.doesNotMatch(html,new RegExp(link));
  const replay=await request('/verify-email/',{token:link});assert.equal(replay.status,400);const retry=await replay.text();assert.match(retry,/Request a new email/);assert.doesNotMatch(retry,/Your email is verified/);
 });
+
+test('signup and member sign-in identify email consistently to password managers',async t=>{
+ const request=await fixture(t,{mail:async()=>{},store:{ready:async()=>true}});
+ const signup=await(await request('/signup/')).text(),login=await(await request('/login/')).text();
+ for(const html of [signup,login])assert.match(html,/<input id="member-email" name="email" type="email" autocomplete="username" autocapitalize="none" spellcheck="false"/);
+ assert.match(signup,/id="member-username" name="username" type="text" autocomplete="nickname"/);
+ assert.match(signup,/autocomplete="new-password"/);assert.match(login,/autocomplete="current-password"/);
+ assert.ok(signup.indexOf('name="displayName"')<signup.indexOf('id="member-email"'));
+ assert.match(login,/Sign in with the email address/);
+ const closed=await fixture(t,{store:{ready:async()=>true}});assert.match(await(await closed('/signup/')).text(),/type="email" autocomplete="username"/);
+});
+test('a valid reset link identifies its own account for autofill; viewing it cannot reset a password',async t=>{
+ let consumed=0;const request=await fixture(t,{store:{ready:async()=>true,allow:async()=>true,resetAccount:async raw=>raw===link?{email:'member@example.com'}:null,consume:async(raw,purpose,hash)=>{assert.equal(raw,link);assert.equal(purpose,'reset_password');assert.ok(await verifyPassword('new-password-example',hash));consumed++;return true;}}});
+ const page=await request('/reset-password/?token='+link+'&email=other@example.com');assert.equal(page.status,200);const html=await page.text();assert.match(html,/name="email" type="email" autocomplete="username"[^>]*value="member@example.com" readonly/);assert.match(html,/autocomplete="new-password"/);assert.doesNotMatch(html,/other@example.com/);assert.equal(consumed,0);
+ const changed=await request('/reset-password/',{token:link,password:'new-password-example',email:'other@example.com'});assert.equal(changed.status,200);assert.equal(consumed,1);
+ const expired=await request('/reset-password/?token='+'d'.repeat(64));assert.equal(expired.status,400);assert.doesNotMatch(await expired.text(),/name="password"|member@example.com/);
+});
+test('reset identity lookup only returns an active verified account for a live password-reset token',async()=>{
+ let calls=0;const store=createMemberStore({query:async(sql,args)=>{calls++;assert.match(sql,/t\.purpose='reset_password'/);assert.match(sql,/t\.consumed_at IS NULL AND t\.revoked_at IS NULL AND t\.expires_at>UTC_TIMESTAMP/);assert.match(sql,/a\.status='active' AND a\.email_verified_at IS NOT NULL AND a\.archived_at IS NULL/);assert.deepEqual(args,[digest(link)]);return[{email:'member@example.com'}];}});
+ assert.equal(await store.resetAccount('invalid'),null);assert.equal(calls,0);assert.deepEqual(await store.resetAccount(link),{email:'member@example.com'});assert.equal(calls,1);
+});
