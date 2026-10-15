@@ -17,14 +17,14 @@ function fixture({gpc=false,dnt=false,choice=null,storageBlocked=false}={}){
  return{elements,beacons,click,outbound,localStorage,sessionStorage,windowEvents,docEvents};
 }
 test('client sends nothing until explicit consent; sends a scrubbed pageview and outbound click afterwards',async()=>{
- const f=fixture();assert.equal(f.beacons.length,0);f.outbound();assert.equal(f.beacons.length,0);f.click('Allow statistics');assert.equal(f.beacons.length,1);f.outbound();assert.equal(f.beacons.length,2);
+ const f=fixture();assert.equal(f.elements.find(e=>e.tag==='section').hidden,true);assert.equal(f.beacons.length,0);f.outbound();assert.equal(f.beacons.length,0);f.click('Allow statistics');assert.equal(f.beacons.length,1);f.outbound();assert.equal(f.beacons.length,2);
  const [view,click]=await Promise.all(f.beacons.map(b=>b.data.text().then(JSON.parse)));assert.equal(view.type,'pageview');assert.equal(click.type,'outbound');assert.equal(view.visitor,click.visitor);assert.equal(view.session,click.session);assert.equal(view.referrer,'https://www.youtube.com');assert.equal(click.target,'https://www.youtube.com/watch?v=9Sldm-Eqz6o&t=40s');assert(!JSON.stringify([view,click]).includes('SECRET'));
 });
 test('declining or withdrawing stops measurement and removes browser codes',()=>{
- const f=fixture();f.click('No thanks');f.outbound();assert.equal(f.beacons.length,0);f.click('Usage preferences');f.click('Allow statistics');assert.equal(f.beacons.length,1);assert(f.localStorage.getItem('gold-trails-usage-browser-v1'));f.click('Usage preferences');f.click('No thanks');f.outbound();assert.equal(f.beacons.length,1);assert.equal(f.localStorage.getItem('gold-trails-usage-browser-v1'),null);assert.equal(f.sessionStorage.getItem('gold-trails-usage-visit-v1'),null);
+ const f=fixture();f.click('No thanks');f.outbound();assert.equal(f.beacons.length,0);f.click('Visitor statistics');f.click('Allow statistics');assert.equal(f.beacons.length,1);assert(f.localStorage.getItem('gold-trails-usage-browser-v1'));f.click('Visitor statistics');f.click('No thanks');f.outbound();assert.equal(f.beacons.length,1);assert.equal(f.localStorage.getItem('gold-trails-usage-browser-v1'),null);assert.equal(f.sessionStorage.getItem('gold-trails-usage-visit-v1'),null);
 });
 test('privacy signals and unavailable storage disable collection without breaking page controls',()=>{
- for(const options of [{gpc:true},{dnt:true},{storageBlocked:true}]){const f=fixture(options);f.click('Allow statistics');f.outbound();assert.equal(f.beacons.length,0);f.click('Usage preferences');}
+ for(const options of [{gpc:true},{dnt:true},{storageBlocked:true}]){const f=fixture(options);f.click('Allow statistics');f.outbound();assert.equal(f.beacons.length,0);f.click('Visitor statistics');}
 });
 test('consent withdrawal in another tab supersedes an earlier in-memory allow choice',()=>{
  const f=fixture();f.click('Allow statistics');f.localStorage.setItem('gold-trails-usage-choice-v1',JSON.stringify({value:'decline',at:Date.now()}));f.windowEvents.storage({key:'gold-trails-usage-choice-v1'});f.outbound();assert.equal(f.beacons.length,1);assert.equal(f.localStorage.getItem('gold-trails-usage-browser-v1'),null);

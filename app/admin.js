@@ -1,3 +1,4 @@
+import {suggestionInbox} from './suggestions.js';
 import {contactCards} from './business-contacts.js';
 import {assetUrl} from './asset-url.js';
 import {dateRange} from './analytics/model.js';
@@ -69,7 +70,7 @@ const field=(name,label,value='',max=180,type='text')=>`<label>${label}<input na
 const area=(name,label,value='',max=12000)=>`<label>${label}<textarea name="${name}" maxlength="${max}" rows="5">${h(value??'')}</textarea></label>`;
 const select=(name,label,values,current)=>`<label>${label}<select name="${name}">${values.map(([v,l])=>`<option value="${h(v)}"${v===String(current??'')?' selected':''}>${h(l)}</option>`).join('')}</select></label>`;
 const csrf=s=>hidden('csrf',s.csrf_token);
-const frame=(title,content)=>page(title,'Private Gold Trails administration',content,'','Your private field desk.').replace('class="category-page"','class="category-page admin-page"').replace('GOLD TRAILS / PROSPECTOR DIRECTORY','GOLD TRAILS / ADMINISTRATION').replace(/<aside class="left">[\s\S]*?<\/aside>/,'<aside class="left"><section class="panel trail-menu"><h2>Administration</h2><a href="/">Gold Trails home</a><a href="/admin/">Dashboard</a><a href="/admin/analytics/">Traffic &amp; clicks</a><a href="/admin/creators/">Creators &amp; profiles</a><a href="/admin/products/">Products</a><a href="/admin/contacts/">Contact research</a><a href="/admin/reports/">Product corrections</a><a href="/admin/members/">Member accounts</a></section></aside>').replace(/<nav class="breadcrumb"[\s\S]*?<\/nav>/,`<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${h(title)}</span></nav>`).replace('</head>',`<link rel="stylesheet" href="${assetUrl('admin-dashboard.css')}"></head>`);
+const frame=(title,content)=>page(title,'Private Gold Trails administration',content,'','Your private field desk.').replace('class="category-page"','class="category-page admin-page"').replace('GOLD TRAILS / PROSPECTOR DIRECTORY','GOLD TRAILS / ADMINISTRATION').replace(/<aside class="left">[\s\S]*?<\/aside>/,'<aside class="left"><section class="panel trail-menu"><h2>Administration</h2><a href="/">Gold Trails home</a><a href="/admin/">Dashboard</a><a href="/admin/analytics/">Traffic &amp; clicks</a><a href="/admin/suggestions/">Reader suggestions</a><a href="/admin/creators/">Creators &amp; profiles</a><a href="/admin/products/">Products</a><a href="/admin/contacts/">Contact research</a><a href="/admin/reports/">Product corrections</a><a href="/admin/members/">Member accounts</a></section></aside>').replace(/<nav class="breadcrumb"[\s\S]*?<\/nav>/,`<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${h(title)}</span></nav>`).replace('</head>',`<link rel="stylesheet" href="${assetUrl('admin-dashboard.css')}"></head>`);
 const logout=s=>`<form method="post" action="/admin/logout/">${csrf(s)}<button type="submit">Sign out</button></form>`;
 function login(s,error='') {return frame('Administrator sign-in',`<section class="resource-placeholder"><h2>Welcome back to camp</h2>${error?`<p role="alert">${h(error)}</p>`:''}<form class="admin-form" method="post" action="/admin/login/">${csrf(s)}<label>Username<input name="username" autocomplete="username" maxlength="180" required></label><label>Password<input type="password" name="password" autocomplete="current-password" maxlength="128" required></label><button class="gold-button">Sign in</button></form></section>`);}
 function listing(rows,s) {return frame('Creator workspace',`<section class="resource-placeholder"><h2>Keep the campfire growing</h2><a class="gold-button" href="/admin/creators/new/">Add a creator</a> <a href="/admin/creators/import/">Import the research roster</a><p>Drafts stay private. Archived profiles are preserved. Showing up to 500 creators.</p><ul class="admin-list">${rows.map(p=>`<li><a href="/admin/creators/${h(p.id)}/">${h(p.display_name)}</a> <span>${p.archived_at?'Archived':h(p.publication_status)}</span></li>`).join('')||'<li>No creators yet.</li>'}</ul></section>`);}
@@ -91,7 +92,7 @@ async function body(req) {
  const keys=new Set();for(const key of f.keys()){if(keys.has(key))throw new FormError('Duplicate form field');keys.add(key);}
  return f;
 }
-export function createAdminHandler({store,config,workspace=null,analyticsStore=null,log=console.error}) {
+export function createAdminHandler({store,config,workspace=null,analyticsStore=null,suggestionStore=null,log=console.error}) {
  const dashboard=workspace?createDashboardRouter(workspace):null;
  return async(req,res,url)=>{
   if(url.pathname!=='/admin'&&!url.pathname.startsWith('/admin/'))return false;
@@ -122,6 +123,15 @@ export function createAdminHandler({store,config,workspace=null,analyticsStore=n
    }
    if(!s?.authenticated){redirect('/admin/login/');return true;}
    if(url.pathname==='/admin/logout/'&&req.method==='POST'){await store.logout(raw);send(303,'',{'Location':'/admin/login/','Set-Cookie':sessionCookie('',0)});return true;}
+   if(url.pathname==='/admin/suggestions/'){
+    if(!suggestionStore||!await suggestionStore.ready()){send(503,frame('Reader suggestions','<p>The suggestion inbox is temporarily unavailable.</p>'));return true;}
+    if(req.method==='POST'){
+     if(!uuid.test(f.get('id')||'')||!['new','reviewed'].includes(f.get('status')))throw new FormError('Choose a valid suggestion and review status.');
+     await suggestionStore.review(f.get('id'),f.get('status'));redirect('/admin/suggestions/');return true;
+    }
+    const status=url.searchParams.get('status')==='reviewed'?'reviewed':'new';
+    send(200,frame('Reader suggestions',suggestionInbox(await suggestionStore.list(status),s,status)).replace('</head>',`<link rel="stylesheet" href="${assetUrl('suggestions.css')}"></head>`));return true;
+   }
    if(url.pathname==='/admin/analytics/'||url.pathname==='/admin/analytics/export/'){
     if(req.method==='POST'){send(405,'Reports are read-only.',{Allow:'GET, HEAD'});return true;}
     let range;try{range=dateRange(url.searchParams);}catch{send(400,frame('Check reporting dates','<p>Choose dates within the most recent 90 days.</p><a href="/admin/analytics/">Return to traffic report</a>'));return true;}

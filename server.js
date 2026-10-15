@@ -1,3 +1,4 @@
+import {createSuggestionStore,createSuggestionsHandler} from './app/suggestions.js';
 import {createCalendarHandler} from './app/calendar/handler.js';
 import {createCalendarStore} from './app/calendar/store.js';
 import {createAlmanacHandler} from './app/almanac/handler.js';
@@ -28,15 +29,16 @@ catch { console.error('Gold Trails database settings need attention'); }
 let config=null;
 try { config=adminConfig(); } catch { console.error('Gold Trails administrator settings need attention'); }
 const productWorkspace=db?createProductWorkspace(db):null;
+const suggestionStore=db?createSuggestionStore(db):null;
 const analyticsStore=db?createAnalyticsStore(db):null;
-const admin=createAdminHandler({workspace:productWorkspace,store:db?createAdminStore(db,config?.passwordHash):null,config,analyticsStore});
+const admin=createAdminHandler({workspace:productWorkspace,store:db?createAdminStore(db,config?.passwordHash):null,config,analyticsStore,suggestionStore});
 const memberStore=db?createMemberStore(db):null, memberSettings=memberConfig();
 const directory=db?createDirectoryStore(db):null, compassStore=db?createCompassStore(db):null;
 const members=createMemberHandler({store:memberStore,config:memberSettings,mail:memberMail()});
 const compass=createCompassHandler({members:memberStore,store:compassStore,config:memberSettings,content:createCompassContent({directory,store:compassStore,productsStore:productWorkspace})});
 const products=createProductsHandler({store:productWorkspace,members:memberStore,config:memberSettings});
 const calendar=createCalendarHandler({members:memberStore,store:db?createCalendarStore(db):null,config:memberSettings});
-const server = createServer({ analytics:createAnalyticsHandler({store:analyticsStore,origin:memberSettings?.origin||config?.origin}), calendar, members, directory, admin, compass, products, almanac:createAlmanacHandler({store:db?createAlmanacStore(db):null,log:console.error}) });
+const server = createServer({ suggestions:createSuggestionsHandler({store:suggestionStore,origin:memberSettings?.origin||config?.origin}), analytics:createAnalyticsHandler({store:analyticsStore,origin:memberSettings?.origin||config?.origin}), calendar, members, directory, admin, compass, products, almanac:createAlmanacHandler({store:db?createAlmanacStore(db):null,log:console.error}) });
 const port = Number(process.env.PORT || 3000);
 server.listen(port,'0.0.0.0',() => console.log(`Gold Trails listening on port ${port}`));
 for (const signal of ['SIGTERM','SIGINT']) process.on(signal,() => {
