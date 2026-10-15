@@ -2,7 +2,7 @@
 Date: 2026-10-15
 
 ## Status
-Implemented and browser-verified locally. Isolated production release prepared separately. Hostinger database activation and live publication are pending because the existing Safari Hostinger session is signed out. A request to sign in is pending; do not infer approval from elapsed time. Hostinger was rechecked after Paul asked to continue; sign-in and saved-password autofill remain unavailable. No live migration has been applied and no historical traffic has been invented. Tipping and membership pricing remain unchanged.
+Published to Hostinger on 2026-10-15 at commit af05a0b8fd42fd1528eed23a81d97c17d3887c91. Migration 010 is applied and all nine report aggregate queries passed on the real MariaDB inside a rolled-back transaction. Public consent and withdrawal controls are live; report and export correctly redirect unsigned visitors to owner login. Persistent live browser collection is verified; only the authenticated report/CSV screen check awaits Paul’s website administrator sign-in. Counts begin at activation; no historical traffic has been invented. Tipping and membership pricing remain unchanged.
 
 ## Owner report
 Open /admin/analytics/ after the existing owner sign-in. The administration menu includes Traffic & clicks. Report and CSV routes use the existing owner session and no-store policy; ordinary member sessions grant no access. Reports are read-only and work without client JavaScript.
@@ -53,7 +53,10 @@ If migration is absent, the report explicitly shows not connected (HTTP 503), no
 - Isolated production release: 207 tests passed; build checks 13 HTML pages and 354 local references.
 - Phone report at 390 × 844 has document width 390 with no horizontal page overflow after a grid-sizing correction. Wide tables scroll within their containers.
 - Preview uses clearly labeled synthetic events and simulated owner authorization only on a loopback server. scripts/preview-analytics.mjs is not the deployment entry point. Its sample totals are not production evidence.
-- Real MariaDB execution and live collection remain separate pending checks; SQL behavior was tested through bounded-value fixtures, not a local MariaDB engine.
+- Real MariaDB: migration 010 created the event table. All nine exact report SELECT statements returned expected one-view/one-click transaction results. ROLLBACK left zero usage events. Existing member and creator counts remained 1 and 7. A required description was added to the migration marker and source SQL after MariaDB reported a missing-description warning.
+- Private full backup before DDL: /Users/paulshoemaker/Downloads/GoldTrails-pre-calendar-2026-10-12.sql-2 (Safari reused an earlier filename template; downloaded 2026-10-15 16:37 UTC), 211138 bytes, 58 CREATE TABLE statements, SHA-256 6dcd087bc28092095ce58582c8e0af69495d0f7194394c73f6197a321aff1805. Backup stays outside Git.
+- GitHub Desktop push completed; Hostinger shows af05a0b8 as Completed / Current. Live privacy page returned HTTP 200. Unauthenticated report and CSV returned HTTP 303 to /admin/login/ with no-store.
+- Controlled live browser QA allowed statistics on the homepage, opened /articles/where-gold-settles/, and followed its USGS Gold source. Then declined and reloaded, preserving article access. No browser warnings/errors observed. A subsequent read-only database query confirmed exactly three persisted events: one homepage pageview, one article pageview, and one outbound USGS click from that article. Declining and subsequent article/homepage loads added no events. These controlled actions are QA, not audience evidence. Authenticated report/CSV rendering remains pending the separate Gold Trails owner login; Safari is left on /admin/login/.
 
 ## Local preview
 Run the bundled Node 22 executable with scripts/preview-analytics.mjs; default port 4323, bound only to 127.0.0.1. The preview report is http://127.0.0.1:4323/admin/analytics/. Restart after server-module changes. Production uses server.js with actual owner authentication and MariaDB.
