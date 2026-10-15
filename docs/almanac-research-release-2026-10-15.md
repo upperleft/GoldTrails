@@ -12,4 +12,4 @@ Validation: complete release suite 193/193 passing; production build checks 13 s
 
 This isolated release starts from live GitHub main a230564b5f866ee276e0f9d2e07f5f74666012cc. It contains only Almanac application/assets/tests and this note. The full dated research library and publication decisions are retained in the working research repository; no research-only files are served publicly.
 
-Deployment and live verification: pending.
+Deployment verified: application release `84cea9f0cf71d9647bbbe9a9f564d671e04528dc` is live. All 50 public state pages, all 80 imported research records and their citation anchors, all 28 used bird assets, the unselected map and connected database output passed live checks on 15 October 2026. A full verification report and screenshot are saved in the task outputs directory. This post-deployment note is retained locally; the published commit records the pre-deployment check.
