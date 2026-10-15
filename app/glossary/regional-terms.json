@@ -1,0 +1,870 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-15",
+  "sources": [
+    {
+      "id": "nsw-fossicking",
+      "title": "Retrieve a fossicking permit",
+      "publisher": "Service NSW",
+      "url": "https://www.service.nsw.gov.au/transaction/retrieve-a-fossicking-permit",
+      "publicationDate": "2025-11-03",
+      "checkedAt": "2026-10-15",
+      "inspection": "agency_page"
+    },
+    {
+      "id": "nz-fossicking",
+      "title": "Gold fossicking",
+      "publisher": "New Zealand Department of Conservation",
+      "url": "https://www.doc.govt.nz/gold-fossicking",
+      "publicationDate": null,
+      "checkedAt": "2026-10-15",
+      "inspection": "agency_page"
+    },
+    {
+      "id": "gympie-history",
+      "title": "The Gympie goldfield 1867–2008",
+      "publisher": "Gympie Regional Council",
+      "authors": [
+        "John Ferguson",
+        "Elaine Brown"
+      ],
+      "year": 2009,
+      "url": "https://library.gympie.qld.gov.au/files/assets/library/v/1/documents/local-history/gympie_goldfields_book__pdf_.pdf",
+      "checkedAt": "2026-10-15",
+      "inspection": "original_pdf_text"
+    },
+    {
+      "id": "vic-miners",
+      "title": "Gold diggers",
+      "publisher": "Resources Victoria",
+      "url": "https://resources.vic.gov.au/geology-and-data/minerals/metals/gold/gold-mining-in-victoria/gold-diggers",
+      "publicationDate": null,
+      "checkedAt": "2026-10-15",
+      "inspection": "agency_page"
+    },
+    {
+      "id": "vic-mullock",
+      "title": "Identify historical mining waste",
+      "publisher": "Environment Protection Authority Victoria",
+      "url": "https://www.epa.vic.gov.au/identify-historical-mining-waste",
+      "publicationDate": "2024-12-17",
+      "checkedAt": "2026-10-15",
+      "inspection": "agency_page"
+    },
+    {
+      "id": "wa-specking",
+      "title": "Department of Mines annual report for 1923",
+      "publisher": "Western Australia Department of Mines",
+      "year": 1924,
+      "url": "https://www.dmp.wa.gov.au/Documents/About-Us-Careers/AnnualReport_1923.pdf",
+      "checkedAt": "2026-10-15",
+      "inspection": "official_indexed_text"
+    },
+    {
+      "id": "nz-methods",
+      "title": "Gold and gold mining: Methods of mining",
+      "publisher": "Te Ara – The Encyclopedia of New Zealand",
+      "authors": [
+        "Carl Walrond"
+      ],
+      "publicationDate": "2009-03-02",
+      "url": "https://teara.govt.nz/en/gold-and-gold-mining/page-7",
+      "checkedAt": "2026-10-15",
+      "inspection": "encyclopedia_page"
+    },
+    {
+      "id": "au-yabby",
+      "title": "Seahorse Yabby Pump Stainless Steel 75cm",
+      "publisher": "Hot Tackle",
+      "url": "https://hottackle.com.au/products/seahorse-yabby-pump-stainless-steel-75cm",
+      "publicationDate": null,
+      "checkedAt": "2026-10-15",
+      "inspection": "equipment_seller_description"
+    },
+    {
+      "id": "nz-crevice-sucker",
+      "title": "Crevice Sucker Designs",
+      "publisher": "Paydirt New Zealand forum archive",
+      "authors": [
+        "Gavin (forum administrator)"
+      ],
+      "publicationDate": "2010-02-22",
+      "url": "https://www.paydirt.co.nz/forums/yaf_postst4_Crevice-Sucker-Designs.aspx",
+      "checkedAt": "2026-10-15",
+      "inspection": "firsthand_community_usage"
+    },
+    {
+      "id": "yukon-cheechako",
+      "title": "Cheechako Hill (Bonanza Creek Road)",
+      "publisher": "Sights and Sites of the Yukon",
+      "url": "https://sightsandsites.ca/central/site/cheechako-hill-bonanza-creek-road",
+      "publicationDate": null,
+      "checkedAt": "2026-10-15",
+      "inspection": "heritage_site_description"
+    },
+    {
+      "id": "nps-oldtimers",
+      "title": "For the Love of Freedom: Miners, Trappers, Hunting Guides, and Homesteaders",
+      "publisher": "U.S. National Park Service",
+      "url": "https://www.nps.gov/wrst/learn/historyculture/upload/For-the-Love-of-Freedom-508-compliant.pdf",
+      "publicationDate": null,
+      "checkedAt": "2026-10-15",
+      "inspection": "official_report_text"
+    },
+    {
+      "id": "colombia-glossary",
+      "title": "Glosario técnico minero · Resolución 40599 de 2015",
+      "publisher": "Colombia Ministerio de Minas y Energía / Agencia Nacional de Minería",
+      "year": 2015,
+      "url": "https://www.anm.gov.co/sites/default/files/res_40599_15_glosario_tecnico_minero_0.pdf",
+      "checkedAt": "2026-10-15",
+      "inspection": "official_pdf_text"
+    },
+    {
+      "id": "igme-bateo",
+      "title": "Geología e historia del oro de Granada",
+      "publisher": "Instituto Geológico y Minero de España",
+      "authors": [
+        "J. M. Martín"
+      ],
+      "year": 2000,
+      "url": "https://web.igme.es/Boletin/2000/111_2_3.htm",
+      "checkedAt": "2026-10-15",
+      "inspection": "research_abstract"
+    },
+    {
+      "id": "brgm-guyane",
+      "title": "L’exploitation de l’or alluvionnaire en Guyane · BRGM/RP-67564-FR",
+      "publisher": "BRGM – French geological survey",
+      "authors": [
+        "G. Aertgeerts",
+        "J.-L. Nagel",
+        "E. Fournier"
+      ],
+      "publicationDate": "2018-01",
+      "url": "https://infoterre.brgm.fr/rapports/RP-67564-FR.pdf",
+      "checkedAt": "2026-10-15",
+      "inspection": "original_pdf_text"
+    },
+    {
+      "id": "academie-orpailleur",
+      "title": "Orpailleur · Dictionnaire de l’Académie française, 9th edition",
+      "publisher": "Académie française",
+      "year": 2024,
+      "url": "https://www.dictionnaire-academie.fr/article/A9O0781",
+      "checkedAt": "2026-10-15",
+      "inspection": "dictionary_entry"
+    },
+    {
+      "id": "brgm-orpaillage",
+      "title": "En Guyane, des recherches qui valent de l’or",
+      "publisher": "BRGM – French geological survey",
+      "url": "https://www.brgm.fr/fr/reference-projet-acheve/guyane-recherches-valent-or",
+      "publicationDate": null,
+      "checkedAt": "2026-10-15",
+      "inspection": "agency_page"
+    },
+    {
+      "id": "brazil-bateia",
+      "title": "Bateia · Museu das Bandeiras collection",
+      "publisher": "Instituto Brasileiro de Museus",
+      "url": "https://museusibramgoias.acervos.museus.gov.br/museu-das-bandeiras/bateia/",
+      "publicationDate": null,
+      "checkedAt": "2026-10-15",
+      "inspection": "museum_catalog_entry"
+    },
+    {
+      "id": "brazil-glossary",
+      "title": "Cooperativismo mineral no Brasil: O caminho das pedras, passo a passo",
+      "publisher": "Brazil Departamento Nacional de Produção Mineral; hosted by ANM",
+      "authors": [
+        "Antonio Fernando da Silva Rodrigues (coordinator)"
+      ],
+      "year": 2008,
+      "url": "https://www.gov.br/anm/pt-br/centrais-de-conteudos/publicacoes/serie-sustentabilidade/cooperativismo-mineral-no-brasil/@@download/file/cooperativismo-mineral-no-brasil.pdf",
+      "checkedAt": "2026-10-15",
+      "inspection": "original_pdf_text"
+    },
+    {
+      "id": "de-handpump",
+      "title": "Mini Gold Sucker · Hendersonpumpe",
+      "publisher": "The Mining Claim, Germany",
+      "url": "https://www.theminingclaim.de/de/product_info.php?info=p835_the-mining-claim--mini-gold-sucker--mini--hendersonpumpe--laenge-des-tubus-50-cm.html",
+      "publicationDate": null,
+      "checkedAt": "2026-10-15",
+      "inspection": "manufacturer_description"
+    }
+  ],
+  "terms": [
+    {
+      "id": "fossicking",
+      "term": "Fossicking",
+      "aliases": [
+        "fossick",
+        "fossicker",
+        "fossickers"
+      ],
+      "regions": [
+        "Australia",
+        "New Zealand"
+      ],
+      "kind": "Regional usage",
+      "definition": "Recreational searching for and collecting minerals, including gold. In Australian usage it can also include gems; New Zealand uses ‘gold fossicking’ for recreational gold recovery. The word itself does not grant access or permission.",
+      "sourceIds": [
+        "nsw-fossicking",
+        "nz-fossicking"
+      ],
+      "locator": "NSW Introduction; DOC Introduction and rules",
+      "relatedTerms": [
+        "Gold panning"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "dolly-pot",
+      "term": "Dolly pot",
+      "aliases": [
+        "dollying"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "kind": "Tool name",
+      "definition": "A metal vessel for breaking small ore samples with a heavy hand-held rod called a dolly. Think of a rugged mortar and pestle for rock sampling.",
+      "sourceIds": [
+        "gympie-history"
+      ],
+      "locator": "Glossary, printed p.96 / PDF p.102: dolly; dolly pot",
+      "pdfPage": 102,
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "dolly",
+      "term": "Dolly",
+      "aliases": [],
+      "regions": [
+        "Australia"
+      ],
+      "kind": "Tool name",
+      "definition": "The heavy metal hand tool used to pound ore inside a dolly pot. In this glossary’s Australian source, it names the pounding tool rather than the pot.",
+      "sourceIds": [
+        "gympie-history"
+      ],
+      "locator": "Glossary, printed p.96 / PDF p.102: dolly",
+      "pdfPage": 102,
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "prospectors-dish",
+      "term": "Prospector’s dish",
+      "aliases": [
+        "prospecting dish"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "kind": "Tool name",
+      "definition": "Another name for a gold pan: a shallow, sloping-sided dish used to wash sediment and retain heavy particles.",
+      "sourceIds": [
+        "gympie-history"
+      ],
+      "locator": "Glossary, printed p.97 / PDF p.103: pan; prospector’s dish",
+      "pdfPage": 103,
+      "relatedTerms": [
+        "Gold panning"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "duffer",
+      "term": "Duffer",
+      "aliases": [],
+      "regions": [
+        "Australia"
+      ],
+      "kind": "Historical slang",
+      "definition": "Goldfields slang for a claim, shaft or mine that proves unproductive or unprofitable.",
+      "sourceIds": [
+        "gympie-history"
+      ],
+      "locator": "Glossary, printed p.96 / PDF p.102: duffer",
+      "pdfPage": 102,
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "deep-lead",
+      "term": "Deep lead",
+      "aliases": [],
+      "regions": [
+        "Australia"
+      ],
+      "kind": "Mining terminology",
+      "definition": "An old gold-bearing watercourse buried beneath later sediment or rock. Here ‘lead’ means a line of deposit, not the metal.",
+      "sourceIds": [
+        "gympie-history"
+      ],
+      "locator": "Glossary, printed p.96 / PDF p.102: Deep Lead",
+      "pdfPage": 102,
+      "relatedTerms": [
+        "Paleochannel",
+        "Placer"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "mullock",
+      "term": "Mullock",
+      "aliases": [
+        "mullock heap"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "kind": "Mining terminology",
+      "definition": "Waste rock removed during mining, often piled in a mullock heap. It is distinct from the finer material left after ore processing, commonly called tailings.",
+      "sourceIds": [
+        "vic-mullock"
+      ],
+      "locator": "Waste rock; Mining sand",
+      "relatedTerms": [
+        "Tailings"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "poppet-head",
+      "term": "Poppet head",
+      "aliases": [
+        "headframe"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "kind": "Historical equipment",
+      "definition": "The framework above a mine shaft that holds the pulleys for hoisting ropes; also called a headframe.",
+      "sourceIds": [
+        "gympie-history"
+      ],
+      "locator": "Glossary, printed p.97 / PDF p.103: headframe; poppet head",
+      "pdfPage": 103,
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "gympie-hammer",
+      "term": "Gympie hammer",
+      "aliases": [],
+      "regions": [
+        "Australia",
+        "Gympie, Queensland"
+      ],
+      "kind": "Tool name",
+      "definition": "A double-faced hammer used to strike a hand steel or drill in rock work; the Gympie history describes examples weighing four to six pounds.",
+      "sourceIds": [
+        "gympie-history"
+      ],
+      "locator": "Glossary, printed p.97 / PDF p.103: Gympie hammer",
+      "pdfPage": 103,
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "specking",
+      "term": "Specking",
+      "aliases": [
+        "speck"
+      ],
+      "regions": [
+        "Western Australia"
+      ],
+      "kind": "Historical regional usage",
+      "definition": "Searching by eye for loose gold exposed on the ground, then picking it up from the surface. Historical accounts distinguish this from digging or washing sediment.",
+      "sourceIds": [
+        "wa-specking"
+      ],
+      "locator": "Siberia detrital deposits discussion: prospecting known as ‘specking’",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "digger",
+      "term": "Digger",
+      "aliases": [
+        "diggers"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "kind": "Historical goldfields usage",
+      "definition": "In gold-rush accounts, a person working the diggings for gold—a miner or prospector. The word has other meanings outside this setting.",
+      "sourceIds": [
+        "vic-miners"
+      ],
+      "locator": "Gold diggers; mining methods and toolkit",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "cradle",
+      "term": "Cradle",
+      "aliases": [
+        "rocker",
+        "rocker box"
+      ],
+      "regions": [
+        "New Zealand",
+        "Australia"
+      ],
+      "kind": "Historical equipment",
+      "definition": "A rocking gold-washing box, also called a rocker box. Water and a rocking motion help lighter sediment wash away while gold collects inside.",
+      "sourceIds": [
+        "nz-methods",
+        "vic-miners"
+      ],
+      "locator": "Shovel, pan and cradle; Victorian diggers’ toolkit",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "long-tom",
+      "term": "Long Tom",
+      "aliases": [
+        "Long Toms"
+      ],
+      "regions": [
+        "New Zealand goldfields"
+      ],
+      "kind": "Historical equipment nickname",
+      "definition": "A name for long, stepped wooden gold-washing boxes. Riffles retain heavy material as water carries lighter sediment onward. The nickname is not exclusive to New Zealand.",
+      "sourceIds": [
+        "nz-methods"
+      ],
+      "locator": "Sluice boxes",
+      "relatedTerms": [
+        "Sluice box",
+        "Riffle"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "water-race",
+      "term": "Water race",
+      "aliases": [
+        "water races"
+      ],
+      "regions": [
+        "New Zealand goldfields"
+      ],
+      "kind": "Historical mining terminology",
+      "definition": "A constructed channel bringing water from a creek to mining workings. A surviving race is a historical feature, not an indication that prospecting is allowed there.",
+      "sourceIds": [
+        "nz-methods"
+      ],
+      "locator": "Sluice boxes: channels bringing water to workings",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "monitor",
+      "term": "Monitor",
+      "aliases": [
+        "hydraulic monitor"
+      ],
+      "regions": [
+        "New Zealand goldfields"
+      ],
+      "kind": "Historical equipment",
+      "definition": "A nozzle that directs a powerful jet of water at gold-bearing gravel during hydraulic mining. This is industrial mining equipment, not a small panning accessory.",
+      "sourceIds": [
+        "nz-methods"
+      ],
+      "locator": "Sluicing",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "reef",
+      "term": "Reef",
+      "aliases": [
+        "quartz reef",
+        "reef gold"
+      ],
+      "regions": [
+        "New Zealand goldfields"
+      ],
+      "kind": "Mining terminology",
+      "definition": "A mineralized vein followed by hard-rock miners; gold-bearing quartz veins are often called reefs in New Zealand mining histories. It does not mean a coral reef.",
+      "sourceIds": [
+        "nz-methods"
+      ],
+      "locator": "Hard-rock mining",
+      "relatedTerms": [
+        "Vein",
+        "Lode"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "stamper-battery",
+      "term": "Stamper battery",
+      "aliases": [
+        "stamper batteries",
+        "stamp battery"
+      ],
+      "regions": [
+        "New Zealand goldfields"
+      ],
+      "kind": "Historical equipment",
+      "definition": "A set of crushing stamps that breaks quartz ore before gold recovery. ‘Battery’ means a group of machines, not an electrical power source.",
+      "sourceIds": [
+        "nz-methods"
+      ],
+      "locator": "Hard-rock mining",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "yabby-pump",
+      "term": "Yabby pump",
+      "aliases": [
+        "yabbie pump",
+        "yabbi pump",
+        "bait pump"
+      ],
+      "regions": [
+        "Australia"
+      ],
+      "kind": "Tool name",
+      "definition": "A hand-operated suction tube best known for collecting fishing bait. Some prospectors use or adapt these pumps to gather submerged sediment for panning; this equipment description does not establish where pumping is permitted.",
+      "sourceIds": [
+        "au-yabby"
+      ],
+      "locator": "Product description; stated river/stream gold-prospecting use",
+      "relatedTerms": [
+        "Crevicing"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "gold-sucker",
+      "term": "Gold sucker",
+      "aliases": [
+        "crevice sucker",
+        "gravel pump"
+      ],
+      "regions": [
+        "New Zealand community usage"
+      ],
+      "kind": "Tool nickname",
+      "definition": "A nickname for a suction device used to collect sediment from bedrock cracks. A New Zealand prospecting discussion also calls it a crevice sucker or gravel pump; the names are used elsewhere too.",
+      "sourceIds": [
+        "nz-crevice-sucker"
+      ],
+      "locator": "Gavin’s opening post, 22 February 2010; equipment-name usage only",
+      "relatedTerms": [
+        "Crevicing"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "cheechako",
+      "term": "Cheechako",
+      "aliases": [
+        "cheechakos"
+      ],
+      "regions": [
+        "Yukon, Canada",
+        "Alaska, United States"
+      ],
+      "kind": "Historical northern slang",
+      "definition": "A newcomer to the North. Gold-rush accounts contrast an inexperienced cheechako with a seasoned sourdough; the term describes regional experience, not nationality.",
+      "sourceIds": [
+        "yukon-cheechako",
+        "nps-oldtimers"
+      ],
+      "locator": "Cheechako Hill opening; NPS report PDF p.243, old-timer/new-arrival distinction",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "sourdough",
+      "term": "Sourdough",
+      "aliases": [
+        "sourdoughs"
+      ],
+      "regions": [
+        "Yukon, Canada",
+        "Alaska, United States"
+      ],
+      "kind": "Historical northern slang",
+      "definition": "An experienced northern old-timer, often a veteran of prospecting life in Yukon or Alaska. In this usage it describes a person, rather than bread or a starter.",
+      "sourceIds": [
+        "yukon-cheechako",
+        "nps-oldtimers"
+      ],
+      "locator": "Cheechako Hill opening; NPS report PDF p.243, old-timer/new-arrival distinction",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "batea",
+      "term": "Batea",
+      "aliases": [],
+      "regions": [
+        "Colombia",
+        "Spanish-language mining"
+      ],
+      "kind": "Spanish tool name",
+      "definition": "A gold-washing pan or bowl, traditionally made of wood or metal and often conical. Colombian mining terminology uses it for concentrating heavy minerals from sediment or crushed samples.",
+      "sourceIds": [
+        "colombia-glossary"
+      ],
+      "locator": "Batea entry; PDF p.9",
+      "pdfPage": 9,
+      "relatedTerms": [
+        "Gold panning"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "bateo",
+      "term": "Bateo",
+      "aliases": [
+        "batear"
+      ],
+      "regions": [
+        "Colombia",
+        "Spain"
+      ],
+      "kind": "Spanish prospecting term",
+      "definition": "Washing sediment in a batea to separate heavy minerals, including gold. The activity name does not by itself establish permission to collect.",
+      "sourceIds": [
+        "colombia-glossary",
+        "igme-bateo"
+      ],
+      "locator": "Bateo entry, PDF p.9; Martín abstract on gold panning in Granada",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "barequeo",
+      "term": "Barequeo",
+      "aliases": [
+        "mazamorreo"
+      ],
+      "regions": [
+        "Colombia"
+      ],
+      "kind": "Regional mining terminology",
+      "definition": "Manual washing of sand to recover precious metals, without machinery or mechanical assistance, in the Colombian mining glossary. Mazamorreo is another recorded name. This definition is not a summary of current permit rules.",
+      "sourceIds": [
+        "colombia-glossary"
+      ],
+      "locator": "Barequeo and Bateo entries; PDF p.9",
+      "pdfPage": 9,
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "batee",
+      "term": "Batée",
+      "aliases": [
+        "battée"
+      ],
+      "regions": [
+        "France",
+        "French Guiana"
+      ],
+      "kind": "French tool name",
+      "definition": "A gold-washing pan or dish used to concentrate heavy minerals by density. BRGM distinguishes the batée from a grooved Californian pan and a Finnish-style flat pan.",
+      "sourceIds": [
+        "brgm-guyane"
+      ],
+      "locator": "Section 5, printed p.46 / PDF p.50; Figure 34",
+      "pdfPage": 50,
+      "relatedTerms": [
+        "Gold panning"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "couy",
+      "term": "Couy",
+      "aliases": [],
+      "regions": [
+        "French Guiana"
+      ],
+      "kind": "Regional tool name",
+      "definition": "A small, rounded metal bowl used for the final separation of small quantities of gold concentrate, as described in BRGM’s French Guiana study.",
+      "sourceIds": [
+        "brgm-guyane"
+      ],
+      "locator": "Section 5, Le Couy; printed p.47 / PDF p.51; Figure 36",
+      "pdfPage": 51,
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "orpailleur",
+      "term": "Orpailleur",
+      "aliases": [
+        "orpailleuse",
+        "orpailleurs"
+      ],
+      "regions": [
+        "France",
+        "French Guiana",
+        "French-language usage"
+      ],
+      "kind": "French occupational term",
+      "definition": "A person who washes river sediment to recover gold; more broadly, a gold seeker. Orpailleuse is a recorded feminine form. It is an occupational word, not inherently a joke or slang.",
+      "sourceIds": [
+        "academie-orpailleur"
+      ],
+      "locator": "Orpailleur definition and feminine-form note",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "orpaillage",
+      "term": "Orpaillage",
+      "aliases": [],
+      "regions": [
+        "France",
+        "French Guiana",
+        "French-language usage"
+      ],
+      "kind": "French mining term",
+      "definition": "Gold recovery or working by an orpailleur, especially from alluvial deposits. French Guiana sources use it for mining activity, so it should not automatically be translated as casual hobby panning.",
+      "sourceIds": [
+        "brgm-orpaillage",
+        "academie-orpailleur"
+      ],
+      "locator": "BRGM alluvial-gold production and provenance discussion; Académie occupational definition",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "bateia",
+      "term": "Bateia",
+      "aliases": [
+        "batéia",
+        "batear",
+        "bateiar"
+      ],
+      "regions": [
+        "Brazil"
+      ],
+      "kind": "Portuguese tool name",
+      "definition": "A bowl for washing gold-bearing sediment, often with a conical base. Brazilian museum examples include wooden pans; metal and plastic versions are also used.",
+      "sourceIds": [
+        "brazil-bateia",
+        "brazil-glossary"
+      ],
+      "locator": "Museum object description; glossary Batéia and Bateiar, printed p.117 / PDF p.118",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "garimpo",
+      "term": "Garimpo",
+      "aliases": [
+        "garimpagem"
+      ],
+      "regions": [
+        "Brazil"
+      ],
+      "kind": "Portuguese mining term",
+      "definition": "Artisanal mineral workings or the activity of working them, often associated with gold and gems. It can involve alluvial or primary deposits; the word does not mean that every operation is recreational or legal.",
+      "sourceIds": [
+        "brazil-glossary"
+      ],
+      "locator": "Garimpo entry, printed pp.119–120 / PDF pp.120–121",
+      "pdfPage": 120,
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "garimpeiro",
+      "term": "Garimpeiro",
+      "aliases": [
+        "garimpeira",
+        "garimpeiros"
+      ],
+      "regions": [
+        "Brazil"
+      ],
+      "kind": "Portuguese occupational term",
+      "definition": "A person working in a garimpo, commonly an artisanal miner seeking gold or gems. Garimpeira is the feminine form.",
+      "sourceIds": [
+        "brazil-bateia",
+        "brazil-glossary"
+      ],
+      "locator": "Museum discussion of women working in garimpos; glossary’s Bamburrado and Garimpo entries",
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "bamburro",
+      "term": "Bamburro",
+      "aliases": [
+        "bamburrado"
+      ],
+      "regions": [
+        "Brazil"
+      ],
+      "kind": "Goldfields slang",
+      "definition": "A lucky rich strike that brings sudden wealth in a garimpo. The related word bamburrado describes a miner who has struck it rich.",
+      "sourceIds": [
+        "brazil-glossary"
+      ],
+      "locator": "Bamburro and Bamburrado entries; printed p.117 / PDF p.118",
+      "pdfPage": 118,
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "cobra-fumando",
+      "term": "Cobra-fumando",
+      "aliases": [
+        "cobra fumando"
+      ],
+      "regions": [
+        "Brazil"
+      ],
+      "kind": "Equipment nickname",
+      "definition": "A small wooden sluice used to wash gravel in manual garimpo workings, recorded in Brazil’s mining glossary. It names equipment, not an animal encountered while prospecting.",
+      "sourceIds": [
+        "brazil-glossary"
+      ],
+      "locator": "Cobra-fumando entry; printed p.118 / PDF p.119",
+      "pdfPage": 119,
+      "relatedTerms": [
+        "Sluice box"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "hendersonpumpe",
+      "term": "Hendersonpumpe",
+      "aliases": [
+        "Henderson Pumpe",
+        "Henderson pump"
+      ],
+      "regions": [
+        "Germany, equipment-seller usage"
+      ],
+      "kind": "German equipment name",
+      "definition": "A name used by a German prospecting-equipment maker for a piston hand pump that sucks sediment from bedrock cracks. Its listing also uses the English nickname ‘Gold Sucker’.",
+      "sourceIds": [
+        "de-handpump"
+      ],
+      "locator": "Product title and description: piston, suction and bedrock crevices",
+      "relatedTerms": [
+        "Crevicing"
+      ],
+      "checkedAt": "2026-10-15"
+    },
+    {
+      "id": "goldwaschpfanne",
+      "term": "Goldwaschpfanne",
+      "aliases": [
+        "Goldwaschpfannen"
+      ],
+      "regions": [
+        "Germany"
+      ],
+      "kind": "German tool name",
+      "definition": "A German term for a gold pan. Equipment listings use it alongside the English ‘Gold Pan’; it is a translated tool name rather than a separate recovery method.",
+      "sourceIds": [
+        "de-handpump"
+      ],
+      "locator": "Related product: Goldwaschpfanne SE Gold Pan",
+      "relatedTerms": [
+        "Gold panning"
+      ],
+      "checkedAt": "2026-10-15"
+    }
+  ]
+}
