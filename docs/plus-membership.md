@@ -2,16 +2,18 @@
 Updated 2026-10-15. Target public launch: November 1, 2026 (America/New_York).
 
 ## Current decision
-Paul superseded the original membership brief: the full State Almanac is the sole $5 USD/month subscription benefit. Do not build or advertise a private journal, advanced trip planner, weather/river alerts, or other unfinished premium tools. Original instructions keeping all existing state information public are superseded by this explicit Almanac access decision. Keep the interactive map and a clearly labeled sourced California overview excerpt public so visitors can inspect the offer. No state is selected by default. Articles, glossary, equipment, creators, the existing personal dashboard and calendar remain free; private account features still require verified account sign-in.
+Paul superseded the original membership brief: the full State Almanac is the sole $5 USD/month subscription benefit. Do not build or advertise a private journal, advanced trip planner, weather/river alerts, or other unfinished premium tools. Original instructions keeping all existing state information public are superseded by this explicit Almanac access decision. The entire interactive Almanac/creator map is premium. Keep a clearly labeled sourced California overview excerpt and a benefits preview public so visitors can inspect the offer. All creator directory/search, profile and video links remain free. No state is selected by default. Articles, glossary, equipment, creators, the existing personal dashboard and calendar remain free; private account features still require verified account sign-in.
 
 “Coming soon” is staging text, not the intended November 1 launch experience. Replace it with working checkout and account billing controls only after provider configuration, verification, and Paul’s approval to activate live charging. Do not replace it with an active-looking button before money and access flows actually work.
+
+See [unified-almanac-map.md](unified-almanac-map.md) for the current combined-map implementation and expanded access tests.
 
 ## Implemented
 - /plus/: accurate one-benefit offer, $5/month pricing, sourced excerpt, Free/Plus comparison, transparent planned automatic-renewal/cancellation terms and separate donation link. Existing state-bird artwork reused.
 - /donate/: voluntary one-time support, explicitly separate from Plus, no renewal and no premium entitlement. Collection is disabled.
 - Shared server response decoration inserts exactly one compact support panel in each existing left sidebar, with mobile layout. No per-page duplicates or pop-ups; owner administration and JSON/assets excluded.
 - Full /gold-almanac/:state/ HTML and /api/gold-almanac/:state/ JSON require the existing effective subscriber entitlement, or an independently validated owner session for review. Authorization runs on every request before cached editorial data can be read. Free, expired, forged and unavailable authentication cannot reveal full research. Canonical redirects do not bypass the check.
-- Paid responses are private/no-store, vary by Cookie and noindex. Detailed state paths are excluded from the public usage collector. The public root/map and its excerpt remain measurable only after optional consent.
+- Paid responses are private/no-store, vary by Cookie and noindex. Detailed state paths are excluded from the public usage collector. The public root preview and its excerpt remain measurable only after optional consent.
 - The map client handles the server’s plus_required response as an access panel rather than a failed state load. Direct links and no-JavaScript pages also enforce access. State-specific sign-in return paths are restricted to internal routes.
 - Account/signup copy uses the new Plus offer. Personal Compass tools now accept verified free accounts, keeping the Almanac as the sole subscription feature. Account isolation and CSRF checks remain.
 - Payment entry points /billing/subscribe/, /billing/donate/, /billing/manage/ and /billing/webhook/ deliberately return unavailable. No provider credentials, products, charges, donations or memberships were created.

@@ -13,10 +13,10 @@ test('map uses recognized broad regions, retains unknowns and overlapping settin
  const html=prospectorsPage(mapRecords([{slug:'a',display_name:'</script><script>bad()'}],[],[]),{q:'',sort:'az',view:'list'});
  assert.ok(!html.includes('</script><script>bad()'));assert.match(html,/Location unknown at this time/);
 });
-test('unified directory displays the full roster and old map links redirect to its map view',async()=>{
+test('unified directory displays the full roster and old map links redirect to the premium Almanac',async()=>{
  const server=createServer({directory:{map:async()=>({people:[{id:'1',slug:'a',display_name:'A'}],regions:[],topics:[]})},log:()=>{}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
- try{const root='http://127.0.0.1:'+server.address().port;const response=await fetch(root+'/prospectors/');assert.equal(response.status,200);const html=await response.text();assert.match(html,/List view/);assert.match(html,/Map view/);assert.match(html,/Search prospectors/);assert.equal((html.match(/class="map-person"/g)||[]).length,69);assert.ok(!html.includes('href="/creator-map/"'));const redirect=await fetch(root+'/creator-map?q=A',{redirect:'manual'});assert.equal(redirect.status,308);assert.equal(redirect.headers.get('location'),'/prospectors/?q=A&view=map');assert.equal((await fetch(root+'/prospectors/?view=nope')).status,400);}finally{await new Promise(r=>server.close(r));}
+ try{const root='http://127.0.0.1:'+server.address().port;const response=await fetch(root+'/prospectors/');assert.equal(response.status,200);const html=await response.text();assert.match(html,/List view/);assert.match(html,/Map view/);assert.match(html,/Search prospectors/);assert.equal((html.match(/class="map-person"/g)||[]).length,69);assert.ok(!html.includes('href="/creator-map/"'));const redirect=await fetch(root+'/creator-map?q=A',{redirect:'manual'});assert.equal(redirect.status,308);assert.equal(redirect.headers.get('location'),'/gold-almanac/?q=A');assert.equal((await fetch(root+'/prospectors/?view=nope')).status,400);}finally{await new Promise(r=>server.close(r));}
 });
 
 test('shared filters preserve region/topic links and distinguish unknown and unmapped regions',()=>{

@@ -1,3 +1,4 @@
+import {almanacReturnPath} from './plus/entitlements.js';
 import {timingSafeEqual} from 'node:crypto';
 import {token,digest,hashPassword,verifyPassword} from './admin-auth.js';
 import {page,escapeHtml as h} from './directory-views.js';
@@ -12,7 +13,7 @@ function passwordInput(f){const p=f.get('password')||'';if(p.length<8||p.length>
 async function body(req){if(!/^application\/x-www-form-urlencoded(?:;|$)/i.test(req.headers['content-type']||''))throw new InputError('Unsupported form.');let n=0,b=[];for await(const c of req){n+=c.length;if(n>8192)throw new InputError('Form too large.');b.push(c);}const f=new URLSearchParams(Buffer.concat(b).toString('utf8')),seen=new Set();for(const k of f.keys()){if(seen.has(k))throw new InputError('Duplicate field.');seen.add(k);}return f;}
 const hidden=(k,v)=>`<input type="hidden" name="${k}" value="${h(v)}">`;
 const memberDestinations=new Set(['/calendar/','/account/','/compass/','/gold-almanac/','/plus/']);
-const memberDestination=value=>memberDestinations.has(value)||/^\/gold-almanac\/[a-z-]+\/$/.test(value||'')?value:null;
+const memberDestination=value=>memberDestinations.has(value)||almanacReturnPath(value)?value:null;
 const memberLanding=membership=>membership?.effective_level==='subscriber'?'/compass/':'/account/';
 const input=(name,label,type='text',auto='')=>`<label>${label}<input id="member-${name}" name="${name}" type="${type}" ${auto?`autocomplete="${auto}"`:''} ${type==='password'?`minlength="8" maxlength="128" ${auto==='new-password'?'aria-describedby="password-guidance" passwordrules="minlength: 8; maxlength: 128;"':''}`:name==='username'?'minlength="3" maxlength="40" pattern="[a-zA-Z0-9_-]{3,40}"':'maxlength="254"'} required></label>`;
 const passwords=()=>'<p id="password-guidance" class="member-form-guidance">Use 8–128 characters. Enter your password once; you can show it below to check it.</p>'+input('password','Password','password','new-password')+'<div class="member-password-controls"><button type="button" class="member-password-toggle" data-password-toggle aria-controls="member-password" aria-pressed="false" hidden>Show password</button></div>';

@@ -1,0 +1,21 @@
+# Premium State Almanac and creator map
+Updated October 15, 2026.
+
+The State Almanac illustration is the single map foundation. Its 50 state paths, colors, state-bird artwork, keyboard selection, state routes, citations, share/retry/detail controls and historic mine records are preserved. The original creator atlas supplies the 18px nugget SVG, tooltips, popup text/profile/video links, Leaflet zoom/pan and directory filters. No state ranking colors or new research records were added.
+
+`createAlmanacCreators(directory)` projects the existing merged, published directory roster using the exact us-atlas Albers USA projection (scale 1300, translation [487.5,305]); d3-geo is pinned at 3.1.1. Reference: https://github.com/topojson/us-atlas. One record per creator slug, existing broad regional anchors and stable decorative offsets. Alaska/Hawaii use the illustration’s insets. No home-address geocoding. Only recognized U.S. regions are plotted. Paul approved listing international and other unplotted creators below the guide, with free profile/video links.
+
+A single Leaflet SVG overlay contains the existing state illustration. No world tile map or second creator atlas is rendered. Existing historic-mine maps inside state research are unchanged. Filters use the same `matchesCreator` function on server and browser; state selection does not discard active creator filters. Old `/creator-map/` and `/prospectors/?view=map` routes redirect to `/gold-almanac/`, preserving filters. Find-on-map links use the existing creator slug and focus its nugget.
+
+## Access
+`app/plus/entitlements.js` holds the approved premium feature registry (currently Almanac only). Full root map, all state guides, all state JSON and `/api/gold-almanac/creators/` use the existing effective subscriber or independently validated owner session, checked on every request. Premium responses are private/no-store and vary by Cookie. Public previews contain no interactive state SVG or premium map dataset. Direct state access without Plus returns 403 and a membership preview. Membership/creator query values never grant access. Safe internal sign-in return URLs preserve filters and creator focus.
+
+All creator directory/search, profiles, channels and video library HTML/JSON remain public. The map is an extra discovery method, not a prerequisite for visiting any creator. No schema migration, database insert, entitlement grant, payment activation, or duplicate creator record is part of this change. $5/month remains the proposed offer. Checkout, donations and billing routes remain disabled pending payment implementation and explicit activation approval.
+
+## Verification
+Release suite: 222 passing tests; includes all 50 state APIs, subscriber/free/expired/forged/owner/outage cases, no premium root data for anonymous users, creator projection/deduplication, public directory/profile/video access and legacy map redirects. Build checks 13 static pages and 354 local links/assets.
+
+Local browser verification uses a loopback-only disposable preview, with separate sample access modes; it grants no production membership. Desktop: nugget popup, state selection and research, filters, no default state. At 390px: no horizontal overflow, zoom, popup and video dialog. Mobile popup room/padding prevents clipping while retaining original artwork and controls. Actual paid provider flow is not tested because payments remain disabled. Production anonymous checks and deployment status are recorded below after publishing.
+
+## Maintenance
+Update existing directory regions/topics and reviewed Almanac records to expand content; do not duplicate them in a separate map table. Unrecognized regions remain in the public directory and the supplementary list. The registry can accept additional approved feature keys later; no new offering is advertised. Leaflet 1.9.4 continues to load from the existing unpkg source. A load failure retains the original SVG state links and a link to the public directory.

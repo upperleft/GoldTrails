@@ -70,8 +70,12 @@ export function createServer({ plus = createPlusHandler(), suggestions = null, a
       res.writeHead(405, { Allow:'GET, HEAD' }); res.end(); return;
     }
     if(path==='/creator-map'||path==='/creator-map/') {
-      const params=new URLSearchParams(url.searchParams);params.set('view','map');
-      res.writeHead(308,{Location:'/prospectors/?'+params.toString()});res.end();return;
+      const params=new URLSearchParams(url.searchParams);params.delete('view');
+      res.writeHead(308,{Location:'/gold-almanac/'+(params.size?'?'+params.toString():'')});res.end();return;
+    }
+    if(path==='/prospectors/'&&url.searchParams.get('view')==='map') {
+      const params=new URLSearchParams(url.searchParams);params.delete('view');
+      res.writeHead(308,{Location:'/gold-almanac/'+(params.size?'?'+params.toString():'')});res.end();return;
     }
     const match = path.match(/^\/prospectors\/([^/]+)\/$/);
     const dynamic = path === '/prospectors/' || (match && path !== samplePath);

@@ -19,3 +19,16 @@
 .almanac-status-row>a{font-size:var(--type-note);padding:8px 0}
 
 .almanac-page [hidden]{display:none!important}
+/* One existing state illustration, enhanced with the existing creator controls. */
+#almanac-unified-map{width:100%;aspect-ratio:1100/650;background:transparent;isolation:isolate;font:inherit}
+#almanac-unified-map .almanac-map{padding:0;max-width:none}
+.almanac-map-wrap .leaflet-container{background:transparent}
+.almanac-creator-list{padding:24px}
+.almanac-creator-list ul{padding-left:1.25rem}
+.almanac-creator-list li{margin:.7rem 0}
+.almanac-map-panel .explorer-form{margin:1rem 0}
+@media(max-width:640px){
+ #almanac-unified-map{min-height:370px}
+ #almanac-unified-map .leaflet-popup{max-width:calc(100vw - 68px)}
+ #almanac-unified-map .leaflet-popup-content{max-width:calc(100vw - 104px);overflow-wrap:anywhere}
+}

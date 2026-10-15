@@ -293,7 +293,7 @@ test('all state guides omit empty fields and sections while preserving supported
 
 test('the main Almanac opens with no selected state and no database lookup',async()=>{
  let lookups=0;
- await serve(createAlmanacHandler({store:async()=>{lookups++;return {};}}),async root=>{
+ await serve(createAlmanacHandler({members:{session:async()=>({effective_level:'subscriber'})},store:async()=>{lookups++;return {};}}),async root=>{
   const response=await fetch(root+'/gold-almanac/',{redirect:'manual'});assert.equal(response.status,200);assert.equal(response.headers.get('location'),null);
   const html=await response.text();assert.equal((html.match(/data-state="/g)||[]).length,50);assert.ok(!html.includes('aria-pressed="true"'));assert.ok(!html.includes('almanac-picker'));assert.ok(!html.includes('id="state-heading"'));assert.match(html,/data-state-id="" hidden/);assert.match(html,/Selected: <strong id="selected-state">None/);assert.equal(lookups,0);const fresh=await fetch(root+'/gold-almanac/?view=map');assert.equal(fresh.status,200);assert.ok(!(await fresh.text()).includes('aria-pressed="true"'));
   const bare=await fetch(root+'/gold-almanac',{redirect:'manual'});assert.equal(bare.status,308);assert.equal(bare.headers.get('location'),'/gold-almanac/');

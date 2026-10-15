@@ -7,7 +7,7 @@
  const urlFor=slug=>slug?'/gold-almanac/'+slug+'/':'/gold-almanac/';
  const details=document.getElementById('almanac-details'),selectionMarker=document.getElementById('almanac-selection-marker');
  const setFocusStop=slug=>markers.forEach(m=>m.setAttribute('tabindex',m.dataset.state===slug?'0':'-1'));
- if(!selected&&location.pathname==='/gold-almanac/'&&location.search)history.replaceState({state:null},'',urlFor(null));
+
  setFocusStop(selected||markers[0]?.dataset.state);share.hidden=!selected;
  if(selected)window.goldTrailsMineMap?.mount(panel);
  function clearSelection(){
@@ -31,12 +31,12 @@
    markers.forEach(m=>{const active=m.dataset.state===slug;m.classList.toggle('is-selected',active);m.setAttribute('aria-pressed',String(active));});
    setFocusStop(slug);document.getElementById('selected-state').textContent=result.state.name;
    document.title='Gold Almanac · '+result.state.name+' — Gold Trails';document.querySelector('link[rel="canonical"]').href=result.url;
-   if(historyMode==='push')history.pushState({state:slug},'',result.url+location.hash);
+   if(historyMode==='push')history.pushState({state:slug},'',result.url+(location.search||'')+location.hash);
    status.textContent=result.state.name+' selected. '+(result.code==='plus_required'?'Plus access information is below the map.':'Field notes are below the map.');pending=null;
   }catch(error){
    if((error.name==='AbortError'&&!timedOut)||request!==serial)return;
    status.textContent='Could not load that state. Your previous selection is still here. Try again, or open the state link.';retry.hidden=false;
-   if(historyMode==='pop')history.replaceState({state:selected},'',urlFor(selected)+location.hash);
+   if(historyMode==='pop')history.replaceState({state:selected},'',urlFor(selected)+(location.search||'')+location.hash);
   }finally{clearTimeout(timeout);if(request===serial){panel.removeAttribute('aria-busy');share.disabled=false;}}
  }
  map.addEventListener('click',e=>{const marker=e.target.closest('[data-state]');if(!marker||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey||e.button!==0)return;e.preventDefault();select(marker.dataset.state);});
