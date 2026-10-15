@@ -15,4 +15,4 @@ CREATE TABLE IF NOT EXISTS site_usage_events (
  INDEX usage_session(session_hash,created_at),
  CHECK((event_type='pageview' AND target_url='') OR (event_type='outbound' AND target_url<>''))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-INSERT IGNORE INTO schema_migrations(version) VALUES('010_site_analytics');
+INSERT IGNORE INTO schema_migrations(version,description) VALUES('010_site_analytics','Opt-in public page views and outbound resource clicks');
