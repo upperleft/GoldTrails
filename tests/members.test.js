@@ -8,6 +8,22 @@ import {memberMail} from '../app/member-mail.js';
 import {createCalendarHandler} from '../app/calendar/handler.js';
 import {calendarMemoryStore} from './helpers/calendar-memory.js';
 const origin='https://gold.example',csrf='a'.repeat(64),session='b'.repeat(64),link='c'.repeat(64);
+test('account overview keeps private access, escaped identity, entitlement links and protected sign-out',async t=>{
+ for(const effective_level of ['free','subscriber']){
+  let signouts=0;
+  const request=await fixture(t,{store:{ready:async()=>true,session:async raw=>raw===session?{display_name:'Alex <script>bad()</script>',username:'TrailReader',email:'alex@example.invalid',account_number:42,level:'subscriber',effective_level,csrf_token_hash:digest(csrf)}:null,logout:async()=>signouts++}});
+  const anonymous=await request('/account/');assert.equal(anonymous.status,303);assert.equal(anonymous.headers.get('location'),'/login/');
+  const headers={Cookie:`__Host-gold-member=${session}; __Host-gold-form=${csrf}`};
+  const response=await request('/account/',null,{headers}),html=await response.text();
+  assert.equal(response.status,200);assert.equal(response.headers.get('cache-control'),'no-store');
+  assert.match(html,/Alex &lt;script&gt;bad\(\)&lt;\/script&gt;/);assert.doesNotMatch(html,/<script>bad/);
+  assert.match(html,new RegExp(effective_level==='subscriber'?'href="/gold-almanac/">Open Almanac':'href="/plus/">Explore Plus'));
+  assert.match(html,/<form method="post" action="\/logout\/">/);assert.match(html,new RegExp(`name="csrf" value="${csrf}"`));
+  assert.equal((await request('/logout/',null,{headers})).status,405);assert.equal(signouts,0);
+  assert.equal((await request('/logout/',{csrf:'d'.repeat(64)},headers)).status,403);assert.equal(signouts,0);
+  const logout=await request('/logout/',{},headers);assert.equal(logout.status,303);assert.equal(signouts,1);
+ }
+});
 async function fixture(t,options={}){const server=createServer({members:createMemberHandler({config:{origin,open:true},log:()=>{},...options})});await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));return async(path,fields,extra={})=>fetch(`http://127.0.0.1:${server.address().port}${path}`,{redirect:'manual',...(fields?{method:'POST',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded',Cookie:`__Host-gold-form=${csrf}`, ...extra},body:new URLSearchParams({csrf,...fields})}:extra)});}
 test('signup remains closed without email, even when enabled',async t=>{let writes=0;const request=await fixture(t,{store:{ready:async()=>true,signup:async()=>writes++}});const response=await request('/signup/',{username:'newmember'});assert.equal(response.status,200);assert.match(await response.text(),/fieldset disabled/);assert.equal(writes,0);});
 test('mutation requires matching origin and CSRF; email link GET cannot activate account',async t=>{let consumes=0;const request=await fixture(t,{store:{ready:async()=>true,allow:async()=>true,consume:async()=>{consumes++;return true;}}});assert.equal((await request('/verify-email/',{token:link},{Origin:'https://other.example'})).status,403);assert.equal((await request('/verify-email/',{token:link,csrf:'d'.repeat(64)})).status,403);const response=await request('/verify-email/?token='+link);assert.equal(response.status,200);assert.equal(consumes,0);assert.equal(response.headers.get('referrer-policy'),'strict-origin');assert.equal((await request('/verify-email/',{token:link})).status,200);assert.equal(consumes,1);});

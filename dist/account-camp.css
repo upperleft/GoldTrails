@@ -1,0 +1,43 @@
+/* Account overview only; signup, sign-in and all access checks stay separate. */
+@media(min-width:751px){.camp-page .layout>.left{grid-column:1;grid-row:1}.camp-page .layout>.center{grid-column:2;grid-row:1}}
+.member-page .member-card.camp-card{max-width:920px;padding:clamp(20px,3vw,36px);border:1px solid #d7c5a0;border-radius:14px;background:#fffaf0;box-shadow:0 8px 28px #513a1710}
+.camp-card .camp-welcome{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin:0 0 28px;padding:0;border:0;background:none;box-shadow:none}
+.camp-welcome>div{flex:1;min-width:180px}
+.camp-card .camp-welcome h2{margin:0 0 6px;font-size:1.75rem;line-height:1.25;font-weight:700;color:#382c20}
+.camp-card p,.camp-card a,.camp-card button,.camp-card dt,.camp-card dd,.camp-card strong,.camp-card h3{font-size:1rem;line-height:1.5;letter-spacing:normal}
+.camp-card p{margin:0;color:#705e44}
+.camp-emblem{display:grid;place-items:center;flex:none;width:56px;height:56px;border:1px solid #d5bb7a;border-radius:50%;background:#f5e8c6;color:#79561f}
+.camp-emblem svg{width:36px;height:36px}
+.camp-card .camp-membership{display:inline-block;padding:6px 12px;border:1px solid #c6d2be;border-radius:30px;background:#edf2e8;color:#38533d;font-size:.875rem;line-height:1.5;white-space:nowrap}
+.camp-destinations{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.camp-card .camp-destinations a{display:flex;align-items:center;gap:12px;padding:18px;border:1px solid #d7c5a0;border-radius:9px;background:#fffdf7;color:#493720;text-decoration:none;box-shadow:none;min-width:0}
+.camp-card .camp-destinations a>span:not(.camp-icon):not(.camp-arrow){min-width:0;flex:1}
+.camp-card .camp-destinations strong{display:block;font-weight:700}
+.camp-card .camp-destinations strong+span{display:block;color:#705e44;font-size:.875rem;font-weight:400}
+.camp-card .camp-destinations .camp-trail{grid-column:1/-1;background:linear-gradient(110deg,#f5dda0,#efd18a);border-color:#c4a05c;padding:20px 22px}
+.camp-icon{display:grid;place-items:center;flex:none;width:32px;height:32px;color:#7b6337}
+.camp-icon svg{width:28px;height:28px}
+.camp-arrow{flex:none;margin-left:auto;font-size:1.25rem}
+.camp-card .camp-destinations a:hover{background:#f6ebd3;border-color:#a98542}
+.camp-card a:focus-visible,.camp-card button:focus-visible{outline:3px solid #345f55;outline-offset:4px}
+.camp-card .camp-details{margin:28px 0;padding:22px 0;border-top:1px solid #e1d5bf;border-bottom:1px solid #e1d5bf}
+.camp-card h3{margin:0 0 14px;color:#493720;font-weight:700}
+.camp-details dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 24px;margin:0}
+.camp-details dl>div{min-width:0}
+.camp-card dt{color:#705e44;font-size:.875rem;font-weight:400}
+.camp-card dd{margin:3px 0 0;color:#382c20;overflow-wrap:anywhere}
+.camp-email{grid-column:1/-1}
+.camp-plus{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.camp-card .camp-plus strong{font-weight:700;color:#493720}
+.camp-card .camp-plus p{margin-top:4px;font-size:.875rem}
+.camp-card .camp-plus a{flex:none;color:#784c22;text-underline-offset:4px;font-size:.875rem;font-weight:700}
+.camp-card .camp-footer{display:flex;align-items:center;gap:20px;justify-content:space-between;margin:22px 0 0;padding:18px 0 0;border-top:1px solid #e1d5bf;background:none;color:inherit;text-align:left}
+.camp-card .camp-footer p{font-size:.875rem;max-width:50ch}
+.camp-footer form{margin:0;flex:none}
+.camp-card .camp-footer button{min-height:44px;padding:7px 14px;border:1px solid #cbb894;border-radius:6px;background:transparent;color:#624a2c;font-family:inherit;font-weight:400;cursor:pointer}
+.camp-card .camp-footer button:hover{background:#f6ebd3}
+@media(max-width:600px){.camp-welcome>div{min-width:0;flex-basis:calc(100% - 72px)}.camp-membership{margin-left:72px}.camp-destinations{grid-template-columns:minmax(0,1fr)}.camp-card .camp-destinations a{padding:16px}.camp-plus,.camp-card .camp-footer{align-items:flex-start;flex-direction:column}.camp-card .camp-footer{gap:12px}}
+html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) :is(.camp-destinations,.camp-details dl){grid-template-columns:minmax(0,1fr)}
+html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) .camp-page .layout>:is(.left,.center){grid-column:1;grid-row:auto}
+html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) :is(.camp-plus,.camp-card .camp-footer){align-items:flex-start;flex-direction:column}
+html[data-reading-contrast] .camp-card :is(.camp-trail,.camp-shortcut,.camp-emblem,.camp-membership){background:#fffdf7!important;color:#20170f!important;border-color:#81715a!important}

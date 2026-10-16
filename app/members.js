@@ -1,3 +1,5 @@
+import {accountView} from './account-view.js';
+import {assetUrl} from './asset-url.js';
 import {connectionsReturnPath} from './connections/handler.js';
 import {almanacReturnPath} from './plus/entitlements.js';
 import {timingSafeEqual} from 'node:crypto';
@@ -20,7 +22,24 @@ const input=(name,label,type='text',auto='')=>`<label>${label}<input id="member-
 const passwords=()=>'<p id="password-guidance" class="member-form-guidance">Use 8–128 characters. Enter your password once; you can show it below to check it.</p>'+input('password','Password','password','new-password')+'<div class="member-password-controls"><button type="button" class="member-password-toggle" data-password-toggle aria-controls="member-password" aria-pressed="false" hidden>Show password</button></div>';
 // The account credential is email; the separately chosen username is not a login identifier.
 const signupFields=(displayName=false)=>input('username','Username','text','nickname')+(displayName?'<label>Display name (optional)<input name="displayName" maxlength="180" autocomplete="nickname"></label>':'')+input('email','Email','email','username')+passwords();
-const shell=(title,body)=>page(title,'Your Gold Trails membership',`<section class="resource-placeholder member-card"><h2>${h(title)}</h2>${body}</section>`,`<section class="panel related"><h2>Your camp</h2><a href="/">Gold Trails home</a><a href="/prospectors/">Creator directory</a><a href="/signup/">Free membership</a><a href="/login/">Member sign-in</a><a href="/admin/login/">Administrator sign-in</a></section>`,'A home for your curiosity.').replace('class="category-page"','class="category-page member-page"').replace('GOLD TRAILS / PROSPECTOR DIRECTORY','THE MEMBERS’ LODGE').replace(/ aria-current="(?:location|page)"/g,'').replace(/<nav class="breadcrumb"[^>]*>.*?<\/nav>/,`<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${h(title)}</span></nav>`);
+const shell=(title,body)=>{
+ const camp=title==='Your camp';
+ let html=page(title,'Your Gold Trails membership',
+  `<section class="resource-placeholder member-card${camp?' camp-card':''}">${camp?'':`<h2>${h(title)}</h2>`}${body}</section>`,
+  '<section class="panel related"><h2>Your camp</h2><a href="/">Gold Trails home</a><a href="/prospectors/">Creator directory</a><a href="/signup/">Free membership</a><a href="/login/">Member sign-in</a><a href="/admin/login/">Administrator sign-in</a></section>',
+  'A home for your curiosity.')
+  .replace('class="category-page"',`class="category-page member-page${camp?' camp-page':''}"`)
+  .replace('GOLD TRAILS / PROSPECTOR DIRECTORY','THE MEMBERS’ LODGE')
+  .replace(/ aria-current="(?:location|page)"/g,'')
+  .replace(/<nav class="breadcrumb"[^>]*>.*?<\/nav>/,`<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${h(title)}</span></nav>`);
+ if(camp){
+  html=html.replace('</head>',`<link rel="stylesheet" href="${assetUrl('account-camp.css')}"></head>`);
+  // Put the welcome first in reading/tab order and on phones; keep the desktop shelf.
+  const sidebar=html.match(/<aside class="left">[\s\S]*?<\/aside>/)?.[0];
+  if(sidebar)html=html.replace(sidebar,'').replace('</div></main>',sidebar+'</div></main>');
+ }
+ return html;
+};
 const form=(path,csrf,content,button)=>`<form ${path==='/signup/'?'data-async-signup':''} class="admin-form member-form" method="post" action="${path}">${hidden('csrf',csrf)}${content}<p class="member-form-feedback" role="status" aria-live="polite" aria-atomic="true" hidden></p><button type="submit" class="gold-button">${h(button)}</button></form>`;
 export function memberConfig(env=process.env){try{const raw=env.MEMBER_ORIGIN||env.ADMIN_ORIGIN;if(!raw)return null;const u=new URL(raw);return u.protocol==='https:'&&u.origin===raw&&!u.username&&!u.password?{origin:raw,open:env.MEMBER_SIGNUP_ENABLED==='true'}:null;}catch{return null;}}
 export function createMemberHandler({store=null,config=null,mail=null,log=console.error}){
@@ -64,7 +83,7 @@ export function createMemberHandler({store=null,config=null,mail=null,log=consol
    if(url.pathname==='/account/'||url.pathname==='/logout/'){
     const p=ready?await store.session(raw):null;if(!p){redirect('/login/');return true;}if(url.pathname==='/logout/'){if(req.method!=='POST'){send(405,'Use the sign-out button','<p>Return to your account.</p>');return true;}if(!equal(digest(csrf),p.csrf_token_hash)){send(403,'Form expired','<p>Sign in again.</p>');return true;}await store.logout(raw);redirect('/login/',[cookie('member','',0),cookie('form','',0)]);return true;}
     if(req.method==='POST'){send(405,'Account overview','<p>Profile editing is coming later.</p>');return true;}
-    send(200,'Your camp',`<p>Welcome, ${h(p.display_name||p.username)}.</p><dl class="profile-facts"><div><dt>Account number</dt><dd>GT-${h(String(p.account_number).padStart(6,'0'))}</dd></div><div><dt>Username</dt><dd>${h(p.username)}</dd></div><div><dt>Email</dt><dd>${h(p.email)}</dd></div><div><dt>Membership</dt><dd>${p.effective_level==='subscriber'?'Gold Trails Plus':'Free'}</dd></div></dl><p><a class="gold-button" href="/compass/">Open My Gold Trail</a></p><p><a class="gold-button" href="/calendar/">Open my calendar</a></p><p><a class="gold-button" href="/connections/mine/">My Gold Connections events &amp; RSVPs</a></p><p><a class="gold-button" href="${p.effective_level==='subscriber'?'/gold-almanac/':'/plus/'}">${p.effective_level==='subscriber'?'Open the full State Almanac':'About Gold Trails Plus'}</a></p><p><a href="/plus/">Gold Trails Plus · $5/month</a>. New subscriptions and billing controls are not open yet.</p>${form('/logout/',csrf,'','Sign out')}`);return true;
+    send(200,'Your camp',accountView(p,csrf));return true;
    }
    if(url.pathname==='/forgot-password/'||url.pathname==='/resend-verification/'){
     const verify=url.pathname==='/resend-verification/';if(req.method==='POST'){if(!mail){send(503,'Email service being prepared','<p>Please return when member email is ready.</p>');return true;}if(!await store.allow('recovery')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}const email=(f.get('email')||'').trim().toLowerCase();if(!validEmail(email))throw new InputError('Enter a valid email address.');const p=await store.find(email);if(p&&p.status!=='suspended'&&(verify?!p.email_verified_at:Boolean(p.email_verified_at))){try{await emailLink(p,verify?'verify_email':'reset_password');}catch{log('Gold Trails member email unavailable');}}send(200,'Check your email',verify?'<p>If an account at this address still needs verification, an email is on its way. An account that is already verified will not receive another verification email.</p><p><a href="/login/">Sign in</a> · <a href="/forgot-password/">Reset your existing password</a></p>':'<p>If an eligible account exists, an email is on its way. Please check your inbox and spam folder.</p>');return true;}
