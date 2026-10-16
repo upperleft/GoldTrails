@@ -151,3 +151,8 @@ footer{background:radial-gradient(ellipse at 50% 0,#684a29,#352d23 70%)}
 /* Left navigation uses separators and a soft focus fill, never enclosing rules. */
 .layout>.left .trail-menu>a{border:0;border-bottom:1px solid #dfd3bb;outline:none;box-shadow:none}
 .layout>.left .trail-menu>a:focus-visible{background:#ead7a8!important;color:#493313;outline:none;box-shadow:none}
+
+/* Creator video destinations get a dedicated, left-aligned line. */
+.creator-profile-page .resource-placeholder a[href*="youtube.com/"],.creator-profile-page .resource-placeholder a[href*="youtu.be/"]{display:block;width:fit-content;max-width:100%;text-align:left}
+
+.creator-profile-page .creator-youtube-link{display:flex;width:fit-content;max-width:100%;margin:14px 0;text-align:left}
