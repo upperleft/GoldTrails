@@ -1,0 +1,2807 @@
+{
+  "schemaVersion": 1,
+  "unconfirmedLeads": {
+    "destinations": [
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "Washington",
+          "lead": "DNR State Trust lands and state aquatic lands",
+          "status": "Unconfirmed; not a named open panning destination",
+          "reason": "Washington DNR expressly PROHIBITS gold panning on State Trust lands. State-owned aquatic lands require authorization from the Aquatic Resources Division and recreational prospectors must follow/carry the Gold and Fish pamphlet; no independently confirmed drop-in panning site established.",
+          "sourceUrls": [
+            "https://dnr.wa.gov/washington-geological-survey/explore-popular-geology/rockhounding"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "Idaho",
+          "lead": "Bannock Creek, Boise Basin Experimental Forest",
+          "status": "Unconfirmed access",
+          "reason": "USFS research page mentions panning on Bannock Creek but does not identify a publicly open reach, current mining claims, visitor route or agency approval for recreational digging.",
+          "sourceUrls": [
+            "https://research.fs.usda.gov/rmrs/forestsandranges/locations/bbef"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "Nevada",
+          "lead": "Buckland Station Gold Fever state-park event",
+          "status": "Past event; not ongoing permission",
+          "reason": "Nevada State Parks held a specific supervised gold-panning event September 20, 2026. No later event or day-to-day panning permission was verified.",
+          "sourceUrls": [
+            "https://parks.nv.gov/events/gold-fever-33"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "California",
+          "lead": "Fresno River Recreation Area",
+          "status": "Conditional claim access only",
+          "reason": "BLM indicates panning subject to Central Valley Prospectors Club permission; this research did not confirm how an ordinary visitor obtains that permission.",
+          "sourceUrls": [
+            "https://www.blm.gov/visit/fresno-river-recreation-area"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "South Dakota",
+          "lead": "Broken Boot Gold Mine",
+          "status": "Does not currently offer gold panning",
+          "reason": "Operator advertises gem panning rather than gold-panning experience; not added as a Gold Trails gold destination.",
+          "sourceUrls": []
+        }
+      },
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "Alaska",
+          "lead": "Chena River State Recreation Area",
+          "status": "Special-use permit condition",
+          "reason": "Park information indicates gold prospecting may require special use permit; no ordinary drop-in hand-panning opportunity established.",
+          "sourceUrls": []
+        }
+      },
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "Montana",
+          "lead": "Unspecified historic placer sites",
+          "status": "Insufficient primary-source proof",
+          "reason": "No named location with directly documented present-day public hand-panning access established in this research.",
+          "sourceUrls": []
+        }
+      },
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "New York",
+          "lead": "Unspecified historic gold occurrences",
+          "status": "Insufficient primary-source proof",
+          "reason": "No verified managed public panning area or operator activity documented in this research.",
+          "sourceUrls": []
+        }
+      },
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "Massachusetts",
+          "lead": "Unspecified gold-bearing streams",
+          "status": "Insufficient primary-source proof",
+          "reason": "No verified current permission for panning a named public stream established in this research.",
+          "sourceUrls": []
+        }
+      },
+      {
+        "sourceFile": "gold_trails_destinations_2026-10-11.json",
+        "lead": {
+          "state": "Pennsylvania",
+          "lead": "Unspecified gold-bearing streams",
+          "status": "Insufficient primary-source proof",
+          "reason": "Pennsylvania DEP states that nonmotorized waterway panning generally needs no DEP permit; however, property-owner authorization still applies, state game lands/National Parks are excluded, and state parks/forests require their manager’s rules. This statewide policy does NOT name a verified publicly accessible destination.",
+          "sourceUrls": [
+            "https://www.pa.gov/agencies/dep/programs-and-services/mining/bureau-of-mining-programs/mining-for-gold-and-gemstones-in-pennsylvania"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round2_2026-10-11.json",
+        "lead": {
+          "state": "South Dakota",
+          "title": "Broken Boot Gold Mine, Deadwood",
+          "reason": "Operator now explicitly substitutes GEM panning because gold prices are high; no current gold-panning ticket.",
+          "sourceUrls": [
+            "https://brokenbootgoldmine.com/"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round2_2026-10-11.json",
+        "lead": {
+          "state": "South Dakota",
+          "title": "Black Hills Mining Museum, Lead",
+          "reason": "Museum explicitly states that GOLD panning is suspended due to gold prices.",
+          "sourceUrls": [
+            "https://blackhillsminingmuseum.com/visit/rates"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round2_2026-10-11.json",
+        "lead": {
+          "state": "Washington",
+          "title": "Unspecified state trust-land waterways",
+          "reason": "Washington DNR guidance does not establish general right to pan on state trust lands; no named permitted creek access verified.",
+          "sourceUrls": [
+            "https://dnr.wa.gov/washington-geological-survey/explore-popular-geology/rockhounding"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round2_2026-10-11.json",
+        "lead": {
+          "state": "Oregon",
+          "title": "Sumpter Valley Dredge State Heritage Area",
+          "reason": "Historic dredge attraction located, but no standing hands-on visitor gold-panning offering verified on responsible authority page.",
+          "sourceUrls": [
+            "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=174"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round2_2026-10-11.json",
+        "lead": {
+          "state": "Montana",
+          "title": "River of Gold educational panning, Virginia City",
+          "reason": "Montana Heritage Commission describes an $8 school field-trip panning option; independently bookable access for general visitors, ticketing address, equipment and operating hours not adequately confirmed.",
+          "sourceUrls": [
+            "https://www.virginiacitymt.com/Experience-The-Old-West/Packages-and-Specials"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round2_2026-10-11.json",
+        "lead": {
+          "state": "Pennsylvania",
+          "title": "Named state waterway",
+          "reason": "General nonmotorized panning regulatory guidance does not identify a specific parcel whose owner permits access; no publication-ready named place established.",
+          "sourceUrls": [
+            "https://www.pa.gov/agencies/dep/programs-and-services/mining/bureau-of-mining-programs/mining-for-gold-and-gemstones-in-pennsylvania"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round2_2026-10-11.json",
+        "lead": {
+          "state": "Massachusetts",
+          "title": "Named state park or river",
+          "reason": "No official site-specific state-park permission or operator visitor offering validated; broader park-permits policy alone is inadequate.",
+          "sourceUrls": [
+            "https://www.mass.gov/department-of-conservation-and-recreation-permits"
+          ]
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round2_2026-10-11.json",
+        "lead": {
+          "state": "New York",
+          "title": "Named river or historic mine",
+          "reason": "No official site-specific permission for current visitor gold panning established.",
+          "sourceUrls": []
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round2_2026-10-11.json",
+        "lead": {
+          "state": "Nevada",
+          "title": "Named ongoing gold-panning activity",
+          "reason": "No standing visitor-access offer with current primary-source confirmation located; historical gold occurrence is insufficient.",
+          "sourceUrls": []
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "South Dakota",
+          "title": "Black Hills Mining Museum, Lead",
+          "whyUnconfirmed": "Operator’s panning page says gold panning is suspended; historic attraction descriptions cannot override current notice.",
+          "sourceUrls": [
+            "https://blackhillsminingmuseum.com/visit/gold-panning/"
+          ],
+          "nextStep": "Only reconsider after operator publishes restart."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "South Dakota",
+          "title": "Broken Boot Gold Mine, Deadwood",
+          "whyUnconfirmed": "Operator indicates gem panning in place of gold panning because of gold prices; gold experience not currently established.",
+          "sourceUrls": [
+            "https://brokenbootgoldmine.com/"
+          ],
+          "nextStep": "Check for an explicit gold-panning restoration."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "Georgia",
+          "title": "Gold ’n Gem Grubbin’",
+          "whyUnconfirmed": "Operator contact information says physical site closed and online operations continue; no visitor-access panning opportunity.",
+          "sourceUrls": [
+            "https://goldngemgrubbin.com/contact-us"
+          ],
+          "nextStep": "Only restore if physical prospecting site reopens."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "California",
+          "title": "Steiner Flat Primitive Campground, Trinity River",
+          "whyUnconfirmed": "BLM recognizes gold panning here but currently announces site closed for season due to maintenance.",
+          "sourceUrls": [
+            "https://www.blm.gov/visit/steiner-flat-primitive-campground"
+          ],
+          "nextStep": "Check current BLM reopening notice."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "California",
+          "title": "Fresno River Recreation Area",
+          "whyUnconfirmed": "Existing prospecting claim rights/club authorization make general visitor permission ambiguous.",
+          "sourceUrls": [
+            "https://www.blm.gov/visit/fresno-river-recreation-area"
+          ],
+          "nextStep": "Find documented public-access agreement or day-pass from claimholder."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "Alaska",
+          "title": "Crescent Creek near Quartz Creek Road",
+          "whyUnconfirmed": "2018 Chugach guide lists the creek but flags state/land-management conditions; current land-manager authorization and access need independent checking.",
+          "sourceUrls": [
+            "https://www.govinfo.gov/content/pkg/GOVPUB-I53-PURL-gpo112765/pdf/GOVPUB-I53-PURL-gpo112765.pdf"
+          ],
+          "nextStep": "Confirm current Alaska DNR rules and exact segment before publishing."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "Oregon",
+          "title": "Gold Nugget Wayside / Rogue River district",
+          "whyUnconfirmed": "Historical and planning documents are not a current access instruction specifying allowed river stretch and tools.",
+          "sourceUrls": [],
+          "nextStep": "Find current BLM/ODFW posted public panning rule."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "Washington",
+          "title": "Additional recreational stream access",
+          "whyUnconfirmed": "No additional named site with verified permission distinct from previous batches was established.",
+          "sourceUrls": [],
+          "nextStep": "Review DNR trust/aquatic land regulations, then verify a specific managed parcel."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "Nevada",
+          "title": "Buckland Station future supervised panning event",
+          "whyUnconfirmed": "Documented 2026 event date has passed; no regular walk-in program or later event verified.",
+          "sourceUrls": [],
+          "nextStep": "Wait for a new official state park events calendar entry."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round3_2026-10-11.json",
+        "lead": {
+          "state": "Massachusetts, New York, Pennsylvania",
+          "title": "Candidate waterway sites",
+          "whyUnconfirmed": "No clearly bounded destination with positive landowner/current park authority documented in this research batch. General statewide guidance or historic occurrence alone is insufficient.",
+          "sourceUrls": [],
+          "nextStep": "Seek an operator day pass or current official site-specific permit statement."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "VA",
+          "name": "Lake Anna State Park — Goodwin Gold Mine tour/panning",
+          "reason": "2026 state-park ticketed river panning programs documented, but dated July/August 2026; as of Oct 11 no future program verified. Do not imply open daily.",
+          "sourceUrls": [
+            "https://www.virginiastateparks.gov/state-parks/event?id=2026-07-15-15-13-41-908031-niq"
+          ],
+          "needed": "Next event date / registration window."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "AZ",
+          "name": "Lake Pleasant Regional Park",
+          "reason": "Older Arizona state brochure says gold panning possible, but current county permission and precisely open shoreline not established.",
+          "sourceUrls": [
+            "https://azmemory.azlibrary.gov/assets/displaypdf/112237"
+          ],
+          "needed": "Current Maricopa County Parks official written permission and map."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "AK",
+          "name": "Kenai Fjords National Park streams",
+          "reason": "NPS broadly permits pan-only recreational panning, but no specific practical publicly approachable stream established for a visitor.",
+          "sourceUrls": [
+            "https://www.nps.gov/kefj/planyourvisit/collecting-and-harvesting.htm"
+          ],
+          "needed": "Named reachable stream with confirmed access; ownership/stream restrictions."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "GA",
+          "name": "Dukes Creek Ruby and Gold Mines — near Helen",
+          "reason": "Regional visitor information describes seasonal gold trips, but an accessible current operator activity/price page was not fully verified.",
+          "sourceUrls": [
+            "https://www.outpostgoldandgems.com/"
+          ],
+          "needed": "Current operator location, direct visitor access, fees, rules and operating status."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "NC",
+          "name": "Cotton Patch Gold Mine",
+          "reason": "Operator website says recreational public prospecting was discontinued in 2016; do not list as current.",
+          "sourceUrls": [
+            "https://www.cottonpatchgoldmine.com/",
+            "https://www.cottonpatchgoldmine.com/rules/"
+          ],
+          "needed": "Only reconsider with documented operator reopening."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "SD",
+          "name": "Black Hills Mining Museum, Lead",
+          "reason": "Official site currently states gold panning suspended due to higher gold prices.",
+          "sourceUrls": [
+            "https://blackhillsminingmuseum.com/visit/gold-panning/"
+          ],
+          "needed": "Public resumption announcement."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "SD",
+          "name": "Broken Boot Gold Mine, Deadwood",
+          "reason": "Operator explicitly substituted gem panning for gold panning in 2026.",
+          "sourceUrls": [
+            "https://brokenbootgoldmine.com/"
+          ],
+          "needed": "Public return of actual gold panning."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "CA",
+          "name": "Gold Bug Park, Placerville",
+          "reason": "Attraction page highlights gem panning; currently offered gold panning not independently proven.",
+          "sourceUrls": [
+            "https://goldbugpark.org/activities/"
+          ],
+          "needed": "New operator announcement of gold (not gems) lessons."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "OR",
+          "name": "Yellowbottom and Old Miner’s Meadow, Quartzville Creek",
+          "reason": "BLM names these spots, but both are sub-sites on the Quartzville Back Country Byway already researched in an earlier batch; not counted as independent new Gold Trails destinations.",
+          "sourceUrls": [
+            "https://www.blm.gov/visit/yellowbottom-recreation-site",
+            "https://www.blm.gov/visit/old-miners-meadow-group-use-area"
+          ],
+          "needed": "If later creating sub-location records, link to existing Quartzville parent rather than counting as new destination."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "CA",
+          "name": "Railroad Flat and Willow Placer Campgrounds, Merced River",
+          "reason": "Distinct sites confirmed by BLM, but overlap Merced River corridor already represented by earlier Cable Rock and current McCabe Flat. Kept as access-point leads to avoid padding count.",
+          "sourceUrls": [
+            "https://www.blm.gov/visit/railroad-flat-campground",
+            "https://www.blm.gov/visit/willow-placer-campground"
+          ],
+          "needed": "Build named child access points only after checking claim map and day-use rules."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "NV",
+          "name": "Buckland Station gold panning programs",
+          "reason": "2026 event already held September 20, and not confirmed as standing activity.",
+          "sourceUrls": [
+            "https://parks.nv.gov/events/gold-fever-33"
+          ],
+          "needed": "Upcoming event schedule, if renewed."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "NY",
+          "name": "New York public river panning areas",
+          "reason": "No new specific land-manager-designated recreational panning area verified. Historic occurrences or videos not sufficient.",
+          "sourceUrls": [],
+          "needed": "Current written permission from manager for an exact signed site."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "MA",
+          "name": "Massachusetts public gold-panning destinations",
+          "reason": "No new currently managed specific public hand-panning site documented.",
+          "sourceUrls": [],
+          "needed": "Specific authority permission and visitor access, beyond historical gold reports."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "PA",
+          "name": "Pennsylvania public gold panning — location TBD",
+          "reason": "State DEP describes nonmotorized panning regulatory treatment, but it does not confer landowner permission at a named accessible site.",
+          "sourceUrls": [
+            "https://www.pa.gov/agencies/dep/programs-and-services/mining/bureau-of-mining-programs/mining-for-gold-and-gemstones-in-pennsylvania"
+          ],
+          "needed": "A named land-manager-approved panning location and visitor access details."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "WA",
+          "name": "Washington state trust lands prospecting",
+          "reason": "WA DNR says state trust lands are not open to gold panning; other water-land permissions vary.",
+          "sourceUrls": [
+            "https://dnr.wa.gov/washington-geological-survey/explore-popular-geology/rockhounding"
+          ],
+          "needed": "Site-specific county/federal/operator permission."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "VA",
+          "name": "Holliday Lake State Park — Gold Fever ranger program",
+          "reason": "State park specifically limits panning to ranger-led activities, but only Sept. 27, 2026 event was verified; it is in the past as of research date.",
+          "sourceUrls": [
+            "https://www.virginiastateparks.gov/state-parks/event?id=2026-08-20-20-22-31-686189-6qe"
+          ],
+          "needed": "Next scheduled ranger-led session; independent unsupervised panning forbidden."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "NV",
+          "name": "California Trail Interpretive Center — Elko panning demonstrations",
+          "reason": "Education provider and BLM documented June and August 2026 hands-on demonstrations; 2026 dates passed, and no standing demonstration schedule or future date verified.",
+          "sourceUrls": [
+            "https://californiatrailcenter.org/events/gold-panning-3/",
+            "https://www.blm.gov/announcement/california-trail-centers-trail-days"
+          ],
+          "needed": "Next future publicly scheduled activity and admission/registration rules."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "CA",
+          "name": "Malakoff Diggins State Historic Park — China Garden panning",
+          "reason": "Official California State Parks older (2017) brochure explicitly states gold-panning demonstrations at China Garden during museum hours, but current park page omits availability; needs fresh authority confirmation before publication.",
+          "sourceUrls": [
+            "https://www.parks.ca.gov/pages/494/files/MalakoffSHPFinalWebLayout051517.pdf",
+            "https://parks.ca.gov/?page_id=494"
+          ],
+          "needed": "Park-confirmed current 2026 or 2027 public gold-panning program dates; whether gold, not gems; visitor prices and equipment."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round4_2026-10-11.json",
+        "lead": {
+          "state": "CA",
+          "name": "South Fork American River BLM recreation corridor",
+          "reason": "BLM confirms gold panning generally in the corridor, but included sites like Greenwood Creek River Access and Dave Moore Nature Area are separately cataloged; avoid duplicate parent record.",
+          "sourceUrls": [
+            "https://www.blm.gov/visit/south-fork-american-river"
+          ],
+          "needed": "Only create additional records if a distinct named access point with separate published panning permission is verified."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round5_2026-10-11.json",
+        "lead": {
+          "state": "Wyoming",
+          "name": "Medicine Bow–Routt National Forest streams",
+          "status": "Not qualified: only general equipment/stream-water regulations found",
+          "reason": "USFS gold panning/dredging PDF is a regulation for the broader forest, not an identified stream section with open access and current claim status.",
+          "sourceUrls": [
+            "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fseprd1046703.pdf"
+          ],
+          "nextCheck": "Ask forest for named claim-free panning location or supervised course."
+        }
+      },
+      {
+        "sourceFile": "gold_trails_new_destinations_round5_2026-10-11.json",
+        "lead": {
+          "state": "California",
+          "name": "Additional undesignated Trinity River banks outside listed campgrounds",
+          "status": "Not qualified without a named access area",
+          "reason": "BLM generally describes gold panning in the Trinity corridor but that does not authorize claims or private river frontage.",
+          "sourceUrls": [
+            "https://www.blm.gov/visit/trinity"
+          ],
+          "nextCheck": "Request BLM Redding public river-access map with specific prospecting boundaries."
+        }
+      }
+    ],
+    "community": [
+      {
+        "name": "New England GPAA chapter / Gold Prospectors of Western Massachusetts",
+        "state": "MA",
+        "reason": "GPAA 2019 article and secondary directories mention chapter, but no independently verified current 2026 meeting or active club page.",
+        "leadUrls": [
+          "https://www.goldprospectors.org/News/ArtMID/406/ArticleID/751/Something-for-Everyone-Prospecting-New-England",
+          "https://www.goldrushnuggets.com/goprclstdi.html"
+        ]
+      },
+      {
+        "name": "Maine gold prospectors older club domains",
+        "state": "ME",
+        "reason": "State geological survey points to club website but current direct site retrieval failed.",
+        "leadUrls": [
+          "https://www.maine.gov/dacf/mgs/explore/minerals/facts/goldfact.htm"
+        ]
+      },
+      {
+        "name": "Additional GPAA local chapters nationwide",
+        "state": "US",
+        "reason": "National organization advertises 90+ chapters; listing individual chapters requires current primary chapter details and deduplication.",
+        "leadUrls": [
+          "https://gpaastore.com/pages/gpaamembership"
+        ]
+      },
+      {
+        "name": "Colorado State Gold Panning Championship 2027",
+        "state": "CO",
+        "reason": "Annual competition confirmed by sponsoring club; specific 2027 dates and registration not yet confirmed.",
+        "leadUrls": [
+          "https://gpoc.club/about-us/"
+        ]
+      },
+      {
+        "name": "Unlisted Facebook and Meetup regional prospecting groups",
+        "state": "US",
+        "reason": "Do not count private, inactive or unverified social groups as confirmed clubs. Verify activity, admins, and public join policy.",
+        "leadUrls": []
+      },
+      {
+        "name": "Valley Prospectors — 2026 Rendezvous",
+        "state": "CA",
+        "reason": "Organizer confirms Rendezvous 2026, but dates and details lack a clearly inspected current event flyer; secondary listing gives Oct 23–25.",
+        "url": "https://www.valleyprospectors.org/",
+        "needed": "Find/inspect organizer 2026 flyer before calendar publication."
+      },
+      {
+        "name": "Bald Eagle Chapter GPAA",
+        "state": "PA",
+        "reason": "Chapter-hosted pa-gold.com pages and documents examined were primarily 2017–2019, not evidence of active 2026 meetings.",
+        "url": "https://www.pa-gold.com/",
+        "needed": "Organizer confirmation or current 2026 meeting notice."
+      },
+      {
+        "name": "Delaware Valley GPAA Chapter",
+        "state": "PA",
+        "reason": "Directory mentions dvgpaa.com, but no active recent organizer instructions established.",
+        "url": "https://www.goldrushnuggets.com/goprclstdi.html",
+        "needed": "Find live organizer meeting page."
+      },
+      {
+        "name": "First Class Miners and Hi-Desert Gold Diggers",
+        "state": "CA",
+        "reason": "Referenced as partners in older Valley Prospectors event materials; current primary club meeting pages not yet verified.",
+        "url": "https://valleyprospectors.org/wp-content/uploads/2025/10/Rendezvous-2025-Flyer_Sched.pdf",
+        "needed": "Direct primary confirmation for 2026–27."
+      },
+      {
+        "name": "Colorado State Gold Panning Championship 2027",
+        "state": "CO",
+        "reason": "GPOC identifies annual championship in its club description but has not published a specific 2027 date in inspected source.",
+        "url": "https://gpoc.club/about-us/",
+        "needed": "2027 organizer schedule and registration."
+      },
+      {
+        "name": "Nampa GPAA, Parma GPAA, Twin Falls GPAA chapters",
+        "state": "ID",
+        "reason": "Listed on Idaho Gold Prospectors chapter link page, but separate current activity not confirmed.",
+        "url": "https://www.idahogoldprospectors.com/links",
+        "needed": "Current local chapters primary sites or pages."
+      },
+      {
+        "name": "Nevada Gold and Treasure show schedules 2027",
+        "state": "NV",
+        "reason": "Older trade show schedules are stale; no additional distinct 2027 recreation-specific event established.",
+        "url": "https://www.goldrushnuggets.com/goprclstdi.html",
+        "needed": "Promoter event announcement."
+      },
+      {
+        "name": "Wisconsin Prospectors",
+        "state": "WI",
+        "reason": "Former club domain appears repurposed into an unrelated and suspicious SEO site; do not publish as active club.",
+        "sourceUrl": "https://www.wisconsinprospectors.com/"
+      },
+      {
+        "name": "Coker Creek GPAA Chapter",
+        "state": "TN",
+        "reason": "Primary club page inaccessible during verification; third-party listing insufficient for current meetings.",
+        "sourceUrl": "https://cokercreekgpaa.com/"
+      },
+      {
+        "name": "Central Indiana GPAA Chapter",
+        "state": "IN",
+        "reason": "Indiana DNR recognizes organization, but accessible independent club site is an archival 2000s page; current meeting unverified.",
+        "sourceUrl": "https://secure.in.gov/dnr/water/recreational-gold-prospecting"
+      },
+      {
+        "name": "Northwest Gold Prospectors Association",
+        "state": "ID",
+        "reason": "2026 PDF newsletter found but primary member details not yet sufficiently checked; avoid conflating with Idaho Gold Prospectors Association.",
+        "sourceUrl": "https://img1.wsimg.com/blobby/go/b6bc92c1-8dba-4154-8463-a38cd712fcb6/Feb26.pdf"
+      },
+      {
+        "name": "Northern Utah Prospectors Association",
+        "state": "UT",
+        "reason": "Old directory provides domain but responsible organization page was unavailable.",
+        "sourceUrl": "https://nupainc.org"
+      },
+      {
+        "name": "Old 2026 events at Buckeye / Eureka / Georgia Mineral Society",
+        "state": "US",
+        "reason": "Event series may recur, but 2027 editions cannot be assumed without an organizer notice.",
+        "sourceUrl": "https://buckeyegold.com/meetings/"
+      },
+      {
+        "name": "Treasure Valley Gold Prospectors",
+        "state": "ID",
+        "reason": "Documented as instructor of the October 11, 2026 Idaho Museum panning event; no recent primary club website, dues or meeting place verified.",
+        "sourceUrls": [
+          "https://www.idahomuseum.org/event/gold-panning-for-all-ages/"
+        ]
+      },
+      {
+        "name": "Casper Wyoming GPAA chapter",
+        "state": "WY",
+        "reason": "Found older chapter pages but no 2026 officer/current schedule verified from organizer.",
+        "sourceUrls": []
+      },
+      {
+        "name": "Big Lake GPAA Chapter",
+        "state": "MN",
+        "reason": "Listed on a third-party club directory; no current primary organizer page inspected to validate exact meeting schedule.",
+        "sourceUrls": [
+          "https://rockhounding.org/clubs/united-states/mn/big-lake-chapter"
+        ]
+      },
+      {
+        "name": "Twin Cities Prospectors",
+        "state": "MN",
+        "reason": "Third-party club listing without current organizer-maintained meeting and access details.",
+        "sourceUrls": [
+          "https://rockhounding.org/clubs/united-states/minnesota/twin-cities-prospectors"
+        ]
+      },
+      {
+        "name": "Indiana Gold Prospectors / GPAA chapter",
+        "state": "IN",
+        "reason": "2026 event mentions were located but organizer-managed schedule and contact not independently established.",
+        "sourceUrls": []
+      },
+      {
+        "name": "Western Massachusetts GPAA Gold Prospectors",
+        "state": "MA",
+        "reason": "Historical directory points to goldprospectorsofwmass.org, but no 2026 primary-source activity was established.",
+        "sourceUrls": [
+          "https://www.goldrushnuggets.com/goprclstdi.html"
+        ]
+      },
+      {
+        "name": "Route 66 Gold Miners",
+        "state": "AZ",
+        "reason": "Found a historical organization site but could not establish continued activity/meeting schedule; avoid presenting as active.",
+        "sourceUrls": [
+          "https://www.route66goldminers.org/"
+        ]
+      },
+      {
+        "name": "Havasu Gold Seekers Thanksgiving treasure hunt 2026",
+        "state": "AZ",
+        "reason": "Club offers a generic November activities listing but no year-specific date or event confirmation.",
+        "sourceUrls": [
+          "https://www.havasugoldseekers.com/activities/"
+        ]
+      },
+      {
+        "name": "Gold Prospectors Club claim outing at Rye",
+        "state": "AZ",
+        "reason": "2026 Payson Rimstones trip mentioned restricted gold-claim panning but does not identify the separate prospecting club clearly.",
+        "sourceUrls": [
+          "https://www.rimstonesrockclub.org/rimstones-rock-club-field-trips-and-events/"
+        ]
+      },
+      {
+        "name": "Michigan Prospectors",
+        "state": "MI",
+        "reason": "Website located in search but failed when re-opened; current schedule and activity not independently verified.",
+        "sourceUrls": [
+          "https://michiganprospectors.com/"
+        ]
+      },
+      {
+        "name": "Gold Prospectors of Michigan",
+        "state": "MI",
+        "reason": "Mentioned as show participant but independent current official meeting and affiliation not verified.",
+        "sourceUrls": [
+          "https://www.kalamazoorockclub.org/vendors-list-floorplan"
+        ]
+      },
+      {
+        "name": "New Mexico Goldminers Association",
+        "state": "NM",
+        "reason": "Named by Sierra County show as panning sponsor in March 2026, but no independently verified organizer page, dues or meetings.",
+        "sourceUrls": [
+          "https://www.scrags.org/truth-or-consequences-rock-and-gem-show/schedule-of-events/"
+        ]
+      },
+      {
+        "name": "Gold Prospectors of Minnesota and Wisconsin social group",
+        "state": "MN/WI",
+        "reason": "Secondary reports mention group but no primary current group page inspected; do not invent join link.",
+        "sourceUrls": []
+      },
+      {
+        "name": "2027 North Shore New England Gem and Mineral Show gold panning",
+        "state": "MA",
+        "reason": "2026 show explicitly included gold panning, but 2027 recurrence/activity not confirmed.",
+        "sourceUrls": [
+          "https://efmls.org/clubdetails/north-shore-rock-and-mineral-club-inc/"
+        ]
+      },
+      {
+        "name": "2027 Cottonwood Festival follow-up",
+        "state": "MT",
+        "reason": "Special 2026 revival was funded by anniversary grant; repeat festival is unconfirmed.",
+        "sourceUrls": [
+          "https://www.greatfallshistorymuseum.org/events/cottonwood-festival"
+        ]
+      }
+    ]
+  },
+  "records": [
+    {
+      "archivePath": "/destinations/0",
+      "title": "Cache Creek Placer Area",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "What current panning regulations apply beyond the 2022 map?",
+        "Are toilets, potable water or step-free paths available?",
+        "Any day-use fee or registration required?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/1",
+      "title": "Fairplay Town Panning Area — Middle Fork South Platte",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The latest fee PDF found is effective January 2024; older 2017 permit literature displayed lower daily/yearly amounts. Do not treat the archival amount as current.",
+        "Town PDF lists High Alpine Sports as an in-person seller but PDF filename indicates 2020; the online form is currently linked. Merchant availability must be checked."
+      ],
+      "unresolvedQuestions": [
+        "Are 2024 permit prices still charged in October 2026?",
+        "What seasonal cutoff, if any, applies?",
+        "Are children exempt from permit fees, and are toilets and accessible bank entry available?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/2",
+      "title": "Quartzville Back Country Byway — BLM river sections",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [
+        "BLM byway says Yellowbottom closed to CAMPING while Yellowbottom site displays older campsite photos and links to reservations. Follow the newer restriction; ask BLM before lodging there."
+      ],
+      "unresolvedQuestions": [
+        "Which public pull-outs are within open BLM panning areas?",
+        "Are hand sluices currently allowed?",
+        "Exact seasonal road closure and family/accessibility details?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/3",
+      "title": "Sharps Creek Recreation Site",
+      "status": "held_for_reverification",
+      "flags": [
+        "Official Sharps Creek page conflicts on cash/check versus electronic-only payment. Recheck with the land manager before publishing payment or seasonal details."
+      ],
+      "conflicts": [
+        "BLM page headline says electronic machine ONLY and NO CASH; later Fees section still says cash/check and fee envelopes for an additional camping vehicle. Treat payment method as unresolved rather than assuming cash is possible."
+      ],
+      "unresolvedQuestions": [
+        "What is 2026 daily vehicle day-use pass price?",
+        "Are there separate campground charges and holiday closure rules?",
+        "Where along the day-use bank is digging authorized?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/4",
+      "title": "Island Creek Day Use Area — Cow Creek",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Are any panning spots signed within Island Creek?",
+        "Are there restrooms and step-free bank access?",
+        "What hand equipment is authorized?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/5",
+      "title": "Sixes River Campground",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "What restrooms/water and ADA features currently exist?",
+        "Is any portion of riverbank excluded from panning?",
+        "What are season dates and age rules?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/6",
+      "title": "Hatcher Pass — Gold Mint Trail / Little Susitna River",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Is 2021 guidance still operative in 2026?",
+        "Is any permit needed for ordinary hand panning now?",
+        "Are Gold Mint parking or accessible facilities open?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/7",
+      "title": "Nome Creek — White Mountains National Recreation Area",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Exactly which Nome Creek reach is the approved pan area?",
+        "Are any occupancy, material-removal or equipment restrictions posted?",
+        "What parking/facility/accessibility options serve the pan area?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/8",
+      "title": "Gold Daughters — Fairbanks",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Page’s season-closure notice explicitly says reopening Memorial Day 2027 while other generic site wording may still advertise daily hours. Seasonal closure notice takes precedence for October 2026."
+      ],
+      "unresolvedQuestions": [
+        "Specific 2027 reopening date and current prices?",
+        "Are there accessible bathrooms/continuous wheelchair-suitable routes?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/9",
+      "title": "Indian Valley Mine — gold-panning buckets",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Home page says May 15–Sept 15, 9–6, CLOSED SUNDAYS. Contact page says same season/hours but “open every day.” Sunday opening needs direct confirmation."
+      ],
+      "unresolvedQuestions": [
+        "Is Sunday actually open in the 2027 season?",
+        "Does gold-panning bucket price include admission?",
+        "Are restrooms and accessible troughs available?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/10",
+      "title": "Juneau — Historic Gold Mining & Panning Adventure",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Is this guaranteed-gold creek activity naturally present or augmented? Operator guarantees gold without explaining preparation.",
+        "What exact accessible vehicle and bathroom arrangements exist?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/11",
+      "title": "American Gold Prospecting Adventures — field class",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Will the chosen class include a live stream/creek?",
+        "Is there a telephone or street check-in point?",
+        "Are children 8+ eligible at the same $110 price?",
+        "What cancellation and weather/heat policies apply?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/12",
+      "title": "Big Thunder Gold Mine — Reed Placer Claim Adventure",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Operator Hours & Rates lists 4h $76.95/$60.95 and 8h $105.95/$89.95 while Claim Panning page lists 4h $74.95/$58.95 and 8h $103.95/$87.95.",
+        "Operator On-Site Panning page lists $16.95/pan ($14.95 after tour); other operator rates page publishes $17.95/$15.95.",
+        "Claim offering is beside creek but OPEN-CREEK panning is expressly prohibited; avoid calling this direct in-stream prospecting."
+      ],
+      "unresolvedQuestions": [
+        "Which 2026 ticket price and included tour apply at checkout?",
+        "Are infants/toddlers accepted in claim outings?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/13",
+      "title": "Keysville Special Recreation Management Area — Kern River",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "What exact river segments are open and claim-free?",
+        "Is any hand sluice allowed in 2026?",
+        "Are toilets and accessible river entry available?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/14",
+      "title": "Cable Rock Day Use Site — Merced River",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Any seasonal closures or current panning-specific constraints?",
+        "Are panning activities limited to a signed bank reach?",
+        "Is there any accessible alternative to stone steps?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/15",
+      "title": "Libby Creek Recreational Gold Panning Area",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Whether any parking/camping fees apply",
+        "Site accessibility and current seasonal road access"
+      ]
+    },
+    {
+      "archivePath": "/destinations/16",
+      "title": "Bannack State Park — Park-Run Panning Program",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "General-public panning booking and pricing",
+        "Weather cancellation rules for panning program"
+      ]
+    },
+    {
+      "archivePath": "/destinations/17",
+      "title": "Eagle City Park — Eagle Creek",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Specific accessibility accommodation",
+        "Restrooms and shower facilities on site",
+        "Whether motorized highbanking is allowed, where, and under what permits"
+      ]
+    },
+    {
+      "archivePath": "/destinations/18",
+      "title": "Crystal Gold Mine — Gold Panning",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Winter panning schedule",
+        "Standalone-panning age under 4",
+        "Water source and origin of panning material"
+      ]
+    },
+    {
+      "archivePath": "/destinations/19",
+      "title": "Land of the Yankee Fork State Park — Interpretive Center",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Panning station instructions and material",
+        "Additional charges and applicability of $7 vehicle fee",
+        "Age and reservation rules"
+      ]
+    },
+    {
+      "archivePath": "/destinations/20",
+      "title": "Crow Creek Gold Mine — Girdwood Prospecting",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Panning-area accessibility",
+        "Precise boundaries of ticketed creek gravels",
+        "Minimum child age and supervision"
+      ]
+    },
+    {
+      "archivePath": "/destinations/21",
+      "title": "Gold Dredge 8 — Train Tour and Gold Panning",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Current ticket price",
+        "Exact nature of gold-bearing material",
+        "Season opening/closing dates"
+      ]
+    },
+    {
+      "archivePath": "/destinations/22",
+      "title": "Dalton Highway — Gold Creek, Mile 197.2",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "2026 validity of 2022 designated section",
+        "Exact safe parking/pedestrian access at bridge",
+        "Any current site-specific seasonal environmental closures"
+      ]
+    },
+    {
+      "archivePath": "/destinations/23",
+      "title": "Country Boy Mine — Eureka Creek Panning",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Precise available hours and outdoor season dates",
+        "Panning equipment provided",
+        "Creek access accommodation"
+      ]
+    },
+    {
+      "archivePath": "/destinations/24",
+      "title": "Phoenix Gold Mine — Trail Creek / Underground Panning",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Live operator Hours & Rates advertises standalone creek panning at $18/$16 while its Creek Side page explicitly states standalone panning is currently suspended due to low water. The dedicated closure notice takes precedence for immediate visitor planning."
+      ],
+      "unresolvedQuestions": [
+        "Whether tour panning currently occurs creekside or underground",
+        "Date standalone creek-panning resumes"
+      ]
+    },
+    {
+      "archivePath": "/destinations/25",
+      "title": "Hidee Gold Mine — Panning Lesson",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Daily hours, holidays",
+        "Panning-area accessibility",
+        "Whether $10 tour-add-on applies to each child and adult"
+      ]
+    },
+    {
+      "archivePath": "/destinations/26",
+      "title": "Lynx Creek Gold Pan Day Use Area — Prescott National Forest",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The October 2023 Forest Service recreation brochure’s generic narrative says day-use sites require fees, but its site-specific fee table lists the Gold Pan area as no-fee. Confirm the present site-specific charge.",
+        "The Forest Service prospecting PDF explicitly allows recreational panning inside the Lynx Creek Mineral Withdrawal Area while barring mining/prospecting/claims in the withdrawal; the visitor must distinguish limited recreational panning from broader mineral exploration and verify specific tool rules."
+      ],
+      "unresolvedQuestions": [
+        "Exact 2026 fee / passes, if any",
+        "Exact signed panning limits and current access route",
+        "2026 allowed hand excavation/sluicing tools",
+        "Open hours/gates, creek water and seasonal status",
+        "Accessible route and child safety / minimum age"
+      ]
+    },
+    {
+      "archivePath": "/destinations/27",
+      "title": "Lucky Strike Gold and Gem Mine — Second Broad River",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Operator’s 2026 homepage posts October hours of 9 a.m.–5 p.m.; another indexed operator contact page uses May–September hours of 8 a.m.–6 p.m. Live month-specific homepage is preferred for October; confirm other months.",
+        "Panning price appears on operator page with 2024 footer; not verified as a newly published 2026 rate."
+      ],
+      "unresolvedQuestions": [
+        "Whether $5 river pass remains valid in 2026",
+        "Specific accessible entry to river/covered station",
+        "Current seasonal calendar beyond October"
+      ]
+    },
+    {
+      "archivePath": "/destinations/28",
+      "title": "Alabama Gold Camp — Creek Prospecting Day Pass",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Actual hours and seasonal closure dates",
+        "Designated natural creek reach and machinery permits",
+        "Accessibility"
+      ]
+    },
+    {
+      "archivePath": "/destinations/29",
+      "title": "South Yuba Recreation Area — Wild & Scenic River",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [
+        "BLM page simultaneously says South Yuba Campground is first-come/has no reservation system and announces reservations for summer 2027. This applies to CAMPING, not permission for day-use panning; check intended camping year and Recreation.gov."
+      ],
+      "unresolvedQuestions": [
+        "Current day-use parking fee and accessible river path",
+        "River safety/access in flood conditions"
+      ]
+    },
+    {
+      "archivePath": "/destinations/30",
+      "title": "Bertha Creek Recreational Panning Area",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Confirm present-day on-the-ground boundary markers, permit status, facilities and accessible approaches."
+      ]
+    },
+    {
+      "archivePath": "/destinations/31",
+      "title": "Sixmile Creek Recreational Panning Area",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Confirm present-day on-the-ground boundary markers, permit status, facilities and accessible approaches."
+      ]
+    },
+    {
+      "archivePath": "/destinations/32",
+      "title": "Resurrection Creek Recreational Panning Area",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Confirm present-day on-the-ground boundary markers, permit status, facilities and accessible approaches."
+      ]
+    },
+    {
+      "archivePath": "/destinations/33",
+      "title": "Jack Wade Creek Public Panning Area",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Get precise boundary map and current campground/road status."
+      ]
+    },
+    {
+      "archivePath": "/destinations/34",
+      "title": "Bonanza Creek – Dalton Highway Public Panning Segment",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Does BLM have a post-2022 amendment to Bonanza Creek reach or pipeline clearance?",
+        "Are seasonal vehicle restrictions in force?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/35",
+      "title": "River of Gold – Montana Heritage Commission",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "What is regular individual ticket price?",
+        "Is the station supervised for non-school visitors?",
+        "Precise street address, facilities and accessibility?",
+        "Is the $8 school panning rate additional to the advertised $10 field-trip fee, or an alternative school option?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/36",
+      "title": "Argo Mill & Tunnel – Mighty Argo",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Same operator page says panning is drop-in whenever open yet footer says last tour AND panning at 3pm."
+      ],
+      "unresolvedQuestions": [
+        "Panning station wheelchair access and restrooms?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/37",
+      "title": "Roaring Camp Mining Company – All Day Guided Tour",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Is the panned material taken directly from the river?",
+        "ADA or mobility restrictions on canyon transport?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/38",
+      "title": "Matelot Gulch Mining Company – Columbia State Historic Park",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Can visitors book a panning session outside spring business hours?",
+        "Is panning equipment/area ADA-accessible?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/39",
+      "title": "North Fork American River – Euchre Bar / Colfax-Iowa Hill Corridor",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Exact public parcel/reach open to hand panning and allowed equipment?",
+        "Any current bridge/trail closure?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/40",
+      "title": "Greenwood Creek River Access – South Fork American River",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "What exact digging tools are allowed, and where does BLM parcel end?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/41",
+      "title": "Emerald Village – Gold Panning",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Does basic gold-bucket price include a loaner pan?",
+        "Minimum age, supervision and refund terms?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/42",
+      "title": "Thermal City Gold Mine – Second Broad River",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Home/camping pages show 4:30pm closing, contact page shows 5:00pm."
+      ],
+      "unresolvedQuestions": [
+        "Day-pass prospecting rate?",
+        "Any equipment deposits or rental fees?",
+        "Specific river portion under operator control?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/43",
+      "title": "This Is The Place Heritage Park – Treasure House",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Does activity use intentionally seeded gold?",
+        "What is the Treasure House winter operating schedule?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/44",
+      "title": "Crisson Gold Mine – Dahlonega",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Same operator lists 10am–6pm on homepage and 10am–5pm on contact page."
+      ],
+      "unresolvedQuestions": [
+        "Exact last gold pan start time?",
+        "Published accessibility details?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/45",
+      "title": "Whiskeytown National Recreation Area — Tower House/Clear Creek",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Current park entrance pass cost?",
+        "Accessible creek-bank access at either site?",
+        "Any current wildfire, weather, trail or water-quality closures?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/46",
+      "title": "Auburn State Recreation Area — North/Middle Fork American River",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Which specific access point is best for hand panning in current flows?",
+        "Does day-use parking fee apply to chosen river entry?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/47",
+      "title": "South Yuba River State Park — Bridgeport Panning Program",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Does participation cost extra beyond vehicle parking?",
+        "Are pans and gold-bearing material provided?",
+        "Is the panning station wheelchair accessible?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/48",
+      "title": "Dave Moore Nature Area — South Fork American River",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Is the riverbank at the panning point accessible for mobility devices?",
+        "Is hand digging/hand tools allowed here or pans only?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/49",
+      "title": "McCabe Flat Campground — Merced River",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "BLM page banner states campground reservations REQUIRED, while campground-specific visitor instructions also describe some first-come access; confirm exact process with manager, and do not confuse camping reservations with river day use."
+      ],
+      "unresolvedQuestions": [
+        "May noncampers park/day-pan without campsite booking?",
+        "Precisely which campground riverfront gravels are open and with which tools?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/50",
+      "title": "Steel Bridge Campground — Trinity River",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Current campground rate and overnight season?",
+        "Any panning-related permits or hand-tool limits?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/51",
+      "title": "Bannock Creek — Boise Basin Experimental Forest",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Which exact section of Bannock Creek is public and unclaimed?",
+        "Where does a panner park?",
+        "What does Idaho require for moving streambed material here?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/52",
+      "title": "Sumpter Valley Dredge State Heritage Area — Demonstrations",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Is any panning demonstration currently operating for walk-in visitors?",
+        "Gold added to demonstration material?",
+        "Program cost and age limits?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/53",
+      "title": "Georgetown Loop Railroad — Devil’s Gate Gold Panning",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "2026 autumn or 2027 dates?",
+        "Exact panning ticket price?",
+        "Panning site accessible?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/54",
+      "title": "Victor Lowell Thomas Museum — Seasonal Gold Panning",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Whether gold is seeded/guaranteed?",
+        "Accessible exterior trough?",
+        "2027 summer dates?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/55",
+      "title": "Prospector John’s — Kenai Lake Gold N’ Boat",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Watercourse name and exact claim access boundary?",
+        "Which panning tools are included?",
+        "Age minimum and accessible boarding?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/56",
+      "title": "Denali Gold Tours — Cache Creek Field Trip",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Smallest eligible child age?",
+        "Creek-side washrooms and ADA conditions?",
+        "Expected tour length and precise included transport type?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/57",
+      "title": "Liarsville Gold Rush Trail Camp — Skagway Panning",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Is paydirt seeded?",
+        "ADA transport and station access?",
+        "Any resumption outside cruise season?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/58",
+      "title": "Gold Mine Experience — Bloo Nelly Site, Wickenburg",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Specific panning price?",
+        "Tools provided?",
+        "Practical vehicle clearance/accessibility and age limits?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/59",
+      "title": "Gold King Mine & Ghost Town — Jerome Gold Panning",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Hours: rates page lists 9–5 generally, home page lists winter (Dec–Feb) 10–5; verify for trip date."
+      ],
+      "unresolvedQuestions": [
+        "Does $25 include all material?",
+        "Panning station wheelchair accessibility?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/60",
+      "title": "Black Hills Gold Panning with “RattleSnake” Randy",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "2027 season opening?",
+        "Minimum mobility requirements and access to toilets?",
+        "Cancellation/refund policy?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/61",
+      "title": "Heritage Gold Mine Park — McCormick",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Open to individuals without appointment?",
+        "Exact street-level visitor entrance?",
+        "Accessibility and child safety for historic mine exhibits?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/62",
+      "title": "Outpost Gold & Gems — Helen",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Does $15 basic bucket guarantee gold?",
+        "Wheelchair-height station?",
+        "Actual restroom availability?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/63",
+      "title": "Julian Mining Company — Gold Panning Trough",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Two current operator-controlled sites advertise substantially different panning prices; $5+$35 versus $7/$9 lesson and optional material.",
+        "Saturday/Sunday hour listings also conflict across operator pages."
+      ],
+      "unresolvedQuestions": [
+        "Does $5 entry apply on top of $35 gold package?",
+        "Is instruction included in newer offer?",
+        "Wheelchair access to trough?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/64",
+      "title": "Eagle Mining Co — Eagle & High Peak Mines, Julian",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Operator page simultaneously states open daily 10–5 and Mon–Fri 10–4."
+      ],
+      "unresolvedQuestions": [
+        "Is panning included in ticket or an add-on?",
+        "Is gold guaranteed?",
+        "Accessible panning alternative for visitors unable to enter mine?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/65",
+      "title": "Pan for Gold with Bobby Bo — Rainier Riverfront Classes",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Current lesson or outing fee, duration, cancellations and deposits?",
+        "Will class participants dig or process in-situ river gravel?",
+        "Parking, restrooms, wheelchair access, and water availability?",
+        "Does the 24-hour listing represent phone availability only?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/66",
+      "title": "Disaster Creek — Dalton Highway MP 211",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/67",
+      "title": "Bettles and Dietrich Rivers — Dalton Highway MP 207",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/68",
+      "title": "Unnamed Creek — Dalton Highway MP 202",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/69",
+      "title": "Sheep Creek — Dalton Highway MP 196.4",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/70",
+      "title": "Nugget Creek — Dalton Highway MP 196",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/71",
+      "title": "Hammond River — Dalton Highway MP 190.5",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/72",
+      "title": "Minnie Creek and Larson Creek — Dalton Highway MP 187.2",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/73",
+      "title": "Dry Gulch — Dalton Highway MP 184",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/74",
+      "title": "Clara Creek — Dalton Highway MP 176",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/75",
+      "title": "Slate Creek — Dalton Highway MP 175.5",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/76",
+      "title": "Rosie Creek — Dalton Highway MP 168.7",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/77",
+      "title": "South Fork Koyukuk River — Dalton Highway MP 156.3",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/78",
+      "title": "Jim River — Dalton Highway MP 135.7",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/79",
+      "title": "Prospect Creek — Dalton Highway MP 135.1",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/80",
+      "title": "Fish Creek — Dalton Highway MP 114",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The BLM detailed stream list was REVISED IN 2013 (PDF uploaded online in 2022), while the BLM current Dalton Highway webpage links that brochure. Current webpage confirms some designated streams but does not individually restate all segment boundaries. Re-confirm before publication as currently open."
+      ],
+      "unresolvedQuestions": [
+        "Has the listed stretch or pipeline exclusion changed since the 2013 brochure?",
+        "Are there current closures, mining claims, permits or aquatic-habitat restrictions affecting the specific location?",
+        "Where may a visitor legally park and reach the public water on foot?",
+        "Are any restrooms, fees, mobility accommodations or seasonal gates present at this creek?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/81",
+      "title": "Caribou Creek Recreational Mining Area — Glenn Highway",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Equipment and access guidance comes from an August 2021 state factsheet, not a newly revised 2026 instruction. Current DNR confirmation advised."
+      ],
+      "unresolvedQuestions": [
+        "Are there temporary habitat, wildfire or access restrictions in 2026?",
+        "Any current visitor fees or additional age/accessibility provisions?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/82",
+      "title": "Petersville Recreational Mining Area — Peters Creek",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "The PDF authorizes manual tools including earth augers in one sentence, but explicitly says ADF&G will not authorize backpack power drills or augers in the next sentence. Treat powered augers as NOT permitted without explicit written agency guidance.",
+        "The road and mining conditions are documented in September 2021, not reconfirmed for 2026."
+      ],
+      "unresolvedQuestions": [
+        "Are site boundary signs and primitive access road maintained in 2026?",
+        "Are new seasonal closures, stream rules, or claim boundaries in effect?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/83",
+      "title": "Old Hundred Gold Mine Tour — Silverton",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "Can panning be purchased without full tour? Operator says included, not standalone.",
+        "Is the sluice reachable by a wheelchair or other mobility aid?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/84",
+      "title": "Lomax Placer Mine — Breckenridge History Gold Panning",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": [
+        "What are actual admission fees and session length once booking restarts?",
+        "Is gold-bearing gravel from site or added paydirt? Operator does not clearly document provenance."
+      ]
+    },
+    {
+      "archivePath": "/destinations/85",
+      "title": "California Gold Panning — Woods Creek Claim, Jamestown",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Main operator homepage lists year-round hours 09:00–16:00; directions page lists summer 09:00–17:00. Confirm seasonal hours.",
+        "Booking page lists five differently priced packages but the linked activity names/durations are not visible in parsed text; price without matching package is not sufficiently specified for booking."
+      ],
+      "unresolvedQuestions": [
+        "Which $150–$450 option corresponds to what session length and included gear?",
+        "Are children of all ages permitted in flowing water?",
+        "Are there current weather cancellations, site-access requirements or mobility accommodations?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/86",
+      "title": "Junction City Campground — Trinity River Access",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Historical 2020 BLM press release elsewhere described 22 campsites; current BLM/Recreation.gov pages and 2025 access audit both say 21. Use current 21 figure, note legacy inconsistency.",
+        "BLM published GPS coordinate 0,0 is invalid and has been intentionally excluded."
+      ],
+      "unresolvedQuestions": [
+        "Can non-campers park and pan without reservation or fee?",
+        "Where precisely is public panning permitted across the highway, and which hand tools are allowed?"
+      ]
+    },
+    {
+      "archivePath": "/destinations/87",
+      "title": "Douglas City Campground — Trinity River Access",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "BLM current Douglas City page describes 23 sites and current date notices; a parallel BLM site and Recreation.gov list 24 sites. Verify campsite count on arrival.",
+        "The current BLM page writes “Wednesday 11/1/2026,” but November 1, 2026 falls on Sunday. Confirm actual 2026 closure date rather than repeating the mismatched weekday.",
+        "BLM lists gold panning in the Douglas City campground overview, but does not mark precise prospecting-safe riverbank boundaries."
+      ],
+      "unresolvedQuestions": [
+        "Precisely which beaches/riverbank portions, if any, are open and free of claims?",
+        "Is independent day parking available and permitted for panning?",
+        "Current per-night fees and prospecting equipment limitations?"
+      ]
+    },
+    {
+      "archivePath": "/communityResources/0",
+      "title": "Central Maine Gold Prospectors",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/2",
+      "title": "Burlington Gem and Mineral Club",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/6",
+      "title": "Headwaters GPAA Chapter",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/7",
+      "title": "Butte GPAA Chapter",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/11",
+      "title": "Southwest Washington Gold Prospectors",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/13",
+      "title": "Washington Prospectors Mining Association",
+      "status": "selected_checked_fields",
+      "flags": [
+        "The checked page has a May 8, 2026 membership moratorium alongside generic membership language. Public listing avoids declaring applications open; recheck current notice."
+      ],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/15",
+      "title": "Arizona Prospectors Association",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/16",
+      "title": "GPAA of Northern Nevada, Reno",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/22",
+      "title": "Gold Prospectors Association of America",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/24",
+      "title": "Alaska Miners Association",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/25",
+      "title": "World Goldpanning Association",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/26",
+      "title": "Dahlonega Gold Rush Days Festival 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/27",
+      "title": "Alaska Miners Association Convention and Trade Show 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/28",
+      "title": "AMRA Annual Dinner 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/29",
+      "title": "Wickenburg Gold Rush Days and Gold Panning Championship 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/30",
+      "title": "Sidney Gold Rush Days 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/31",
+      "title": "Juneau Gold Rush Days 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/32",
+      "title": "Valdez Gold Rush Days 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/33",
+      "title": "Public Lands for the People Fallfest 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/35",
+      "title": "r/goldprospecting",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/36",
+      "title": "GPAA Forum",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/38",
+      "title": "Utah Gold Prospecting Club",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/42",
+      "title": "River City Prospectors GPAA",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/44",
+      "title": "Prospectors Club of Southern California",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/46",
+      "title": "Temecula Valley Prospectors of Riverside County",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/48",
+      "title": "Comstock Gold Prospectors, Inc.",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/49",
+      "title": "Twin State Relic Hunters",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/50",
+      "title": "Capital Mineral Club",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/51",
+      "title": "Golden Spike Gem & Mineral Society",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/52",
+      "title": "Highland Lakes Metal Detecting Club",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/54",
+      "title": "Quartzsite Gold Show — 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "2027 dates: Quartzsite Chamber Feb 12–14 versus Xpo Press Feb 13–15; promoter homepage still displays Feb 13–15, 2026. Confirm before calendar publication."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/55",
+      "title": "Llano Gold & Treasure Fest — 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/56",
+      "title": "Placer Pete’s Gold Experience Oktoberfest 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Organizer home page conflicting October 23–25 versus October 24–26. Top headline and club news favor Oct 23–25; obtain organizer clarification."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/57",
+      "title": "Utah Gold Prospecting Club — Crescent Creek Outing, October 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/58",
+      "title": "Utah Gold Prospecting Club — Christmas Party 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/59",
+      "title": "Golden Spike — Gemstone Junction Show 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/60",
+      "title": "Nevada Mining Association Convention 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/63",
+      "title": "Nevada Desert Diggers",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Homepage says third Tuesday in one passage and second Thursday at meeting location; events calendar uses Thursdays."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/64",
+      "title": "Carolina Slate Belt GPAA Chapter",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [
+        "Secondary listings report second Sunday; current chapter page states second Saturday."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/65",
+      "title": "Round Rock Chapter of GPAA",
+      "status": "selected_checked_fields",
+      "flags": [
+        "Event cancellations and rescheduling on the official page make archive event dates unsafe to reuse."
+      ],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/66",
+      "title": "Portland Gold Prospectors",
+      "status": "selected_checked_fields",
+      "flags": [
+        "Archive and organizer outing dates require separate confirmation; the displayed October–November span is ambiguous."
+      ],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/67",
+      "title": "Taft Prospectors Club",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/68",
+      "title": "The New 49’ers Prospecting Organization",
+      "status": "existing_entry_preserved",
+      "flags": [],
+      "conflicts": [
+        "Membership page advertises free member weekend projects, but event page states no group projects scheduled until further notice.",
+        "One official join page lists different full-membership prices in separate sections."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/69",
+      "title": "Lost Dutchman’s Mining Association Events",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Main public events pages and LDMA shop pages show inconsistent displayed prices for the same event."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/70",
+      "title": "Eureka Gold Panning — Mobile & Social Events",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/71",
+      "title": "Georgia Mineral Society — Gold Panning Field Trips",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/72",
+      "title": "LDMA Loud Mine Spooktacular Gold Diggins",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "LDMA public events and shop collection display different starting prices; reconfirm the complete cart total, any membership discount and inclusions before publishing."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/73",
+      "title": "LDMA Duisenburg Detector Throwdown",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "LDMA public events and shop collection display different starting prices; reconfirm the complete cart total, any membership discount and inclusions before publishing."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/74",
+      "title": "LDMA Stanton Dirt Party",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "LDMA public events and shop collection display different starting prices; reconfirm the complete cart total, any membership discount and inclusions before publishing."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/75",
+      "title": "LDMA Duisenburg Gold Diggins",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "LDMA public events and shop collection display different starting prices; reconfirm the complete cart total, any membership discount and inclusions before publishing."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/76",
+      "title": "LDMA Stanton Dirt Party 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "LDMA public events and shop collection display different starting prices; reconfirm the complete cart total, any membership discount and inclusions before publishing."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/77",
+      "title": "LDMA Oconee Dirt Party 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "LDMA public events and shop collection display different starting prices; reconfirm the complete cart total, any membership discount and inclusions before publishing."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/78",
+      "title": "LDMA Desert Chaos Duisenburg 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "LDMA public events and shop collection display different starting prices; reconfirm the complete cart total, any membership discount and inclusions before publishing.",
+        "Desert Chaos product description additionally mentions March 17–20, conflicting with April 14–17 title and main calendar."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/79",
+      "title": "LDMA Duisenburg Gold Diggins May 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "LDMA public events and shop collection display different starting prices; reconfirm the complete cart total, any membership discount and inclusions before publishing."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/80",
+      "title": "Buckeye GPAA Thanksmas Member Appreciation Dinner",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/81",
+      "title": "Buckeye GPAA Christmas Potluck and Gift Exchange",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/82",
+      "title": "Round Rock GPAA White Elephant Christmas Party",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/83",
+      "title": "Portland Gold Prospectors October Club Meeting",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/84",
+      "title": "Portland Gold Prospectors Quartzville District Outing",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/85",
+      "title": "Nevada Desert Diggers October California Claim Outing",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/86",
+      "title": "Nevada Desert Diggers Prospecting-Rights Talk",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/87",
+      "title": "Nevada Desert Diggers Smelting Class",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/88",
+      "title": "Ohio State Panning Championship — 2027 planning lead",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/89",
+      "title": "Find’s Treasure Forums — Prospecting Board",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/90",
+      "title": "DetectorProspector.com — Read-Only Forum Archive",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/91",
+      "title": "Buckeye GPAA Scout Gold Prospecting Program",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/92",
+      "title": "Eureka Gold Panning — School & Youth Group Program",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/93",
+      "title": "Eureka Gold Panning — Private Panning Parties",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/94",
+      "title": "Georgia Mineral Society — Gold Panning & Picnicking Field Trip 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/95",
+      "title": "Carolina Slate Belt GPAA — Regular Outing Program",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/96",
+      "title": "GPANM December Christmas Potluck",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/97",
+      "title": "Buckeye GPAA Annual Fossick Invitational",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/102",
+      "title": "Mohave Prospectors Association",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/104",
+      "title": "Havasu Gold Seekers",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/105",
+      "title": "NorthWest Gold Prospectors Association",
+      "status": "selected_checked_fields",
+      "flags": [],
+      "conflicts": [
+        "Same club information page says meetings are the second Thursday in narrative but second Wednesday under standing rules; Thursday is repeated elsewhere, but meeting weekday must be confirmed."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/106",
+      "title": "Hi Desert Gold Diggers",
+      "status": "held_for_reverification",
+      "flags": [
+        "Organization location not independently established in this review. Hold the entire new listing."
+      ],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/108",
+      "title": "Central Valley Prospectors",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/109",
+      "title": "Weekend Gold Miners Prospecting Club",
+      "status": "selected_checked_fields",
+      "flags": [
+        "Official current property information differs from older claim references. No claim names or access entitlements imported."
+      ],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/110",
+      "title": "Payson Rimstones Rock Club",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/111",
+      "title": "Connecticut Valley Mineral Club",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/112",
+      "title": "Orange County 49ers Holiday Party 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/113",
+      "title": "Huachuca Prospectors Oro Perfecto Outing — October 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/114",
+      "title": "Western Washington GPAA Christmas Gathering 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/115",
+      "title": "Idaho Museum Gold Panning for All Ages — October 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/116",
+      "title": "GoldProspectorsSpace",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/117",
+      "title": "Nutmeg Treasure Hunters",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [
+        "Home page says both 171 North Plains Road and 171 N Plains Industrial Road for meeting address."
+      ],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/118",
+      "title": "Lakeland Gem & Mineral Club",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/119",
+      "title": "Ventura Gem & Mineral Society",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/120",
+      "title": "North Shore Rock and Mineral Club",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/121",
+      "title": "Sierra County Rock & Gem Society",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/122",
+      "title": "Boulder County / Nederland Mining Museum — Gold Panning, Oct 18 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/123",
+      "title": "Reed Gold Mine — Glow Mine, Oct 17 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/124",
+      "title": "Champlain Valley Gem, Mineral & Fossil Show — 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/125",
+      "title": "Ventura Gem, Mineral, Fossil & Jewelry Show — 2027",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/126",
+      "title": "Montana Western Legacy Center — Gold Panning Class, May 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/127",
+      "title": "Lost Hawk Rendezvous — Gold Panning & Gem Sifting 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/128",
+      "title": "Cottonwood Festival — Great Falls 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/129",
+      "title": "Dublin Harvest Fair — Gold Panning, Oct 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/130",
+      "title": "Coloma Gold Rush Live! — October 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/131",
+      "title": "Sierra County Rock & Gem Show — Gold Panning, March 2026",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    },
+    {
+      "archivePath": "/communityResources/132",
+      "title": "Klondike Gold Rush NHP Seattle — 2026 Ranger Programs",
+      "status": "held_for_reverification",
+      "flags": [],
+      "conflicts": [],
+      "unresolvedQuestions": []
+    }
+  ],
+  "publicationRules": [
+    "Do not publish an unreviewed record simply because its source is official.",
+    "Events, past outings and recurring schedules require a separate calendar review; none are imported as upcoming events.",
+    "Gold occurrence does not grant access. Confirm exact land, claim and equipment rules.",
+    "Selected destination cards omit unconfirmed fee or seasonal fields.",
+    "Existing entries are preserved, including checked dates."
+  ]
+}

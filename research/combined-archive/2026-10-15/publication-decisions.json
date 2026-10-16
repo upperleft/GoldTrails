@@ -1,0 +1,694 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-15",
+  "destinations": [
+    {
+      "type": "destination",
+      "index": 0,
+      "targetId": "US-CO:archive-0",
+      "url": "https://www.blm.gov/royal-gorge-fo/public-room/map/blm-co-rgfo-cache-creek-placer-area-map",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "season",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 2,
+      "targetId": "US-OR:archive-2",
+      "url": "https://www.blm.gov/visit/quartzville-back-country-byway",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "fees",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 4,
+      "targetId": "US-OR:archive-4",
+      "url": "https://www.blm.gov/visit/cow-creek-back-country-byway",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "fees",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 5,
+      "targetId": "US-OR:archive-5",
+      "url": "https://www.blm.gov/visit/sixes-river-campground",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "fees",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 7,
+      "targetId": "US-AK:archive-7",
+      "url": "https://www.blm.gov/visit/white-mountains",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "season",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 13,
+      "targetId": "US-CA:archive-13",
+      "url": "https://www.blm.gov/visit/keysville-special-recreation-management-area",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 14,
+      "targetId": "US-CA:archive-14",
+      "url": "https://www.blm.gov/visit/cable-rock-day-use-site",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "season",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 39,
+      "targetId": "US-CA:archive-39",
+      "url": "https://www.blm.gov/visit/north-fork-american-river",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 40,
+      "targetId": "US-CA:archive-40",
+      "url": "https://www.blm.gov/visit/greenwood-creek-river-access",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "fees",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 45,
+      "targetId": "US-CA:archive-45",
+      "url": "https://www.nps.gov/whis/planyourvisit/gold-panning.htm",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "fees"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 48,
+      "targetId": "US-CA:archive-48",
+      "url": "https://www.blm.gov/visit/dave-moore-nature-area",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 29,
+      "targetId": "US-CA:archive-29",
+      "url": "https://www.blm.gov/visit/south-yuba-recreation-area",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "season",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 50,
+      "targetId": "US-CA:archive-50",
+      "url": "https://www.blm.gov/visit/steel-bridge-campground-0",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 19,
+      "targetId": "US-ID:archive-19",
+      "url": "https://parksandrecreation.idaho.gov/state-park/land-of-the-yankee-fork-state-park/",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "season",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "destination",
+      "index": 18,
+      "targetId": "US-ID:archive-18",
+      "url": "https://www.goldmine-idaho.com/mine-experience.html",
+      "publicFields": [
+        "title",
+        "text",
+        "where",
+        "entry",
+        "equipment",
+        "fees",
+        "season",
+        "facilities"
+      ],
+      "reviewedAt": "2026-10-15"
+    }
+  ],
+  "communities": [
+    {
+      "type": "community",
+      "index": 3,
+      "targetId": "co-gold-prospectors-of-colorado",
+      "url": "https://gpoc.club/about-us/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 4,
+      "targetId": "co-colorado-springs-gpaa-chapter",
+      "url": "https://www.cosgpaa.org/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 5,
+      "targetId": "id-idaho-gold-prospectors-association",
+      "url": "https://www.idahogoldprospectors.com/about",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 8,
+      "targetId": "mt-central-montana-prospectors-group",
+      "url": "https://centralmontanaprospectors.org/monthly-meetings",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 9,
+      "targetId": "or-northwest-mineral-prospectors-club",
+      "url": "https://nwmpc.com/about/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 12,
+      "targetId": "wa-yakima-prospectors-association",
+      "url": "https://yakimaprospectors.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 13,
+      "targetId": "wa-washington-prospectors-mining-association",
+      "url": "https://washingtonprospectors.org/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 14,
+      "targetId": "wa-north-central-washington-prospectors",
+      "url": "https://ncw-prospectors.squarespace.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 17,
+      "targetId": "nv-gold-searchers-of-southern-nevada",
+      "url": "https://www.goldsearchersnv.com/upcoming-events.html",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 18,
+      "targetId": "sd-black-hills-prospecting-club",
+      "url": "https://www.blackhillsprospectingclub.com/about_us.html",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 19,
+      "targetId": "ga-augusta-gpaa-chapter",
+      "url": "https://augustagoldclub.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 20,
+      "targetId": "ca-coarsegold-gold-prospectors-club",
+      "url": "https://coarsegoldgoldprospectors.org/about.html",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 21,
+      "targetId": "mo-show-me-gold-prospectors",
+      "url": "https://showmegoldprospectors.org/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 37,
+      "targetId": "ny-tri-state-gpaa",
+      "url": "https://tri-stategpaa.weebly.com/about.html",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 39,
+      "targetId": "va-central-virginia-gold-prospectors",
+      "url": "https://cvgp.net/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 40,
+      "targetId": "ca-southwestern-prospectors-miners",
+      "url": "https://www.spmagold.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 41,
+      "targetId": "ca-east-bay-prospectors",
+      "url": "https://ebprospectors.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 45,
+      "targetId": "ca-valley-prospectors",
+      "url": "https://www.valleyprospectors.org/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 61,
+      "targetId": "nm-gpanm",
+      "url": "https://www.gpanm.org/about.html",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 62,
+      "targetId": "oh-buckeye-gpaa",
+      "url": "https://buckeyegold.com/meetings/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 64,
+      "targetId": "nc-carolina-slate-belt-gpaa",
+      "url": "https://carolinaslatebeltchaptergpaa.weebly.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 65,
+      "targetId": "tx-round-rock-gpaa",
+      "url": "https://www.roundrockgpaa.net/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 66,
+      "targetId": "or-portland-gold-prospectors",
+      "url": "https://portlandgoldprospectors.org/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 99,
+      "targetId": "az-desert-gold-diggers-tucson",
+      "url": "https://desertgolddiggers.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 100,
+      "targetId": "az-gpat-tucson",
+      "url": "https://www.gpaatucson.org/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 101,
+      "targetId": "az-huachuca-prospectors",
+      "url": "https://huachucaprospectorsassociation.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 103,
+      "targetId": "az-roadrunner-prospectors",
+      "url": "https://www.roadrunnergold.com/about.php",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 105,
+      "targetId": "id-northwest-gold-prospectors-association",
+      "url": "https://nwgoldprospectors.org/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 107,
+      "targetId": "ca-orange-county-49ers",
+      "url": "https://www.oc49ers.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    },
+    {
+      "type": "community",
+      "index": 109,
+      "targetId": "ga-weekend-gold-miners-club",
+      "url": "https://www.weekendgoldminers.com/",
+      "publicFields": [
+        "name",
+        "region",
+        "location",
+        "summary",
+        "topics",
+        "accessNote"
+      ],
+      "reviewedAt": "2026-10-15"
+    }
+  ]
+}

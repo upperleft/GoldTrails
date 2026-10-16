@@ -1,0 +1,1516 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-15",
+  "entries": [
+    {
+      "id": "au-mojave",
+      "name": "Au Mojave Prospectors",
+      "kind": "Club",
+      "region": "California",
+      "location": "Hesperia / Mojave Desert, California · USA",
+      "summary": "A desert prospecting club with educational interests, meetings and events.",
+      "topics": [
+        "Desert prospecting",
+        "Education",
+        "Club events"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://www.aumojaveprospectors.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the club’s event and membership pages for participation details.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://www.aumojaveprospectors.org/"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "big-bug",
+      "name": "Big Bug Mining District",
+      "kind": "Club",
+      "region": "Arizona",
+      "location": "Mayer / central Arizona · USA",
+      "summary": "A volunteer prospecting club with outings, panning and metal-detecting interests.",
+      "topics": [
+        "Gold panning",
+        "Metal detecting",
+        "Club outings"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://bigbugminingdistrict.com/"
+        },
+        {
+          "label": "Facebook group · club-linked",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/groups/306064911478848/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Membership and outing requirements are set by the club. Its Facebook link may require sign-in or membership.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://bigbugminingdistrict.com/"
+        }
+      ],
+      "verification": "Public club website confirms the community and links this Facebook group. Facebook membership, privacy and discussion activity were not inspected."
+    },
+    {
+      "id": "douglas-county",
+      "name": "Douglas County Prospectors Association",
+      "kind": "Club",
+      "region": "Oregon",
+      "location": "Roseburg / Douglas County, Oregon · USA",
+      "summary": "A local association offering prospecting outings, club meetings and a newsletter.",
+      "topics": [
+        "Outings",
+        "Club newsletter",
+        "Facebook community"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://dcpagold.org/"
+        },
+        {
+          "label": "Facebook group · club-linked",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/groups/241379096318892/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Use the official site for meeting and membership details. Facebook may require sign-in or membership.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://dcpagold.org/"
+        }
+      ],
+      "verification": "Public club website confirms the community and links this Facebook group. Facebook membership, privacy and discussion activity were not inspected."
+    },
+    {
+      "id": "gold-rockies",
+      "name": "Gold Prospectors of the Rockies",
+      "kind": "Club",
+      "region": "Colorado",
+      "location": "Lakewood / Denver area, Colorado · USA",
+      "summary": "A prospecting club with learning meetings, outings and hands-on instruction.",
+      "topics": [
+        "Panning",
+        "Prospecting outings",
+        "Learning together"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://www.goldprospectorsoftherockies.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the club’s guest and membership arrangements before attending.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://goldprospectorsoftherockies.com/about.htm"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "las-vegas-gpaa",
+      "name": "GPAA – Las Vegas Chapter",
+      "kind": "Club",
+      "region": "Nevada",
+      "location": "Las Vegas, Nevada · USA",
+      "summary": "A local GPAA chapter bringing beginners and experienced prospectors together for meetings and outings.",
+      "topics": [
+        "Chapter meetings",
+        "Outings",
+        "Beginner questions"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://www.lvgpaa.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Follow the club’s own meeting and outing pages for current arrangements.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://www.lvgpaa.org/"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "boston-mineral",
+      "name": "The Boston Mineral Club",
+      "kind": "Club",
+      "region": "Massachusetts",
+      "location": "Greater Boston, Massachusetts · USA",
+      "summary": "A broader mineral club that explicitly welcomes prospectors and gold panners alongside other mineral enthusiasts.",
+      "topics": [
+        "Minerals & geology",
+        "Gold panners welcome",
+        "Broader hobby club"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://bostonmineralclub.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "This is a mineral club; its programs are broader than gold prospecting.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://bostonmineralclub.org/about-contact/"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "new-49ers",
+      "name": "The New 49’ers Prospecting Association",
+      "kind": "Club",
+      "region": "California",
+      "location": "Happy Camp, California · USA",
+      "summary": "A membership prospecting association offering group programs and gold-mining education in the Klamath River area.",
+      "topics": [
+        "Group prospecting",
+        "Mining education",
+        "Membership programs"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://goldgold.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Membership programs have their own terms. Check the association’s current event and membership information.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://goldgold.com/welcome.html"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "western-washington",
+      "name": "Western Washington GPAA",
+      "kind": "Club",
+      "region": "Washington",
+      "location": "Western Washington · USA",
+      "summary": "A regional prospecting club with meetings, outings and a club-linked Facebook community.",
+      "topics": [
+        "Prospecting outings",
+        "Meetings",
+        "Facebook discussion"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://wwgpaa.com/"
+        },
+        {
+          "label": "Facebook group · club-linked",
+          "platform": "Facebook",
+          "url": "https://www.facebook.com/groups/268502537589140/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "The club directs visitors to Facebook for meeting information. Facebook may require sign-in or membership.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://wwgpaa.com/resources"
+        }
+      ],
+      "verification": "Public club website confirms the community and links this Facebook group. Facebook membership, privacy and discussion activity were not inspected."
+    },
+    {
+      "id": "riverbank-meetup",
+      "name": "Gold prospectors",
+      "kind": "Meetup group",
+      "region": "California",
+      "location": "Riverbank, California · USA",
+      "summary": "A Meetup group for discussing modern prospecting and taking part in common digs in the Motherlode.",
+      "topics": [
+        "Modern prospecting",
+        "Common digs",
+        "Meet fellow prospectors"
+      ],
+      "links": [
+        {
+          "label": "View Meetup group",
+          "platform": "Meetup",
+          "url": "https://www.meetup.com/gold-prospectors/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Private Meetup group. Its public overview is available; membership controls access to full event details.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Public group overview",
+          "url": "https://www.meetup.com/gold-prospectors/"
+        }
+      ],
+      "verification": "Public Meetup overview checked in browser; upcoming and past event lists visible. Private event details were not accessed."
+    },
+    {
+      "id": "amra",
+      "name": "American Mining Rights Association",
+      "kind": "Association",
+      "region": "United States · nationwide",
+      "location": "United States · nationwide",
+      "summary": "An association focused on mining and public-land access, with membership information and events.",
+      "topics": [
+        "Public-land access",
+        "Mining advocacy",
+        "Association events"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://www.americanminingrights.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "An advocacy association; check its own site for membership and event information.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://www.americanminingrights.com/"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "plp",
+      "name": "Public Lands for the People",
+      "kind": "Association",
+      "region": "United States · nationwide",
+      "location": "United States · nationwide",
+      "summary": "A public-land and small-miner advocacy organization with newsletters and events.",
+      "topics": [
+        "Small miners",
+        "Public-land advocacy",
+        "Newsletters"
+      ],
+      "links": [
+        {
+          "label": "Visit website",
+          "platform": "Website",
+          "url": "https://www.publiclandsforthepeople.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "An advocacy organization; follow its official site for current programs.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://www.publiclandsforthepeople.org/"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "prospecting-australia",
+      "name": "Prospecting Australia",
+      "kind": "Online community",
+      "region": "Australia",
+      "location": "Australia · online forum",
+      "summary": "A forum covering gold prospecting, fossicking, metal detecting and equipment.",
+      "topics": [
+        "Panning & sluicing",
+        "Fossicking",
+        "Equipment discussion"
+      ],
+      "links": [
+        {
+          "label": "Visit forum",
+          "platform": "Forum",
+          "url": "https://www.prospectingaustralia.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Public forum sections are indexed. Member meet-ups and some features require an account.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://www.prospectingaustralia.com/"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "reddit-goldpanning",
+      "name": "Reddit · r/Goldpanning",
+      "kind": "Online community",
+      "region": "Online · worldwide",
+      "location": "Online · worldwide",
+      "summary": "A community for sharing panning finds and asking questions about techniques and equipment.",
+      "topics": [
+        "Panning finds",
+        "Beginner questions",
+        "Peer discussion"
+      ],
+      "links": [
+        {
+          "label": "View Reddit community",
+          "platform": "Reddit",
+          "url": "https://www.reddit.com/r/Goldpanning/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Reddit controls account access and posting. Discussions are member contributions.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://www.reddit.com/r/Goldpanning/comments/1vpph1b/great_to_unwind_after_a_rough_week/"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "reddit-prospecting",
+      "name": "Reddit · r/Prospecting",
+      "kind": "Online community",
+      "region": "Online · worldwide",
+      "location": "Online · worldwide",
+      "summary": "A prospecting community discussing gold finds, panning, detectors and learning experiences.",
+      "topics": [
+        "Gold finds",
+        "Panning & detectors",
+        "Peer discussion"
+      ],
+      "links": [
+        {
+          "label": "View Reddit community",
+          "platform": "Reddit",
+          "url": "https://www.reddit.com/r/Prospecting/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Reddit controls account access and posting. Discussions are member contributions.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://www.reddit.com/r/Prospecting/comments/1vxe2be/new_to_prospectingpanning/"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "treasurenet-gold",
+      "name": "TreasureNet – Gold Prospecting",
+      "kind": "Online community",
+      "region": "Online · worldwide",
+      "location": "Online · worldwide",
+      "summary": "A dedicated gold-prospecting forum within the wider TreasureNet community.",
+      "topics": [
+        "Panning",
+        "Sluicing & drywashing",
+        "Equipment & techniques"
+      ],
+      "links": [
+        {
+          "label": "Visit forum",
+          "platform": "Forum",
+          "url": "https://www.treasurenet.com/forums/gold-prospecting.48/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Public threads can be browsed; posting requires a TreasureNet account.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Club / community source",
+          "url": "https://www.treasurenet.com/forums/gold-prospecting.48/"
+        }
+      ],
+      "verification": "Public source supports the identity, focus and location shown. Inclusion does not certify event frequency or member advice."
+    },
+    {
+      "id": "google-usenet",
+      "name": "alt.mining.recreational · Google Groups archive",
+      "kind": "Historical archive",
+      "region": "Online · historical",
+      "location": "Online · historical Usenet archive",
+      "summary": "Historical recreational-mining discussions preserved on Google Groups. Start with a 2002 thread about choosing a gold pan.",
+      "topics": [
+        "Historical discussions",
+        "Gold-pan choices",
+        "Read-only archive"
+      ],
+      "links": [
+        {
+          "label": "Read historical discussion",
+          "platform": "Google Groups",
+          "url": "https://groups.google.com/g/alt.mining.recreational/c/msZFfTz38PI"
+        }
+      ],
+      "status": "historical_archive",
+      "accessNote": "Read-only historical archive. Google Groups no longer supports new Usenet posts or subscriptions. It is not a group you can join.",
+      "checkedAt": "2026-10-13",
+      "sources": [
+        {
+          "label": "Historical discussion",
+          "url": "https://groups.google.com/g/alt.mining.recreational/c/msZFfTz38PI"
+        },
+        {
+          "label": "Google Groups archive and read-only notice",
+          "url": "https://groups.google.com/g/alt.mining.recreational"
+        }
+      ],
+      "verification": "Relevant 2002 gold-pan thread and platform read-only notice checked. No current joinable prospecting Google Group was confirmed."
+    },
+    {
+      "id": "co-gold-prospectors-of-colorado",
+      "name": "Gold Prospectors of Colorado",
+      "kind": "Club",
+      "region": "Colorado",
+      "location": "Colorado Springs area, Colorado",
+      "summary": "A prospecting club offering education, panning demonstrations and group outings.",
+      "topics": [
+        "Education",
+        "Gold panning",
+        "Club outings"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://gpoc.club/about-us/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://gpoc.club/about-us/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/3"
+      }
+    },
+    {
+      "id": "co-colorado-springs-gpaa-chapter",
+      "name": "Colorado Springs GPAA Chapter",
+      "kind": "Club",
+      "region": "Colorado",
+      "location": "Colorado Springs, Colorado",
+      "summary": "A local GPAA chapter connecting people interested in gold prospecting.",
+      "topics": [
+        "Gold prospecting",
+        "Local chapter"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.cosgpaa.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.cosgpaa.org/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/4"
+      }
+    },
+    {
+      "id": "id-idaho-gold-prospectors-association",
+      "name": "Idaho Gold Prospectors Association",
+      "kind": "Club",
+      "region": "Idaho",
+      "location": "Boise area, Idaho",
+      "summary": "A family-oriented prospecting association sharing education and outings.",
+      "topics": [
+        "Education",
+        "Family activities",
+        "Club outings"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.idahogoldprospectors.com/about"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.idahogoldprospectors.com/about"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/5"
+      }
+    },
+    {
+      "id": "mt-central-montana-prospectors-group",
+      "name": "Central Montana Prospectors Group",
+      "kind": "Club",
+      "region": "Montana",
+      "location": "Great Falls, Montana",
+      "summary": "A local prospecting group with meetings and opportunities to learn together.",
+      "topics": [
+        "Gold prospecting",
+        "Meetings"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://centralmontanaprospectors.org/monthly-meetings"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://centralmontanaprospectors.org/monthly-meetings"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/8"
+      }
+    },
+    {
+      "id": "or-northwest-mineral-prospectors-club",
+      "name": "Northwest Mineral Prospectors Club",
+      "kind": "Club",
+      "region": "Oregon & Washington",
+      "location": "Clackamas, Oregon · Oregon and Washington community",
+      "summary": "A mineral and prospecting club with interests in geology, gold prospecting and metal detecting.",
+      "topics": [
+        "Gold prospecting",
+        "Geology",
+        "Metal detecting"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://nwmpc.com/about/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://nwmpc.com/about/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/9"
+      }
+    },
+    {
+      "id": "wa-yakima-prospectors-association",
+      "name": "Yakima Prospectors Association",
+      "kind": "Club",
+      "region": "Washington",
+      "location": "Yakima area, Washington",
+      "summary": "A local prospecting association with educational and youth interests.",
+      "topics": [
+        "Gold prospecting",
+        "Education",
+        "Youth activities"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://yakimaprospectors.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://yakimaprospectors.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/12"
+      }
+    },
+    {
+      "id": "wa-washington-prospectors-mining-association",
+      "name": "Washington Prospectors Mining Association",
+      "kind": "Association",
+      "region": "Washington",
+      "location": "Washington",
+      "summary": "An association focused on recreational prospecting and mining. Read its dated membership notices before applying.",
+      "topics": [
+        "Gold prospecting",
+        "Mining rights"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://washingtonprospectors.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Read the association’s current membership notices before applying; claim access requires its authorization.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://washingtonprospectors.org/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/13"
+      }
+    },
+    {
+      "id": "wa-north-central-washington-prospectors",
+      "name": "North Central Washington Prospectors",
+      "kind": "Club",
+      "region": "Washington",
+      "location": "North Central Washington",
+      "summary": "A prospecting community supporting education and small-scale mining.",
+      "topics": [
+        "Education",
+        "Small-scale mining"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://ncw-prospectors.squarespace.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://ncw-prospectors.squarespace.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/14"
+      }
+    },
+    {
+      "id": "nv-gold-searchers-of-southern-nevada",
+      "name": "Gold Searchers of Southern Nevada",
+      "kind": "Club",
+      "region": "Nevada",
+      "location": "Henderson area, Nevada",
+      "summary": "A gold-prospecting club sharing outings and equipment interests.",
+      "topics": [
+        "Gold prospecting",
+        "Equipment",
+        "Club outings"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.goldsearchersnv.com/upcoming-events.html"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.goldsearchersnv.com/upcoming-events.html"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/17"
+      }
+    },
+    {
+      "id": "sd-black-hills-prospecting-club",
+      "name": "Black Hills Prospecting Club",
+      "kind": "Club",
+      "region": "South Dakota",
+      "location": "Black Hills, South Dakota",
+      "summary": "A family-oriented club for people interested in prospecting in the Black Hills.",
+      "topics": [
+        "Gold prospecting",
+        "Family activities"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.blackhillsprospectingclub.com/about_us.html"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.blackhillsprospectingclub.com/about_us.html"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/18"
+      }
+    },
+    {
+      "id": "ga-augusta-gpaa-chapter",
+      "name": "Augusta GPAA Chapter",
+      "kind": "Club",
+      "region": "Georgia",
+      "location": "Augusta / Central Savannah River Area, Georgia",
+      "summary": "A GPAA chapter offering a community for learning about gold prospecting.",
+      "topics": [
+        "Gold prospecting",
+        "Education",
+        "Local chapter"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://augustagoldclub.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://augustagoldclub.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/19"
+      }
+    },
+    {
+      "id": "ca-coarsegold-gold-prospectors-club",
+      "name": "Coarsegold Gold Prospectors Club",
+      "kind": "Club",
+      "region": "California",
+      "location": "Coarsegold area, California",
+      "summary": "A family prospecting club sharing education and group outings.",
+      "topics": [
+        "Education",
+        "Family activities",
+        "Club outings"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://coarsegoldgoldprospectors.org/about.html"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://coarsegoldgoldprospectors.org/about.html"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/20"
+      }
+    },
+    {
+      "id": "mo-show-me-gold-prospectors",
+      "name": "Show Me Gold Prospectors",
+      "kind": "Club",
+      "region": "Missouri",
+      "location": "Odessa area, Missouri",
+      "summary": "A GPAA chapter with gold-prospecting, education and metal-detecting interests.",
+      "topics": [
+        "Gold prospecting",
+        "Education",
+        "Metal detecting"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://showmegoldprospectors.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://showmegoldprospectors.org/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/21"
+      }
+    },
+    {
+      "id": "ny-tri-state-gpaa",
+      "name": "Tri-State GPAA",
+      "kind": "Club",
+      "region": "New York",
+      "location": "Port Jervis, New York · tri-state area",
+      "summary": "A GPAA chapter with interests in prospecting, metal detecting and rocks.",
+      "topics": [
+        "Gold prospecting",
+        "Metal detecting",
+        "Rocks"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://tri-stategpaa.weebly.com/about.html"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://tri-stategpaa.weebly.com/about.html"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/37"
+      }
+    },
+    {
+      "id": "va-central-virginia-gold-prospectors",
+      "name": "Central Virginia Gold Prospectors",
+      "kind": "Club",
+      "region": "Virginia",
+      "location": "Central Virginia",
+      "summary": "A family prospecting club sharing Virginia gold history and prospecting methods.",
+      "topics": [
+        "Gold history",
+        "Education",
+        "Family activities"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://cvgp.net/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://cvgp.net/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/39"
+      }
+    },
+    {
+      "id": "ca-southwestern-prospectors-miners",
+      "name": "Southwestern Prospectors & Miners Association",
+      "kind": "Club",
+      "region": "California",
+      "location": "San Diego, Riverside and Imperial counties, California",
+      "summary": "A prospecting association sharing panning, drywashing and metal-detecting knowledge.",
+      "topics": [
+        "Gold panning",
+        "Drywashing",
+        "Metal detecting"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.spmagold.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.spmagold.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/40"
+      }
+    },
+    {
+      "id": "ca-east-bay-prospectors",
+      "name": "East Bay Prospectors",
+      "kind": "Club",
+      "region": "California",
+      "location": "East Bay, California",
+      "summary": "A GPAA chapter focused on prospecting education and responsible mining.",
+      "topics": [
+        "Education",
+        "Gold prospecting",
+        "Local chapter"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://ebprospectors.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://ebprospectors.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/41"
+      }
+    },
+    {
+      "id": "ca-valley-prospectors",
+      "name": "Valley Prospectors",
+      "kind": "Club",
+      "region": "California",
+      "location": "San Bernardino area, California",
+      "summary": "A family prospecting club offering education and outings.",
+      "topics": [
+        "Education",
+        "Family activities",
+        "Club outings"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.valleyprospectors.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.valleyprospectors.org/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/45"
+      }
+    },
+    {
+      "id": "nm-gpanm",
+      "name": "Gold Prospectors Association of New Mexico",
+      "kind": "Association",
+      "region": "New Mexico",
+      "location": "Albuquerque area, New Mexico",
+      "summary": "An independent placer-gold prospecting association sharing education and outings. It is not a GPAA chapter.",
+      "topics": [
+        "Placer gold",
+        "Education",
+        "Club outings"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.gpanm.org/about.html"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.gpanm.org/about.html"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/61"
+      }
+    },
+    {
+      "id": "oh-buckeye-gpaa",
+      "name": "Buckeye Chapter of the GPAA",
+      "kind": "Club",
+      "region": "Ohio",
+      "location": "Bellville / Butler area, Ohio",
+      "summary": "An Ohio GPAA chapter with meetings and member activities.",
+      "topics": [
+        "Gold prospecting",
+        "Meetings",
+        "Local chapter"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://buckeyegold.com/meetings/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://buckeyegold.com/meetings/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/62"
+      }
+    },
+    {
+      "id": "nc-carolina-slate-belt-gpaa",
+      "name": "Carolina Slate Belt GPAA Chapter",
+      "kind": "Club",
+      "region": "North Carolina",
+      "location": "Aberdeen area, North Carolina",
+      "summary": "A GPAA chapter sharing prospecting knowledge and beginner training.",
+      "topics": [
+        "Education",
+        "Beginners",
+        "Local chapter"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://carolinaslatebeltchaptergpaa.weebly.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://carolinaslatebeltchaptergpaa.weebly.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/64"
+      }
+    },
+    {
+      "id": "tx-round-rock-gpaa",
+      "name": "Round Rock Chapter of GPAA",
+      "kind": "Club",
+      "region": "Texas",
+      "location": "Round Rock area, Texas",
+      "summary": "A GPAA chapter bringing together people interested in prospecting.",
+      "topics": [
+        "Gold prospecting",
+        "Local chapter"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.roundrockgpaa.net/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.roundrockgpaa.net/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/65"
+      }
+    },
+    {
+      "id": "or-portland-gold-prospectors",
+      "name": "Portland Gold Prospectors",
+      "kind": "Club",
+      "region": "Oregon",
+      "location": "Portland area, Oregon",
+      "summary": "A GPAA chapter sharing workshops and prospecting outings.",
+      "topics": [
+        "Education",
+        "Club outings",
+        "Local chapter"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://portlandgoldprospectors.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://portlandgoldprospectors.org/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/66"
+      }
+    },
+    {
+      "id": "az-desert-gold-diggers-tucson",
+      "name": "Desert Gold Diggers",
+      "kind": "Club",
+      "region": "Arizona",
+      "location": "Tucson area, Arizona",
+      "summary": "A prospecting club with interests in panning, drywashing and metal detecting.",
+      "topics": [
+        "Gold panning",
+        "Drywashing",
+        "Metal detecting"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://desertgolddiggers.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://desertgolddiggers.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/99"
+      }
+    },
+    {
+      "id": "az-gpat-tucson",
+      "name": "Gold Prospectors Association of Tucson",
+      "kind": "Club",
+      "region": "Arizona",
+      "location": "Tucson, Arizona",
+      "summary": "A local prospecting association with club activities and member-controlled access arrangements.",
+      "topics": [
+        "Gold prospecting",
+        "Club activities"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.gpaatucson.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.gpaatucson.org/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/100"
+      }
+    },
+    {
+      "id": "az-huachuca-prospectors",
+      "name": "Huachuca Prospectors Association",
+      "kind": "Association",
+      "region": "Arizona",
+      "location": "Arizona",
+      "summary": "An independent prospecting association with gold, metal-detecting and gem interests. It is not a GPAA chapter.",
+      "topics": [
+        "Gold prospecting",
+        "Metal detecting",
+        "Gems"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://huachucaprospectorsassociation.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "GPAA membership does not grant access to this association’s claims. Confirm its own membership and access rules.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://huachucaprospectorsassociation.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/101"
+      }
+    },
+    {
+      "id": "az-roadrunner-prospectors",
+      "name": "Roadrunner Prospectors Club",
+      "kind": "Club",
+      "region": "Arizona",
+      "location": "Arizona",
+      "summary": "A family prospecting club sharing education and outings.",
+      "topics": [
+        "Education",
+        "Family activities",
+        "Club outings"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.roadrunnergold.com/about.php"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.roadrunnergold.com/about.php"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/103"
+      }
+    },
+    {
+      "id": "id-northwest-gold-prospectors-association",
+      "name": "NorthWest Gold Prospectors Association",
+      "kind": "Association",
+      "region": "Idaho",
+      "location": "Post Falls, Idaho",
+      "summary": "A local association for people interested in gold prospecting.",
+      "topics": [
+        "Gold prospecting",
+        "Local community"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://nwgoldprospectors.org/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://nwgoldprospectors.org/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/105"
+      }
+    },
+    {
+      "id": "ca-orange-county-49ers",
+      "name": "Orange County 49ers",
+      "kind": "Club",
+      "region": "California",
+      "location": "Garden Grove / Orange County, California",
+      "summary": "A club sharing gold-prospecting and metal-detecting education.",
+      "topics": [
+        "Gold prospecting",
+        "Metal detecting",
+        "Education"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.oc49ers.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.oc49ers.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/107"
+      }
+    },
+    {
+      "id": "ga-weekend-gold-miners-club",
+      "name": "Weekend Gold Miners Prospecting Club",
+      "kind": "Club",
+      "region": "Georgia",
+      "location": "Georgia",
+      "summary": "A family prospecting club with member-controlled access to leased properties.",
+      "topics": [
+        "Gold prospecting",
+        "Family activities"
+      ],
+      "links": [
+        {
+          "label": "Visit official website",
+          "platform": "Website",
+          "url": "https://www.weekendgoldminers.com/"
+        }
+      ],
+      "status": "listed",
+      "accessNote": "Check the organization’s current schedule and membership rules. A directory listing does not grant claim or property access.",
+      "checkedAt": "2026-10-15",
+      "sources": [
+        {
+          "label": "Official organization website",
+          "url": "https://www.weekendgoldminers.com/"
+        }
+      ],
+      "verification": "The public organization source was checked for the identity, broad location and focus shown. Meeting dates, dues, claim lists and event availability are not certified by this listing.",
+      "researchProvenance": {
+        "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+        "recordPath": "/communityResources/109"
+      }
+    }
+  ]
+}

@@ -27,7 +27,9 @@ export function validateContent(data){
    const authority=sources.get(destination.permissionSourceId)?.authority;
    if(!destination.title||!destination.text||destination.status!=='source_checked'||!['public_hand_panning','operator_river_access','supervised_practice'].includes(destination.kind)||!destination.sourceIds?.includes(destination.permissionSourceId)||!({public_hand_panning:['land_manager'],operator_river_access:['operator'],supervised_practice:['operator','land_manager']}[destination.kind]||[]).includes(authority)||!destination.locator||destination.coordinates!==undefined)throw new Error('Invalid destination access evidence');
    const keys=['where','entry','equipment','fees','season','facilities'];
-   if(!Array.isArray(destination.tripFacts)||destination.tripFacts.length!==keys.length||new Set(destination.tripFacts.map(f=>f.key)).size!==keys.length||destination.tripFacts.some(f=>!keys.includes(f.key)||!f.text||!f.locator||!f.sourceIds?.length||f.sourceIds.some(id=>!destination.sourceIds.includes(id))))throw new Error('Invalid destination trip facts');
+   const verifiedFields=destination.tripFactsScope==='verified_fields_only';
+   if(destination.tripFactsScope!==undefined&&!verifiedFields)throw new Error('Invalid destination trip facts scope');
+   if(!Array.isArray(destination.tripFacts)||(!verifiedFields&&destination.tripFacts.length!==keys.length)||new Set(destination.tripFacts.map(f=>f.key)).size!==destination.tripFacts.length||['where','entry','equipment'].some(key=>!destination.tripFacts.some(f=>f.key===key))||destination.tripFacts.some(f=>!keys.includes(f.key)||!f.text||!f.locator||!f.sourceIds?.length||f.sourceIds.some(id=>!destination.sourceIds.includes(id))))throw new Error('Invalid destination trip facts');
    if(!Array.isArray(destination.beforeYouGo)||!destination.beforeYouGo.length||destination.beforeYouGo.some(t=>typeof t!=='string'||!t.trim())||!Array.isArray(destination.articleIds)||destination.articleIds.some(id=>!articles.has(id)||!r.articleIds.includes(id)))throw new Error('Invalid destination preparation');
   }
   for(const mine of r.mines||[]){

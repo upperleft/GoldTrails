@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "originalFilename": "Gold_Trails_ALL_Research_for_Codex_2026-10-11.json",
+  "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+  "archiveBytes": 865078,
+  "baselineSha256": "8eb3cc4f41016b0deaacd4d7e7682334a7fd0d8065561198b6fc4a7f2ac501db",
+  "originalAssemblyDate": "2026-10-11",
+  "reviewDate": "2026-10-15",
+  "counts": {
+    "destinations": 88,
+    "communityResources": 133,
+    "sourceObservations": 296,
+    "selectedDestinations": 15,
+    "selectedCommunities": 30,
+    "existingCommunityMatches": 9,
+    "heldRecords": 167,
+    "unconfirmedDestinationLeads": 50,
+    "unconfirmedCommunityLeads": 33,
+    "publishedDestinationTotal": 21,
+    "publishedCommunityTotal": 46
+  }
+}

@@ -1862,6 +1862,182 @@
       "year": null,
       "authors": [],
       "inspectionBasis": "document_text"
+    },
+    {
+      "id": "combined-archive-destination-0",
+      "title": "Cache Creek Placer Area",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/royal-gorge-fo/public-room/map/blm-co-rgfo-cache-creek-placer-area-map",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Map-page overview; seasonal motorized access; designated camping",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-2",
+      "title": "Quartzville · BLM river sections",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/quartzville-back-country-byway",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Overview; Know Before You Go; Fees; Directions",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-4",
+      "title": "Island Creek Day Use Area · Cow Creek",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/cow-creek-back-country-byway",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Overview; Know Before You Go; Fees; Directions",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-5",
+      "title": "Sixes River Campground",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/sixes-river-campground",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Overview; Recreation; Directions; Fees",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-7",
+      "title": "Nome Creek · White Mountains",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/white-mountains",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Summer Recreation; Camping; Directions; Nome Creek Valley Map",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-13",
+      "title": "Keysville · Kern River",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/keysville-special-recreation-management-area",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Overview; motorized-route limits; river warning",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-14",
+      "title": "Cable Rock · Merced River",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/cable-rock-day-use-site",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Overview; Facilities; What you need to know; Warning",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-39",
+      "title": "North Fork American River · Colfax corridor",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/north-fork-american-river",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Overview; river access; recreation activities; Euchre Bar approach",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-40",
+      "title": "Greenwood Creek · South Fork American River",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/greenwood-creek-river-access",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Overview; What you need to know; Activities; Accessibility; Fees",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-45",
+      "title": "Whiskeytown · permitted hand panning",
+      "publisher": "National Park Service",
+      "url": "https://www.nps.gov/whis/planyourvisit/gold-panning.htm",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Panning opportunities; permit; regulations; prohibited locations",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-48",
+      "title": "Dave Moore Nature Area",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/dave-moore-nature-area",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "What you need to know; Overview; Activities; Directions",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-29",
+      "title": "South Yuba · hands and pans",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/south-yuba-recreation-area",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Overview; The South Yuba National Trail; campground seasonal closure",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-50",
+      "title": "Steel Bridge · Trinity River",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/visit/steel-bridge-campground-0",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Overview; Facilities; Accessibility Description",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-19",
+      "title": "Land of the Yankee Fork · panning station",
+      "publisher": "Idaho Department of Parks and Recreation",
+      "url": "https://parksandrecreation.idaho.gov/state-park/land-of-the-yankee-fork-state-park/",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Contact the Park; Hours of Operation; About the Park",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-destination-18",
+      "title": "Crystal Gold Mine · panning practice",
+      "publisher": "Crystal Gold Mine",
+      "url": "https://www.goldmine-idaho.com/mine-experience.html",
+      "authority": "operator",
+      "inspectionBasis": "document_text",
+      "locator": "Gold Panning; Tours & Package Deals; Open; Miner’s Museum",
+      "checkedAt": "2026-10-15",
+      "year": null
+    },
+    {
+      "id": "combined-archive-cache-creek-map",
+      "title": "Cache Creek Placer Area boundary map",
+      "publisher": "U.S. Bureau of Land Management",
+      "url": "https://www.blm.gov/sites/default/files/docs/2022-08/BLM_CO_RGFO_CacheCreek_Map_20220310.pdf",
+      "authority": "land_manager",
+      "inspectionBasis": "document_text",
+      "locator": "Page 1: recreational digging boundary and map legend; map current March 10, 2022",
+      "checkedAt": "2026-10-15",
+      "year": 2022
     }
   ],
   "states": [
@@ -2038,6 +2214,478 @@
           "locator": "Published activity policy and visitor details; see field-level references",
           "status": "source_checked",
           "reviewedAt": "2026-10-11"
+        },
+        {
+          "id": "US-CA:archive-13",
+          "title": "Keysville · Kern River",
+          "text": "BLM lists recreational gold panning at Keysville. Historic structures and other recreation areas are not an invitation to excavate.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-13",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Keysville Special Recreation Management Area along the lower Kern River.",
+              "sourceIds": [
+                "combined-archive-destination-13"
+              ],
+              "locator": "Overview; motorized-route limits; river warning"
+            },
+            {
+              "key": "entry",
+              "text": "Follow BLM boundaries and posted restrictions; motor vehicles must stay on designated roads and trails.",
+              "sourceIds": [
+                "combined-archive-destination-13"
+              ],
+              "locator": "Overview; motorized-route limits; river warning"
+            },
+            {
+              "key": "equipment",
+              "text": "Recreational panning is listed. Confirm any additional equipment with the land manager.",
+              "sourceIds": [
+                "combined-archive-destination-13"
+              ],
+              "locator": "Overview; motorized-route limits; river warning"
+            },
+            {
+              "key": "facilities",
+              "text": "Dispersed camping and trails are listed. BLM discourages swimming and warns about the river edge.",
+              "sourceIds": [
+                "combined-archive-destination-13"
+              ],
+              "locator": "Overview; motorized-route limits; river warning"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-13"
+          ],
+          "locator": "Overview; motorized-route limits; river warning",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/13"
+          }
+        },
+        {
+          "id": "US-CA:archive-14",
+          "title": "Cable Rock · Merced River",
+          "text": "BLM expressly lists gold panning at this day-use site on the Merced River.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-14",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "About 1.4 miles downstream from Briceburg Visitor Center along Briceburg River Road.",
+              "sourceIds": [
+                "combined-archive-destination-14"
+              ],
+              "locator": "Overview; Facilities; What you need to know; Warning"
+            },
+            {
+              "key": "entry",
+              "text": "Day use only; camping and campfires are prohibited.",
+              "sourceIds": [
+                "combined-archive-destination-14"
+              ],
+              "locator": "Overview; Facilities; What you need to know; Warning"
+            },
+            {
+              "key": "equipment",
+              "text": "This listing covers the published gold-panning activity, not powered mining.",
+              "sourceIds": [
+                "combined-archive-destination-14"
+              ],
+              "locator": "Overview; Facilities; What you need to know; Warning"
+            },
+            {
+              "key": "season",
+              "text": "Summer heat and spring or early-summer flows can be hazardous. Check river conditions before visiting.",
+              "sourceIds": [
+                "combined-archive-destination-14"
+              ],
+              "locator": "Overview; Facilities; What you need to know; Warning"
+            },
+            {
+              "key": "facilities",
+              "text": "Vault toilet, information kiosk, waste containers, roadside parking and stone steps to the beach.",
+              "sourceIds": [
+                "combined-archive-destination-14"
+              ],
+              "locator": "Overview; Facilities; What you need to know; Warning"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-14"
+          ],
+          "locator": "Overview; Facilities; What you need to know; Warning",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/14"
+          }
+        },
+        {
+          "id": "US-CA:archive-39",
+          "title": "North Fork American River · Colfax corridor",
+          "text": "BLM lists recreational gold panning along this river segment. Much of the canyon approach is strenuous.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-39",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "River access near the Colfax–Iowa Hill bridge or by canyon trails, including Euchre Bar.",
+              "sourceIds": [
+                "combined-archive-destination-39"
+              ],
+              "locator": "Overview; river access; recreation activities; Euchre Bar approach"
+            },
+            {
+              "key": "entry",
+              "text": "Use public access routes and check the exact river segment and restrictions before travel.",
+              "sourceIds": [
+                "combined-archive-destination-39"
+              ],
+              "locator": "Overview; river access; recreation activities; Euchre Bar approach"
+            },
+            {
+              "key": "equipment",
+              "text": "Gold panning is listed. No authorization for other mining equipment is implied.",
+              "sourceIds": [
+                "combined-archive-destination-39"
+              ],
+              "locator": "Overview; river access; recreation activities; Euchre Bar approach"
+            },
+            {
+              "key": "facilities",
+              "text": "Access from the canyon rim involves a substantial descent; do not assume a level riverbank approach.",
+              "sourceIds": [
+                "combined-archive-destination-39"
+              ],
+              "locator": "Overview; river access; recreation activities; Euchre Bar approach"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-39"
+          ],
+          "locator": "Overview; river access; recreation activities; Euchre Bar approach",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/39"
+          }
+        },
+        {
+          "id": "US-CA:archive-40",
+          "title": "Greenwood Creek · South Fork American River",
+          "text": "BLM lists gold panning at Greenwood Creek River Access, a day-use river access point.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-40",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Off Highway 49, approximately fourteen miles south of Auburn; overflow parking is at Magnolia Ranch.",
+              "sourceIds": [
+                "combined-archive-destination-40"
+              ],
+              "locator": "Overview; What you need to know; Activities; Accessibility; Fees"
+            },
+            {
+              "key": "entry",
+              "text": "Day use only. Stay on designated routes beside private property.",
+              "sourceIds": [
+                "combined-archive-destination-40"
+              ],
+              "locator": "Overview; What you need to know; Activities; Accessibility; Fees"
+            },
+            {
+              "key": "equipment",
+              "text": "Gold panning is listed. Check separate rules before bringing additional equipment.",
+              "sourceIds": [
+                "combined-archive-destination-40"
+              ],
+              "locator": "Overview; What you need to know; Activities; Accessibility; Fees"
+            },
+            {
+              "key": "fees",
+              "text": "BLM lists no fee.",
+              "sourceIds": [
+                "combined-archive-destination-40"
+              ],
+              "locator": "Overview; What you need to know; Activities; Accessibility; Fees"
+            },
+            {
+              "key": "facilities",
+              "text": "Parking is limited; the accessibility description covers the parking lot only.",
+              "sourceIds": [
+                "combined-archive-destination-40"
+              ],
+              "locator": "Overview; What you need to know; Activities; Accessibility; Fees"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-40"
+          ],
+          "locator": "Overview; What you need to know; Activities; Accessibility; Fees",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/40"
+          }
+        },
+        {
+          "id": "US-CA:archive-45",
+          "title": "Whiskeytown · permitted hand panning",
+          "text": "Whiskeytown allows recreational hand panning under its own permit and equipment rules.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-45",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "NPS identifies Tower House Historic District and Clear Creek Picnic Area as panning locations.",
+              "sourceIds": [
+                "combined-archive-destination-45"
+              ],
+              "locator": "Panning opportunities; permit; regulations; prohibited locations"
+            },
+            {
+              "key": "entry",
+              "text": "A permit is required for ages 17 and older, plus the vehicle entrance pass. The Clear Creek reach from Paige Bar Creek to the environmental-school access-road bridge is excluded.",
+              "sourceIds": [
+                "combined-archive-destination-45"
+              ],
+              "locator": "Panning opportunities; permit; regulations; prohibited locations"
+            },
+            {
+              "key": "equipment",
+              "text": "Pan plus small digging tools, limited to blades 4 inches wide by 8 inches long. No sluices, detectors, suction devices or dredges.",
+              "sourceIds": [
+                "combined-archive-destination-45"
+              ],
+              "locator": "Panning opportunities; permit; regulations; prohibited locations"
+            },
+            {
+              "key": "fees",
+              "text": "The published panning permit is $1, valid one year; the entrance pass is separate.",
+              "sourceIds": [
+                "combined-archive-destination-45"
+              ],
+              "locator": "Panning opportunities; permit; regulations; prohibited locations"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-45"
+          ],
+          "locator": "Panning opportunities; permit; regulations; prohibited locations",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/45"
+          }
+        },
+        {
+          "id": "US-CA:archive-48",
+          "title": "Dave Moore Nature Area",
+          "text": "BLM lists gold panning at this South Fork American River day-use area. Its old mining remnants are cultural features, not digging sites.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-48",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Highway 49, approximately two miles west of Marshall Gold Discovery State Historic Park.",
+              "sourceIds": [
+                "combined-archive-destination-48"
+              ],
+              "locator": "What you need to know; Overview; Activities; Directions"
+            },
+            {
+              "key": "entry",
+              "text": "Day use only; organized, competitive or commercial activities need a Special Recreation Use Permit.",
+              "sourceIds": [
+                "combined-archive-destination-48"
+              ],
+              "locator": "What you need to know; Overview; Activities; Directions"
+            },
+            {
+              "key": "equipment",
+              "text": "Gold panning is listed. Check restrictions before bringing other equipment.",
+              "sourceIds": [
+                "combined-archive-destination-48"
+              ],
+              "locator": "What you need to know; Overview; Activities; Directions"
+            },
+            {
+              "key": "facilities",
+              "text": "A roughly mile-long loop leads from the parking area to the river. Bring drinking water; none is supplied.",
+              "sourceIds": [
+                "combined-archive-destination-48"
+              ],
+              "locator": "What you need to know; Overview; Activities; Directions"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-48"
+          ],
+          "locator": "What you need to know; Overview; Activities; Directions",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/48"
+          }
+        },
+        {
+          "id": "US-CA:archive-29",
+          "title": "South Yuba · hands and pans",
+          "text": "BLM specifies hands-and-pans-only gold panning in the South Yuba Wild & Scenic River.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-29",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "South Yuba recreation lands northeast of Nevada City. Confirm the particular access point and land manager.",
+              "sourceIds": [
+                "combined-archive-destination-29"
+              ],
+              "locator": "Overview; The South Yuba National Trail; campground seasonal closure"
+            },
+            {
+              "key": "entry",
+              "text": "Respect private land along the trails and the day-use-only zones around Edwards and Purdon crossings.",
+              "sourceIds": [
+                "combined-archive-destination-29"
+              ],
+              "locator": "Overview; The South Yuba National Trail; campground seasonal closure"
+            },
+            {
+              "key": "equipment",
+              "text": "Hands and pans only: no sluice boxes or tools.",
+              "sourceIds": [
+                "combined-archive-destination-29"
+              ],
+              "locator": "Overview; The South Yuba National Trail; campground seasonal closure"
+            },
+            {
+              "key": "season",
+              "text": "The recreation area is described as year-round; South Yuba Campground closes October 15, 2026. These are separate access statements.",
+              "sourceIds": [
+                "combined-archive-destination-29"
+              ],
+              "locator": "Overview; The South Yuba National Trail; campground seasonal closure"
+            },
+            {
+              "key": "facilities",
+              "text": "The river is about a mile from the campground. Recheck current fire restrictions and campground arrangements.",
+              "sourceIds": [
+                "combined-archive-destination-29"
+              ],
+              "locator": "Overview; The South Yuba National Trail; campground seasonal closure"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-29"
+          ],
+          "locator": "Overview; The South Yuba National Trail; campground seasonal closure",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/29"
+          }
+        },
+        {
+          "id": "US-CA:archive-50",
+          "title": "Steel Bridge · Trinity River",
+          "text": "BLM includes gold panning among the riverside activities at Steel Bridge Campground.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-50",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Steel Bridge Campground on the Trinity River, California.",
+              "sourceIds": [
+                "combined-archive-destination-50"
+              ],
+              "locator": "Overview; Facilities; Accessibility Description"
+            },
+            {
+              "key": "entry",
+              "text": "Use the recreation site and check BLM notices and permitted panning boundaries.",
+              "sourceIds": [
+                "combined-archive-destination-50"
+              ],
+              "locator": "Overview; Facilities; Accessibility Description"
+            },
+            {
+              "key": "equipment",
+              "text": "Gold panning is listed; this does not authorize dredging or powered equipment.",
+              "sourceIds": [
+                "combined-archive-destination-50"
+              ],
+              "locator": "Overview; Facilities; Accessibility Description"
+            },
+            {
+              "key": "facilities",
+              "text": "Vault toilets, picnic tables and campsites are described. No running water; cell coverage is poor. BLM states there is no accessible river pathway.",
+              "sourceIds": [
+                "combined-archive-destination-50"
+              ],
+              "locator": "Overview; Facilities; Accessibility Description"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-50"
+          ],
+          "locator": "Overview; Facilities; Accessibility Description",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/50"
+          }
         }
       ],
       "discovery": {
@@ -3085,7 +3733,145 @@
           "text": "Salmon–Challis guidance says it has no designated recreational panning area and generally accepts short-term incidental panning without excavation. This land-manager restriction is narrower than simply listing a shovel as nonmechanized in IDWR guidance. Confirm the district and claim status."
         }
       ],
-      "researchReviewedAt": "2026-10-15"
+      "researchReviewedAt": "2026-10-15",
+      "destinations": [
+        {
+          "id": "US-ID:archive-19",
+          "title": "Land of the Yankee Fork · panning station",
+          "text": "The Interpretive Center offers a gold-panning station and mining-history exhibits. This is a practice activity, not permission to mine the surrounding historic area.",
+          "kind": "supervised_practice",
+          "permissionSourceId": "combined-archive-destination-19",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Interpretive Center, 24424 Highway 75, Challis, Idaho.",
+              "sourceIds": [
+                "combined-archive-destination-19"
+              ],
+              "locator": "Contact the Park; Hours of Operation; About the Park"
+            },
+            {
+              "key": "entry",
+              "text": "Ask Interpretive Center staff about the panning station before setting up.",
+              "sourceIds": [
+                "combined-archive-destination-19"
+              ],
+              "locator": "Contact the Park; Hours of Operation; About the Park"
+            },
+            {
+              "key": "equipment",
+              "text": "Use the center’s panning station under staff instructions; no general river prospecting is included.",
+              "sourceIds": [
+                "combined-archive-destination-19"
+              ],
+              "locator": "Contact the Park; Hours of Operation; About the Park"
+            },
+            {
+              "key": "season",
+              "text": "Published center hours: Wednesday–Sunday, 8:30am–4:30pm; closed Monday and Tuesday. Confirm the panning activity’s availability.",
+              "sourceIds": [
+                "combined-archive-destination-19"
+              ],
+              "locator": "Contact the Park; Hours of Operation; About the Park"
+            },
+            {
+              "key": "facilities",
+              "text": "Museum exhibits and visitor information; camping at Challis Hot Springs is a different park unit.",
+              "sourceIds": [
+                "combined-archive-destination-19"
+              ],
+              "locator": "Contact the Park; Hours of Operation; About the Park"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-19"
+          ],
+          "locator": "Contact the Park; Hours of Operation; About the Park",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/19"
+          }
+        },
+        {
+          "id": "US-ID:archive-18",
+          "title": "Crystal Gold Mine · panning practice",
+          "text": "The operator offers taught panning with supplied tools. Its tour package and stand-alone panning are different purchases.",
+          "kind": "supervised_practice",
+          "permissionSourceId": "combined-archive-destination-18",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Crystal Gold Mine, Kellogg, Idaho; use the operator’s directions.",
+              "sourceIds": [
+                "combined-archive-destination-18"
+              ],
+              "locator": "Gold Panning; Tours & Package Deals; Open; Miner’s Museum"
+            },
+            {
+              "key": "entry",
+              "text": "Book or ask the operator for the panning activity you want; this is not self-directed river access.",
+              "sourceIds": [
+                "combined-archive-destination-18"
+              ],
+              "locator": "Gold Panning; Tours & Package Deals; Open; Miner’s Museum"
+            },
+            {
+              "key": "equipment",
+              "text": "The operator says tools and panning instruction are supplied.",
+              "sourceIds": [
+                "combined-archive-destination-18"
+              ],
+              "locator": "Gold Panning; Tours & Package Deals; Open; Miner’s Museum"
+            },
+            {
+              "key": "fees",
+              "text": "Stand-alone panning: $14 adult and $10 child ages 4–12. The mine-tour package has separate prices.",
+              "sourceIds": [
+                "combined-archive-destination-18"
+              ],
+              "locator": "Gold Panning; Tours & Package Deals; Open; Miner’s Museum"
+            },
+            {
+              "key": "season",
+              "text": "Published May–October schedules vary by season; contact the operator for winter hours and holiday closures.",
+              "sourceIds": [
+                "combined-archive-destination-18"
+              ],
+              "locator": "Gold Panning; Tours & Package Deals; Open; Miner’s Museum"
+            },
+            {
+              "key": "facilities",
+              "text": "The site lists a miner’s museum and gift shop.",
+              "sourceIds": [
+                "combined-archive-destination-18"
+              ],
+              "locator": "Gold Panning; Tours & Package Deals; Open; Miner’s Museum"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-18"
+          ],
+          "locator": "Gold Panning; Tours & Package Deals; Open; Miner’s Museum",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/18"
+          }
+        }
+      ]
     },
     {
       "id": "US-AK",
@@ -3247,7 +4033,73 @@
           "text": "The Port Wells discussion in PP610 records quartz-vein gold with pyrite, galena, sphalerite, pyrrhotite, arsenopyrite, stibnite and chalcopyrite. This Prince William Sound lode association is geographically specific, not a universal recipe for Alaska placer concentrates."
         }
       ],
-      "researchReviewedAt": "2026-10-15"
+      "researchReviewedAt": "2026-10-15",
+      "destinations": [
+        {
+          "id": "US-AK:archive-7",
+          "title": "Nome Creek · White Mountains",
+          "text": "BLM identifies a gold-panning area in Nome Creek valley, a summer access point for the White Mountains recreation area.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-7",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Reach Nome Creek via US Creek Road at Steese Highway mile 57.",
+              "sourceIds": [
+                "combined-archive-destination-7"
+              ],
+              "locator": "Summer Recreation; Camping; Directions; Nome Creek Valley Map"
+            },
+            {
+              "key": "entry",
+              "text": "Use the designated gold-panning area and BLM’s Nome Creek valley map.",
+              "sourceIds": [
+                "combined-archive-destination-7"
+              ],
+              "locator": "Summer Recreation; Camping; Directions; Nome Creek Valley Map"
+            },
+            {
+              "key": "equipment",
+              "text": "Gold panning is listed. Check permitted equipment and current area boundaries with BLM.",
+              "sourceIds": [
+                "combined-archive-destination-7"
+              ],
+              "locator": "Summer Recreation; Camping; Directions; Nome Creek Valley Map"
+            },
+            {
+              "key": "season",
+              "text": "The visitor page describes summer recreation as May 1–October 14. Actual road and campground availability depends on conditions.",
+              "sourceIds": [
+                "combined-archive-destination-7"
+              ],
+              "locator": "Summer Recreation; Camping; Directions; Nome Creek Valley Map"
+            },
+            {
+              "key": "facilities",
+              "text": "The valley provides access to two campgrounds and trails; check current opening notices separately.",
+              "sourceIds": [
+                "combined-archive-destination-7"
+              ],
+              "locator": "Summer Recreation; Camping; Directions; Nome Creek Valley Map"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-7"
+          ],
+          "locator": "Summer Recreation; Camping; Directions; Nome Creek Valley Map",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/7"
+          }
+        }
+      ]
     },
     {
       "id": "US-AZ",
@@ -5031,7 +5883,74 @@
           "text": "USGS PP610 reports 739,511 ounces of placer gold from Summit County through 1959. The Breckenridge discussion distinguishes shallow gulch gravels, bench placers and deep placers along the Swan and Blue Rivers. This historical mined output supports a substantial placer-industry classification, not a remaining reserve."
         }
       ],
-      "researchReviewedAt": "2026-10-15"
+      "researchReviewedAt": "2026-10-15",
+      "destinations": [
+        {
+          "id": "US-CO:archive-0",
+          "title": "Cache Creek Placer Area",
+          "text": "BLM identifies a designated recreational panning and sluicing area. Use its boundary map; this is not permission to dig throughout Cache Creek.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-0",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Cache Creek Placer Area, Colorado; follow the BLM map linked below.",
+              "sourceIds": [
+                "combined-archive-cache-creek-map"
+              ],
+              "locator": "Page 1: Recreational Digging Allowed in This Area Only; parking, kiosk and camping legend"
+            },
+            {
+              "key": "entry",
+              "text": "Stay inside the designated recreational area and check current boundary notices with Royal Gorge Field Office.",
+              "sourceIds": [
+                "combined-archive-cache-creek-map"
+              ],
+              "locator": "Page 1: Recreational Digging Allowed in This Area Only; parking, kiosk and camping legend"
+            },
+            {
+              "key": "equipment",
+              "text": "BLM lists panning and sluicing. Confirm other equipment with the field office.",
+              "sourceIds": [
+                "combined-archive-destination-0"
+              ],
+              "locator": "Map-page overview; seasonal motorized access; designated camping"
+            },
+            {
+              "key": "season",
+              "text": "The published motorized-access season runs from Memorial Day weekend through November 30.",
+              "sourceIds": [
+                "combined-archive-destination-0"
+              ],
+              "locator": "Map-page overview; seasonal motorized access; designated camping"
+            },
+            {
+              "key": "facilities",
+              "text": "Dispersed camping is restricted to locations marked with tent symbols.",
+              "sourceIds": [
+                "combined-archive-cache-creek-map"
+              ],
+              "locator": "Page 1: Recreational Digging Allowed in This Area Only; parking, kiosk and camping legend"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-0",
+            "combined-archive-cache-creek-map"
+          ],
+          "locator": "Map-page overview; seasonal motorized access; designated camping",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/0"
+          }
+        }
+      ]
     },
     {
       "id": "US-OR",
@@ -5159,7 +6078,201 @@
           "text": "PP610 describes free gold in Galice district veins with pyrite, pyrrhotite and some chalcopyrite in quartz. Veins cut several Jurassic igneous rocks. These historical lode descriptions help explain source terrain but do not establish open collecting at old mines."
         }
       ],
-      "researchReviewedAt": "2026-10-15"
+      "researchReviewedAt": "2026-10-15",
+      "destinations": [
+        {
+          "id": "US-OR:archive-2",
+          "title": "Quartzville · BLM river sections",
+          "text": "Recreational mining is listed for the BLM-managed portion of the byway. Permission does not extend to every nearby riverbank.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-2",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Along Quartzville River, reached by Quartzville Road from the Sweet Home area.",
+              "sourceIds": [
+                "combined-archive-destination-2"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            },
+            {
+              "key": "entry",
+              "text": "Use the BLM-managed sections identified in the official visitor information.",
+              "sourceIds": [
+                "combined-archive-destination-2"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            },
+            {
+              "key": "equipment",
+              "text": "Gold panning is listed. Check applicable equipment rules before using anything beyond a hand pan.",
+              "sourceIds": [
+                "combined-archive-destination-2"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            },
+            {
+              "key": "fees",
+              "text": "BLM lists no day-use fee.",
+              "sourceIds": [
+                "combined-archive-destination-2"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            },
+            {
+              "key": "facilities",
+              "text": "Camping is limited to designated sites. Yellowbottom camping is closed; its swimming area remains listed.",
+              "sourceIds": [
+                "combined-archive-destination-2"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-2"
+          ],
+          "locator": "Overview; Know Before You Go; Fees; Directions",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/2"
+          }
+        },
+        {
+          "id": "US-OR:archive-4",
+          "title": "Island Creek Day Use Area · Cow Creek",
+          "text": "BLM identifies Island Creek as a gold-panning stop on the Cow Creek Back Country Byway.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-4",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Cow Creek Byway between Riddle and Glendale, Oregon; use the official byway map.",
+              "sourceIds": [
+                "combined-archive-destination-4"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            },
+            {
+              "key": "entry",
+              "text": "Stay within the day-use area and respect private mining claims along the creek.",
+              "sourceIds": [
+                "combined-archive-destination-4"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            },
+            {
+              "key": "equipment",
+              "text": "The published activity is gold panning. Check with BLM before bringing additional equipment.",
+              "sourceIds": [
+                "combined-archive-destination-4"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            },
+            {
+              "key": "fees",
+              "text": "The byway visitor page lists no fees.",
+              "sourceIds": [
+                "combined-archive-destination-4"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            },
+            {
+              "key": "facilities",
+              "text": "Creek-side picnicking is described at Island Creek; Skull Creek camping is a separate stop.",
+              "sourceIds": [
+                "combined-archive-destination-4"
+              ],
+              "locator": "Overview; Know Before You Go; Fees; Directions"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-4"
+          ],
+          "locator": "Overview; Know Before You Go; Fees; Directions",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/4"
+          }
+        },
+        {
+          "id": "US-OR:archive-5",
+          "title": "Sixes River Campground",
+          "text": "The BLM visitor page lists gold panning among the activities at this riverside campground.",
+          "kind": "public_hand_panning",
+          "permissionSourceId": "combined-archive-destination-5",
+          "tripFactsScope": "verified_fields_only",
+          "tripFacts": [
+            {
+              "key": "where",
+              "text": "Approximately 11 miles along Sixes River Road from US 101, near Port Orford.",
+              "sourceIds": [
+                "combined-archive-destination-5"
+              ],
+              "locator": "Overview; Recreation; Directions; Fees"
+            },
+            {
+              "key": "entry",
+              "text": "Use the campground recreation area; confirm the permitted panning boundary with BLM.",
+              "sourceIds": [
+                "combined-archive-destination-5"
+              ],
+              "locator": "Overview; Recreation; Directions; Fees"
+            },
+            {
+              "key": "equipment",
+              "text": "Gold panning is listed. Other mining equipment is not covered by this listing.",
+              "sourceIds": [
+                "combined-archive-destination-5"
+              ],
+              "locator": "Overview; Recreation; Directions; Fees"
+            },
+            {
+              "key": "fees",
+              "text": "Published charges: $6 day use; $16 single campsite and $8 additional camping vehicle. Recheck before travel.",
+              "sourceIds": [
+                "combined-archive-destination-5"
+              ],
+              "locator": "Overview; Recreation; Directions; Fees"
+            },
+            {
+              "key": "facilities",
+              "text": "The site has 19 campsites. Set up Recreation.gov before arriving if using Scan & Pay.",
+              "sourceIds": [
+                "combined-archive-destination-5"
+              ],
+              "locator": "Overview; Recreation; Directions; Fees"
+            }
+          ],
+          "articleIds": [],
+          "beforeYouGo": [
+            "Read current site notices and confirm the permitted activity and exact area before travel."
+          ],
+          "sourceIds": [
+            "combined-archive-destination-5"
+          ],
+          "locator": "Overview; Recreation; Directions; Fees",
+          "status": "source_checked",
+          "reviewedAt": "2026-10-15",
+          "researchProvenance": {
+            "archiveSha256": "8f6a237e9a2f8ca9a5bff8f93c024ba0cf9429b0b4f00cf7cdbee365c9596528",
+            "recordPath": "/destinations/5"
+          }
+        }
+      ]
     },
     {
       "id": "US-WY",

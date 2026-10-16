@@ -14,7 +14,7 @@ test('published research renders with citations, preserves legacy records and ex
  for(const previous of baseline.states){
   const current=content.states.find(s=>s.id===previous.id);
   for(const key of Object.keys(previous)){
-   if(key==='facts')for(const fact of previous.facts)assert.deepEqual(current.facts.find(f=>f.id===fact.id),fact);
+   if(['facts','destinations'].includes(key))for(const item of previous[key])assert.deepEqual(current[key].find(f=>f.id===item.id),item);
    else assert.deepEqual(current[key],previous[key],previous.id+':'+key);
   }
  }
@@ -199,7 +199,7 @@ test('document links open the inspected PDF page and reject malformed page refer
 });
 
 test('panning destinations require appropriate access evidence and attributed trip facts',()=>{
- const destinations=content.states.flatMap(s=>s.destinations||[]);assert.equal(destinations.length,6);
+ const destinations=content.states.flatMap(s=>s.destinations||[]);assert.equal(destinations.length,21);
  assert.deepEqual(new Set(destinations.map(d=>d.kind)),new Set(['public_hand_panning','operator_river_access','supervised_practice']));
  const mutate=fn=>{const data=structuredClone(content);fn(data.states.find(s=>s.id==='US-VT').destinations[0],data);assert.throws(()=>validateContent(data),/destination|Unattributed|Duplicate/);};
  for(const change of [d=>d.permissionSourceId='maine-gold',d=>d.status='reported_occurrence',d=>d.coordinates=[43,-72],d=>d.tripFacts[0].sourceIds=['fiction'],d=>d.tripFacts.pop(),d=>d.tripFacts[1].key=d.tripFacts[0].key,d=>d.tripFacts[0].locator='',d=>d.articleIds=['article:fictional'],d=>d.beforeYouGo=[]])mutate(change);
@@ -247,7 +247,7 @@ test('expanded panning visits retain price and seasonal qualifications and corre
  assert.match(nc,/Supervised practice program checked/);assert.match(nc,/Site visitor information/);assert.ok(!nc.includes('Operator activity information'));assert.match(nc,/\$5 plus tax/);assert.match(nc,/Call before a winter visit/);assert.match(nc,/does not grant access/);
  assert.match(ga,/Operator activity information/);assert.match(ga,/Panning-only starts at \$60/);assert.match(ga,/\$24.95/);assert.match(ga,/Indoor panning/);assert.match(ga,/Cherokee Nation/);
  for(const html of htmls){
-  assert.equal((html.match(/class="almanac-destination"/g)||[]).length,1);
+  assert.equal((html.match(/class="almanac-destination"/g)||[]).length,html===ca?9:1);
   const ids=new Set([...html.matchAll(/id="(source-[^"]+)"/g)].map(m=>m[1]));for(const ref of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(ids.has(ref[1]),ref[1]);
   for(const link of html.matchAll(/<a href="https:[^"]+"([^>]+)>/g)){assert.match(link[1],/target="_blank"/);assert.match(link[1],/rel="noopener noreferrer"/);}
  }
