@@ -16,7 +16,7 @@ test('map uses recognized broad regions, retains unknowns and overlapping settin
 test('unified directory displays the full roster and old map links redirect to the premium Almanac',async()=>{
  const server=createServer({directory:{map:async()=>({people:[{id:'1',slug:'a',display_name:'A'}],regions:[],topics:[]})},log:()=>{}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
- try{const root='http://127.0.0.1:'+server.address().port;const response=await fetch(root+'/prospectors/');assert.equal(response.status,200);const html=await response.text();assert.match(html,/List view/);assert.match(html,/Map view/);assert.match(html,/Search prospectors/);assert.equal((html.match(/class="map-person"/g)||[]).length,69);assert.ok(!html.includes('href="/creator-map/"'));const redirect=await fetch(root+'/creator-map?q=A',{redirect:'manual'});assert.equal(redirect.status,308);assert.equal(redirect.headers.get('location'),'/gold-almanac/?q=A');assert.equal((await fetch(root+'/prospectors/?view=nope')).status,400);}finally{await new Promise(r=>server.close(r));}
+ try{const root='http://127.0.0.1:'+server.address().port;const response=await fetch(root+'/prospectors/');assert.equal(response.status,200);const html=await response.text();assert.match(html,/List view/);assert.match(html,/Map view/);assert.match(html,/Search prospectors/);assert.equal((html.match(/class="map-person"/g)||[]).length,71);assert.ok(!html.includes('href="/creator-map/"'));const redirect=await fetch(root+'/creator-map?q=A',{redirect:'manual'});assert.equal(redirect.status,308);assert.equal(redirect.headers.get('location'),'/gold-almanac/?q=A');assert.equal((await fetch(root+'/prospectors/?view=nope')).status,400);}finally{await new Promise(r=>server.close(r));}
 });
 
 test('shared filters preserve region/topic links and distinguish unknown and unmapped regions',()=>{
@@ -29,3 +29,13 @@ test('shared filters preserve region/topic links and distinguish unknown and unm
 
 import {mergeCatalog,catalogProfile} from '../app/creator-catalog.js';
 test('catalog preserves database overrides, blocked profiles and unknown locations',()=>{const data=mergeCatalog({people:[{id:'live',slug:'dan-hurd',display_name:'Dan'}],regions:[],topics:[],excludedSlugs:['pioneer-pauly']});assert.equal(data.people.filter(p=>p.slug==='dan-hurd').length,1);assert.ok(!data.people.some(p=>p.slug==='pioneer-pauly'));assert.match(catalogProfile({name:'Test',status:'lead',checked_at:'2026-10-09',official_url:'https://example.com'}),/Location unknown at this time/);});
+
+test('new creator profiles, official YouTube links and cited biographies are public',async t=>{
+ const directory={map:async()=>({people:[],regions:[],topics:[]}),profile:async()=>null,catalogAllowed:async()=>true};
+ const server=createServer({directory,goldPrice:async()=>({}),log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));const root='http://127.0.0.1:'+server.address().port;
+ for(const [slug,channel,source]of[['utmost-outdoors','UtmostOutdoors','https://www.utmostoutdoors.com/our-story'],['ghost-town-living','ghosttownliving','https://cerrogordomines.com/pages/about']]){
+  const response=await fetch(root+'/prospectors/'+slug+'/');assert.equal(response.status,200);const html=await response.text();assert.ok(html.includes('https://www.youtube.com/@'+channel));assert.ok(html.includes(source));assert.match(html,/Watch on YouTube/);assert.match(html,/2026-10-16/);assert.doesNotMatch(html,/Norris|Saskatchewan/);
+ }
+ const merged=mergeCatalog(await directory.map()),rows=mapRecords(merged.people,merged.regions,merged.topics);assert.equal(rows.filter(p=>matchesCreator(p,{q:'Brent Underwood'})).length,1);assert.equal(rows.find(p=>p.slug==='utmost-outdoors').location,'Alberta');
+ const escaped=catalogProfile({name:'Example',summary:'<script>bad()</script>',biography:[{text:'<b>Text</b>',source_url:'javascript:bad()'}]});assert.doesNotMatch(escaped,/<script>bad|javascript:bad/);assert.match(escaped,/&lt;script&gt;/);
+});

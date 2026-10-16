@@ -543,5 +543,61 @@
     "region": "Yukon and British Columbia, Canada",
     "status": "verified",
     "checked_at": "2026-10-09"
+  },
+  {
+    "slug": "ghost-town-living",
+    "name": "Ghost Town Living / Brent Underwood",
+    "official_url": "https://www.youtube.com/@ghosttownliving",
+    "website_url": "https://cerrogordomines.com/",
+    "region": "California",
+    "region_source": "https://cerrogordomines.com/pages/about",
+    "status": "reviewed",
+    "checked_at": "2026-10-16",
+    "search_aliases": "Brent Underwood Cerro Gordo mine mining history restoration silver lead zinc Inyo Mountains",
+    "summary": "Brent Underwood documents mine exploration, mining history, and restoration at Cerro Gordo, California.",
+    "biography": [
+      {
+        "text": "Brent Underwood writes about living at Cerro Gordo and bringing the abandoned California mining town back to life.",
+        "source_url": "https://brentunderwood.com/",
+        "source_title": "Brent’s official website",
+        "publication_date": null,
+        "verified_at": "2026-10-16"
+      },
+      {
+        "text": "The town’s official history identifies Cerro Gordo with silver, lead, and zinc mining, and describes Ghost Town Living as Brent’s record of its restoration. This channel’s focus is mining heritage and restoration rather than gold-panning instruction.",
+        "source_url": "https://cerrogordomines.com/pages/about",
+        "source_title": "Cerro Gordo’s history and channel link",
+        "publication_date": null,
+        "verified_at": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "slug": "utmost-outdoors",
+    "name": "Utmost Outdoors",
+    "official_url": "https://www.youtube.com/@UtmostOutdoors",
+    "website_url": "https://www.utmostoutdoors.com/",
+    "region": "Alberta",
+    "region_source": "https://www.utmostoutdoors.com/videos",
+    "status": "reviewed",
+    "checked_at": "2026-10-16",
+    "search_aliases": "Kyle fine gold flour gold highbanker highbanking",
+    "summary": "Kyle shares fine-gold prospecting and equipment development, with documented coverage in Alberta.",
+    "biography": [
+      {
+        "text": "Utmost Outdoors founder Kyle describes rediscovering gold prospecting in Alberta and developing compact equipment to recover fine gold while camping and exploring waterways.",
+        "source_url": "https://www.utmostoutdoors.com/our-story",
+        "source_title": "Kyle’s story",
+        "publication_date": null,
+        "verified_at": "2026-10-16"
+      },
+      {
+        "text": "His official video page features Alberta prospecting trips and demonstrations of the Utmost Adventurer highbanker. Kyle also sells prospecting equipment and digital designs through his website.",
+        "source_url": "https://www.utmostoutdoors.com/videos",
+        "source_title": "Official videos and equipment demonstrations",
+        "publication_date": null,
+        "verified_at": "2026-10-16"
+      }
+    ]
   }
 ]
