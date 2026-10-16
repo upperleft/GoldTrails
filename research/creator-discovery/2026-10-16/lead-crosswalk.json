@@ -1,0 +1,107 @@
+[
+  {
+    "input_index": 0,
+    "input_name": "My MI Adventures",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Gold prospecting video found; exact channel URL and ID unresolved."
+  },
+  {
+    "input_index": 1,
+    "input_name": "MrDazP1",
+    "decision": "preserve_existing",
+    "target_slug": "mrdazp1",
+    "reason": "Already in the current roster; submitted lead retained without overwriting verified facts."
+  },
+  {
+    "input_index": 2,
+    "input_name": "Dizz \"Kiwi Gold Hunter\"",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Gold panning and sluicing video found; exact channel URL and ID unresolved."
+  },
+  {
+    "input_index": 3,
+    "input_name": "OR yann orpaillage",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "French gold prospecting video found; exact channel URL and ID unresolved."
+  },
+  {
+    "input_index": 4,
+    "input_name": "Adventure Gold",
+    "decision": "preserve_existing",
+    "target_slug": "adventure-gold",
+    "reason": "Already in the current roster; submitted lead retained without overwriting verified facts."
+  },
+  {
+    "input_index": 5,
+    "input_name": "California Mother Lode Prospectors",
+    "decision": "preserve_existing",
+    "target_slug": "california-mother-lode-prospectors",
+    "reason": "Already in the current roster; submitted lead retained without overwriting verified facts."
+  },
+  {
+    "input_index": 6,
+    "input_name": "Get Down And Dirty Prospecting",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Secondary listing; resolve identity and prospecting scope."
+  },
+  {
+    "input_index": 7,
+    "input_name": "Yukon Ali",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Community mention only; verify channel and distinguish mining from prospecting scope."
+  },
+  {
+    "input_index": 8,
+    "input_name": "Emily Riedel",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Community mention only; resolve official channel and scope."
+  },
+  {
+    "input_index": 9,
+    "input_name": "Bush Bundys",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Self-promotional post mentions @bushbundys; identity not confirmed."
+  },
+  {
+    "input_index": 10,
+    "input_name": "Or Sud",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Prospecting educator referenced by another prospector; channel unresolved."
+  },
+  {
+    "input_index": 11,
+    "input_name": "Jan The Prospector",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Gold panning educator; channel unresolved."
+  },
+  {
+    "input_index": 12,
+    "input_name": "Critical Latitude",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Geoscience channel, not established as a field prospector. Keep in editorial-source review, not automatic creator import."
+  },
+  {
+    "input_index": 13,
+    "input_name": "USMiner",
+    "decision": "hold_unresolved",
+    "target_slug": null,
+    "reason": "Gold prospecting and mineral content reported by secondary listing; verify channel."
+  },
+  {
+    "input_index": 14,
+    "input_name": "Nugget Noggin",
+    "decision": "preserve_existing",
+    "target_slug": "nugget-noggin",
+    "reason": "Already in the current roster; submitted lead retained without overwriting verified facts."
+  }
+]

@@ -1,0 +1,1955 @@
+{
+  "manifest": {
+    "dataset": "Gold Trails supplemental YouTube creator discovery",
+    "schema_version": "1.0.0-supplement",
+    "compiled_date": "2026-10-16",
+    "coverage_status": "broad_partial_discovery_not_exhaustive",
+    "creator_record_count": 27,
+    "candidate_new_count": 24,
+    "existing_or_conflicting_count": 3,
+    "unresolved_lead_count": 15,
+    "baseline_files": [
+      "gold_trails_video_library.json (2026-10-12)",
+      "Gold_Trails_Creator_Deep_Crawl_Starter_2026-10-12.zip/creator_index.csv"
+    ],
+    "schema_basis": "Preserves all eight creator fields from saved gold_trails_video_library.json. Adds clearly named enrichment and provenance fields. Live application schema was not available.",
+    "limitations": [
+      "TubeAlfred search returned insufficient_credits (0 available); no TubeAlfred discovery request ran.",
+      "Some YouTube pages returned throttling/errors or only titles. Public search-index metadata and creator websites supplemented them.",
+      "Live goldtrails.org could not be fetched; new means absent from the two saved baselines by available ID/name, not proven absent from live site.",
+      "No full channel catalog, transcript or video playback review was performed. No guarantee of all creators or global/non-English completeness.",
+      "Search-index crawl dates vary; last_checked_date is research date, not freshness of every underlying field."
+    ],
+    "missing_data_policy": "Null = unavailable or unverified. Empty arrays = no verified items collected, not proof none exist. Subscriber counts and current activity deliberately unset.",
+    "count_semantics": "videos_in_this_catalog and subjects_present refer to imported structured video records; this file imports no video records. Representative video URLs are discovery evidence only.",
+    "regions_policy": "Regional labels describe reported activity, not residences, comprehensive coverage or permission to prospect. region_verified remains false pending editorial verification."
+  },
+  "import_instructions": [
+    "Run a dry-run comparison against live creators by canonical channel ID first, then normalized handle and aliases.",
+    "Resolve missing channel IDs before inserting. Review conflicting identities manually.",
+    "Merge only into empty fields; preserve richer descriptions, source citations, permissions, submitted profiles and verified geography.",
+    "Do not import unresolved_leads as verified creators.",
+    "Do not infer latest activity, equipment ownership, exact river locations or permissions from tags or channel names.",
+    "Map this supplemental schema to the live repository before import. No automatic overwrite or deletion."
+  ],
+  "creators": [
+    {
+      "creator_name": "Tassie Boys Prospecting",
+      "youtube_channel_id": "UCaFzHYMrIhVahBCfmc1AjNw",
+      "channel_url": "https://www.youtube.com/channel/UCaFzHYMrIhVahBCfmc1AjNw",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Tasmania, Australia"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@officialtassieboysprospecting",
+      "public_creator_name": "Levi Triffitt",
+      "summary": "Gold prospecting expeditions in Tasmania.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.abc.net.au/listen/programs/hobart-mornings/levi-triffitt-gold-prospector/101327668",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        },
+        {
+          "url": "https://socialblade.com/youtube/channel/UCaFzHYMrIhVahBCfmc1AjNw",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_channel_identity",
+          "supports": [
+            "youtube_channel_id"
+          ],
+          "access_method": "web_search_text"
+        }
+      ],
+      "representative_video_urls": [
+        "https://www.youtube.com/watch?v=lyB5jiUxHr0"
+      ],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Gold Putz",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/@goldputz",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Colorado, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@goldputz",
+      "public_creator_name": null,
+      "summary": "Urban-creek gold prospecting and recovery equipment development.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": "https://goldputz.com/",
+      "public_business_email": "goldputzco@gmail.com",
+      "social_links": [],
+      "equipment": [
+        {
+          "name": "Prospecting equipment designed by creator",
+          "status": "self_reported_general_only"
+        }
+      ],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://goldputz.com/pages/about",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Nugget Shooter Journals",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/@nuggetshooter",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Arizona, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@nuggetshooter",
+      "public_creator_name": "Bill Southern",
+      "summary": "Gold nugget detecting and detector education.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": "https://www.nuggetshooter.com/",
+      "public_business_email": "nuggetshooter@outlook.com",
+      "social_links": [],
+      "equipment": [
+        {
+          "name": "Minelab GPX 6000",
+          "status": "self_reported_on_undated_about_page_not_current_inventory"
+        }
+      ],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.nuggetshooter.com/about-nuggetshooter-minelab-dealer-arizona",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": null,
+      "channel_category": "dealer_and_field_creator"
+    },
+    {
+      "creator_name": "Nugget Shooterette Expeditions",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/@nuggetshooteretteexpeditions",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@nuggetshooteretteexpeditions",
+      "public_creator_name": null,
+      "summary": "Separate gold prospecting and metal detecting channel linked by Nugget Shooter.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.nuggetshooter.com/about-nuggetshooter-minelab-dealer-arizona",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": "Keep as a separate channel from Nugget Shooter Journals. Official site links both; channel host and exact operating locations not independently resolved."
+    },
+    {
+      "creator_name": "I BRAKE FOR BEDROCK",
+      "youtube_channel_id": "UCObciZukJa3K5IOIF2_4ZdA",
+      "channel_url": "https://www.youtube.com/channel/UCObciZukJa3K5IOIF2_4ZdA",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Arizona, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@IBRAKEFORBEDROCK",
+      "public_creator_name": null,
+      "summary": "Dry washing, gold panning, nugget detecting and hard-rock ore crushing.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/channel/UCObciZukJa3K5IOIF2_4ZdA",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "X4PROSPECTING",
+      "youtube_channel_id": "UC9rQ54LjbVUUzKrUtv9DU0g",
+      "channel_url": "https://www.youtube.com/channel/UC9rQ54LjbVUUzKrUtv9DU0g",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "North Carolina, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@X4PROSPECTING",
+      "public_creator_name": "Justin Stanfield",
+      "summary": "Gold prospecting, panning and sluicing demonstrations.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": "https://x4prospecting.com/",
+      "public_business_email": "X4PROSPECTING@GMAIL.COM",
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://x4prospecting.com/about/",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        },
+        {
+          "url": "https://socialcounts.org/youtube-channel-analytics/UC9rQ54LjbVUUzKrUtv9DU0g",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_channel_identity",
+          "supports": [
+            "youtube_channel_id"
+          ],
+          "access_method": "web_search_text"
+        },
+        {
+          "url": "https://x4prospecting.com/contact/",
+          "accessed_date": "2026-10-16",
+          "supports": [
+            "public_business_email",
+            "official_youtube_link"
+          ],
+          "source_type": "creator_website"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Rob Parsons",
+      "youtube_channel_id": "UCriyYigMNrorS0Fh2Q7teeg",
+      "channel_url": "https://www.youtube.com/channel/UCriyYigMNrorS0Fh2Q7teeg",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Tasmania, Australia"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@Rob.Parsons",
+      "public_creator_name": "Rob Parsons",
+      "summary": "Wilderness exploration with gold prospecting and gemstone content.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": "free.rob.tas@gmail.com",
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=vFkg3FsBslM",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        },
+        {
+          "url": "https://socialcounts.org/youtube-live-subscriber-count/UCriyYigMNrorS0Fh2Q7teeg",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_channel_identity",
+          "supports": [
+            "youtube_channel_id"
+          ],
+          "access_method": "web_search_text"
+        }
+      ],
+      "representative_video_urls": [
+        "https://www.youtube.com/watch?v=lTFptK52VYY"
+      ],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "American Gold Prospectors",
+      "youtube_channel_id": "UCjm_LG6AiJZrvfVjmrBpeWQ",
+      "channel_url": "https://www.youtube.com/channel/UCjm_LG6AiJZrvfVjmrBpeWQ",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Alaska; New Hampshire; Maine, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@AmericanGoldProspectors",
+      "public_creator_name": "Bryan Wilder",
+      "summary": "Prospector interviews, equipment explanations and gold prospecting trips.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": "Americangoldprospectors@gmail.com",
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/channel/UCjm_LG6AiJZrvfVjmrBpeWQ",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        },
+        {
+          "url": "https://www.treasurenet.com/threads/bryans-american-gold-prospectors-show.483781/",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_forum_post",
+          "supports": [
+            "historical_New_Hampshire_and_Maine_activity"
+          ],
+          "access_method": "web_search_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Chasing Gold Australia",
+      "youtube_channel_id": "UC8w70ReUPpfJSi22hGOhalA",
+      "channel_url": "https://www.youtube.com/channel/UC8w70ReUPpfJSi22hGOhalA",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Victoria, Australia"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@ChasingGoldAustralia",
+      "public_creator_name": "Josh",
+      "summary": "Gold prospecting and detecting in the Victorian Golden Triangle.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/channel/UC8w70ReUPpfJSi22hGOhalA",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Outback Gold Fever",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/@OutbackGoldFever",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Australia"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@OutbackGoldFever",
+      "public_creator_name": null,
+      "summary": "Outback gold prospecting, nugget detecting and rockhounding.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": "outbackgoldfever@gmail.com",
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.patreon.com/outbackgoldfever",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [
+        "https://www.youtube.com/watch?v=o7_vCofef_o"
+      ],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "mbmmllc",
+      "youtube_channel_id": "UCJJb04Ff2H2o6CPMUbvEJrA",
+      "channel_url": "https://www.youtube.com/channel/UCJJb04Ff2H2o6CPMUbvEJrA",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": null,
+      "public_creator_name": "Jason Gaber",
+      "summary": "Manufacturer channel covering crushing, ore processing and gravity concentration.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": "https://mbmmllc.com/",
+      "public_business_email": "info@mbmmllc.com",
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://mbmmllc.com/",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UCJJb04Ff2H2o6CPMUbvEJrA/videos",
+          "accessed_date": "2026-10-16",
+          "source_type": "youtube_channel_title",
+          "supports": [
+            "channel_name",
+            "youtube_channel_id"
+          ],
+          "access_method": "page_title_only"
+        },
+        {
+          "url": "https://videos.feedspot.com/mining_youtube_channels/",
+          "accessed_date": "2026-10-16",
+          "supports": [
+            "public_creator_name"
+          ],
+          "source_type": "secondary_directory"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled"
+      ],
+      "notes": null,
+      "channel_category": "manufacturer_and_educational_creator"
+    },
+    {
+      "creator_name": "THAT PROSPECTORS LIFE",
+      "youtube_channel_id": "UCqaN4IgGkcIf95pgYLYvfaQ",
+      "channel_url": "https://www.youtube.com/channel/UCqaN4IgGkcIf95pgYLYvfaQ",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Nevada; California; Alaska, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": null,
+      "public_creator_name": null,
+      "summary": "Field prospecting, placer mining, sluices, highbankers and dredges.",
+      "region_verified": false,
+      "region_evidence_status": "secondary_source_only",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "secondary_listing_requires_primary_confirmation",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://vling.net/en/channel/UCqaN4IgGkcIf95pgYLYvfaQ/channel-info",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_directory",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "primary_channel_description_not_retrieved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "al gold prospecting",
+      "youtube_channel_id": "UCIIGmLS07G7ajQw2gj5FMlw",
+      "channel_url": "https://www.youtube.com/channel/UCIIGmLS07G7ajQw2gj5FMlw",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Georgia, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": null,
+      "public_creator_name": null,
+      "summary": "Gold prospecting channel with Georgia-related content.",
+      "region_verified": false,
+      "region_evidence_status": "secondary_source_only",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "secondary_listing_requires_primary_confirmation",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://socialcounts.org/youtube-channel-analytics/UCIIGmLS07G7ajQw2gj5FMlw",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_directory",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "primary_channel_description_not_retrieved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Inside Bend Prospecting",
+      "youtube_channel_id": "UCqjXYAXEiCDbv_1SC-aUj8g",
+      "channel_url": "https://www.youtube.com/channel/UCqjXYAXEiCDbv_1SC-aUj8g",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Southern Oregon, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": null,
+      "public_creator_name": null,
+      "summary": "Gold prospecting adventures in southern Oregon and beyond.",
+      "region_verified": false,
+      "region_evidence_status": "secondary_source_only",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "secondary_listing_requires_primary_confirmation",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://vling.net/en/channel/UCqjXYAXEiCDbv_1SC-aUj8g/channel-info",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_directory",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "primary_channel_description_not_retrieved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Jacobs Brand Gold Prospecting",
+      "youtube_channel_id": "UCZPvimVAmuZpuc7QyX-q19Q",
+      "channel_url": "https://www.youtube.com/channel/UCZPvimVAmuZpuc7QyX-q19Q",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Arizona; Idaho, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@jacobsbrand",
+      "public_creator_name": null,
+      "summary": "Hobby gold mining and prospecting videos and Shorts.",
+      "region_verified": false,
+      "region_evidence_status": "secondary_source_only",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "secondary_listing_requires_primary_confirmation",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://socialcounts.org/youtube-channel-analytics/UCZPvimVAmuZpuc7QyX-q19Q",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_directory",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "primary_channel_description_not_retrieved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Alaska Gold Hunter",
+      "youtube_channel_id": "UCd5gLxH4_vnnq3Em0z22CrQ",
+      "channel_url": "https://www.youtube.com/channel/UCd5gLxH4_vnnq3Em0z22CrQ",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Alaska; North America"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": null,
+      "public_creator_name": null,
+      "summary": "Gold prospecting adventures in Alaska and other North American regions.",
+      "region_verified": false,
+      "region_evidence_status": "secondary_source_only",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "secondary_listing_requires_primary_confirmation",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://vling.net/en/channel/UCd5gLxH4_vnnq3Em0z22CrQ/channel-info",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_directory",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "primary_channel_description_not_retrieved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Gold Digger NZ",
+      "youtube_channel_id": "UC8YCvjtwVHsUtz8ZXIjDTpw",
+      "channel_url": "https://www.youtube.com/channel/UC8YCvjtwVHsUtz8ZXIjDTpw",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "New Zealand"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": null,
+      "public_creator_name": null,
+      "summary": "Gold prospecting trips and tips in New Zealand.",
+      "region_verified": false,
+      "region_evidence_status": "secondary_source_only",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "secondary_listing_requires_primary_confirmation",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://vling.net/en/channel/UC8YCvjtwVHsUtz8ZXIjDTpw/channel-info",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_directory",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "primary_channel_description_not_retrieved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Michigan Prospectors",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/@michiganprospectors",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Michigan, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@michiganprospectors",
+      "public_creator_name": "Troy",
+      "summary": "Gold panning, sluicing, metal detecting and mineral collecting.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": "https://michiganprospectors.com/",
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://michiganprospectors.com/about.html",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": "Founder Troy also operates The Do It Yourself World, already present in the baseline. Separate channel; do not collapse by person name."
+    },
+    {
+      "creator_name": "J & S Prospecting",
+      "youtube_channel_id": "UCKV_mRNGdHy6vscgAwSFKXQ",
+      "channel_url": "https://www.youtube.com/channel/UCKV_mRNGdHy6vscgAwSFKXQ",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "New England, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": null,
+      "public_creator_name": "Jonathan and Stephen",
+      "summary": "Gold panning and rockhounding with tips and equipment reviews.",
+      "region_verified": false,
+      "region_evidence_status": "secondary_source_only",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "secondary_listing_requires_primary_confirmation",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://videos.feedspot.com/rockhounding_youtube_channels/",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_directory",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "primary_channel_description_not_retrieved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Pete's Gold Adventures",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/@PetesGoldAdventures",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Victoria, Australia"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@PetesGoldAdventures",
+      "public_creator_name": null,
+      "summary": "Gold detecting and prospecting trips, including Ballarat.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": "petesgoldadventures@gmail.com",
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=PEJSOil7iOw",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [
+        "https://www.youtube.com/watch?v=PEJSOil7iOw"
+      ],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Gold Prospecting Out Bush with Marky",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/@outbushgoldhunter",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Victoria, Australia"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@outbushgoldhunter",
+      "public_creator_name": "Mark",
+      "summary": "Gold prospecting collaborator featured on a Ballarat outing.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=PEJSOil7iOw",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Shan'Oz GOLD RUSH",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/@shaneozgoldrush.4549",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Victoria, Australia"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@shaneozgoldrush.4549",
+      "public_creator_name": "Shane",
+      "summary": "Gold prospecting collaborator featured on a Ballarat outing.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=PEJSOil7iOw",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Nuggethunting",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/@Nuggethunting",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@Nuggethunting",
+      "public_creator_name": "Rob Allison",
+      "summary": "Gold nugget hunting and detector education channel.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.detectorprospector.com/topic/25034-best-metal-detecting-for-gold-gold-prospecting-youtube-channels/",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "Washington Beach Mining",
+      "youtube_channel_id": "UC0fuMC2COaYUWyl1jZM6DuA",
+      "channel_url": "https://www.youtube.com/channel/UC0fuMC2COaYUWyl1jZM6DuA",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Washington, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": null,
+      "public_creator_name": null,
+      "summary": "Gold prospecting in and around Washington state.",
+      "region_verified": false,
+      "region_evidence_status": "secondary_source_only",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "secondary_listing_requires_primary_confirmation",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://videos.feedspot.com/mining_youtube_channels/",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_directory",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC0fuMC2COaYUWyl1jZM6DuA/videos",
+          "accessed_date": "2026-10-16",
+          "source_type": "youtube_channel_title",
+          "supports": [
+            "channel_name",
+            "youtube_channel_id"
+          ],
+          "access_method": "page_title_only"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "existing_channel_id_conflict_review",
+        "matches": [
+          {
+            "name": "Last Seen Online",
+            "id": "UC0fuMC2COaYUWyl1jZM6DuA",
+            "source": "gold_trails_video_library.json"
+          },
+          {
+            "name": "Last Seen Online",
+            "id": "UC0fuMC2COaYUWyl1jZM6DuA",
+            "source": "Gold_Trails_Creator_Deep_Crawl_Starter_2026-10-12.zip/creator_index.csv"
+          }
+        ],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "primary_channel_description_not_retrieved",
+        "channel_name_conflict_do_not_overwrite"
+      ],
+      "notes": "Saved baseline labels this exact channel ID Last Seen Online; web listings label it Washington Beach Mining. Could reflect renaming, stale metadata or an earlier error. Resolve before merging."
+    },
+    {
+      "creator_name": "ColoradoGoldCamp",
+      "youtube_channel_id": null,
+      "channel_url": "https://www.youtube.com/ColoradoGoldCamp",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "Colorado, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": null,
+      "public_creator_name": null,
+      "summary": "Gold prospecting, old mine workings and gold ore sampling.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": null,
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://www.youtube.com/watch?v=lMd7YW6CKhU",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        }
+      ],
+      "representative_video_urls": [
+        "https://www.youtube.com/watch?v=lMd7YW6CKhU"
+      ],
+      "baseline_comparison": {
+        "status": "candidate_new_to_saved_baselines",
+        "matches": [],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled",
+        "canonical_channel_id_unresolved"
+      ],
+      "notes": null
+    },
+    {
+      "creator_name": "PioneerPauly",
+      "youtube_channel_id": "UCeU8II9pvOcHXl7EGeXi8yQ",
+      "channel_url": "https://www.youtube.com/channel/UCeU8II9pvOcHXl7EGeXi8yQ",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "British Columbia, Canada"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@PioneerPauly",
+      "public_creator_name": "Paul Larouche",
+      "summary": "Gold sniping and prospecting adventures.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [
+        {
+          "name": "Sooke River",
+          "region": "British Columbia, Canada",
+          "source_url": "https://pub-langford.escribemeetings.com/filestream.ashx?DocumentId=17582",
+          "access_permission_verified": false
+        }
+      ],
+      "website_url": "https://www.pioneerpauly.com/",
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://pub-langford.escribemeetings.com/filestream.ashx?DocumentId=17582",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        },
+        {
+          "url": "https://socialblade.com/youtube/channel/UCeU8II9pvOcHXl7EGeXi8yQ",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_channel_identity",
+          "supports": [
+            "youtube_channel_id"
+          ],
+          "access_method": "web_search_text"
+        }
+      ],
+      "representative_video_urls": [],
+      "baseline_comparison": {
+        "status": "existing_name_match_needs_identity_check",
+        "matches": [
+          {
+            "name": "Pioneer Pauly",
+            "id": null,
+            "source": "Gold_Trails_Creator_Deep_Crawl_Starter_2026-10-12.zip/creator_index.csv"
+          }
+        ],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled"
+      ],
+      "notes": "Saved ZIP contains Pioneer Pauly. Match identity before enriching; do not add a duplicate."
+    },
+    {
+      "creator_name": "Internal Compass of NC",
+      "youtube_channel_id": "UCYJo4kYbczOvIwOiZm_dk2Q",
+      "channel_url": "https://www.youtube.com/channel/UCYJo4kYbczOvIwOiZm_dk2Q",
+      "videos_in_this_catalog": 0,
+      "subjects_present": [],
+      "regional_labels": [
+        "North Carolina, United States"
+      ],
+      "channel_catalog_complete": false,
+      "needs_channel_deep_crawl": true,
+      "youtube_handle": "@InternalCompassofNC",
+      "public_creator_name": "Will",
+      "summary": "Gold panning, dredging, sluicing and highbanker demonstrations.",
+      "region_verified": false,
+      "region_evidence_status": "source_supported_broad_region_not_independent_location_verification",
+      "rivers": [],
+      "website_url": "https://internal-compass-of-nc.myshopify.com/",
+      "public_business_email": null,
+      "social_links": [],
+      "equipment": [],
+      "subscriber_count_at_scan": null,
+      "total_video_count_at_scan": null,
+      "latest_upload_date": null,
+      "language": null,
+      "activity_status": "not_verified",
+      "identity_observed_at": "2026-10-16",
+      "last_checked_date": "2026-10-16",
+      "verification_status": "public_source_metadata_checked",
+      "content_review_status": "not_reviewed",
+      "claims_fact_checked": false,
+      "transcript_reviewed": false,
+      "timestamped_references": [],
+      "sources": [
+        {
+          "url": "https://cruxprospecting.com/videos/",
+          "accessed_date": "2026-10-16",
+          "source_type": "creator_or_public_source",
+          "supports": [
+            "channel_relevance",
+            "summary",
+            "broad_region_if_present"
+          ],
+          "access_method": "web_search_index_or_page_text"
+        },
+        {
+          "url": "https://socialblade.com/youtube/channel/UCYJo4kYbczOvIwOiZm_dk2Q",
+          "accessed_date": "2026-10-16",
+          "source_type": "secondary_channel_identity",
+          "supports": [
+            "youtube_channel_id"
+          ],
+          "access_method": "web_search_text"
+        }
+      ],
+      "representative_video_urls": [
+        "https://www.youtube.com/watch?v=7mItXnRqaOY"
+      ],
+      "baseline_comparison": {
+        "status": "existing_name_match_needs_identity_check",
+        "matches": [
+          {
+            "name": "Internal Compass of NC",
+            "id": null,
+            "source": "Gold_Trails_Creator_Deep_Crawl_Starter_2026-10-12.zip/creator_index.csv"
+          }
+        ],
+        "live_site_checked": false
+      },
+      "review_flags": [
+        "live_site_deduplication_required",
+        "current_activity_unverified",
+        "video_library_not_crawled"
+      ],
+      "notes": "Saved ZIP already contains this display name. Secondary listings disagree about channel availability; do not mark banned, deleted or active without a direct check."
+    }
+  ],
+  "unresolved_leads": [
+    {
+      "creator_name": "My MI Adventures",
+      "source_url": "https://www.youtube.com/watch?v=9mtr_GfucF8",
+      "regional_hint": "Michigan, United States",
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Gold prospecting video found; exact channel URL and ID unresolved.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "MrDazP1",
+      "source_url": "https://www.youtube.com/watch?v=D8OH_VNr-OE",
+      "regional_hint": "Scotland, United Kingdom",
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Gold panning video found; exact channel URL and ID unresolved.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Dizz \"Kiwi Gold Hunter\"",
+      "source_url": "https://www.youtube.com/watch?v=zBUnL-b5HYc",
+      "regional_hint": "New Zealand",
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Gold panning and sluicing video found; exact channel URL and ID unresolved.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "OR yann orpaillage",
+      "source_url": "https://www.youtube.com/watch?v=2NiAtuQX-qQ",
+      "regional_hint": "France",
+      "status": "needs_identity_or_scope_verification",
+      "notes": "French gold prospecting video found; exact channel URL and ID unresolved.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Adventure Gold",
+      "source_url": "https://www.detectorprospector.com/topic/30116-adventure-gold-andrew-smith-is-back/",
+      "regional_hint": "Australia",
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Historical channel; reports of disappearance and return require identity and current availability check.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "California Mother Lode Prospectors",
+      "source_url": "https://www.channelgalaxy.com/id%3DUC4UEOWPrLaqFXriPUONmEtw/",
+      "regional_hint": "California, United States",
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Secondary listing; resolve and verify channel.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Get Down And Dirty Prospecting",
+      "source_url": "https://channelgalaxy.com/id%3DUCFEKKoR0_kLcGRRaqBf9DxQ/",
+      "regional_hint": null,
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Secondary listing; resolve identity and prospecting scope.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Yukon Ali",
+      "source_url": "https://www.reddit.com/r/goldrush/comments/1l3n1fg",
+      "regional_hint": null,
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Community mention only; verify channel and distinguish mining from prospecting scope.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Emily Riedel",
+      "source_url": "https://www.reddit.com/r/goldrush/comments/1o9cdp8/what_gold_related_youtube_channels_do_you_watch/",
+      "regional_hint": null,
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Community mention only; resolve official channel and scope.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Bush Bundys",
+      "source_url": "https://www.reddit.com/r/Prospecting/comments/1un6ocj/new_zealand_prospecting/",
+      "regional_hint": "New Zealand",
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Self-promotional post mentions @bushbundys; identity not confirmed.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Or Sud",
+      "source_url": "https://www.goldsnoop.com/2023/06/01/le-prospecteur-or-sud-dans-le-sud-est-de-la-france/",
+      "regional_hint": "Southeastern France",
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Prospecting educator referenced by another prospector; channel unresolved.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Jan The Prospector",
+      "source_url": "https://www.goldsnoop.com/2019/09/28/videos-lorpailleur-jan-the-prospector/",
+      "regional_hint": null,
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Gold panning educator; channel unresolved.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Critical Latitude",
+      "source_url": "https://socialcounts.org/youtube-channel-analytics/UC-B_N99g4MMJbv4xQ4sJYxg",
+      "regional_hint": null,
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Geoscience channel, not established as a field prospector. Keep in editorial-source review, not automatic creator import.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "USMiner",
+      "source_url": "https://www.vlogfund.com/en/youtube-channels/usminer/",
+      "regional_hint": null,
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Gold prospecting and mineral content reported by secondary listing; verify channel.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    },
+    {
+      "creator_name": "Nugget Noggin",
+      "source_url": "https://www.nuggetnoggin.com/about?lang=eng",
+      "regional_hint": null,
+      "status": "needs_identity_or_scope_verification",
+      "notes": "Official site establishes gold prospecting interest; mixed treasure-detecting scope and channel identity need review.",
+      "last_checked_date": "2026-10-16",
+      "import_as_creator": false
+    }
+  ],
+  "coverage_review": {
+    "searched_regions": [
+      "New England",
+      "US Southeast",
+      "Michigan / Great Lakes",
+      "Colorado",
+      "Arizona / Southwest",
+      "Pacific Northwest",
+      "Alaska / Yukon",
+      "Canada",
+      "Australia",
+      "New Zealand",
+      "United Kingdom",
+      "France"
+    ],
+    "remaining_gaps": [
+      "Other US states and local clubs",
+      "Smaller channels discoverable primarily through YouTube internal recommendations",
+      "South America, Africa and Asia",
+      "More non-English creators",
+      "Channel videos, Shorts, playlists and collaborator links"
+    ],
+    "next_pass": [
+      "Resolve the 15 named leads.",
+      "Crawl confirmed channel About pages, collaborator links, playlists and recent uploads when access is available.",
+      "Compare the full live creator export with the saved baselines before declaring coverage."
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source_filename": "Gold-Trails-Creators.json",
+  "source_sha256": "b25b2c4125eae081339a2c6c144c774d0b20d838e0cab4798fb5177cfdb79b7d",
+  "import_date": "2026-10-16",
+  "current_public_creators": 70,
+  "input_creators": 27,
+  "added": 14,
+  "existing_preserved": 12,
+  "identity_conflicts_held": 1,
+  "submitted_leads": 15,
+  "leads_already_existing": 4,
+  "unresolved_leads_held": 11,
+  "limits": [
+    "No transcripts or full video playback reviewed.",
+    "No subscriber, upload, activity, equipment-ownership or access-permission claims imported.",
+    "TubeAlfred returned insufficient_credits; no provider request ran or credits purchased. Direct public YouTube pages and official creator websites were used.",
+    "Existing profiles and video libraries are preserved. Submitted import_instructions are retained as source data and were not executed."
+  ]
+}

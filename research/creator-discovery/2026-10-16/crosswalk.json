@@ -1,0 +1,205 @@
+[
+  {
+    "input_index": 0,
+    "input_name": "Tassie Boys Prospecting",
+    "decision": "preserve_existing",
+    "target_slug": "tassie-boys-prospecting",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 1,
+    "input_name": "Gold Putz",
+    "decision": "add",
+    "target_slug": "gold-putz",
+    "channel_id": "UCkczr9Q7SZpSE3R2BOXVhFw",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 2,
+    "input_name": "Nugget Shooter Journals",
+    "decision": "preserve_existing",
+    "target_slug": "bill-southern",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 3,
+    "input_name": "Nugget Shooterette Expeditions",
+    "decision": "add",
+    "target_slug": "nugget-shooterette-expeditions",
+    "channel_id": "UCy2Y4cgtNuFlK98SuBYrpPg",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 4,
+    "input_name": "I BRAKE FOR BEDROCK",
+    "decision": "preserve_existing",
+    "target_slug": "i-brake-for-bedrock",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 5,
+    "input_name": "X4PROSPECTING",
+    "decision": "preserve_existing",
+    "target_slug": "x4prospecting",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 6,
+    "input_name": "Rob Parsons",
+    "decision": "preserve_existing",
+    "target_slug": "rob-parsons",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 7,
+    "input_name": "American Gold Prospectors",
+    "decision": "add",
+    "target_slug": "american-gold-prospectors",
+    "channel_id": "UCjm_LG6AiJZrvfVjmrBpeWQ",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 8,
+    "input_name": "Chasing Gold Australia",
+    "decision": "preserve_existing",
+    "target_slug": "chasing-gold-australia",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 9,
+    "input_name": "Outback Gold Fever",
+    "decision": "preserve_existing",
+    "target_slug": "outback-gold-fever",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 10,
+    "input_name": "mbmmllc",
+    "decision": "preserve_existing",
+    "target_slug": "mbmmllc",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 11,
+    "input_name": "THAT PROSPECTORS LIFE",
+    "decision": "add",
+    "target_slug": "that-prospectors-life",
+    "channel_id": "UCqaN4IgGkcIf95pgYLYvfaQ",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 12,
+    "input_name": "al gold prospecting",
+    "decision": "add",
+    "target_slug": "al-gold-prospecting",
+    "channel_id": "UCIIGmLS07G7ajQw2gj5FMlw",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 13,
+    "input_name": "Inside Bend Prospecting",
+    "decision": "add",
+    "target_slug": "inside-bend-prospecting",
+    "channel_id": "UCqjXYAXEiCDbv_1SC-aUj8g",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 14,
+    "input_name": "Jacobs Brand Gold Prospecting",
+    "decision": "add",
+    "target_slug": "jacobs-brand-gold-prospecting",
+    "channel_id": "UCZPvimVAmuZpuc7QyX-q19Q",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 15,
+    "input_name": "Alaska Gold Hunter",
+    "decision": "add",
+    "target_slug": "alaska-gold-hunter",
+    "channel_id": "UCd5gLxH4_vnnq3Em0z22CrQ",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 16,
+    "input_name": "Gold Digger NZ",
+    "decision": "preserve_existing",
+    "target_slug": "gold-digger-nz",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 17,
+    "input_name": "Michigan Prospectors",
+    "decision": "preserve_existing",
+    "target_slug": "michigan-prospectors",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 18,
+    "input_name": "J & S Prospecting",
+    "decision": "add",
+    "target_slug": "jprad-prospecting",
+    "channel_id": "UCKV_mRNGdHy6vscgAwSFKXQ",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 19,
+    "input_name": "Pete's Gold Adventures",
+    "decision": "add",
+    "target_slug": "petes-gold-adventures",
+    "channel_id": "UCKLCgN-PumYt1o0PFIGsFxQ",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 20,
+    "input_name": "Gold Prospecting Out Bush with Marky",
+    "decision": "add",
+    "target_slug": "out-bush-gold-hunter",
+    "channel_id": "UCGxos3o5sLlKbKjklwSNnxA",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 21,
+    "input_name": "Shan'Oz GOLD RUSH",
+    "decision": "add",
+    "target_slug": "shaneoz-gold-rush",
+    "channel_id": "UCbl7WnO9SPctmzLQ45aoifw",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 22,
+    "input_name": "Nuggethunting",
+    "decision": "add",
+    "target_slug": "nuggethunting",
+    "channel_id": "UCdcv6oFmjAJSMfYRXSmNCJQ",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 23,
+    "input_name": "Washington Beach Mining",
+    "decision": "hold_identity_conflict",
+    "target_slug": "washington-beach-mining",
+    "evidence": "Supplied channel ID currently resolves to Last Seen Online, an unrelated internet-storytelling channel. Existing Washington Beach Mining profile and source link preserved; supplied identity not imported."
+  },
+  {
+    "input_index": 24,
+    "input_name": "ColoradoGoldCamp",
+    "decision": "add",
+    "target_slug": "colorado-gold-camp",
+    "channel_id": "UCk2lzBV-31AxepsOqSGT95A",
+    "evidence": "Direct YouTube canonical link, title and public channel metadata checked 2026-10-16; accepted claims cite their own sources."
+  },
+  {
+    "input_index": 25,
+    "input_name": "PioneerPauly",
+    "decision": "preserve_existing",
+    "target_slug": "pioneer-pauly",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  },
+  {
+    "input_index": 26,
+    "input_name": "Internal Compass of NC",
+    "decision": "preserve_existing",
+    "target_slug": "internal-compass-of-nc",
+    "evidence": "Name, known alias, existing source URL and/or canonical channel ID matches the current roster. Existing profile preserved."
+  }
+]

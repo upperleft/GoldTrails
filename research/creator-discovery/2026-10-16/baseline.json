@@ -1,0 +1,2423 @@
+{
+  "captured_at": "2026-10-16",
+  "catalog": [
+    {
+      "slug": "andythraxx-mining",
+      "name": "ANDYTHRAXX MINING",
+      "official_url": "https://www.youtube.com/user/ANDYTHRAXX",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "adventure-gold",
+      "name": "Adventure Gold",
+      "official_url": "https://www.youtube.com/user/19andrew72/",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "alan-robertson",
+      "name": "Alan Robertson",
+      "official_url": "https://www.youtube.com/watch?v=mtsqzGIVSHw",
+      "region": "Washington beach trip, USA",
+      "status": "verified",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "ask-jeff-williams",
+      "name": "Ask Jeff Williams",
+      "official_url": "https://www.askjeffwilliams.com/",
+      "region": null,
+      "status": "published",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "bill-southern",
+      "name": "Bill Southern / Nugget Shooter Journals",
+      "official_url": "https://www.patreon.com/nuggetshooterjournals/about",
+      "region": "Arizona, USA",
+      "status": "verified",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "busted-knuckles-prospecting",
+      "name": "Busted Knuckles Prospecting",
+      "official_url": "https://www.youtube.com/channel/UC-FXgmftIXDVF9QTSMUpo1A",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "california-mother-lode-prospectors",
+      "name": "California Mother Lode Prospectors",
+      "official_url": "https://www.youtube.com/channel/UC4UEOWPrLaqFXriPUONmEtw",
+      "region": "California, USA",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "canadian-gold-mining",
+      "name": "Canadian Gold Mining",
+      "official_url": "https://www.youtube.com/c/CanadianGoldMining",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "chasing-gold-australia",
+      "name": "Chasing Gold Australia",
+      "official_url": "https://www.youtube.com/channel/UCOX7wXytTbri0xCG3Kk8gdw",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "chris-ralph",
+      "name": "Chris Ralph",
+      "official_url": "https://nevada-outback-gems.com/prospect/chris_prospect.htm",
+      "region": "California and Nevada, USA",
+      "status": "verified",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "crux-prospecting",
+      "name": "Crux Prospecting / Cyle Haddon",
+      "official_url": "https://cruxprospecting.com/?setCurrencyId=1",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "dan-hurd",
+      "name": "Dan Hurd",
+      "official_url": "https://www.youtube.com/@Danhurd",
+      "region": "British Columbia, Canada",
+      "status": "published",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "dave-mccracken",
+      "name": "Dave McCracken / The New 49’ers",
+      "official_url": "https://goldgold.com/gold-prospectinggold-panning-instructions.html",
+      "region": "Northern California, USA",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "diggin-for-gold",
+      "name": "Diggin’ For Gold",
+      "official_url": "https://www.youtube.com/channel/UCwoDAcQoBnuiJpPRaLqwo3g/",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "dirtfishmish",
+      "name": "DirtFishMish",
+      "official_url": "https://www.youtube.com/watch?v=f_-fMw8oh6g",
+      "region": "Southern Australia",
+      "status": "verified",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "dons-mining-office",
+      "name": "Don’s Mining Office",
+      "official_url": "https://donsminingoffice.com/eating-crow/",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "flash-in-your-pan",
+      "name": "Flash In Your Pan / Ed Marvin",
+      "official_url": "https://www.flashinyourpan.com/contact",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "flour-gold-wizards",
+      "name": "Flour Gold Wizards",
+      "official_url": "https://www.youtube.com/@flourgoldwizards",
+      "region": "Wisconsin and Michigan, USA",
+      "status": "published",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "gerrys-detectors",
+      "name": "Gerry McMullen / Gerry’s Detectors team",
+      "official_url": "https://gerrysdetectors.com/about/meet-the-team/",
+      "region": "Idaho and western USA",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "glacial-gold-hunter",
+      "name": "Glacial Gold Hunter / Lucas Lundgren",
+      "official_url": "https://www.glacialgoldhunter.com/",
+      "region": "Midwestern USA",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "gold-cube",
+      "name": "Gold Cube / Mike Pung and Red Wilcox",
+      "official_url": "https://goldcube.net/gold-cube-university/",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "gold-digger-nz",
+      "name": "Gold Digger NZ",
+      "official_url": "https://www.youtube.com/channel/UC8YCvjtwVHsUtz8ZXIjDTpw",
+      "region": "New Zealand",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "gold-fever-adventures",
+      "name": "Gold Fever Adventures",
+      "official_url": "https://www.goldfeveradventures.com/",
+      "region": "Arizona, USA (documented desert episode)",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "gold-hog",
+      "name": "Gold Hog / Doc",
+      "official_url": "https://goldhog.com/category/gold-prospecting-videos/",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "goldsnoop",
+      "name": "GoldSnoop / Vivien Laïlle",
+      "official_url": "https://www.goldsnoop.com/category/ressources/livres/",
+      "region": "Ariège, French Pyrenees",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "goldbay",
+      "name": "Goldbay / Dave Varabioff",
+      "official_url": "https://goldbay.com/",
+      "region": "USA coverage; exact region pending",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "golden-submarine",
+      "name": "Golden Submarine",
+      "official_url": "https://www.goldsnoop.com/2019/09/23/videos-le-prospecteur-golden-submarine/",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "golden-triangle-prospecting",
+      "name": "Golden Triangle Prospecting",
+      "official_url": "https://www.youtube.com/channel/UCbQ0RBA7QiCBJWeCfvmwkiw",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "green-mountain-gold-trap",
+      "name": "Green Mountain Gold Trap",
+      "official_url": "https://greenmountaingoldtrap.com/blog/welcome-to-green-mountain-gold-trap/",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "have-a-go-prospecting",
+      "name": "Have A Go Prospecting",
+      "official_url": "https://www.haveagoprospecting.com.au/",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "hip-bee-explorer",
+      "name": "Hip Bee Explorer",
+      "official_url": "https://www.youtube.com/@hipbeeexplorer",
+      "region": "New England, USA; Maine, USA",
+      "status": "published",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "prospector-nic",
+      "name": "How to Find Gold / Prospector Nic",
+      "official_url": "https://www.youtube.com/channel/UCZVigrxLbuXmTB1NL6YA0xQ",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "i-brake-for-bedrock",
+      "name": "I Brake For Bedrock",
+      "official_url": "https://www.youtube.com/channel/UCObciZukJa3K5IOIF2_4ZdA",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "internal-compass-of-nc",
+      "name": "Internal Compass of NC",
+      "official_url": "https://www.youtube.com/channel/UCYJo4kYbczOvIwOiZm_dk2Q",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "krazynutz",
+      "name": "KRAZYNUTZ / HOOTERHILLS",
+      "official_url": "https://hooterhills.com/",
+      "region": "Indiana, USA",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "kevin-singel",
+      "name": "Kevin Singel / Finding Gold in Colorado",
+      "official_url": "https://findinggoldincolorado.com/gold-rush-ghost-towns/",
+      "region": "Colorado, USA",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "klesh",
+      "name": "Klesh",
+      "official_url": "https://kleshgold.com/",
+      "region": "Colorado, USA",
+      "status": "verified",
+      "checked_at": "2026-10-09",
+      "region_source": "https://kleshgold.com/about"
+    },
+    {
+      "slug": "lxr-postal-prospecting",
+      "name": "LXR Postal Prospecting",
+      "official_url": "https://www.lxrprospecting.com/youtube",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "liz-kreate",
+      "name": "Liz Kreate",
+      "official_url": "https://www.youtube.com/watch?v=mAfy-Nq-aX0",
+      "region": "NSW, Australia",
+      "status": "verified",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "mbmmllc",
+      "name": "MBMMLLC / Jason Gaber",
+      "official_url": "https://mbmmllc.myshopify.com/pages/about",
+      "region": "Washington, USA",
+      "status": "verified",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "mad-scientist-prospecting",
+      "name": "Mad Scientist Prospecting",
+      "official_url": "https://www.youtube.com/channel/UCDyHfPuM0HLmwLodJkQx0xQ",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "mantis-gold-mining",
+      "name": "Mantis Gold Mining",
+      "official_url": "https://www.mantisgoldmining.com/blogs/news/now-carrying-green-mountain-gold-traps",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "michigan-prospectors",
+      "name": "Michigan Prospectors / Troy",
+      "official_url": "https://michiganprospectors.com/about.html",
+      "region": "Michigan, USA",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "miller-prospecting",
+      "name": "Miller Prospecting / Dylan",
+      "official_url": "https://www.millerprospecting.com/about-me/",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "misha-boylan",
+      "name": "Misha Boylan",
+      "official_url": "https://www.youtube.com/watch?v=zGLRYbTPEnY",
+      "region": "California Mother Lode, USA",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "mrdazp1",
+      "name": "MrDazP1",
+      "official_url": "https://www.youtube.com/watch?v=S4IYY4HWGpA",
+      "region": "United Kingdom; Wales coverage",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "northeast-prospecting",
+      "name": "Northeast Prospecting",
+      "official_url": "https://www.youtube.com/channel/UCBy9deWNcZf4PRuE_bHDD8A",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "northern-pickers",
+      "name": "Northern Pickers",
+      "official_url": "https://www.youtube.com/channel/UCw2xS_huzcJVhx38PNvl_Cg",
+      "region": "Scotland, UK (channel coverage)",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "nugget-noggin",
+      "name": "Nugget Noggin",
+      "official_url": "https://www.nuggetnoggin.com/about",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "outback-gold-fever",
+      "name": "Outback Gold Fever / Krissy",
+      "official_url": "https://www.patreon.com/outbackgoldfever",
+      "region": "Western Australia, including Pilbara",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "pioneer-pauly",
+      "name": "Pioneer Pauly",
+      "official_url": "https://www.youtube.com/@PioneerPauly",
+      "region": "Vancouver Island, Canada",
+      "status": "published",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "prospection-de-loisir",
+      "name": "Prospection de loisir",
+      "official_url": "https://www.youtube.com/watch?v=O3I_00cUA8c",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "rob-parsons",
+      "name": "Rob Parsons",
+      "official_url": "https://www.patreon.com/robparsons/sitemap",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "rookie-gold-prospector",
+      "name": "Rookie Gold Prospector",
+      "official_url": "https://www.youtube.com/channel/UC3UOAabudJhKKINePMOtAZA",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "sluice-goose",
+      "name": "Sluice Goose / John Richmond",
+      "official_url": "https://buythegoldrop.com/",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "snake-river-products",
+      "name": "Snake River Products",
+      "official_url": "https://snakeriverproducts.com/videos/",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "steve-herschbach",
+      "name": "Steve Herschbach / DetectorProspector",
+      "official_url": "https://www.detectorprospector.com/magazine/steves-guides/steves-guides/",
+      "region": "Alaska and western USA coverage",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "tassie-boys-prospecting",
+      "name": "Tassie Boys Prospecting",
+      "official_url": "https://www.youtube.com/watch?v=8d8g5L6G_oM",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "the-sluicers",
+      "name": "The Sluicers — Dillon and Anthony Thom",
+      "official_url": "https://thesluicers.co.nz/about-us/",
+      "region": "South Island / West Coast, New Zealand",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "the-uranium-hunter",
+      "name": "The Uranium Hunter",
+      "official_url": "https://theuraniumhunter.co.uk/2026/06/25/the-missing-gold-of-the-cheviots-tracking-an-ancient-epithermal-system/",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "tony-ledford",
+      "name": "Tony Ledford / Buckeye Gold educators",
+      "official_url": "https://buckeyegold.com/scouting/",
+      "region": "Ohio and Indiana, USA; historical Nome, Alaska coverage",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "two-toes",
+      "name": "Two Toes",
+      "official_url": "https://www.goldminingbasics.com/",
+      "region": "Northern California, USA",
+      "status": "published",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "tyler-mahoney",
+      "name": "Tyler Mahoney / The Prospectors Club",
+      "official_url": "https://subscription-tpc.com.au/about",
+      "region": "Western Australia",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "vo-gus-prospecting",
+      "name": "Vo-Gus Prospecting",
+      "official_url": "https://www.youtube.com/@VoGusProspecting",
+      "region": "Australia",
+      "status": "published",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "walk-about-prospecting",
+      "name": "Walk About Prospecting",
+      "official_url": "https://www.youtube.com/user/TheElmoRider",
+      "region": null,
+      "status": "lead",
+      "checked_at": "2026-10-07"
+    },
+    {
+      "slug": "washington-beach-mining",
+      "name": "Washington Beach Mining",
+      "official_url": "https://www.youtube.com/watch?v=Cyp0ZO7H9b0",
+      "region": "Washington, USA",
+      "status": "verified",
+      "checked_at": "2026-10-08"
+    },
+    {
+      "slug": "x4prospecting",
+      "name": "X4PROSPECTING / Justin Stanfield",
+      "official_url": "https://x4prospecting.com/about/",
+      "region": null,
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "yukon-dan",
+      "name": "Yukon Dan",
+      "official_url": "https://www.yukondan.com/index.html",
+      "region": "Yukon and British Columbia, Canada",
+      "status": "verified",
+      "checked_at": "2026-10-09"
+    },
+    {
+      "slug": "ghost-town-living",
+      "name": "Ghost Town Living / Brent Underwood",
+      "official_url": "https://www.youtube.com/@ghosttownliving",
+      "website_url": "https://cerrogordomines.com/",
+      "region": "California",
+      "region_source": "https://cerrogordomines.com/pages/about",
+      "status": "reviewed",
+      "checked_at": "2026-10-16",
+      "search_aliases": "Brent Underwood Cerro Gordo mine mining history restoration silver lead zinc Inyo Mountains",
+      "summary": "Brent Underwood documents mine exploration, mining history, and restoration at Cerro Gordo, California.",
+      "biography": [
+        {
+          "text": "Brent Underwood writes about living at Cerro Gordo and bringing the abandoned California mining town back to life.",
+          "source_url": "https://brentunderwood.com/",
+          "source_title": "Brent’s official website",
+          "publication_date": null,
+          "verified_at": "2026-10-16"
+        },
+        {
+          "text": "The town’s official history identifies Cerro Gordo with silver, lead, and zinc mining, and describes Ghost Town Living as Brent’s record of its restoration. This channel’s focus is mining heritage and restoration rather than gold-panning instruction.",
+          "source_url": "https://cerrogordomines.com/pages/about",
+          "source_title": "Cerro Gordo’s history and channel link",
+          "publication_date": null,
+          "verified_at": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "slug": "utmost-outdoors",
+      "name": "Utmost Outdoors",
+      "official_url": "https://www.youtube.com/@UtmostOutdoors",
+      "website_url": "https://www.utmostoutdoors.com/",
+      "region": "Alberta",
+      "region_source": "https://www.utmostoutdoors.com/videos",
+      "status": "reviewed",
+      "checked_at": "2026-10-16",
+      "search_aliases": "Kyle fine gold flour gold highbanker highbanking",
+      "summary": "Kyle shares fine-gold prospecting and equipment development, with documented coverage in Alberta.",
+      "biography": [
+        {
+          "text": "Utmost Outdoors founder Kyle describes rediscovering gold prospecting in Alberta and developing compact equipment to recover fine gold while camping and exploring waterways.",
+          "source_url": "https://www.utmostoutdoors.com/our-story",
+          "source_title": "Kyle’s story",
+          "publication_date": null,
+          "verified_at": "2026-10-16"
+        },
+        {
+          "text": "His official video page features Alberta prospecting trips and demonstrations of the Utmost Adventurer highbanker. Kyle also sells prospecting equipment and digital designs through his website.",
+          "source_url": "https://www.utmostoutdoors.com/videos",
+          "source_title": "Official videos and equipment demonstrations",
+          "publication_date": null,
+          "verified_at": "2026-10-16"
+        }
+      ]
+    }
+  ],
+  "video_channel_identities": [
+    {
+      "slug": "ask-jeff-williams",
+      "name": "Ask Jeff Williams",
+      "channel_id": "UCEeEMoldn_MytOY17kYhX_g",
+      "channel_url": "https://www.youtube.com/channel/UCEeEMoldn_MytOY17kYhX_g"
+    },
+    {
+      "slug": "busted-knuckles-prospecting",
+      "name": "Busted Knuckles Prospecting",
+      "channel_id": "UC-FXgmftIXDVF9QTSMUpo1A",
+      "channel_url": "https://www.youtube.com/channel/UC-FXgmftIXDVF9QTSMUpo1A"
+    },
+    {
+      "slug": "chris-ralph",
+      "name": "Chris Ralph",
+      "channel_id": "UCKfQ2Wyf3kLzOOz0mAKofog",
+      "channel_url": "https://www.youtube.com/channel/UCKfQ2Wyf3kLzOOz0mAKofog"
+    },
+    {
+      "slug": "dan-hurd",
+      "name": "Dan Hurd",
+      "channel_id": "UCOReOAYx8VDLwC0pOEcQD-g",
+      "channel_url": "https://www.youtube.com/channel/UCOReOAYx8VDLwC0pOEcQD-g"
+    },
+    {
+      "slug": "dave-mccracken",
+      "name": "Dave McCracken / The New 49’ers",
+      "channel_id": "UCPM2NtAuIN-yYCPjklOSc6A",
+      "channel_url": "https://www.youtube.com/channel/UCPM2NtAuIN-yYCPjklOSc6A"
+    },
+    {
+      "slug": "flour-gold-wizards",
+      "name": "Flour Gold Wizards",
+      "channel_id": "UCDL7gV1a7F-WcYBIoTa6a9Q",
+      "channel_url": "https://www.youtube.com/channel/UCDL7gV1a7F-WcYBIoTa6a9Q"
+    },
+    {
+      "slug": "gold-hog",
+      "name": "Gold Hog / Doc",
+      "channel_id": "UCaW-vXYNop3Z9S5n_mauBNw",
+      "channel_url": "https://www.youtube.com/channel/UCaW-vXYNop3Z9S5n_mauBNw"
+    },
+    {
+      "slug": "hip-bee-explorer",
+      "name": "Hip Bee Explorer",
+      "channel_id": "UC3JbaLlHoskb_Oggv_iKSXw",
+      "channel_url": "https://www.youtube.com/channel/UC3JbaLlHoskb_Oggv_iKSXw"
+    },
+    {
+      "slug": "internal-compass-of-nc",
+      "name": "Internal Compass of NC",
+      "channel_id": "UCYJo4kYbczOvIwOiZm_dk2Q",
+      "channel_url": "https://www.youtube.com/channel/UCYJo4kYbczOvIwOiZm_dk2Q"
+    },
+    {
+      "slug": "klesh",
+      "name": "Klesh",
+      "channel_id": "UCW59FgUrYH16PeAf1Ttczng",
+      "channel_url": "https://www.youtube.com/channel/UCW59FgUrYH16PeAf1Ttczng"
+    },
+    {
+      "slug": "miller-prospecting",
+      "name": "Miller Prospecting / Dylan",
+      "channel_id": "UCe-MrXpUYoWsgflLHjqKGpQ",
+      "channel_url": "https://www.youtube.com/channel/UCe-MrXpUYoWsgflLHjqKGpQ"
+    },
+    {
+      "slug": "misha-boylan",
+      "name": "Misha Boylan",
+      "channel_id": "UCaoh0wwyLSlf-akvaa2RStg",
+      "channel_url": "https://www.youtube.com/channel/UCaoh0wwyLSlf-akvaa2RStg"
+    },
+    {
+      "slug": "pioneer-pauly",
+      "name": "Pioneer Pauly",
+      "channel_id": "UCeU8II9pvOcHXl7EGeXi8yQ",
+      "channel_url": "https://www.youtube.com/channel/UCeU8II9pvOcHXl7EGeXi8yQ"
+    },
+    {
+      "slug": "sluice-goose",
+      "name": "Sluice Goose / John Richmond",
+      "channel_id": "UC8NarV_kJLQAqg3MJKXg4cQ",
+      "channel_url": "https://www.youtube.com/channel/UC8NarV_kJLQAqg3MJKXg4cQ"
+    },
+    {
+      "slug": "the-sluicers",
+      "name": "The Sluicers — Dillon and Anthony Thom",
+      "channel_id": "UC0Sp3rxTpgXxW2Sqw2vTDgQ",
+      "channel_url": "https://www.youtube.com/channel/UC0Sp3rxTpgXxW2Sqw2vTDgQ"
+    },
+    {
+      "slug": "two-toes",
+      "name": "Two Toes",
+      "channel_id": "UCY0Qsb5XawenYsglMVNTbLw",
+      "channel_url": "https://www.youtube.com/channel/UCY0Qsb5XawenYsglMVNTbLw"
+    },
+    {
+      "slug": "vo-gus-prospecting",
+      "name": "Vo-Gus Prospecting",
+      "channel_id": "UCxOWMu3gx_EJO7J5Vm0ecPw",
+      "channel_url": "https://www.youtube.com/channel/UCxOWMu3gx_EJO7J5Vm0ecPw"
+    }
+  ],
+  "live_public_creators": [
+    {
+      "slug": "adventure-gold",
+      "profileUrl": null,
+      "name": "Adventure Gold",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "alan-robertson",
+      "profileUrl": null,
+      "name": "Alan Robertson",
+      "location": "Washington beach trip, USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "washington",
+          "name": "Washington"
+        }
+      ],
+      "regionKeys": [
+        "washington-beach-trip-usa",
+        "washington"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Washington",
+          "lat": 47.5,
+          "lng": -120.5
+        }
+      ]
+    },
+    {
+      "slug": "andythraxx-mining",
+      "profileUrl": null,
+      "name": "ANDYTHRAXX MINING",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "bill-southern",
+      "profileUrl": null,
+      "name": "Bill Southern / Nugget Shooter Journals",
+      "location": "Arizona, USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "arizona",
+          "name": "Arizona"
+        }
+      ],
+      "regionKeys": [
+        "arizona-usa",
+        "arizona"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Arizona",
+          "lat": 34.5,
+          "lng": -112
+        }
+      ]
+    },
+    {
+      "slug": "busted-knuckles-prospecting",
+      "profileUrl": null,
+      "name": "Busted Knuckles Prospecting",
+      "location": "",
+      "videoCount": 3,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "california-mother-lode-prospectors",
+      "profileUrl": null,
+      "name": "California Mother Lode Prospectors",
+      "location": "California, USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "california",
+          "name": "California"
+        }
+      ],
+      "regionKeys": [
+        "california-usa",
+        "california"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "California",
+          "lat": 37,
+          "lng": -120
+        }
+      ]
+    },
+    {
+      "slug": "canadian-gold-mining",
+      "profileUrl": null,
+      "name": "Canadian Gold Mining",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "chasing-gold-australia",
+      "profileUrl": null,
+      "name": "Chasing Gold Australia",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "chris-ralph",
+      "profileUrl": null,
+      "name": "Chris Ralph",
+      "location": "California and Nevada, USA",
+      "videoCount": 3,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "california",
+          "name": "California"
+        },
+        {
+          "slug": "nevada",
+          "name": "Nevada"
+        }
+      ],
+      "regionKeys": [
+        "california-and-nevada-usa",
+        "california",
+        "nevada"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "California",
+          "lat": 37,
+          "lng": -120
+        },
+        {
+          "label": "Nevada",
+          "lat": 39,
+          "lng": -117
+        }
+      ]
+    },
+    {
+      "slug": "crux-prospecting",
+      "profileUrl": null,
+      "name": "Crux Prospecting / Cyle Haddon",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "dan-hurd",
+      "profileUrl": null,
+      "name": "Dan Hurd",
+      "location": "British Columbia, Canada",
+      "videoCount": 26,
+      "introduction": "Gold panning, metal detecting and mining adventures with Dan Hurd.",
+      "searchText": "Dan Hurd shares gold panning, metal detecting and mining adventures through Dan Hurd Prospecting. His official website lists Peachland, British Columbia, Canada, and includes prospecting videos and a shop. His FAQ describes childhood gold-panning trips with his father and returning to the hobby with his own children. Exact prospecting and channel start years remain to be confirmed. British Columbia CA Dan Hurd Prospecting",
+      "topics": [
+        {
+          "slug": "gold-panning",
+          "name": "Gold panning"
+        },
+        {
+          "slug": "metal-detecting",
+          "name": "Metal detecting"
+        }
+      ],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "british-columbia",
+          "name": "British Columbia"
+        }
+      ],
+      "regionKeys": [
+        "british-columbia-canada",
+        "british-columbia"
+      ],
+      "settings": [
+        "ground"
+      ],
+      "regions": [
+        {
+          "label": "British Columbia",
+          "lat": 54,
+          "lng": -125
+        }
+      ]
+    },
+    {
+      "slug": "dave-mccracken",
+      "profileUrl": null,
+      "name": "Dave McCracken / The New 49’ers",
+      "location": "Northern California, USA",
+      "videoCount": 1,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "california",
+          "name": "California"
+        }
+      ],
+      "regionKeys": [
+        "northern-california-usa",
+        "california"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "California",
+          "lat": 37,
+          "lng": -120
+        }
+      ]
+    },
+    {
+      "slug": "diggin-for-gold",
+      "profileUrl": null,
+      "name": "Diggin’ For Gold",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "dirtfishmish",
+      "profileUrl": null,
+      "name": "DirtFishMish",
+      "location": "Southern Australia",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "southern-australia",
+          "name": "Southern Australia"
+        }
+      ],
+      "regionKeys": [
+        "southern-australia"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Southern Australia",
+          "lat": -35,
+          "lng": 138
+        }
+      ]
+    },
+    {
+      "slug": "dons-mining-office",
+      "profileUrl": null,
+      "name": "Don’s Mining Office",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "flash-in-your-pan",
+      "profileUrl": null,
+      "name": "Flash In Your Pan / Ed Marvin",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "flour-gold-wizards",
+      "profileUrl": null,
+      "name": "Flour Gold Wizards",
+      "location": "Wisconsin and Michigan, USA",
+      "videoCount": 1,
+      "introduction": "Fine-gold prospecting in Wisconsin and Michigan, with creek, river, and beach-mining videos.",
+      "searchText": "Flour Gold Wizards focuses on flour gold and small gold flakes. The channel describes prospecting in Wisconsin and Michigan using pans, sluices, Gold Cubes, and other recovery equipment across creeks, rivers, and beaches. Its public video catalog also includes Lake Superior and Nome, Alaska beach-mining trips. YouTube lists a joined date of July 9, 2015; the first publishing date has not been verified. Wisconsin & Michigan US Flour Gold Wizards",
+      "topics": [
+        {
+          "slug": "gold-panning",
+          "name": "Gold panning"
+        },
+        {
+          "slug": "sluicing-highbanking",
+          "name": "Sluicing & highbanking"
+        }
+      ],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "wisconsin",
+          "name": "Wisconsin"
+        },
+        {
+          "slug": "michigan",
+          "name": "Michigan"
+        }
+      ],
+      "regionKeys": [
+        "wisconsin-and-michigan-usa",
+        "wisconsin",
+        "michigan"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Wisconsin",
+          "lat": 44.5,
+          "lng": -89.5
+        },
+        {
+          "label": "Michigan",
+          "lat": 44,
+          "lng": -85
+        }
+      ]
+    },
+    {
+      "slug": "gerrys-detectors",
+      "profileUrl": null,
+      "name": "Gerry McMullen / Gerry’s Detectors team",
+      "location": "Idaho and western USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "idaho",
+          "name": "Idaho"
+        }
+      ],
+      "regionKeys": [
+        "idaho-and-western-usa",
+        "idaho"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Idaho",
+          "lat": 44.5,
+          "lng": -114.5
+        }
+      ]
+    },
+    {
+      "slug": "ghost-town-living",
+      "profileUrl": null,
+      "name": "Ghost Town Living / Brent Underwood",
+      "location": "California",
+      "videoCount": 0,
+      "introduction": "Brent Underwood documents mine exploration, mining history, and restoration at Cerro Gordo, California.",
+      "searchText": "Brent Underwood Cerro Gordo mine mining history restoration silver lead zinc Inyo Mountains",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "california",
+          "name": "California"
+        }
+      ],
+      "regionKeys": [
+        "california"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "California",
+          "lat": 37,
+          "lng": -120
+        }
+      ]
+    },
+    {
+      "slug": "glacial-gold-hunter",
+      "profileUrl": null,
+      "name": "Glacial Gold Hunter / Lucas Lundgren",
+      "location": "Midwestern USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "midwestern-usa",
+          "name": "Midwestern USA"
+        }
+      ],
+      "regionKeys": [
+        "midwestern-usa"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Midwestern USA",
+          "lat": 42,
+          "lng": -90
+        }
+      ]
+    },
+    {
+      "slug": "gold-cube",
+      "profileUrl": null,
+      "name": "Gold Cube / Mike Pung and Red Wilcox",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "gold-digger-nz",
+      "profileUrl": null,
+      "name": "Gold Digger NZ",
+      "location": "New Zealand",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "new-zealand",
+          "name": "New Zealand"
+        }
+      ],
+      "regionKeys": [
+        "new-zealand"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "New Zealand",
+          "lat": -42,
+          "lng": 173
+        }
+      ]
+    },
+    {
+      "slug": "gold-fever-adventures",
+      "profileUrl": null,
+      "name": "Gold Fever Adventures",
+      "location": "Arizona, USA (documented desert episode)",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "arizona",
+          "name": "Arizona"
+        }
+      ],
+      "regionKeys": [
+        "arizona-usa-documented-desert-episode",
+        "arizona"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Arizona",
+          "lat": 34.5,
+          "lng": -112
+        }
+      ]
+    },
+    {
+      "slug": "gold-hog",
+      "profileUrl": null,
+      "name": "Gold Hog / Doc",
+      "location": "",
+      "videoCount": 8,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "goldbay",
+      "profileUrl": null,
+      "name": "Goldbay / Dave Varabioff",
+      "location": "USA coverage; exact region pending",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "usa-coverage-exact-region-pending",
+          "name": "USA coverage; exact region pending"
+        }
+      ],
+      "regionKeys": [
+        "usa-coverage-exact-region-pending"
+      ],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "golden-submarine",
+      "profileUrl": null,
+      "name": "Golden Submarine",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "golden-triangle-prospecting",
+      "profileUrl": null,
+      "name": "Golden Triangle Prospecting",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "goldsnoop",
+      "profileUrl": null,
+      "name": "GoldSnoop / Vivien Laïlle",
+      "location": "Ariège, French Pyrenees",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "ariege",
+          "name": "Ariège"
+        }
+      ],
+      "regionKeys": [
+        "ariege-french-pyrenees",
+        "ariege"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Ariège",
+          "lat": 43,
+          "lng": 1.6
+        }
+      ]
+    },
+    {
+      "slug": "green-mountain-gold-trap",
+      "profileUrl": null,
+      "name": "Green Mountain Gold Trap",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "have-a-go-prospecting",
+      "profileUrl": null,
+      "name": "Have A Go Prospecting",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "hip-bee-explorer",
+      "profileUrl": null,
+      "name": "Hip Bee Explorer",
+      "location": "New England · Swift River — Byron, Maine · Israel River — Jefferson, New Hampshire · New England, USA; Maine, USA",
+      "videoCount": 2,
+      "introduction": "New England gold-panning and camping adventures with Wes Perron and Tom.",
+      "searchText": "Hip Bee Explorer brings together Wes Perron and Tom for gold panning, camping and outdoor exploration in New England. Their documented outings include the East Branch of the Swift River in Byron, Maine, and the South Branch of the Israel River near Jefferson, New Hampshire. Videos combine river prospecting with camping trips, trails and time outdoors, including outings with channel members. Individual member names were supplied by the Gold Trails editor. Exact publishing start dates and additional coverage areas remain open for review. US Hip Bee Explorer Hip Bee Explorer on Patreon",
+      "topics": [
+        {
+          "slug": "gold-panning",
+          "name": "Gold panning"
+        }
+      ],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "new-england",
+          "name": "New England"
+        },
+        {
+          "slug": "maine",
+          "name": "Maine"
+        },
+        {
+          "slug": "new-hampshire",
+          "name": "New Hampshire"
+        },
+        {
+          "slug": "new-england",
+          "name": "New England"
+        },
+        {
+          "slug": "maine",
+          "name": "Maine"
+        }
+      ],
+      "regionKeys": [
+        "new-england",
+        "swift-river-byron-maine",
+        "maine",
+        "israel-river-jefferson-new-hampshire",
+        "new-hampshire",
+        "new-england-usa-maine-usa"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "New England",
+          "lat": 44,
+          "lng": -71
+        },
+        {
+          "label": "Maine",
+          "lat": 45,
+          "lng": -69
+        },
+        {
+          "label": "New Hampshire",
+          "lat": 44,
+          "lng": -71.5
+        }
+      ]
+    },
+    {
+      "slug": "prospector-nic",
+      "profileUrl": null,
+      "name": "How to Find Gold / Prospector Nic",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "i-brake-for-bedrock",
+      "profileUrl": null,
+      "name": "I Brake For Bedrock",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "internal-compass-of-nc",
+      "profileUrl": null,
+      "name": "Internal Compass of NC",
+      "location": "",
+      "videoCount": 5,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "ask-jeff-williams",
+      "profileUrl": null,
+      "name": "Jeff Williams",
+      "location": "",
+      "videoCount": 9,
+      "introduction": "Gold-prospecting creator sharing geology, practical techniques, and mining adventures through Ask Jeff Williams.",
+      "searchText": "Ask Jeff Williams Jeff Williams presents Ask Jeff Williams, a gold-prospecting website and video channel. His official website introduces him as a certified geologist and features material ranging from Gold Geology 101 to practical prospecting techniques. It also links to patron mining adventures and Slim’s Store, with maps, gear, and his book Where To Find Gold. The credential description is his own published description; Gold Trails has not independently checked the certification. Ask Jeff Williams Ask Jeff Williams — official website",
+      "topics": [
+        {
+          "slug": "geology-placer-deposits",
+          "name": "Geology & placer deposits"
+        }
+      ],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "kevin-singel",
+      "profileUrl": null,
+      "name": "Kevin Singel / Finding Gold in Colorado",
+      "location": "Colorado, USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "colorado",
+          "name": "Colorado"
+        }
+      ],
+      "regionKeys": [
+        "colorado-usa",
+        "colorado"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Colorado",
+          "lat": 39,
+          "lng": -105.5
+        }
+      ]
+    },
+    {
+      "slug": "klesh",
+      "profileUrl": null,
+      "name": "Klesh",
+      "location": "Colorado, USA",
+      "videoCount": 3,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "colorado",
+          "name": "Colorado"
+        }
+      ],
+      "regionKeys": [
+        "colorado-usa",
+        "colorado"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Colorado",
+          "lat": 39,
+          "lng": -105.5
+        }
+      ]
+    },
+    {
+      "slug": "krazynutz",
+      "profileUrl": null,
+      "name": "KRAZYNUTZ / HOOTERHILLS",
+      "location": "Indiana, USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "indiana",
+          "name": "Indiana"
+        }
+      ],
+      "regionKeys": [
+        "indiana-usa",
+        "indiana"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Indiana",
+          "lat": 40,
+          "lng": -86
+        }
+      ]
+    },
+    {
+      "slug": "liz-kreate",
+      "profileUrl": null,
+      "name": "Liz Kreate",
+      "location": "NSW, Australia",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "australia",
+          "name": "Australia"
+        }
+      ],
+      "regionKeys": [
+        "nsw-australia",
+        "australia"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Australia",
+          "lat": -25,
+          "lng": 134
+        }
+      ]
+    },
+    {
+      "slug": "lxr-postal-prospecting",
+      "profileUrl": null,
+      "name": "LXR Postal Prospecting",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "mad-scientist-prospecting",
+      "profileUrl": null,
+      "name": "Mad Scientist Prospecting",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "mantis-gold-mining",
+      "profileUrl": null,
+      "name": "Mantis Gold Mining",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "mbmmllc",
+      "profileUrl": null,
+      "name": "MBMMLLC / Jason Gaber",
+      "location": "Washington, USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "washington",
+          "name": "Washington"
+        }
+      ],
+      "regionKeys": [
+        "washington-usa",
+        "washington"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Washington",
+          "lat": 47.5,
+          "lng": -120.5
+        }
+      ]
+    },
+    {
+      "slug": "michigan-prospectors",
+      "profileUrl": null,
+      "name": "Michigan Prospectors / Troy",
+      "location": "Michigan, USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "michigan",
+          "name": "Michigan"
+        }
+      ],
+      "regionKeys": [
+        "michigan-usa",
+        "michigan"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Michigan",
+          "lat": 44,
+          "lng": -85
+        }
+      ]
+    },
+    {
+      "slug": "miller-prospecting",
+      "profileUrl": null,
+      "name": "Miller Prospecting / Dylan",
+      "location": "",
+      "videoCount": 2,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "misha-boylan",
+      "profileUrl": null,
+      "name": "Misha Boylan",
+      "location": "California Mother Lode, USA",
+      "videoCount": 2,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "california",
+          "name": "California"
+        }
+      ],
+      "regionKeys": [
+        "california-mother-lode-usa",
+        "california"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "California",
+          "lat": 37,
+          "lng": -120
+        }
+      ]
+    },
+    {
+      "slug": "mrdazp1",
+      "profileUrl": null,
+      "name": "MrDazP1",
+      "location": "United Kingdom; Wales coverage",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "united-kingdom",
+          "name": "United Kingdom"
+        },
+        {
+          "slug": "wales",
+          "name": "Wales"
+        }
+      ],
+      "regionKeys": [
+        "united-kingdom-wales-coverage",
+        "united-kingdom",
+        "wales"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "United Kingdom",
+          "lat": 54,
+          "lng": -2
+        },
+        {
+          "label": "Wales",
+          "lat": 52,
+          "lng": -4
+        }
+      ]
+    },
+    {
+      "slug": "northeast-prospecting",
+      "profileUrl": null,
+      "name": "Northeast Prospecting",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "northern-pickers",
+      "profileUrl": null,
+      "name": "Northern Pickers",
+      "location": "Scotland, UK (channel coverage)",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "scotland",
+          "name": "Scotland"
+        }
+      ],
+      "regionKeys": [
+        "scotland-uk-channel-coverage",
+        "scotland"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Scotland",
+          "lat": 57,
+          "lng": -4
+        }
+      ]
+    },
+    {
+      "slug": "nugget-noggin",
+      "profileUrl": null,
+      "name": "Nugget Noggin",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "outback-gold-fever",
+      "profileUrl": null,
+      "name": "Outback Gold Fever / Krissy",
+      "location": "Western Australia, including Pilbara",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "western-australia",
+          "name": "Western Australia"
+        }
+      ],
+      "regionKeys": [
+        "western-australia-including-pilbara",
+        "western-australia"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Western Australia",
+          "lat": -25,
+          "lng": 122
+        }
+      ]
+    },
+    {
+      "slug": "pioneer-pauly",
+      "profileUrl": null,
+      "name": "Pioneer Pauly",
+      "location": "Vancouver Island · Vancouver Island, Canada",
+      "videoCount": 10,
+      "introduction": "Gold-prospecting creator known for river adventures on Vancouver Island.",
+      "searchText": "Paul Larouche Paul Larouche creates videos as PioneerPauly. His documented activities include gold panning, underwater gold sniping and metal detecting around Sooke River on Vancouver Island. Public reporting also describes treasure-hunting trips beyond British Columbia. This initial profile is based on published sources; current services and business details remain to be confirmed. British Columbia CA PioneerPauly PioneerPauly @PioneerPauly PioneerPauly website",
+      "topics": [
+        {
+          "slug": "gold-panning",
+          "name": "Gold panning"
+        },
+        {
+          "slug": "sluicing-highbanking",
+          "name": "Sluicing & highbanking"
+        },
+        {
+          "slug": "geology-placer-deposits",
+          "name": "Geology & placer deposits"
+        },
+        {
+          "slug": "maps-field-research",
+          "name": "Maps & field research"
+        }
+      ],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "vancouver-island",
+          "name": "Vancouver Island"
+        },
+        {
+          "slug": "vancouver-island",
+          "name": "Vancouver Island"
+        }
+      ],
+      "regionKeys": [
+        "vancouver-island",
+        "vancouver-island-canada"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Vancouver Island",
+          "lat": 49.7,
+          "lng": -125.5
+        }
+      ]
+    },
+    {
+      "slug": "prospection-de-loisir",
+      "profileUrl": null,
+      "name": "Prospection de loisir",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "rob-parsons",
+      "profileUrl": null,
+      "name": "Rob Parsons",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "rookie-gold-prospector",
+      "profileUrl": null,
+      "name": "Rookie Gold Prospector",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "sluice-goose",
+      "profileUrl": null,
+      "name": "Sluice Goose / John Richmond",
+      "location": "",
+      "videoCount": 1,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "snake-river-products",
+      "profileUrl": null,
+      "name": "Snake River Products",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "steve-herschbach",
+      "profileUrl": null,
+      "name": "Steve Herschbach / DetectorProspector",
+      "location": "Alaska and western USA coverage",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "alaska",
+          "name": "Alaska"
+        }
+      ],
+      "regionKeys": [
+        "alaska-and-western-usa-coverage",
+        "alaska"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Alaska",
+          "lat": 64,
+          "lng": -153
+        }
+      ]
+    },
+    {
+      "slug": "tassie-boys-prospecting",
+      "profileUrl": null,
+      "name": "Tassie Boys Prospecting",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "the-sluicers",
+      "profileUrl": null,
+      "name": "The Sluicers — Dillon and Anthony Thom",
+      "location": "South Island / West Coast, New Zealand",
+      "videoCount": 1,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "new-zealand",
+          "name": "New Zealand"
+        }
+      ],
+      "regionKeys": [
+        "south-island-west-coast-new-zealand",
+        "new-zealand"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "New Zealand",
+          "lat": -42,
+          "lng": 173
+        }
+      ]
+    },
+    {
+      "slug": "the-uranium-hunter",
+      "profileUrl": null,
+      "name": "The Uranium Hunter",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "tony-ledford",
+      "profileUrl": null,
+      "name": "Tony Ledford / Buckeye Gold educators",
+      "location": "Ohio and Indiana, USA; historical Nome, Alaska coverage",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "indiana",
+          "name": "Indiana"
+        },
+        {
+          "slug": "ohio",
+          "name": "Ohio"
+        },
+        {
+          "slug": "alaska",
+          "name": "Alaska"
+        }
+      ],
+      "regionKeys": [
+        "ohio-and-indiana-usa-historical-nome-alaska-coverage",
+        "indiana",
+        "ohio",
+        "alaska"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Indiana",
+          "lat": 40,
+          "lng": -86
+        },
+        {
+          "label": "Ohio",
+          "lat": 40,
+          "lng": -82.8
+        },
+        {
+          "label": "Alaska",
+          "lat": 64,
+          "lng": -153
+        }
+      ]
+    },
+    {
+      "slug": "two-toes",
+      "profileUrl": null,
+      "name": "Two Toes",
+      "location": "Northern California, USA",
+      "videoCount": 1,
+      "introduction": "Northern California prospector sharing decades of experience through Two Toes Adventure and Gold Mining Basics.",
+      "searchText": "Gary Gary, known through Two Toes Adventure and Gold Mining Basics, shares practical gold-prospecting knowledge. In his published history he describes learning to pan as a child and doing most of his mining in Northern California, with trips to Arizona, Nevada, and Oregon. He recounts experience with panning, sluicing, highbanking, drywashing, dredging, and metal detecting, as well as building mining tools. Gold Mining Basics provides technique articles and videos and links to Honan’s Mining Supplies. California US Honan’s Mining Supplies — official shop Gold Mining Basics — Two Toes Adventure Two Toes",
+      "topics": [
+        {
+          "slug": "gold-panning",
+          "name": "Gold panning"
+        },
+        {
+          "slug": "metal-detecting",
+          "name": "Metal detecting"
+        },
+        {
+          "slug": "sluicing-highbanking",
+          "name": "Sluicing & highbanking"
+        }
+      ],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "california",
+          "name": "California"
+        }
+      ],
+      "regionKeys": [
+        "northern-california-usa",
+        "california"
+      ],
+      "settings": [
+        "ground"
+      ],
+      "regions": [
+        {
+          "label": "California",
+          "lat": 37,
+          "lng": -120
+        }
+      ]
+    },
+    {
+      "slug": "tyler-mahoney",
+      "profileUrl": null,
+      "name": "Tyler Mahoney / The Prospectors Club",
+      "location": "Western Australia",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "western-australia",
+          "name": "Western Australia"
+        }
+      ],
+      "regionKeys": [
+        "western-australia"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Western Australia",
+          "lat": -25,
+          "lng": 122
+        }
+      ]
+    },
+    {
+      "slug": "utmost-outdoors",
+      "profileUrl": null,
+      "name": "Utmost Outdoors",
+      "location": "Alberta",
+      "videoCount": 0,
+      "introduction": "Kyle shares fine-gold prospecting and equipment development, with documented coverage in Alberta.",
+      "searchText": "Kyle fine gold flour gold highbanker highbanking",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "alberta",
+          "name": "Alberta"
+        }
+      ],
+      "regionKeys": [
+        "alberta"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Alberta",
+          "lat": 54,
+          "lng": -115
+        }
+      ]
+    },
+    {
+      "slug": "vo-gus-prospecting",
+      "profileUrl": null,
+      "name": "Vo-Gus Prospecting",
+      "location": "Australia",
+      "videoCount": 19,
+      "introduction": "Australian prospecting channel covering river gold, metal detecting, highbanking, and gold-bearing rock.",
+      "searchText": "Vo-Gus Prospecting shares gold-prospecting adventures in Australia. The public channel includes river-gold exploration, sluicing, highbanking, metal detecting, and processing gold-bearing rock. Its official links lead to The Old Mouldy, a shop offering gold, gemstones, paydirt, and prospecting equipment, along with the channel’s Instagram and Facebook pages. YouTube lists the channel as joined on July 24, 2016; this is an account creation date, not a verified date for the first published video. AU The Old Mouldy — official shop Vo-Gus Prospecting",
+      "topics": [
+        {
+          "slug": "gold-panning",
+          "name": "Gold panning"
+        },
+        {
+          "slug": "metal-detecting",
+          "name": "Metal detecting"
+        },
+        {
+          "slug": "sluicing-highbanking",
+          "name": "Sluicing & highbanking"
+        }
+      ],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "australia",
+          "name": "Australia"
+        }
+      ],
+      "regionKeys": [
+        "australia"
+      ],
+      "settings": [
+        "ground"
+      ],
+      "regions": [
+        {
+          "label": "Australia",
+          "lat": -25,
+          "lng": 134
+        }
+      ]
+    },
+    {
+      "slug": "walk-about-prospecting",
+      "profileUrl": null,
+      "name": "Walk About Prospecting",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Creator research lead; channel details are under review.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "washington-beach-mining",
+      "profileUrl": null,
+      "name": "Washington Beach Mining",
+      "location": "Washington, USA",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "washington",
+          "name": "Washington"
+        }
+      ],
+      "regionKeys": [
+        "washington-usa",
+        "washington"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "Washington",
+          "lat": 47.5,
+          "lng": -120.5
+        }
+      ]
+    },
+    {
+      "slug": "x4prospecting",
+      "profileUrl": null,
+      "name": "X4PROSPECTING / Justin Stanfield",
+      "location": "",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [],
+      "regionKeys": [],
+      "settings": [],
+      "regions": []
+    },
+    {
+      "slug": "yukon-dan",
+      "profileUrl": null,
+      "name": "Yukon Dan",
+      "location": "Yukon and British Columbia, Canada",
+      "videoCount": 0,
+      "introduction": "Prospecting creator in the Gold Trails research roster.",
+      "searchText": "",
+      "topics": [],
+      "specialties": [],
+      "regionOptions": [
+        {
+          "slug": "british-columbia",
+          "name": "British Columbia"
+        },
+        {
+          "slug": "yukon",
+          "name": "Yukon"
+        }
+      ],
+      "regionKeys": [
+        "yukon-and-british-columbia-canada",
+        "british-columbia",
+        "yukon"
+      ],
+      "settings": [],
+      "regions": [
+        {
+          "label": "British Columbia",
+          "lat": 54,
+          "lng": -125
+        },
+        {
+          "label": "Yukon",
+          "lat": 64,
+          "lng": -136
+        }
+      ]
+    }
+  ]
+}
