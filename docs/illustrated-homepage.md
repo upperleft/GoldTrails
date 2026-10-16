@@ -1,6 +1,6 @@
 # Illustrated homepage — local implementation
 
-Paul supplied the annotated 1672 × 941 design on October 16, 2026. The artwork is the visual foundation; HTML owns navigation, help, and account routing. This is a homepage-only change on branch `illustrated-homepage`, based on the published Connections release `4bb5d8e`. It does not include development-only Stripe/culture changes. **Not approved for production deployment yet.**
+Paul supplied the annotated 1672 × 941 design on October 16, 2026. The artwork is the visual foundation; HTML owns navigation, help, and account routing. This is a homepage-only change on branch `illustrated-homepage`, based on the published Connections release `4bb5d8e`. It does not include development-only Stripe/culture changes. **Paul approved production publication on October 16, 2026; the homepage is live at https://goldtrails.org/.**
 
 ## Files and behavior
 
@@ -31,4 +31,4 @@ Calibration: `node scripts/preview-homepage.mjs --calibrate` enables outlines an
 - Browser checks: all 19 help buttons on the desktop; in-bounds dialogs; toggle, outside click, Escape and focus return; Enter keyboard activation; Search chooser links; Articles and Glossary navigation; reading enlargement → HTML view → reset and return.
 - Requested viewports: 1920×1080, 1440×900, 1366×768, 1024×768, 834×1194, and 390×844. No measured horizontal overflow or undersized controls. Tablet and phone viewports select zero large homepage artwork sources. Browser console checks returned no warnings/errors.
 
-Do not push this branch to Hostinger before Paul approves the completed interactive preview. Connections is already public separately at https://goldtrails.org/connections/.
+Publication approved and completed on October 16, 2026. Hostinger completed commit 2b0c801. Live verification confirmed the artwork loaded, 44 controls, all 19 help panels, Search destinations, no browser warnings/errors, and original HTML at 1024px tablet and 390px phone widths with no desktop artwork selected. A follow-up registers the WebP MIME type explicitly. No payment or email activation changed. Connections remains public at https://goldtrails.org/connections/.

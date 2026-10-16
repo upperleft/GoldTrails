@@ -2,7 +2,7 @@
 
 final result: passed
 
-Date: October 16, 2026. Approved design scope: desktop artwork; original HTML homepage on tablets and phones. Homepage publication still requires Paul's approval.
+Date: October 16, 2026. Approved design scope: desktop artwork; original HTML homepage on tablets and phones. Paul approved publication on October 16, 2026, and the homepage is now live.
 
 ## Visual truth and capture
 
@@ -55,4 +55,6 @@ Date: October 16, 2026. Approved design scope: desktop artwork; original HTML ho
 - [x] Original tablet/phone homepage, reading controls, no desktop artwork download there.
 - [x] Default-off local calibration and editable coordinate config.
 - [x] Regression/build checks and post-fix browser/source comparison.
-- [ ] Obtain approval before publishing the illustrated homepage to Hostinger.
+- [x] Paul approved publication; Hostinger completed 2b0c801, with live desktop/tablet/phone and help/Search verification.
+
+Live evidence: parent workspace `outputs/Gold-Trails-Homepage-Live-2026-10-16.png`. Public homepage https://goldtrails.org/. WebP delivery follow-up verified locally as HTTP 200 with Content-Type image/webp.

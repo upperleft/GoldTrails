@@ -13,7 +13,7 @@ import { directoryPage, profilePage, messagePage, page, escapeHtml } from './dir
 import {videoLibraryFor,videoLibraryBody} from './creator-video-library.js';
 import {createGoldPriceFeed} from './gold-price.js';
 
-const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
+const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
 export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, plus = createPlusHandler(), suggestions = null, analytics = null, directory = null, admin = null, members = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
