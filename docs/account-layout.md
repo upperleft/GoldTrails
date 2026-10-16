@@ -1,6 +1,6 @@
 # Your camp account layout
 
-Prepared October 16, 2026, against the published homepage release `1484d46`. Not deployed.
+Prepared October 16, 2026, against the published homepage release `1484d46`. Paul approved production publication after reviewing the finished preview; deployment validation follows the push.
 
 The signed-in `/account/` page now has a personal welcome, a membership badge, a leading My Gold Trail link, paired Calendar and Connections shortcuts, compact account details, and a quiet Plus/sign-out footer. The account content precedes the navigation shelf in reading order and on phones; the desktop shelf stays at the left. Styles are scoped to this page and loaded with a content-based asset version.
 
@@ -10,4 +10,4 @@ Validation: 29 focused member/reading tests passed, including free/Plus links, e
 
 Local preview: `node scripts/preview-account.mjs`, then `http://127.0.0.1:4333/account/`. Uses only fictional Alex / TrailReader, no database or outbound email; mutations are disabled. `--plus` selects a fictional Plus view at startup.
 
-Awaiting production publication approval, consistent with the prior project brief's instruction to stop before production deployments.
+Production publication approved by Paul: “Yep, that looks good. I approve of that.”
