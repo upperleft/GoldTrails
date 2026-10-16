@@ -59,8 +59,9 @@ for (const form of document.querySelectorAll('.member-form')) {
       const message = document.createElement('p'); message.textContent = result.message;
       confirmation.append(message);
       const recovery = document.createElement('a'); recovery.href = '/resend-verification/'; recovery.textContent = 'Request another verification email';
-      const login = document.createElement('a'); login.href = '/login/'; login.textContent = 'Return to member sign-in';
-      const links = document.createElement('p'); links.append(recovery, document.createTextNode(' · '), login);
+      const login = document.createElement('a'); login.href = '/login/'; login.textContent = 'Sign in';
+      const reset = document.createElement('a'); reset.href = '/forgot-password/'; reset.textContent = 'Reset your existing password';
+      const links = document.createElement('p'); links.append(login, document.createTextNode(' · '), reset, document.createTextNode(' · '), recovery);
       card.replaceChildren(heading, confirmation, links);
       card.setAttribute('tabindex', '-1'); card.focus();
     } catch {

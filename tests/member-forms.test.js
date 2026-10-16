@@ -62,3 +62,9 @@ test('network timeout and unexpected responses restore signup and offer email re
   await settle();assert.equal(ui.card.children.length,0);assert.match(ui.feedback.textContent,/could not confirm/);assert.equal(ui.button.textContent,'Create free account');assert.equal(ui.feedback.children.find(child=>child.href)?.href,'/resend-verification/');assert.equal(ui.timers.size,0);
  }
 });
+
+test('signup confirmation keeps sign-in and existing-account recovery next to verification resend',async()=>{
+ const ui=fixture({password:'12345678'},{direct:true,fetch:async()=>response(200,{outcome:'email_requested',title:'Check your email',message:'Already joined? Reset your existing password.'})});
+ ui.submit();await settle();const flatten=element=>[element,...(element.children||[]).flatMap(flatten)];const links=flatten(ui.card).filter(e=>e.href).map(e=>e.href);
+ assert.ok(links.includes('/login/'));assert.ok(links.includes('/forgot-password/'));assert.ok(links.includes('/resend-verification/'));
+});

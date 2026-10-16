@@ -132,3 +132,20 @@ test('reset identity lookup only returns an active verified account for a live p
  let calls=0;const store=createMemberStore({query:async(sql,args)=>{calls++;assert.match(sql,/t\.purpose='reset_password'/);assert.match(sql,/t\.consumed_at IS NULL AND t\.revoked_at IS NULL AND t\.expires_at>UTC_TIMESTAMP/);assert.match(sql,/a\.status='active' AND a\.email_verified_at IS NOT NULL AND a\.archived_at IS NULL/);assert.deepEqual(args,[digest(link)]);return[{email:'member@example.com'}];}});
  assert.equal(await store.resetAccount('invalid'),null);assert.equal(calls,0);assert.deepEqual(await store.resetAccount(link),{email:'member@example.com'});assert.equal(calls,1);
 });
+
+test('new and duplicate signup responses offer account recovery without revealing which account exists',async t=>{
+ const fields={username:'trailmember',email:'member@example.com',password:'an example long password'};let sent=0;
+ const fresh=await fixture(t,{mail:async()=>sent++,store:{ready:async()=>true,allow:async()=>true,signup:async()=>({id:'new',email:fields.email}),issue:async()=>link}});
+ const duplicate=await fixture(t,{mail:async()=>{throw Error('Duplicate must not send');},store:{ready:async()=>true,allow:async()=>true,signup:async()=>{throw Object.assign(new Error('Duplicate'),{code:'ER_DUP_ENTRY'});}}});
+ const responses=await Promise.all([fresh('/signup/',fields,{Accept:'application/json'}),duplicate('/signup/',fields,{Accept:'application/json'})]);
+ assert.ok(responses.every(r=>r.status===200));const [a,b]=await Promise.all(responses.map(r=>r.json()));assert.deepEqual(a,b);assert.match(a.message,/reset your existing password/);assert.match(a.message,/does not change an existing password/);assert.equal(sent,1);
+ const html=await(await duplicate('/signup/',fields)).text();assert.match(html,/href="\/forgot-password\/"/);
+});
+test('resend explains that verified accounts need sign-in or recovery without exposing account status',async t=>{
+ let sent=0;const results=[];
+ for(const account of [null,{id:'existing',status:'active',email:'member@example.com',email_verified_at:new Date()}]){
+  const request=await fixture(t,{mail:async()=>sent++,store:{ready:async()=>true,allow:async()=>true,find:async()=>account}});
+  results.push(await(await request('/resend-verification/',{email:'member@example.com'})).text());
+ }
+ assert.equal(sent,0);assert.equal(results[0],results[1]);assert.match(results[0],/already verified will not receive another verification email/);assert.match(results[0],/href="\/forgot-password\/"/);
+});
