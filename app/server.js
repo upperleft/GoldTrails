@@ -14,7 +14,7 @@ import {createGoldPriceFeed} from './gold-price.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
-export function createServer({ plus = createPlusHandler(), suggestions = null, analytics = null, directory = null, admin = null, members = null, compass = null, products = null, calendar = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
+export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, plus = createPlusHandler(), suggestions = null, analytics = null, directory = null, admin = null, members = null, compass = null, products = null, calendar = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
   function send(req, res, status, body, headers = {}) {
     res.writeHead(status, { 'Content-Type':'text/html; charset=utf-8', 'X-Content-Type-Options':'nosniff', 'Cache-Control':'no-store', ...headers });
@@ -24,6 +24,14 @@ export function createServer({ plus = createPlusHandler(), suggestions = null, a
     let url, path;
     try { url = new URL(req.url,'http://localhost'); path = decodeURIComponent(url.pathname); }
     catch { send(req,res,400,messagePage('That trail marker is unclear','Please check the address and try again.')); return; }
+    // Keep forms and host-only sessions on the configured production origin.
+    // Match only our known alias; never derive a redirect target from request headers.
+    if(canonicalOrigin==='https://goldtrails.org' && req.headers.host?.toLowerCase()==='www.goldtrails.org') {
+      const destination=canonicalOrigin+url.pathname+url.search;
+      if(['GET','HEAD'].includes(req.method)) {res.writeHead(308,{Location:destination,'Cache-Control':'no-store'});res.end();}
+      else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
+      return;
+    }
     attachPlusMarkup(req,res,url);
     if(suggestions){if(await suggestions(req,res,url))return;if(await suggestions.enabled())suggestions.attach(req,res,url);}
     if(analytics){if(await analytics(req,res,url))return;if(await analytics.enabled())attachAnalyticsMarkup(req,res,url);}
