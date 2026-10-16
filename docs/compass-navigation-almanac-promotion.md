@@ -11,3 +11,5 @@ October 15, 2026.
 Validation: existing Compass/dashboard tests passed. The promotion/access test now requires six illustrated highlights and absence of the old excerpt. Browser visual checks cover the introduction, sidebar return link, and new Plus promotion. A requested browser viewport override did not take effect (actual width stayed 1280), so do not report mobile screenshot verification; responsive CSS includes stacking and persistent Calendar return links.
 
 Final validation: all 228 isolated-release tests passed and both builds passed. The parallel development run passed 253 of 254 tests; a calendar recurrence test failed during that concurrent run, then all 6 calendar HTTP tests passed when rechecked separately. No calendar recurrence implementation was changed.
+
+Published implementation d951cce through the established GitHub → Hostinger deployment. Hostinger shows Completed. Live Plus HTML contains the illustrated promotion and updated return-link label. A subsequent live screenshot did render at 390px width, confirming the promotion stacks into a single column without horizontal clipping. Sign-in and payments behavior remain unchanged.

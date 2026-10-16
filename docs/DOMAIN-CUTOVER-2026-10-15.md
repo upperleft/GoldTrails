@@ -32,3 +32,6 @@ Official guidance:
 - https://www.hostinger.com/support/how-to-connect-a-custom-domain-to-a-node-js-application/
 - https://www.hostinger.com/support/4146975-what-is-dns-propagation-at-hostinger/
 Hostinger says propagation normally completes within 24 hours, with rare cases up to 72 hours; preview development can continue while DNS updates. Waiting after registration alone will not attach the domain to the Node.js app.
+
+## Follow-up after Safari parked-page report
+At approximately 8:20 p.m. Eastern on October 15, root and www still returned the Hostinger parked-domain page with valid HTTPS. Cloudflare DNS still returned A 2.57.91.91 and www CNAME goldtrails.org. The existing app remained on the temporary domain. Hostinger’s Connect domain warning was inspected. Automatic approval review rejected submitting Change, citing the lack of clear current approval for a production cutover that retires the temporary site and requires coordinated origin/sign-in validation. No switch was submitted; the dialog was canceled. An explicit user approval request is pending. Preserve the mailbox and sending provider, and do not retry the cutover until that approval arrives.
