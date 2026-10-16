@@ -1,0 +1,431 @@
+
+PROJECT: GOLD CONNECTIONS
+Website: https://www.goldtrails.org
+
+Build a fully functional, responsive community events and meetup system called "Gold Connections" within the existing Gold Trails website.
+
+GOAL
+Create a Meetup.com-style experience specifically for gold prospectors, hobbyists, and Gold Trails members.
+
+This is a new feature of the existing website, NOT a separate website.
+
+IMPORTANT:
+- Inspect the existing codebase before making changes.
+- Reuse existing authentication, database, UI components, and Stripe subscription infrastructure.
+- Preserve all existing website functionality.
+- Match the established Old West visual identity.
+- Do not replace existing working systems.
+- Build real functionality, not mockups.
+- Never expose private member information.
+- Do not send real notification emails during testing.
+
+1. MEMBERSHIP AND ACCESS
+
+Gold Connections is included with Gold Trails Plus membership at $5/month.
+
+Public visitors can:
+- Browse upcoming events.
+- Search and filter events.
+- View public event details.
+- See state group pages.
+- See event previews and public comments where appropriate.
+
+Gold Trails Plus members can:
+- Create events.
+- RSVP to events.
+- Comment on events.
+- Subscribe to state notifications.
+- Manage their own events.
+- View and manage their RSVPs.
+- Participate in online and in-person meetups.
+
+Use existing Stripe subscription status to determine eligibility.
+
+Do not create a separate Gold Connections subscription.
+
+Display an appropriate Gold Trails Plus signup invitation when a nonmember attempts a restricted action.
+
+2. THE 50 STATE GROUPS
+
+Create exactly 50 permanent state groups, one for each U.S. state.
+
+Each group includes:
+- State name and abbreviation.
+- State-specific event listings.
+- Upcoming and past events.
+- Member notification subscriptions.
+- Links to the corresponding Gold Trails State Almanac page.
+- Event creation button for Plus members.
+
+State groups are organizational categories, not separate paid memberships.
+
+Do not create 50 independent membership systems.
+
+Users may follow multiple states.
+
+Maintain one national event database with state associations.
+
+3. EVENT CREATION
+
+Plus members can create an event using a comprehensive Meetup-style form.
+
+Include:
+
+BASIC INFORMATION
+- Event title.
+- Description with rich-text formatting.
+- Organizer.
+- Event category.
+- Host state.
+- Location name.
+- Street address.
+- City, state, ZIP.
+- Map location.
+- In-person, online, or hybrid.
+- Start date and time.
+- End date and time.
+- Time zone.
+- Event image.
+- Maximum attendance.
+- RSVP deadline.
+- Event visibility.
+- Cost, if applicable.
+- Required equipment.
+- Experience level.
+- Accessibility information.
+- What participants should bring.
+- Safety information.
+- Additional instructions.
+
+ONLINE EVENTS
+- Zoom meeting ID.
+- Zoom meeting link.
+- Optional meeting passcode.
+- Alternative video conferencing URL.
+
+Never expose private meeting credentials on public preview pages.
+
+EVENT MANAGEMENT
+- Draft and publish.
+- Edit.
+- Cancel.
+- Duplicate.
+- Recurring events.
+- Organizer announcements.
+- Attendee updates.
+- Attendance tracking.
+- Optional waitlist.
+
+The event creator automatically becomes its organizer.
+
+Organizers control their own events but cannot modify events created by other members.
+
+4. RSVP SYSTEM
+
+Plus members can:
+- RSVP Yes.
+- Cancel an RSVP.
+- View their upcoming events.
+- See available capacity.
+- Join a waitlist when an event is full.
+- Receive event reminders.
+- Receive event updates.
+- Add events to their personal calendars.
+
+Organizers can:
+- View attendee lists.
+- Manage capacity.
+- Contact registered attendees through the platform.
+- Mark attendance after an event.
+- Cancel or reschedule events.
+
+Prevent duplicate RSVPs.
+
+Handle capacity and waitlist changes safely.
+
+Do not expose attendees' private email addresses.
+
+5. GEOGRAPHIC NOTIFICATION SYSTEM
+
+This is an important feature.
+
+When creating or publishing an event, the organizer selects ONE of three notification ranges:
+
+OPTION A:
+My state only.
+
+OPTION B:
+My state plus all directly neighboring states.
+
+OPTION C:
+My state plus states up to two state-border crossings away.
+
+Example:
+An event in Massachusetts with Option B would notify subscribers in Massachusetts and directly neighboring states.
+
+Option C expands outward another level.
+
+IMPLEMENTATION:
+- Maintain a verified adjacency table for all 50 states.
+- Use state-border relationships, not mileage radius.
+- Treat Alaska and Hawaii appropriately.
+- Never invent geographical connections.
+- Calculate notification states automatically.
+- Display the selected states to the organizer before publishing.
+
+Users can subscribe to notifications for one or more states.
+
+For a published event, send email notifications to eligible subscribed members within the organizer's selected geographic range.
+
+IMPORTANT:
+- Send only one email per recipient per event.
+- Respect email notification preferences.
+- Provide unsubscribe controls.
+- Do not email unsubscribed users.
+- Use background jobs or queues.
+- Record notification delivery status.
+- Avoid duplicate sends.
+- Rate-limit outbound emails.
+- Follow applicable email requirements.
+
+Allow organizers to preview notification coverage before publishing.
+
+For clarity, use the event's host state as the center of the notification calculation.
+
+6. NATIONAL EVENT DIRECTORY
+
+Create a public national events directory.
+
+Provide filters for:
+- All events.
+- State.
+- Neighboring states.
+- Online events.
+- In-person events.
+- Date range.
+- Event category.
+- Experience level.
+- Available spaces.
+
+Include:
+- Search.
+- List view.
+- Calendar view.
+- Optional map view.
+- Upcoming events.
+- Past events.
+
+Sort upcoming events chronologically by default.
+
+State Almanac pages should include a prominent "Let's Meet Up!" button linking to the relevant Gold Connections state group.
+
+The Gold Trails homepage should highlight a small selection of upcoming events.
+
+Do not overcrowd the homepage.
+
+7. COMMENTS AND COMMUNITY
+
+Each event has a discussion area.
+
+Before the event:
+- Members can ask questions.
+- Organizers can respond.
+- Organizers can post announcements.
+
+After the event:
+- Attendees can leave comments.
+- Attendees can share their experiences.
+- Attendees can optionally upload photos.
+- Organizers can post a recap.
+
+Support:
+- Comment editing and deletion.
+- Basic moderation.
+- Reporting inappropriate content.
+- Spam prevention.
+- Photo upload limits.
+- Organizer moderation controls.
+
+Only verified attendees should be labeled as having attended an event.
+
+8. MEMBER DASHBOARD
+
+Add Gold Connections to the existing member dashboard.
+
+Include:
+- My upcoming events.
+- My past events.
+- Events I'm organizing.
+- My RSVPs.
+- My waitlists.
+- Followed states.
+- Notification preferences.
+- Event reminders.
+
+Keep the interface simple and easy to navigate.
+
+9. EMAIL NOTIFICATIONS
+
+Provide transactional emails for:
+- New events within selected notification areas.
+- RSVP confirmations.
+- Event reminders.
+- Event changes.
+- Event cancellations.
+- Waitlist promotions.
+- Organizer announcements.
+
+Use the existing email service if available.
+
+Provide notification preferences and unsubscribe options.
+
+Do not send marketing emails without appropriate consent.
+
+10. VISUAL DESIGN
+
+Gold Connections must feel like part of Gold Trails.
+
+Use:
+- Old West typography.
+- Parchment textures.
+- Warm gold accents.
+- Wood-inspired framing.
+- Prospecting imagery.
+- Existing site navigation.
+- Existing responsive design conventions.
+
+The visual style should be polished without sacrificing readability.
+
+Prioritize desktop, tablet, and mobile usability.
+
+11. SECURITY AND RELIABILITY
+
+Implement:
+- Server-side membership checks.
+- Secure organizer permissions.
+- Input validation.
+- Safe rich-text rendering.
+- File upload validation.
+- Protection against spam.
+- Rate limiting.
+- Privacy controls.
+- Secure Zoom credential storage.
+- Reliable email delivery.
+- Database indexes.
+- Appropriate audit logging.
+
+Prevent users from impersonating organizers or accessing restricted member data.
+
+Store all event times with correct timezone handling.
+
+12. DATABASE ARCHITECTURE
+
+Inspect the existing database and reuse appropriate structures.
+
+Likely entities include:
+- State groups.
+- State adjacency.
+- Member state subscriptions.
+- Events.
+- Event organizers.
+- RSVPs.
+- Waitlists.
+- Event comments.
+- Event photos.
+- Notification preferences.
+- Notification delivery records.
+- Event attendance.
+- Event recurrence rules.
+
+Use proper relational constraints and indexes.
+
+Do not create unnecessary duplicate tables.
+
+13. TESTING
+
+Test at minimum:
+- Public versus Plus member access.
+- Stripe subscription eligibility.
+- All 50 state groups.
+- State adjacency calculations.
+- Notification ranges.
+- Duplicate email prevention.
+- Event creation and editing.
+- RSVP capacity limits.
+- Waitlist promotion.
+- Event cancellations.
+- Timezone conversions.
+- Online meeting privacy.
+- Comment permissions.
+- Mobile layouts.
+
+Include automated tests where practical.
+
+14. DEVELOPMENT APPROACH
+
+First inspect the current Gold Trails application.
+
+Then provide:
+1. An assessment of existing infrastructure.
+2. A proposed database schema.
+3. A component and page plan.
+4. Required integrations.
+5. Any conflicts with existing functionality.
+6. A phased implementation plan.
+
+IMPLEMENT IN PHASES:
+
+PHASE 1
+State groups, event database, event creation, national directory, and basic RSVPs.
+
+PHASE 2
+Geographic notification system, state subscriptions, email delivery, and reminders.
+
+PHASE 3
+Comments, photos, attendance records, recurring events, waitlists, and advanced organizer tools.
+
+PHASE 4
+Calendar integration, refinements, automated tests, and production readiness.
+
+Build each phase as working functionality.
+
+Do not leave placeholder buttons or simulated features presented as complete.
+
+Do not deploy to production, modify live Stripe settings, or send live emails without my approval.
+
+15. BUSINESS RULES
+
+Gold Connections is a membership benefit, not a separate revenue stream.
+
+- Public browsing is free.
+- Event creation requires Gold Trails Plus.
+- RSVPs require Gold Trails Plus.
+- Membership costs $5/month through the existing subscription system.
+- Do not charge separate event-creation fees.
+- Do not create a ticketing marketplace.
+- Do not process event payments in this initial version.
+
+Paid events may display organizer-supplied cost information, but payment processing is outside the initial scope.
+
+16. FINAL DELIVERABLE
+
+A working Gold Connections feature integrated into Gold Trails, with:
+
+- 50 state groups.
+- Public event discovery.
+- Plus-only event creation.
+- Plus-only RSVPs.
+- Organizer controls.
+- Three geographic notification ranges.
+- State subscription preferences.
+- Email notifications.
+- Zoom meeting support.
+- Event comments and recaps.
+- Member dashboard integration.
+- Responsive Old West design.
+
+Begin by examining the existing project and reporting your implementation plan before making significant changes.
+
+Preserve all existing functionality.
+
+Favor straightforward, maintainable solutions over unnecessary complexity.

@@ -2,7 +2,7 @@
 (()=>{
  'use strict';
  const preferenceKey='gold-trails-usage-choice-v1',visitorKey='gold-trails-usage-browser-v1',visitKey='gold-trails-usage-visit-v1',lifetime=90*86400000;
- const protectedPath=/^\/(?:admin|api|account|signup|login|logout|forgot-password|reset-password|verify-email|resend-verification|calendar|compass|dashboard-preview|privacy|suggestions)(?:\/|$)/;
+ const protectedPath=/^\/(?:admin|api|account|signup|login|logout|forgot-password|reset-password|verify-email|resend-verification|calendar|connections|compass|dashboard-preview|privacy|suggestions)(?:\/|$)/;
  const emptyStore={getItem:()=>null,setItem:()=>{throw new Error('Storage unavailable');},removeItem:()=>{}};let localStore=emptyStore,tabStore=emptyStore;try{localStore=window.localStorage;}catch{}try{tabStore=window.sessionStorage;}catch{}
  const blocked=()=>navigator.globalPrivacyControl===true||navigator.doNotTrack==='1';
  let memoryChoice=null,viewSent=false,dialog,opener;

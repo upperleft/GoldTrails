@@ -21,7 +21,7 @@ async function fixture(t){
  return{store,request,post};
 }
 test('usage data is bounded to public paths, valid consent, pseudonymous codes and safe destinations',()=>{
- for(const path of ['/admin/','/admin/creators/','/account/','/calendar/','/compass/demo/','/login/','/articles/?q=private','/articles/#private','//evil/','/private@example.com/'])assert.equal(publicPath(path),null,path);
+ for(const path of ['/admin/','/admin/creators/','/account/','/calendar/','/connections/','/connections/mine/','/connections/preferences/','/connections/unsubscribe/','/connections/events/eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee/','/compass/demo/','/login/','/articles/?q=private','/articles/#private','//evil/','/private@example.com/'])assert.equal(publicPath(path),null,path);
  assert.equal(publicPath('/'),'/');assert.equal(publicPath('/gold-almanac/'),'/gold-almanac/');
  const value=validateEvent(event(),origin);assert.equal(value.referrer,'example.org');assert.equal(value.visitor.length,64);assert(!JSON.stringify(value).includes(visitor));assert(!JSON.stringify(value).includes('secret'));
  for(const patch of [{consent:false},{email:'private@example.com'},{visitor:'IP-address'},{page:'/account/'},{type:'watched'},{target:'https://secret.test/'}])assert.throws(()=>validateEvent(event(patch),origin));

@@ -1,0 +1,12 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+const source=readFileSync('database/map-data/states-albers-10m.json');
+const topo=JSON.parse(source),states=JSON.parse(readFileSync('app/almanac/states.json','utf8'));
+const geometries=topo.objects.states.geometries.filter(g=>states.some(s=>s.name===g.properties.name));
+const arcs=g=>new Set(g.arcs.flat(Infinity).map(i=>i<0?~i:i));
+const neighbors=Object.fromEntries(states.map(s=>{const g=geometries.find(g=>g.properties.name===s.name),set=arcs(g);return [s.code,geometries.filter(h=>h!==g&&[...arcs(h)].some(i=>set.has(i))).map(h=>states.find(s=>s.name===h.properties.name).code).sort()];}));
+const data={verifiedAt:'2026-10-16',policy:'Shared line segments in the Census-derived cartographic state polygons; land and river boundaries. Water-only and point-only contacts excluded. No international edges or DC group.',source:'https://github.com/topojson/us-atlas',originalSource:'https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html',edition:2017,sourceFile:'database/map-data/states-albers-10m.json',sourceSha256:createHash('sha256').update(source).digest('hex'),neighbors};
+writeFileSync('app/connections/adjacency.json',JSON.stringify(data,null,2)+'\n');
+const path='database/migrations/013_gold_connections.sql',sql=readFileSync(path,'utf8').split('-- Adjacency seed generated')[0];
+writeFileSync(path,sql+'-- Adjacency seed generated from vendored Census-derived shared arcs; see adjacency.json.\nINSERT IGNORE INTO connection_adjacency(state_code,neighbor_code) VALUES\n'+Object.entries(neighbors).flatMap(([s,ns])=>ns.map(n=>`('${s}','${n}')`)).join(',\n')+`;\nINSERT INTO schema_migrations(version,description) VALUES('013_gold_connections','Community events, state groups, RSVP, discussions and opt-in notification outbox') ON DUPLICATE KEY UPDATE version=VALUES(version);\n`);
+console.log('50 groups; '+Object.values(neighbors).reduce((a,b)=>a+b.length,0)/2+' shared borders.');

@@ -15,7 +15,7 @@ import {createGoldPriceFeed} from './gold-price.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
-export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, plus = createPlusHandler(), suggestions = null, analytics = null, directory = null, admin = null, members = null, compass = null, products = null, calendar = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
+export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, plus = createPlusHandler(), suggestions = null, analytics = null, directory = null, admin = null, members = null, compass = null, products = null, calendar = null, connections = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
   function send(req, res, status, body, headers = {}) {
     res.writeHead(status, { 'Content-Type':'text/html; charset=utf-8', 'X-Content-Type-Options':'nosniff', 'Cache-Control':'no-store', ...headers });
@@ -33,6 +33,7 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
       return;
     }
+    if(connections?.attach)await connections.attach(req,res,url);
     attachReadingMarkup(req,res,url);
     attachPlusMarkup(req,res,url);
     if(suggestions){if(await suggestions(req,res,url))return;if(await suggestions.enabled())suggestions.attach(req,res,url);}
@@ -45,6 +46,7 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       catch{res.writeHead(503,{...headers,'Cache-Control':'no-store','Retry-After':'60'});res.end(req.method==='HEAD'?undefined:JSON.stringify({error:'Gold price temporarily unavailable.'}));}
       return;
     }
+    if (connections && await connections(req,res,url)) return;
     if (await almanac(req,res,url)) return;
     if (admin && await admin(req,res,url)) return;
     if (members && await members(req,res,url)) return;

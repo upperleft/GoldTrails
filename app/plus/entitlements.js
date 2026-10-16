@@ -1,5 +1,5 @@
-// Add feature keys only when an offering is approved. The current plan unlocks Almanac.
-export const premiumFeatures=Object.freeze({almanac:Object.freeze({name:'Almanac & creator map',plan:'plus'})});
+// Add feature keys only when an offering is approved. Approved features share the existing Plus entitlement.
+export const premiumFeatures=Object.freeze({almanac:Object.freeze({name:'Almanac & creator map',plan:'plus'}),connections:Object.freeze({name:'Gold Connections participation',plan:'plus'})});
 const read=(req,name)=>(req.headers.cookie||'').match(new RegExp('(?:^|;\\s*)__Host-gold-'+name+'=([a-f0-9]{64})(?:;|$)'))?.[1]||null;
 export async function hasPremiumFeature(req,{members=null,owners=null}={},feature='almanac'){
  if(!Object.hasOwn(premiumFeatures,feature))return false;
