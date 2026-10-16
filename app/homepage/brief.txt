@@ -1,0 +1,368 @@
+PROJECT: GOLD TRAILS INTERACTIVE HOMEPAGE
+
+Website: https://www.goldtrails.org
+
+OBJECTIVE
+
+Integrate the attached Gold Trails homepage graphic into the existing website, making it a fully functional, interactive homepage for desktop and tablet devices.
+
+IMPORTANT: This is a visual redesign of the homepage, NOT a rebuild of the website.
+
+Preserve the existing website, database, authentication, Stripe subscriptions, navigation, and all working features.
+
+1. USE THE ATTACHED GRAPHIC
+
+Use the attached image as the visual foundation.
+
+Preserve its appearance as closely as possible:
+- Large, friendly Old Timer prospector.
+- Mountain and river scenery.
+- Old West wood and parchment styling.
+- Left navigation column.
+- Gold Trails branding.
+- Main headline and introduction.
+- Featured content panels.
+- Gold Trails Plus promotion.
+- Gold buttons and question-mark icons.
+
+Do not replace the graphic with a generic webpage design.
+
+The attached graphic contains some explanatory annotation labels, such as "Logo (Home Page)" and "Hero Image (Also Home Page)." These are design annotations, NOT part of the intended website.
+
+Remove these annotations from the production artwork, ideally by using a clean image generated from the original source or carefully retouching the artwork.
+
+Do not cover annotations with awkward overlays.
+
+2. GRAPHIC AS BACKGROUND
+
+The artwork may be used as a single raster image, provided all interactive areas work correctly.
+
+However, use your judgment to determine whether the image should be divided into separate visual sections for better responsiveness.
+
+Preferred architecture:
+- Raster artwork provides the visual appearance.
+- Transparent HTML interactive elements sit above it.
+- Real navigation links and buttons handle interactions.
+- Real tooltips or popovers handle help icons.
+- All interactions remain keyboard accessible.
+
+Do not rely on image-map coordinates that break when the image scales.
+
+3. RESPONSIVE HOTSPOT SYSTEM
+
+Create an interactive overlay that scales precisely with the image.
+
+Use percentage-based coordinates relative to the image's ORIGINAL dimensions.
+
+For example:
+
+.hotspot {
+  position: absolute;
+  left: 12%;
+  top: 24%;
+  width: 14%;
+  height: 5%;
+}
+
+These are illustrative values only.
+
+Determine actual coordinates by examining the attached graphic.
+
+IMPORTANT:
+- All clickable regions must remain aligned.
+- Hotspots must scale with the image.
+- Maintain the original image aspect ratio.
+- Never stretch or distort the artwork.
+- Avoid cropping interactive elements.
+- Test at multiple desktop and tablet sizes.
+
+Use a position: relative container with absolutely positioned overlays.
+
+If using object-fit, account for any image offsets.
+
+The overlay and image must share the same coordinate system.
+
+4. WORKING NAVIGATION
+
+Make all existing visual navigation items clickable.
+
+LEFT NAVIGATION:
+- Gold Trails logo → Homepage
+- Home → Homepage
+- Articles → Articles
+- Almanac → 50-State Almanac
+- Destinations → Prospecting destinations
+- Glossary → Glossary
+- Gold Connections → Community events
+- Gold Trails Plus → Membership page
+- Search → Existing search functionality
+- About → About page
+- Sign In → Existing authentication
+
+MAIN BUTTONS:
+- Read Articles
+- Browse the Glossary
+
+BOTTOM FEATURE PANELS:
+- Find Gold / Explore Destinations
+- Articles / Read Articles
+- Glossary / Browse the Glossary
+- Gold Trails Plus / Learn More
+
+Use existing application routes.
+
+Inspect the codebase and identify the correct destinations rather than inventing URLs.
+
+If a feature is not yet implemented, do not create a dead link or pretend it works.
+
+5. QUESTION-MARK HELP BUTTONS
+
+This is especially important.
+
+The small gold question-mark icons throughout the attached graphic must become functional.
+
+Each question mark is a SEPARATE interactive element.
+
+Clicking or tapping one opens a small information panel explaining that feature.
+
+Examples:
+
+HOME:
+"Return to the Gold Trails homepage."
+
+ARTICLES:
+"Explore articles about gold prospecting, geology, equipment, techniques, and history."
+
+ALMANAC:
+"Explore gold prospecting information, locations, regulations, and resources for all 50 states."
+
+DESTINATIONS:
+"Discover rivers, creeks, and other places associated with gold prospecting."
+
+GLOSSARY:
+"Learn the terminology of gold prospecting, geology, and mining."
+
+GOLD CONNECTIONS:
+"Find prospecting meetups, organize events, and connect with other gold enthusiasts."
+
+GOLD TRAILS PLUS:
+"Unlock additional Gold Trails resources and member features for $5 per month."
+
+SEARCH:
+"Search Gold Trails articles, locations, terminology, and resources."
+
+SIGN IN:
+"Access your Gold Trails account and membership features."
+
+FEATURE PANELS:
+Provide short explanations appropriate to each panel.
+
+HELP BUTTON BEHAVIOR:
+- Click or tap to open.
+- Click again to close.
+- Click outside to dismiss.
+- Escape key closes the panel.
+- Keyboard accessible.
+- Accessible labels.
+- Appropriate ARIA attributes.
+- Position popovers so they remain visible.
+- Do not allow popovers to extend offscreen.
+
+The question marks must not accidentally activate the underlying navigation link.
+
+6. HOTSPOT COORDINATE CONFIGURATION
+
+Create a centralized hotspot configuration.
+
+Each hotspot should contain:
+- Unique ID.
+- Descriptive name.
+- Position and dimensions.
+- Interaction type.
+- Destination or callback.
+- Accessibility label.
+- Optional tooltip text.
+
+Separate navigation hotspots from help hotspots.
+
+Make the coordinates easy to edit without modifying component logic.
+
+Include a DEVELOPMENT-ONLY hotspot calibration mode.
+
+Calibration mode should:
+- Show colored hotspot outlines.
+- Display hotspot names.
+- Make alignment problems obvious.
+- Allow easy coordinate adjustments.
+
+Disable calibration mode in production.
+
+7. DESKTOP AND TABLET ONLY
+
+The graphical homepage is intended ONLY for desktop and tablet screens.
+
+Use the existing mobile homepage for phones.
+
+Do not attempt to squeeze the entire desktop artwork onto a narrow phone screen.
+
+Suggested initial breakpoint:
+- Width 768px and above: graphical homepage.
+- Below 768px: existing mobile homepage.
+
+Inspect existing breakpoints and adjust if necessary.
+
+Tablet users should see the same basic composition as desktop users.
+
+Maintain readable navigation and usable touch targets.
+
+If the image becomes too small to use, implement a carefully controlled alternative tablet layout rather than making the buttons microscopic.
+
+8. FIRST-SCREEN PRIORITY
+
+On a typical 16:9 desktop display, aim to show:
+- Entire left navigation.
+- Old Timer.
+- Main headline.
+- Primary buttons.
+- Bottom feature panels.
+- Gold Trails Plus promotion.
+
+Avoid unnecessary vertical scrolling.
+
+Do not crop important content just to fill the screen.
+
+Maintain proportional scaling wherever practical.
+
+9. SEARCH AND AUTHENTICATION
+
+Connect the visual Search control to the existing search system.
+
+Connect Sign In to the existing authentication flow.
+
+When authenticated, display the appropriate account or dashboard behavior.
+
+Do not build duplicate authentication or search systems.
+
+10. GOLD TRAILS PLUS
+
+Connect membership buttons to the existing Gold Trails Plus subscription page.
+
+Preserve the current Stripe integration.
+
+Do not modify subscription pricing or billing logic.
+
+Do not create new Stripe products.
+
+11. ACCESSIBILITY
+
+Because the visual design uses raster artwork, provide a proper accessible interaction layer.
+
+Include:
+- Semantic links and buttons.
+- Descriptive accessible names.
+- Logical keyboard navigation order.
+- Visible focus indicators.
+- Screen-reader-friendly navigation.
+- Keyboard-operable help popovers.
+- Appropriate touch target sizes.
+
+Do not make the interface dependent solely on mouse clicks or visual coordinates.
+
+12. PERFORMANCE
+
+Optimize the graphic for fast loading.
+
+Use appropriate image formats such as WebP or AVIF where supported.
+
+Preserve sufficient resolution for large desktop displays.
+
+Avoid loading the large desktop artwork on mobile devices.
+
+Prevent layout shifts.
+
+Use caching and responsive image loading where appropriate.
+
+13. TESTING
+
+Verify:
+- Every navigation hotspot works.
+- Every question-mark button works.
+- Popovers open and close correctly.
+- Popovers do not trigger navigation.
+- Search works.
+- Sign In works.
+- Membership links work.
+- Hotspots remain aligned when resized.
+- Desktop layouts work.
+- Tablet layouts work.
+- Mobile retains its existing interface.
+- Keyboard navigation works.
+- No broken links.
+- No console errors.
+
+Test at representative sizes including:
+- 1920 × 1080
+- 1440 × 900
+- 1366 × 768
+- 1024 × 768
+- 834 × 1194
+- Mobile widths below 768px
+
+14. IMPLEMENTATION PROCEDURE
+
+FIRST:
+Inspect the existing project architecture, homepage, routes, and styling.
+
+SECOND:
+Determine the best method of integrating the attached artwork.
+
+THIRD:
+Prepare the production artwork without the annotation labels.
+
+FOURTH:
+Implement the image and interactive hotspot overlay.
+
+FIFTH:
+Connect every navigation element to existing functionality.
+
+SIXTH:
+Implement all question-mark help popovers.
+
+SEVENTH:
+Test responsiveness and calibrate hotspots.
+
+EIGHTH:
+Verify the existing mobile homepage remains intact.
+
+NINTH:
+Run the project's existing tests and build checks.
+
+Do not deploy to production without my approval.
+
+15. IMPORTANT DESIGN PRINCIPLE
+
+The finished homepage must LOOK like the supplied graphic but BEHAVE like a real website.
+
+The image is visual artwork, not the interface logic.
+
+Every visible button and help icon should have a real interactive counterpart.
+
+Do not approximate the design with generic cards, rectangles, or simplified CSS unless absolutely necessary.
+
+Maintain the rich illustrated Old West appearance.
+
+FINAL RESULT
+
+Deliver a working Gold Trails homepage featuring:
+
+- The supplied graphical design.
+- Fully functional navigation.
+- Interactive question-mark help icons.
+- Responsive desktop and tablet scaling.
+- Correct hotspot alignment.
+- Existing mobile homepage preserved.
+- Existing application functionality preserved.
+
+Before implementing, briefly explain your proposed architecture and identify any technical limitations.
+
+Then proceed with the implementation, stopping for approval before any production deployment.

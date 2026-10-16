@@ -1,0 +1,22 @@
+import {readFile} from 'node:fs/promises';
+import {hotspots,canvas} from './hotspots.js';
+import {escapeHtml as h} from '../directory-views.js';
+import {assetUrl} from '../asset-url.js';
+const blank='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+function overlay(items,rect,prefix,member){return items.map(p=>{const[x,y,w,hg]=p.rect,[sx,sy,sw,sh]=rect;const style=`left:${(x-sx)/sw*100}%;top:${(y-sy)/sh*100}%;width:${w/sw*100}%;height:${hg/sh*100}%`;
+ const attrs=`class="home-hotspot home-hotspot-${p.type}" style="${style}" data-home-id="${p.id}" data-home-name="${h(p.name)}" aria-label="${h(p.account&&member?'Return to My Gold Trail':p.label)}"`;
+ if(p.type==='link')return `<a ${attrs} href="${p.account&&member?'/compass/':p.href}"${p.account?' data-home-account':''}><span class="home-sr">${h(p.account&&member?'Return to My Gold Trail':p.name)}</span>${p.account&&member?'<span class="home-account-label" aria-hidden="true">My Gold Trail</span>':''}</a>`;
+ return `<button ${attrs} type="button" aria-expanded="false" aria-controls="home-info"${p.type==='help'?` data-home-help="${h(p.text)}"`:' data-home-search'}><span class="home-sr">${h(p.label)}</span></button>`;
+ }).join('');}
+function picture(id,rect,media){return `<picture><source media="${media}" srcset="/assets/homepage/${id}.webp"><img src="${blank}" width="${rect[2]}" height="${rect[3]}" alt="" aria-hidden="true" decoding="async" fetchpriority="high"></picture>`;}
+export function graphicalHome({member=null,calibration=false}={}){
+ const stage=(id,rect,media,items)=>`<div class="home-art-section home-art-${id}" style="aspect-ratio:${rect[2]}/${rect[3]}">${picture(id,rect,media)}${overlay(items,rect,id,member)}</div>`;
+ return `<main class="home-graphical${calibration?' home-calibration':''}" aria-label="Gold Trails illustrated home"><h1 class="home-sr">Gold Trails — Explore. Learn. Connect.</h1><p class="home-sr">Gold prospecting knowledge, stories, and tools, all in one place. Practical how-tos, destination research, gear advice, and a community of gold prospecting enthusiasts. General resources and creator profiles are free; the State Almanac and Gold Connections participation are Plus features.</p>
+ <a class="home-skip" href="#home-libraries">Skip illustrated navigation</a>
+ <nav class="home-full" aria-label="Gold Trails navigation">${stage('full',[0,0,canvas.width,canvas.height],'(min-width: 1280px) and (hover: hover) and (pointer: fine)',hotspots)}</nav>
+ <div class="home-art-tools" id="home-libraries"><div class="header-tools"></div><a href="/prospectors/">Creators &amp; videos</a><a href="/products/">Products</a><a href="/clubs-groups/">Clubs &amp; Groups</a><button type="button" data-home-text-view>Text view</button></div>
+ <div id="home-info" class="home-info" role="dialog" aria-label="Gold Trails information" hidden><button class="home-info-close" type="button" aria-label="Close information">Close</button><h2 data-home-info-title></h2><p data-home-info-text></p><div data-home-search-links hidden><p>Choose a library to use its search and filters:</p><a href="/articles/">Articles</a><a href="/glossary/">Glossary</a><a href="/prospectors/">Creators &amp; videos</a><a href="/products/">Products</a><a href="/connections/">Events</a><a href="/clubs-groups/">Clubs &amp; Groups</a></div></div>
+ ${calibration?'<p class="home-calibration-note">LOCAL CALIBRATION · coordinates in app/homepage/hotspots.js · not enabled in production</p>':''}</main>`;
+}
+export function homepageMarkup(html,options){if(html.includes('home-graphical'))return html;return html.replace('</head>',`<link rel="stylesheet" href="${assetUrl('home-art.css')}"><script src="${assetUrl('home-art.js')}" defer></script></head>`).replace(/(<body[^>]*>)/,`$1${graphicalHome(options)}<div class="home-classic">`).replace('</body>','</div></body>');}
+export function createHomepageHandler({members=null,config=null,root='dist',calibration=false}={}){return async(req,res,url)=>{if(url.pathname!=='/'||!['GET','HEAD'].includes(req.method))return false;const token=(req.headers.cookie||'').match(/(?:^|;\s*)__Host-gold-member=([a-f0-9]{64})(?:;|$)/)?.[1];let member=null;if(token&&members&&config)try{member=await members.session(token);}catch{}const html=homepageMarkup(await readFile(root+'/index.html','utf8'),{member,calibration});res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store',Vary:'Cookie','X-Content-Type-Options':'nosniff'});res.end(req.method==='HEAD'?undefined:html);return true;};}

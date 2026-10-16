@@ -156,7 +156,7 @@ export function createConnectionsHandler({store=null,members=null,owners=null,co
   if(!['/','/account/','/compass/'].includes(url.pathname)||!['GET','HEAD'].includes(req.method))return;
   let upcoming=[];if(url.pathname==='/'&&store){try{if(await store.ready())upcoming=(await store.list({period:'upcoming',page:1})).events.filter(e=>e.status==='published').slice(0,3);}catch{}}
   const original=res.end.bind(res),head=res.writeHead.bind(res);let responseType='';res.writeHead=(status,headers)=>{responseType=String(Object.entries(headers||{}).find(([k])=>k.toLowerCase()==='content-type')?.[1]||'');return head(status,headers);};res.end=(chunk,encoding,callback)=>{if(responseType.includes('text/html')&&chunk){let value=Buffer.isBuffer(chunk)?chunk.toString():String(chunk);
-   if(url.pathname==='/'&&upcoming.length)value=value.replace('</main>',`<section class="connections connections-home"><h2>Let’s meet up!</h2><p>Good company from the Gold Trails community.</p>${eventCards(upcoming)}<a href="/connections/">All Gold Connections events →</a></section></main>`).replace('</head>',`<link rel="stylesheet" href="/connections.css"></head>`);
+   if(url.pathname==='/'&&upcoming.length)value=value.replace(value.includes('home-graphical')?/<\/main>/g:'</main>',`<section class="connections connections-home"><h2>Let’s meet up!</h2><p>Good company from the Gold Trails community.</p>${eventCards(upcoming)}<a href="/connections/">All Gold Connections events →</a></section></main>`).replace('</head>',`<link rel="stylesheet" href="/connections.css"></head>`);
    chunk=Buffer.from(value);}return original(chunk,encoding,callback);};
  };
  return handler;
