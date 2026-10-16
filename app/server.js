@@ -1,3 +1,4 @@
+import{attachReadingMarkup}from'./reading/handler.js';
 import {createPlusHandler,attachPlusMarkup} from './plus/handler.js';
 import http from 'node:http';
 import {attachAnalyticsMarkup} from './analytics/handler.js';
@@ -32,6 +33,7 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
       return;
     }
+    attachReadingMarkup(req,res,url);
     attachPlusMarkup(req,res,url);
     if(suggestions){if(await suggestions(req,res,url))return;if(await suggestions.enabled())suggestions.attach(req,res,url);}
     if(analytics){if(await analytics(req,res,url))return;if(await analytics.enabled())attachAnalyticsMarkup(req,res,url);}
