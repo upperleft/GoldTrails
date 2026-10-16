@@ -1,3 +1,8 @@
+import {processEventPhoto} from './app/connections/photos.js';
+import {unsubscribeLinks} from './app/connections/notifications.js';
+import {createConnectionsHandler} from './app/connections/handler.js';
+import {createConnectionsStore} from './app/connections/store.js';
+import {meetingVault} from './app/connections/model.js';
 import {createAlmanacCreators} from './app/almanac/creators.js';
 import {createSuggestionStore,createSuggestionsHandler} from './app/suggestions.js';
 import {createCalendarHandler} from './app/calendar/handler.js';
@@ -39,8 +44,10 @@ const directory=db?createDirectoryStore(db):null, compassStore=db?createCompassS
 const members=createMemberHandler({store:memberStore,config:memberSettings,mail:memberMail()});
 const compass=createCompassHandler({members:memberStore,store:compassStore,config:memberSettings,content:createCompassContent({directory,store:compassStore,productsStore:productWorkspace})});
 const products=createProductsHandler({store:productWorkspace,members:memberStore,config:memberSettings});
+const connectionsVault=meetingVault(process.env.CONNECTIONS_ENCRYPTION_KEY);
+const connections=createConnectionsHandler({store:db?createConnectionsStore(db,{vault:connectionsVault,billingProvider:'stripe'}):null,members:memberStore,owners:ownerStore,config:memberSettings,vault:connectionsVault,processPhoto:processEventPhoto,unsubscribe:unsubscribeLinks(process.env.CONNECTIONS_UNSUBSCRIBE_SECRET),calendarStore:db?createCalendarStore(db):null});
 const calendar=createCalendarHandler({members:memberStore,store:db?createCalendarStore(db):null,config:memberSettings});
-const server = createServer({ suggestions:createSuggestionsHandler({store:suggestionStore,origin:memberSettings?.origin||config?.origin}), analytics:createAnalyticsHandler({store:analyticsStore,origin:memberSettings?.origin||config?.origin}), calendar, members, directory, admin, compass, products, almanac:createAlmanacHandler({creators:createAlmanacCreators(directory),store:db?createAlmanacStore(db):null,members:memberStore,owners:ownerStore,log:console.error}) });
+const server = createServer({ connections, suggestions:createSuggestionsHandler({store:suggestionStore,origin:memberSettings?.origin||config?.origin}), analytics:createAnalyticsHandler({store:analyticsStore,origin:memberSettings?.origin||config?.origin}), calendar, members, directory, admin, compass, products, almanac:createAlmanacHandler({creators:createAlmanacCreators(directory),store:db?createAlmanacStore(db):null,members:memberStore,owners:ownerStore,log:console.error}) });
 const port = Number(process.env.PORT || 3000);
 server.listen(port,'0.0.0.0',() => console.log(`Gold Trails listening on port ${port}`));
 for (const signal of ['SIGTERM','SIGINT']) process.on(signal,() => {

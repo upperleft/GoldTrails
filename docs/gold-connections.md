@@ -71,3 +71,9 @@ Privacy integration: all `/connections/` paths are excluded from the optional us
 The next required dependency is a separate empty MariaDB test database. An asynchronous question asked Paul whether one already exists. Use only an isolated `gold_connections_test` database for the opt-in acceptance test. Keep live Hostinger unchanged until the migration/permissions/notification acceptance is complete and release approval is given. Preserve the existing deployment checkout and isolated Stripe preparation; never push the whole development branch without release review.
 
 Final save: Node 22 CommonJS-to-ESM loading passed for the handler and photo processor. The final complete suite passed **317/317** after privacy and outage handling changes. The last cover-credit rendering refinement passed all 22 relevant model/store/HTTP checks. Event cover captions/credits are retained in public rendering even though image metadata is stripped. Production remains unchanged.
+
+## Production release — October 16, 2026
+
+Paul approved publishing Gold Connections. Isolated release based on public commit `26067db`, excluding unpublished billing/culture work: **282 tests passed**, zero skipped; build passed (14 HTML pages, 404 local links/assets), CommonJS loader passed. Fresh database backup saved privately before additive migration 013; phpMyAdmin reports 20 queries completed. Read-only counts confirm **50 state groups, 210 directed borders, zero events, marker present**. No existing data was overwritten.
+
+Initial release `0d8495a` omitted the modified root `server.js` from staging. This follow-up includes that production registration. Isolated MariaDB concurrency acceptance remains outstanding; no notification worker is scheduled and live billing/email delivery remain disabled. Secret provisioning and live checks are recorded in the parent workspace release receipt.
