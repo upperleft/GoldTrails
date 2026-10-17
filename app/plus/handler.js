@@ -4,7 +4,8 @@ export function plusMarkup(html){
  if(typeof html!=='string'||html.includes('data-plus-support'))return html;
  const side=/<aside\b[^>]*class="[^"]*\bleft\b[^"]*"[^>]*>[\s\S]*?<\/aside>/;
  if(!side.test(html))return html;
- const result=html.replace(side,match=>match.replace('</aside>',supportSidebar()+'</aside>'));
+ const includeConnections=!/<body\b[^>]*\bdata-camp-membership="free"/.test(html);
+ const result=html.replace(side,match=>match.replace('</aside>',supportSidebar({includeConnections})+'</aside>'));
  return result.includes('/plus.css?')?result:result.replace('</head>',`<link rel="stylesheet" href="${assetUrl('plus.css')}"></head>`);
 }
 export function attachPlusMarkup(req,res,url){

@@ -9,7 +9,7 @@ import {createCalendarHandler} from '../app/calendar/handler.js';
 import {calendarMemoryStore} from './helpers/calendar-memory.js';
 const origin='https://gold.example',csrf='a'.repeat(64),session='b'.repeat(64),link='c'.repeat(64);
 test('account overview keeps private access, escaped identity, entitlement links and protected sign-out',async t=>{
- for(const effective_level of ['free','subscriber']){
+ for(const effective_level of ['free','subscriber',undefined]){
   let signouts=0;
   const request=await fixture(t,{store:{ready:async()=>true,session:async raw=>raw===session?{display_name:'Alex <script>bad()</script>',username:'TrailReader',email:'alex@example.invalid',account_number:42,level:'subscriber',effective_level,csrf_token_hash:digest(csrf)}:null,logout:async()=>signouts++}});
   const anonymous=await request('/account/');assert.equal(anonymous.status,303);assert.equal(anonymous.headers.get('location'),'/login/');
@@ -18,6 +18,8 @@ test('account overview keeps private access, escaped identity, entitlement links
   assert.equal(response.status,200);assert.equal(response.headers.get('cache-control'),'no-store');
   assert.match(html,/Alex &lt;script&gt;bad\(\)&lt;\/script&gt;/);assert.doesNotMatch(html,/<script>bad/);
   assert.match(html,new RegExp(effective_level==='subscriber'?'href="/gold-almanac/">Open Almanac':'href="/plus/">Explore Plus'));
+  if(effective_level==='subscriber')assert.match(html,/class="camp-shortcut" href="\/connections\/mine\/"/);
+  else assert.doesNotMatch(html,/connections/i);
   assert.match(html,/<form method="post" action="\/logout\/">/);assert.match(html,new RegExp(`name="csrf" value="${csrf}"`));
   assert.equal((await request('/logout/',null,{headers})).status,405);assert.equal(signouts,0);
   assert.equal((await request('/logout/',{csrf:'d'.repeat(64)},headers)).status,403);assert.equal(signouts,0);

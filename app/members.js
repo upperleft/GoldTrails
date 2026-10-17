@@ -22,7 +22,7 @@ const input=(name,label,type='text',auto='')=>`<label>${label}<input id="member-
 const passwords=()=>'<p id="password-guidance" class="member-form-guidance">Use 8–128 characters. Enter your password once; you can show it below to check it.</p>'+input('password','Password','password','new-password')+'<div class="member-password-controls"><button type="button" class="member-password-toggle" data-password-toggle aria-controls="member-password" aria-pressed="false" hidden>Show password</button></div>';
 // The account credential is email; the separately chosen username is not a login identifier.
 const signupFields=(displayName=false)=>input('username','Username','text','nickname')+(displayName?'<label>Display name (optional)<input name="displayName" maxlength="180" autocomplete="nickname"></label>':'')+input('email','Email','email','username')+passwords();
-const shell=(title,body)=>{
+const shell=(title,body,member=null)=>{
  const camp=title==='Your camp';
  let html=page(title,'Your Gold Trails membership',
   `<section class="resource-placeholder member-card${camp?' camp-card':''}">${camp?'':`<h2>${h(title)}</h2>`}${body}</section>`,
@@ -33,6 +33,9 @@ const shell=(title,body)=>{
   .replace(/ aria-current="(?:location|page)"/g,'')
   .replace(/<nav class="breadcrumb"[^>]*>.*?<\/nav>/,`<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${h(title)}</span></nav>`);
  if(camp){
+  const plus=member?.effective_level==='subscriber';
+  html=html.replace('class="category-page member-page camp-page"',`class="category-page member-page camp-page" data-camp-membership="${plus?'plus':'free'}"`);
+  if(!plus)html=html.replace(/<a\b[^>]*href="\/connections\/"[^>]*>[\s\S]*?<\/a>/g,'');
   html=html.replace('</head>',`<link rel="stylesheet" href="${assetUrl('account-camp.css')}"></head>`);
   // Put the welcome first in reading/tab order and on phones; keep the desktop shelf.
   const sidebar=html.match(/<aside class="left">[\s\S]*?<\/aside>/)?.[0];
@@ -49,7 +52,7 @@ export function createMemberHandler({store=null,config=null,mail=null,log=consol
   let csrf=read(req,'form')||token(),newCookie=!read(req,'form');const raw=read(req,'member');
   // Native POST forms need a non-null Origin. strict-origin preserves it on HTTPS
   // while never sending verification/reset tokens or other URL paths as referrers.
-  const send=(status,title,content,extra={})=>{const json=url.pathname==='/signup/'&&req.method==='POST'&&req.headers.accept==='application/json';res.writeHead(status,{'Content-Type':json?'application/json; charset=utf-8':'text/html; charset=utf-8','Cache-Control':'no-store','Referrer-Policy':'strict-origin','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...(newCookie?{'Set-Cookie':cookie('form',csrf)}:{}),...extra});res.end(req.method==='HEAD'?undefined:json?JSON.stringify({outcome:status===200&&title==='Check your email'?'email_requested':'error',title,message:(content.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)?.[1]||content).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()}):shell(title,content).replace('</body>','<script src="/member-forms.js?v=4" defer></script></body>'));};
+  const send=(status,title,content,extra={},member=null)=>{const json=url.pathname==='/signup/'&&req.method==='POST'&&req.headers.accept==='application/json';res.writeHead(status,{'Content-Type':json?'application/json; charset=utf-8':'text/html; charset=utf-8','Cache-Control':'no-store','Referrer-Policy':'strict-origin','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...(newCookie?{'Set-Cookie':cookie('form',csrf)}:{}),...extra});res.end(req.method==='HEAD'?undefined:json?JSON.stringify({outcome:status===200&&title==='Check your email'?'email_requested':'error',title,message:(content.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)?.[1]||content).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()}):shell(title,content,member).replace('</body>','<script src="/member-forms.js?v=4" defer></script></body>'));};
   const redirect=(path,cookies)=>send(303,'Continue','',{'Location':path,...(cookies?{'Set-Cookie':cookies}:{})});
   const emailLink=async(p,purpose)=>{const raw=await store.issue(p.id,purpose);await mail({to:p.email,purpose,url:`${config.origin}/${purpose==='verify_email'?'verify-email':'reset-password'}/?token=${raw}`});};
   try{
@@ -83,7 +86,7 @@ export function createMemberHandler({store=null,config=null,mail=null,log=consol
    if(url.pathname==='/account/'||url.pathname==='/logout/'){
     const p=ready?await store.session(raw):null;if(!p){redirect('/login/');return true;}if(url.pathname==='/logout/'){if(req.method!=='POST'){send(405,'Use the sign-out button','<p>Return to your account.</p>');return true;}if(!equal(digest(csrf),p.csrf_token_hash)){send(403,'Form expired','<p>Sign in again.</p>');return true;}await store.logout(raw);redirect('/login/',[cookie('member','',0),cookie('form','',0)]);return true;}
     if(req.method==='POST'){send(405,'Account overview','<p>Profile editing is coming later.</p>');return true;}
-    send(200,'Your camp',accountView(p,csrf));return true;
+    send(200,'Your camp',accountView(p,csrf),{},p);return true;
    }
    if(url.pathname==='/forgot-password/'||url.pathname==='/resend-verification/'){
     const verify=url.pathname==='/resend-verification/';if(req.method==='POST'){if(!mail){send(503,'Email service being prepared','<p>Please return when member email is ready.</p>');return true;}if(!await store.allow('recovery')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}const email=(f.get('email')||'').trim().toLowerCase();if(!validEmail(email))throw new InputError('Enter a valid email address.');const p=await store.find(email);if(p&&p.status!=='suspended'&&(verify?!p.email_verified_at:Boolean(p.email_verified_at))){try{await emailLink(p,verify?'verify_email':'reset_password');}catch{log('Gold Trails member email unavailable');}}send(200,'Check your email',verify?'<p>If an account at this address still needs verification, an email is on its way. An account that is already verified will not receive another verification email.</p><p><a href="/login/">Sign in</a> · <a href="/forgot-password/">Reset your existing password</a></p>':'<p>If an eligible account exists, an email is on its way. Please check your inbox and spam folder.</p>');return true;}
