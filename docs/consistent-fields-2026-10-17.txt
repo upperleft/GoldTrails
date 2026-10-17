@@ -1,0 +1,17 @@
+Gold Trails — consistent entry fields — October 17, 2026
+
+LOCAL REVIEW ONLY. Not published.
+
+Single-line text/search/email/password/number/date/time fields and dropdowns now share a 3rem height, 1rem text, padding, border width and corner radius through dist/style.css. Heights scale with Reading options. Native dropdowns and date pickers remain in use. Checkboxes, radios, hidden fields, file/color pickers and multiline text areas keep their specialized behavior.
+
+Aligned filter widths in products, creator search, video libraries, culture lists and the directory. Widths adapt to each page and stack on phones. Changes are in dist/products.css, creator-map.css, creator-videos.css, culture.css and style.css. Generated HTML asset references were rebuilt.
+
+Reading options now stays within the viewport at 200% text size on a 390px phone. dist/reading-options.css.
+
+Includes the preceding requested Compass label change: Previous / Next replace Earlier / Later; accessible names retain move-to-position meaning. app/compass/dashboard.js.
+
+Validation: build succeeded (14 HTML pages, 499 local links/assets); 28 existing Connections, dashboard and reading-option tests passed. Browser: all 11 Connections controls measure 48px high with 16px text, and equal widths at 1280px and 390px; 200% text produces 96px controls/32px text without horizontal overflow. Product search filters still work; product/creator/sign-in fields measure the same height. Checkboxes retain their normal size.
+
+Screenshots: outputs/consistent-fields-2026-10-17/connections-desktop.png and connections-mobile.png under the parent workspace. Preview: http://127.0.0.1:4329/connections/ (fictional events); public site preview http://127.0.0.1:4335/.
+
+Unrelated untracked creator-intake research preserved and excluded from this change.
