@@ -1,7 +1,7 @@
 (() => {
  'use strict';
- const key='gold-trails-reading-session-v1',sizes=[100,115,130,150,175,200],choices=['bold','contrast','roomy','font'],root=document.documentElement;
- const defaults=()=>({size:0,bold:false,contrast:false,roomy:false,font:false});
+ const key='gold-trails-reading-session-v1',sizes=[100,115,130,150,175,200],choices=['bold','contrast','roomy','font','dark'],root=document.documentElement;
+ const defaults=()=>({size:0,bold:false,contrast:false,roomy:false,font:false,dark:false});
  function read(){try{const value=JSON.parse(window.sessionStorage.getItem(key));if(!value||value.version!==1)return defaults();return{size:Number.isInteger(value.size)&&value.size>=0&&value.size<sizes.length?value.size:0,...Object.fromEntries(choices.map(name=>[name,value[name]===true]))};}catch{return defaults();}}
  let settings=read();
  function apply(){root.dataset.readingSize=String(settings.size);for(const name of choices){if(settings[name])root.setAttribute('data-reading-'+name,'');else root.removeAttribute('data-reading-'+name);}}

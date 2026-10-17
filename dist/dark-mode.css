@@ -1,0 +1,147 @@
+/* Opt-in, tab-scoped reading theme. Screen-only so printing keeps light paper. */
+@media screen {
+  html[data-reading-dark] {
+    color-scheme: dark;
+    --night-page: #1d1c18;
+    --night-paper: #292720;
+    --night-raised: #343026;
+    --night-text: #f1e8d5;
+    --night-muted: #c8bda7;
+    --night-line: #70624a;
+    --night-link: #a9d9f2;
+    --night-gold: #ffda69;
+    --ink: var(--night-text);
+    --cream: var(--night-page);
+    --rust: var(--night-gold);
+    --line: var(--night-line);
+  }
+  html[data-reading-dark] body:not(.admin-editor) {
+    background: var(--night-page) !important;
+    color: var(--night-text) !important;
+  }
+  html[data-reading-dark] body:not(.admin-editor) :is(h1,h2,h3,h4,p,li,dt,dd,small,label,legend,summary,blockquote,figcaption,strong,b,span) {
+    color: inherit !important;
+  }
+  html[data-reading-dark] body:not(.admin-editor) :is(
+    .panel,.resource-placeholder,.article-card,.featured,.welcome,.category-intro,
+    .product-desk,.map-desk,.reading,.field-note,.category-callout,.takeaways,
+    .culture-card,.culture-welcome,.culture-controls,.culture-about,.culture-site-nav,
+    .almanac-section,.almanac-destination,.almanac-promo,.plus-hero,.plus-sample,
+    .plus-almanac-preview,.plus-locked,.plus-billing-details,.community-access,
+    .member-card,.camp-card,.compass-panel,.compass-conversation,.compass-welcome,
+    .compass-passport,.connection-card,.connection-detail,.connections-empty,
+    .connections-invite,.connections-private,.connections-state,.connections-coverage,
+    .calendar-workspace,.calendar-sidebar-note,.calendar-dialog,.calendar-preview,
+    .product-photo-dialog,.reading-options-panel,.source-card,.site-help-switch,
+    .site-help-tooltip,.home-info,.usage-choice,.dashboard-demo-banner,
+    .dashboard-welcome,.dashboard-customize,.dashboard-tuning,.dashboard-module,
+    .dashboard-settings-group,.dashboard-module-body .compass-card,
+    .video-library-dialog,.video-library-card,.almanac-map-panel,.almanac-dashboard,.almanac-card
+  ) {
+    background: var(--night-paper) !important;
+    color: var(--night-text) !important;
+    border-color: var(--night-line) !important;
+    box-shadow: 0 4px 16px #0002 !important;
+  }
+  /* Light parchment is decorative; swap it for quiet dark paper while reading. */
+  html[data-reading-dark] body:not(.admin-editor) :is(.reading,.category-intro,.field-note,.category-callout,.takeaways,.resource-placeholder)::before {
+    display: none !important;
+  }
+  html[data-reading-dark] body:not(.admin-editor) :is(.reading,.field-note,.category-callout,.takeaways) {
+    border: 1px solid var(--night-line) !important;
+    border-radius: 14px;
+  }
+  html[data-reading-dark] body:not(.admin-editor) :is(
+    .product-price,.product-detail-body,.culture-tag,.culture-version,
+    .compass-reason,.compass-option,.compass-progress a,.passport-stamp.earned,
+    .sample-notice,.connections-notice,.connections-groups a,.gold-price-box,
+    .help-guide,.camp-emblem,.camp-membership,.camp-destinations a,
+    .calendar-view-controls,.calendar-notice,.fc-col-header-cell,.fc-day-other,
+    .fc-list-day-cushion,.reading-options>summary,.product-row:target,
+    .dashboard-compass,.dashboard-profile-tags span,.dashboard-demo-banner nav a,
+    .dashboard-module>header,.dashboard-layout-status,.dashboard-example,
+    .dashboard-move-controls,.dashboard-word-chip,.dashboard-vault,
+    .dashboard-gear-tags span,.dashboard-stamp.earned,.dashboard-lesson-list li>span,
+    .dashboard-map-sketch,thead,.map-find,.creator-video-link,.creator-views button,
+    .almanac-metric,.almanac-missing,.almanac-note,.almanac-access,
+    .almanac-mine-map-wrap,.almanac-research-gap,.almanac-destination-badge,
+    .video-library-header,.video-library-watch:hover
+  ) {
+    background: var(--night-raised) !important;
+    color: var(--night-text) !important;
+    border-color: var(--night-line) !important;
+  }
+  html[data-reading-dark] body:not(.admin-editor) :is(.eyebrow,.sub,.product-brand,.product-tags,.product-note,.product-catalog-note,.compass-note,.culture-format,.culture-results,.article-meta,.author-note,.product-feedback) {
+    color: var(--night-muted) !important;
+  }
+  html[data-reading-dark] body:not(.admin-editor) :is(.brand-star,.camp-icon,.camp-arrow,.culture-year,.footer-brand) {
+    color: var(--night-gold) !important;
+  }
+  html[data-reading-dark] body:not(.admin-editor) :is(.center,.reading,.panel,.product-desk,.connections,.compass-panel,.compass-conversation,.calendar-dialog,.reading-options-panel,.product-photo-dialog,.video-library-dialog,.usage-choice) a:not(.gold-button):not(.rust-button):not(.home-hotspot) {
+    color: var(--night-link) !important;
+    text-underline-offset: 3px;
+  }
+  html[data-reading-dark] body:not(.admin-editor) .trail-menu>a {
+    color: var(--night-text) !important;
+    background: transparent !important;
+    border-color: var(--night-line) !important;
+  }
+  html[data-reading-dark] body:not(.admin-editor) .breadcrumb { color: var(--night-muted) !important; }
+  html[data-reading-dark] body:not(.admin-editor) .breadcrumb a { color: var(--night-link) !important; }
+  html[data-reading-dark] body:not(.admin-editor) :is(.site-nav-row,.trail-menu>a) { border-color: var(--night-line) !important; }
+  html[data-reading-dark] body:not(.admin-editor) .site-nav-row>a { color: var(--night-text) !important; }
+  html[data-reading-dark] body:not(.admin-editor) .site-nav-row>a:focus-visible { background: #4b4028 !important; color: #fff2c6 !important; }
+  html[data-reading-dark] body:not(.admin-editor) .member-dashboard { --desk-ink: var(--night-text); --desk-brass: var(--night-gold); color: var(--night-text); }
+  html[data-reading-dark] body:not(.admin-editor) :is(.source-marker,.dashboard-module-icon,.dashboard-state,.dashboard-note) { color: var(--night-muted) !important; }
+  html[data-reading-dark] body:not(.admin-editor) :is(.trail-menu>a:hover,.trail-menu>a:focus-visible,.trail-menu>a[aria-current],.compass-option:has(input:checked),.compass-progress [aria-current],.camp-destinations a:hover) {
+    background: #4b4028 !important;
+    color: #fff2c6 !important;
+  }
+  html[data-reading-dark] body:not(.admin-editor) :is(input,select,textarea,.reading-options button,.outline-button,.compass-feedback,.compass-action-bar button,.compass-action-bar summary,.dashboard-move-controls button,.product-photo-close,.camp-footer button,.calendar-button,.calendar-icon-button,.calendar-sidebar-toggle,.usage-choice button) {
+    background-color: #22211d !important;
+    color: var(--night-text) !important;
+    border-color: #9d8964 !important;
+    accent-color: var(--night-gold);
+  }
+  html[data-reading-dark] body:not(.admin-editor) ::placeholder { color: #beb39e; opacity: 1; }
+  html[data-reading-dark] body:not(.admin-editor) :is(.gold-button,.gold-button:hover,.calendar-create) {
+    background: linear-gradient(#ffdf7c,#e8b93e) !important;
+    color: #30230d !important;
+    border-color: #c79831 !important;
+    box-shadow: inset 0 0 0 2px #f8d36d,0 2px 0 #8b6420 !important;
+  }
+  html[data-reading-dark] body:not(.admin-editor) :is(.rust-button,.calendar-danger-button) { background: #84432f !important; color: #fff5e6 !important; }
+  html[data-reading-dark] body:not(.admin-editor) :is(.form-error,.member-error,.calendar-form-error,.compass-error) { background: #4a2923 !important; color: #ffe0d5 !important; border-color: #bc816d !important; }
+  html[data-reading-dark] body:not(.admin-editor) :is(.member-success,.compass-success) { background: #283b2b !important; color: #e0f2d9 !important; }
+  html[data-reading-dark] body:not(.admin-editor) :is(.reading :target,.culture-card:target) { background: #4b4028 !important; outline-color: #ffda69 !important; }
+  html[data-reading-dark] body:not(.admin-editor) :focus-visible { outline-color: #a9d9f2 !important; }
+  html[data-reading-dark] body:not(.admin-editor) :is(.camp-details,.camp-footer,.product-row,.product-facts>div,.product-evidence>div,.culture-card details,.reading-text-size,.reading-options-footer,.almanac-promo-footer,th,td) { border-color: var(--night-line) !important; }
+  html[data-reading-dark] body:not(.admin-editor) .almanac-promo-features svg { color: #ffda69; background: #443a27; }
+  html[data-reading-dark] body:not(.admin-editor) .almanac-promo-stamp { background: #45391f; color: #ffe8a1; }
+  html[data-reading-dark] body:not(.admin-editor) .category-nav { background: #24241f; border-color: var(--night-line); }
+  html[data-reading-dark] body:not(.admin-editor) footer { background: #171713 !important; color: var(--night-muted) !important; }
+  html[data-reading-dark] body:not(.admin-editor) .announcement { background: #203d40; color: #f1e8d5; }
+  html[data-reading-dark] body:not(.admin-editor) .calendar-page,html[data-reading-dark] body:not(.admin-editor).calendar-page { --calendar-paper: var(--night-paper); --calendar-muted: var(--night-muted); --calendar-shadow: 0 6px 24px #0002; }
+  html[data-reading-dark] body:not(.admin-editor) .fc {
+    --fc-border-color: var(--night-line);
+    --fc-page-bg-color: var(--night-paper);
+    --fc-neutral-bg-color: var(--night-raised);
+    --fc-list-event-hover-bg-color: #443c2c;
+    --fc-today-bg-color: #443c2c;
+    --fc-highlight-color: #ffda6926;
+  }
+  /* Keep documentary photos, artwork, map tiles and their colors untouched. */
+  html[data-reading-dark] body:not(.admin-editor) .product-photo-shrink { background: white; }
+  html[data-reading-dark] body:not(.admin-editor) :is(.leaflet-popup-content-wrapper,.leaflet-popup-tip,.leaflet-control-attribution) { background: var(--night-paper); color: var(--night-text); }
+  html[data-reading-dark] body:not(.admin-editor) :is(.leaflet-control-attribution,.leaflet-popup-content) a { color: var(--night-link) !important; }
+  html[data-reading-dark] body:not(.admin-editor) .leaflet-bar a { background: #292720; color: #f1e8d5; border-color: #70624a; }
+  html[data-reading-dark][data-reading-contrast] {
+    --night-page: #0c0c0a;
+    --night-paper: #171713;
+    --night-raised: #22221c;
+    --night-text: #fff8e8;
+    --night-muted: #e2dac7;
+    --night-line: #a79775;
+    --night-link: #bfe7ff;
+  }
+}
