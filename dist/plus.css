@@ -22,3 +22,10 @@
 .almanac-promo-stamp strong{font:400 2.875rem/1.15 Rye,Georgia,serif}
 .almanac-promo-stamp .almanac-stamp-states{font:400 1.25rem/1.3 Rye,Georgia,serif}
 @media(max-width:650px){.almanac-promo-hero{grid-template-columns:minmax(0,1fr);gap:0}.almanac-promo-copy{padding:24px}.almanac-promo-stamp{justify-self:end;margin:0 24px 24px;width:min(8.5rem,calc(100% - 48px));min-height:8.5rem;height:auto}.almanac-promo-hero:after{background:linear-gradient(90deg,#241b12ed,#241b1299 75%,#241b1255)}}
+
+/* Give the shared Plus scene a larger Western name and more generous reading rhythm. */
+.category-page .almanac-promo-copy.old-timer-copy{padding:36px}
+.category-page .almanac-promo-copy.old-timer-copy>.eyebrow{font:400 2.625rem/1.35 Rye,Georgia,serif;letter-spacing:0;text-transform:none;text-wrap:balance}
+.category-page .almanac-promo-copy.old-timer-copy h2{font-size:2.375rem;line-height:1.55;margin:20px 0 24px}
+.category-page .almanac-promo-copy.old-timer-copy p{font-size:1.25rem;line-height:1.8}
+@media(max-width:750px){.category-page .almanac-promo-copy.old-timer-copy{padding:24px}.category-page .almanac-promo-copy.old-timer-copy>.eyebrow{font-size:2rem;line-height:1.4}.category-page .almanac-promo-copy.old-timer-copy h2{font-size:1.75rem;line-height:1.6;margin:18px 0 22px}.category-page .almanac-promo-copy.old-timer-copy p{font-size:1.125rem;line-height:1.8}}
