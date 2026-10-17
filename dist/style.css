@@ -139,7 +139,7 @@ header{flex-wrap:nowrap;gap:20px}.header-tools{width:auto;border:0;padding:0;mar
 .home-page .home-glossary-note{background:linear-gradient(110deg,#e1e8df,#edf3eb);border-color:#b4c5b4;border-left:4px solid #647f70}
 .category-intro{position:relative;isolation:isolate}
 body:not(.member-page):not(.admin-editor) .category-intro{padding-right:260px}
-body:not(.member-page):not(.admin-editor) .category-intro:after{content:'';position:absolute;right:18px;bottom:8px;width:230px;height:115px;background:url('/assets/gold-nuggets-dust.png') center/contain no-repeat;pointer-events:none;z-index:-1}
+body:not(.member-page):not(.admin-editor) .category-intro:after{content:'';position:absolute;right:18px;bottom:8px;width:230px;height:115px;background:url('/assets/gold-nuggets-bright-v2.webp') center/contain no-repeat;pointer-events:none;z-index:-1}
 body:not(.compass-page):not(.member-page):not(.admin-editor) .category-intro{background:linear-gradient(115deg,#ead6a9,#f9eccc)}
 .category-intro .eyebrow{color:#7b3e26}
 footer{background:radial-gradient(ellipse at 50% 0,#684a29,#352d23 70%)}
@@ -182,3 +182,11 @@ body.article-page .reading::before,body:not(.admin-editor):not(.member-page) .ce
 html[data-reading-contrast] body.article-page .reading::before,html[data-reading-contrast] body .center>.resource-placeholder::before{display:none}
 html[data-reading-contrast] body.article-page .reading,html[data-reading-contrast] body .center>.resource-placeholder{background:#fffdf7!important;border:1px solid #81715a!important}
 @media print{body.article-page .reading::before,body .center>.resource-placeholder::before{display:none!important}}
+
+/* Small yellow-gold keepsakes finish articles and the camp's support note. */
+body.article-page .reading::after,
+body:not(.admin-editor) .plus-support::after{content:'';display:block;width:154px;height:77px;max-width:100%;margin:24px auto 0;background:url('/assets/gold-nuggets-bright-v2.webp') center/contain no-repeat;pointer-events:none}
+body:not(.admin-editor) .plus-support::after{width:124px;height:62px;margin-top:12px}
+html[data-reading-contrast] body :is(.reading,.plus-support,.category-intro)::after{display:none!important}
+html[data-reading-contrast] body :is(.home-gold-accent,.culture-welcome>img,.almanac-promo-footer>img){display:none!important}
+@media print{body :is(.reading,.plus-support,.category-intro)::after,body :is(.home-gold-accent,.culture-welcome>img,.almanac-promo-footer>img){display:none!important}}
