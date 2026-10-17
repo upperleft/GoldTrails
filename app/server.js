@@ -1,5 +1,6 @@
 import{attachReadingMarkup}from'./reading/handler.js';
 import {createPlusHandler,attachPlusMarkup} from './plus/handler.js';
+import {hasPremiumFeature} from './plus/entitlements.js';
 import http from 'node:http';
 import {attachAnalyticsMarkup} from './analytics/handler.js';
 import {createAlmanacHandler} from './almanac/handler.js';
@@ -15,7 +16,7 @@ import {createGoldPriceFeed} from './gold-price.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
-export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, plus = createPlusHandler(), suggestions = null, analytics = null, directory = null, admin = null, members = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
+export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, plus = createPlusHandler(), suggestions = null, analytics = null, directory = null, admin = null, members = null, memberSessions = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
   function send(req, res, status, body, headers = {}) {
     res.writeHead(status, { 'Content-Type':'text/html; charset=utf-8', 'X-Content-Type-Options':'nosniff', 'Cache-Control':'no-store', ...headers });
@@ -118,7 +119,10 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
           const filters=explorerCriteria(url.searchParams,criteria);
           if(!filters){send(req,res,400,messagePage('Let’s adjust those filters','Choose a valid view, setting, and sort order.'));return;}
           const data=mergeCatalog(await directory.map());
-          send(req,res,200,prospectorsPage(mapRecords(data.people,data.regions,data.topics),filters));
+          let canFindOnMap=false;
+          try { canFindOnMap=await hasPremiumFeature(req,{members:memberSessions},'almanac'); }
+          catch { log('Creator map membership check unavailable'); }
+          send(req,res,200,prospectorsPage(mapRecords(data.people,data.regions,data.topics),filters,{canFindOnMap}),{'Cache-Control':'private, no-store',Vary:'Cookie'});
         } else if (criteria) {
           const result = await directory.search(criteria);
           if (criteria.page > Math.max(1, Math.ceil(result.total / criteria.pageSize))) {
