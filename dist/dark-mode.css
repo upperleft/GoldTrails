@@ -144,4 +144,17 @@
     --night-line: #a79775;
     --night-link: #bfe7ff;
   }
+  html[data-reading-dark] body:not(.admin-editor) .member-dashboard :is(.dashboard-module,.dashboard-module-body .compass-card) {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--night-line) !important;
+    border-radius: 0;
+  }
+  html[data-reading-dark] body:not(.admin-editor) .dashboard-section-nav button { background: var(--night-raised); color: var(--night-text); border-color: var(--night-line); }
+  html[data-reading-dark] body:not(.admin-editor) .dashboard-section-nav button[aria-pressed=true] { background: #e8bd55; color: #30230d; border-color: #e8bd55; }
+  html[data-reading-dark] body:not(.admin-editor) .dashboard-module>summary::marker { color: var(--night-gold); }
+  html[data-reading-dark] body:not(.admin-editor) .dashboard-module>summary .dashboard-state { color: var(--night-muted) !important; }
+  html[data-reading-dark] body:not(.admin-editor) .dashboard-module-body .compass-match-list { color: var(--night-muted); }
+  html[data-reading-dark] body:not(.admin-editor) :is(.dashboard-module[open]>summary,.dashboard-section-nav) { border-color: var(--night-line); }
 }

@@ -2,3 +2,54 @@
 .dashboard-stamps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}.dashboard-stamp{display:flex;flex-direction:column;align-items:center;text-align:center;border:1px dashed #baa382;padding:.65rem .4rem;border-radius:8px;color:#74644e}.dashboard-stamp.earned{border-style:solid;background:#edd4a0;color:#583e1c}.dashboard-stamp>span{font-size:1.4rem}.dashboard-stamp strong{font-size:.7rem;line-height:1.4}.dashboard-stamp small{font-size:.7rem}.dashboard-gear-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem}.dashboard-gear-tags span{background:#e9d6ae;border:1px solid #bfa477;border-radius:6px;padding:.4rem .6rem}.dashboard-packing{border:0;padding:0}.dashboard-packing legend{font-weight:bold;margin-bottom:.6rem}.dashboard-packing label{display:flex;gap:.6rem;align-items:center;min-height:44px;margin-bottom:.35rem}.dashboard-packing input{width:20px;height:20px;flex-shrink:0;accent-color:#896628}
 .dashboard-module>header>div{flex:1}.dashboard-module>header{justify-content:flex-start}.dashboard-module header h2{text-align:left}
 @media(min-width:761px) and (max-width:1000px){.dashboard-module-grid{grid-template-columns:1fr}.dashboard-welcome{padding:1.2rem;gap:1rem}.dashboard-compass{width:86px;height:86px}.dashboard-compass b{font-size:2.7rem}.dashboard-compass small{font-size:.45rem;letter-spacing:1px}.dashboard-toolbar{align-items:flex-start}.dashboard-toolbar a{white-space:normal}}
+
+/* A compact desk: choose a section, then unfold a full-width reading row. */
+.member-dashboard :is(p,li,dd){line-height:1.8}
+.member-dashboard p{margin:.8rem 0}
+.member-dashboard p:first-child{margin-top:0}
+.member-dashboard p:last-child{margin-bottom:0}
+.member-dashboard .dashboard-welcome{padding:1.5rem;gap:1.4rem;align-items:flex-start}
+.dashboard-welcome h2{font-size:1.75rem;line-height:1.35;margin:0 0 .8rem}
+.dashboard-welcome .eyebrow{display:block;margin-bottom:.6rem}
+.dashboard-welcome .dashboard-introduction{max-width:66ch;margin-bottom:1rem}
+.dashboard-shortcuts{display:flex;flex-wrap:wrap;gap:.65rem;margin:1rem 0}
+.dashboard-shortcuts a{display:inline-flex;align-items:center;min-height:44px}
+.dashboard-compass{width:86px;height:86px}
+.dashboard-compass b{font-size:2.7rem}.dashboard-compass small{font-size:.45rem}
+.dashboard-profile-tags{margin:.75rem 0;gap:.6rem}
+.dashboard-demo-banner{padding:1rem 1.25rem}
+.dashboard-demo-banner p{margin:.65rem 0 1rem}
+.dashboard-toolbar{align-items:flex-start;margin:1.7rem 0 1rem}
+.dashboard-toolbar h2{margin:.35rem 0 .65rem}
+.dashboard-toolbar p{max-width:58ch}
+.dashboard-section-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0;border-bottom:1px solid #c9b58e;padding-bottom:1rem}
+.dashboard-section-nav[hidden],.dashboard-section-empty[hidden]{display:none!important}
+.dashboard-section-nav button{font:inherit;font-size:1rem;line-height:1.4;min-height:44px;display:inline-flex;align-items:center;gap:.6rem;padding:.65rem .85rem;border:1px solid #bda679;border-radius:24px;background:#fffbf0;color:#4a361e;cursor:pointer}
+.dashboard-section-nav button[aria-pressed=true]{background:#4b6150;border-color:#4b6150;color:#fff9e8;font-weight:700}
+.dashboard-section-nav [data-section-count]{font-variant-numeric:tabular-nums;font-size:.875rem;opacity:.8}
+.dashboard-section-empty{padding:1rem 0}
+.member-dashboard .dashboard-module-grid{display:block}
+.member-dashboard .dashboard-module{border:0;border-bottom:1px solid #bda679;border-radius:0;background:transparent;box-shadow:none;overflow:visible;margin:0}
+.dashboard-module[data-group-hidden],.dashboard-module[hidden]{display:none!important}
+.dashboard-module>summary{display:list-item;list-style-position:inside;cursor:pointer;padding:1rem .5rem;line-height:1.6;min-height:56px}
+.dashboard-module>summary::marker{color:#8a652e}
+.dashboard-module>summary h2{display:inline;font:700 1.25rem/1.5 Georgia,serif;margin:0}
+.dashboard-module>summary .dashboard-state{display:inline-block;margin-left:1rem;font:400 .875rem/1.6 'DM Sans',sans-serif;letter-spacing:0;text-transform:none;color:#6d604b}
+.dashboard-module[open]>summary{border-bottom:1px solid #d5c4a3}
+.dashboard-module .dashboard-module-body{padding:1.2rem .5rem 1.4rem;font-size:1rem;line-height:1.8;max-width:76ch}
+.dashboard-module-body h3,.dashboard-module-body .dashboard-adventure-title{font:700 1.35rem/1.5 Georgia,serif!important;margin:0 0 .8rem}
+.dashboard-module-body .compass-card{padding:1.2rem 0;margin:0;border:0;border-bottom:1px solid #d5c4a3;border-radius:0;background:transparent;box-shadow:none}
+.dashboard-module-body .compass-card:first-child{padding-top:0}
+.dashboard-module-body .compass-card:last-child{border-bottom:0;padding-bottom:0}
+.dashboard-module-body .compass-card .eyebrow{display:block;font-size:.875rem;letter-spacing:0;line-height:1.7;margin-bottom:.65rem;text-transform:none}
+.dashboard-module-body .compass-reason{margin:1rem 0;padding:.8rem 1rem;line-height:1.8}
+.dashboard-module-body .dashboard-note,.dashboard-module-body .compass-note{font-size:.9375rem;line-height:1.8;margin-top:1rem}
+.dashboard-module-body .gold-button{margin:.6rem 0;line-height:1.5}
+.dashboard-module-body .compass-feedback-row{gap:.5rem;margin-top:1rem}
+.dashboard-module-body .compass-feedback{font-size:.9375rem;line-height:1.5;padding:.5rem .75rem;min-height:44px}
+.dashboard-move-controls{background:transparent;border-top:1px dashed #d5c4a3;padding:.8rem .5rem;gap:.5rem}
+.dashboard-layout-status:empty{display:none}
+.dashboard-section-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.dashboard-module-body .compass-match-list{display:flex;flex-wrap:wrap;gap:.4rem 1.75rem;padding:0 0 0 1.2rem;margin:1rem 0;color:#665437;font-size:.9375rem;line-height:1.8}
+.dashboard-module-body .compass-match-list li{margin:0;padding:0}
+@media(max-width:760px){.dashboard-welcome{display:block}.dashboard-compass{display:none}.dashboard-toolbar{display:block}.dashboard-toolbar>a{display:inline-flex;margin-top:.9rem}.dashboard-section-nav{gap:.5rem}.dashboard-section-nav button{padding:.65rem .75rem}.dashboard-module>summary .dashboard-state{margin-left:.6rem}.dashboard-module>summary h2{font-size:1.125rem}.dashboard-module .dashboard-module-body{padding:1rem .25rem 1.3rem}.dashboard-shortcuts{flex-direction:column;align-items:flex-start}.dashboard-demo-banner nav{gap:.5rem}.member-dashboard p{margin:.9rem 0}}
