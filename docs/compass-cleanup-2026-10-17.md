@@ -1,6 +1,6 @@
 # Compact Compass desk and text spacing
 
-Prepared October 17, 2026 on `compact-compass-desk`, based on the unpublished dark-mode commit `a600265`. Local preview only; neither dark mode nor this cleanup has production publication approval yet. Production remains the approved brighter-nugget release `c7e7812`.
+Prepared October 17, 2026 on `compact-compass-desk`, based on dark-mode commit `a600265`. Paul approved publication of this cleanup together with dark mode on October 17, 2026, answering “y” to the combined publication request.
 
 ## Bounded screen audit
 
@@ -34,4 +34,4 @@ Screenshots are saved in the task workspace under `outputs/compass-cleanup-2026-
 
 ## Preview and handoff
 
-`scripts/preview-reading.mjs` serves the read-only preview at `http://127.0.0.1:4335/compass/demo/`. It uses existing production renderers with public sample records and a fictional account only where needed. Do not deploy until Paul approves this cleanup and dark mode together.
+`scripts/preview-reading.mjs` serves the read-only preview at `http://127.0.0.1:4335/compass/demo/`. It uses existing production renderers with public sample records and a fictional account only where needed. Combined publication approval was received October 17, 2026.

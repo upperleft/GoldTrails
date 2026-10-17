@@ -1,6 +1,6 @@
 # Dark mode in Reading options
 
-Prepared October 16, 2026. Implemented locally; production approval is pending. The preceding bright yellow nugget package was approved, pushed and verified live at production commit `c7e7812` before this work.
+Prepared October 16, 2026. Paul approved publication together with the Compass cleanup on October 17, 2026, answering “y” to the combined publication request. The preceding bright yellow nugget package was approved, pushed and verified live at production commit `c7e7812` before this work.
 
 ## Behavior
 
