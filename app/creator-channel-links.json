@@ -52,5 +52,147 @@
     "title": "The Nomadic Prospector - YouTube",
     "description": "Hello, I am Troy — The Nomadic Prospector. Formerly Michigan Prospectors.",
     "verification": "Official website links to the channel; YouTube canonical URL, title and description checked. Submitted @michiganprospectors handle returned 404 and was not used."
+  },
+  {
+    "slug": "gerrys-detectors",
+    "source_url": "https://gerrysdetectors.com/about/meet-the-team/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCBifFJHDtSo7dqYa9fkGXxw",
+    "title": "Gerrys Detectors - YouTube",
+    "url": "https://www.youtube.com/user/GerrysDetectors",
+    "identity_note": "Creator official website links directly to this YouTube channel.",
+    "uploader_name": "Gerrys Detectors"
+  },
+  {
+    "slug": "goldbay",
+    "source_url": "https://goldbay.com/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCjkwhxFwjA2wuVJqOKco0eg",
+    "title": "Goldbay - YouTube",
+    "url": "https://www.youtube.com/@Goldbay",
+    "identity_note": "Creator official website links directly to this YouTube channel.",
+    "uploader_name": "Goldbay"
+  },
+  {
+    "slug": "goldsnoop",
+    "source_url": "https://www.goldsnoop.com/category/ressources/livres/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCME5hv02c0A-CeGRSqw03Bg",
+    "title": "Vivien Laïlle (Goldsnoop.com) - YouTube",
+    "url": "https://www.youtube.com/channel/UCME5hv02c0A-CeGRSqw03Bg",
+    "identity_note": "Creator official website links directly to this YouTube channel.",
+    "uploader_name": "Vivien Laïlle (Goldsnoop.com)"
+  },
+  {
+    "slug": "krazynutz",
+    "source_url": "https://hooterhills.com/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCXTCr7HOLcOopYPj0SdHrfw",
+    "title": "KRAZYNUTZ - YouTube",
+    "url": "https://www.youtube.com/@KRAZYNUTZ",
+    "identity_note": "Creator official website links directly to this YouTube channel.",
+    "uploader_name": "KRAZYNUTZ"
+  },
+  {
+    "slug": "golden-submarine",
+    "source_url": "https://www.goldsnoop.com/2019/09/23/videos-le-prospecteur-golden-submarine/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCSFQZPwMgWY5gk1M6u1mQ3g",
+    "title": "Golden submarine fr - YouTube",
+    "url": "https://www.youtube.com/channel/UCSFQZPwMgWY5gk1M6u1mQ3g",
+    "identity_note": "GoldSnoop article explicitly identifies Golden Submarine and links to this channel; distinct from the GoldSnoop publisher channel.",
+    "uploader_name": "Golden submarine fr"
+  },
+  {
+    "slug": "nugget-noggin",
+    "source_url": "https://www.nuggetnoggin.com/about",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCm_Fbx0tAqAOB3cA4d1GnXw",
+    "title": "nuggetnoggin - YouTube",
+    "url": "https://www.youtube.com/user/nuggetnoggin",
+    "identity_note": "Creator official website links directly to this YouTube channel.",
+    "uploader_name": "nuggetnoggin"
+  },
+  {
+    "slug": "snake-river-products",
+    "source_url": "https://snakeriverproducts.com/videos/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCMuodgEBCpgyGdGj94JjurA",
+    "title": "Snake River Products - YouTube",
+    "url": "https://www.youtube.com/channel/UCMuodgEBCpgyGdGj94JjurA",
+    "identity_note": "Creator official website links directly to this YouTube channel.",
+    "uploader_name": "Snake River Products"
+  },
+  {
+    "slug": "the-uranium-hunter",
+    "source_url": "https://theuraniumhunter.co.uk/2026/06/25/the-missing-gold-of-the-cheviots-tracking-an-ancient-epithermal-system/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCd88xA5AFENTrOK2iCh46Gg",
+    "title": "The Uranium Hunter - YouTube",
+    "url": "https://www.youtube.com/@TheUraniumHunter",
+    "identity_note": "Creator official website links directly to this YouTube channel.",
+    "uploader_name": "The Uranium Hunter"
+  },
+  {
+    "slug": "have-a-go-prospecting",
+    "source_url": "https://www.haveagoprospecting.com.au/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCnowIRawt2ovnR8NCSs017Q",
+    "title": "Have A Go Prospecting - YouTube",
+    "url": "https://www.youtube.com/channel/UCnowIRawt2ovnR8NCSs017Q",
+    "identity_note": "Official website names Andrew and links Follow @HaveAGoProspecting; YouTube channel describes Andrew and South Coast NSW prospecting.",
+    "uploader_name": "Have A Go Prospecting"
+  },
+  {
+    "slug": "glacial-gold-hunter",
+    "source_url": "https://www.glacialgoldhunter.com/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCDRL0lGM90UsygJ85BZ16vg",
+    "title": "Glacial Gold Hunter - YouTube",
+    "url": "https://www.youtube.com/channel/UCDRL0lGM90UsygJ85BZ16vg",
+    "identity_note": "Official website and same-named YouTube channel both describe hunting glacial gold throughout the Midwest; Lucas Lundgren is independently identified in FOX9 profile.",
+    "uploader_name": "Glacial Gold Hunter",
+    "corroborating_source": "https://www.fox9.com/news/going-gold-geologist-finds-flecks-treasure-metro"
+  },
+  {
+    "slug": "flash-in-your-pan",
+    "source_url": "https://www.spreaker.com/episode/s7-e6-ed-marvin-flash-in-your-pan--58091735",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCgOl-Q_pf8UMrwysbLsuTFA",
+    "title": "Flash In Your Pan - YouTube",
+    "url": "https://www.youtube.com/@FlashInYourPan",
+    "identity_note": "Relics Radio interview of Ed Marvin explicitly provides @FlashInYourPan as his YouTube channel.",
+    "uploader_name": "Flash In Your Pan"
+  },
+  {
+    "slug": "gold-fever-adventures",
+    "source_url": "https://www.goldfeveradventures.com/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCtktm4um9Y-h_2Jevgdy1hw",
+    "title": "Gold Fever Adventures - YouTube",
+    "url": "https://www.youtube.com/channel/UCtktm4um9Y-h_2Jevgdy1hw",
+    "identity_note": "Official Gold Fever Adventures site advertises its YouTube broadcasts; YouTube channel identifies prospecting/treasure-hunting activities and Jack Tucker is confirmed by the named speaker profile.",
+    "uploader_name": "Gold Fever Adventures",
+    "corroborating_source": "https://terrylcarter.net/schedule"
+  },
+  {
+    "slug": "gold-cube",
+    "source_url": "https://goldcube.net/gold-cube-university/",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UCE06q_NSjbTXSgI1ALJ3RkA",
+    "title": "Steve “RED” Wilcox - YouTube",
+    "url": "https://www.youtube.com/@SteveWilcox",
+    "identity_note": "Official creator website embeds krXB44aNji4; YouTube oEmbed identifies uploader Steve “RED” Wilcox. Uploader identity checked against site branding.",
+    "uploader_name": "Steve “RED” Wilcox"
+  },
+  {
+    "slug": "lxr-postal-prospecting",
+    "source_url": "https://www.lxrprospecting.com/youtube",
+    "checked_at": "2026-10-17",
+    "canonical": "https://www.youtube.com/channel/UChzoD9al2jmtrHFM2mJ9h0w",
+    "title": "L X R Postal Prospecting - YouTube",
+    "url": "https://www.youtube.com/@LXRPostalProspecting",
+    "identity_note": "Official creator website embeds ZnYyVlk7kzI; YouTube oEmbed identifies uploader L X R Postal Prospecting. Uploader identity checked against site branding.",
+    "uploader_name": "L X R Postal Prospecting"
   }
 ]

@@ -25,7 +25,7 @@ test('six new checked channels are shown prominently without replacing existing 
 });
 test('prominent links distinguish source videos from channels and preserve all 84 profiles',()=>{
  const roster=creatorCatalog();assert.equal(roster.length,84);
- assert.equal(roster.filter(p=>creatorYoutubeDestination(p)).length,61);
+ assert.equal(roster.filter(p=>creatorYoutubeDestination(p)).length,75);
  assert.match(creatorYoutubeLink({official_url:'https://www.youtube.com/watch?v=Abcd_123-XY'}),/Related video on YouTube/);
  for(const p of roster.filter(p=>creatorYoutubeDestination(p)))assert.ok(catalogProfile(p).includes('creator-youtube-link'));
 });

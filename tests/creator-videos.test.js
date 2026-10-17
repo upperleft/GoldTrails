@@ -38,8 +38,8 @@ test('video metadata rejects spoofed owners, unsafe destinations and duplicate i
 });
 
 test('the shipped library contains roster matches and public link metadata without unreviewed research fields',()=>{
-  assert.equal(libraryData.creators.length,17);
-  assert.equal(libraryData.creators.reduce((count,c)=>count+c.videos.length,0),97);
+  assert.equal(libraryData.creators.length,61);
+  assert.equal(libraryData.creators.reduce((count,c)=>count+c.videos.length,0),226);
   const roster=new Set(catalog.map(c=>c.slug));
   const forbidden=['description_excerpt','research_notes','published_label_or_date','views_at_scan','duration_minutes','region','discovery_method','transcript_verified','claim_verified','originalRecord','private_notes','reviewer_note'];
   for(const creator of libraryData.creators){

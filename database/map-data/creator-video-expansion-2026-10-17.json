@@ -1,0 +1,1948 @@
+{
+  "checkedAt": "2026-10-17",
+  "scope": "YouTube uploader identity and public video metadata; no transcript/footage review or access/legal endorsement.",
+  "addedCreators": 44,
+  "addedVideos": 129,
+  "addedChannels": 14,
+  "previousLibraryCreators": 17,
+  "previousVideos": 97,
+  "totalLibraryCreators": 61,
+  "totalVideos": 226,
+  "libraries": [
+    {
+      "slug": "alaska-gold-hunter",
+      "name": "Alaska Gold Hunter",
+      "channelId": "UCd5gLxH4_vnnq3Em0z22CrQ",
+      "channelTitle": "Alaska Gold Hunter",
+      "channelUrl": "https://www.youtube.com/channel/UCd5gLxH4_vnnq3Em0z22CrQ",
+      "requestedUrl": "https://www.youtube.com/channel/UCd5gLxH4_vnnq3Em0z22CrQ",
+      "identitySource": "https://www.youtube.com/channel/UCd5gLxH4_vnnq3Em0z22CrQ",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCd5gLxH4_vnnq3Em0z22CrQ/videos",
+      "pageSha256": "b6c20f459e18ae5210e2f3d530a2062fefa8a1b7a12b2b6cb9e2c30aed63520c",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCd5gLxH4_vnnq3Em0z22CrQ",
+      "feedSha256": "a429e0723daa2d2341db61eb6897b1462a576e5f0e8cf0a5f05d95251517d07d",
+      "selectedVideos": [
+        {
+          "id": "HlUxmQ7JdjI",
+          "title": "Test Melting Copper Before I melt Gold",
+          "channelId": "UCd5gLxH4_vnnq3Em0z22CrQ",
+          "published": "2026-09-06T17:00:50+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCd5gLxH4_vnnq3Em0z22CrQ"
+        },
+        {
+          "id": "BxqvtzAmRps",
+          "title": "Best Gold I've found near Hatcher Pass Alaska!",
+          "channelId": "UCd5gLxH4_vnnq3Em0z22CrQ",
+          "published": "2026-07-25T22:16:22+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCd5gLxH4_vnnq3Em0z22CrQ"
+        },
+        {
+          "id": "eV34GcETeFM",
+          "title": "Flooded out of spot for Gold",
+          "channelId": "UCd5gLxH4_vnnq3Em0z22CrQ",
+          "published": "2026-07-07T14:52:42+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCd5gLxH4_vnnq3Em0z22CrQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "american-gold-prospectors",
+      "name": "American Gold Prospectors",
+      "channelId": "UCjm_LG6AiJZrvfVjmrBpeWQ",
+      "channelTitle": "American Gold Prospectors",
+      "channelUrl": "https://www.youtube.com/channel/UCjm_LG6AiJZrvfVjmrBpeWQ",
+      "requestedUrl": "https://www.youtube.com/channel/UCjm_LG6AiJZrvfVjmrBpeWQ",
+      "identitySource": "https://www.youtube.com/channel/UCjm_LG6AiJZrvfVjmrBpeWQ",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCjm_LG6AiJZrvfVjmrBpeWQ/videos",
+      "pageSha256": "09401a41eda3a4da9099c91b73a91d6f172460952ecaf0e2ad43dcf6976313e8",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjm_LG6AiJZrvfVjmrBpeWQ",
+      "feedSha256": "d5ab7188a0a3510c90ab0f5df9702a0fbb2c768a6b18841dcef11d359d60148f",
+      "selectedVideos": [
+        {
+          "id": "ZYNIwaHxxbA",
+          "title": "Moving Massive Boulders for Gold | Gold Hog Mat Test",
+          "channelId": "UCjm_LG6AiJZrvfVjmrBpeWQ",
+          "published": "2026-02-27T22:19:08+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjm_LG6AiJZrvfVjmrBpeWQ"
+        },
+        {
+          "id": "Rw2FiQEr6NA",
+          "title": "Nugget Highway!",
+          "channelId": "UCjm_LG6AiJZrvfVjmrBpeWQ",
+          "published": "2026-02-21T01:54:47+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjm_LG6AiJZrvfVjmrBpeWQ"
+        },
+        {
+          "id": "obSIEngH3E0",
+          "title": "Cleaning Out a High-Grade Golden Hotspot!",
+          "channelId": "UCjm_LG6AiJZrvfVjmrBpeWQ",
+          "published": "2026-02-14T13:01:26+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjm_LG6AiJZrvfVjmrBpeWQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "andythraxx-mining",
+      "name": "ANDYTHRAXX MINING",
+      "channelId": "UCmn_8HVg4klidm6q-bQRdbQ",
+      "channelTitle": "ANDYTHRAXX MINING",
+      "channelUrl": "https://www.youtube.com/channel/UCmn_8HVg4klidm6q-bQRdbQ",
+      "requestedUrl": "https://www.youtube.com/user/ANDYTHRAXX",
+      "identitySource": "https://www.youtube.com/user/ANDYTHRAXX",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/user/ANDYTHRAXX/videos",
+      "pageSha256": "f783795b246a493b93621f0b6fe113b9b2dcc900360e2d4df1edb490b3bbd3ea",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmn_8HVg4klidm6q-bQRdbQ",
+      "feedSha256": "cb0654e064a0a7f356b143dda118a3b98a605e2ac904e116dd7a67d7b180895e",
+      "selectedVideos": [
+        {
+          "id": "Ee1Vwi6iy-4",
+          "title": "Determine Sluice Water Requirements for Maximum Gold Recovery",
+          "channelId": "UCmn_8HVg4klidm6q-bQRdbQ",
+          "published": "2023-06-21T14:00:51+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmn_8HVg4klidm6q-bQRdbQ"
+        },
+        {
+          "id": "i8H-ij6zItQ",
+          "title": "Master Sluice & Trough Optimization for Peak Mining Performance",
+          "channelId": "UCmn_8HVg4klidm6q-bQRdbQ",
+          "published": "2023-06-20T14:01:07+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmn_8HVg4klidm6q-bQRdbQ"
+        },
+        {
+          "id": "dK-4-mRKTfc",
+          "title": "Optimize Your Sluice Box Angle for Maximum Gold Recovery",
+          "channelId": "UCmn_8HVg4klidm6q-bQRdbQ",
+          "published": "2023-06-19T14:00:44+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCmn_8HVg4klidm6q-bQRdbQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "bill-southern",
+      "name": "Bill Southern / Nugget Shooter Journals",
+      "channelId": "UCdas7vSePGkIT20cAOTd5Gw",
+      "channelTitle": "NUGGET SHOOTER JOURNALS",
+      "channelUrl": "https://www.youtube.com/channel/UCdas7vSePGkIT20cAOTd5Gw",
+      "requestedUrl": "https://www.youtube.com/channel/UCdas7vSePGkIT20cAOTd5Gw",
+      "identitySource": "https://www.patreon.com/nuggetshooterjournals/about",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCdas7vSePGkIT20cAOTd5Gw/videos",
+      "pageSha256": "7cf5b2daa47d4e3c2a36f235e0c1c794fcdc5e146b1ce614eb682b2a42879b1d",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdas7vSePGkIT20cAOTd5Gw",
+      "feedSha256": "644d60ffb534b281d96d87e8813978c1cf072ba1b55b6ea3295382ce31274b0a",
+      "selectedVideos": [
+        {
+          "id": "SxXHLsn4pAw",
+          "title": "Little Gold With the Gold Monster 2000",
+          "channelId": "UCdas7vSePGkIT20cAOTd5Gw",
+          "published": "2026-05-05T13:15:42+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdas7vSePGkIT20cAOTd5Gw"
+        },
+        {
+          "id": "MJhXorjuW_Y",
+          "title": "Let's Talk About the Minelab GPZ 8000",
+          "channelId": "UCdas7vSePGkIT20cAOTd5Gw",
+          "published": "2026-04-30T22:13:36+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdas7vSePGkIT20cAOTd5Gw"
+        },
+        {
+          "id": "z5G7ViiG-0s",
+          "title": "My First Nugget With the Minelab GPZ 8000 and Early Opinion",
+          "channelId": "UCdas7vSePGkIT20cAOTd5Gw",
+          "published": "2026-04-29T14:57:25+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdas7vSePGkIT20cAOTd5Gw"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "california-mother-lode-prospectors",
+      "name": "California Mother Lode Prospectors",
+      "channelId": "UC4UEOWPrLaqFXriPUONmEtw",
+      "channelTitle": "California Mother Lode Prospectors",
+      "channelUrl": "https://www.youtube.com/channel/UC4UEOWPrLaqFXriPUONmEtw",
+      "requestedUrl": "https://www.youtube.com/channel/UC4UEOWPrLaqFXriPUONmEtw",
+      "identitySource": "https://www.youtube.com/channel/UC4UEOWPrLaqFXriPUONmEtw",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UC4UEOWPrLaqFXriPUONmEtw/videos",
+      "pageSha256": "27550ec32c3f1fef5525bc930b0806e4a15b84b98b70f9c7c9a45a76247d2ce5",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC4UEOWPrLaqFXriPUONmEtw",
+      "feedSha256": "8c980ac871872515038b33b8e56e2b498b8d2ea730c75f52e8055262cabadbfa",
+      "selectedVideos": [
+        {
+          "id": "OkMur5AGAiY",
+          "title": "Gary Finds ALL THE GOLD!",
+          "channelId": "UC4UEOWPrLaqFXriPUONmEtw",
+          "published": "2026-04-13T15:00:42+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UC4UEOWPrLaqFXriPUONmEtw"
+        },
+        {
+          "id": "xgUtXw6L1xc",
+          "title": "Visible Gold \"VG\" is Everywhere!!!",
+          "channelId": "UC4UEOWPrLaqFXriPUONmEtw",
+          "published": "2026-04-09T15:01:40+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UC4UEOWPrLaqFXriPUONmEtw"
+        },
+        {
+          "id": "BAqeBqaXg7E",
+          "title": "His Pan is Loaded with Gold!",
+          "channelId": "UC4UEOWPrLaqFXriPUONmEtw",
+          "published": "2026-03-31T15:13:10+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UC4UEOWPrLaqFXriPUONmEtw"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "canadian-gold-mining",
+      "name": "Canadian Gold Mining",
+      "channelId": "UCrN6KNX3Vnl3qrl3-HkwHpg",
+      "channelTitle": "Canadian Gold Mining",
+      "channelUrl": "https://www.youtube.com/channel/UCrN6KNX3Vnl3qrl3-HkwHpg",
+      "requestedUrl": "https://www.youtube.com/c/CanadianGoldMining",
+      "identitySource": "https://www.youtube.com/c/CanadianGoldMining",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/c/CanadianGoldMining/videos",
+      "pageSha256": "d2919e05ddf7a945349fc6998476b069d308d68d8ca236511357a24d80178c71",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrN6KNX3Vnl3qrl3-HkwHpg",
+      "feedSha256": "039d57090b96b4eba69c5a49ed704229e84266a00ed6fb89067c67c979f8e372",
+      "selectedVideos": [
+        {
+          "id": "nHNVnsBtDuk",
+          "title": "Testing the new creek/ claim for gold concentrations-panning  every 10 meters to find the source",
+          "channelId": "UCrN6KNX3Vnl3qrl3-HkwHpg",
+          "published": "2024-05-28T19:43:32+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrN6KNX3Vnl3qrl3-HkwHpg"
+        },
+        {
+          "id": "BbNHT95hfJ4",
+          "title": "Gold at the end of the rainbow?        #Prospecting #gold #mining",
+          "channelId": "UCrN6KNX3Vnl3qrl3-HkwHpg",
+          "published": "2024-05-18T20:53:15+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrN6KNX3Vnl3qrl3-HkwHpg"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "colorado-gold-camp",
+      "name": "Colorado Gold Camp",
+      "channelId": "UCk2lzBV-31AxepsOqSGT95A",
+      "channelTitle": "Colorado Gold Camp",
+      "channelUrl": "https://www.youtube.com/channel/UCk2lzBV-31AxepsOqSGT95A",
+      "requestedUrl": "https://www.youtube.com/channel/UCk2lzBV-31AxepsOqSGT95A",
+      "identitySource": "https://www.youtube.com/channel/UCk2lzBV-31AxepsOqSGT95A",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCk2lzBV-31AxepsOqSGT95A/videos",
+      "pageSha256": "196758f07a086e89a4ec37b1ff7d566bd414c3f257bda827e77c251d2ea5ea77",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCk2lzBV-31AxepsOqSGT95A",
+      "feedSha256": "a1c6b0d77972e9c1f4f58d5615d49585e4627897d3a9a7b0e01358a18abe12b3",
+      "selectedVideos": [
+        {
+          "id": "ozwflhHb510",
+          "title": "This is How We find BIG GOLD in Colorado Gold Prospecting!",
+          "channelId": "UCk2lzBV-31AxepsOqSGT95A",
+          "published": "2026-10-17T13:30:39+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCk2lzBV-31AxepsOqSGT95A"
+        },
+        {
+          "id": "rTZxjobpZJw",
+          "title": "Colorado GOLD Prospecting!",
+          "channelId": "UCk2lzBV-31AxepsOqSGT95A",
+          "published": "2026-08-22T16:33:11+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCk2lzBV-31AxepsOqSGT95A"
+        },
+        {
+          "id": "1tJzaC0fkkY",
+          "title": "Bedrock GOLD Prospecting!",
+          "channelId": "UCk2lzBV-31AxepsOqSGT95A",
+          "published": "2026-08-15T16:19:53+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCk2lzBV-31AxepsOqSGT95A"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "diggin-for-gold",
+      "name": "Diggin’ For Gold",
+      "channelId": "UCwoDAcQoBnuiJpPRaLqwo3g",
+      "channelTitle": "Diggin' For Gold",
+      "channelUrl": "https://www.youtube.com/channel/UCwoDAcQoBnuiJpPRaLqwo3g",
+      "requestedUrl": "https://www.youtube.com/channel/UCwoDAcQoBnuiJpPRaLqwo3g/",
+      "identitySource": "https://www.youtube.com/channel/UCwoDAcQoBnuiJpPRaLqwo3g/",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCwoDAcQoBnuiJpPRaLqwo3g/videos",
+      "pageSha256": "f9da86eaadc6cd5fad50d1c6efa92bc72b4df9c526e51640bcfe5b4a2ec5ef58",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwoDAcQoBnuiJpPRaLqwo3g",
+      "feedSha256": "a49a97786988d09939773ec1da1e59a4815f53f295fa04f3f30f8afdf585e733",
+      "selectedVideos": [
+        {
+          "id": "5sckUglCRKk",
+          "title": "Making a Detecting Pick for Gold Prospecting [No Music]",
+          "channelId": "UCwoDAcQoBnuiJpPRaLqwo3g",
+          "published": "2021-12-30T18:24:26+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwoDAcQoBnuiJpPRaLqwo3g"
+        },
+        {
+          "id": "HpZy4ECYcAY",
+          "title": "My First Gold in Almost Two Years! | Aussie Gold Prospecting",
+          "channelId": "UCwoDAcQoBnuiJpPRaLqwo3g",
+          "published": "2021-12-30T17:00:07+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwoDAcQoBnuiJpPRaLqwo3g"
+        },
+        {
+          "id": "fE-NVoZGwlU",
+          "title": "Making a Detecting Pick for Gold Prospecting ⛏️ Diggin' For Gold",
+          "channelId": "UCwoDAcQoBnuiJpPRaLqwo3g",
+          "published": "2020-03-16T05:58:56+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwoDAcQoBnuiJpPRaLqwo3g"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "flash-in-your-pan",
+      "name": "Flash In Your Pan / Ed Marvin",
+      "channelId": "UCgOl-Q_pf8UMrwysbLsuTFA",
+      "channelTitle": "Flash In Your Pan",
+      "channelUrl": "https://www.youtube.com/channel/UCgOl-Q_pf8UMrwysbLsuTFA",
+      "requestedUrl": "https://www.youtube.com/@FlashInYourPan",
+      "identitySource": "https://www.spreaker.com/episode/s7-e6-ed-marvin-flash-in-your-pan--58091735",
+      "identityNote": "Relics Radio interview of Ed Marvin explicitly provides @FlashInYourPan as his YouTube channel.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/@FlashInYourPan/videos",
+      "pageSha256": "aeeccd4307d33e764ff9212e378d3b58155bd3e9622f0b13a237ac3d7a1b269a",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCgOl-Q_pf8UMrwysbLsuTFA",
+      "feedSha256": "be0e86939d0c64f730ebeeefc2a73491e71224b0cc5d2909678e541212fe1c33",
+      "selectedVideos": [
+        {
+          "id": "jtKoi0Q06Fc",
+          "title": "GOLD BEFORE CALIFORNIA! The Rush That Built Dahlonega, GA",
+          "channelId": "UCgOl-Q_pf8UMrwysbLsuTFA",
+          "published": "2026-10-17T14:00:34+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCgOl-Q_pf8UMrwysbLsuTFA"
+        },
+        {
+          "id": "-mc8DuYnyZQ",
+          "title": "PIKE'S PEAK OR BUST! The Gold Rush That Built Colorado",
+          "channelId": "UCgOl-Q_pf8UMrwysbLsuTFA",
+          "published": "2026-09-29T14:30:39+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCgOl-Q_pf8UMrwysbLsuTFA"
+        },
+        {
+          "id": "41wpXAlYStU",
+          "title": "Gold in the Black Hills | The Birth of Deadwood | A Flash In Your Pan Story",
+          "channelId": "UCgOl-Q_pf8UMrwysbLsuTFA",
+          "published": "2026-09-22T15:13:18+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCgOl-Q_pf8UMrwysbLsuTFA"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "flash-in-your-pan",
+        "channelUrl": "https://www.youtube.com/@FlashInYourPan",
+        "identitySource": "https://www.spreaker.com/episode/s7-e6-ed-marvin-flash-in-your-pan--58091735",
+        "identityNote": "Relics Radio interview of Ed Marvin explicitly provides @FlashInYourPan as his YouTube channel."
+      }
+    },
+    {
+      "slug": "gerrys-detectors",
+      "name": "Gerry McMullen / Gerry’s Detectors team",
+      "channelId": "UCBifFJHDtSo7dqYa9fkGXxw",
+      "channelTitle": "Gerrys Detectors",
+      "channelUrl": "https://www.youtube.com/channel/UCBifFJHDtSo7dqYa9fkGXxw",
+      "requestedUrl": "https://www.youtube.com/user/GerrysDetectors",
+      "identitySource": "https://gerrysdetectors.com/about/meet-the-team/",
+      "identityNote": "Creator official website links directly to this YouTube channel.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/user/GerrysDetectors/videos",
+      "pageSha256": "05162e10d309a1b45d9580387e4e4136d2c4b9c2a85cec2cbda3ec0e1cc6c058",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBifFJHDtSo7dqYa9fkGXxw",
+      "feedSha256": "cde3c9f2633c8a8406da852d72bcc576c82903ad65a121dd357009baa8f2fb7e",
+      "selectedVideos": [
+        {
+          "id": "FkEtu9heK_w",
+          "title": "Garrett Axiom metal detector finds massive gold nugget!!",
+          "channelId": "UCBifFJHDtSo7dqYa9fkGXxw",
+          "published": "2022-07-26T15:35:16+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBifFJHDtSo7dqYa9fkGXxw"
+        },
+        {
+          "id": "MoIeqBYmDm4",
+          "title": "Huge GOLD Nugget found with Minelab GPX 6000",
+          "channelId": "UCBifFJHDtSo7dqYa9fkGXxw",
+          "published": "2021-10-11T15:00:12+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBifFJHDtSo7dqYa9fkGXxw"
+        },
+        {
+          "id": "45cS3869Yqc",
+          "title": "Detectorist finds Nugget worth a fortune!",
+          "channelId": "UCBifFJHDtSo7dqYa9fkGXxw",
+          "published": "2021-02-12T21:37:46+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBifFJHDtSo7dqYa9fkGXxw"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "gerrys-detectors",
+        "channelUrl": "https://www.youtube.com/user/GerrysDetectors",
+        "identitySource": "https://gerrysdetectors.com/about/meet-the-team/",
+        "identityNote": "Creator official website links directly to this YouTube channel."
+      }
+    },
+    {
+      "slug": "ghost-town-living",
+      "name": "Ghost Town Living / Brent Underwood",
+      "channelId": "UCEjBDKfrqQI4TgzT9YLNT8g",
+      "channelTitle": "Ghost Town Living",
+      "channelUrl": "https://www.youtube.com/channel/UCEjBDKfrqQI4TgzT9YLNT8g",
+      "requestedUrl": "https://www.youtube.com/@ghosttownliving",
+      "identitySource": "https://www.youtube.com/@ghosttownliving",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/@ghosttownliving/videos",
+      "pageSha256": "81c2aee21e232eee6ec9b693d8acd31971688f6387cec34623304673073740ac",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEjBDKfrqQI4TgzT9YLNT8g",
+      "feedSha256": "a66fa3128430d68f3f3a2c21b10e13cf1635d7795900946ef54f288b4e053320",
+      "selectedVideos": [
+        {
+          "id": "fDQ644HfRC4",
+          "title": "The coolest things I’ve found in my abandoned mine",
+          "channelId": "UCEjBDKfrqQI4TgzT9YLNT8g",
+          "published": "2026-10-15T20:12:58+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEjBDKfrqQI4TgzT9YLNT8g"
+        },
+        {
+          "id": "4YCYnQfarkM",
+          "title": "I Hiked 18 Hours to Find a Gold Mine With $2 Billion Still Inside",
+          "channelId": "UCEjBDKfrqQI4TgzT9YLNT8g",
+          "published": "2026-10-10T17:00:38+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEjBDKfrqQI4TgzT9YLNT8g"
+        },
+        {
+          "id": "oWW1Z7xKoiI",
+          "title": "I Thought My Mining Claim Had No Gold. I Was Wrong.",
+          "channelId": "UCEjBDKfrqQI4TgzT9YLNT8g",
+          "published": "2026-09-12T17:30:39+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCEjBDKfrqQI4TgzT9YLNT8g"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "glacial-gold-hunter",
+      "name": "Glacial Gold Hunter / Lucas Lundgren",
+      "channelId": "UCDRL0lGM90UsygJ85BZ16vg",
+      "channelTitle": "Glacial Gold Hunter",
+      "channelUrl": "https://www.youtube.com/channel/UCDRL0lGM90UsygJ85BZ16vg",
+      "requestedUrl": "https://www.youtube.com/channel/UCDRL0lGM90UsygJ85BZ16vg",
+      "identitySource": "https://www.glacialgoldhunter.com/",
+      "identityNote": "Official website and same-named YouTube channel both describe hunting glacial gold throughout the Midwest; Lucas Lundgren is independently identified in FOX9 profile.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCDRL0lGM90UsygJ85BZ16vg/videos",
+      "pageSha256": "988b52470738abaddcc6cbd744986e0b303036f6fff261c86d27dfdcabd7ce82",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDRL0lGM90UsygJ85BZ16vg",
+      "feedSha256": "02884ffb9498d9931bf5938cc03be446bc9836451b3b31909743f0480e7cd520",
+      "selectedVideos": [
+        {
+          "id": "Qg-O33cPhgE",
+          "title": "Smelting Gold Concentrates",
+          "channelId": "UCDRL0lGM90UsygJ85BZ16vg",
+          "published": "2026-10-17T13:50:31+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDRL0lGM90UsygJ85BZ16vg"
+        },
+        {
+          "id": "aIBIe4r6Ggw",
+          "title": "Rainy Nome Gold",
+          "channelId": "UCDRL0lGM90UsygJ85BZ16vg",
+          "published": "2026-10-10T12:00:19+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDRL0lGM90UsygJ85BZ16vg"
+        },
+        {
+          "id": "EBuGlYcHSVs",
+          "title": "GOLD Anywhere You Throw a Pan in Nome",
+          "channelId": "UCDRL0lGM90UsygJ85BZ16vg",
+          "published": "2026-10-03T12:00:37+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDRL0lGM90UsygJ85BZ16vg"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "glacial-gold-hunter",
+        "channelUrl": "https://www.youtube.com/channel/UCDRL0lGM90UsygJ85BZ16vg",
+        "identitySource": "https://www.glacialgoldhunter.com/",
+        "identityNote": "Official website and same-named YouTube channel both describe hunting glacial gold throughout the Midwest; Lucas Lundgren is independently identified in FOX9 profile.",
+        "corroboratingSource": "https://www.fox9.com/news/going-gold-geologist-finds-flecks-treasure-metro"
+      }
+    },
+    {
+      "slug": "gold-cube",
+      "name": "Gold Cube / Mike Pung and Red Wilcox",
+      "channelId": "UCE06q_NSjbTXSgI1ALJ3RkA",
+      "channelTitle": "Steve “RED” Wilcox",
+      "channelUrl": "https://www.youtube.com/channel/UCE06q_NSjbTXSgI1ALJ3RkA",
+      "requestedUrl": "https://www.youtube.com/@SteveWilcox",
+      "identitySource": "https://goldcube.net/gold-cube-university/",
+      "identityNote": "Official creator website embeds krXB44aNji4; YouTube oEmbed identifies uploader Steve “RED” Wilcox. Uploader identity checked against site branding.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/@SteveWilcox/videos",
+      "pageSha256": "4cf09cf9f9908f2286479fbf7ff8e38503457753000f59113d7745e75b85059e",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCE06q_NSjbTXSgI1ALJ3RkA",
+      "feedSha256": "6d8aabe95d67d41c3c16c6781691bee38167d8ac8b2c9a029c7294d8626c7c9d",
+      "selectedVideos": [
+        {
+          "id": "krXB44aNji4",
+          "title": "Gold Cube Introduction",
+          "channelId": "UCE06q_NSjbTXSgI1ALJ3RkA",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=krXB44aNji4&format=json"
+        },
+        {
+          "id": "GiYw5pAC8YU",
+          "title": "Gold Cube Stand Assembly",
+          "channelId": "UCE06q_NSjbTXSgI1ALJ3RkA",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=GiYw5pAC8YU&format=json"
+        },
+        {
+          "id": "pWSDW1oyAEY",
+          "title": "Kill The Bubbles",
+          "channelId": "UCE06q_NSjbTXSgI1ALJ3RkA",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=pWSDW1oyAEY&format=json"
+        },
+        {
+          "id": "qna5h3eZaZE",
+          "title": "Gold Cube Pump and Battery",
+          "channelId": "UCE06q_NSjbTXSgI1ALJ3RkA",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=qna5h3eZaZE&format=json"
+        },
+        {
+          "id": "Dz0SAxAACMc",
+          "title": "Gold Banker Introduction",
+          "channelId": "UCE06q_NSjbTXSgI1ALJ3RkA",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=Dz0SAxAACMc&format=json"
+        },
+        {
+          "id": "vTg6WJtI6Hs",
+          "title": "Gold Banker in Action",
+          "channelId": "UCE06q_NSjbTXSgI1ALJ3RkA",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=vTg6WJtI6Hs&format=json"
+        },
+        {
+          "id": "d70qsg39HPo",
+          "title": "Gold Cube Clean Up",
+          "channelId": "UCE06q_NSjbTXSgI1ALJ3RkA",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=d70qsg39HPo&format=json"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "gold-cube",
+        "channelUrl": "https://www.youtube.com/@SteveWilcox",
+        "identitySource": "https://goldcube.net/gold-cube-university/",
+        "identityNote": "Official creator website embeds krXB44aNji4; YouTube oEmbed identifies uploader Steve “RED” Wilcox. Uploader identity checked against site branding.",
+        "embeddedVideo": "krXB44aNji4",
+        "oembedSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=krXB44aNji4&format=json"
+      }
+    },
+    {
+      "slug": "gold-digger-nz",
+      "name": "Gold Digger NZ",
+      "channelId": "UC8YCvjtwVHsUtz8ZXIjDTpw",
+      "channelTitle": "Gold Digger NZ",
+      "channelUrl": "https://www.youtube.com/channel/UC8YCvjtwVHsUtz8ZXIjDTpw",
+      "requestedUrl": "https://www.youtube.com/channel/UC8YCvjtwVHsUtz8ZXIjDTpw",
+      "identitySource": "https://www.youtube.com/channel/UC8YCvjtwVHsUtz8ZXIjDTpw",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UC8YCvjtwVHsUtz8ZXIjDTpw/videos",
+      "pageSha256": "bf36361bb90146f985df96df152e8db47e63b2a9e16fc5c88c1e3cc2f2fa52f1",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC8YCvjtwVHsUtz8ZXIjDTpw",
+      "feedSha256": "458d4a8929552abd751238c61b00e0656c7b47b49635068151612a9b762839bf",
+      "selectedVideos": [
+        {
+          "id": "ZzE-zNwk2p8",
+          "title": "6\" High Banker Gold Dredge - Suction Testing",
+          "channelId": "UC8YCvjtwVHsUtz8ZXIjDTpw",
+          "published": "2026-10-12T06:28:03+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UC8YCvjtwVHsUtz8ZXIjDTpw"
+        },
+        {
+          "id": "oUQLNo3zWLQ",
+          "title": "Reday To Go Gold Hunting! 🤑 👍",
+          "channelId": "UC8YCvjtwVHsUtz8ZXIjDTpw",
+          "published": "2026-10-06T20:58:04+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UC8YCvjtwVHsUtz8ZXIjDTpw"
+        },
+        {
+          "id": "R-TDLwv2N6c",
+          "title": "How We Shift Huge River Rocks To Find Gold!",
+          "channelId": "UC8YCvjtwVHsUtz8ZXIjDTpw",
+          "published": "2026-10-06T05:00:12+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UC8YCvjtwVHsUtz8ZXIjDTpw"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "gold-fever-adventures",
+      "name": "Gold Fever Adventures",
+      "channelId": "UCtktm4um9Y-h_2Jevgdy1hw",
+      "channelTitle": "Gold Fever Adventures",
+      "channelUrl": "https://www.youtube.com/channel/UCtktm4um9Y-h_2Jevgdy1hw",
+      "requestedUrl": "https://www.youtube.com/channel/UCtktm4um9Y-h_2Jevgdy1hw",
+      "identitySource": "https://www.goldfeveradventures.com/",
+      "identityNote": "Official Gold Fever Adventures site advertises its YouTube broadcasts; YouTube channel identifies prospecting/treasure-hunting activities and Jack Tucker is confirmed by the named speaker profile.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCtktm4um9Y-h_2Jevgdy1hw/videos",
+      "pageSha256": "2f4d776eccc615690880fa975b3bed2d404a283ceded6384f8f602f3ad62ade1",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtktm4um9Y-h_2Jevgdy1hw",
+      "feedSha256": "0ba09d52c62f0373f6037402aa709d2a5cf063d5bab4c79f1f95bce8bee7f858",
+      "selectedVideos": [
+        {
+          "id": "3HtKIWqZRzA",
+          "title": "Tips How to Find Gold Deposits",
+          "channelId": "UCtktm4um9Y-h_2Jevgdy1hw",
+          "published": "2026-10-17T17:00:05+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtktm4um9Y-h_2Jevgdy1hw"
+        },
+        {
+          "id": "oMMDMqz2RXs",
+          "title": "Bedrock Busting Getting the Gold",
+          "channelId": "UCtktm4um9Y-h_2Jevgdy1hw",
+          "published": "2026-10-10T17:00:26+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtktm4um9Y-h_2Jevgdy1hw"
+        },
+        {
+          "id": "BDEtQ3zRlso",
+          "title": "How to Remove the Black Sand Separation",
+          "channelId": "UCtktm4um9Y-h_2Jevgdy1hw",
+          "published": "2026-10-03T17:00:04+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtktm4um9Y-h_2Jevgdy1hw"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "gold-fever-adventures",
+        "channelUrl": "https://www.youtube.com/channel/UCtktm4um9Y-h_2Jevgdy1hw",
+        "identitySource": "https://www.goldfeveradventures.com/",
+        "identityNote": "Official Gold Fever Adventures site advertises its YouTube broadcasts; YouTube channel identifies prospecting/treasure-hunting activities and Jack Tucker is confirmed by the named speaker profile.",
+        "corroboratingSource": "https://terrylcarter.net/schedule"
+      }
+    },
+    {
+      "slug": "gold-putz",
+      "name": "Gold Putz",
+      "channelId": "UCkczr9Q7SZpSE3R2BOXVhFw",
+      "channelTitle": "Gold Putz",
+      "channelUrl": "https://www.youtube.com/channel/UCkczr9Q7SZpSE3R2BOXVhFw",
+      "requestedUrl": "https://www.youtube.com/channel/UCkczr9Q7SZpSE3R2BOXVhFw",
+      "identitySource": "https://www.youtube.com/channel/UCkczr9Q7SZpSE3R2BOXVhFw",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCkczr9Q7SZpSE3R2BOXVhFw/videos",
+      "pageSha256": "ccab44c51d14fd1770399f3514430f4cf7ae28501446b37f3c0036597ee050ac",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkczr9Q7SZpSE3R2BOXVhFw",
+      "feedSha256": "c69cec6f7fe3c1c7d430844e954f7bdf8b32033a39b77b43f725bb42986440c8",
+      "selectedVideos": [
+        {
+          "id": "6QGRWMM2osw",
+          "title": "@GoldBaronPaydirt  1 Gram Paydirt - Nice!",
+          "channelId": "UCkczr9Q7SZpSE3R2BOXVhFw",
+          "published": "2026-10-14T04:33:29+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkczr9Q7SZpSE3R2BOXVhFw"
+        },
+        {
+          "id": "5aubEqz1cuQ",
+          "title": "NASTY PAYDIRT from a SKETCHY Whatnot Seller.  Should I have \"Trusted the Host\"?",
+          "channelId": "UCkczr9Q7SZpSE3R2BOXVhFw",
+          "published": "2026-10-13T15:17:03+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkczr9Q7SZpSE3R2BOXVhFw"
+        },
+        {
+          "id": "MGrSIfIGZhg",
+          "title": "Gold Mining in the Shadows of Monsters - Swan River, Summit County, Colorado",
+          "channelId": "UCkczr9Q7SZpSE3R2BOXVhFw",
+          "published": "2026-10-13T03:47:37+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkczr9Q7SZpSE3R2BOXVhFw"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "goldbay",
+      "name": "Goldbay / Dave Varabioff",
+      "channelId": "UCjkwhxFwjA2wuVJqOKco0eg",
+      "channelTitle": "Goldbay",
+      "channelUrl": "https://www.youtube.com/channel/UCjkwhxFwjA2wuVJqOKco0eg",
+      "requestedUrl": "https://www.youtube.com/@Goldbay",
+      "identitySource": "https://goldbay.com/",
+      "identityNote": "Creator official website links directly to this YouTube channel.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/@Goldbay/videos",
+      "pageSha256": "ca4b42bd8e1f36ebe0b808c7c702d228dc2a156c1c57a1c34b12f7cd85dd6ffc",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjkwhxFwjA2wuVJqOKco0eg",
+      "feedSha256": "31995a4826aa55967936e490f884d9d727cd67436b1330cb645373da8b2e196b",
+      "selectedVideos": [
+        {
+          "id": "pGwShKggk9U",
+          "title": "I Tore Into a Mine Wall for Gold I Couldn't Even See! | Colorado Quartz Mine | LOST FOOTAGE",
+          "channelId": "UCjkwhxFwjA2wuVJqOKco0eg",
+          "published": "2026-10-17T14:00:07+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjkwhxFwjA2wuVJqOKco0eg"
+        },
+        {
+          "id": "-VVh0y9CNSI",
+          "title": "Cleaning Up Gold in the Kitchen Sink! #gold #goldmining #goldcollector",
+          "channelId": "UCjkwhxFwjA2wuVJqOKco0eg",
+          "published": "2026-10-16T15:00:05+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjkwhxFwjA2wuVJqOKco0eg"
+        },
+        {
+          "id": "lmAUCMtcPZ4",
+          "title": "Crystalized Gold So Bright it Looks Fake! (But it's REAL!) #goldmining #goldcollector #gold",
+          "channelId": "UCjkwhxFwjA2wuVJqOKco0eg",
+          "published": "2026-10-15T16:00:38+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCjkwhxFwjA2wuVJqOKco0eg"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "goldbay",
+        "channelUrl": "https://www.youtube.com/@Goldbay",
+        "identitySource": "https://goldbay.com/",
+        "identityNote": "Creator official website links directly to this YouTube channel."
+      }
+    },
+    {
+      "slug": "golden-submarine",
+      "name": "Golden Submarine",
+      "channelId": "UCSFQZPwMgWY5gk1M6u1mQ3g",
+      "channelTitle": "Golden submarine fr",
+      "channelUrl": "https://www.youtube.com/channel/UCSFQZPwMgWY5gk1M6u1mQ3g",
+      "requestedUrl": "https://www.youtube.com/channel/UCSFQZPwMgWY5gk1M6u1mQ3g",
+      "identitySource": "https://www.goldsnoop.com/2019/09/23/videos-le-prospecteur-golden-submarine/",
+      "identityNote": "GoldSnoop article explicitly identifies Golden Submarine and links to this channel; distinct from the GoldSnoop publisher channel.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCSFQZPwMgWY5gk1M6u1mQ3g/videos",
+      "pageSha256": "fdc3dc466beca7c3fd1a119c782cc977330946938c7eda23c9f0f0f446073493",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSFQZPwMgWY5gk1M6u1mQ3g",
+      "feedSha256": "b5287c61d884f597e5dd96eb99e79516958bc2fade2fff83e3c534725feee5bb",
+      "selectedVideos": [
+        {
+          "id": "mndPU7lnC70",
+          "title": "Ce son vaut de l’or 💰👂 #Satisfaisant #asmr #orpaillage #gold",
+          "channelId": "UCSFQZPwMgWY5gk1M6u1mQ3g",
+          "published": "2025-10-19T20:18:40+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSFQZPwMgWY5gk1M6u1mQ3g"
+        },
+        {
+          "id": "hO5zhb6tSS4",
+          "title": "Mini Sluice Dream Mat 100% validé!Test ultra rapide compact, puissant,il récupère tout #lefouilleur",
+          "channelId": "UCSFQZPwMgWY5gk1M6u1mQ3g",
+          "published": "2025-09-10T18:22:53+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSFQZPwMgWY5gk1M6u1mQ3g"
+        },
+        {
+          "id": "po-Aea-3PCY",
+          "title": "#orpaillage sortie avec Jan the prospector de belles et nombreuses paillettes d’or",
+          "channelId": "UCSFQZPwMgWY5gk1M6u1mQ3g",
+          "published": "2021-09-05T11:25:41+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCSFQZPwMgWY5gk1M6u1mQ3g"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "golden-submarine",
+        "channelUrl": "https://www.youtube.com/channel/UCSFQZPwMgWY5gk1M6u1mQ3g",
+        "identitySource": "https://www.goldsnoop.com/2019/09/23/videos-le-prospecteur-golden-submarine/",
+        "identityNote": "GoldSnoop article explicitly identifies Golden Submarine and links to this channel; distinct from the GoldSnoop publisher channel."
+      }
+    },
+    {
+      "slug": "golden-triangle-prospecting",
+      "name": "Golden Triangle Prospecting",
+      "channelId": "UCbQ0RBA7QiCBJWeCfvmwkiw",
+      "channelTitle": "Golden Triangle Prospecting",
+      "channelUrl": "https://www.youtube.com/channel/UCbQ0RBA7QiCBJWeCfvmwkiw",
+      "requestedUrl": "https://www.youtube.com/channel/UCbQ0RBA7QiCBJWeCfvmwkiw",
+      "identitySource": "https://www.youtube.com/channel/UCbQ0RBA7QiCBJWeCfvmwkiw",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCbQ0RBA7QiCBJWeCfvmwkiw/videos",
+      "pageSha256": "031c349eec8059fda5272ec4f8b581a0a597e33593fd1703d566d24bb463252c",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbQ0RBA7QiCBJWeCfvmwkiw",
+      "feedSha256": "a998111692e2ad1417198478a4798581e0169c0eb89bca1d307425fca9e863ad",
+      "selectedVideos": [
+        {
+          "id": "uF-jl77ij14",
+          "title": "Gold Cradle in action getting the gold.",
+          "channelId": "UCbQ0RBA7QiCBJWeCfvmwkiw",
+          "published": "2017-07-01T07:41:26+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbQ0RBA7QiCBJWeCfvmwkiw"
+        },
+        {
+          "id": "wB6W-3NJN-E",
+          "title": "Gold Cradle / Rocker box testing part 2",
+          "channelId": "UCbQ0RBA7QiCBJWeCfvmwkiw",
+          "published": "2017-06-25T11:17:17+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbQ0RBA7QiCBJWeCfvmwkiw"
+        },
+        {
+          "id": "z_QExEKtD6Y",
+          "title": "Gold Cradle test part 1 - Slatey Creek",
+          "channelId": "UCbQ0RBA7QiCBJWeCfvmwkiw",
+          "published": "2017-06-25T10:47:33+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbQ0RBA7QiCBJWeCfvmwkiw"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "goldsnoop",
+      "name": "GoldSnoop / Vivien Laïlle",
+      "channelId": "UCME5hv02c0A-CeGRSqw03Bg",
+      "channelTitle": "Vivien Laïlle (Goldsnoop.com)",
+      "channelUrl": "https://www.youtube.com/channel/UCME5hv02c0A-CeGRSqw03Bg",
+      "requestedUrl": "https://www.youtube.com/channel/UCME5hv02c0A-CeGRSqw03Bg",
+      "identitySource": "https://www.goldsnoop.com/category/ressources/livres/",
+      "identityNote": "Creator official website links directly to this YouTube channel.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCME5hv02c0A-CeGRSqw03Bg/videos",
+      "pageSha256": "a738322dd8d5bdbd161a1b50c5cc351b09943ae58f9448c0655eba8ac4d84039",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCME5hv02c0A-CeGRSqw03Bg",
+      "feedSha256": "97d51859b74ea6c1211f4738e741123e782abac6ed3f37c41b9b0944fd7bcb4b",
+      "selectedVideos": [
+        {
+          "id": "DhpBTM7Yyko",
+          "title": "Béatrice CAUUET : L'exploitation de l'or dans l'Europe Antique (Hispania, Gallia, Dacia) Conférence",
+          "channelId": "UCME5hv02c0A-CeGRSqw03Bg",
+          "published": "2025-09-06T08:21:34+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCME5hv02c0A-CeGRSqw03Bg"
+        },
+        {
+          "id": "jYDNNr0Zq2A",
+          "title": "DIY - Concasseur crusher grinder broyeur de roche aurifère avec meuleuse BOSCH. Puissant, efficace !",
+          "channelId": "UCME5hv02c0A-CeGRSqw03Bg",
+          "published": "2025-06-26T15:38:55+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCME5hv02c0A-CeGRSqw03Bg"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "goldsnoop",
+        "channelUrl": "https://www.youtube.com/channel/UCME5hv02c0A-CeGRSqw03Bg",
+        "identitySource": "https://www.goldsnoop.com/category/ressources/livres/",
+        "identityNote": "Creator official website links directly to this YouTube channel."
+      }
+    },
+    {
+      "slug": "have-a-go-prospecting",
+      "name": "Have A Go Prospecting",
+      "channelId": "UCnowIRawt2ovnR8NCSs017Q",
+      "channelTitle": "Have A Go Prospecting",
+      "channelUrl": "https://www.youtube.com/channel/UCnowIRawt2ovnR8NCSs017Q",
+      "requestedUrl": "https://www.youtube.com/channel/UCnowIRawt2ovnR8NCSs017Q",
+      "identitySource": "https://www.haveagoprospecting.com.au/",
+      "identityNote": "Official website names Andrew and links Follow @HaveAGoProspecting; YouTube channel describes Andrew and South Coast NSW prospecting.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCnowIRawt2ovnR8NCSs017Q/videos",
+      "pageSha256": "45629af8fe583e11629ab3163f74a4b99c2ea4a7df651207d7f265ce36e64138",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnowIRawt2ovnR8NCSs017Q",
+      "feedSha256": "adf3e8d5fbe092fe956749e6d8bfbd610e263d97729c0185dab0f587b9c0c984",
+      "selectedVideos": [
+        {
+          "id": "zNh1tKyOrNQ",
+          "title": "This hotrock was screaming on the detector!",
+          "channelId": "UCnowIRawt2ovnR8NCSs017Q",
+          "published": "2026-10-16T10:31:37+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnowIRawt2ovnR8NCSs017Q"
+        },
+        {
+          "id": "AM-mmSlEs1w",
+          "title": "Prospecting around the old Mines | Bimbimbie NSW",
+          "channelId": "UCnowIRawt2ovnR8NCSs017Q",
+          "published": "2026-10-14T07:03:05+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnowIRawt2ovnR8NCSs017Q"
+        },
+        {
+          "id": "PB81RMgaxRE",
+          "title": "Digging For Alluvial Gold + Detecting the ol tracks | Have A Go Prospecting!",
+          "channelId": "UCnowIRawt2ovnR8NCSs017Q",
+          "published": "2026-10-10T06:29:53+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCnowIRawt2ovnR8NCSs017Q"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "have-a-go-prospecting",
+        "channelUrl": "https://www.youtube.com/channel/UCnowIRawt2ovnR8NCSs017Q",
+        "identitySource": "https://www.haveagoprospecting.com.au/",
+        "identityNote": "Official website names Andrew and links Follow @HaveAGoProspecting; YouTube channel describes Andrew and South Coast NSW prospecting."
+      }
+    },
+    {
+      "slug": "i-brake-for-bedrock",
+      "name": "I Brake For Bedrock",
+      "channelId": "UCObciZukJa3K5IOIF2_4ZdA",
+      "channelTitle": "I BRAKE FOR BEDROCK",
+      "channelUrl": "https://www.youtube.com/channel/UCObciZukJa3K5IOIF2_4ZdA",
+      "requestedUrl": "https://www.youtube.com/channel/UCObciZukJa3K5IOIF2_4ZdA",
+      "identitySource": "https://www.youtube.com/channel/UCObciZukJa3K5IOIF2_4ZdA",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCObciZukJa3K5IOIF2_4ZdA/videos",
+      "pageSha256": "7b4d7a840b7451aef900218e0215dcad1856482e5aa00d09b8145743b33fc8d6",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCObciZukJa3K5IOIF2_4ZdA",
+      "feedSha256": "3716ff45936f901ab5dd448f1aa1eb4f8471e99ad7acf6df87b1ef1e665db0af",
+      "selectedVideos": [
+        {
+          "id": "kT16EphMLDs",
+          "title": "The Road Ended, But I Kept Going To Find A Few Gold Nuggets and Big Rattlesnake on the Way Back !",
+          "channelId": "UCObciZukJa3K5IOIF2_4ZdA",
+          "published": "2026-09-27T22:49:12+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCObciZukJa3K5IOIF2_4ZdA"
+        },
+        {
+          "id": "KHMepmP9uKA",
+          "title": "Epic Day Metal Detecting ! Gold Nugget & Arrowhead Found #metaldetecting #treasure #artifacts",
+          "channelId": "UCObciZukJa3K5IOIF2_4ZdA",
+          "published": "2026-08-22T00:50:51+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCObciZukJa3K5IOIF2_4ZdA"
+        },
+        {
+          "id": "bmv7wUzGyU8",
+          "title": "New Patch Gold Nuggets & Sunbakers #metaldetecting #gold #prospecting #gpx6000",
+          "channelId": "UCObciZukJa3K5IOIF2_4ZdA",
+          "published": "2026-08-21T14:09:59+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCObciZukJa3K5IOIF2_4ZdA"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "inside-bend-prospecting",
+      "name": "Inside Bend Prospecting",
+      "channelId": "UCqjXYAXEiCDbv_1SC-aUj8g",
+      "channelTitle": "Inside Bend Prospecting",
+      "channelUrl": "https://www.youtube.com/channel/UCqjXYAXEiCDbv_1SC-aUj8g",
+      "requestedUrl": "https://www.youtube.com/channel/UCqjXYAXEiCDbv_1SC-aUj8g",
+      "identitySource": "https://www.youtube.com/channel/UCqjXYAXEiCDbv_1SC-aUj8g",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCqjXYAXEiCDbv_1SC-aUj8g/videos",
+      "pageSha256": "7727e956074843208642b90c447513ca02e56348e399916b511c7a30c061a70a",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqjXYAXEiCDbv_1SC-aUj8g",
+      "feedSha256": "2ac07197a55895498cab9f12167294e7d8ea8c1f0d3e0a4387a239fc06958c7d",
+      "selectedVideos": [
+        {
+          "id": "Uys00qzVFo0",
+          "title": "Sluicing and Panning for Oregon GOLD",
+          "channelId": "UCqjXYAXEiCDbv_1SC-aUj8g",
+          "published": "2026-08-01T00:00:38+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqjXYAXEiCDbv_1SC-aUj8g"
+        },
+        {
+          "id": "GfdEzQL-HHo",
+          "title": "Mysterious Ancient Valley of GOLD",
+          "channelId": "UCqjXYAXEiCDbv_1SC-aUj8g",
+          "published": "2026-03-15T14:00:32+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqjXYAXEiCDbv_1SC-aUj8g"
+        },
+        {
+          "id": "u3nQJLM7h3w",
+          "title": "$50 gold nugget out of nowhere!",
+          "channelId": "UCqjXYAXEiCDbv_1SC-aUj8g",
+          "published": "2026-02-08T02:08:55+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqjXYAXEiCDbv_1SC-aUj8g"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "jacobs-brand-gold-prospecting",
+      "name": "Jacobs Brand Gold Prospecting",
+      "channelId": "UCZPvimVAmuZpuc7QyX-q19Q",
+      "channelTitle": "Jacobs Brand Gold Prospecting",
+      "channelUrl": "https://www.youtube.com/channel/UCZPvimVAmuZpuc7QyX-q19Q",
+      "requestedUrl": "https://www.youtube.com/channel/UCZPvimVAmuZpuc7QyX-q19Q",
+      "identitySource": "https://www.youtube.com/channel/UCZPvimVAmuZpuc7QyX-q19Q",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCZPvimVAmuZpuc7QyX-q19Q/videos",
+      "pageSha256": "b2c182b223ec2e47264c38f51dcc88c0c14947e959e2a01c61eaf2342aac9ddf",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZPvimVAmuZpuc7QyX-q19Q",
+      "feedSha256": "9cf0879bbddd2d2cc9f33290344da4780e432a026fd5f5cff6faf273be3d4ae8",
+      "selectedVideos": [
+        {
+          "id": "8xD1vQ1Mtq0",
+          "title": "When accidents happen and you get the BEST GOLD cleanout so far!",
+          "channelId": "UCZPvimVAmuZpuc7QyX-q19Q",
+          "published": "2026-08-08T01:00:39+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZPvimVAmuZpuc7QyX-q19Q"
+        },
+        {
+          "id": "gqoraqAtJMU",
+          "title": "Feature Friday, where you dont eant to find your gold...in the bottom riffle!",
+          "channelId": "UCZPvimVAmuZpuc7QyX-q19Q",
+          "published": "2026-07-10T13:00:25+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZPvimVAmuZpuc7QyX-q19Q"
+        },
+        {
+          "id": "nAWd-b8iqtw",
+          "title": "Flood gold   a thousand pieces! #throwback #tbt #throwbackthursday",
+          "channelId": "UCZPvimVAmuZpuc7QyX-q19Q",
+          "published": "2026-05-14T13:01:21+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZPvimVAmuZpuc7QyX-q19Q"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "jprad-prospecting",
+      "name": "J’Prad Prospecting",
+      "channelId": "UCKV_mRNGdHy6vscgAwSFKXQ",
+      "channelTitle": "J’Prad Prospecting",
+      "channelUrl": "https://www.youtube.com/channel/UCKV_mRNGdHy6vscgAwSFKXQ",
+      "requestedUrl": "https://www.youtube.com/channel/UCKV_mRNGdHy6vscgAwSFKXQ",
+      "identitySource": "https://www.youtube.com/channel/UCKV_mRNGdHy6vscgAwSFKXQ",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCKV_mRNGdHy6vscgAwSFKXQ/videos",
+      "pageSha256": "b02ac9401d607fbbbda2cd7f4195f6b9d4d888b2c62b817a1ca4a8f997a669bb",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKV_mRNGdHy6vscgAwSFKXQ",
+      "feedSha256": "65fe50127113b082625d6bd7330d430adf853d61abf3dfda352580701e3ea673",
+      "selectedVideos": [
+        {
+          "id": "a-i33hHb5sQ",
+          "title": "Tom’s Gold Dirt Part 1",
+          "channelId": "UCKV_mRNGdHy6vscgAwSFKXQ",
+          "published": "2019-11-09T20:11:29+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKV_mRNGdHy6vscgAwSFKXQ"
+        },
+        {
+          "id": "FFqHcpp3NC4",
+          "title": "Tom’s Gold Dirt Part 2",
+          "channelId": "UCKV_mRNGdHy6vscgAwSFKXQ",
+          "published": "2019-11-09T21:08:18+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKV_mRNGdHy6vscgAwSFKXQ"
+        },
+        {
+          "id": "KuSLlW-QQ8k",
+          "title": "Tom’s Gold Dirt Part 3",
+          "channelId": "UCKV_mRNGdHy6vscgAwSFKXQ",
+          "published": "2019-11-09T21:28:03+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKV_mRNGdHy6vscgAwSFKXQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "krazynutz",
+      "name": "KRAZYNUTZ / HOOTERHILLS",
+      "channelId": "UCXTCr7HOLcOopYPj0SdHrfw",
+      "channelTitle": "KRAZYNUTZ",
+      "channelUrl": "https://www.youtube.com/channel/UCXTCr7HOLcOopYPj0SdHrfw",
+      "requestedUrl": "https://www.youtube.com/@KRAZYNUTZ",
+      "identitySource": "https://hooterhills.com/",
+      "identityNote": "Creator official website links directly to this YouTube channel.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/@KRAZYNUTZ/videos",
+      "pageSha256": "b610cfc5f31e124150ff06cd599fc9fa313f543858b8f3887349f2c30d93b269",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXTCr7HOLcOopYPj0SdHrfw",
+      "feedSha256": "278d21b8b1762adab1787f7d2df1a933fd8daf2214ef35c48fa8429096af7832",
+      "selectedVideos": [
+        {
+          "id": "ZMQhWU4KXGY",
+          "title": "Gatesville Gold Nugget Shootout 🎯| GPAA Chili Cook-Off! 🏆",
+          "channelId": "UCXTCr7HOLcOopYPj0SdHrfw",
+          "published": "2026-10-11T12:50:15+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXTCr7HOLcOopYPj0SdHrfw"
+        },
+        {
+          "id": "BjSMeDRKj_k",
+          "title": "Slaying Gold Nugget Pickers in Deadman's Hollow!",
+          "channelId": "UCXTCr7HOLcOopYPj0SdHrfw",
+          "published": "2026-10-02T21:00:08+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXTCr7HOLcOopYPj0SdHrfw"
+        },
+        {
+          "id": "VOJq2rs1Rxw",
+          "title": "Evelina's Deadman's Hollow Gold Discovery! Episode 2 👀",
+          "channelId": "UCXTCr7HOLcOopYPj0SdHrfw",
+          "published": "2026-09-27T17:11:00+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCXTCr7HOLcOopYPj0SdHrfw"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "krazynutz",
+        "channelUrl": "https://www.youtube.com/@KRAZYNUTZ",
+        "identitySource": "https://hooterhills.com/",
+        "identityNote": "Creator official website links directly to this YouTube channel."
+      }
+    },
+    {
+      "slug": "lxr-postal-prospecting",
+      "name": "LXR Postal Prospecting",
+      "channelId": "UChzoD9al2jmtrHFM2mJ9h0w",
+      "channelTitle": "L X R Postal Prospecting",
+      "channelUrl": "https://www.youtube.com/channel/UChzoD9al2jmtrHFM2mJ9h0w",
+      "requestedUrl": "https://www.youtube.com/@LXRPostalProspecting",
+      "identitySource": "https://www.lxrprospecting.com/youtube",
+      "identityNote": "Official creator website embeds ZnYyVlk7kzI; YouTube oEmbed identifies uploader L X R Postal Prospecting. Uploader identity checked against site branding.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/@LXRPostalProspecting/videos",
+      "pageSha256": "fa71a420950494435d37e4f5cbfae2aedd854aaea34fe3cb6c8aaef5f24faa3e",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UChzoD9al2jmtrHFM2mJ9h0w",
+      "feedSha256": "3fd3390c8e0d483ebe278573424f3cd0a4d2183af3e15cee0e6957c45bb406bb",
+      "selectedVideos": [
+        {
+          "id": "4iadnCupnvw",
+          "title": "Panning GNS 11 gram bag with my pops",
+          "channelId": "UChzoD9al2jmtrHFM2mJ9h0w",
+          "published": "2025-09-08T15:30:04+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UChzoD9al2jmtrHFM2mJ9h0w"
+        },
+        {
+          "id": "eo19nmwE_QY",
+          "title": "Postal Prospecting: Wild Bill's High ROI Paydirt from eBay",
+          "channelId": "UChzoD9al2jmtrHFM2mJ9h0w",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=eo19nmwE_QY&format=json"
+        },
+        {
+          "id": "rjLNkoZLflc",
+          "title": "Postal Prospecting: Gold Nugget Sales 105% ROI Paydirt Bag",
+          "channelId": "UChzoD9al2jmtrHFM2mJ9h0w",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=rjLNkoZLflc&format=json"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "lxr-postal-prospecting",
+        "channelUrl": "https://www.youtube.com/@LXRPostalProspecting",
+        "identitySource": "https://www.lxrprospecting.com/youtube",
+        "identityNote": "Official creator website embeds ZnYyVlk7kzI; YouTube oEmbed identifies uploader L X R Postal Prospecting. Uploader identity checked against site branding.",
+        "embeddedVideo": "ZnYyVlk7kzI",
+        "oembedSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=ZnYyVlk7kzI&format=json"
+      }
+    },
+    {
+      "slug": "mad-scientist-prospecting",
+      "name": "Mad Scientist Prospecting",
+      "channelId": "UCDyHfPuM0HLmwLodJkQx0xQ",
+      "channelTitle": "Mad Scientist Prospecting",
+      "channelUrl": "https://www.youtube.com/channel/UCDyHfPuM0HLmwLodJkQx0xQ",
+      "requestedUrl": "https://www.youtube.com/channel/UCDyHfPuM0HLmwLodJkQx0xQ",
+      "identitySource": "https://www.youtube.com/channel/UCDyHfPuM0HLmwLodJkQx0xQ",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCDyHfPuM0HLmwLodJkQx0xQ/videos",
+      "pageSha256": "c1923ab78993163606d38d932614d9fff237d6c3d955108c370bfda217e5371f",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDyHfPuM0HLmwLodJkQx0xQ",
+      "feedSha256": "704ba8841ce89f30b53db823282c9b056ce909b85e3e2f98c5653c2b53cf93b5",
+      "selectedVideos": [
+        {
+          "id": "Af5c6T0EXf0",
+          "title": "More Gold From Loose Gravel",
+          "channelId": "UCDyHfPuM0HLmwLodJkQx0xQ",
+          "published": "2022-03-13T22:09:14+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDyHfPuM0HLmwLodJkQx0xQ"
+        },
+        {
+          "id": "1A944_IbA40",
+          "title": "Prospecting With Morag",
+          "channelId": "UCDyHfPuM0HLmwLodJkQx0xQ",
+          "published": "2021-09-08T10:00:15+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDyHfPuM0HLmwLodJkQx0xQ"
+        },
+        {
+          "id": "ayXRl4ktkok",
+          "title": "Prospecting with a Wok",
+          "channelId": "UCDyHfPuM0HLmwLodJkQx0xQ",
+          "published": "2021-08-31T10:00:01+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCDyHfPuM0HLmwLodJkQx0xQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "mbmmllc",
+      "name": "MBMMLLC / Jason Gaber",
+      "channelId": "UCJJb04Ff2H2o6CPMUbvEJrA",
+      "channelTitle": "mbmmllc",
+      "channelUrl": "https://www.youtube.com/channel/UCJJb04Ff2H2o6CPMUbvEJrA",
+      "requestedUrl": "https://www.youtube.com/channel/UCJJb04Ff2H2o6CPMUbvEJrA",
+      "identitySource": "https://mbmmllc.myshopify.com/pages/about",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCJJb04Ff2H2o6CPMUbvEJrA/videos",
+      "pageSha256": "af024f18750f55735d2a31b6d5a1a5cbfad41e5093478c007c4726355c4f3075",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJJb04Ff2H2o6CPMUbvEJrA",
+      "feedSha256": "4aa2487a07f67e7e60acd2a8d2c59e89e8b16ebbd6afe228b263e556186ed596",
+      "selectedVideos": [
+        {
+          "id": "mKwxH-FjVTM",
+          "title": "Can We Solve the 20-Year Mystery That Will Change This Abandoned Gold Mine FOREVER?? Season 4 Part 1",
+          "channelId": "UCJJb04Ff2H2o6CPMUbvEJrA",
+          "published": "2026-10-17T16:00:14+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJJb04Ff2H2o6CPMUbvEJrA"
+        },
+        {
+          "id": "j-3qWnTkvro",
+          "title": "The BIGGEST Smelt I've Ever Done - MASSIVE Gold Recovery!! Golden Griffin Season 2, Part 12",
+          "channelId": "UCJJb04Ff2H2o6CPMUbvEJrA",
+          "published": "2026-10-10T16:00:01+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJJb04Ff2H2o6CPMUbvEJrA"
+        },
+        {
+          "id": "mHlkPIbTNWg",
+          "title": "From Raw Ore to Refined Gold: Bulk Sampling My Gold Mine!!",
+          "channelId": "UCJJb04Ff2H2o6CPMUbvEJrA",
+          "published": "2026-10-07T16:00:36+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJJb04Ff2H2o6CPMUbvEJrA"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "northeast-prospecting",
+      "name": "Northeast Prospecting",
+      "channelId": "UCBy9deWNcZf4PRuE_bHDD8A",
+      "channelTitle": "Northeast Prospecting",
+      "channelUrl": "https://www.youtube.com/channel/UCBy9deWNcZf4PRuE_bHDD8A",
+      "requestedUrl": "https://www.youtube.com/channel/UCBy9deWNcZf4PRuE_bHDD8A",
+      "identitySource": "https://www.youtube.com/channel/UCBy9deWNcZf4PRuE_bHDD8A",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCBy9deWNcZf4PRuE_bHDD8A/videos",
+      "pageSha256": "fd8789e39d68fd21548f58053f9b5ab17d87464718a1ab718bc4d2fd22bf1c6d",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBy9deWNcZf4PRuE_bHDD8A",
+      "feedSha256": "65c855a443f7fcc2871807dde8bd34396510788ce866a5de31089739796e79b3",
+      "selectedVideos": [
+        {
+          "id": "sCxNdysrqEA",
+          "title": "Gold prospecting with The Rookie Miner #goldmining",
+          "channelId": "UCBy9deWNcZf4PRuE_bHDD8A",
+          "published": "2024-09-25T22:30:08+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBy9deWNcZf4PRuE_bHDD8A"
+        },
+        {
+          "id": "tOh49ThY2LQ",
+          "title": "Winter Gold Prospecting with The Rookie Miner",
+          "channelId": "UCBy9deWNcZf4PRuE_bHDD8A",
+          "published": "2024-09-16T22:30:06+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBy9deWNcZf4PRuE_bHDD8A"
+        },
+        {
+          "id": "KUqLgJnzihk",
+          "title": "CHUNKY GOLD at Reedy Creek!",
+          "channelId": "UCBy9deWNcZf4PRuE_bHDD8A",
+          "published": "2024-09-15T09:00:25+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCBy9deWNcZf4PRuE_bHDD8A"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "northern-pickers",
+      "name": "Northern Pickers",
+      "channelId": "UCw2xS_huzcJVhx38PNvl_Cg",
+      "channelTitle": "northern pickers",
+      "channelUrl": "https://www.youtube.com/channel/UCw2xS_huzcJVhx38PNvl_Cg",
+      "requestedUrl": "https://www.youtube.com/channel/UCw2xS_huzcJVhx38PNvl_Cg",
+      "identitySource": "https://www.youtube.com/channel/UCw2xS_huzcJVhx38PNvl_Cg",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCw2xS_huzcJVhx38PNvl_Cg/videos",
+      "pageSha256": "9d275d8453074f6416cd8669374991a71db630b62d8285bace3f91fc1056a6b8",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCw2xS_huzcJVhx38PNvl_Cg",
+      "feedSha256": "181b49c5bd4c860d93bae2243ef09a370f5528787821348200d389e8aad23c66",
+      "selectedVideos": [
+        {
+          "id": "cK4UWMDqTJY",
+          "title": "23.5 Ct  Gold ! 10g plus in the pan 🤠🥰👍",
+          "channelId": "UCw2xS_huzcJVhx38PNvl_Cg",
+          "published": "2026-05-26T16:05:38+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCw2xS_huzcJVhx38PNvl_Cg"
+        },
+        {
+          "id": "YmNEpgWDUzw",
+          "title": "Spring Time Nuggets! 🥰",
+          "channelId": "UCw2xS_huzcJVhx38PNvl_Cg",
+          "published": "2026-04-17T20:00:23+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCw2xS_huzcJVhx38PNvl_Cg"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "nugget-noggin",
+      "name": "Nugget Noggin",
+      "channelId": "UCm_Fbx0tAqAOB3cA4d1GnXw",
+      "channelTitle": "nuggetnoggin",
+      "channelUrl": "https://www.youtube.com/channel/UCm_Fbx0tAqAOB3cA4d1GnXw",
+      "requestedUrl": "https://www.youtube.com/user/nuggetnoggin",
+      "identitySource": "https://www.nuggetnoggin.com/about",
+      "identityNote": "Creator official website links directly to this YouTube channel.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/user/nuggetnoggin/videos",
+      "pageSha256": "f6ed2f103571726b31bfac201e872f71ea6c94b9291ca637dcdf31da03166435",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCm_Fbx0tAqAOB3cA4d1GnXw",
+      "feedSha256": "bee94d049d46bb5641c32ee5876a89ef57ef2c08187408d905019e3755ef0146",
+      "selectedVideos": [
+        {
+          "id": "L5MxrEmoCLk",
+          "title": "They Lost So Many Valuables in this River! Found Gold Ring & iPhones (Metal Detecting)",
+          "channelId": "UCm_Fbx0tAqAOB3cA4d1GnXw",
+          "published": "2026-09-15T23:39:37+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCm_Fbx0tAqAOB3cA4d1GnXw"
+        },
+        {
+          "id": "h9ApVi89O8I",
+          "title": "Bedrock Full of Gold Rings and Valuables Found in the River (Metal Detecting River)",
+          "channelId": "UCm_Fbx0tAqAOB3cA4d1GnXw",
+          "published": "2026-07-25T22:37:04+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCm_Fbx0tAqAOB3cA4d1GnXw"
+        },
+        {
+          "id": "QVVzPmVuQwI",
+          "title": "Bedrock Full of Gold Rings and Jewelry Found in the River (Metal Detecting 2026)",
+          "channelId": "UCm_Fbx0tAqAOB3cA4d1GnXw",
+          "published": "2026-07-04T22:37:17+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCm_Fbx0tAqAOB3cA4d1GnXw"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "nugget-noggin",
+        "channelUrl": "https://www.youtube.com/user/nuggetnoggin",
+        "identitySource": "https://www.nuggetnoggin.com/about",
+        "identityNote": "Creator official website links directly to this YouTube channel."
+      }
+    },
+    {
+      "slug": "nugget-shooterette-expeditions",
+      "name": "Nugget Shooterette Expeditions",
+      "channelId": "UCy2Y4cgtNuFlK98SuBYrpPg",
+      "channelTitle": "Nugget Shooterette Expeditions",
+      "channelUrl": "https://www.youtube.com/channel/UCy2Y4cgtNuFlK98SuBYrpPg",
+      "requestedUrl": "https://www.youtube.com/channel/UCy2Y4cgtNuFlK98SuBYrpPg",
+      "identitySource": "https://www.youtube.com/channel/UCy2Y4cgtNuFlK98SuBYrpPg",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCy2Y4cgtNuFlK98SuBYrpPg/videos",
+      "pageSha256": "dccfdc58ee667fa1294b1e715707552f76c3bc335f5dfe09a968ad158dcd21a1",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCy2Y4cgtNuFlK98SuBYrpPg",
+      "feedSha256": "f5d31ec1d2fa5586980df0a04a787a981540ddf253e50c226934e001f7e98399",
+      "selectedVideos": [
+        {
+          "id": "oU2FbUzS87k",
+          "title": "My First Time Using The Gold Wheel #arizona #goldnuggets #gold #drywasher",
+          "channelId": "UCy2Y4cgtNuFlK98SuBYrpPg",
+          "published": "2025-08-23T23:35:09+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCy2Y4cgtNuFlK98SuBYrpPg"
+        },
+        {
+          "id": "Knf5mncE9rU",
+          "title": "Sluicing Gold From Drywashing #gold #drywasher#shoveling#arizona",
+          "channelId": "UCy2Y4cgtNuFlK98SuBYrpPg",
+          "published": "2025-07-15T22:27:15+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCy2Y4cgtNuFlK98SuBYrpPg"
+        },
+        {
+          "id": "2S-F-SXvdyA",
+          "title": "What A Learning Experience: Chasing Ghost Targets With The GPX 6000",
+          "channelId": "UCy2Y4cgtNuFlK98SuBYrpPg",
+          "published": "2025-03-29T18:46:27+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCy2Y4cgtNuFlK98SuBYrpPg"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "nuggethunting",
+      "name": "Nuggethunting",
+      "channelId": "UCdcv6oFmjAJSMfYRXSmNCJQ",
+      "channelTitle": "Nuggethunting",
+      "channelUrl": "https://www.youtube.com/channel/UCdcv6oFmjAJSMfYRXSmNCJQ",
+      "requestedUrl": "https://www.youtube.com/channel/UCdcv6oFmjAJSMfYRXSmNCJQ",
+      "identitySource": "https://www.youtube.com/channel/UCdcv6oFmjAJSMfYRXSmNCJQ",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCdcv6oFmjAJSMfYRXSmNCJQ/videos",
+      "pageSha256": "784967c74ef65ad6db7947683e81cb9b208a3029dbc9634379f971a1390a2157",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdcv6oFmjAJSMfYRXSmNCJQ",
+      "feedSha256": "1728eb23fb1eb338d5233aa77a9a26e640b9a9e44cfea37fce8be87780071f34",
+      "selectedVideos": [
+        {
+          "id": "SYYx2on5rik",
+          "title": "Gold Nuggets found by Nokta Magnetar 9000",
+          "channelId": "UCdcv6oFmjAJSMfYRXSmNCJQ",
+          "published": "2026-09-28T13:16:50+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdcv6oFmjAJSMfYRXSmNCJQ"
+        },
+        {
+          "id": "mpzeF4ZoCaU",
+          "title": "Big Gold Nugget found with Nokta Magnetar 9000 & latest update",
+          "channelId": "UCdcv6oFmjAJSMfYRXSmNCJQ",
+          "published": "2026-09-28T01:53:10+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdcv6oFmjAJSMfYRXSmNCJQ"
+        },
+        {
+          "id": "WXkUV829_Bs",
+          "title": "Nokta Magnetar 9000 Metal Detector finds another deep gold nugget!",
+          "channelId": "UCdcv6oFmjAJSMfYRXSmNCJQ",
+          "published": "2026-09-13T17:48:42+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdcv6oFmjAJSMfYRXSmNCJQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "outback-gold-fever",
+      "name": "Outback Gold Fever / Krissy",
+      "channelId": "UCaaquTotMi87ehRFZlIHiUA",
+      "channelTitle": "Outback Gold Fever",
+      "channelUrl": "https://www.youtube.com/channel/UCaaquTotMi87ehRFZlIHiUA",
+      "requestedUrl": "https://www.youtube.com/channel/UCaaquTotMi87ehRFZlIHiUA",
+      "identitySource": "https://www.patreon.com/outbackgoldfever",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCaaquTotMi87ehRFZlIHiUA/videos",
+      "pageSha256": "e0f9402d2f9ec3bf624424843061346dad5bad32891b3cd30e2d93e7de56569c",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCaaquTotMi87ehRFZlIHiUA",
+      "feedSha256": "3fcc1c0e762173363890468a69b54d037ed097e85b301b866ac56a467f73a28d",
+      "selectedVideos": [
+        {
+          "id": "MPamzTn_0Nc",
+          "title": "Never Give Up on Good Ground! Successful Gold Nugget Hunt with a Metal Detector (GPZ 8000)",
+          "channelId": "UCaaquTotMi87ehRFZlIHiUA",
+          "published": "2026-08-16T05:39:55+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCaaquTotMi87ehRFZlIHiUA"
+        },
+        {
+          "id": "YERyPQcC9nc",
+          "title": "Cemented Gold! A Difficult Nugget Recovery Finally Pays Off Big! #gpz8000 #outbackgoldfever",
+          "channelId": "UCaaquTotMi87ehRFZlIHiUA",
+          "published": "2026-08-15T12:42:04+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCaaquTotMi87ehRFZlIHiUA"
+        },
+        {
+          "id": "W8L0HvJwdbM",
+          "title": "We Can't Believe Everyone Gave Up On This Good GOLD Spot!",
+          "channelId": "UCaaquTotMi87ehRFZlIHiUA",
+          "published": "2026-08-01T20:07:38+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCaaquTotMi87ehRFZlIHiUA"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "petes-gold-adventures",
+      "name": "Pete’s Gold Adventures",
+      "channelId": "UCKLCgN-PumYt1o0PFIGsFxQ",
+      "channelTitle": "Pete's Gold Adventures",
+      "channelUrl": "https://www.youtube.com/channel/UCKLCgN-PumYt1o0PFIGsFxQ",
+      "requestedUrl": "https://www.youtube.com/channel/UCKLCgN-PumYt1o0PFIGsFxQ",
+      "identitySource": "https://www.youtube.com/channel/UCKLCgN-PumYt1o0PFIGsFxQ",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCKLCgN-PumYt1o0PFIGsFxQ/videos",
+      "pageSha256": "eb15e877dc2345f887bc2a7a78fb0ce4ab59ffcb13a4e36a3767660c5e87e9f8",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKLCgN-PumYt1o0PFIGsFxQ",
+      "feedSha256": "2cf6a08e3592b5615d4b0defe4588c3ede6459dc9765cbaac837e6687c47277a",
+      "selectedVideos": [
+        {
+          "id": "chPATeCKJZo",
+          "title": "GOLDEN TIMES at the SUBS DAY 2026!",
+          "channelId": "UCKLCgN-PumYt1o0PFIGsFxQ",
+          "published": "2026-09-17T09:00:05+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKLCgN-PumYt1o0PFIGsFxQ"
+        },
+        {
+          "id": "8azEQzYyesY",
+          "title": "This QUARTZ is LOADED with GOLD!",
+          "channelId": "UCKLCgN-PumYt1o0PFIGsFxQ",
+          "published": "2026-09-10T09:00:26+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKLCgN-PumYt1o0PFIGsFxQ"
+        },
+        {
+          "id": "e1SSIdkjAV4",
+          "title": "GOLD PANNING a CENTRAL VICTORIAN CREEK!",
+          "channelId": "UCKLCgN-PumYt1o0PFIGsFxQ",
+          "published": "2026-09-03T09:00:31+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKLCgN-PumYt1o0PFIGsFxQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "prospector-nic",
+      "name": "How to Find Gold / Prospector Nic",
+      "channelId": "UCZVigrxLbuXmTB1NL6YA0xQ",
+      "channelTitle": "How to Find Gold | Prospector Nic",
+      "channelUrl": "https://www.youtube.com/channel/UCZVigrxLbuXmTB1NL6YA0xQ",
+      "requestedUrl": "https://www.youtube.com/channel/UCZVigrxLbuXmTB1NL6YA0xQ",
+      "identitySource": "https://www.youtube.com/channel/UCZVigrxLbuXmTB1NL6YA0xQ",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCZVigrxLbuXmTB1NL6YA0xQ/videos",
+      "pageSha256": "6705ad15912fddd6218fbe8db4c0c2c8c380556d3d988b63a4273952276b1291",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZVigrxLbuXmTB1NL6YA0xQ",
+      "feedSha256": "9d3398ce114a874423345f966f5c8087dcfc96a0dc56582f87a46d18e9c9c325",
+      "selectedVideos": [
+        {
+          "id": "NY5Dt47kl-c",
+          "title": "3 Days Searching for GOLD in the Jungle., But We Found Something Even Better…",
+          "channelId": "UCZVigrxLbuXmTB1NL6YA0xQ",
+          "published": "2026-09-11T20:15:35+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZVigrxLbuXmTB1NL6YA0xQ"
+        },
+        {
+          "id": "j9RgCaufXt4",
+          "title": "We just found a river full of gold but had to leave it all behind...",
+          "channelId": "UCZVigrxLbuXmTB1NL6YA0xQ",
+          "published": "2026-07-03T20:15:33+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZVigrxLbuXmTB1NL6YA0xQ"
+        },
+        {
+          "id": "g3WXIOBKEgE",
+          "title": "HOW MUCH GOLD Did The MINERS MISS In This GOLD RICH RIVER?",
+          "channelId": "UCZVigrxLbuXmTB1NL6YA0xQ",
+          "published": "2026-06-19T19:30:13+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZVigrxLbuXmTB1NL6YA0xQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "rob-parsons",
+      "name": "Rob Parsons",
+      "channelId": "UCriyYigMNrorS0Fh2Q7teeg",
+      "channelTitle": "Rob Parsons",
+      "channelUrl": "https://www.youtube.com/channel/UCriyYigMNrorS0Fh2Q7teeg",
+      "requestedUrl": "https://www.youtube.com/channel/UCriyYigMNrorS0Fh2Q7teeg",
+      "identitySource": "https://www.patreon.com/robparsons/sitemap",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCriyYigMNrorS0Fh2Q7teeg/videos",
+      "pageSha256": "1ab28c8219ec9c3949b4ca1f3421df868b067db89df8e77efd8b35bc36885be8",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCriyYigMNrorS0Fh2Q7teeg",
+      "feedSha256": "fa141d03390414ab4ed33f7c53e702a942e0ad47971a29c54bc7fbafb7a22a59",
+      "selectedVideos": [
+        {
+          "id": "XaY4o-I6WIQ",
+          "title": "Over $7 MILLION in Gold Found… But Where Did It Come From?",
+          "channelId": "UCriyYigMNrorS0Fh2Q7teeg",
+          "published": "2026-10-16T19:35:27+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCriyYigMNrorS0Fh2Q7teeg"
+        },
+        {
+          "id": "5-ghz5BtiDk",
+          "title": "This Discovery at a LOST 1880s Gold Camp Led Us to the Motherlode!",
+          "channelId": "UCriyYigMNrorS0Fh2Q7teeg",
+          "published": "2026-10-02T20:04:02+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCriyYigMNrorS0Fh2Q7teeg"
+        },
+        {
+          "id": "NJpL88x97tg",
+          "title": "I Traced the Gold Back to Its Source… and Found Something Incredible!",
+          "channelId": "UCriyYigMNrorS0Fh2Q7teeg",
+          "published": "2026-09-18T20:57:42+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCriyYigMNrorS0Fh2Q7teeg"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "shaneoz-gold-rush",
+      "name": "Shane’Oz Gold Rush",
+      "channelId": "UCbl7WnO9SPctmzLQ45aoifw",
+      "channelTitle": "Shane’Oz Gold Rush.",
+      "channelUrl": "https://www.youtube.com/channel/UCbl7WnO9SPctmzLQ45aoifw",
+      "requestedUrl": "https://www.youtube.com/channel/UCbl7WnO9SPctmzLQ45aoifw",
+      "identitySource": "https://www.youtube.com/channel/UCbl7WnO9SPctmzLQ45aoifw",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCbl7WnO9SPctmzLQ45aoifw/videos",
+      "pageSha256": "374d9da3c78cdfb6715467197ba3b7bc8ed1d70e7798f2b7687124e6a10c2359",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbl7WnO9SPctmzLQ45aoifw",
+      "feedSha256": "2a8cdc6379ea70215c69aee030f64b080a57f5338845edc5cc58dd27d72e17ad",
+      "selectedVideos": [
+        {
+          "id": "SVYgfwFnEcY",
+          "title": "A Golden Day Prospecting with the GPX 6000 Super Detector,  Gold Nuggets everywhere.(Episode 204)",
+          "channelId": "UCbl7WnO9SPctmzLQ45aoifw",
+          "published": "2026-10-01T13:21:02+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbl7WnO9SPctmzLQ45aoifw"
+        },
+        {
+          "id": "G3p5SL9ZOY0",
+          "title": "AUSSIE GOLD HUNTER CLEANS UP THE BREAD AND BUTTER NUGGET PATCH  WITH THE GPX 6000 (Episode 203)",
+          "channelId": "UCbl7WnO9SPctmzLQ45aoifw",
+          "published": "2026-05-02T08:03:41+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbl7WnO9SPctmzLQ45aoifw"
+        },
+        {
+          "id": "vS6RSn6iDB8",
+          "title": "2026 Wedderburn Detector Jamboree and gold  prospecting.( Episode 202)",
+          "channelId": "UCbl7WnO9SPctmzLQ45aoifw",
+          "published": "2026-04-20T10:52:25+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbl7WnO9SPctmzLQ45aoifw"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "snake-river-products",
+      "name": "Snake River Products",
+      "channelId": "UCMuodgEBCpgyGdGj94JjurA",
+      "channelTitle": "Snake River Products",
+      "channelUrl": "https://www.youtube.com/channel/UCMuodgEBCpgyGdGj94JjurA",
+      "requestedUrl": "https://www.youtube.com/channel/UCMuodgEBCpgyGdGj94JjurA",
+      "identitySource": "https://snakeriverproducts.com/videos/",
+      "identityNote": "Creator official website links directly to this YouTube channel.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCMuodgEBCpgyGdGj94JjurA/videos",
+      "pageSha256": "06f506aa4e9ee86b608c8b251b7e43c0d7d5b16e77fe750ceb27a8cbb1dcfe64",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMuodgEBCpgyGdGj94JjurA",
+      "feedSha256": "5ede017c85125241fc6af80181afedf77e752e169cb3a014cd7e8a51b7ee7287",
+      "selectedVideos": [
+        {
+          "id": "Epj8oZVJBPU",
+          "title": "Dan Hurd - Snake River Products / Fossickers Response to Your Recent Pyramid Pro Pan Video",
+          "channelId": "UCMuodgEBCpgyGdGj94JjurA",
+          "published": "2020-05-15T18:53:59+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMuodgEBCpgyGdGj94JjurA"
+        },
+        {
+          "id": "J2WmbjJfRIM",
+          "title": "First Look at the New SRP Titan Sluice",
+          "channelId": "UCMuodgEBCpgyGdGj94JjurA",
+          "published": "2017-11-09T01:57:51+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMuodgEBCpgyGdGj94JjurA"
+        },
+        {
+          "id": "Ib0cluHnPr0",
+          "title": "Getting Gold with a Fluid Sluice",
+          "channelId": "UCMuodgEBCpgyGdGj94JjurA",
+          "published": "2017-06-27T14:30:03+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCMuodgEBCpgyGdGj94JjurA"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "snake-river-products",
+        "channelUrl": "https://www.youtube.com/channel/UCMuodgEBCpgyGdGj94JjurA",
+        "identitySource": "https://snakeriverproducts.com/videos/",
+        "identityNote": "Creator official website links directly to this YouTube channel."
+      }
+    },
+    {
+      "slug": "that-prospectors-life",
+      "name": "That Prospectors Life",
+      "channelId": "UCqaN4IgGkcIf95pgYLYvfaQ",
+      "channelTitle": "THAT PROSPECTORS LIFE",
+      "channelUrl": "https://www.youtube.com/channel/UCqaN4IgGkcIf95pgYLYvfaQ",
+      "requestedUrl": "https://www.youtube.com/channel/UCqaN4IgGkcIf95pgYLYvfaQ",
+      "identitySource": "https://www.youtube.com/channel/UCqaN4IgGkcIf95pgYLYvfaQ",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UCqaN4IgGkcIf95pgYLYvfaQ/videos",
+      "pageSha256": "bb29068fa059baecf5fa1d034090fafc7ee2179d637a61a6fc21ea46f00c74bb",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqaN4IgGkcIf95pgYLYvfaQ",
+      "feedSha256": "c0f24c5d0a93ed8660572b2baa1c17006201a4696360593bfcbdd75fee1cea85",
+      "selectedVideos": [
+        {
+          "id": "krhyF15q6aU",
+          "title": "BACK on the RIVER! | Episode 27",
+          "channelId": "UCqaN4IgGkcIf95pgYLYvfaQ",
+          "published": "2026-09-09T18:11:26+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCqaN4IgGkcIf95pgYLYvfaQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "the-uranium-hunter",
+      "name": "The Uranium Hunter",
+      "channelId": "UCd88xA5AFENTrOK2iCh46Gg",
+      "channelTitle": "The Uranium Hunter",
+      "channelUrl": "https://www.youtube.com/channel/UCd88xA5AFENTrOK2iCh46Gg",
+      "requestedUrl": "https://www.youtube.com/@TheUraniumHunter",
+      "identitySource": "https://theuraniumhunter.co.uk/2026/06/25/the-missing-gold-of-the-cheviots-tracking-an-ancient-epithermal-system/",
+      "identityNote": "Creator official website links directly to this YouTube channel.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/@TheUraniumHunter/videos",
+      "pageSha256": "e9244cc837b1bf3fa4051d96c22fd2d76f4709bb5e7f946f088dd21ab6990f08",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCd88xA5AFENTrOK2iCh46Gg",
+      "feedSha256": "b987a8f03ac204fd88cec58bc94b9d7c57e5dfaa8d9aa829bb4772554e9a1057",
+      "selectedVideos": [
+        {
+          "id": "Z-T1LotpDq8",
+          "title": "The Missing Gold of the Cheviots: Part 1 | Kingsseat Burn & The Cock Law Complex",
+          "channelId": "UCd88xA5AFENTrOK2iCh46Gg",
+          "published": null,
+          "metadataSource": "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=Z-T1LotpDq8&format=json"
+        }
+      ],
+      "identityEvidence": {
+        "slug": "the-uranium-hunter",
+        "channelUrl": "https://www.youtube.com/@TheUraniumHunter",
+        "identitySource": "https://theuraniumhunter.co.uk/2026/06/25/the-missing-gold-of-the-cheviots-tracking-an-ancient-epithermal-system/",
+        "identityNote": "Creator official website links directly to this YouTube channel."
+      }
+    },
+    {
+      "slug": "utmost-outdoors",
+      "name": "Utmost Outdoors",
+      "channelId": "UCkRUStWeJlcq4c1v3JekoyQ",
+      "channelTitle": "Utmost Outdoors",
+      "channelUrl": "https://www.youtube.com/channel/UCkRUStWeJlcq4c1v3JekoyQ",
+      "requestedUrl": "https://www.youtube.com/@UtmostOutdoors",
+      "identitySource": "https://www.youtube.com/@UtmostOutdoors",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/@UtmostOutdoors/videos",
+      "pageSha256": "d75576739e788fec2ffad9a01cba5f63a5e660412d4f98b847085f19f1b199e2",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkRUStWeJlcq4c1v3JekoyQ",
+      "feedSha256": "15214ea8d32cdbde04a2c9b4c002be67cccc313f47031f77adc252af657aedc5",
+      "selectedVideos": [
+        {
+          "id": "7wC7Cm-1bWQ",
+          "title": "Highbanking Ultra Fine Gold on the North Saskatchewan River. Part 2",
+          "channelId": "UCkRUStWeJlcq4c1v3JekoyQ",
+          "published": "2026-10-17T16:00:34+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkRUStWeJlcq4c1v3JekoyQ"
+        },
+        {
+          "id": "cb9Ig98QJhM",
+          "title": "Highbanking Ultra Fine Gold on the North Saskatchewan River. Part 1",
+          "channelId": "UCkRUStWeJlcq4c1v3JekoyQ",
+          "published": "2026-10-13T23:30:29+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkRUStWeJlcq4c1v3JekoyQ"
+        },
+        {
+          "id": "aLjPafnwaAM",
+          "title": "Electric 2\" Gold Dredge: Hose SIZE MATTERS... but HOW MUCH?  Efficiency measured with good results!",
+          "channelId": "UCkRUStWeJlcq4c1v3JekoyQ",
+          "published": "2026-05-14T10:08:01+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UCkRUStWeJlcq4c1v3JekoyQ"
+        }
+      ],
+      "identityEvidence": null
+    },
+    {
+      "slug": "x4prospecting",
+      "name": "X4PROSPECTING / Justin Stanfield",
+      "channelId": "UC9rQ54LjbVUUzKrUtv9DU0g",
+      "channelTitle": "X4PROSPECTING",
+      "channelUrl": "https://www.youtube.com/channel/UC9rQ54LjbVUUzKrUtv9DU0g",
+      "requestedUrl": "https://www.youtube.com/channel/UC9rQ54LjbVUUzKrUtv9DU0g",
+      "identitySource": "https://x4prospecting.com/about/",
+      "identityNote": "Existing roster YouTube destination; canonical channel page and uploader feed checked.",
+      "checkedAt": "2026-10-17",
+      "pageUrl": "https://www.youtube.com/channel/UC9rQ54LjbVUUzKrUtv9DU0g/videos",
+      "pageSha256": "545c8b9b45419838ef1d3fb7ccba9738178668eee20c06dd9ae316f1abdb3616",
+      "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9rQ54LjbVUUzKrUtv9DU0g",
+      "feedSha256": "26f7c23d32543f5b47769ca3a9c672e28b109ac78999c2df172ed02761a5a98a",
+      "selectedVideos": [
+        {
+          "id": "1Pi0mtU1lhw",
+          "title": "Rich Flour Gold Deposit- Sluicing For Gold",
+          "channelId": "UC9rQ54LjbVUUzKrUtv9DU0g",
+          "published": "2024-10-21T19:27:14+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9rQ54LjbVUUzKrUtv9DU0g"
+        },
+        {
+          "id": "O4pyLAls1eA",
+          "title": "XP Panning For Gold, Amazing Gold in One Pan",
+          "channelId": "UC9rQ54LjbVUUzKrUtv9DU0g",
+          "published": "2024-10-07T22:38:47+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9rQ54LjbVUUzKrUtv9DU0g"
+        },
+        {
+          "id": "ydoaKSX0mC4",
+          "title": "Massive Flour Gold Deposit",
+          "channelId": "UC9rQ54LjbVUUzKrUtv9DU0g",
+          "published": "2024-09-30T17:08:56+00:00",
+          "metadataSource": "https://www.youtube.com/feeds/videos.xml?channel_id=UC9rQ54LjbVUUzKrUtv9DU0g"
+        }
+      ],
+      "identityEvidence": null
+    }
+  ],
+  "gaps": [
+    {
+      "slug": "adventure-gold",
+      "name": "Adventure Gold",
+      "source": "https://www.youtube.com/user/19andrew72/",
+      "reason": "HTTP 404",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "alan-robertson",
+      "name": "Alan Robertson",
+      "source": "https://www.youtube.com/watch?v=mtsqzGIVSHw",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "chasing-gold-australia",
+      "name": "Chasing Gold Australia",
+      "source": "https://www.youtube.com/channel/UCOX7wXytTbri0xCG3Kk8gdw",
+      "reason": "No canonical channel ID",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "crux-prospecting",
+      "name": "Crux Prospecting / Cyle Haddon",
+      "source": "https://cruxprospecting.com/?setCurrencyId=1",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "dirtfishmish",
+      "name": "DirtFishMish",
+      "source": "https://www.youtube.com/watch?v=f_-fMw8oh6g",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "dons-mining-office",
+      "name": "Don’s Mining Office",
+      "source": "https://donsminingoffice.com/eating-crow/",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "green-mountain-gold-trap",
+      "name": "Green Mountain Gold Trap",
+      "source": "https://greenmountaingoldtrap.com/blog/welcome-to-green-mountain-gold-trap/",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "kevin-singel",
+      "name": "Kevin Singel / Finding Gold in Colorado",
+      "source": "https://findinggoldincolorado.com/gold-rush-ghost-towns/",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "liz-kreate",
+      "name": "Liz Kreate",
+      "source": "https://www.youtube.com/watch?v=mAfy-Nq-aX0",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "mantis-gold-mining",
+      "name": "Mantis Gold Mining",
+      "source": "https://www.mantisgoldmining.com/blogs/news/now-carrying-green-mountain-gold-traps",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "michigan-prospectors",
+      "name": "Michigan Prospectors / Troy",
+      "source": "https://michiganprospectors.com/about.html",
+      "reason": "Current channel name is The Nomadic Prospector; confirm continuity before importing more videos.",
+      "hasSupplementalChannel": true
+    },
+    {
+      "slug": "mrdazp1",
+      "name": "MrDazP1",
+      "source": "https://www.youtube.com/watch?v=S4IYY4HWGpA",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "prospection-de-loisir",
+      "name": "Prospection de loisir",
+      "source": "https://www.youtube.com/watch?v=O3I_00cUA8c",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "rookie-gold-prospector",
+      "name": "Rookie Gold Prospector",
+      "source": "https://www.youtube.com/channel/UC3UOAabudJhKKINePMOtAZA",
+      "reason": "Current channel name is Gold is where you find it.; confirm continuity before importing more videos.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "steve-herschbach",
+      "name": "Steve Herschbach / DetectorProspector",
+      "source": "https://www.detectorprospector.com/magazine/steves-guides/steves-guides/",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "tassie-boys-prospecting",
+      "name": "Tassie Boys Prospecting",
+      "source": "https://www.youtube.com/watch?v=8d8g5L6G_oM",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "tony-ledford",
+      "name": "Tony Ledford / Buckeye Gold educators",
+      "source": "https://buckeyegold.com/scouting/",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "tyler-mahoney",
+      "name": "Tyler Mahoney / The Prospectors Club",
+      "source": "https://subscription-tpc.com.au/about",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "walk-about-prospecting",
+      "name": "Walk About Prospecting",
+      "source": "https://www.youtube.com/user/TheElmoRider",
+      "reason": "HTTP 404",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "washington-beach-mining",
+      "name": "Washington Beach Mining",
+      "source": "https://www.youtube.com/watch?v=Cyp0ZO7H9b0",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "yukon-dan",
+      "name": "Yukon Dan",
+      "source": "https://www.yukondan.com/index.html",
+      "reason": "Only an existing related-video link or no own channel confirmed; do not assign another uploader’s channel.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "al-gold-prospecting",
+      "name": "al gold prospecting",
+      "source": "https://www.youtube.com/channel/UCIIGmLS07G7ajQw2gj5FMlw",
+      "reason": "Current feed does not provide clearly relevant prospecting videos; unrelated uploads held aside.",
+      "hasSupplementalChannel": false
+    },
+    {
+      "slug": "out-bush-gold-hunter",
+      "name": "Out Bush Gold Hunter",
+      "source": "https://www.youtube.com/channel/UCGxos3o5sLlKbKjklwSNnxA",
+      "reason": "No dated public uploads in the feed at this check.",
+      "hasSupplementalChannel": false
+    }
+  ],
+  "preservedLibrariesSha256": "a4cdeca5772a1b78a7f80b2c9d5b170537b17120b6e557f8430836b531a077f3"
+}
