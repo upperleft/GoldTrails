@@ -156,3 +156,29 @@ footer{background:radial-gradient(ellipse at 50% 0,#684a29,#352d23 70%)}
 .creator-profile-page .resource-placeholder a[href*="youtube.com/"],.creator-profile-page .resource-placeholder a[href*="youtu.be/"]{display:block;width:fit-content;max-width:100%;text-align:left}
 
 .creator-profile-page .creator-youtube-link{display:flex;width:fit-content;max-width:100%;margin:14px 0;text-align:left}
+
+/* A softer field-library finish, with real parchment art behind selected notes. */
+body:not(.admin-editor) :is(.panel,.resource-placeholder,.article-card,.featured,.welcome,.category-intro,.product-desk,.map-desk,.culture-card,.almanac-section){border-radius:14px}
+body.article-page .reading{border-radius:16px}
+body:not(.member-page):not(.admin-editor):not(.compass-page) .category-intro,
+body:not(.admin-editor) :is(.field-note,.category-callout),
+body.article-page .takeaways{position:relative;isolation:isolate;background:none;border-color:transparent;box-shadow:none;overflow:visible}
+body:not(.member-page):not(.admin-editor):not(.compass-page) .category-intro::before,
+body:not(.admin-editor) :is(.field-note,.category-callout)::before,
+body.article-page .takeaways::before{content:'';position:absolute;inset:-7px;z-index:-1;pointer-events:none;border:72px solid transparent;border-image:url('/assets/parchment-plain-v1.webp') 25% fill / 72px stretch;filter:drop-shadow(0 5px 5px #49351e24)}
+body.article-page .takeaways::before,
+body:not(.admin-editor) .field-note::before{border-image-source:url('/assets/parchment-coffee-v1.webp')}
+body.article-page .takeaways{padding:25px 30px;margin:28px 0}
+body.article-page .takeaways h2{margin-top:0}
+html[data-reading-contrast] body :is(.category-intro,.field-note,.category-callout,.takeaways)::before{display:none}
+html[data-reading-contrast] body :is(.category-intro,.field-note,.category-callout,.takeaways){background:#fffdf7!important;border:1px solid #81715a!important;box-shadow:none!important}
+@media(max-width:750px){body.article-page .takeaways{padding:24px}body:not(.member-page):not(.admin-editor):not(.compass-page) .category-intro::before,body:not(.admin-editor) :is(.field-note,.category-callout)::before,body.article-page .takeaways::before{border-width:54px;border-image-width:54px;inset:-5px}}
+@media print{body :is(.category-intro,.field-note,.category-callout,.takeaways)::before{display:none!important}body :is(.category-intro,.field-note,.category-callout,.takeaways){background:#fff!important;box-shadow:none!important}}
+
+/* The approved paper also frames longer reading and public information blocks. */
+body.article-page .reading,body:not(.admin-editor):not(.member-page) .center>.resource-placeholder:not(:has(form)){position:relative;isolation:isolate;background:none;border-color:transparent;box-shadow:none;overflow:visible}
+body.article-page .reading::before,body:not(.admin-editor):not(.member-page) .center>.resource-placeholder:not(:has(form))::before{content:'';position:absolute;inset:-7px;z-index:-1;pointer-events:none;border:72px solid transparent;border-image:url('/assets/parchment-plain-v1.webp') 25% fill / 72px stretch;filter:drop-shadow(0 5px 5px #49351e24)}
+@media(max-width:750px){body.article-page .reading::before,body:not(.admin-editor):not(.member-page) .center>.resource-placeholder:not(:has(form))::before{border-width:54px;border-image-width:54px;inset:-5px}}
+html[data-reading-contrast] body.article-page .reading::before,html[data-reading-contrast] body .center>.resource-placeholder::before{display:none}
+html[data-reading-contrast] body.article-page .reading,html[data-reading-contrast] body .center>.resource-placeholder{background:#fffdf7!important;border:1px solid #81715a!important}
+@media print{body.article-page .reading::before,body .center>.resource-placeholder::before{display:none!important}}
