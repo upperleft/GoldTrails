@@ -18,7 +18,7 @@ const rows=[
 ];
 export const hotspots=[
  link('logo','Gold Trails home',[15,12,280,177],'/','sidebar'),
- ...rows.flatMap(([id,name,y,href,text])=>[href?link('nav-'+id,name,[34,y,204,43],href,'sidebar',{account:id==='signin'}):{id:'nav-search',name:'Search',label:'Search Gold Trails libraries',rect:[34,y,204,43],section:'sidebar',type:'search'},help('nav-'+id,name,[241,y+8,28,28],text,'sidebar',{premium:id==='almanac'})]),
+ ...rows.flatMap(([id,name,y,href,text])=>[href?link('nav-'+id,name,[34,y,204,43],href,'sidebar',{account:id==='signin'}):{id:'nav-search',name:'Search',label:'Search Gold Trails libraries',rect:[34,y,204,43],section:'sidebar',type:'search'},help('nav-'+id,name,[241,y+8,28,28],text,'sidebar',{premium:['almanac','destinations'].includes(id)})]),
  link('old-timer','Gold Trails home — the Old-Timer',[319,8,477,550],'/','hero'),
  link('hero-articles','Read Articles',[868,432,252,61],'/articles/','hero'),help('hero-articles','Articles',[1124,446,30,30],'Read practical, sourced articles from the Gold Trails library.','hero'),
  link('hero-glossary','Browse the Glossary',[1197,432,311,61],'/glossary/','hero'),help('hero-glossary','Glossary',[1513,446,30,30],'Open the searchable prospecting glossary.','hero'),
@@ -29,9 +29,9 @@ export const hotspots=[
  ].flatMap(([id,name,x,w,hx,href,text])=>[
   link('panel-'+id,name,[x+17,583,w-45,137],href,id),
   link('panel-'+id+'-heading',name,[x+24,735,w-80,49],href,id),
-  help('panel-'+id,name,[hx,732,28,28],text,id),
+  help('panel-'+id,name,[hx,732,28,28],text,id,{premium:id==='destinations'}),
   link('panel-'+id+'-button',id==='destinations'?'Explore Destinations':id==='articles'?'Read Articles':'Browse the Glossary',[x+24,861,w-80,38],href,id),
-  help('panel-'+id+'-button',name,[hx-4,864,28,28],text,id)
+  help('panel-'+id+'-button',name,[hx-4,864,28,28],text,id,{premium:id==='destinations'})
  ]),
  link('panel-plus','Gold Trails Plus',[1266,581,374,255],'/plus/','plus'),
  link('panel-plus-button','Learn More About Plus',[1285,848,309,46],'/plus/','plus'),
