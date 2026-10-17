@@ -1,6 +1,6 @@
 # Parchment, Camp Kitchen and product photographs
 
-Prepared October 16, 2026, on `parchment-and-camp-kitchen`, based on the published account release `b87f39e`. Implementation is local; production publication still requires approval under the existing project brief.
+Prepared October 16, 2026, on `parchment-and-camp-kitchen`, based on the published account release `b87f39e`. Paul approved production publication of this tested package on October 16, 2026: “Yes, I approve.”
 
 ## Presentation
 
