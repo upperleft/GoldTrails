@@ -1,6 +1,8 @@
 Gold Trails — membership explanations and browsing cleanup — October 17, 2026
 
-LOCAL REVIEW ONLY. No production publishing approval received for this batch.
+APPROVED FOR PUBLICATION — October 17, 2026.
+User approval: "All right, go ahead and push all those changes."
+Approval covers the saved changes through 7184f00, including prior commits fcfac8b and 2020095. Compass implementation remains unchanged pending the separate scope choice.
 
 Completed:
 - About Gold Trails: What can I do here? comparison with Visitor, Free member, and Gold Trails Plus columns, stacking on smaller screens. Plus includes free features, the 50-state Almanac/map and Gold Connections. No temporary availability note in the comparison or shared sidebar promotion.
