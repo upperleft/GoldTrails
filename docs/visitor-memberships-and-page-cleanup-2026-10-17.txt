@@ -1,0 +1,30 @@
+Gold Trails — membership explanations and browsing cleanup — October 17, 2026
+
+LOCAL REVIEW ONLY. No production publishing approval received for this batch.
+
+Completed:
+- About Gold Trails: What can I do here? comparison with Visitor, Free member, and Gold Trails Plus columns, stacking on smaller screens. Plus includes free features, the 50-state Almanac/map and Gold Connections. No temporary availability note in the comparison or shared sidebar promotion.
+- Public trail calendar: faded, inert calendar illustration behind the requested Register and log in to access the calendar message, with registration and website sign-in links. Free account access retained. No private data or calendar application scripts loaded in this public view.
+- Plus promotion: only two confirmed major features (50 state guides and Gold Connections), each with indented details. Creator map is grouped under the Almanac. Duplicate Connections section removed. Payment routes remain disabled pending separate approval and setup.
+- Navigation: removed the Return to My Gold Trail sidebar option from the shared shell and all static pages. Removed filled active/focus/hover backdrops from navigation and button hover changes. Current-page underline and visible keyboard focus outlines retained.
+- Browsing-page tops: compact header/breadcrumb/title spacing, unchanged title font sizes. Removed title-banner parchment and gold illustrations; content decorations retained. Glossary content starts 126px higher (432.57px to 306.57px) at a 1280px desktop viewport; heading stays 32px. Member/admin/Compass/calendar/homepage layouts are excluded from this scoped rule.
+- Connections: concise description above event filters explains creating local prospecting outings, club meetings and online events, sharing them with members, and Plus participation.
+- Classification article: added an authentic Forest Service/BLM grizzly-pan illustration by Kathy Sarns, next to the size-separation explanation. Visible caption, original credit, source/page link, alt text, click-to-enlarge and a provenance JSON record. This is an official technical illustration, not a photograph or generated image. Existing manufacturer classifier photograph was not repurposed without verified reuse evidence.
+
+Pending user decision:
+The user dislikes Compass and learning progress/achievements. An asynchronous question asks whether to remove Compass/My Gold Trail entirely or retain a simple saved-resources page. No answer received yet. Compass implementation remains unchanged in this batch; only its navigation link and the About comparison's lesson-completion promise were removed. Finish the requested Compass/learning cleanup after that scope choice, and update the Free membership comparison accordingly. Preserve member data; no deletion authorized or performed.
+
+Validation:
+Build passed: 14 HTML pages, 492 local links/assets. All 63 existing site-help, calendar, members, Plus, Connections and reading-options tests passed. Existing copy/feature-count assertions were updated for the new UI. Browser checks: 3 columns on desktop / stacked on a 390px phone; dark comparison colors; calendar 200% text without clipping or horizontal overflow; no private calendar scripts in public preview; current nav and keyboard focus have transparent backgrounds; grouped Plus features exactly two with 6 and 4 subitems; removed nav link absent; classifier image loaded; Connections description correct.
+
+Previews:
+http://127.0.0.1:4335/about-the-camp/
+http://127.0.0.1:4335/calendar/
+http://127.0.0.1:4335/plus/
+http://127.0.0.1:4335/glossary/
+http://127.0.0.1:4335/articles/classification-basics/
+http://127.0.0.1:4329/connections/ (fictional events only)
+
+Screenshots: parent workspace outputs/membership-and-calendar-2026-10-17/.
+Source illustration evidence: database/map-data/article-classifier-illustration-2026-10-17.json.
+Unrelated creator-intake research file preserved and excluded from commit.

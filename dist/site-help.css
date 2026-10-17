@@ -19,9 +19,9 @@
 /* Navigation explanations are explicit actions; they never intercept the next link. */
 .site-nav-row{display:flex;align-items:center;gap:5px;border-bottom:1px solid #dfd3bb}
 .layout>.left .site-nav-row>a{display:block;padding:11px 0;font-size:0.875rem;font-weight:600;border:0;outline:none;box-shadow:none;min-width:0}
-.layout>.left .site-nav-row>a:focus-visible{background:#ead7a8;color:#493313}
+.layout>.left .site-nav-row>a:focus-visible{background:transparent;color:#493313;outline:2px solid #597e83;outline-offset:4px}
 .site-nav-help{display:inline-grid;place-items:center;flex:0 0 28px;width:28px;height:28px;padding:0;border:0;border-radius:50%;background:transparent;color:#815b25;font:700 0.8125rem/1 'DM Sans',sans-serif;cursor:pointer}
-.site-nav-help:hover,.site-nav-help:focus-visible{background:#ead7a8;color:#493313;outline:none}
+.site-nav-help:hover,.site-nav-help:focus-visible{color:#493313}.site-nav-help:focus-visible{outline:2px solid #597e83;outline-offset:3px}
 .site-nav-help[hidden]{display:none!important}
 .site-help-tooltip[data-mode="navigation"]{pointer-events:none}
 @media(max-width:750px){.site-nav-row{display:inline-flex;max-width:100%;margin:5px 15px 5px 0;border:0;vertical-align:middle}.layout>.left .site-nav-row>a{padding:5px 0}}

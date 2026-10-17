@@ -12,3 +12,4 @@
 .article-photo-open:focus-visible{outline:3px solid #ab741d;outline-offset:-4px}
 @media(max-width:650px){.article-photo-pair{grid-template-columns:1fr}.article-photo-specimen img{height:320px}.article-photo figcaption{padding:.85rem 1rem}}
 @media print{.article-photo-pair{grid-template-columns:repeat(2,minmax(0,1fr))}.article-photo-specimen img{height:240px}.article-photo-credit a{color:inherit}}
+.reading .article-photo-classifier{max-width:850px;margin:1.8rem auto}

@@ -1,0 +1,22 @@
+{
+  "verified_on": "2026-10-17",
+  "article": "classification-basics",
+  "kind": "source_illustration",
+  "artist": "Kathy Sarns",
+  "agency": "U.S. Forest Service, Chugach National Forest",
+  "publication": "Gold Panning: Guide to Recreational Gold Panning on the Kenai Peninsula, Chugach National Forest, Alaska",
+  "edition": 2018,
+  "source_url": "https://www.blm.gov/sites/default/files/documents/files/PublicRoom_Alaska_kenai-goldpanning-booklet-2018_FINAL.pdf",
+  "pdf_page": 14,
+  "printed_page": 10,
+  "rights": "U.S. public-domain government artwork",
+  "rights_evidence": "Publication credit page (PDF page 2) identifies Graphic Art by Kathy Sarns, Chugach National Forest; joint Forest Service/BLM government guide.",
+  "local_asset": "/assets/articles/grizzly-classifier-usfs-blm.png",
+  "dimensions": {
+    "width": 850,
+    "height": 302
+  },
+  "transformation": "Rendered a rectangular page excerpt with Poppler; no generative or other alteration of the illustration.",
+  "source_sha256": "f52540d9f0534cd20a81f205cd1afb6661d928fa4e165158c0efcdcceca80dbe",
+  "asset_sha256": "a3057ac1f3c1e7e723dfffe24fd3144418534e9b351c9ba417284a5fa43848cd"
+}

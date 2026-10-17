@@ -65,7 +65,7 @@
     .dashboard-map-sketch,thead,.map-find,.creator-video-link,.creator-views button,
     .almanac-metric,.almanac-missing,.almanac-note,.almanac-access,
     .almanac-mine-map-wrap,.almanac-research-gap,.almanac-destination-badge,
-    .video-library-header,.video-library-watch:hover
+    .video-library-header,.video-library-watch
   ) {
     background: var(--night-raised) !important;
     color: var(--night-text) !important;
@@ -90,10 +90,10 @@
   html[data-reading-dark] body:not(.admin-editor) .breadcrumb a { color: var(--night-link) !important; }
   html[data-reading-dark] body:not(.admin-editor) :is(.site-nav-row,.trail-menu>a) { border-color: var(--night-line) !important; }
   html[data-reading-dark] body:not(.admin-editor) .site-nav-row>a { color: var(--night-text) !important; }
-  html[data-reading-dark] body:not(.admin-editor) .site-nav-row>a:focus-visible { background: #4b4028 !important; color: #fff2c6 !important; }
+  html[data-reading-dark] body:not(.admin-editor) .site-nav-row>a:focus-visible { background: transparent !important; color: #fff2c6 !important; outline: 2px solid var(--night-gold); outline-offset: 4px; }
   html[data-reading-dark] body:not(.admin-editor) .member-dashboard { --desk-ink: var(--night-text); --desk-brass: var(--night-gold); color: var(--night-text); }
   html[data-reading-dark] body:not(.admin-editor) :is(.source-marker,.dashboard-module-icon,.dashboard-state,.dashboard-note) { color: var(--night-muted) !important; }
-  html[data-reading-dark] body:not(.admin-editor) :is(.trail-menu>a:hover,.trail-menu>a:focus-visible,.trail-menu>a[aria-current],.compass-option:has(input:checked),.compass-progress [aria-current],.camp-destinations a:hover) {
+  html[data-reading-dark] body:not(.admin-editor) :is(.compass-option:has(input:checked),.compass-progress [aria-current]) {
     background: #4b4028 !important;
     color: #fff2c6 !important;
   }

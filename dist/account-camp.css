@@ -18,7 +18,7 @@
 .camp-icon{display:grid;place-items:center;flex:none;width:32px;height:32px;color:#7b6337}
 .camp-icon svg{width:28px;height:28px}
 .camp-arrow{flex:none;margin-left:auto;font-size:1.25rem}
-.camp-card .camp-destinations a:hover{background:#f6ebd3;border-color:#a98542}
+.camp-card .camp-destinations a:hover{border-color:#a98542}
 .camp-card a:focus-visible,.camp-card button:focus-visible{outline:3px solid #345f55;outline-offset:4px}
 .camp-card .camp-details{margin:28px 0;padding:22px 0;border-top:1px solid #e1d5bf;border-bottom:1px solid #e1d5bf}
 .camp-card h3{margin:0 0 14px;color:#493720;font-weight:700}
@@ -35,7 +35,7 @@
 .camp-card .camp-footer p{font-size:.875rem;max-width:50ch}
 .camp-footer form{margin:0;flex:none}
 .camp-card .camp-footer button{min-height:44px;padding:7px 14px;border:1px solid #cbb894;border-radius:6px;background:transparent;color:#624a2c;font-family:inherit;font-weight:400;cursor:pointer}
-.camp-card .camp-footer button:hover{background:#f6ebd3}
+
 @media(max-width:600px){.camp-welcome>div{min-width:0;flex-basis:calc(100% - 72px)}.camp-membership{margin-left:72px}.camp-destinations{grid-template-columns:minmax(0,1fr)}.camp-card .camp-destinations a{padding:16px}.camp-plus,.camp-card .camp-footer{align-items:flex-start;flex-direction:column}.camp-card .camp-footer{gap:12px}}
 html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) :is(.camp-destinations,.camp-details dl){grid-template-columns:minmax(0,1fr)}
 html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) .camp-page .layout>:is(.left,.center){grid-column:1;grid-row:auto}

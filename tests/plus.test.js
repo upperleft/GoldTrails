@@ -13,7 +13,7 @@ async function fixture(t,{offline=false}={}){
  const request=(path,token=null,init={})=>fetch('http://127.0.0.1:'+server.address().port+path,{redirect:'manual',...init,headers:{...(token?{Cookie:'__Host-gold-member='+token}:{}),...init.headers}});return{request,lookups:()=>lookups};
 }
 test('all 50 guides and JSON endpoints require active access before any research lookup',async t=>{
- const f=await fixture(t);let r=await f.request('/gold-almanac/');assert.equal(r.status,200);let html=await r.text();assert.match(html,/class="almanac-promo"/);assert.doesNotMatch(html,/PUBLIC EXCERPT|California: the lay of the land|Almanac preview|almanac-promo[^>]*data-state/);assert.equal((html.match(/<li><svg/g)||[]).length,6);assert.match(html,/Subscriptions are|subscriptions are|subscriptions are not/);assert.doesNotMatch(html,/aria-pressed="true"/);
+ const f=await fixture(t);let r=await f.request('/gold-almanac/');assert.equal(r.status,200);let html=await r.text();assert.match(html,/class="almanac-promo"/);assert.doesNotMatch(html,/PUBLIC EXCERPT|California: the lay of the land|Almanac preview|almanac-promo[^>]*data-state/);assert.equal((html.match(/<li><svg/g)||[]).length,1);assert.match(html,/Subscriptions are|subscriptions are|subscriptions are not/);assert.doesNotMatch(html,/aria-pressed="true"/);
  for(const state of states){r=await f.request('/api/gold-almanac/'+state.slug+'/');assert.equal(r.status,403);const body=await r.json();assert.equal(body.code,'plus_required');assert.doesNotMatch(body.html,/data-record-id=|almanac-note|source-ids/);}
  r=await f.request('/gold-almanac/nevada/');assert.equal(r.status,403);assert.doesNotMatch(await r.text(),/3,479,748/);assert.equal(f.lookups(),0);
 });

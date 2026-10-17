@@ -35,7 +35,7 @@ test('one website sign-in opens the calendar with the same session and rotated C
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>server.close(resolve)));
  const request=(path,options={})=>fetch(`http://127.0.0.1:${server.address().port}${path}`,{redirect:'manual',...options});
  const homepage=await request('/');assert.equal(homepage.status,200);assert.match(await homepage.text(),/href="\/calendar\/">My calendar/);
- const preview=await(await request('/calendar/')).text();assert.match(preview,/href="\/login\/\?next=\/calendar\/">Sign in to Gold Trails/);assert.doesNotMatch(preview,/Sign in to your calendar/);
+ const preview=await(await request('/calendar/')).text();assert.match(preview,/href="\/login\/\?next=\/calendar\/">Sign in/);assert.doesNotMatch(preview,/Sign in to your calendar/);
  const loginPage=await(await request('/login/?next=/calendar/')).text();assert.match(loginPage,/Sign in to Gold Trails/);assert.match(loginPage,/name="next" value="\/calendar\/"/);
  const login=await request('/login/',{method:'POST',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded',Cookie:`__Host-gold-form=${csrf}`},body:new URLSearchParams({csrf,email:'member@example.com',password:'an example long password',next:'/calendar/'})});
  assert.equal(login.status,303);assert.equal(login.headers.get('location'),'/calendar/');
