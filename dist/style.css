@@ -185,8 +185,18 @@ html[data-reading-contrast] body.article-page .reading,html[data-reading-contras
 
 /* Small yellow-gold keepsakes finish articles and the camp's support note. */
 body.article-page .reading::after,
-body:not(.admin-editor) .plus-support::after{content:'';display:block;width:154px;height:77px;max-width:100%;margin:24px auto 0;background:url('/assets/gold-nuggets-bright-v2.webp') center/contain no-repeat;pointer-events:none}
-body:not(.admin-editor) .plus-support::after{width:124px;height:62px;margin-top:12px}
+body:not(.admin-editor) .plus-support::after{content:'';display:block;width:126px;height:84px;max-width:100%;margin:24px auto 0;background:url('/assets/gold-pile-v1.webp') center/contain no-repeat;pointer-events:none}
+body:not(.admin-editor) .plus-support::after{width:90px;height:60px;margin-top:12px;background-image:url('/assets/gold-single-v1.webp')}
 html[data-reading-contrast] body :is(.reading,.plus-support,.category-intro)::after{display:none!important}
 html[data-reading-contrast] body :is(.home-gold-accent,.culture-welcome>img,.almanac-promo-footer>img){display:none!important}
 @media print{body :is(.reading,.plus-support,.category-intro)::after,body :is(.home-gold-accent,.culture-welcome>img,.almanac-promo-footer>img){display:none!important}}
+
+/* Matching small gold ornaments, selected by context rather than repeated everywhere. */
+body:not(.member-page):not(.admin-editor).article-page .category-intro::after{background-image:url('/assets/gold-trio-v1.webp')}
+body:not(.member-page):not(.admin-editor).creator-profile-page .category-intro::after{background-image:url('/assets/gold-single-v1.webp')}
+body:not(.member-page):not(.admin-editor):has(.product-desk) .category-intro::after{background-image:url('/assets/gold-grains-v1.webp')}
+body:not(.member-page):not(.admin-editor):has(#term-search) .category-intro::after{background-image:url('/assets/gold-trio-v1.webp')}
+body:not(.member-page):not(.admin-editor).communities-page .category-intro::after{background-image:url('/assets/gold-single-v1.webp')}
+body.creator-profile-page .center>.resource-placeholder:last-child:not(:has(form))::after{content:'';display:block;width:126px;height:84px;max-width:100%;margin:24px auto 0;background:url('/assets/gold-pile-v1.webp') center/contain no-repeat;pointer-events:none}
+html[data-reading-contrast] body.creator-profile-page .center>.resource-placeholder::after{display:none!important}
+@media print{body.creator-profile-page .center>.resource-placeholder::after{display:none!important}}
