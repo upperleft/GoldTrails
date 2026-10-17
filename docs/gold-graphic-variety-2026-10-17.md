@@ -1,6 +1,6 @@
 # Small gold graphic family
 
-Prepared October 17, 2026 on `varied-gold-ornaments`, based on published release `541acdb`. Local preview only; publication approval is pending.
+Prepared October 17, 2026 on `varied-gold-ornaments`, based on published release `541acdb`. Paul approved publication on October 17, 2026: “push baby!”
 
 Paul asked for a compact gold pile for centered page endings, clarified that these are decorative graphics rather than a logo, then requested additional small varieties distributed around the site.
 
