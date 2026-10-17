@@ -1,0 +1,13 @@
+Gold Trails — parchment corner clearance and About wording — October 17, 2026
+
+LOCAL REVIEW ONLY. Not published.
+
+Moved the shared category-heading gold ornament in from curled parchment corners: desktop right 48px / bottom 32px; phone right 32px / bottom 28px. Added matching text clearance (desktop right padding 300px, mobile bottom padding 124px). All existing gold artwork and context-specific variants are preserved. Centered article-ending piles are unaffected. Change: dist/style.css.
+
+Renamed About the Camp to About Gold Trails in the shared page shell, navigation across all 14 static pages, and the About page title and heading. Existing /about-the-camp/ links continue to work.
+
+Validation: build passed, 14 HTML pages / 499 local links/assets checked; whitespace check passed. Browser inspected article-index and About headings on desktop and 390px mobile: ornament and curl are visually separate, no horizontal overflow. About heading, browser title, and nav label verified.
+
+Screenshots under parent workspace outputs/parchment-corner-2026-10-17/.
+
+The preceding uniform-field and Previous/Next button changes are also saved locally, in commit fcfac8b. No production release approval has been received for these pending changes.
