@@ -4,8 +4,8 @@ import {escapeHtml as h} from '../directory-views.js';
 import {assetUrl} from '../asset-url.js';
 const blank='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
 function overlay(items,rect,prefix,member){return items.map(p=>{const[x,y,w,hg]=p.rect,[sx,sy,sw,sh]=rect;const style=`left:${(x-sx)/sw*100}%;top:${(y-sy)/sh*100}%;width:${w/sw*100}%;height:${hg/sh*100}%`;
- const attrs=`class="home-hotspot home-hotspot-${p.type}" style="${style}" data-home-id="${p.id}" data-home-name="${h(p.name)}" aria-label="${h(p.account&&member?'Return to My Gold Trail':p.label)}"`;
- if(p.type==='link')return `<a ${attrs} href="${p.account&&member?'/compass/':p.href}"${p.account?' data-home-account':''}><span class="home-sr">${h(p.account&&member?'Return to My Gold Trail':p.name)}</span>${p.account&&member?'<span class="home-account-label" aria-hidden="true">My Gold Trail</span>':''}</a>`;
+ const attrs=`class="home-hotspot home-hotspot-${p.type}" style="${style}" data-home-id="${p.id}" data-home-name="${h(p.name)}" aria-label="${h(p.account&&member?'My account':p.label)}"`;
+ if(p.type==='link')return `<a ${attrs} href="${p.account&&member?'/account/':p.href}"${p.account?' data-home-account':''}><span class="home-sr">${h(p.account&&member?'My account':p.name)}</span>${p.account&&member?'<span class="home-account-label" aria-hidden="true">My account</span>':''}</a>`;
  return `<button ${attrs} type="button" aria-expanded="false" aria-controls="home-info"${p.type==='help'?` data-home-help="${h(p.text)}"`:' data-home-search'}><span class="home-sr">${h(p.label)}</span></button>`;
  }).join('');}
 function picture(id,rect,media){return `<picture><source media="${media}" srcset="/assets/homepage/${id}.webp"><img src="${blank}" width="${rect[2]}" height="${rect[3]}" alt="" aria-hidden="true" decoding="async" fetchpriority="high"></picture>`;}

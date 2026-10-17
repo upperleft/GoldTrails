@@ -13,7 +13,6 @@ export function accountView(member, csrf) {
     <span class="camp-membership">${plus ? 'Gold Trails Plus' : 'Free member'}</span>
   </header>
   <nav class="camp-destinations" aria-label="Your camp shortcuts">
-    <a class="camp-trail" href="/compass/"><span><strong>My Gold Trail</strong><span>Your interests and recommendations</span></span><span class="camp-arrow" aria-hidden="true">→</span></a>
     <a class="camp-shortcut" href="/calendar/"><span class="camp-icon">${calendar}</span><span><strong>My calendar</strong><span>Keep your dates together</span></span><span class="camp-arrow" aria-hidden="true">→</span></a>
     <a class="camp-shortcut" href="/connections/mine/"><span class="camp-icon">${people}</span><span><strong>Gold Connections</strong><span>Your events &amp; RSVPs</span></span><span class="camp-arrow" aria-hidden="true">→</span></a>
   </nav>

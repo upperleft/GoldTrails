@@ -12,7 +12,7 @@ function shell(title, content, authenticated = false, scripts = false) {
   let html = page(title, 'A private calendar for your Gold Trails plans, club meetings, and days in the field.', content, '', 'Make a little room for your next adventure.')
     .replace('category-page', 'category-page calendar-page')
     .replace(/<nav class="breadcrumb".*?<\/nav>/, '<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/calendar/" aria-current="page">Calendar</a></nav>')
-    .replace(/<section class="category-intro rust">[\s\S]*?<\/section>/, `<section class="calendar-intro"><div><span class="eyebrow">GOLD TRAILS / YOUR FIELD PLANNER</span><h1>${h(title)}</h1><p>Make a little room for your next adventure.</p></div><a class="calendar-back" href="/compass/">Return to My Gold Trail <span aria-hidden="true">↗</span></a></section>`)
+    .replace(/<section class="category-intro rust">[\s\S]*?<\/section>/, `<section class="calendar-intro"><div><span class="eyebrow">GOLD TRAILS / YOUR FIELD PLANNER</span><h1>${h(title)}</h1><p>Make a little room for your next adventure.</p></div><a class="calendar-back" href="/account/">My account <span aria-hidden="true">↗</span></a></section>`)
     .replace(/<div class="layout"><aside class="left">[\s\S]*?<\/aside><div class="center" id="main-content">/, '<div class="calendar-layout"><div class="center" id="main-content">')
     .replace('</head>', `<link rel="stylesheet" href="/calendar.css?v=${hash}"></head>`);
   if (authenticated) html = html.replace('href="/login/">Login', 'href="/account/">My account');
@@ -55,7 +55,7 @@ export function calendarPage({ csrf = '', member = null } = {}) {
   const content = `<section class="calendar-app" data-calendar-app data-csrf="${h(csrf)}" aria-label="Your private calendar">
     <div class="calendar-app-tools"><button class="gold-button calendar-create" type="button" id="calendar-add-event"><span aria-hidden="true">＋</span> New event</button><button class="calendar-button calendar-sidebar-toggle" type="button" id="calendar-toggle-sidebar" aria-expanded="true" aria-controls="calendar-sidebar"><span>Filters &amp; calendars</span><span class="calendar-toggle-state">Hide</span><span class="calendar-toggle-icon" aria-hidden="true">⌃</span></button></div>
     <aside class="calendar-sidebar" id="calendar-sidebar" aria-label="Calendar settings">
-      <a class="calendar-text-button" href="/compass/">Return to My Gold Trail →</a>
+      <a class="calendar-text-button" href="/account/">My account →</a>
       <div class="calendar-date-card"><span class="eyebrow">FIND A DAY</span>${field('Jump to date', '<input id="calendar-jump-date" type="date" min="2000-01-01" max="2100-12-31">')}<button type="button" class="calendar-button" id="calendar-today">Back to today</button></div>
       <section class="calendar-list-section"><div class="calendar-sidebar-heading"><h2>My calendars</h2><button class="calendar-icon-button" type="button" id="calendar-add-calendar" aria-label="Create a calendar">＋</button></div><div id="calendar-list" aria-live="polite"><p class="calendar-help">Loading your calendars…</p></div></section>
       <section class="calendar-display-settings">${field('Display time zone', '<input id="calendar-display-zone" list="calendar-timezones" maxlength="100" autocomplete="off" value="America/New_York">')}<button type="button" class="calendar-text-button" id="calendar-apply-zone">Apply time zone</button><p class="calendar-help">All-day plans keep their date. Timed plans display in this time zone.</p></section>

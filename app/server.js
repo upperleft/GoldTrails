@@ -33,6 +33,12 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
       return;
     }
+    // Retired feature: old bookmarks lead to the account; old forms never write data.
+    if (!compass && (path === '/compass' || path.startsWith('/compass/'))) {
+      if (['GET','HEAD'].includes(req.method)) send(req,res,303,'',{Location:'/account/'});
+      else send(req,res,410,messagePage('This feature has been removed','Your account and personal calendar are still available.'));
+      return;
+    }
     if(connections?.attach)await connections.attach(req,res,url);
     attachReadingMarkup(req,res,url);
     attachPlusMarkup(req,res,url);

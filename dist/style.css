@@ -222,3 +222,9 @@ body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.
 body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro p{margin:0;max-width:75ch}
 body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .layout{padding-top:16px}
 @media(max-width:750px){body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) header{padding:12px 15px;gap:10px}body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) main{padding-top:10px}body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro{padding:10px 0!important}body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .layout{padding-top:12px}}
+
+/* One readable type treatment for every Old-Timer scene with overlaid copy. */
+.category-page .old-timer-copy :is(h1,h2){font-size:2.125rem;line-height:1.45;letter-spacing:normal;margin:16px 0 20px;text-wrap:pretty}
+.category-page .old-timer-copy p{font-size:1rem;line-height:1.75;margin:0 0 20px}
+.category-page .old-timer-copy .eyebrow{display:block;font-size:1rem;line-height:1.65;letter-spacing:.1em}
+@media(max-width:750px){.category-page .old-timer-copy :is(h1,h2){font-size:1.75rem;line-height:1.45;margin:14px 0 18px}}
