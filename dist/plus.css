@@ -29,3 +29,20 @@
 .category-page .almanac-promo-copy.old-timer-copy h2{font-size:2.375rem;line-height:1.55;margin:20px 0 24px}
 .category-page .almanac-promo-copy.old-timer-copy p{font-size:1.25rem;line-height:1.8}
 @media(max-width:750px){.category-page .almanac-promo-copy.old-timer-copy{padding:24px}.category-page .almanac-promo-copy.old-timer-copy>.eyebrow{font-size:2rem;line-height:1.4}.category-page .almanac-promo-copy.old-timer-copy h2{font-size:1.75rem;line-height:1.6;margin:18px 0 22px}.category-page .almanac-promo-copy.old-timer-copy p{font-size:1.125rem;line-height:1.8}}
+
+/* Keep research provenance with its features, and give the membership offer its own spotlight. */
+.almanac-promo-features .almanac-feature-proof{margin:16px 0 0;font-size:1rem;line-height:1.75;color:#705b3e}
+.almanac-promo-footer{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;align-items:center;margin:0;padding:28px;background:linear-gradient(120deg,#f8e9bb,#fff4d8);border-top:2px solid #bc954e}
+.plus-offer{min-width:0}
+.plus-offer h3{margin:0 0 12px;font:400 1.5rem/1.5 Rye,Georgia,serif;color:#51371c}
+.plus-offer-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:10px;margin:0;color:#51371c}
+.plus-offer-price strong{font:400 4rem/1.1 Rye,Georgia,serif}
+.plus-offer-price>span{font:400 1.25rem/1.6 'DM Sans',sans-serif}
+.plus-offer-price small{font:inherit}
+.plus-offer-includes{margin:14px 0 0;font-size:1rem;line-height:1.75;color:#705b3e}
+.almanac-promo-footer .almanac-promo-actions{margin:0;max-width:none;min-width:0;gap:16px}
+.almanac-promo-footer .gold-button{max-width:100%}
+@media(max-width:650px){.almanac-promo-footer{padding:24px 20px;gap:22px}}
+html[data-reading-dark] .almanac-promo-footer{background:linear-gradient(120deg,#3b321f,#292b24);border-top-color:var(--night-line,#8c8064)}
+html[data-reading-dark] .plus-offer h3,html[data-reading-dark] .plus-offer-price{color:var(--night-gold,#ffda69)}
+html[data-reading-dark] .plus-offer-includes,html[data-reading-dark] .almanac-promo-features .almanac-feature-proof{color:var(--night-muted,#d2c5aa)}
