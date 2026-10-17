@@ -5,47 +5,52 @@
  const normalized=value=>String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  const searchable=new Map(rows.map(row=>[row,row.textContent+' '+(row.dataset.search||'')]));
  let column=0,direction=1,active=null;
- function closeDefinition(returnFocus=false){
+ const overlay=document.createElement('dialog');overlay.id='glossary-definition-dialog';overlay.className='glossary-definition-dialog';
+ overlay.setAttribute('aria-labelledby','glossary-definition-title');
+ const header=document.createElement('div');header.className='glossary-definition-header';
+ const title=document.createElement('h2');title.id='glossary-definition-title';
+ const close=document.createElement('button');close.type='button';close.className='glossary-definition-close';close.textContent='Close ×';close.autofocus=true;
+ const content=document.createElement('div');content.className='glossary-definition-content';
+ header.append(title,close);overlay.append(header,content);document.body.append(overlay);
+ function closeDefinition(){if(overlay.open)overlay.close();}
+ function openDefinition(entry){
+  if(active===entry&&overlay.open){closeDefinition();return;}
+  if(active)active.button.setAttribute('aria-expanded','false');
+  active=entry;title.textContent=entry.button.textContent.trim();
+  close.setAttribute('aria-label','Close definition for '+title.textContent);
+  // Copy the existing authored definition, including its citations; keep the table unchanged.
+  content.replaceChildren(...[...entry.definition.childNodes].map(node=>node.cloneNode(true)));
+  entry.button.setAttribute('aria-expanded','true');
+  document.documentElement.classList.add('glossary-dialog-open');
+  if(!overlay.open)overlay.showModal();
+  close.focus({preventScroll:true});
+ }
+ close.addEventListener('click',closeDefinition);
+ overlay.addEventListener('close',()=>{
+  document.documentElement.classList.remove('glossary-dialog-open');
   if(!active)return;
-  const entry=active;active=null;entry.dismissed=true;entry.pinned=false;
-  entry.button.setAttribute('aria-expanded','false');entry.definition.hidden=true;
-  if(returnFocus)entry.button.focus();
- }
- function openDefinition(entry,pinned=false){
-  if(active!==entry)closeDefinition();
-  active=entry;entry.dismissed=false;entry.pinned=pinned;
-  entry.button.setAttribute('aria-expanded','true');entry.definition.hidden=false;
- }
+  const previous=active;active=null;previous.button.setAttribute('aria-expanded','false');
+  previous.button.focus({preventScroll:true});
+ });
+ // Keep Tab cycling through this definition; Escape uses native dialog dismissal.
+ overlay.addEventListener('keydown',event=>{
+  if(event.key!=='Tab')return;
+  const controls=[...overlay.querySelectorAll('button:not([disabled]),a[href]')];
+  const first=controls[0],last=controls[controls.length-1];
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+ });
+ overlay.addEventListener('click',event=>{
+  if(event.target!==overlay)return;
+  const bounds=overlay.getBoundingClientRect();
+  if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)closeDefinition();
+ });
  document.querySelector('.glossary').classList.add('glossary-interactive');
  document.querySelectorAll('.term').forEach(button=>{
-  const cell=button.closest('th'),definition=cell.querySelector('.definition');
-  const entry={button,cell,definition,pinned:false,dismissed:false};
-  const close=document.createElement('button');close.type='button';close.className='definition-close';close.textContent='Close ×';
-  close.setAttribute('aria-label','Close definition for '+button.textContent.trim());
-  definition.prepend(close);
-  close.addEventListener('click',()=>closeDefinition(true));
-  button.addEventListener('click',()=>{
-   if(active===entry&&entry.pinned)closeDefinition();else openDefinition(entry,true);
-  });
-  cell.addEventListener('pointerenter',event=>{
-   if(event.pointerType==='mouse'&&!active?.pinned)openDefinition(entry);
-  });
-  cell.addEventListener('pointerleave',()=>{
-   if(active===entry&&!entry.pinned&&!cell.contains(document.activeElement))closeDefinition();
-   entry.dismissed=false;
-  });
-  cell.addEventListener('focusin',()=>{if(!entry.dismissed&&active!==entry)openDefinition(entry);});
-  cell.addEventListener('focusout',event=>{
-   if(!cell.contains(event.relatedTarget)){
-    if(active===entry&&!entry.pinned)closeDefinition();entry.dismissed=false;
-   }
-  });
- });
- document.addEventListener('pointerdown',event=>{
-  if(active&&!active.cell.contains(event.target))closeDefinition();
- });
- document.addEventListener('keydown',event=>{
-  if(event.key==='Escape'&&active){const returnFocus=active.cell.contains(document.activeElement);event.preventDefault();closeDefinition(returnFocus);}
+  const definition=button.closest('th').querySelector('.definition');
+  button.setAttribute('aria-controls',overlay.id);button.setAttribute('aria-haspopup','dialog');
+  const entry={button,definition};
+  button.addEventListener('click',()=>openDefinition(entry));
  });
  function filter(){
   closeDefinition();

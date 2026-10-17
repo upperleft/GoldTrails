@@ -1,0 +1,21 @@
+/* Definition overlays share the cream paper and gold border of homepage help windows. */
+html.glossary-dialog-open{overflow:hidden;scrollbar-gutter:stable}
+.glossary-definition-dialog{width:min(38rem,calc(100% - 32px));max-height:calc(100dvh - 32px);max-width:none;box-sizing:border-box;padding:0;color:#302414;background:#fff4d9;border:3px solid #b68735;border-radius:12px;box-shadow:0 12px 44px #0006;overflow:hidden;font:1rem/1.75 'DM Sans',sans-serif;overflow-wrap:anywhere}
+.glossary-definition-dialog[open]{display:flex;flex-direction:column}
+.glossary-definition-dialog:not([open]){display:none}
+.glossary-definition-dialog::backdrop{background:#21190f66}
+.glossary-definition-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex:none;padding:24px 24px 18px;margin:0}
+.glossary-definition-header h2{font-family:'Libre Baskerville',Georgia,serif;font-size:1.5rem;line-height:1.5;margin:0}
+.glossary-definition-close{flex:none;min-height:44px;padding:7px 12px;color:inherit;background:#fffaf0;border:1px solid #aa8040;border-radius:6px;font:inherit;line-height:1.5;cursor:pointer}
+.glossary-definition-content{min-height:0;overflow:auto;padding:0 24px 24px}
+.glossary-definition-content .regional-term-kind{margin-top:0;font-weight:700}
+.glossary-definition-content a{color:#075b82;text-decoration:underline;text-underline-offset:3px}
+.glossary-definition-dialog :focus-visible{outline:3px solid #075b82;outline-offset:3px}
+@media(max-width:600px){.glossary-definition-header{padding:20px 20px 18px;gap:12px;flex-wrap:wrap}.glossary-definition-content{padding:0 20px 20px}.glossary-definition-close{margin-left:auto}}
+html[data-reading-dark] .glossary-definition-dialog{color:var(--night-text,#f4ead6);background:var(--night-panel,#272823);border-color:var(--night-gold,#e7be5b)}
+html[data-reading-dark] .glossary-definition-close{background:var(--night-raised,#33372f);border-color:var(--night-line,#8c8064)}
+html[data-reading-dark] .glossary-definition-content a{color:var(--night-link,#a6d9f5)}
+html[data-reading-contrast] .glossary-definition-dialog{color:#000!important;background:#fff!important;border-color:#000!important}
+html[data-reading-contrast] .glossary-definition-dialog a{color:#003d87!important}
+html[data-reading-contrast] .glossary-definition-close{background:#fff!important;color:#000!important;border-color:#000!important}
+@media print{.glossary-definition-dialog{display:none!important}}
