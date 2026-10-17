@@ -3,11 +3,11 @@
 export const canvas={width:1672,height:941};
 export const sections=[{id:'sidebar',rect:[0,0,312,941]},{id:'hero',rect:[312,0,1360,565]},{id:'destinations',rect:[312,565,315,376]},{id:'articles',rect:[627,565,315,376]},{id:'glossary',rect:[942,565,308,376]},{id:'plus',rect:[1250,565,422,376]}];
 const link=(id,name,rect,href,section,extra={})=>({id,name,rect,href,section,type:'link',label:name,...extra});
-const help=(id,name,rect,text,section)=>({id:id+'-help',name:name+' help',rect,text,section,type:'help',label:'About '+name});
+const help=(id,name,rect,text,section,extra={})=>({id:id+'-help',name:name+' help',rect,text,section,type:'help',label:'About '+name,...extra});
 const rows=[
  ['home','Home',210,'/','Return to the Gold Trails homepage.'],
  ['articles','Articles',259,'/articles/','Read sourced articles about prospecting, geology, equipment, techniques, and history.'],
- ['almanac','Almanac',307,'/gold-almanac/','Gold Trails Plus brings together research, regulations, sources, and a creator map for all 50 states.'],
+ ['almanac','Almanac',307,'/gold-almanac/','Explore research, regulations, source links, and a creator map for all 50 states.'],
  ['destinations','Destinations',355,'/gold-almanac/','Find state-specific location research in the Plus Almanac. Always check current permission and land access before prospecting.'],
  ['glossary','Glossary',403,'/glossary/','Look up gold prospecting, geology, and mining terms, including regional words and tool names.'],
  ['connections','Gold Connections',451,'/connections/','Browse community gatherings free. Gold Trails Plus members can organize events, RSVP, and join discussions.'],
@@ -18,7 +18,7 @@ const rows=[
 ];
 export const hotspots=[
  link('logo','Gold Trails home',[15,12,280,177],'/','sidebar'),
- ...rows.flatMap(([id,name,y,href,text])=>[href?link('nav-'+id,name,[34,y,204,43],href,'sidebar',{account:id==='signin'}):{id:'nav-search',name:'Search',label:'Search Gold Trails libraries',rect:[34,y,204,43],section:'sidebar',type:'search'},help('nav-'+id,name,[241,y+8,28,28],text,'sidebar')]),
+ ...rows.flatMap(([id,name,y,href,text])=>[href?link('nav-'+id,name,[34,y,204,43],href,'sidebar',{account:id==='signin'}):{id:'nav-search',name:'Search',label:'Search Gold Trails libraries',rect:[34,y,204,43],section:'sidebar',type:'search'},help('nav-'+id,name,[241,y+8,28,28],text,'sidebar',{premium:id==='almanac'})]),
  link('old-timer','Gold Trails home — the Old-Timer',[319,8,477,550],'/','hero'),
  link('hero-articles','Read Articles',[868,432,252,61],'/articles/','hero'),help('hero-articles','Articles',[1124,446,30,30],'Read practical, sourced articles from the Gold Trails library.','hero'),
  link('hero-glossary','Browse the Glossary',[1197,432,311,61],'/glossary/','hero'),help('hero-glossary','Glossary',[1513,446,30,30],'Open the searchable prospecting glossary.','hero'),
