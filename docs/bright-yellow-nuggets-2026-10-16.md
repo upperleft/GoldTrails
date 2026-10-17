@@ -1,6 +1,6 @@
 # Brighter yellow-gold decorations
 
-Prepared October 16, 2026. Local preview only; publication approval is pending.
+Prepared October 16, 2026. Paul approved the preview in response to the publication request: “Yeah, that gold looks really good.”
 
 Paul requested more gold nuggets, specifically a bright yellow-gold color. The existing decorative raster artwork was edited with the built-in Image Generation tool. This artwork is decorative illustration, not research evidence or a documentary photograph. The original asset is preserved.
 
