@@ -35,4 +35,4 @@ Paul requested a community scene with the Old-Timer, a slender male prospecting 
 - Screenshot: workspace `outputs/old-timer-vignettes-2026-10-18/community-desktop.png` (outside this repo).
 - Existing community/reading tests: **12 passed, 0 failed**; normal build passed (16 pages, 579 local links/assets checked). Log: `/private/tmp/gold-trails-community-art-tests-2026-10-18.txt`. The directory data and its links are unchanged.
 
-Saved locally for review, not published. The previous homepage work is saved in commit `109250f` and also remains unpublished. No authentication, membership, payment or data changes are included.
+**Published and verified October 18, 2026**, in release `cc70358900606fb20204330c3aae390ab3e496e8`, including the preceding homepage work. Live asset hashes match the local approved assets; the community scene was also visually checked on the live page. See [publication verification](homepage-publication-2026-10-18.md). No authentication, membership, payment or data changes are included.

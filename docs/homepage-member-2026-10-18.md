@@ -25,13 +25,13 @@ Keep the member homepage almost exactly like the public homepage: same artwork, 
 
 ## Publication / continuation
 
-These homepage changes are **saved locally, not published**. The last verified live release is `feade313c8cb3ff5a11f6becea5880105e7de94b` (enlarged product photos). The Desktop publishing checkout at `/Users/paulshoemaker/Desktop/GoldTrails` was advanced to earlier local hero-restoration commit `e221881` but has not been pushed. Before the next publication, fast-forward it to the final reviewed branch commit; do not push that earlier partial state by itself.
+**Published and verified October 18, 2026**, in release `cc70358900606fb20204330c3aae390ab3e496e8`, after Paul's explicit request to publish. The clean Desktop publishing checkout was fast-forwarded to that release and pushed through GitHub Desktop. Live HTTP and browser checks confirm the new public/member homepage and all three illustrations. See [publication verification](homepage-publication-2026-10-18.md).
 
 Read-only local previews use `scripts/preview-design.mjs`: public on port 4352, fictional subscriber on port 4353 with `DESIGN_PREVIEW_ROLE=subscriber`. They make no production account or billing changes.
 
 ## Remaining ideas / work
 
-- Review/publish this saved homepage version and verify the live result.
+- Publication and live verification are complete.
 - Follow-up: two restrained Old-Timer illustrations are now implemented locally on Products and Glossary. See [the illustration notes](old-timer-vignettes-2026-10-18.md). They fit within the existing title areas; homepage artwork is unchanged by that follow-up.
 - Optional redundancy cleanup: the first three lower cards each have two identical help buttons and three anchors to the same destination. Treat each card as one visual promotion; consider consolidating keyboard stops/help buttons only after reviewing the interaction. This has not been changed.
 
