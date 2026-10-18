@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-17",
+  "checkedTimezone": "America/New_York",
+  "article": "identifying-river-rocks",
+  "selection": "Four authentic, individually rights-checked metamorphic-rock photographs. Sources identify specimens or field slabs; none is labeled a river find. Full frames are retained in locally served optimized JPEGs. No AI generation.",
+  "images": [
+    {
+      "id": "gneiss-ryan-mountain-usgs",
+      "material": "Gneiss",
+      "sourceUrl": "https://www.usgs.gov/media/images/gneiss-boulder-along-ryan-mountain-trail",
+      "assetUrl": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/b68.jpg",
+      "identity": "Banded gneiss slab along the Ryan Mountain Trail, Joshua Tree National Park, California; source describes aplite-filled en-echelon fractures.",
+      "context": "Field photograph of a slab beside a trail. Not identified as river-worn and not a museum hand specimen.",
+      "credit": "U.S. Geological Survey",
+      "photographer": null,
+      "sourceRecordDate": "2004-01-02",
+      "captureDate": null,
+      "license": "Public domain",
+      "licenseUrl": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+      "licenseEvidence": "The exact USGS media record has a Sources/Usage section stating Public Domain. No separate photographer is identified on this record.",
+      "caption": "Gneiss in the field: pale and dark mineral bands run through a slab beside the Ryan Mountain Trail in Joshua Tree National Park. The USGS identifies the pale fracture fillings as aplite; this is not a river-worn specimen.",
+      "alt": "Broad gneiss slab with closely spaced pale and dark bands, crosscut by pale fractures; a cell phone rests on its surface.",
+      "visibleFeatures": [
+        "Closely spaced alternating pale and dark bands",
+        "Pale fractures crossing the banding",
+        "Cell phone included in the source frame"
+      ],
+      "visualReview": "Viewed the actual downloaded 800 × 600 original photograph. The slab occupies most of the frame; bands and crosscutting pale features are visible. Full frame preserved; no cropping, generative edits, or invented river provenance. Optimized 560-pixel thumbnail was also visually checked; the full frame and visible texture remain intact.",
+      "file": "dist/assets/articles/river-rocks/gneiss-ryan-mountain-usgs.jpg",
+      "dimensions": [
+        800,
+        600
+      ],
+      "bytes": 189705,
+      "sha256": "8a79bc025d1c206e5d8cb3b87193b6c38ff43f019d9625e65034812b95d3a9da",
+      "thumbnailFile": "dist/assets/articles/river-rocks/gneiss-ryan-mountain-usgs-thumb.jpg",
+      "thumbnailDimensions": [
+        560,
+        420
+      ],
+      "thumbnailBytes": 102217,
+      "thumbnailSha256": "8dbc563e009e2acd457b875b0b9cc81765a2a477e5e0691490357ed71e99fd2b",
+      "originalDimensions": [
+        800,
+        600
+      ],
+      "originalBytes": 204890,
+      "originalSha256": "d776b49dcff7002054346d6b331e3f1cbea89747107d8933e900da0e7de9cb8f",
+      "checkedAt": "2026-10-17",
+      "article": "identifying-river-rocks"
+    },
+    {
+      "id": "mica-schist-manhattan-geodil-331",
+      "material": "Mica schist",
+      "sourceUrl": "https://geodil.dperkins.org/h/331.html",
+      "assetUrl": "https://geodil.dperkins.org/i/331.jpg",
+      "identity": "Manhattan Schist from Manhattan Island, New York; Ward’s Collection of Classic North American Rocks #79. GeoDIL #331 identifies muscovite, biotite and quartz with small amounts of feldspar and garnet.",
+      "context": "Identified collection hand specimen. Not documented as a river find.",
+      "credit": "Mike Davis / GeoDIL, Ward’s Collection of Classic North American Rocks #79",
+      "photographer": "Mike Davis",
+      "captureDate": "2001-04-10",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "licenseEvidence": "Downloaded exact specimen HTML contains a copyright row linking https://creativecommons.org/publicdomain/zero/1.0/ with the zero.svg license icon. The GeoDIL copyright policy explicitly distinguishes its CC0 photographs from restricted photographs; this image has its own CC0 icon.",
+      "licensePolicyUrl": "https://geodil.dperkins.org/copyright.html",
+      "caption": "Mica-rich Manhattan Schist, a collection specimen from New York. Shiny flakes and thin, wavy aligned surfaces illustrate its foliated texture; the source identifies muscovite, biotite and quartz.",
+      "alt": "Gray mica-rich Manhattan Schist specimen with numerous reflective flakes and thin wavy layers; collection labels read 79.",
+      "visibleFeatures": [
+        "Reflective mineral flakes",
+        "Thin, wavy aligned surfaces",
+        "Gray and dark mineral mixture",
+        "Original collection labels"
+      ],
+      "visualReview": "Viewed actual downloaded 2152 × 1508 image and compared with alternate GeoDIL mica schists #425 and #360. Selected #331 because aligned flakes and wavy foliation are clearer. Identity follows the collection record; individual minerals are not inferred from color alone. Full frame preserved; no generative edits. Optimized 560-pixel thumbnail was also visually checked; the full frame and visible texture remain intact.",
+      "file": "dist/assets/articles/river-rocks/mica-schist-manhattan-geodil-331.jpg",
+      "dimensions": [
+        1400,
+        981
+      ],
+      "bytes": 547760,
+      "sha256": "78432c7994e9cfaa0d61b45b2288d729d101d529757747815889407b46a1619b",
+      "thumbnailFile": "dist/assets/articles/river-rocks/mica-schist-manhattan-geodil-331-thumb.jpg",
+      "thumbnailDimensions": [
+        560,
+        392
+      ],
+      "thumbnailBytes": 92024,
+      "thumbnailSha256": "aacd861342ba877a2b2627481df7c2d7529b699a7f6d5a073cf739b6d46a7efb",
+      "originalDimensions": [
+        2152,
+        1508
+      ],
+      "originalBytes": 720898,
+      "originalSha256": "27f0dfd684e2031b29ad42e25b25cb1f9a0cb8f310b30f83046c907e82c24907",
+      "checkedAt": "2026-10-17",
+      "article": "identifying-river-rocks"
+    },
+    {
+      "id": "quartzite-baraboo-geodil-328",
+      "material": "Quartzite",
+      "sourceUrl": "https://geodil.dperkins.org/h/328.html",
+      "assetUrl": "https://geodil.dperkins.org/i/328.jpg",
+      "identity": "Fine-grained Baraboo Quartzite from near Devils Lake, Sauk County, Wisconsin; Ward’s Collection of Classic North American Rocks #76. GeoDIL #328 states quartz is the only mineral present.",
+      "context": "Identified collection hand specimen. Not documented as river-worn.",
+      "credit": "Mike Davis / GeoDIL, Ward’s Collection of Classic North American Rocks #76",
+      "photographer": "Mike Davis",
+      "captureDate": "2001-04-10",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "licenseEvidence": "Downloaded exact specimen HTML contains its own copyright row linking https://creativecommons.org/publicdomain/zero/1.0/ with the zero.svg license icon. Corroborated by the exact GeoDIL #328 file record on Wikimedia Commons, which identifies this image as CC0.",
+      "licensePolicyUrl": "https://geodil.dperkins.org/copyright.html",
+      "corroboratingLicenseRecord": "https://commons.wikimedia.org/wiki/File:Quartzite_(GeoDIL_number_-_328).jpg",
+      "caption": "Fine-grained Baraboo Quartzite from Wisconsin, a collection specimen. Its pinkish-gray, granular-looking broken surface is one quartzite appearance; other quartzites may be white, gray or differently colored.",
+      "alt": "Angular pinkish-gray Baraboo Quartzite specimen with a fine granular-looking surface and original collection labels numbered 76.",
+      "visibleFeatures": [
+        "Angular broken surfaces",
+        "Fine granular-looking texture",
+        "Pinkish-gray coloration",
+        "Original collection labels"
+      ],
+      "visualReview": "Viewed actual downloaded 2170 × 1376 image. Texture and fractured surfaces are visible, but individual tightly interlocked crystals cannot be diagnosed confidently from the photograph alone. Caption makes no microscopic claim and no river provenance claim. Full frame preserved; no generative edits. Optimized 560-pixel thumbnail was also visually checked; the full frame and visible texture remain intact.",
+      "file": "dist/assets/articles/river-rocks/quartzite-baraboo-geodil-328.jpg",
+      "dimensions": [
+        1400,
+        888
+      ],
+      "bytes": 502560,
+      "sha256": "9102cbd8c03916fb4f0041e3a7898aa8b30fd4136f9736249f1356d61df4bf8d",
+      "thumbnailFile": "dist/assets/articles/river-rocks/quartzite-baraboo-geodil-328-thumb.jpg",
+      "thumbnailDimensions": [
+        560,
+        355
+      ],
+      "thumbnailBytes": 83786,
+      "thumbnailSha256": "acb00362ebf7cbd3af0dff8e602f6de6933671bc8034a19dceb9122efac5e8ed",
+      "originalDimensions": [
+        2170,
+        1376
+      ],
+      "originalBytes": 651567,
+      "originalSha256": "fbf28985bf90bb2383efa14b47f5da716b50311e4f08c009a366ea6bbf26ca79",
+      "checkedAt": "2026-10-17",
+      "article": "identifying-river-rocks"
+    },
+    {
+      "id": "marble-adirondack-geodil-506",
+      "material": "Marble",
+      "sourceUrl": "https://geodil.dperkins.org/h/506.html",
+      "assetUrl": "https://geodil.dperkins.org/i/506.jpg",
+      "identity": "Marble from the Adirondack lowlands, St. Lawrence County, New York; Ward’s University Rock Collection #173. GeoDIL #506 describes nearly pure calcite with a few phlogopite flakes and graphite specks.",
+      "context": "Identified collection hand specimen. Not documented as river-worn.",
+      "credit": "Nessa Eull / GeoDIL, Ward’s University Rock Collection #173",
+      "photographer": "Nessa Eull",
+      "captureDate": "2001-05-22",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "licenseEvidence": "Downloaded exact specimen HTML contains its own copyright row linking https://creativecommons.org/publicdomain/zero/1.0/ with the zero.svg license icon. Exact Wikimedia Commons GeoDIL #506 file record also identifies CC0 and documents license review on 18 August 2026.",
+      "licensePolicyUrl": "https://geodil.dperkins.org/copyright.html",
+      "corroboratingLicenseRecord": "https://commons.wikimedia.org/wiki/File:Marble_(GeoDIL_number_-_506).jpg",
+      "caption": "Calcite-rich marble from New York’s Adirondack lowlands, a collection specimen. Pale, closely packed crystals give this example a coarse sugary texture, with a few darker specks.",
+      "alt": "Pale gray-white marble hand specimen with conspicuous crystalline grains, scattered dark specks, and original labels numbered 173.",
+      "visibleFeatures": [
+        "Pale crystalline grains",
+        "Coarse sugary-looking texture",
+        "Scattered dark specks",
+        "Original collection labels"
+      ],
+      "visualReview": "Viewed actual downloaded 2452 × 1812 image. Pale crystalline texture is clear; scattered dark specks are visible. Calcite identity comes from the collection record, not a photographic diagnosis. Full frame preserved; no cropping, generative edits, or river provenance claim. Optimized 560-pixel thumbnail was also visually checked; the full frame and visible texture remain intact.",
+      "file": "dist/assets/articles/river-rocks/marble-adirondack-geodil-506.jpg",
+      "dimensions": [
+        1400,
+        1035
+      ],
+      "bytes": 385057,
+      "sha256": "dda6bd3817f0e0b7b7e6f9987bb16aad7c6111a297722ef3bc9b136e6f124349",
+      "thumbnailFile": "dist/assets/articles/river-rocks/marble-adirondack-geodil-506-thumb.jpg",
+      "thumbnailDimensions": [
+        560,
+        414
+      ],
+      "thumbnailBytes": 61536,
+      "thumbnailSha256": "254d19980e5971aca493503d41e417d0339fd7c214c2725fece10e2fa7ade4df",
+      "originalDimensions": [
+        2452,
+        1812
+      ],
+      "originalBytes": 604468,
+      "originalSha256": "4288236b1c6be9b63daf47ec7987de62d075abb1ae70b5a44dbf8c0f758fe052",
+      "checkedAt": "2026-10-17",
+      "article": "identifying-river-rocks"
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "sourceUrl": "https://www.si.edu/object/metamorphic-rock-marble%3Anmnheducation_10025169",
+      "reason": "Smithsonian search record explicitly says restrictions apply to this image; metadata CC0 is not equivalent to photograph reuse permission. Excluded."
+    },
+    {
+      "sourceUrl": "https://dnr.mo.gov/document-search/quartzite-pub2929/pub2929",
+      "reason": "Useful identified specimen photograph but no individual commercial-compatible image permission verified during this pass; excluded in favor of an individually CC0 GeoDIL specimen."
+    }
+  ],
+  "gaps": [
+    "No additional reliably identified, individually reusable rounded river-worn photograph was selected for these four materials. The required identified examples are complete."
+  ]
+}

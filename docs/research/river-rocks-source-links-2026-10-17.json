@@ -1,0 +1,434 @@
+{
+  "article": "Identifying River Rocks by Color, Pattern, and Density",
+  "articlePath": "dist/articles/identifying-river-rocks/index.html",
+  "checkedDate": "2026-10-17",
+  "checkedTimezone": "America/New_York",
+  "executionTimestampUTC": "2026-10-18T01:58:46.886Z",
+  "method": "GET request via curl, follow redirects, discard response body, connect timeout 12 seconds / total timeout 30 seconds, four concurrent requests. Unique external article anchor hrefs; fragments retained. This is a health check rather than a substitute for the primary-source and per-image rights reviews.",
+  "scope": "External hyperlinks in the final article, including technical references, photograph source credits, and license links. Local assets and internal links are checked separately by the build and article tests.",
+  "summary": {
+    "uniqueExternalLinks": 31,
+    "reachable": 23,
+    "automatedAccessRestricted": 8,
+    "missing": 0,
+    "other": 0
+  },
+  "links": [
+    {
+      "url": "https://arxiv.org/abs/1311.6574",
+      "linkTexts": [
+        "how river rocks become rounded"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://arxiv.org/abs/1311.6574",
+      "contentType": "text/html; charset=utf-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://dnr.mo.gov/document-search/quartzite-pub2929/pub2929",
+      "linkTexts": [
+        "quartzite and glacial erratics guide",
+        "quartzite guide"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://dnr.mo.gov/document-search/quartzite-pub2929/pub2929",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.bgs.ac.uk/discovering-geology/rocks-and-minerals/",
+      "linkTexts": [
+        "rocks and minerals introduction"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://www.bgs.ac.uk/discovering-geology/rocks-and-minerals/",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.si.edu/object/igneous-rock-granite%3Anmnheducation_11038359",
+      "linkTexts": [
+        "Smithsonian National Museum of Natural History"
+      ],
+      "httpStatus": 403,
+      "finalURL": "https://www.si.edu/object/igneous-rock-granite%3Anmnheducation_11038359",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Automated access restricted; this status alone does not establish a broken link."
+    },
+    {
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "linkTexts": [
+        "CC0 1.0",
+        "CC0 1.0",
+        "CC0 1.0",
+        "CC0 1.0",
+        "CC0 1.0 Universal",
+        "CC0 1.0 Universal",
+        "CC0 1.0",
+        "CC0 1.0",
+        "CC0 1.0",
+        "CC0 1.0 Universal",
+        "CC0 1.0 Universal",
+        "CC0 1.0 Universal"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "License or rights-policy link retained beside its selected image; specific image rights were checked independently in the photo-inspection records.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://geodil.dperkins.org/h/35.html",
+      "linkTexts": [
+        "Joseph Hartman / Geoscience Digital Image Library"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://geodil.dperkins.org/h/35.html",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.nps.gov/subjects/geology/igneous.htm",
+      "linkTexts": [
+        "igneous rock guide",
+        "NPS igneous rock guide"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://www.nps.gov/subjects/geology/igneous.htm",
+      "contentType": "text/html;charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.si.edu/object/igneous-rock-basalt%3Anmnheducation_11038343",
+      "linkTexts": [
+        "Smithsonian National Museum of Natural History"
+      ],
+      "httpStatus": 403,
+      "finalURL": "https://www.si.edu/object/igneous-rock-basalt%3Anmnheducation_11038343",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Automated access restricted; this status alone does not establish a broken link."
+    },
+    {
+      "url": "https://www.si.edu/object/sedimentary-rock-sandstone%3Anmnheducation_10024859",
+      "linkTexts": [
+        "Smithsonian National Museum of Natural History"
+      ],
+      "httpStatus": 403,
+      "finalURL": "https://www.si.edu/object/sedimentary-rock-sandstone%3Anmnheducation_10024859",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Automated access restricted; this status alone does not establish a broken link."
+    },
+    {
+      "url": "https://naturalhistory.si.edu/object/nmnhmineralsciences_1325628",
+      "linkTexts": [
+        "Smithsonian National Museum of Natural History, NMNH 91536 (CC0)"
+      ],
+      "httpStatus": 403,
+      "finalURL": "https://naturalhistory.si.edu/object/nmnhmineralsciences_1325628",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Automated access restricted; this status alone does not establish a broken link."
+    },
+    {
+      "url": "https://geodil.dperkins.org/h/2161.html",
+      "linkTexts": [
+        "Joseph Hartman / GeoDIL 2161 (CC0)"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://geodil.dperkins.org/h/2161.html",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.nps.gov/subjects/geology/sedimentary.htm",
+      "linkTexts": [
+        "NPS sedimentary rock guide"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://www.nps.gov/subjects/geology/sedimentary.htm",
+      "contentType": "text/html;charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.usgs.gov/media/images/gneiss-boulder-along-ryan-mountain-trail",
+      "linkTexts": [
+        "U.S. Geological Survey"
+      ],
+      "httpStatus": 403,
+      "finalURL": "https://www.usgs.gov/media/images/gneiss-boulder-along-ryan-mountain-trail",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": null,
+      "assessment": "Automated access restricted; this status alone does not establish a broken link."
+    },
+    {
+      "url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+      "linkTexts": [
+        "Public domain"
+      ],
+      "httpStatus": 403,
+      "finalURL": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "License or rights-policy link retained beside its selected image; specific image rights were checked independently in the photo-inspection records.",
+      "assessment": "Automated access restricted; this status alone does not establish a broken link."
+    },
+    {
+      "url": "https://geodil.dperkins.org/h/331.html",
+      "linkTexts": [
+        "Mike Davis / GeoDIL, Ward’s Collection of Classic North American Rocks #79"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://geodil.dperkins.org/h/331.html",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.nps.gov/cure/learn/nature/rocks-minerals.htm",
+      "linkTexts": [
+        "Curecanti rock guide"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://www.nps.gov/cure/learn/nature/rocks-minerals.htm",
+      "contentType": "text/html;charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://geodil.dperkins.org/h/328.html",
+      "linkTexts": [
+        "Mike Davis / GeoDIL, Ward’s Collection of Classic North American Rocks #76"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://geodil.dperkins.org/h/328.html",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://geodil.dperkins.org/h/506.html",
+      "linkTexts": [
+        "Nessa Eull / GeoDIL, Ward’s University Rock Collection #173"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://geodil.dperkins.org/h/506.html",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.nps.gov/subjects/geology/metamorphic.htm",
+      "linkTexts": [
+        "NPS metamorphic rock guide"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://www.nps.gov/subjects/geology/metamorphic.htm",
+      "contentType": "text/html;charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://dnr.mo.gov/document-search/quartz-pub2928/pub2928",
+      "linkTexts": [
+        "Missouri Geological Survey’s quartz guide"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://dnr.mo.gov/document-search/quartz-pub2928/pub2928",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://geodil.dperkins.org/h/393.html",
+      "linkTexts": [
+        "Shannon Heinle / GeoDIL 393 (CC0)"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://geodil.dperkins.org/h/393.html",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://dnr.mo.gov/document-search/chert-pub0661/pub0661",
+      "linkTexts": [
+        "chert guide"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://dnr.mo.gov/document-search/chert-pub0661/pub0661",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://geodil.dperkins.org/h/291.html",
+      "linkTexts": [
+        "Mike Davis / GeoDIL 291 (CC0)"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://geodil.dperkins.org/h/291.html",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.usgs.gov/observatories/yvo/news/yellowstone-redstone-greenstone-blueschist-what-makes-rocks-so-colorful",
+      "linkTexts": [
+        "what makes rocks colorful"
+      ],
+      "httpStatus": 403,
+      "finalURL": "https://www.usgs.gov/observatories/yvo/news/yellowstone-redstone-greenstone-blueschist-what-makes-rocks-so-colorful",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Automated access restricted; this status alone does not establish a broken link."
+    },
+    {
+      "url": "https://home.nps.gov/shen/learn/nature/greenstone.htm",
+      "linkTexts": [
+        "greenstone guide"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://home.nps.gov/shen/learn/nature/greenstone.htm",
+      "contentType": "text/html;charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://geodil.dperkins.org/h/436.html",
+      "linkTexts": [
+        "Mike Davis / GeoDIL 436 (CC0)"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://geodil.dperkins.org/h/436.html",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Selected photograph source was opened/read and individually rights-checked by the photo research agents; see corresponding river-rocks photo-inspection JSON files.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://pubs.usgs.gov/bul/b1693/html/bull7kdv.htm",
+      "linkTexts": [
+        "polymetallic vein model"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://pubs.usgs.gov/bul/b1693/html/bull7kdv.htm",
+      "contentType": "text/html",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://courses.ems.psu.edu/mng230/node/869",
+      "linkTexts": [
+        "Penn State’s rock-density table"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://courses.ems.psu.edu/mng230/node/869",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://www.open.edu/openlearn/science-maths-technology/minerals-and-the-crystalline-state/content-section-3.5",
+      "linkTexts": [
+        "Open University’s explanation of density"
+      ],
+      "httpStatus": 403,
+      "finalURL": "https://www.open.edu/openlearn/science-maths-technology/minerals-and-the-crystalline-state/content-section-3.5",
+      "contentType": "text/html; charset=UTF-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Automated access restricted; this status alone does not establish a broken link."
+    },
+    {
+      "url": "https://www.nickzentner.com/the-nick-zentner-geology-podcast/2020/1/3/36-rock-identification",
+      "linkTexts": [
+        "Rock Identification podcast episode"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://www.nickzentner.com/the-nick-zentner-geology-podcast/2020/1/3/36-rock-identification",
+      "contentType": "text/html;charset=utf-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    },
+    {
+      "url": "https://main.wsgs.wyo.gov/mineral-resources/metals/gold",
+      "linkTexts": [
+        "Wyoming State Geological Survey’s gold overview"
+      ],
+      "httpStatus": 200,
+      "finalURL": "https://main.wsgs.wyo.gov/mineral-resources/metals/gold",
+      "contentType": "text/html; charset=utf-8",
+      "curlExitCode": 0,
+      "redirected": false,
+      "priorVerification": "Technical primary source opened and read during this article task by the root agent; HTTP result below is an additional automated health check.",
+      "assessment": "Reachable"
+    }
+  ]
+}

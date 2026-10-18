@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "article": "identifying-river-rocks",
+  "checkedAt": "2026-10-17",
+  "checkedTimezone": "America/New_York",
+  "selection": "Four authentic specimen photographs for granite, diorite, basalt and sandstone. All four are individually verified CC0; originals visually inspected before optimization.",
+  "limitations": [
+    "These four photographs show museum/collection specimens, not documented river finds.",
+    "No reliable reusable rounded river-worn examples were selected in this pass; no before-and-after relationship is implied.",
+    "Diorite roadcut photograph from the NPS igneous guide was considered and rejected as too distant to show identification texture clearly.",
+    "Granite specimen color is not representative of all granite; no additional gray/pink comparison photograph was selected in this pass."
+  ],
+  "images": [
+    {
+      "id": "granite-smithsonian",
+      "material": "Granite",
+      "sourceUrl": "https://www.si.edu/object/igneous-rock-granite%3Anmnheducation_11038359",
+      "assetUrl": "https://ids.si.edu/ids/download?id=NMNH-EO_400624_Igneous_Rock_Granite_001.jpg",
+      "identity": "Igneous Rock Granite; Smithsonian Education and Outreach collection; record nmnheducation_11038359; image NMNH-EO_400624_Igneous_Rock_Granite_001",
+      "credit": "Smithsonian National Museum of Natural History",
+      "sourceImageId": "ark:/65665/m3cebd6dfd8e5b43ab817e9343d6ba1cea",
+      "collectionContext": "Museum teaching specimen, not documented as a river find. No collecting locality supplied on the record.",
+      "caption": "Granite teaching specimen: coarse pale crystals and dark flecks form an irregular mosaic. This is one specimen, not every appearance of granite.",
+      "alt": "Smithsonian granite specimen with a coarse mosaic of pale crystals and dark mineral flecks beside a centimeter scale.",
+      "visualReview": "Original downloaded photograph inspected with view_image. Single angular tan-pinkish speckled specimen, visible grains and dark flecks, white background, original centimeter scale retained. No generative edits or cropping; no river origin inferred.",
+      "originalDimensions": [
+        2500,
+        1660
+      ],
+      "originalSha256": "f9e9f04c89eace109013393381fe1719905b7c62bc74cc2f20afb88c42bf984a",
+      "originalBytes": 1386944,
+      "file": "dist/assets/articles/river-rocks/granite-smithsonian.jpg",
+      "thumbnailFile": "dist/assets/articles/river-rocks/granite-smithsonian-560.jpg",
+      "dimensions": [
+        1400,
+        930
+      ],
+      "bytes": 455301,
+      "sha256": "2af9cb17f19b4b573eedbbec51621c46d5e922ab7690d0813e3d8c7b947079ae",
+      "thumbnailDimensions": [
+        560,
+        372
+      ],
+      "thumbnailBytes": 84515,
+      "thumbnailSha256": "c72643d0e22f932839b9dc71e83889472295ecfd474ddf7ca32d0db3275118ec",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checkedAt": "2026-10-17",
+      "checkedTimezone": "America/New_York",
+      "optimization": "Full frame preserved; resized without enlargement to1400px and560px widths; JPEG quality90 with4:4:4chroma. No AI or color alterations.",
+      "licenseEvidence": "Exact Smithsonian object page inspected in browser. Selected media carries CC0 Creative Commons - No Rights Reserved button; opened tooltip explicitly says this media is public domain and may be copied, modified and distributed without contacting Smithsonian. Verified selected first image URL through page DOM and download control when available; did not infer image rights from metadata license."
+    },
+    {
+      "id": "diorite-geodil-35",
+      "material": "Diorite",
+      "sourceUrl": "https://geodil.dperkins.org/h/35.html",
+      "assetUrl": "https://geodil.dperkins.org/i/35.jpg",
+      "identity": "Diorite, near Azusa, California; Ward’s Collection of Classic North American Rocks #25; GeoDIL image35",
+      "credit": "Joseph Hartman / Geoscience Digital Image Library",
+      "photographer": "Joseph Hartman",
+      "captureDate": "2001-02-08",
+      "collectionContext": "Photographed hand specimen, 10cm across according to source; not documented as a river find.",
+      "caption": "Diorite hand specimen from near Azusa, California. Pale plagioclase and dark hornblende make the medium-grained speckled texture; the source identifies the specimen as 10 cm across.",
+      "alt": "Diorite hand specimen showing strongly contrasting pale mineral grains and black hornblende against a black background.",
+      "licenseEvidence": "Exact image page HTML contains a copyright row linking CC0 1.0 with zero.svg license icon. GeoDIL copyright page warns not all images are freely licensed, so this image-specific license was checked; Commons independently records CC0 and source review on18August2026.",
+      "licensePolicyUrl": "https://geodil.dperkins.org/copyright.html",
+      "corroboratingLicenseRecord": "https://commons.wikimedia.org/wiki/File:Diorite_(GeoDIL_number_-_35).jpg",
+      "visualReview": "Original downloaded photograph inspected with view_image. Full single angular black-and-pale crystalline hand specimen clearly visible on black background; distinct interlocking grains and dark hornblende are visible. No generative edits or cropping; no river origin inferred.",
+      "originalDimensions": [
+        3040,
+        2016
+      ],
+      "originalSha256": "e014f8b1e185a45bdc983858f3f5e5de0b2e9514e51880c3f7ec2e5dc9f2cc09",
+      "originalBytes": 869163,
+      "file": "dist/assets/articles/river-rocks/diorite-geodil-35.jpg",
+      "thumbnailFile": "dist/assets/articles/river-rocks/diorite-geodil-35-560.jpg",
+      "dimensions": [
+        1400,
+        928
+      ],
+      "bytes": 365059,
+      "sha256": "863d6ceb9b7403158e460c43a1273fdef13b6005047d466831112ef93e0cc261",
+      "thumbnailDimensions": [
+        560,
+        371
+      ],
+      "thumbnailBytes": 64036,
+      "thumbnailSha256": "550bcd6cbcac448e8c85283f54aa07d5ee6c6d104c17aec458cc74ea51344763",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checkedAt": "2026-10-17",
+      "checkedTimezone": "America/New_York",
+      "optimization": "Full frame preserved; resized without enlargement to1400px and560px widths; JPEG quality90 with4:4:4chroma. No AI or color alterations."
+    },
+    {
+      "id": "basalt-smithsonian",
+      "material": "Basalt",
+      "sourceUrl": "https://www.si.edu/object/igneous-rock-basalt%3Anmnheducation_11038343",
+      "assetUrl": "https://ids.si.edu/ids/deliveryService?id=ark:/65665/m363652fd79a9947bb9ff01baedb67811c&max=2000",
+      "identity": "Igneous Rock Basalt; Smithsonian Education and Outreach collection; Hawaii; record nmnheducation_11038343; first media image",
+      "credit": "Smithsonian National Museum of Natural History",
+      "sourceImageId": "ark:/65665/m363652fd79a9947bb9ff01baedb67811c",
+      "collectionContext": "Museum teaching specimen from Hawaii; not documented as a river find. Record describes three objects; caption refers only to this photographed basalt.",
+      "caption": "Basalt from the Smithsonian teaching collection, Hawaii. Look for the dark, fine-grained material and cavities; many basalts are more compact than this example.",
+      "alt": "Dark basalt teaching specimen with a fine-grained surface, ropy upper surface and visible cavities beside a centimeter scale.",
+      "visualReview": "Original downloaded photograph inspected with view_image. Black elongated angular specimen with ropy upper surface and many visible cavities, white background and original centimeter scale retained. No generative edits or cropping; no river origin inferred.",
+      "originalDimensions": [
+        2000,
+        1328
+      ],
+      "originalSha256": "75d7ff65229f4ed2dd80e2b611d96ee4fecd3f449a47459c85d4eeb711bc6645",
+      "originalBytes": 524588,
+      "file": "dist/assets/articles/river-rocks/basalt-smithsonian.jpg",
+      "thumbnailFile": "dist/assets/articles/river-rocks/basalt-smithsonian-560.jpg",
+      "dimensions": [
+        1400,
+        930
+      ],
+      "bytes": 391575,
+      "sha256": "f05cc01f161e820dc76047ae2aa136a69be14869c62800705a8fc9a0de142b96",
+      "thumbnailDimensions": [
+        560,
+        372
+      ],
+      "thumbnailBytes": 60816,
+      "thumbnailSha256": "da5a2ff27a7f5f469ff2922bb7f91ab3f02ede66c6f800a3465cfdd682f77dc8",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checkedAt": "2026-10-17",
+      "checkedTimezone": "America/New_York",
+      "optimization": "Full frame preserved; resized without enlargement to1400px and560px widths; JPEG quality90 with4:4:4chroma. No AI or color alterations.",
+      "licenseEvidence": "Exact Smithsonian object page inspected in browser. Selected media carries CC0 Creative Commons - No Rights Reserved button; opened tooltip explicitly says this media is public domain and may be copied, modified and distributed without contacting Smithsonian. Verified selected first image URL through page DOM and download control when available; did not infer image rights from metadata license."
+    },
+    {
+      "id": "sandstone-smithsonian",
+      "material": "Sandstone",
+      "sourceUrl": "https://www.si.edu/object/sedimentary-rock-sandstone%3Anmnheducation_10024859",
+      "assetUrl": "https://ids.si.edu/ids/download?id=NMNH-EO_045525_Sedimentary_Rock_Sandstone_001.jpg",
+      "identity": "Sedimentary Rock Sandstone; Smithsonian Education and Outreach collection; Pottsville / Upper Connoquessing; record nmnheducation_10024859; image NMNH-EO_045525_Sedimentary_Rock_Sandstone_001",
+      "credit": "Smithsonian National Museum of Natural History",
+      "collectionContext": "Museum teaching specimen collected at U.S.Route48 north of Quarry Run, MonongaliaCounty, WestVirginia; not described as river-worn.",
+      "caption": "Sandstone teaching specimen from West Virginia. Its fine granular surface and subtle layers are useful clues; use the enlarged image to examine the grains.",
+      "alt": "Tan sandstone specimen with a fine granular texture and subtle darker layers, with an original centimeter scale at the right.",
+      "visualReview": "Original downloaded photograph inspected with view_image. Single angular tan, fine granular rock specimen, subtly darker thin layers, written specimen number and original centimeter scale retained. No generative edits or cropping; no river origin inferred.",
+      "originalDimensions": [
+        2179,
+        1880
+      ],
+      "originalSha256": "c94c131f7a0203826e9bf873fae787e999fc7c7cf6b41015b7fb66509e83afcb",
+      "originalBytes": 4183285,
+      "file": "dist/assets/articles/river-rocks/sandstone-smithsonian.jpg",
+      "thumbnailFile": "dist/assets/articles/river-rocks/sandstone-smithsonian-560.jpg",
+      "dimensions": [
+        1400,
+        1208
+      ],
+      "bytes": 396612,
+      "sha256": "2bdaf367df90df7cd63ddf1b2d330ea0c59b8bb2c6f4c4d465d3ad2ac841f0eb",
+      "thumbnailDimensions": [
+        560,
+        483
+      ],
+      "thumbnailBytes": 67005,
+      "thumbnailSha256": "b7c780057b3b8e1e847cd49a337a4252340c4c0bcc5dd69310b0916f546f6cf4",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "checkedAt": "2026-10-17",
+      "checkedTimezone": "America/New_York",
+      "optimization": "Full frame preserved; resized without enlargement to1400px and560px widths; JPEG quality90 with4:4:4chroma. No AI or color alterations.",
+      "licenseEvidence": "Exact Smithsonian object page inspected in browser. Selected media carries CC0 Creative Commons - No Rights Reserved button; opened tooltip explicitly says this media is public domain and may be copied, modified and distributed without contacting Smithsonian. Verified selected first image URL through page DOM and download control when available; did not infer image rights from metadata license."
+    }
+  ]
+}
