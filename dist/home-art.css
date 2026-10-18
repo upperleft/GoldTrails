@@ -30,10 +30,6 @@ html[data-reading-dark] .home-plus-badge{background:#f1cc6b;color:#3e2a13;border
  .home-art-tools .home-creators-first{display:inline-flex;align-items:center;min-height:40px;padding:6px 15px;border:1px solid #d4a74d;border-radius:8px;background:#efd082;color:#352416;text-decoration:none;font-weight:600}
  .home-art-tools .reading-options-panel{top:calc(100% + 8px);bottom:auto;max-height:calc(100svh - 84px)}
  .home-live-copy{position:absolute;z-index:1;box-sizing:border-box;color:#322516;background-color:#ffe3b1;background-image:linear-gradient(110deg,#f5cd8a9c,#ffe9bf8c 46%,#f2c9858f),url('/assets/parchment-plain-v1.webp');background-position:center;background-size:350% 350%;line-height:1.3;pointer-events:none}
- .home-live-hero{padding:.2cqw .6cqw;text-align:center;background-size:100% 100%,350% 350%;clip-path:polygon(0 3%,2% 1%,6% 2%,10% 0,15% 1%,20% 0,26% 2%,32% 1%,37% 2%,42% 0,49% 1%,55% 0,62% 2%,69% 1%,75% 2%,81% 0,87% 1%,94% 0,99% 2%,100% 8%,99.5% 21%,100% 34%,99.5% 48%,100% 61%,99.4% 76%,100% 89%,99% 98%,94% 99%,87% 98%,81% 100%,75% 99%,69% 100%,62% 98%,55% 99%,49% 100%,42% 98%,36% 99%,30% 98%,24% 100%,18% 99%,12% 100%,7% 98%,1% 99%,0 94%,.6% 80%,0 67%,.5% 53%,0 38%,.6% 23%)}
- .home-live-hero .home-live-brand{margin:0 0 .45cqw;color:#84511a;font:400 1.2cqw/1.2 Rye,Georgia,serif;letter-spacing:.12em;text-transform:uppercase}
- .home-live-hero h1{margin:0 0 .65cqw;color:#102e2a;font:400 3cqw/1.2 Rye,Georgia,serif;letter-spacing:-.035em;text-wrap:balance}
- .home-live-hero>p:last-child{margin:0 auto;max-width:96%;font:400 clamp(1rem,1.35cqw,1.5rem)/1.45 'DM Sans',sans-serif;text-wrap:balance}
  .home-live-panel{padding:.25cqw .65cqw;text-align:center;background-image:linear-gradient(#ffddaab8,#ffe1b4bd),url('/assets/parchment-plain-v1.webp');background-size:100% 100%,350% 350%}
  .home-live-panel h2{max-width:calc(100% - 42px);margin:0 42px 0 0;color:#302214;font:600 clamp(.95rem,1.38cqw,1.65rem)/1.15 Georgia,serif;white-space:nowrap;letter-spacing:-.02em}
  .home-live-panel .home-panel-subtitle{margin:.18cqw 0 .28cqw;color:#654b2b;font:400 clamp(.8125rem,1.04cqw,1.125rem)/1.2 'DM Sans',sans-serif}
@@ -56,7 +52,8 @@ html[data-reading-dark] .home-plus-badge{background:#f1cc6b;color:#3e2a13;border
  .home-nav-plus-badge{display:inline-flex;align-items:center;padding:.12cqw .35cqw;border:1px solid #b78429;border-radius:4px;background:linear-gradient(#ffe8a0,#e9ba4b);color:#38240d;font:600 .95cqw/1.2 Georgia,serif;letter-spacing:0}
  .home-hotspot[data-home-id="nav-home"] .home-nav-label{background:linear-gradient(#ffe591,#efbd42);color:#281b0e;font-weight:600}
  .home-button-label{position:absolute;display:flex;align-items:center;justify-content:center;inset:5% 0 5% 1%;padding:0 2%;background:linear-gradient(#ffe89e,#edb634);color:#312210;border-radius:3px;font:600 clamp(.875rem,1.12cqw,1.35rem)/1.15 Georgia,serif;text-align:center}
- .home-hotspot[data-home-id^="hero-"] .home-button-label{left:21%;font-size:clamp(.875rem,1.15cqw,1.3rem);white-space:nowrap}
+ /* Reveal the original hero lettering and ornate buttons; real controls stay on top. */
+ .home-hotspot[data-home-id^="hero-"] :is(.home-button-label,.home-help-mark){display:none}
  .home-button-label.home-button-green{background:#073e34;color:#fff3d7}
  .home-help-mark{display:flex;align-items:center;justify-content:center;width:100%;height:100%;box-sizing:border-box;border:2px solid #fff4cb;border-radius:50%;background:linear-gradient(#fff5c1,#efbd40);box-shadow:0 0 0 1px #805922;color:#49310d;font:700 20px/1 Georgia,serif}
  .home-help-roomy{min-width:40px;min-height:40px}

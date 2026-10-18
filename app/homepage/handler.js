@@ -35,8 +35,9 @@ function overlay(items,rect,member){return items.map(p=>{
 function picture(id,rect){return `<picture><source media="${desktop}" srcset="/assets/homepage/${id}.webp"><img src="${blank}" width="${rect[2]}" height="${rect[3]}" alt="" aria-hidden="true" decoding="async" fetchpriority="high"></picture>`;}
 
 function liveSceneCopy(){
+ // The original hero lettering is intentional; equivalent text remains accessible below.
  const panel=(id,rect,title,subtitle,text)=>`<section class="home-live-copy home-live-panel" style="${position(rect)}" aria-labelledby="home-live-${id}"><h2 id="home-live-${id}">${title}</h2><p class="home-panel-subtitle">${subtitle}</p><p>${text}</p></section>`;
- return `<section class="home-live-copy home-live-hero" style="${position([812,195,724,219])}" aria-labelledby="home-welcome"><p class="home-live-brand">Gold Trails</p><h1 id="home-welcome">Explore. Learn. Connect.</h1><p>Gold prospecting knowledge, stories, and a friendly community—all in one place.</p></section>
+ return `<section class="home-sr home-hero-copy" aria-labelledby="home-welcome"><p>Gold Trails</p><h1 id="home-welcome">Explore. Learn. Connect.</h1><p>Gold prospecting knowledge, stories, and tools — all in one place.</p><p>Practical how-tos, destination guides, gear advice, real-world experience, and a supportive community of gold prospecting enthusiasts.</p></section>
  ${panel('creators',[327,730,289,124],'Creators &amp; Videos','Free to explore','Meet prospectors and explore their linked videos.')}
  ${panel('articles',[642,730,289,124],'Articles','Practical guides &amp; stories','Practical how-tos, geology and equipment guides.')}
  ${panel('glossary',[957,730,282,124],'Glossary','Words from the gold trail','Clear definitions, tool names and regional words.')}

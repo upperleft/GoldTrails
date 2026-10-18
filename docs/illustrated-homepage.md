@@ -4,6 +4,8 @@ Paul supplied the annotated 1672 × 941 design on October 16, 2026. The artwork 
 
 ## Files and behavior
 
+**Hero appearance preference, October 18, 2026:** Paul prefers the original illustrated hero: large serif “Explore. Learn. Connect.” with gold “Connect,” its original supporting copy, parchment and ornate buttons. Keep that artwork visible. Equivalent HTML text remains available to assistive technology, and reading preferences switch to the flowing text homepage. Menu updates or future design reviews must not replace this hero typography or paint new text/backgrounds over it without a specific request.
+
 - `app/homepage/clean-artwork.png`: non-destructive ImageGen cleanup of the two annotation labels, leader lines, and circular anchors. Original attached image remains unchanged. No annotations were hidden with overlays.
 - `app/homepage/hotspots.js`: original-canvas coordinates, IDs, accessibility labels, destinations, and help text. There are 44 independent controls, including 19 help buttons. No link encloses a help button; coordinate tests reject overlap.
 - `app/homepage/handler.js`: semantic, server-rendered navigation; signed-in account link uses existing member sessions and routes to My Gold Trail. No account details or session values are rendered. The response is private/no-store and varies by Cookie.
