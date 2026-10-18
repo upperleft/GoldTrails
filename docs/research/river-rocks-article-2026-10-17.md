@@ -1,6 +1,6 @@
 # Illustrated river-rock article
 
-Completed October 17, 2026, America/New_York. Local review version; not deployed.
+Completed and published October 17, 2026, America/New_York. Publication verification is recorded below.
 
 ## Content and integration
 
@@ -46,4 +46,14 @@ The user's source-check date remains October 17, 2026 because these sources were
 
 Preview: http://127.0.0.1:4335/articles/identifying-river-rocks/
 
-No production publication, account changes, payment changes, database migrations or unrelated site redesign performed.
+Implementation changed no accounts, payments, database schemas or unrelated site design. The subsequent authorized publication is recorded below.
+
+## Publication verification
+
+Paul approved publication: “Please go ahead and publish this.” Published release `15779af174a25df2ed134e4e235f8193c8f83ba1` through the existing GitHub main / Hostinger workflow on October 17, 2026. Included the pending bedrock article and glossary commit because the river-rock article links that destination. Publisher HEAD and origin/main matched the release.
+
+Anonymous live requests returned HTTP 200 for the river-rock article, bedrock article, article listing and updated 183-term glossary. All 26 full/thumbnail image files returned 200. Ten WebP files matched committed hashes exactly. Hostinger recompressed the sixteen JPEG files; their dimensions matched and downsampled decoded-pixel differences were below 0.0035 normalized RMSE. The live enlarged granite image rendered at 1400 × 930; native Escape and Close dismissed it and restored focus.
+
+Public URL: https://goldtrails.org/articles/identifying-river-rocks/
+
+Evidence is saved outside the repository in parent-workspace `outputs/river-rocks-article-2026-10-17/live-verification.json` and `article-live.png`. The raw guest invitation remains private and is not part of this publication note.

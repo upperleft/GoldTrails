@@ -1,6 +1,6 @@
 # Bedrock maps article and glossary additions
 
-Prepared and checked October 17, 2026 (America/New_York). Saved locally for review; not deployed.
+Prepared and checked October 17, 2026 (America/New_York). Published with the approved river-rock article release 15779af on October 17, 2026. Anonymous live article and glossary requests verified HTTP 200.
 
 ## Website changes
 
