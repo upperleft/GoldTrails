@@ -16,12 +16,19 @@ const rows=[
  ['about','About',595,'/about-the-camp/','Meet Gold Trails and learn about the research behind the library.'],
  ['signin','Sign In',643,'/login/','Sign in to your Gold Trails account, calendar, and membership features.']
 ];
+
+// Members use the same card artwork; existing content becomes direct navigation.
+export const memberPromotionHotspots=[
+ link('panel-member-map','Open the Almanac map',[1266,655,167,181],'/gold-almanac/','plus'),
+ link('panel-member-almanac','Open the Almanac',[1435,655,210,86],'/gold-almanac/','plus'),
+ link('panel-member-connections','Open Gold Connections',[1435,743,210,90],'/connections/','plus'),
+ link('panel-plus-button','Open Connections',[1285,848,309,46],'/connections/','plus'),
+ help('panel-plus-button','Gold Connections',[1598,845,40,40],'Open Gold Connections to browse events, organize outings, RSVP, and join discussions. Guest previews can browse; participation requires your own paid account.','plus')
+];
 export const hotspots=[
  link('logo','Gold Trails home',[15,12,280,177],'/','sidebar'),
  ...rows.flatMap(([id,name,y,href,text])=>[href?link('nav-'+id,name,[34,y,204,43],href,'sidebar',{account:id==='signin'}):{id:'nav-search',name:'Search',label:'Search Gold Trails libraries',rect:[34,y,204,43],section:'sidebar',type:'search'},help('nav-'+id,name,[241,y+8,28,28],text,'sidebar',{premium:['almanac','connections'].includes(id)})]),
  link('old-timer','Gold Trails home — the Old-Timer',[319,8,477,550],'/','hero'),
- link('hero-articles','Read Articles',[868,432,244,61],'/articles/','hero'),help('hero-articles','Articles',[1120,441,40,40],'Read practical, sourced articles from the Gold Trails library.','hero'),
- link('hero-glossary','Browse the Glossary',[1197,432,304,61],'/glossary/','hero'),help('hero-glossary','Glossary',[1508,441,40,40],'Open the searchable prospecting glossary.','hero'),
  ...[
   ['destinations','Creators & Videos',312,315,580,'/prospectors/','Meet prospectors, browse their public profiles and linked videos, and find a new channel to enjoy. Creator profiles and videos stay free.'],
   ['articles','Articles',627,315,891,'/articles/','Find practical guides, techniques, and stories, with linked sources.'],

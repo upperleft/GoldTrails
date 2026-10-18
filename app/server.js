@@ -56,7 +56,7 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       catch {log('Navigation membership check unavailable');}
     }
     attachSiteNavigation(req,res,url,{premium:navigationPremium});
-    attachPlusMarkup(req,res,url);
+    attachPlusMarkup(req,res,url,{premium:navigationPremium});
     if(suggestions){if(await suggestions(req,res,url))return;if(await suggestions.enabled())suggestions.attach(req,res,url);}
     if(analytics){if(await analytics(req,res,url))return;if(await analytics.enabled())attachAnalyticsMarkup(req,res,url);}
     if(plus&&await plus(req,res,url))return;

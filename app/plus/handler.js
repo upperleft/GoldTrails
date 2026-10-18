@@ -1,7 +1,8 @@
 import {assetUrl} from '../asset-url.js';
 import {plusPage,donationPage,supportSidebar} from './views.js';
-export function plusMarkup(html){
+export function plusMarkup(html,{path=null,premium=false}={}){
  if(typeof html!=='string'||html.includes('data-plus-support'))return html;
+ if(path==='/'&&premium)return html;
  // The membership page already explains the offer beside its main decision.
  if(/<body\b[^>]*class="[^"]*\bplus-page\b/.test(html))return html;
  const side=/<aside\b[^>]*class="[^"]*\bleft\b[^"]*"[^>]*>[\s\S]*?<\/aside>/;
@@ -10,11 +11,11 @@ export function plusMarkup(html){
  const result=html.replace(side,match=>match.replace('</aside>',supportSidebar({includeConnections})+'</aside>'));
  return result.includes('/plus.css?')?result:result.replace('</head>',`<link rel="stylesheet" href="${assetUrl('plus.css')}"></head>`);
 }
-export function attachPlusMarkup(req,res,url){
+export function attachPlusMarkup(req,res,url,{premium=false}={}){
  if(!['GET','HEAD'].includes(req.method)||/^\/(?:admin|api)(?:\/|$)/.test(url.pathname))return;
  const end=res.end.bind(res),writeHead=res.writeHead.bind(res);let type='';
  res.writeHead=function(status,message,headers){const supplied=typeof message==='object'?message:headers;type=String(Object.entries(supplied||{}).find(([k])=>k.toLowerCase()==='content-type')?.[1]||res.getHeader('Content-Type')||'');if(type.includes('text/html')){res.removeHeader('Content-Length');if(supplied)for(const k of Object.keys(supplied))if(k.toLowerCase()==='content-length')delete supplied[k];}return typeof message==='string'?writeHead(status,message,headers):writeHead(status,message);};
- res.end=function(chunk,encoding,callback){if(type.includes('text/html')&&chunk){const html=Buffer.isBuffer(chunk)?chunk.toString('utf8'):String(chunk);chunk=Buffer.from(plusMarkup(html));}return end(chunk,encoding,callback);};
+ res.end=function(chunk,encoding,callback){if(type.includes('text/html')&&chunk){const html=Buffer.isBuffer(chunk)?chunk.toString('utf8'):String(chunk);chunk=Buffer.from(plusMarkup(html,{path:url.pathname,premium}));}return end(chunk,encoding,callback);};
 }
 // Payment routes deliberately cannot charge. A real provider must be configured,
 // verified in test mode, and separately approved before this gate is changed.

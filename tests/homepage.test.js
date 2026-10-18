@@ -13,11 +13,9 @@ test('illustrated homepage preserves equivalent hero text and promotes the publi
  assert.match(html,/<h2 id="home-live-creators">Creators &amp; Videos<\/h2>/);
  assert.match(html,/<strong>\$5<\/strong><span>\/ month<\/span>/);
  assert.match(html,/<strong>50-state Almanac<\/strong>/);assert.match(html,/<strong>Gold Connections<\/strong>/);
- const primary=html.match(/<nav aria-label="Explore Gold Trails">([\s\S]*?)<\/nav>/)?.[1]||'';
- assert.match(primary,/^<a class="home-creators-first" href="\/prospectors\/">Creators &amp; Videos<\/a>/);
- assert.match(primary,/<a href="\/products\/">Products<\/a>/);
- assert.doesNotMatch(primary,/href="\/plus\/"|Gold Trails Plus/,'Utility navigation does not duplicate Plus marketing');
- assert.ok(html.indexOf('home-art-tools')<html.indexOf('class="home-full"'),'Primary live choices precede the artwork');
+ const utilities=html.match(/<div class="home-art-tools"[\s\S]*?(?=<div class="home-full")/)?.[0]||'';
+ assert.match(utilities,/class="header-tools"/);assert.match(utilities,/data-home-text-view/);
+ assert.doesNotMatch(utilities,/<a\b|<nav\b/,'Only reading, help and text-view controls remain above the artwork');
  const creatorLinks=homeHotspots().filter(p=>p.id==='nav-destinations'||p.id.startsWith('panel-destinations'));
  for(const item of creatorLinks){
   if(item.type==='link')assert.equal(item.href,'/prospectors/');
@@ -25,7 +23,14 @@ test('illustrated homepage preserves equivalent hero text and promotes the publi
   assert.ok(!/Destinations|Find Gold/.test(item.name));
  }
  assert.ok(!html.includes('Explore Destinations'));
- assert.match(html,/srcset="\/assets\/homepage\/full-menu-v2\.webp"/);
+ assert.match(html,/srcset="\/assets\/homepage\/full-no-hero-buttons-v3\.webp"/);
+ assert.ok(!hotspots.some(p=>/^hero-(?:articles|glossary)(?:-help)?$/.test(p.id)),'Removed hero buttons and help have no invisible hit areas');
+ assert.doesNotMatch(html,/data-home-id="hero-(?:articles|glossary)(?:-help)?"/);
+ assert.match(html,/data-home-id="old-timer"[^>]*href="\/"/,'The Old-Timer still links home');
+ for(const [id,href]of [['articles','/articles/'],['glossary','/glossary/']]){
+  assert.match(html,new RegExp('data-home-id="panel-'+id+'-button"[^>]*href="'+href+'"'),'Lower panel navigation is retained');
+  assert.match(html,new RegExp('data-home-id="panel-'+id+'-button-help"'),'Lower panel help is retained');
+ }
 });
 
 test('public and free artwork links describe the one Almanac Plus feature without exposing premium discovery',()=>{
@@ -48,7 +53,19 @@ test('effective subscribers and guest readers keep one direct Almanac link and p
   assert.equal(items.find(p=>p.id==='nav-almanac').href,'/gold-almanac/');
   assert.equal(items.find(p=>p.id==='nav-connections').href,'/connections/');
   assert.match(html,/<span class="home-nav-label">Gold Connections<\/span>/);
-  assert.match(html,/data-home-id="nav-almanac-help"[^>]*data-home-premium="plus"/);
+  assert.doesNotMatch(html,/data-home-premium="plus"|home-nav-plus-badge/,'Member navigation has no upgrade badges');
+  assert.equal(items.find(p=>p.id==='nav-almanac').label,'Almanac');
+  assert.doesNotMatch(html,/Gold Trails Plus|\$5|\/ month|href="\/plus\/"/,'Existing card welcomes entitled visitors without an upgrade offer');
+  assert.match(html,/<strong>Welcome<\/strong><span>back<\/span>/);
+  assert.match(html,/data-home-id="panel-member-map"[^>]*href="\/gold-almanac\/"/);
+  assert.match(html,/data-home-id="panel-member-almanac"[^>]*href="\/gold-almanac\/"/);
+  assert.match(html,/data-home-id="panel-member-connections"[^>]*href="\/connections\/"/);
+  assert.match(html,/data-home-id="panel-plus-button"[^>]*href="\/connections\/"/);
+  assert.match(html,/Open Connections →/);
+  assert.doesNotMatch(html,/data-home-id="panel-plus"/);
+  for(const help of items.filter(p=>p.type==='help'))for(const link of items.filter(p=>p.type==='link')){
+   const[a,b,c,d]=help.rect,[e,f,g,h]=link.rect;assert.ok(!(a<e+g&&a+c>e&&b<f+h&&b+d>f),help.id+' overlaps '+link.id);
+  }
  }
 });
 
@@ -65,7 +82,8 @@ test('every viewer gets Products, a named sidebar landmark, a Plus badge and pub
   assert.ok(sidebar,'Illustrated sidebar is a semantic navigation landmark');assert.match(sidebar[1],/aria-label="[^"]+"/);
   assert.match(sidebar[2],/<a\b[^>]*data-home-id="nav-home"[^>]*aria-current="page"/);
   const almanac=sidebar[2].match(/<a\b[^>]*data-home-id="nav-almanac"[^>]*>([\s\S]*?)<\/a>/)?.[1]||'';
-  assert.match(almanac,/Almanac/);assert.match(almanac,/class="home-nav-plus-badge"[^>]*>[^<]*Plus/);
+  assert.match(almanac,/Almanac/);
+  assert.equal(/class="home-nav-plus-badge"/.test(almanac),options.member?.effective_level!=='subscriber'&&options.guest!==true);
   assert.equal((sidebar[2].match(/data-home-id="nav-almanac"/g)||[]).length,1,'Only one Almanac sidebar entry');
   for(const item of items.filter(p=>p.id==='nav-destinations'||p.id==='nav-destinations-help'||p.id.startsWith('panel-destinations'))){
    if(item.type==='link')assert.equal(item.href,'/prospectors/');

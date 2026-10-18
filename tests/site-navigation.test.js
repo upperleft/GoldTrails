@@ -64,7 +64,8 @@ function assertHomeMenus(html,premium){
   assert.equal(links.filter(href=>href==='/products/').length,1,'Products stays available to every viewer');
   assert.equal(links.filter(href=>href==='/prospectors/').length,1,'Creators and videos remain public');
   assert.match(menu,/<a href="\/prospectors\/">Creators &amp; Videos<\/a>/);
-  assert.match(menu,new RegExp('<a href="'+(premium?'/gold-almanac/':'/plus/')+'">Almanac · Plus</a>'));
+  assert.match(menu,new RegExp('<a href="'+(premium?'/gold-almanac/':'/plus/')+'">'+(premium?'Almanac':'Almanac · Plus')+'</a>'));
+  if(premium)assert.doesNotMatch(menu,/Almanac · Plus/,'Entitled homepage visitors do not receive a Plus sales label');
   assert.equal((menu.match(/Almanac/g)||[]).length,1,'One clear Almanac entry');
   assert.equal(links.includes('/gold-almanac/'),premium,'Only entitled viewers link directly to the Almanac');
   assert.equal(links.includes('/plus/'),!premium,'Public Almanac description replaces separate Plus navigation');
@@ -74,7 +75,7 @@ function assertHomeMenus(html,premium){
  }
 }
 
-test('homepage navigation has one Almanac Plus entry and Products without changing other pages',()=>{
+test('homepage navigation uses an entitled Almanac label and public Plus description without changing other pages',()=>{
  for(const premium of [false,true]){
   const html=siteNavigationMarkup(staticHTML,{path:'/',premium});assertHomeMenus(html,premium);
   assert.equal(siteNavigationMarkup(html,{path:'/',premium}),html,'Homepage decoration remains idempotent');

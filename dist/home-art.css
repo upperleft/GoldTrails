@@ -26,8 +26,6 @@ html[data-reading-dark] .home-plus-badge{background:#f1cc6b;color:#3e2a13;border
 @media(min-width:1280px) and (hover:hover) and (pointer:fine){
  .home-art-full{container-type:inline-size}
  .home-art-tools{position:relative;z-index:20;gap:10px 22px;min-height:56px;background:#24170f}
- .home-art-tools nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;font:400 16px/1.5 'DM Sans',sans-serif}
- .home-art-tools .home-creators-first{display:inline-flex;align-items:center;min-height:40px;padding:6px 15px;border:1px solid #d4a74d;border-radius:8px;background:#efd082;color:#352416;text-decoration:none;font-weight:600}
  .home-art-tools .reading-options-panel{top:calc(100% + 8px);bottom:auto;max-height:calc(100svh - 84px)}
  .home-live-copy{position:absolute;z-index:1;box-sizing:border-box;color:#322516;background-color:#ffe3b1;background-image:linear-gradient(110deg,#f5cd8a9c,#ffe9bf8c 46%,#f2c9858f),url('/assets/parchment-plain-v1.webp');background-position:center;background-size:350% 350%;line-height:1.3;pointer-events:none}
  .home-live-panel{padding:.25cqw .65cqw;text-align:center;background-image:linear-gradient(#ffddaab8,#ffe1b4bd),url('/assets/parchment-plain-v1.webp');background-size:100% 100%,350% 350%}
@@ -40,6 +38,7 @@ html[data-reading-dark] .home-plus-badge{background:#f1cc6b;color:#3e2a13;border
  .home-live-price{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;margin:0;border-radius:50%;border:2px solid #8b601c;background:linear-gradient(#fff0af,#e3a931);color:#2f2111;text-align:center;box-shadow:inset 0 0 0 2px #f8d775}
  .home-live-price strong{font:400 2.2cqw/1.05 Rye,Georgia,serif}
  .home-live-price span{font:600 1cqw/1.2 Georgia,serif}
+ .home-member-greeting strong{font:600 1.05cqw/1.3 Georgia,serif}
  .home-live-plus{padding:.32cqw .48cqw;font:400 clamp(.8125rem,1.02cqw,1.2rem)/1.3 'DM Sans',sans-serif}
  .home-live-plus ul{list-style:none;margin:0;padding:0}
  .home-live-plus li{margin:0 0 .55cqw}
@@ -52,9 +51,6 @@ html[data-reading-dark] .home-plus-badge{background:#f1cc6b;color:#3e2a13;border
  .home-nav-plus-badge{display:inline-flex;align-items:center;padding:.12cqw .35cqw;border:1px solid #b78429;border-radius:4px;background:linear-gradient(#ffe8a0,#e9ba4b);color:#38240d;font:600 .95cqw/1.2 Georgia,serif;letter-spacing:0}
  .home-hotspot[data-home-id="nav-home"] .home-nav-label{background:linear-gradient(#ffe591,#efbd42);color:#281b0e;font-weight:600}
  .home-button-label{position:absolute;display:flex;align-items:center;justify-content:center;inset:5% 0 5% 1%;padding:0 2%;background:linear-gradient(#ffe89e,#edb634);color:#312210;border-radius:3px;font:600 clamp(.875rem,1.12cqw,1.35rem)/1.15 Georgia,serif;text-align:center}
- /* Reveal the original hero lettering and ornate buttons; real controls stay on top. */
- .home-hotspot[data-home-id^="hero-"] :is(.home-button-label,.home-help-mark){display:none}
- .home-button-label.home-button-green{background:#073e34;color:#fff3d7}
  .home-help-mark{display:flex;align-items:center;justify-content:center;width:100%;height:100%;box-sizing:border-box;border:2px solid #fff4cb;border-radius:50%;background:linear-gradient(#fff5c1,#efbd40);box-shadow:0 0 0 1px #805922;color:#49310d;font:700 20px/1 Georgia,serif}
  .home-help-roomy{min-width:40px;min-height:40px}
  .home-help-roomy .home-help-mark{font-size:24px}
