@@ -2,6 +2,7 @@ import {readFileSync} from 'node:fs';
 import {creatorCatalog} from '../creator-catalog.js';
 import {publishedArticles} from '../compass/content.js';
 import {safeUrl} from '../directory-views.js';
+import {communitiesForState} from './communities.js';
 export const states=JSON.parse(readFileSync(new URL('./states.json',import.meta.url),'utf8'));
 export const stateBySlug=slug=>states.find(s=>s.slug===slug);
 export const stateById=id=>states.find(s=>s.id===id);
@@ -83,5 +84,5 @@ export function assembleState(state,live=null,availability='offline'){
  }
  for(const c of live?.creators||[])creators.set(c.slug,{id:'creator:'+c.slug,slug:c.slug,name:c.display_name,url:'/prospectors/'+c.slug+'/',channelUrl:c.channel_url,coverage:c.region_name,sourceUrl:c.source_url,checkedAt:c.checked_at,basis:'Published, sourced '+c.relationship_type.replaceAll('_',' ')+' relationship.'});
  const articles=publishedArticles().filter(a=>record.articleIds.includes(a.id));
- return {state,record,creators:[...creators.values()].sort((a,b)=>a.name.localeCompare(b.name)),articles,archives:content.archives.filter(a=>record.archiveIds.includes(a.id)),sources:content.sources,regions:live?.regions||[],waterways:live?.waterways||[],resources:live?.resources||[],availability,reviewedAt:record.researchReviewedAt||record.overview?.reviewedAt||content.reviewedAt};
+ return {state,record,creators:[...creators.values()].sort((a,b)=>a.name.localeCompare(b.name)),communities:communitiesForState(state),articles,archives:content.archives.filter(a=>record.archiveIds.includes(a.id)),sources:content.sources,regions:live?.regions||[],waterways:live?.waterways||[],resources:live?.resources||[],availability,reviewedAt:record.researchReviewedAt||record.overview?.reviewedAt||content.reviewedAt};
 }

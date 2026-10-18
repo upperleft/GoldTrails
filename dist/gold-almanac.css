@@ -27,6 +27,15 @@
 .almanac-creator-list ul{padding-left:1.25rem}
 .almanac-creator-list li{margin:.7rem 0}
 .almanac-map-panel .explorer-form{margin:1rem 0}
+.almanac-community-list>li{padding:20px 0}
+.almanac-community-list h4{font:var(--weight-strong) var(--type-body)/1.6 'DM Sans',sans-serif;margin:0 0 4px}
+.almanac-section .almanac-community-meta{color:var(--muted,#6d5a40);margin-top:0}
+.almanac-community-links{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;padding:0;margin:12px 0;font-size:var(--type-note);line-height:1.7}
+.almanac-community-links a{text-decoration:underline;text-underline-offset:3px}
+.almanac-community-notes{margin:10px 0;font-size:var(--type-note);line-height:1.7}
+.almanac-community-notes summary{cursor:pointer;color:inherit;padding:3px 0}
+.almanac-community-notes summary:focus-visible{outline:3px solid #a35b32;outline-offset:3px}
+.almanac-community-notes p{margin:8px 0}
 @media(max-width:640px){
  #almanac-unified-map{min-height:370px}
  #almanac-unified-map .leaflet-popup{max-width:calc(100vw - 68px)}
