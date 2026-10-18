@@ -1,10 +1,10 @@
-import {explainControl, helpPreferenceKey} from './site-help-content.js?v=68574c3aebf1';
+import {explainControl, helpPreferenceKey} from './site-help-content.js?v=5f96dd993814';
 
 const menu = document.querySelector('.left .trail-menu');
 if(menu) {
- const switchBox=document.createElement('div');switchBox.className='site-help-switch';
- switchBox.innerHTML='<label><input type="checkbox" id="site-help-toggle" aria-describedby="site-help-instructions">Explain this page</label><p id="site-help-instructions">Navigation: click ?. Elsewhere: hover, Tab, or touch and hold. Escape closes a tip.</p>';
- (document.querySelector('.admin-editor .editor-toolbar') || menu).prepend(switchBox);
+ const switchBox=document.createElement('details');switchBox.className='site-help-switch';
+ switchBox.innerHTML='<summary>Help</summary><div class="site-help-panel"><label><input type="checkbox" id="site-help-toggle" aria-describedby="site-help-instructions">Explain this page</label><p id="site-help-instructions">Navigation: click ?. Elsewhere: hover, Tab, or touch and hold. Escape closes a tip.</p></div>';
+ (document.querySelector('.admin-editor .editor-toolbar') || document.querySelector('[data-reading-options]')?.parentElement || document.querySelector('.header-tools') || menu).prepend(switchBox);
  const toggle=switchBox.querySelector('input'),bubble=document.createElement('div');
  bubble.id='site-help-tooltip';bubble.className='site-help-tooltip';bubble.role='tooltip';bubble.hidden=true;
  const heading=document.createElement('strong'),copy=document.createElement('p');bubble.append(heading,copy);document.body.append(bubble);
@@ -25,7 +25,7 @@ if(menu) {
   return explainControl({tag:el.tagName.toLowerCase(),id:el.id,label:label(el),href,type:el.type,name:el.name,value:el.matches('button')?el.value:undefined,required:el.required,explicit:el.dataset.help,newPassword:el.autocomplete==='new-password',move:el.dataset.move,hide:el.hasAttribute('data-hide'),showAll:el.hasAttribute('data-show-all'),passwordToggle:el.hasAttribute('data-password-toggle'),findOnMap:el.classList.contains('map-find'),ephemeral:!!el.closest('.dashboard-packing'),sort:el.hasAttribute('data-sort'),permalink:el.classList.contains('section-link'),demo:el.closest('[data-member-dashboard]')?.dataset.demo==='true',formAction:el.form?.getAttribute('action')});
  }
  // Keep the link and its help control as separate keyboard-accessible actions.
- for(const link of menu.querySelectorAll(':scope > a')){
+ for(const link of [...menu.querySelectorAll(':scope > a, :scope > nav > a'),...document.querySelectorAll('.site-mobile-menu > nav > a')]){
   const name=label(link),text=description(link),row=document.createElement('div');row.className='site-nav-row';
   link.replaceWith(row);row.append(link);
   if(!text)continue;

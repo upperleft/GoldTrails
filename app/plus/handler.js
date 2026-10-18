@@ -2,6 +2,8 @@ import {assetUrl} from '../asset-url.js';
 import {plusPage,donationPage,supportSidebar} from './views.js';
 export function plusMarkup(html){
  if(typeof html!=='string'||html.includes('data-plus-support'))return html;
+ // The membership page already explains the offer beside its main decision.
+ if(/<body\b[^>]*class="[^"]*\bplus-page\b/.test(html))return html;
  const side=/<aside\b[^>]*class="[^"]*\bleft\b[^"]*"[^>]*>[\s\S]*?<\/aside>/;
  if(!side.test(html))return html;
  const includeConnections=!/<body\b[^>]*\bdata-camp-membership="free"/.test(html);

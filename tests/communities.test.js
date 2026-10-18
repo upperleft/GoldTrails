@@ -29,3 +29,29 @@ test('public rendering preserves archive/access notes, escapes text and offers s
  const injected=structuredClone(communityCatalog.entries[0]);injected.name='<img src=x onerror=alert(1)>';injected.summary='"quoted" & text';
  const safe=renderCommunitiesPage([injected]);assert.match(safe,/&lt;img/);assert.doesNotMatch(safe,/<img src=x/);assert.match(safe,/&quot;quoted&quot; &amp; text/);
 });
+
+test('community page has one prominent title and a brief introduction immediately before its directory',()=>{
+ const html=renderCommunitiesPage(),center=html.match(/<div class="center" id="main-content">([\s\S]*?)<\/div><\/div><\/main>/)?.[1]||'';
+ assert.equal((html.match(/<h1\b/g)||[]).length,1);assert.match(html,/<h1>Clubs &amp; Groups<\/h1>/);
+ assert.match(html,/Find prospecting clubs and online communities by location, group type or platform/);
+ assert.doesNotMatch(html,/class="culture-welcome"|THERE’S ROOM FOR ANOTHER PAN|GOOD COMPANY \/ ON THE TRAIL|A little company goes a long way/);
+ assert.ok(center.trim().startsWith('<section aria-label="Community directory"'),'The directory, rather than a second welcome panel, begins the main content');
+ assert.ok(center.indexOf('id="community-search"')<center.indexOf('About these listings'));
+ const about=center.match(/<section class="culture-about">([\s\S]*?)<\/section>/)?.[1]||'';
+ assert.match(about,/mainly in the United States, with Australian and worldwide online communities/);
+ assert.match(about,/Google Groups is represented by a clearly marked historical archive/);
+ assert.match(about,/private discussions were not inspected/);
+ assert.match(about,/do not confer permission to prospect or certify advice/);
+});
+
+test('simplifying the introduction preserves every listing, source, access qualification and verification date',()=>{
+ const html=renderCommunitiesPage();
+ for(const entry of communityCatalog.entries){
+  assert.ok(html.includes('id="'+entry.id+'"'),entry.name);
+  assert.ok(html.includes('datetime="'+entry.checkedAt+'"'),entry.name+' verification date');
+  for(const source of entry.sources)assert.ok(html.includes(source.url.replaceAll('&','&amp;')),entry.name+' source');
+  for(const destination of entry.links)assert.ok(html.includes(destination.url.replaceAll('&','&amp;')),entry.name+' public link');
+ }
+ assert.match(html,/id="community-region"/);assert.match(html,/id="community-kind"/);assert.match(html,/id="community-platform"/);
+ assert.match(html,/Sources &amp; entry notes/);assert.match(html,/Group access and membership rules are set by each community/);
+});

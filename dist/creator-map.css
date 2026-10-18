@@ -13,3 +13,30 @@
 .map-person .creator-actions :is(.creator-video-link,.map-find){min-height:44px;font-size:1rem;line-height:1.5}
 .map-person .creator-actions .map-find{display:inline-flex;align-items:center;text-align:center}
 @media(max-width:650px){.map-person .creator-actions{margin-top:12px;align-self:flex-end}}
+
+/* Creator pages lead with one name or directory title, then useful public content. */
+.creator-directory-page .prospectors-desk{padding-top:4px;background:transparent;border:0;box-shadow:none}
+.creator-directory-page .prospectors-desk .map-controls{margin-top:12px}
+.creator-directory-page .map-person p,.creator-directory-page .map-person small{font-size:1rem;line-height:1.65}
+.creator-directory-page .map-person .creator-region{font-size:1rem}
+.creator-directory-page .creator-directory-results>.directory-search{margin-top:8px}
+.creator-directory-page .category-cards h2{font:700 1.35rem/1.4 Georgia,serif;margin:0 0 10px}
+.creator-profile-page .profile-summary{display:block;padding:20px 24px;background:#f9f1dd;color:var(--ink,#352920);border:1px solid var(--line);border-radius:14px;margin-bottom:20px}
+.creator-profile-page .profile-summary .profile-region,.creator-profile-page .profile-summary .profile-role{color:inherit;font-size:1rem;line-height:1.65;margin:0 0 12px}
+.creator-profile-page .profile-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.creator-profile-page .profile-actions :is(.creator-youtube-link,.creator-video-link){margin:0;min-height:44px;font-size:1rem;line-height:1.5;display:inline-flex;align-items:center;max-width:100%}
+.creator-profile-page .profile-summary .topic-buttons{margin-top:16px}
+.creator-profile-page .profile-summary .topic-buttons:empty{display:none}
+.creator-profile-page .profile-facts dt,.creator-profile-page .profile-facts dd{font-size:1rem;line-height:1.65;letter-spacing:0}
+.creator-profile-page .profile-facts dd small{display:block;font-size:1rem;font-weight:400;line-height:1.65;margin-top:6px}
+.creator-profile-page .profile-notes{padding:18px 22px;border-top:1px solid var(--line);margin:22px 0;line-height:1.7}
+.creator-profile-page .profile-notes>summary{cursor:pointer;font-weight:700;min-height:30px}
+.creator-profile-page .profile-notes>div{padding-top:10px}
+.creator-profile-page .profile-notes a{color:var(--rust);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.creator-profile-page .profile-notes :is(p,li,small){font-size:1rem;line-height:1.7}
+.creator-profile-page .profile-notes h3{font-size:1.2rem;margin:24px 0 10px}
+.creator-profile-page .profile-notes .profile-facts dd>a{display:block;width:fit-content;margin-top:6px}
+html[data-reading-dark] .creator-profile-page .profile-summary{background:#302c23;color:#eee1bf;border-color:#776644}
+html[data-reading-contrast] .creator-profile-page .profile-summary{background:#fffdf7;color:#201d17}
+html[data-reading-contrast][data-reading-dark] .creator-profile-page .profile-summary{background:#191919;color:#fff}
+@media(max-width:650px){.creator-directory-page .prospectors-desk{padding-left:0;padding-right:0}.creator-profile-page .profile-summary{padding:18px}.creator-profile-page .profile-notes{padding:16px 0}.creator-profile-page .profile-actions{align-items:stretch}.creator-profile-page .profile-actions :is(.creator-youtube-link,.creator-video-link){white-space:normal}}

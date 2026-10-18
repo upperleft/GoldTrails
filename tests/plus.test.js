@@ -34,7 +34,7 @@ test('Plus and donation pages describe only Almanac access, separate gifts and d
  assert.equal((await f.request('/api/gold-almanac/texas/',free)).status,403);
 });
 test('one shared promotion appears on static and dynamic sidebars, with idempotent rendering and no public-content paywall',async t=>{
- const f=await fixture(t);for(const path of ['/','/articles/','/glossary/','/products/','/gold-almanac/','/plus/','/donate/']){const r=await f.request(path);assert.equal(r.status,200,path);const html=await r.text();assert.equal((html.match(/data-plus-support/g)||[]).length,1,path);assert.equal(plusMarkup(html),html);assert.match(html,/plus\.css\?v=/);}
+ const f=await fixture(t);for(const path of ['/','/articles/','/glossary/','/products/','/gold-almanac/','/plus/','/donate/']){const r=await f.request(path);assert.equal(r.status,200,path);const html=await r.text();assert.equal((html.match(/data-plus-support/g)||[]).length,['/plus/','/donate/'].includes(path)?0:1,path);assert.equal(plusMarkup(html),html);assert.match(html,/plus\.css\?v=/);}
 });
 test('login retains a safe state-guide destination and rejects external return URLs',async t=>{
  const f=await fixture(t);const html=await(await f.request('/login/?next=%2Fgold-almanac%2Ftexas%2F')).text();assert.match(html,/name="next" value="\/gold-almanac\/texas\/"/);const filtered=await(await f.request('/login/?next=%2Fgold-almanac%2F%3Fcreator%3Dbill-southern')).text();assert.match(filtered,/name="next" value="\/gold-almanac\/\?creator=bill-southern"/);const unsafe=await(await f.request('/login/?next=https%3A%2F%2Fevil.test%2F')).text();assert.doesNotMatch(unsafe,/name="next"/);

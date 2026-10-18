@@ -15,7 +15,7 @@ test('TBD preserves zero and false, and unsafe destinations remain non-clickable
   assert.ok(rendered.includes('Test &lt;Prospector&gt;'));
   assert.ok(!rendered.includes('<script>')); assert.ok(!rendered.includes('javascript:')); assert.ok(!rendered.includes('private-id'));
   assert.match(rendered,/Offers instruction<\/dt><dd>No<\/dd>/);
-  assert.match(rendered,/Publishing since: TBD/); assert.match(rendered,/href="\/"/);
+  assert.doesNotMatch(rendered,/Publishing since: TBD/); assert.doesNotMatch(rendered,/<dd>TBD<\/dd>/); assert.match(rendered,/href="\/"/);
 });
 
 test('search validates input before querying', () => {

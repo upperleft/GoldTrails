@@ -15,7 +15,7 @@ test('account overview keeps private access, escaped identity, entitlement links
   const anonymous=await request('/account/');assert.equal(anonymous.status,303);assert.equal(anonymous.headers.get('location'),'/login/');
   const headers={Cookie:`__Host-gold-member=${session}; __Host-gold-form=${csrf}`};
   const response=await request('/account/',null,{headers}),html=await response.text();
-  assert.equal(response.status,200);assert.equal(response.headers.get('cache-control'),'no-store');
+  assert.equal(response.status,200);assert.equal(response.headers.get('cache-control'),'private, no-store');
   assert.match(html,/Alex &lt;script&gt;bad\(\)&lt;\/script&gt;/);assert.doesNotMatch(html,/<script>bad/);
   assert.match(html,new RegExp(effective_level==='subscriber'?'href="/gold-almanac/">Open Almanac':'href="/plus/">Explore Plus'));
   if(effective_level==='subscriber')assert.match(html,/class="camp-shortcut" href="\/connections\/mine\/"/);
@@ -122,7 +122,7 @@ test('verification welcomes only after consumption; invalid origins, CSRF and re
  let consumed=false,calls=0;
  const request=await fixture(t,{store:{ready:async()=>true,allow:async()=>true,consume:async(raw,purpose)=>{calls++;assert.equal(raw,link);assert.equal(purpose,'verify_email');if(consumed)return false;consumed=true;return true;}}});
  for(const path of ['/login/','/verify-email/?token='+link,'/reset-password/?token='+link]){
-  const response=await request(path);assert.equal(response.headers.get('referrer-policy'),'strict-origin');assert.equal(response.headers.get('cache-control'),'no-store');
+  const response=await request(path);assert.equal(response.headers.get('referrer-policy'),'strict-origin');assert.equal(response.headers.get('cache-control'),'private, no-store');
  }
  for(const badOrigin of ['null','','https://evil.example'])assert.equal((await request('/verify-email/',{token:link},{Origin:badOrigin})).status,403);
  assert.equal((await request('/verify-email/',{token:link,csrf:'d'.repeat(64)})).status,403);assert.equal(calls,0);

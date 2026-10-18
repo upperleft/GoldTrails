@@ -1,0 +1,63 @@
+/* Shared refinements from the approved October 17 design review. */
+.site-mobile-menu{display:none}
+.layout>.left{grid-column:1;grid-row:1}
+.layout>.center{grid-column:2;grid-row:1}
+.layout>.right{grid-column:3;grid-row:1}
+.trail-menu>nav{display:block}
+.trail-menu>nav>a{display:block;padding:.65rem 0;border-bottom:1px solid var(--line);font-size:1rem;text-decoration:none}
+.trail-menu>nav>a:last-child{border-bottom:0}
+.trail-menu>nav>a[aria-current=page]{color:var(--rust);font-weight:700;background:none}
+.trail-menu>nav>.site-nav-row>a{font-size:1rem}
+.site-mobile-menu .site-nav-row{display:flex;margin:0;min-height:44px;border-bottom:1px solid var(--line)}
+.site-mobile-menu .site-nav-row>a{flex:1;padding:.55rem 0;font-size:1rem;text-decoration:none}
+.reading{font-size:1.125rem;line-height:1.75}
+.reading>p,.reading>section,.reading>.takeaways{max-width:65ch}
+.reading h1{line-height:1.2}
+.reading h2{line-height:1.35;margin-block:1.6em .6em}
+.reading p,.reading li{line-height:inherit}
+.reading .takeaways{padding:1rem 1.2rem;border:0;border-left:3px solid var(--gold);border-radius:0 9px 9px 0;box-shadow:none;background:rgba(213,173,80,.1)}
+.reading .takeaways::before,.reading .takeaways::after{display:none}
+.reading .article-contents{margin:1.2rem 0 1.8rem;padding:.7rem 1rem;max-width:65ch;border:1px solid var(--line);border-radius:10px;background:none;box-shadow:none}
+.article-contents>summary{cursor:pointer;min-height:2rem;align-content:center;font-weight:700}
+.article-contents nav{display:grid;gap:.35rem;padding:.75rem 0 .2rem}
+.article-contents nav a{display:block;padding:.2rem 0;min-height:1.8rem}
+.category-intro h1{line-height:1.2}
+.plus-page .category-intro>div>p{max-width:60ch;line-height:1.6}
+.plus-page .plus-opening-offer{margin:.5rem 0 0;color:var(--ink);font-size:1.125rem}
+.plus-opening-offer strong{color:var(--rust);font-size:1.35rem}
+.home-classic .home-creators-link{display:inline-block;margin:.6rem 0 0 .75rem;color:#fff4d9;text-decoration:underline;text-underline-offset:3px;font-size:1rem}
+html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) .layout{display:flex;flex-direction:column}
+html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) .layout>.center{order:1;width:100%;min-width:0}
+html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) .layout>.left{order:2;width:100%;min-width:0}
+html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) .layout>.right{order:3;width:100%;min-width:0}
+@media(max-width:1000px){
+ .home-classic .hero-copy{position:relative;inset:auto;max-width:none;padding:1.4rem;background:#253f39}
+ .home-classic .hero-copy h1{font-size:2rem;line-height:1.25}
+ .home-classic .hero-copy p{font-size:1rem;line-height:1.6}
+ .home-classic .hero{overflow:hidden}
+}
+@media(max-width:750px){
+ .header-tools{gap:8px;width:100%;flex-wrap:wrap}
+ .header-tools .reading-options>summary{font-size:.875rem;padding:9px 10px;min-height:44px}
+ .header-tools .site-help-switch>summary{font-size:.875rem;padding:9px 10px}
+ .header-tools .login-button{font-size:.875rem;padding:9px 12px;min-height:44px}
+ .site-mobile-menu{display:block;margin:0 0 .8rem;border:1px solid var(--line);border-radius:10px;background:var(--paper,#fff9ed)}
+ .site-mobile-menu>summary{cursor:pointer;padding:.65rem 1rem;min-height:44px;font-weight:700}
+ .site-mobile-menu>nav{display:grid;padding:0 1rem .65rem}
+ .site-mobile-menu nav>a{min-height:44px;align-content:center;text-decoration:none;border-bottom:1px solid var(--line)}
+ .site-mobile-menu nav>a:last-child{border-bottom:0}
+ .site-mobile-menu a[aria-current=page]{color:var(--rust);font-weight:700}
+ .layout{display:flex;flex-direction:column;gap:1.2rem}
+ .layout>.center{order:1;min-width:0;width:100%}
+ .layout>.left{order:2;width:100%;min-width:0}
+ .layout>.right{order:3;width:100%}
+ .layout>.left .trail-menu{display:contents}
+ .layout>.left .trail-menu>h2,.layout>.left .trail-menu>nav{display:none}
+ .layout>.left .gold-price-box{margin-top:0}
+ .layout>.left .plus-support{margin-top:1rem}
+ .reading{font-size:1.125rem;padding-inline:1rem;line-height:1.75}
+ .reading h1{font-size:1.9rem}
+ .reading .article-meta,.reading .author-note{font-size:.95rem}
+ .breadcrumb{margin-block:.5rem .9rem}
+ .category-intro{margin-block:0 1rem}
+}

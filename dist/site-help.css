@@ -1,4 +1,6 @@
-.site-help-switch{padding:13px 14px;border:1px solid #bd9854;border-radius:5px;background:#fff4d9;margin:0 0 14px;color:#49341f}
+.site-help-switch{position:relative;align-self:center;padding:0;border:1px solid #bd9854;border-radius:9px;background:#fffaf0;margin:0;color:#49341f}
+.site-help-switch>summary{cursor:pointer;padding:9px 13px;min-height:44px;align-content:center;font:600 1rem/1.4 'DM Sans',sans-serif}
+.site-help-panel{position:absolute;right:0;top:calc(100% + 8px);z-index:1001;width:min(300px,calc(100vw - 32px));padding:15px;border:1px solid #bd9854;border-radius:10px;background:#fff8e8;box-shadow:0 5px 20px #35292026}
 .site-help-switch label{display:flex!important;align-items:center;gap:8px;font:700 0.875rem/1.3 'DM Sans',sans-serif;cursor:pointer;margin:0!important}
 .site-help-switch input{appearance:auto!important;width:17px!important;height:17px!important;flex:0 0 17px;margin:0!important;accent-color:#84551b}
 .site-help-switch p{font:12px/1.5 'DM Sans',sans-serif;margin:7px 0 0;color:#655039}
@@ -13,8 +15,8 @@
 .help-enabled [data-module] h2[data-help]{cursor:help}
 @media print{.site-help-switch,.site-help-tooltip{display:none!important}}
 
-.admin-editor .site-help-switch{margin:0;padding:6px 10px}.admin-editor .site-help-switch p{display:none}
-@media(max-width:750px){.site-help-switch{flex-basis:100%;width:100%;margin-bottom:8px}}
+.admin-editor .site-help-switch{margin:0}.admin-editor .site-help-switch p{display:none}
+@media(max-width:750px){.site-help-panel{position:fixed;top:150px;left:16px;right:16px;width:auto}}
 
 /* Navigation explanations are explicit actions; they never intercept the next link. */
 .site-nav-row{display:flex;align-items:center;gap:5px;border-bottom:1px solid #dfd3bb}

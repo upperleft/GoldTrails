@@ -1,4 +1,5 @@
 import{attachReadingMarkup}from'./reading/handler.js';
+import{attachSiteNavigation}from'./site-navigation.js';
 import {createPlusHandler,attachPlusMarkup} from './plus/handler.js';
 import {hasPremiumFeature} from './plus/entitlements.js';
 import {guestPlusAccess} from './plus/guest-access.js';
@@ -37,6 +38,9 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
     }
     if(guests&&await guests.handle(req,res,url))return;
     guests?.attach(req,res,url);
+    if(['GET','HEAD'].includes(req.method)&&['/creators-experts','/creators-experts/','/creators-experts/index.html'].includes(path)){
+      res.writeHead(308,{Location:'/prospectors/'+url.search,'Cache-Control':'no-store'});res.end();return;
+    }
     // Retired feature: old bookmarks lead to the account; old forms never write data.
     if (!compass && (path === '/compass' || path.startsWith('/compass/'))) {
       if (['GET','HEAD'].includes(req.method)) send(req,res,303,'',{Location:'/account/'});
@@ -45,6 +49,13 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
     }
     if(connections?.attach)await connections.attach(req,res,url);
     attachReadingMarkup(req,res,url);
+    let navigationPremium=false;
+    // Do not query membership for images, scripts, styles or anonymous requests.
+    if(['GET','HEAD'].includes(req.method)&&!/^\/(?:api|admin)(?:\/|$)/.test(path)&&(!extname(path)||extname(path)==='.html')){
+      try {if(req.headers.cookie)navigationPremium=await hasPremiumFeature(req,{members:memberSessions,guests},'almanac');}
+      catch {log('Navigation membership check unavailable');}
+    }
+    attachSiteNavigation(req,res,url,{premium:navigationPremium});
     attachPlusMarkup(req,res,url);
     if(suggestions){if(await suggestions(req,res,url))return;if(await suggestions.enabled())suggestions.attach(req,res,url);}
     if(analytics){if(await analytics(req,res,url))return;if(await analytics.enabled())attachAnalyticsMarkup(req,res,url);}

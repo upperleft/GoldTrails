@@ -20,5 +20,5 @@ if(typeof document!=='undefined'){
   form.addEventListener('reset',e=>{e.preventDefault();clear();});addEventListener('hashchange',openLinkedEntry);update();openLinkedEntry();
  }
  const aside=document.querySelector('.left');
- if(aside){const menu=document.createElement('details');menu.className='culture-site-nav';menu.open=!matchMedia('(max-width:760px)').matches;const summary=document.createElement('summary');summary.textContent='Explore Gold Trails';menu.append(summary);while(aside.firstChild)menu.append(aside.firstChild);aside.append(menu);}
+ if(aside&&!document.querySelector('.site-mobile-menu')){const menu=document.createElement('details');menu.className='culture-site-nav';menu.open=!matchMedia('(max-width:760px)').matches;const summary=document.createElement('summary');summary.textContent='Explore Gold Trails';menu.append(summary);while(aside.firstChild)menu.append(aside.firstChild);aside.append(menu);}
 }

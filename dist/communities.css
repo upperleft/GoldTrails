@@ -1,2 +1,8 @@
 .community-directory{margin-top:24px}.community-controls{grid-template-columns:repeat(3,minmax(0,1fr))}.community-controls label:first-child{grid-column:1/-1}.community-location{font-size:var(--type-note);font-weight:var(--weight-regular);color:#67563d;margin:12px 0}.community-topics{padding-left:20px;margin:16px 0;font-size:var(--type-note);line-height:1.7}.community-links{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:18px 0;font-size:var(--type-note);font-weight:var(--weight-regular)}.community-links a{padding:8px 0;min-height:44px}.community-access{font-size:var(--type-note);line-height:1.7;background:#f0e7d1;border-radius:4px;padding:14px}.community-archive{border-top-color:#687564;background:#f3f1e4}.community-archive .culture-tag{background:#e2e1d4;color:#494b37}.community-scope{font-size:var(--type-note);line-height:1.75}.communities-page #community-empty{padding:24px;background:#fff9eb;border:1px solid var(--line);border-radius:8px}.communities-page #community-empty h2{font-size:var(--type-heading);margin-bottom:12px}
 @media(max-width:760px){.community-controls{grid-template-columns:1fr}.community-card h2{font-size:var(--type-heading)}}
+
+/* One clear title and introduction, then the directory's useful controls. */
+body.communities-page .category-intro h1{font-size:2rem;line-height:1.35;margin:6px 0}
+.communities-page .category-intro p{font-size:1rem;line-height:1.65}
+.communities-page .community-directory{margin-top:8px}
+.communities-page .culture-about .community-scope{font-size:1rem;line-height:1.75}
