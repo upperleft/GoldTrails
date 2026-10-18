@@ -11,4 +11,6 @@ Requested: enlarge product photos to twice their previous displayed width and he
 
 Verification: 19 existing product/presentation tests passed; build checked 16 pages and 579 local links/assets. Desktop browser confirmed 104 × 104 rendered images, 116px frames, 208px natural image width, no horizontal overflow, and photo open/shrink/focus return. Mobile rules were reviewed in code; the browser's viewport override did not apply during this check, so no new phone screenshot is claimed.
 
-Preview: http://127.0.0.1:4350/products/ . Evidence: task workspace `outputs/product-photo-size-2026-10-18/desktop.png` and `tests.txt`.
+Published to https://goldtrails.org/products/ in release `feade313c8cb3ff5a11f6becea5880105e7de94b`. Live checks at 13:45 UTC confirmed the new stylesheet, refreshed thumbnail matching the local asset, 104 × 104 rendered images with 208px natural width, and working photo open/shrink behavior. The existing friends' preview receives the same catalog update.
+
+Evidence: task workspace `outputs/product-photo-size-2026-10-18/live-products.png`, `live-verification.json`, `desktop.png` and `tests.txt`.
