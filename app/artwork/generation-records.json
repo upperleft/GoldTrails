@@ -27,6 +27,18 @@
         "app/artwork/old-timer-reading-v1.png"
       ],
       "prompt": "Use case: illustration-story. Asset type: small decorative Gold Trails website vignette on a genuinely transparent background. Reference image 1 establishes the Gold Trails Old-Timer's identity and warm illustrated realism. Reference image 2 is the matching reading pose; match its face, outfit, illustration treatment and isolated chest-up scale. Make a NEW pose of the SAME kindly older prospector, weathered face, white beard and curled mustache, brown weathered wide-brim hat, light gray work shirt, brown leather vest and red bandana. He is relaxed and giving a modest friendly smile toward the viewer, gently holding one plain dark-blue enamel camp coffee mug with a pale rim in his right hand near chest level. The other hand rests naturally beneath the mug. Anatomically natural hands, no waving, no thumbs-up, no exaggerated grin. Show full hat, shoulders and both hands; crop at lower chest/forearms with a tidy natural silhouette. Warm natural golden lighting and realistic painted texture. One isolated character only. No background, landscape, furniture, frame, panel, writing, logos, product branding or watermarks. Narrow transparent margin. This is a decorative site character for the Products page, not a photograph identifying or endorsing an actual product. Intended to display about 110 CSS pixels wide beside existing copy."
+    },
+    {
+      "id": "old-timer-community-v1",
+      "source": "app/artwork/old-timer-community-v1.png",
+      "web": "dist/assets/old-timer-community-v1.webp",
+      "width": 629,
+      "height": 300,
+      "bytes": 84198,
+      "references": [
+        "app/artwork/old-timer-coffee-v1.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: small horizontal decorative website vignette, genuinely transparent background. Reference image 1 supplies the existing Gold Trails Old-Timer character identity and painterly realism; it is a character reference, not an edit target. Create a warm natural group portrait of EXACTLY THREE adult prospecting friends quietly enjoying one another's company: the same white-bearded Old-Timer in his weathered brown wide-brim hat, red bandana, light gray work shirt and brown leather vest; a slender older male prospector with short gray stubble wearing a muted green work shirt and weathered canvas cap; and a middle-aged Black woman prospector with a warm face, naturally curly hair visible under a tan outdoor hat, and a practical ochre work shirt. All three look like equally experienced outdoors people and close friends, relaxed and smiling gently while chatting, looking at each other rather than three stiff camera poses. The Old-Timer stands slightly left of center between his two friends. One plain dark gold pan is held naturally at chest/waist level between them, just a rim and a few small bright gold flecks, no brands or writing. Three distinct faces, normal anatomy and natural hands, shoulders close together. Show their complete hats, heads, shoulders and forearms in a compact chest-up grouping. A horizontal composition about 2.1 times wider than tall, with faces large enough to remain clear when the whole group is displayed 210 pixels wide and about 100 pixels high. Match the existing reference's warm natural golden light and detailed realistic painted texture. Friendly, dignified and believable; no exaggerated comedy, costumes, pointing, thumbs-up or caricature. No landscape, scenery, floor, furniture, frame, panel, text, logo, watermark or extra people. Transparent background and narrow transparent margin around a connected group silhouette."
     }
   ]
 }

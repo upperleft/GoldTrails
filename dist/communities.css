@@ -6,3 +6,12 @@ body.communities-page .category-intro h1{font-size:2rem;line-height:1.35;margin:
 .communities-page .category-intro p{font-size:1rem;line-height:1.65}
 .communities-page .community-directory{margin-top:8px}
 .communities-page .culture-about .community-scope{font-size:1rem;line-height:1.75}
+
+/* The small group shares the existing title space only on wide displays. */
+.communities-page .category-intro>.old-timer-vignette{display:none}
+.communities-page .category-intro:has(>.old-timer-vignette)>div{padding-right:0}
+@media(min-width:1200px){
+ .communities-page .category-intro>.old-timer-vignette{display:block;width:210px}
+ .communities-page .category-intro:has(>.old-timer-vignette)>div{padding-right:230px}
+}
+@media print{.communities-page .category-intro>.old-timer-vignette{display:none}.communities-page .category-intro:has(>.old-timer-vignette)>div{padding-right:0}}

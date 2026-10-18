@@ -24,4 +24,15 @@ The illustrations display at 110px wide only at viewport widths of at least 1100
 - Larger text at 115% hides the illustration, releases its padding, and preserves no horizontal overflow. Reset restores the illustration.
 - Screenshots: workspace `outputs/old-timer-vignettes-2026-10-18/products-desktop.png` and `glossary-desktop.png` (outside this repo).
 
+## Community illustration follow-up
+
+Paul requested a community scene with the Old-Timer, a slender male prospecting friend, and a Black woman prospector. A third matching transparent illustration now sits in the existing Clubs & Groups introduction. The three friends gather around one pan; no new copy, feature or panel is introduced.
+
+- Source: `app/artwork/old-timer-community-v1.png`; optimized asset: `dist/assets/old-timer-community-v1.webp` (629 × 300 pixels, 84,198 bytes). Exact prompt and character reference are in the generation records.
+- `app/communities-page.js` reuses the decorative picture pattern; `dist/communities.css` permits a 210px group illustration only at widths of at least 1200px. The existing enlarged-text, stronger-contrast and print behavior still applies. The mobile source remains a transparent pixel.
+- At an actual 1280px browser width, the introduction height is unchanged at 105.594px and directory content starts at the same 289.781px position before and after the addition. No horizontal overflow; image loaded at natural dimensions 629 × 300.
+- Browser checked enlarged text and stronger contrast: image hidden, reserved text padding released; Reset restores it. At an actual 928px width, image is hidden, transparent source selected, and no horizontal overflow.
+- Screenshot: workspace `outputs/old-timer-vignettes-2026-10-18/community-desktop.png` (outside this repo).
+- Existing community/reading tests: **12 passed, 0 failed**; normal build passed (16 pages, 579 local links/assets checked). Log: `/private/tmp/gold-trails-community-art-tests-2026-10-18.txt`. The directory data and its links are unchanged.
+
 Saved locally for review, not published. The previous homepage work is saved in commit `109250f` and also remains unpublished. No authentication, membership, payment or data changes are included.
