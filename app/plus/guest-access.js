@@ -57,8 +57,11 @@ export function createGuestPlusAccess({passes=[],now=Date.now,origin='https://go
    if(type.includes('text/html')&&chunk){
     let html=Buffer.isBuffer(chunk)?chunk.toString('utf8'):String(chunk);
     if(!html.includes('data-guest-plus-banner')){
-     const home=url.pathname==='/';
-     const banner=`<aside class="guest-plus-banner" data-guest-plus-banner aria-label="${home?'Guest preview':'Guest Plus preview'}"><div><strong>${home?'Welcome, friend. Enjoy your guest preview.':'Welcome, friend. Enjoy Gold Trails Plus.'}</strong><p>Guest preview · Almanac &amp; Connections · Browse freely until ${h(new Date(grant.expiresAt).toLocaleDateString('en-US',{month:'long',day:'numeric',timeZone:'America/New_York'}))}. ${home?'Read-only preview. Event participation requires your own paid account.':'Event participation requires your own Plus account.'}</p></div><nav aria-label="${home?'Guest preview controls':'Explore Plus'}">${home?'':'<a href="/gold-almanac/">Almanac &amp; map</a><a href="/connections/">Gold Connections</a>'}<form method="post" action="/plus/guest/leave/"><button type="submit">Leave preview</button></form></nav></aside>`;
+     const expiry=new Date(grant.expiresAt);
+     const shortDate=expiry.toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'America/New_York'});
+     const fullDate=expiry.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'America/New_York'});
+     const notice='Read-only guest preview. Event participation requires your own paid account. Access ends '+fullDate+'.';
+     const banner=`<aside class="guest-plus-banner" data-guest-plus-banner aria-label="Guest preview"><span class="guest-preview-summary" title="${h(notice)}">Guest preview<span class="guest-preview-detail"> · Read-only</span> · Ends <time datetime="${h(grant.expiresAt)}">${h(shortDate)}</time></span><form method="post" action="/plus/guest/leave/"><button type="submit" aria-label="Leave preview">Leave</button></form></aside>`;
      html=html.replace('</head>',`<link rel="stylesheet" href="${assetUrl('guest-plus.css')}"></head>`).replace(/(<body\b[^>]*>)/,`$1${banner}`);
     }
     chunk=Buffer.from(html);

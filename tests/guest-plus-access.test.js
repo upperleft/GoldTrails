@@ -135,23 +135,20 @@ test('guest-only HTML decoration is private and does not inject markup into JSON
  const api=await f.request('/api/gold-almanac/nevada/',{cookie:guestCookie});assert.equal(api.status,200);assert.ok((await api.json()).html);
 });
 
-test('homepage guest banner welcomes friends without repeated premium quicklinks and keeps the leave form and access limits',async t=>{
+test('compact guest status preserves its expiry, read-only explanation and leave control on every page',async t=>{
  const f=await fixture(t);
  for(const path of ['/','/articles/']){
   const response=await f.request(path,{cookie:guestCookie}),html=await response.text();assert.equal(response.status,200,path);
   const banner=html.match(/<aside\b[^>]*\bdata-guest-plus-banner\b[^>]*>[\s\S]*?<\/aside>/)?.[0];assert.ok(banner,'A guest banner is present');
-  assert.match(banner,/Browse freely until October 24\./);
-  assert.match(banner,/<form method="post" action="\/plus\/guest\/leave\/">/);assert.match(banner,/<button type="submit">Leave preview<\/button>/);assertNoSecrets(banner);
-  if(path==='/'){
-   assert.match(banner,/<strong>Welcome, friend\. Enjoy your guest preview\.<\/strong>/);
-   assert.match(banner,/Read-only preview\. Event participation requires your own paid account\./);
-   assert.doesNotMatch(banner,/href="\/(?:gold-almanac|connections)\//,'Homepage navigation already provides these destinations');
-   assert.doesNotMatch(banner,/Enjoy Gold Trails Plus\./);
-  }else{
-   assert.match(banner,/<strong>Welcome, friend\. Enjoy Gold Trails Plus\.<\/strong>/);
-   assert.match(banner,/Event participation requires your own Plus account\./);
-   assert.match(banner,/href="\/gold-almanac\/">Almanac &amp; map<\/a>/);assert.match(banner,/href="\/connections\/">Gold Connections<\/a>/);
-  }
+  assert.match(banner,/aria-label="Guest preview"/);
+  assert.match(banner,/class="guest-preview-summary"/);
+  assert.match(banner,/Guest preview<span class="guest-preview-detail"> · Read-only<\/span> · Ends <time/);
+  assert.ok(banner.includes('<time datetime="'+f.pass.expiresAt+'">Oct 24</time>'),'The compact date retains the actual invitation expiry');
+  assert.match(banner,/title="Read-only guest preview\. Event participation requires your own paid account\. Access ends October 24, 2026\."/);
+  assert.match(banner,/<form method="post" action="\/plus\/guest\/leave\/">/);
+  assert.match(banner,/<button\b(?=[^>]*type="submit")(?=[^>]*aria-label="Leave preview")[^>]*>Leave<\/button>/);
+  assert.doesNotMatch(banner,/<a\b|<p\b|<nav\b|Welcome, friend/,'The status strip adds no repeated feature links or long greeting');
+  assertNoSecrets(banner);
  }
 });
 
