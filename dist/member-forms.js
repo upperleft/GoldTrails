@@ -62,8 +62,11 @@ for (const form of document.querySelectorAll('.member-form')) {
       const login = document.createElement('a'); login.href = '/login/'; login.textContent = 'Sign in';
       const reset = document.createElement('a'); reset.href = '/forgot-password/'; reset.textContent = 'Reset your existing password';
       const links = document.createElement('p'); links.append(login, document.createTextNode(' · '), reset, document.createTextNode(' · '), recovery);
+      const offer = card.querySelector('[data-signup-plus-offer]');
       card.replaceChildren(heading, confirmation, links);
+      if (offer) card.append(offer);
       card.setAttribute('tabindex', '-1'); card.focus();
+      document.dispatchEvent(new Event('goldtrails:signup-confirmed'));
     } catch {
       tell('We could not confirm that your signup finished. Check your email before retrying; if an account was created, you can request a new verification link.', true);
       recoveryLink();
