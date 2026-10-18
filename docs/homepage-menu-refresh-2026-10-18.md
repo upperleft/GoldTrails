@@ -1,6 +1,6 @@
 # Homepage menu refresh — October 18, 2026
 
-Implemented Paul's request to add Products, use one named Almanac entry, and remove the separate Gold Trails Plus navigation item from the homepage. Saved locally; not published to Hostinger.
+Implemented Paul's request to add Products, use one named Almanac entry, and remove the separate Gold Trails Plus navigation item from the homepage. Published to Hostinger on October 18, 2026 after Paul's explicit approval. See `design-review-live-2026-10-18.md` for live verification.
 
 ## Result
 

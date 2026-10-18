@@ -38,6 +38,6 @@ Implemented October 18, 2026 against the ten numbered findings in the October 17
 
 ## Delivery state
 
-Saved locally for review. **Not published to Hostinger.** The read-only preview is `http://127.0.0.1:4344/`; it uses public catalog content and a fictional free account only. No production data migrations, payment activation or research changes were made.
+Published to Hostinger on October 18, 2026 in release `1a61ac3`, after Paul's explicit publication approval. See `design-review-live-2026-10-18.md` for live verification. The read-only local preview uses public catalog content and a fictional free account only. No production data migrations, payment activation or research changes were made.
 
 Decorative logo lettering and the artwork's small handwritten quotations remain part of the image. Important actionable text is live HTML. The narrow illustrated-sidebar help buttons retain their existing dimensions; enlarging them further would collide with adjacent links.

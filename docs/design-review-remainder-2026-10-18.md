@@ -29,6 +29,6 @@ Other walkthrough entries were either addressed in the first pass or already wor
 
 ## Preview and delivery
 
-Saved locally; **not published to Hostinger**. The public preview is `http://127.0.0.1:4344/`.
+Published to Hostinger on October 18, 2026 in release `1a61ac3`, after Paul's explicit publication approval. The public site and existing friends' preview both serve the new release. See `design-review-live-2026-10-18.md` for live verification.
 
 The additional `scripts/preview-design-private.mjs` fixture is loopback-only. It uses fictional accounts, public catalog research, and in-memory example events; only temporary calendar display preferences can change. Account/event writes, email and payments are disabled. It is not imported by the production server. No real member data or production settings were changed.
