@@ -12,6 +12,8 @@ test('illustrated homepage promotes the public creator library and displays impo
  assert.match(html,/<strong>50-state Almanac<\/strong>/);assert.match(html,/<strong>Gold Connections<\/strong>/);
  const primary=html.match(/<nav aria-label="Explore Gold Trails">([\s\S]*?)<\/nav>/)?.[1]||'';
  assert.match(primary,/^<a class="home-creators-first" href="\/prospectors\/">Creators &amp; Videos<\/a>/);
+ assert.match(primary,/<a href="\/products\/">Products<\/a>/);
+ assert.doesNotMatch(primary,/href="\/plus\/"|Gold Trails Plus/,'Utility navigation does not duplicate Plus marketing');
  assert.ok(html.indexOf('home-art-tools')<html.indexOf('class="home-full"'),'Primary live choices precede the artwork');
  const creatorLinks=homeHotspots().filter(p=>p.id==='nav-destinations'||p.id.startsWith('panel-destinations'));
  for(const item of creatorLinks){
@@ -20,30 +22,54 @@ test('illustrated homepage promotes the public creator library and displays impo
   assert.ok(!/Destinations|Find Gold/.test(item.name));
  }
  assert.ok(!html.includes('Explore Destinations'));
- assert.match(html,/srcset="\/assets\/homepage\/full\.webp"/);
+ assert.match(html,/srcset="\/assets\/homepage\/full-menu-v2\.webp"/);
 });
 
-test('public and free account artwork rows show free destinations while effective subscribers and guests retain premium discovery',()=>{
+test('public and free artwork links describe the one Almanac Plus feature without exposing premium discovery',()=>{
  for(const options of [{},{member:{effective_level:'free',plan:'plus'}},{member:{plan:'plus'}},{member:{effective_level:'expired'}}]){
   const items=homeHotspots(options),html=graphicalHome(options);
-  assert.equal(items.find(p=>p.id==='nav-almanac').href,'/products/');
-  assert.equal(items.find(p=>p.id==='nav-almanac').name,'Products');
+  assert.equal(items.find(p=>p.id==='nav-almanac').href,'/plus/');
+  assert.equal(items.find(p=>p.id==='nav-almanac').name,'Almanac');
   assert.equal(items.find(p=>p.id==='nav-connections').href,'/clubs-groups/');
   assert.equal(items.find(p=>p.id==='nav-connections').name,'Clubs & Groups');
-  assert.match(html,/<span class="home-nav-label">Products<\/span>/);
   assert.match(html,/<span class="home-nav-label">Clubs &amp; Groups<\/span>/);
   assert.ok(!/href="\/(?:gold-almanac|connections)\//.test(html),'Premium routes are absent from public illustrated navigation and search');
-  assert.ok(!/data-home-id="nav-(?:almanac|connections)-help"[^>]*data-home-premium/.test(html));
+  assert.match(html,/data-home-id="nav-almanac-help"[^>]*data-home-premium="plus"/);
+  assert.ok(!/data-home-id="nav-connections-help"[^>]*data-home-premium/.test(html),'Public clubs are not advertised as premium');
  }
+});
+
+test('effective subscribers and guest readers keep one direct Almanac link and paid Connections discovery',()=>{
  for(const options of [{member:{effective_level:'subscriber'}},{guest:true}]){
   const items=homeHotspots(options),html=graphicalHome(options);
   assert.equal(items.find(p=>p.id==='nav-almanac').href,'/gold-almanac/');
   assert.equal(items.find(p=>p.id==='nav-connections').href,'/connections/');
-  assert.match(html,/<span class="home-nav-label">Almanac<\/span>/);
   assert.match(html,/<span class="home-nav-label">Gold Connections<\/span>/);
   assert.match(html,/data-home-id="nav-almanac-help"[^>]*data-home-premium="plus"/);
  }
- assert.deepEqual(homeHotspots().map(p=>p.id),hotspots.map(p=>p.id),'Existing hotspot identifiers remain stable');
+});
+
+test('every viewer gets Products, a named sidebar landmark, a Plus badge and public creators',()=>{
+ for(const options of [{},{member:{effective_level:'free'}},{member:{effective_level:'expired',plan:'plus'}},{member:{plan:'plus'}},{member:{effective_level:'subscriber'}},{guest:true}]){
+  const items=homeHotspots(options),html=graphicalHome(options);
+  const products=items.find(p=>p.id==='nav-products'),help=items.find(p=>p.id==='nav-products-help');
+  assert.equal(products.href,'/products/');assert.equal(products.name,'Products');assert.equal(products.rect[1],499);
+  assert.equal(help.premium===true,false);assert.ok(help.text.length>10);
+  assert.equal(items.filter(p=>p.id==='nav-products').length,1);
+  assert.ok(!items.some(p=>p.id==='nav-plus'||p.id==='nav-plus-help'),'Separate Plus navigation was replaced');
+  assert.ok(!html.includes('data-home-id="nav-plus'),'No obsolete Plus hotspot is rendered');
+  const sidebar=[...html.matchAll(/<nav\b([^>]*)>([\s\S]*?)<\/nav>/g)].find(m=>m[2].includes('data-home-id="nav-home"'));
+  assert.ok(sidebar,'Illustrated sidebar is a semantic navigation landmark');assert.match(sidebar[1],/aria-label="[^"]+"/);
+  assert.match(sidebar[2],/<a\b[^>]*data-home-id="nav-home"[^>]*aria-current="page"/);
+  const almanac=sidebar[2].match(/<a\b[^>]*data-home-id="nav-almanac"[^>]*>([\s\S]*?)<\/a>/)?.[1]||'';
+  assert.match(almanac,/Almanac/);assert.match(almanac,/class="home-nav-plus-badge"[^>]*>[^<]*Plus/);
+  assert.equal((sidebar[2].match(/data-home-id="nav-almanac"/g)||[]).length,1,'Only one Almanac sidebar entry');
+  for(const item of items.filter(p=>p.id==='nav-destinations'||p.id==='nav-destinations-help'||p.id.startsWith('panel-destinations'))){
+   if(item.type==='link')assert.equal(item.href,'/prospectors/');
+   assert.equal(item.premium===true,false);assert.ok(!/Destinations|Find Gold|Almanac/.test(item.name));
+  }
+ }
+ assert.deepEqual(homeHotspots().map(p=>p.id),hotspots.map(p=>p.id),'Hotspot identifiers do not vary by entitlement');
 });
 
 test('a validated guest reader receives premium discovery without an account identity',async t=>{
@@ -58,7 +84,8 @@ test('a validated guest reader receives premium discovery without an account ide
  assert.match(illustrated,/href="\/login\/" data-home-account/);
  assert.ok(!illustrated.includes('Private fixture label'));assert.ok(!illustrated.includes('fixture-pass'));
  const publicHtml=await(await fetch(origin)).text();
- assert.match(publicHtml,/data-home-id="nav-almanac"[^>]*href="\/products\/"/);
+ assert.match(publicHtml,/data-home-id="nav-almanac"[^>]*href="\/plus\/"/);
+ assert.match(publicHtml,/data-home-id="nav-products"[^>]*href="\/products\/"/);
 });
 
 test('larger scene help targets remain separate from links and readable fallback is retained',async()=>{

@@ -29,6 +29,7 @@ function assertMenus(html,premium){
 async function fixture(t,{brokenGuest=false}={}){
  const root=await realpath(await mkdtemp(join(tmpdir(),'gold-navigation-')));
  await mkdir(join(root,'navigation-fixture'));await writeFile(join(root,'navigation-fixture/index.html'),staticHTML);
+ await writeFile(join(root,'index.html'),staticHTML);
  const css='.trail-menu{color:gold} /* original stylesheet */',js='const markup = "trail-menu"; // original script\n';
  await writeFile(join(root,'probe.css'),css);await writeFile(join(root,'probe.js'),js);
  let sessionCalls=0;
@@ -53,6 +54,45 @@ test('shared navigation has consistent public labels and premium links only when
  assert.match(paidMenu,/<a href="\/gold-almanac\/" aria-current="page">Almanac<\/a>/);
  assert.doesNotMatch(navigationLinks('/articles/'),/<a href="\/" aria-current/);
  assert.match(navigationLinks('/'),/<a href="\/" aria-current="page"/);
+});
+
+function assertHomeMenus(html,premium){
+ const menus=mainMenus(html);assert.equal(menus.length,2,'Homepage sidebar and compact mobile menu both exist');
+ assert.equal(menus[0],menus[1],'Homepage menus use the same member-aware destinations');
+ for(const menu of menus){
+  const links=hrefs(menu);assert.equal(new Set(links).size,links.length,'Every destination occurs once');
+  assert.equal(links.filter(href=>href==='/products/').length,1,'Products stays available to every viewer');
+  assert.equal(links.filter(href=>href==='/prospectors/').length,1,'Creators and videos remain public');
+  assert.match(menu,/<a href="\/prospectors\/">Creators &amp; Videos<\/a>/);
+  assert.match(menu,new RegExp('<a href="'+(premium?'/gold-almanac/':'/plus/')+'">Almanac · Plus</a>'));
+  assert.equal((menu.match(/Almanac/g)||[]).length,1,'One clear Almanac entry');
+  assert.equal(links.includes('/gold-almanac/'),premium,'Only entitled viewers link directly to the Almanac');
+  assert.equal(links.includes('/plus/'),!premium,'Public Almanac description replaces separate Plus navigation');
+  assert.equal(links.includes('/connections/'),premium,'Connections retains its existing entitlement rule');
+  assert.doesNotMatch(menu,/>Gold Trails Plus<\/a>|Destinations|Creators &amp; Experts/);
+  assert.match(menu,/<a href="\/" aria-current="page">Gold Trails home<\/a>/);
+ }
+}
+
+test('homepage navigation has one Almanac Plus entry and Products without changing other pages',()=>{
+ for(const premium of [false,true]){
+  const html=siteNavigationMarkup(staticHTML,{path:'/',premium});assertHomeMenus(html,premium);
+  assert.equal(siteNavigationMarkup(html,{path:'/',premium}),html,'Homepage decoration remains idempotent');
+  for(const path of ['/articles/','/prospectors/','/plus/']){
+   const other=siteNavigationMarkup(staticHTML,{path,premium});assertMenus(other,premium);
+   for(const menu of mainMenus(other))assert.match(menu,/<a href="\/plus\/"(?: aria-current="page")?>Gold Trails Plus<\/a>/,'Other pages keep their Plus navigation');
+  }
+ }
+});
+
+test('homepage marketing and premium links follow verified membership or guest access',async t=>{
+ const f=await fixture(t);
+ for(const [cookie,premium]of [['',false],[memberCookie(free),false],[memberCookie(expired),false],[memberCookie(rawOnly),false],[memberCookie(offline),false],[memberCookie(paid),true],[guestCookie,true],['__Host-gold-plus-guest='+unknown,false]]){
+  const response=await f.request('/?premium=true&level=subscriber',cookie),html=await response.text();
+  assert.equal(response.status,200);assertHomeMenus(html,premium);
+  assert.equal(response.headers.get('cache-control'),'private, no-store');assert.match(response.headers.get('vary'),/Cookie/);
+  assert.doesNotMatch(html,/PRIVATE_SESSION_FAILURE/);
+ }
 });
 
 test('markup replaces obsolete sidebar links and adds a collapsed native mobile menu once',()=>{

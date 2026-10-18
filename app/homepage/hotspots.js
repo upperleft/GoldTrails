@@ -11,7 +11,7 @@ const rows=[
  ['destinations','Creators & Videos',355,'/prospectors/','Meet prospectors, visit their public profiles, and browse their linked videos. Creator profiles and videos are free to explore.'],
  ['glossary','Glossary',403,'/glossary/','Look up gold prospecting, geology, and mining terms, including regional words and tool names.'],
  ['connections','Gold Connections',451,'/connections/','Gold Trails Plus members can create events, RSVP, and join discussions with other members.'],
- ['plus','Gold Trails Plus',499,'/plus/','Explore the $5/month Plus plan: State Almanac, creator map, and Gold Connections participation.'],
+ ['products','Products',499,'/products/','Explore the free product catalog, photographs and linked demonstrations.'],
  ['search','Search',547,null,'Choose an existing Gold Trails library to search.'],
  ['about','About',595,'/about-the-camp/','Meet Gold Trails and learn about the research behind the library.'],
  ['signin','Sign In',643,'/login/','Sign in to your Gold Trails account, calendar, and membership features.']

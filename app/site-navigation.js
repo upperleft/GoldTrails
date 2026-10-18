@@ -22,7 +22,12 @@ function contentBeforeSidebar(html){
  return html;
 }
 export function navigationLinks(path='/',{premium=false}={}){
- return destinations.filter(([, ,paid])=>!paid||premium).map(([href,label])=>`<a href="${href}"${active(href,path)?' aria-current="page"':''}>${label}</a>`).join('');
+ const home=path==='/';
+ return destinations.filter(([href,,paid])=>!(home&&href==='/plus/')&&(!paid||premium||(home&&href==='/gold-almanac/'))).map(([href,label])=>{
+  // Home has one named Almanac entry: a public description or the member feature.
+  if(home&&href==='/gold-almanac/'){href=premium?href:'/plus/';label='Almanac · Plus';}
+  return `<a href="${href}"${active(href,path)?' aria-current="page"':''}>${label}</a>`;
+ }).join('');
 }
 export function siteNavigationMarkup(html,{path='/',premium=false}={}){
  if(typeof html!=='string'||!html.includes('</head>')||!html.includes('trail-menu')||html.includes('data-site-navigation'))return html;

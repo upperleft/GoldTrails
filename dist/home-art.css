@@ -51,7 +51,9 @@ html[data-reading-dark] .home-plus-badge{background:#f1cc6b;color:#3e2a13;border
  .home-live-plus strong{margin-bottom:.16cqw;color:#21483c;font-weight:600}
  .home-hotspot{z-index:3}
  .home-hotspot-help{z-index:4}
- .home-nav-label{position:absolute;display:flex;align-items:center;left:27%;right:0;top:3%;height:94%;padding:0 2%;border-radius:2px;background:#2b1e13;color:#fff4d7;font:400 clamp(.8125rem,1.13cqw,1.375rem)/1.05 Georgia,serif;text-align:left}
+ .home-art-navigation{display:contents}
+ .home-nav-label{position:absolute;display:flex;align-items:center;gap:.4cqw;left:27%;right:0;top:3%;height:94%;padding:0 2%;border-radius:2px;background:#2b1e13;color:#fff4d7;font:400 clamp(.8125rem,1cqw,1.375rem)/1.05 Georgia,serif;text-align:left}
+ .home-nav-plus-badge{display:inline-flex;align-items:center;padding:.12cqw .35cqw;border:1px solid #b78429;border-radius:4px;background:linear-gradient(#ffe8a0,#e9ba4b);color:#38240d;font:600 .95cqw/1.2 Georgia,serif;letter-spacing:0}
  .home-hotspot[data-home-id="nav-home"] .home-nav-label{background:linear-gradient(#ffe591,#efbd42);color:#281b0e;font-weight:600}
  .home-button-label{position:absolute;display:flex;align-items:center;justify-content:center;inset:5% 0 5% 1%;padding:0 2%;background:linear-gradient(#ffe89e,#edb634);color:#312210;border-radius:3px;font:600 clamp(.875rem,1.12cqw,1.35rem)/1.15 Georgia,serif;text-align:center}
  .home-hotspot[data-home-id^="hero-"] .home-button-label{left:21%;font-size:clamp(.875rem,1.15cqw,1.3rem);white-space:nowrap}
