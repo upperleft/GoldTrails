@@ -178,12 +178,12 @@ html[data-reading-contrast] body :is(.category-intro,.field-note,.category-callo
 @media print{body :is(.category-intro,.field-note,.category-callout,.takeaways)::before{display:none!important}body :is(.category-intro,.field-note,.category-callout,.takeaways){background:#fff!important;box-shadow:none!important}}
 
 /* The approved paper also frames longer reading and public information blocks. */
-body.article-page .reading,body:not(.admin-editor):not(.member-page) .center>.resource-placeholder:not(:has(form)){position:relative;isolation:isolate;background:none;border-color:transparent;box-shadow:none;overflow:visible}
-body.article-page .reading::before,body:not(.admin-editor):not(.member-page) .center>.resource-placeholder:not(:has(form))::before{content:'';position:absolute;inset:-7px;z-index:-1;pointer-events:none;border:72px solid transparent;border-image:url('/assets/parchment-plain-v1.webp') 25% fill / 72px stretch;filter:drop-shadow(0 5px 5px #49351e24)}
-@media(max-width:750px){body.article-page .reading::before,body:not(.admin-editor):not(.member-page) .center>.resource-placeholder:not(:has(form))::before{border-width:54px;border-image-width:54px;inset:-5px}}
-html[data-reading-contrast] body.article-page .reading::before,html[data-reading-contrast] body .center>.resource-placeholder::before{display:none}
-html[data-reading-contrast] body.article-page .reading,html[data-reading-contrast] body .center>.resource-placeholder{background:#fffdf7!important;border:1px solid #81715a!important}
-@media print{body.article-page .reading::before,body .center>.resource-placeholder::before{display:none!important}}
+body.article-page .reading,body:not(.admin-editor):not(.member-page) .center>:is(.resource-placeholder:not(:has(form)),.product-desk){position:relative;isolation:isolate;background:none;border-color:transparent;box-shadow:none;overflow:visible}
+body.article-page .reading::before,body:not(.admin-editor):not(.member-page) .center>:is(.resource-placeholder:not(:has(form)),.product-desk)::before{content:'';position:absolute;inset:-7px;z-index:-1;pointer-events:none;border:72px solid transparent;border-image:url('/assets/parchment-plain-v1.webp') 25% fill / 72px stretch;filter:drop-shadow(0 5px 5px #49351e24)}
+@media(max-width:750px){body.article-page .reading::before,body:not(.admin-editor):not(.member-page) .center>:is(.resource-placeholder:not(:has(form)),.product-desk)::before{border-width:54px;border-image-width:54px;inset:-5px}}
+html[data-reading-contrast] body.article-page .reading::before,html[data-reading-contrast] body .center>:is(.resource-placeholder,.product-desk)::before{display:none}
+html[data-reading-contrast] body.article-page .reading,html[data-reading-contrast] body .center>:is(.resource-placeholder,.product-desk){background:#fffdf7!important;border:1px solid #81715a!important}
+@media print{body.article-page .reading::before,body .center>:is(.resource-placeholder,.product-desk)::before{display:none!important}}
 
 /* Small yellow-gold keepsakes finish articles and the camp's support note. */
 body.article-page .reading::after,
@@ -218,12 +218,13 @@ body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.
 body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .header-tools{width:auto;margin:0;padding-top:0;border-top:0;gap:10px}
 body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) main{padding-top:14px}
 body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .breadcrumb{margin-bottom:8px}
-body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro{padding:12px 0!important;min-height:0;margin:0;gap:12px;background:none;border:0;border-radius:0;box-shadow:none}
-body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro::before,body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro::after{display:none!important}
+body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro{padding:12px 20px!important;min-height:0;margin:0;gap:12px;background:none;border:0;border-radius:0;box-shadow:none}
+body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro::before{inset:-2px -7px;border-width:40px;border-image-width:40px}
+body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro::after{display:none!important}
 body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro h1{margin:6px 0;max-width:none}
 body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro p{margin:0;max-width:75ch}
 body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .layout{padding-top:16px}
-@media(max-width:750px){body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) header{padding:12px 15px;gap:10px}body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) main{padding-top:10px}body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro{padding:10px 0!important}body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .layout{padding-top:12px}}
+@media(max-width:750px){body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) header{padding:12px 15px;gap:10px}body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) main{padding-top:10px}body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .category-intro{padding:10px 14px!important}body.category-page:not(.member-page):not(.admin-editor):not(.compass-page):not(.calendar-page) .layout{padding-top:12px}}
 
 /* One readable type treatment for every Old-Timer scene with overlaid copy. */
 .category-page .old-timer-copy :is(h1,h2){font-size:2.125rem;line-height:1.45;letter-spacing:normal;margin:16px 0 20px;text-wrap:pretty}

@@ -1,0 +1,7 @@
+# Larger Products companion and restored parchment — October 18, 2026
+
+- Doubled the Products page's existing coffee Old-Timer with a CSS transform. His original layout box/right edge remain anchored; no extra header height or layout space is added. The image crosses the title frame and overlaps the catalog's upper edge, ending above its text. Other Old-Timer illustrations retain their existing size.
+- Restored the existing curled parchment asset behind compact page introductions with a thinner 40px frame and small horizontal text inset. The earlier compact rules had explicitly hidden this frame. The header retains its current vertical spacing and excludes member/admin/calendar layouts as before. Top gold ornaments remain suppressed.
+- Reused the same curled paper for the Products catalog panel. High-contrast and print modes suppress the decorative frame. Existing narrow-screen and enlarged-reading-text rules still hide the companion.
+
+Validation: build passes (16 HTML pages / 579 local links/assets), 12/12 Products and reading-preference tests pass, and the diff is clean. Browser checks at 1280px confirm the vignette doubles from 110px to 220px wide, its right edge remains at 1228px, and the introduction remains 125.59px high. The catalog starts at the same position; the enlarged image ends above the first text line. At 928px, the existing illustration hiding rule applies and the paper remains visible with no horizontal overflow. Stronger contrast hides both frames and the illustration; turning it off restores them.
