@@ -5,7 +5,7 @@ Paul requested a public URL to show friends the Plus experience without register
 ## Access and expiry
 
 - `/plus/guest/?pass=...` exchanges a random 256-bit bearer for a separate `__Host-gold-plus-guest` cookie, then redirects to the clean homepage.
-- The current invitation is `friends-2026-10-17`. Its absolute expiry is **November 1, 2026 at 01:19:18 UTC**, which is **October 31 at 9:19 p.m. Eastern**. The invitation remains reusable until that time. Each browser cookie lasts at most 24 hours and never beyond the invitation expiry; reopening the original link renews it within that window.
+- The current invitation is `friends-2026-10-17`. Its absolute expiry is **November 1, 2026 at 01:19:18 UTC**, which is **October 31 at 9:19 p.m. Eastern**. The invitation remains reusable until that time. As of the October 18 access correction, each newly issued browser cookie lasts through that same expiry, rather than ending after 24 hours. Reopen the original invitation after this correction is published to replace an older one-day cookie. Server-side expiry and revocation still apply on every premium read.
 - Only the SHA-256 token hash, ID, label and expiry are deployed in `app/plus/guest-passes.json`. The raw invitation is saved outside Git in the task workspace’s private directory. Never add the raw URL to source control, public pages, analytics, screenshots, logs or documentation.
 - Removing the hash entry, setting `revoked: true`, or replacing the hash and deploying revokes existing guest cookies. Each premium request validates the configured hash and expiry before reading cached content.
 - The link can be forwarded by its recipient. It is a friends’ preview invitation, not a permanent free subscription or an administrator/member session.

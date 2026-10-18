@@ -2,7 +2,8 @@ import {assetUrl} from '../asset-url.js';
 import {plusPage,donationPage,supportSidebar} from './views.js';
 export function plusMarkup(html,{path=null,premium=false}={}){
  if(typeof html!=='string'||html.includes('data-plus-support'))return html;
- if(path==='/'&&premium)return html;
+ // Verified subscribers and read-only guests already have the advertised access.
+ if(premium)return html;
  // The membership page already explains the offer beside its main decision.
  if(/<body\b[^>]*class="[^"]*\bplus-page\b/.test(html))return html;
  const side=/<aside\b[^>]*class="[^"]*\bleft\b[^"]*"[^>]*>[\s\S]*?<\/aside>/;

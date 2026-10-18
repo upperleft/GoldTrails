@@ -94,6 +94,24 @@ test('malformed, duplicate, expired and unconfigured invitations cannot redirect
  assert.equal((await f.request('/plus/guest/?pass='+raw,{method:'POST'})).status,405);
 });
 
+test('the invitation cookie lasts until the pass ends rather than dropping friends into public access after one day',async t=>{
+ const f=await fixture(t);
+ const age=async()=>{
+  const response=await f.request('/plus/guest/?pass='+raw);
+  assert.equal(response.status,303);
+  return Number(response.headers.getSetCookie()[0].match(/Max-Age=(\d+)/)[1]);
+ };
+ assert.equal(await age(),7*86400);
+ f.setTime(start+3*86400000);
+ assert.equal(await age(),4*86400,'Reopening the same invitation cannot extend its end date');
+ assert.equal((await f.request('/gold-almanac/',{cookie:guestCookie})).status,200);
+ f.setTime(Date.parse(f.pass.expiresAt));
+ const ended=await f.request('/plus/guest/?pass='+raw);
+ assert.equal(ended.status,410);
+ assert.equal(ended.headers.get('set-cookie'),null);
+ assert.equal((await f.request('/api/gold-almanac/california/',{cookie:guestCookie})).status,403);
+});
+
 test('all 50 state APIs stay gated normally and open with a guest pass without copying or caching authorization',async t=>{
  const f=await fixture(t);
  for(const state of states){

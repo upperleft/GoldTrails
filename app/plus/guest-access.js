@@ -36,7 +36,8 @@ export function createGuestPlusAccess({passes=[],now=Date.now,origin='https://go
   const raw=url.searchParams.get('pass');
   const grant=url.searchParams.size===1&&url.searchParams.getAll('pass').length===1?find(raw):null;
   if(!grant){send(410,page('This guest pass has ended','Ask Paul for a fresh Gold Trails guest invitation.','<section class="resource-placeholder"><h2>Let’s find you a fresh invitation.</h2><p>This invitation has expired or is no longer available. Ask Paul for a new guest link, or explore our free articles, videos and glossary.</p><p><a href="/">Visit Gold Trails →</a></p></section>','','There is still plenty to explore.'));return true;}
-  const age=Math.max(1,Math.min(86400,Math.floor((stamp(grant.expiresAt)-now())/1000)));
+  // Keep this browser on the invited trail until the same server-checked pass expires.
+  const age=Math.max(1,Math.floor((stamp(grant.expiresAt)-now())/1000));
   send(303,'',{'Set-Cookie':cookie(raw,age),Location:'/'});return true;
  };
  const attach=(req,res,url)=>{

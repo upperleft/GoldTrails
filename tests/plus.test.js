@@ -6,6 +6,7 @@ import {plusMarkup} from '../app/plus/handler.js';
 import {createMemberHandler} from '../app/members.js';
 import {states} from '../app/almanac/model.js';
 import {createGuestPlusAccess} from '../app/plus/guest-access.js';
+import {createConnectionsHandler} from '../app/connections/handler.js';
 import {digest} from '../app/admin-auth.js';
 const active='a'.repeat(64),free='b'.repeat(64),expired='c'.repeat(64),owner='d'.repeat(64),rawOnly='e'.repeat(64),guest='1a'.repeat(32),unknownGuest='2b'.repeat(32);
 async function fixture(t,{offline=false}={}){
@@ -13,7 +14,8 @@ async function fixture(t,{offline=false}={}){
  const members={session:async raw=>{if(offline)throw Error('private auth detail');return sessions.get(raw)||null;}};
  const guests=createGuestPlusAccess({passes:[{id:'support-preview-test',label:'Test guests',tokenHash:digest(guest),expiresAt:'2026-10-25T00:00:00Z'}],now:()=>Date.parse('2026-10-17T12:00:00Z')});
  const almanac=createAlmanacHandler({members,guests,owners:{session:async raw=>raw===owner?{authenticated:1}:null},store:async()=>{lookups++;return{};}});
- const server=createServer({almanac,guests,memberSessions:members,members:createMemberHandler({}),goldPrice:async()=>({}),log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));
+ const connections=createConnectionsHandler({members,guests,config:{origin:'https://goldtrails.org'},log:()=>{}});
+ const server=createServer({almanac,connections,guests,memberSessions:members,members:createMemberHandler({}),goldPrice:async()=>({}),log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));
  const request=(path,token=null,init={})=>fetch('http://127.0.0.1:'+server.address().port+path,{redirect:'manual',...init,headers:{...(token?{Cookie:'__Host-gold-member='+token}:{}),...init.headers}});return{request,lookups:()=>lookups};
 }
 test('all 50 guides and JSON endpoints require active access before any research lookup',async t=>{
@@ -40,14 +42,18 @@ test('Plus and donation pages describe only Almanac access, separate gifts and d
 test('one shared promotion appears on static and dynamic sidebars, with idempotent rendering and no public-content paywall',async t=>{
  const f=await fixture(t);for(const path of ['/','/articles/','/glossary/','/products/','/gold-almanac/','/plus/','/donate/']){const r=await f.request(path);assert.equal(r.status,200,path);const html=await r.text();assert.equal((html.match(/data-plus-support/g)||[]).length,['/plus/','/donate/'].includes(path)?0:1,path);assert.equal(plusMarkup(html),html);assert.match(html,/plus\.css\?v=/);}
 });
-test('homepage support promotion is suppressed only for verified paid members or valid guests',async t=>{
+test('support promotion is suppressed throughout the site only for verified paid members or valid guests',async t=>{
  const f=await fixture(t);
- const cases=[{token:null,premium:false},{token:free,premium:false},{token:expired,premium:false},{token:rawOnly,premium:false},{token:active,premium:true},{cookie:'__Host-gold-plus-guest='+guest,premium:true},{cookie:'__Host-gold-plus-guest='+unknownGuest,premium:false}];
+ const cases=[{token:null,premium:false},{token:free,premium:false},{token:expired,premium:false},{token:rawOnly,premium:false},{token:active,premium:true},{cookie:'__Host-gold-plus-guest='+guest,premium:true},{cookie:'__Host-gold-member='+free+'; __Host-gold-plus-guest='+guest,premium:true},{cookie:'__Host-gold-plus-guest='+unknownGuest,premium:false}];
  for(const {token=null,cookie,premium}of cases){
-  for(const path of ['/','/articles/']){
-   const response=await f.request(path+'?premium=true&level=subscriber',token,cookie?{headers:{Cookie:cookie}}:{}),html=await response.text();
+  for(const path of ['/','/articles/','/glossary/','/products/','/gold-almanac/','/connections/']){
+   // Connections uses "level" for its validated experience filter.
+   const query=path==='/connections/'?'?premium=true&membership=subscriber':'?premium=true&level=subscriber';
+   const response=await f.request(path+query,token,cookie?{headers:{Cookie:cookie}}:{}),html=await response.text();
    assert.equal(response.status,200,path);
-   assert.equal((html.match(/data-plus-support/g)||[]).length,path==='/'&&premium?0:1,'Only the entitled homepage omits its support promotion');
+   assert.equal((html.match(/data-plus-support/g)||[]).length,premium?0:1,'Only verified access suppresses the promotion on '+path);
+   if(premium&&path==='/gold-almanac/'){assert.match(html,/class="almanac-map"/);assert.doesNotMatch(html,/class="almanac-promo"/);}
+   if(premium&&path==='/connections/')assert.doesNotMatch(html,/class="connections-invite"/);
    assert.equal(response.headers.get('cache-control'),'private, no-store');assert.match(response.headers.get('vary'),/Cookie/);
    assert.ok(!html.includes(guest),'The support promotion must not publish an invitation bearer');
   }
@@ -55,12 +61,19 @@ test('homepage support promotion is suppressed only for verified paid members or
  const offline=await fixture(t,{offline:true}),response=await offline.request('/',active),html=await response.text();
  assert.equal(response.status,200);assert.match(html,/data-plus-support/);assert.doesNotMatch(html,/private auth detail/);
 });
-test('support markup takes explicit page context and retains promotions outside the entitled homepage',()=>{
+test('support markup preserves all page content without injecting an upsell for verified access',()=>{
  const source='<!doctype html><html><head><title>Support fixture</title></head><body><aside class="left"><nav><a href="/articles/">Articles</a></nav></aside><main><h1>Public reading</h1></main></body></html>';
- assert.equal(plusMarkup(source,{path:'/',premium:true}),source,'An entitled homepage receives no additional promotion or assets');
- for(const options of [{path:'/',premium:false},{path:'/articles/',premium:true},{path:'/articles/',premium:false},{}]){
+ for(const path of ['/','/articles/','/gold-almanac/','/connections/'])assert.equal(plusMarkup(source,{path,premium:true}),source,'An entitled '+path+' receives no additional promotion or assets');
+ for(const options of [{path:'/',premium:false},{path:'/articles/',premium:false},{path:'/gold-almanac/',premium:false},{path:'/connections/',premium:false},{}]){
   const html=plusMarkup(source,options);assert.equal((html.match(/data-plus-support/g)||[]).length,1);assert.match(html,/href="\/plus\/"/);assert.match(html,/Public reading/);
   assert.equal(plusMarkup(html,options),html,'The sidebar is inserted only once');
+ }
+});
+test('directly opening the public Plus description remains possible with paid or guest access',async t=>{
+ const f=await fixture(t);
+ for(const options of [{token:null},{token:active},{cookie:'__Host-gold-plus-guest='+guest}]){
+  const response=await f.request('/plus/',options.token,options.cookie?{headers:{Cookie:options.cookie}}:{}),html=await response.text();
+  assert.equal(response.status,200);assert.match(html,/Subscribe · \$5\/month/);assert.match(html,/disabled aria-describedby=/);assert.doesNotMatch(html,/data-plus-support/);
  }
 });
 test('login retains a safe state-guide destination and rejects external return URLs',async t=>{
