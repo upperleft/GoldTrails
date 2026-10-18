@@ -1,5 +1,5 @@
 // Coordinates use the cleaned artwork's original 1672 × 941 canvas.
-// Links stop before help icons: the two hit areas never share an anchor.
+// Links and the remaining help icons have separate hit areas.
 export const canvas={width:1672,height:941};
 export const sections=[{id:'sidebar',rect:[0,0,312,941]},{id:'hero',rect:[312,0,1360,565]},{id:'destinations',rect:[312,565,315,376]},{id:'articles',rect:[627,565,315,376]},{id:'glossary',rect:[942,565,308,376]},{id:'plus',rect:[1250,565,422,376]}];
 const link=(id,name,rect,href,section,extra={})=>({id,name,rect,href,section,type:'link',label:name,...extra});
@@ -36,8 +36,7 @@ export const hotspots=[
   link('panel-'+id,name,[x+17,583,w-45,137],href,id),
   link('panel-'+id+'-heading',name,[x+24,735,w-84,49],href,id),
   help('panel-'+id,name,[hx-6,726,40,40],text,id),
-  link('panel-'+id+'-button',id==='destinations'?'Browse Creators':id==='articles'?'Read Articles':'Browse the Glossary',[x+24,861,w-80,38],href,id),
-  help('panel-'+id+'-button',name,[hx-4,858,40,40],text,id)
+  link('panel-'+id+'-button',id==='destinations'?'Browse Creators':id==='articles'?'Read Articles':'Browse the Glossary',[x+22,860,w-42,39],href,id,{fullButton:true})
  ]),
  link('panel-plus','Explore Almanac',[1266,581,374,255],'/plus/','plus'),
  link('panel-plus-button','Explore Almanac',[1285,848,309,46],'/plus/','plus'),

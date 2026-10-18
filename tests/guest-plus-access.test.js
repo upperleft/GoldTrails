@@ -22,16 +22,16 @@ function service(){
  return {guests,pass,setTime:value=>{clock=value;}};
 }
 async function fixture(t){
- const s=service();let lookups=0,privateReads=0,privateWrites=0;
+ const s=service();let lookups=0,privateReads=0,privateWrites=0,privateReady=0;
  const sessions={ready:async()=>true,session:async token=>token===paid?{id:'paid-member',username:'Paid reader',effective_level:'subscriber'}:token===free?{id:'free-member',username:'Free reader',effective_level:'free'}:null};
  const directory={map:async()=>({people:[],regions:[],topics:[]}),profile:async()=>null,catalogAllowed:async()=>true};
  const almanac=createAlmanacHandler({guests:s.guests,members:sessions,creators:createAlmanacCreators(directory),store:async()=>{lookups++;return{};}});
- const privateStore={ready:async()=>true,listCalendars:async()=>{privateReads++;return[];},createCalendar:async()=>{privateWrites++;return{};}};
- const server=createServer({guests:s.guests,almanac,directory,memberSessions:sessions,members:createMemberHandler({store:sessions,config:{origin},log:()=>{}}),calendar:createCalendarHandler({store:privateStore,members:sessions,config:{origin},log:()=>{}}),goldPrice:async()=>({}),log:()=>{}});
+ const privateStore={ready:async()=>{privateReady++;return true;},listCalendars:async()=>{privateReads++;return[];},createCalendar:async()=>{privateWrites++;return{};}};
+ const server=createServer({guests:s.guests,almanac,directory,memberSessions:sessions,members:createMemberHandler({store:sessions,config:{origin},log:()=>{}}),calendar:createCalendarHandler({store:privateStore,members:sessions,guests:s.guests,config:{origin},log:()=>{}}),goldPrice:async()=>({}),log:()=>{}});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  t.after(()=>new Promise(resolve=>server.close(resolve)));
  const request=(path,{cookie='',headers={},...options}={})=>fetch('http://127.0.0.1:'+server.address().port+path,{redirect:'manual',...options,headers:{...(cookie?{Cookie:cookie}:{}),...headers}});
- return {...s,request,lookups:()=>lookups,privateReads:()=>privateReads,privateWrites:()=>privateWrites};
+ return {...s,request,lookups:()=>lookups,privateReads:()=>privateReads,privateWrites:()=>privateWrites,privateReady:()=>privateReady};
 }
 const assertNoSecrets=(text)=>{assert.ok(!text.includes(raw),'Must not render the invitation bearer');assert.ok(!text.includes(digest(raw)),'Must not render the configured token hash');};
 
@@ -147,7 +147,7 @@ test('guest-only HTML decoration is private and does not inject markup into JSON
   const html=await response.text();assert.match(html,/\/plus\/guest\/leave\//);assertNoSecrets(html);
   const ordinary=await(await f.request(path)).text();assert.doesNotMatch(ordinary,/\/plus\/guest\/leave\//);
  }
- for(const path of ['/login/','/signup/','/calendar/']){
+ for(const path of ['/login/','/signup/']){
   const response=await f.request(path,{cookie:guestCookie});assert.equal(response.status,200,path);assert.doesNotMatch(await response.text(),/\/plus\/guest\/leave\//);
  }
  const api=await f.request('/api/gold-almanac/nevada/',{cookie:guestCookie});assert.equal(api.status,200);assert.ok((await api.json()).html);
@@ -168,6 +168,74 @@ test('compact guest status preserves its expiry, read-only explanation and leave
   assert.doesNotMatch(banner,/<a\b|<p\b|<nav\b|Welcome, friend/,'The status strip adds no repeated feature links or long greeting');
   assertNoSecrets(banner);
  }
+});
+
+test('invited friends can open a clearly fictional calendar tour without reading personal calendars',async t=>{
+ const f=await fixture(t);
+ const response=await f.request('/calendar/',{cookie:guestCookie}),html=await response.text();assert.equal(response.status,200);
+ assert.match(html,/data-calendar-guest\b/);assert.match(html,/Fictional example/);assert.match(html,/\/calendar-guest\.js\?v=[a-f0-9]+/);
+ assert.match(html,/data-guest-plus-banner/);assert.match(html,/\/plus\/guest\/leave\//);
+ assert.doesNotMatch(html,/data-calendar-app\b|data-csrf=|src="\/calendar\.js(?:\?|"|\s)/,'The tour cannot mount the private editor or its account API client');
+ assertNoSecrets(html);assert.equal(response.headers.get('set-cookie'),null,'The tour does not issue a real member session');
+ for(const method of ['GET','HEAD']){
+  const page=await f.request('/calendar/',{cookie:guestCookie,method});assert.equal(page.status,200);
+  assert.match(page.headers.get('cache-control'),/private.*no-store/);assert.equal(page.headers.get('vary'),'Cookie');assert.match(page.headers.get('x-robots-tag'),/\bnoindex\b/);assert.equal(page.headers.get('referrer-policy'),'strict-origin');assert.equal(page.headers.get('x-content-type-options'),'nosniff');assert.match(page.headers.get('content-security-policy'),/frame-ancestors 'none'/);
+  if(method==='HEAD')assert.equal(await page.text(),'');
+ }
+ assert.equal(f.privateReady(),0,'A fictional tour must not even check the personal-calendar store');assert.equal(f.privateReads(),0);assert.equal(f.privateWrites(),0);
+});
+
+test('the public calendar gate remains in place for invalid, expired and revoked invitations',async t=>{
+ const f=await fixture(t);
+ const gate=async cookie=>{
+  const response=await f.request('/calendar/',{cookie}),html=await response.text();assert.equal(response.status,200);
+  assert.match(html,/Register and log in to access the calendar\./);assert.doesNotMatch(html,/data-calendar-guest\b|data-calendar-app\b|data-guest-plus-banner|calendar-guest\.js/);assertNoSecrets(html);
+ };
+ for(const cookie of ['', '__Host-gold-plus-guest='+unknown,guestCookie+'; '+guestCookie,'__Host-gold-member='+raw])await gate(cookie);
+ f.pass.revoked=true;await gate(guestCookie);f.pass.revoked=false;
+ f.setTime(Date.parse(f.pass.expiresAt));await gate(guestCookie);
+ assert.equal(f.privateReady(),0);assert.equal(f.privateReads(),0);assert.equal(f.privateWrites(),0);
+});
+
+test('a calendar tour does not open personal calendar APIs or accept any calendar writes',async t=>{
+ const f=await fixture(t),range='/calendar/api/events?start=2026-10-01T00:00:00Z&end=2026-11-01T00:00:00Z';
+ for(const path of ['/calendar/api/calendars',range,'/calendar/api/preferences'])for(const method of ['GET','HEAD']){
+  const response=await f.request(path,{cookie:guestCookie,method});assert.equal(response.status,401,path+' '+method);
+  assert.match(response.headers.get('content-type'),/application\/json/);assert.match(response.headers.get('cache-control'),/private.*no-store/);
+  const body=await response.text();if(method==='HEAD')assert.equal(body,'');else{assert.match(body,/Sign in to use your private calendar/);assert.doesNotMatch(body,/data-calendar-guest|data-guest-plus-banner/);assertNoSecrets(body);}
+ }
+ const id='11111111-1111-4111-8111-111111111111';
+ for(const path of ['/calendar/','/calendar/api/calendars','/calendar/api/events','/calendar/api/preferences','/calendar/api/calendars/'+id+'/delete','/calendar/api/events/'+id+'/occurrence']){
+  const response=await f.request(path,{cookie:guestCookie,method:'POST',headers:{Origin:origin,'Content-Type':'application/json'},body:JSON.stringify({csrf:raw,title:'Guest must not save',confirmation:'DELETE CALENDAR'})});
+  assert.equal(response.status,401,path);assert.doesNotMatch(await response.text(),/data-calendar-guest\b|data-guest-plus-banner/);
+ }
+ const unknownPage=await f.request('/calendar/not-a-calendar/',{cookie:guestCookie});assert.equal(unknownPage.status,404);assert.doesNotMatch(await unknownPage.text(),/data-calendar-guest\b/);
+ assert.equal(f.privateReady(),0);assert.equal(f.privateReads(),0);assert.equal(f.privateWrites(),0);
+});
+
+test('a real free or Plus member keeps their personal planner when their browser also has a guest invitation',async t=>{
+ const f=await fixture(t);
+ for(const token of [free,paid]){
+  const cookie=guestCookie+'; __Host-gold-member='+token;
+  const response=await f.request('/calendar/',{cookie}),html=await response.text();assert.equal(response.status,200);
+  assert.match(html,/data-calendar-app\b/);assert.match(html,/src="\/calendar\.js\?v=/);assert.doesNotMatch(html,/data-calendar-guest\b|calendar-guest\.js|data-guest-plus-banner|Fictional example/,'A real account must not be mislabeled as the fictional tour');
+  const data=await f.request('/calendar/api/calendars',{cookie});assert.equal(data.status,200);assert.deepEqual(await data.json(),[]);
+ }
+ assert.equal(f.privateReads(),2,'Only the two genuine member requests read their personal-calendar store');assert.equal(f.privateWrites(),0);
+ f.pass.revoked=true;
+ const response=await f.request('/calendar/',{cookie:guestCookie+'; __Host-gold-member='+paid});assert.equal(response.status,200);assert.match(await response.text(),/data-calendar-app\b/,'Revoking a guest pass cannot remove a real member’s planner');
+});
+
+test('a guest calendar tour works without a member database session or an available personal-calendar store',async t=>{
+ const s=service();let memberLookups=0,storeChecks=0;
+ const calendar=createCalendarHandler({guests:s.guests,config:{origin},members:{session:async()=>{memberLookups++;throw Error('Member database unavailable');}},store:{ready:async()=>{storeChecks++;throw Error('Personal calendar unavailable');}},log:()=>{}});
+ const server=createServer({guests:s.guests,calendar,goldPrice:async()=>({}),log:()=>{}});await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>server.close(resolve)));
+ const base='http://127.0.0.1:'+server.address().port;
+ for(const method of ['GET','HEAD']){
+  const response=await fetch(base+'/calendar/',{method,headers:{Cookie:guestCookie}});assert.equal(response.status,200);
+  if(method==='GET')assert.match(await response.text(),/data-calendar-guest\b/);else assert.equal(await response.text(),'');
+ }
+ assert.equal(memberLookups,0,'A guest-only cookie must not query a member database');assert.equal(storeChecks,0,'Fictional events are independent of the private store');
 });
 
 test('guest access cannot impersonate a member or open a private calendar or account',async t=>{

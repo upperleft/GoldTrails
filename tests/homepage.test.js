@@ -37,9 +37,12 @@ test('illustrated homepage preserves equivalent hero text and promotes the publi
  assert.ok(!hotspots.some(p=>/^hero-(?:articles|glossary)(?:-help)?$/.test(p.id)),'Removed hero buttons and help have no invisible hit areas');
  assert.doesNotMatch(html,/data-home-id="hero-(?:articles|glossary)(?:-help)?"/);
  assert.match(html,/data-home-id="old-timer"[^>]*href="\/"/,'The Old-Timer still links home');
- for(const [id,href]of [['articles','/articles/'],['glossary','/glossary/']]){
+ for(const [id,href]of [['destinations','/prospectors/'],['articles','/articles/'],['glossary','/glossary/']]){
   assert.match(html,new RegExp('data-home-id="panel-'+id+'-button"[^>]*href="'+href+'"'),'Lower panel navigation is retained');
-  assert.match(html,new RegExp('data-home-id="panel-'+id+'-button-help"'),'Lower panel help is retained');
+  assert.doesNotMatch(html,new RegExp('data-home-id="panel-'+id+'-button-help"'),'Bottom navigation buttons have no extra help control');
+  assert.match(html,new RegExp('data-home-id="panel-'+id+'-help"'),'Card heading help remains available');
+  const button=hotspots.find(item=>item.id==='panel-'+id+'-button');
+  assert.equal(button.fullButton,true);assert.ok(button.rect[2]>=266,'Button text covers the full gold interior, including the old baked-in question mark');
  }
 });
 
@@ -147,4 +150,8 @@ test('larger scene help targets remain separate from links and readable fallback
  assert.ok(script.includes('Return to illustrated homepage'));assert.ok(script.includes('home-text-mode'));
  assert.match(css,/\.home-help-roomy\{min-width:40px;min-height:40px\}/);
  assert.match(css,/\.home-hotspot\{[^}]*background:transparent!important/);
+ assert.doesNotMatch(css,/\.home-hotspot\[aria-expanded=true\]/,'Opening a help window does not add a persistent white outline');
+ assert.match(css,/\.home-hotspot:focus:not\(:focus-visible\)\{outline:none!important;box-shadow:none!important\}/);
+ assert.match(css,/\.home-hotspot:focus-visible\{outline:4px solid #fff!important/,'Keyboard users retain a visible focus indicator');
+ assert.match(css,/\.home-feature-button \.home-button-label\{inset:0;/,'Full-width opaque labels cover obsolete baked-in help marks');
 });

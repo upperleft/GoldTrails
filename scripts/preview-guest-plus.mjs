@@ -6,10 +6,11 @@ import {createAlmanacHandler} from '../app/almanac/handler.js';
 import {createAlmanacCreators} from '../app/almanac/creators.js';
 import {createHomepageHandler} from '../app/homepage/handler.js';
 import {createConnectionsHandler} from '../app/connections/handler.js';
+import {createCalendarHandler} from '../app/calendar/handler.js';
 import {meetingVault} from '../app/connections/model.js';
 import {memoryConnections} from './fixtures/connections-memory.mjs';
 
-const origin='http://127.0.0.1:4343',raw='1'.repeat(64);
+const port=Number(process.env.PORT||4343),origin='http://127.0.0.1:'+port,raw='1'.repeat(64);
 const guests=createGuestPlusAccess({passes:[{id:'fictional-preview',label:'Local preview only',tokenHash:createHash('sha256').update(raw).digest('hex'),expiresAt:new Date(Date.now()+86400000).toISOString()}],origin});
 const directory={map:async()=>({people:[],regions:[],topics:[]}),profile:async()=>null,catalogAllowed:async()=>true};
 const vault=meetingVault('ab'.repeat(32)),store=memoryConnections({vault}),originalList=store.list;
@@ -17,10 +18,11 @@ const vault=meetingVault('ab'.repeat(32)),store=memoryConnections({vault}),origi
 store.list=(filters,member,options={})=>originalList(filters,options.canReadPlus?{effective_level:'subscriber'}:member);
 store.events.values().next().value.visibility='plus';
 const connections=createConnectionsHandler({store,guests,vault,config:{origin},log:console.error});
-const server=createServer({guests,homepage:createHomepageHandler(),directory,connections,almanac:createAlmanacHandler({guests,creators:createAlmanacCreators(directory)}),goldPrice:async()=>({}),log:console.error});
+const calendar=createCalendarHandler({guests});
+const server=createServer({guests,calendar,homepage:createHomepageHandler({guests}),directory,connections,almanac:createAlmanacHandler({guests,creators:createAlmanacCreators(directory)}),goldPrice:async()=>({}),log:console.error});
 const regular=server.listeners('request')[0];server.removeAllListeners('request');
 server.on('request',(req,res)=>{
  if(!['GET','HEAD'].includes(req.method)&&req.url!=='/plus/guest/leave/'){res.writeHead(405);res.end('Read-only local preview.');return;}
  return regular(req,res);
 });
-server.listen(4343,'127.0.0.1',()=>console.log('Fictional guest Plus preview: '+origin+'/plus/guest/?pass='+raw));
+server.listen(port,'127.0.0.1',()=>console.log('Fictional guest Plus preview: '+origin+'/plus/guest/?pass='+raw));

@@ -40,8 +40,10 @@ export function createGuestPlusAccess({passes=[],now=Date.now,origin='https://go
   const age=Math.max(1,Math.floor((stamp(grant.expiresAt)-now())/1000));
   send(303,'',{'Set-Cookie':cookie(raw,age),Location:'/'});return true;
  };
- const attach=(req,res,url)=>{
-  if(excluded.test(url.pathname)||url.pathname.startsWith('/plus/guest/'))return;
+ const attach=(req,res,url,{calendarTour=false}={})=>{
+  // Only the calendar handler can opt its fictional, read-only HTML tour in.
+  // Authenticated personal calendars and every calendar API remain excluded.
+  if((excluded.test(url.pathname)&&!(calendarTour&&url.pathname==='/calendar/'))||url.pathname.startsWith('/plus/guest/'))return;
   const grant=read(req);if(!grant)return;
   const end=res.end.bind(res),head=res.writeHead.bind(res);let type='';
   res.writeHead=function(status,message,headers){

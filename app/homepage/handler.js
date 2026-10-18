@@ -24,9 +24,9 @@ export function homeHotspots({member=null,guest=false}={}){
 
 function overlay(items,rect,member){return items.map(p=>{
  const style=position(p.rect,rect),name=p.account&&member?'My account':p.name;
- const attrs=`class="home-hotspot home-hotspot-${p.type}${p.section!=='sidebar'&&p.type==='help'?' home-help-roomy':''}" style="${style}" data-home-id="${p.id}" data-home-name="${h(name)}" aria-label="${h(p.account&&member?'My account':p.label)}"`;
+ const attrs=`class="home-hotspot home-hotspot-${p.type}${p.section!=='sidebar'&&p.type==='help'?' home-help-roomy':''}${p.fullButton?' home-feature-button':''}" style="${style}" data-home-id="${p.id}" data-home-name="${h(name)}" aria-label="${h(p.account&&member?'My account':p.label)}"`;
  const nav=p.id.startsWith('nav-')&&p.type!=='help';
- const buttonLabel=p.id==='panel-destinations-button'?'Browse creators →':p.id==='panel-articles-button'?'Read articles →':p.id==='panel-glossary-button'?'Browse the glossary →':p.id==='panel-plus-button'?(p.href==='/gold-almanac/'?'Open Almanac →':'Explore Almanac →'):null;
+ const buttonLabel=p.id==='panel-destinations-button'?'Browse Creators →':p.id==='panel-articles-button'?'Read Articles →':p.id==='panel-glossary-button'?'Browse the Glossary →':p.id==='panel-plus-button'?(p.href==='/gold-almanac/'?'Open Almanac →':'Explore Almanac →'):null;
  const visible=nav?`<span class="home-nav-label">${h(name)}${p.showPlus?'<span class="home-nav-plus-badge" aria-hidden="true">Plus</span>':''}</span>`:buttonLabel?`<span class="home-button-label">${h(buttonLabel)}</span>`:`<span class="home-sr">${h(name)}</span>`;
  if(p.type==='link')return `<a ${attrs} href="${p.account&&member?'/account/':p.href}"${p.account?' data-home-account':''}>${visible}</a>`;
  return `<button ${attrs} type="button" aria-expanded="false" aria-controls="home-info"${p.type==='help'?` data-home-help="${h(p.text)}"${p.premium?' data-home-premium="plus"':''}`:' data-home-search'}>${p.type==='help'?'<span class="home-help-mark" aria-hidden="true">?</span>':visible}<span class="home-sr">${h(p.label)}</span></button>`;

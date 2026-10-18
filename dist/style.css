@@ -149,6 +149,8 @@ footer{background:radial-gradient(ellipse at 50% 0,#684a29,#352d23 70%)}
 .compass-page .category-intro .eyebrow{color:#efd494}
 
 /* Navigation stays unfilled; keyboard focus uses an outline. */
+/* Mouse and touch clicks leave no focus ring; keyboard navigation keeps it. */
+:is(button,[role="button"],a,summary):focus:not(:focus-visible){outline:none!important}
 .layout>.left .trail-menu>a{border:0;border-bottom:1px solid #dfd3bb;outline:none;box-shadow:none}
 .layout>.left .trail-menu>a:focus-visible{background:transparent!important;color:#493313;outline:2px solid #597e83;outline-offset:4px;box-shadow:none}
 

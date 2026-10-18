@@ -2,22 +2,23 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { page, escapeHtml as h } from '../directory-views.js';
 
-const version = () => createHash('sha256')
+const version = (guest = false) => createHash('sha256')
   .update(readFileSync(new URL('../../dist/calendar.js', import.meta.url)))
   .update(readFileSync(new URL('../../dist/calendar.css', import.meta.url)))
+  .update(guest ? readFileSync(new URL('../../dist/calendar-guest.js', import.meta.url)) : '')
   .digest('hex').slice(0, 12);
 
-function shell(title, content, authenticated = false, scripts = false) {
-  const hash = version();
-  let html = page(title, 'A private calendar for your Gold Trails plans, club meetings, and days in the field.', content, '', 'Make a little room for your next adventure.')
+function shell(title, content, authenticated = false, scripts = false, {guest = false} = {}) {
+  const hash = version(guest);
+  let html = page(title, guest ? 'Explore Gold Trails calendar views with clearly labeled, read-only example events.' : 'A private calendar for your Gold Trails plans, club meetings, and days in the field.', content, '', 'Make a little room for your next adventure.')
     .replace('category-page', 'category-page calendar-page')
     .replace(/<nav class="breadcrumb".*?<\/nav>/, '<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/calendar/" aria-current="page">Calendar</a></nav>')
-    .replace(/<section class="category-intro rust">[\s\S]*?<\/section>/, `<section class="calendar-intro"><div><span class="eyebrow">GOLD TRAILS / YOUR FIELD PLANNER</span><h1>${h(title)}</h1><p>Make a little room for your next adventure.</p></div><a class="calendar-back" href="/account/">My account <span aria-hidden="true">↗</span></a></section>`)
+    .replace(/<section class="category-intro rust">[\s\S]*?<\/section>/, `<section class="calendar-intro"><div><span class="eyebrow">GOLD TRAILS / ${guest ? 'FRIENDS PREVIEW' : 'YOUR FIELD PLANNER'}</span><h1>${h(title)}</h1><p>Make a little room for your next adventure.</p></div><a class="calendar-back" href="${guest ? '/' : '/account/'}">${guest ? 'Back to Gold Trails' : 'My account'} <span aria-hidden="true">↗</span></a></section>`)
     .replace(/<div class="layout"><aside class="left">[\s\S]*?<\/aside><div class="center" id="main-content">/, '<div class="calendar-layout"><div class="center" id="main-content">')
     .replace('</head>', `<link rel="stylesheet" href="/calendar.css?v=${hash}"></head>`);
   if (authenticated) html = html.replace('href="/login/">Login', 'href="/account/">My account');
   else html = html.replace('href="/login/">Login', 'href="/login/?next=/calendar/">Login');
-  if (scripts) html = html.replace('</body>', `<script src="/calendar-vendor/fullcalendar.js" defer></script><script src="/calendar-vendor/luxon.js" defer></script><script src="/calendar-vendor/luxon3.js" defer></script><script src="/calendar.js?v=${hash}" defer></script></body>`);
+  if (scripts) html = html.replace('</body>', `<script src="/calendar-vendor/fullcalendar.js" defer></script><script src="/calendar-vendor/luxon.js" defer></script><script src="/calendar-vendor/luxon3.js" defer></script><script src="/${guest ? 'calendar-guest' : 'calendar'}.js?v=${hash}" defer></script></body>`);
   return html;
 }
 
@@ -72,6 +73,20 @@ export function calendarPage({ csrf = '', member = null } = {}) {
 export function calendarPreview() {
   const days=Array.from({length:35},(_,i)=>`<div class="calendar-preview-day"><span>${i<31?i+1:''}</span>${[3,10,18,25].includes(i)?'<i></i>':''}</div>`).join('');
   return shell('Your trail calendar', `<section class="calendar-gate" aria-labelledby="calendar-gate-title"><div class="calendar-gate-sketch" aria-hidden="true" inert><div class="calendar-preview-toolbar"><span>‹ &nbsp; Your trail calendar &nbsp; ›</span><span>Month · Week · Day</span></div><div class="calendar-preview-weekdays">${['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(day=>`<span>${day}</span>`).join('')}</div><div class="calendar-preview-month">${days}</div></div><div class="calendar-gate-overlay"><div class="calendar-gate-message"><span class="eyebrow">MAKE ROOM FOR ADVENTURE</span><h2 id="calendar-gate-title">Register and log in to access the calendar.</h2><p>Keep your outings, meetings, and personal plans together. Your calendar is included with a free Gold Trails account.</p><div class="calendar-gate-actions"><a class="gold-button" href="/signup/">Register free</a><a class="calendar-button" href="/login/?next=/calendar/">Sign in</a></div></div></div></section>`);
+}
+
+export function calendarGuestPage() {
+  const content = `<section class="calendar-app calendar-sidebar-collapsed calendar-guest" data-calendar-guest aria-label="Read-only example calendar">
+    <div class="calendar-workspace"><p class="calendar-notice calendar-guest-note"><strong>Friends preview · example events.</strong> Try the calendar views, browse dates, or open an event. These are fictional examples, not real outings or anyone’s personal calendar. Nothing is saved.</p>
+      <div class="calendar-toolbar"><div class="calendar-date-navigation"><button type="button" class="calendar-icon-button" id="calendar-previous" aria-label="Previous date range">‹</button><h2 id="calendar-range-title" aria-live="polite">Example calendar</h2><button type="button" class="calendar-icon-button" id="calendar-next" aria-label="Next date range">›</button></div><div class="calendar-view-controls" role="group" aria-label="Calendar view"><button type="button" data-view="dayGridMonth" aria-pressed="true">Month</button><button type="button" data-view="timeGridWeek" aria-pressed="false">Week</button><button type="button" data-view="timeGridDay" aria-pressed="false">Day</button><button type="button" data-view="listMonth" aria-pressed="false">Agenda</button></div></div>
+      <div class="calendar-guest-date-tools">${field('Jump to date', '<input id="calendar-jump-date" type="date" min="2000-01-01" max="2100-12-31">')}<button type="button" class="calendar-button" id="calendar-today">Back to today</button></div>
+      <div class="calendar-search-row">${field('Search this date range', '<input type="search" id="calendar-search" maxlength="200" placeholder="Find an example event">')}<span id="calendar-event-count" role="status"></span></div>
+      <p id="calendar-notice" class="calendar-notice" role="status" hidden></p><div id="calendar-status" class="calendar-status" role="status">Opening the example calendar…</div><div id="calendar-board" aria-label="Fictional example events"></div>
+      <p class="calendar-workspace-note">This preview is read-only. A free Gold Trails account includes a private calendar for your own plans.</p>
+    </div></section>
+    <dialog id="calendar-guest-event-dialog" class="calendar-dialog calendar-small-dialog" data-calendar-guest-dialog aria-labelledby="calendar-guest-event-heading"><div class="calendar-dialog-heading"><div><span class="eyebrow">FICTIONAL EXAMPLE</span><h2 id="calendar-guest-event-heading">Example event</h2></div><button class="calendar-icon-button" type="button" data-guest-event-close aria-label="Close example event">×</button></div><dl class="calendar-guest-event-facts"><div><dt>When</dt><dd id="calendar-guest-event-when"></dd></div><div><dt>Example location</dt><dd id="calendar-guest-event-location"></dd></div></dl><p id="calendar-guest-event-description"></p><p class="calendar-help">An example for this read-only tour. No event has been created or saved.</p><div class="calendar-dialog-actions"><button class="calendar-button" type="button" data-guest-event-close>Close</button></div></dialog>
+    <noscript><p class="calendar-notice">This example calendar needs JavaScript. You can still <a href="/">return to Gold Trails</a> or <a href="/articles/">explore the articles</a>.</p></noscript>`;
+  return shell('Your trail calendar', content, false, true, {guest: true});
 }
 
 export function calendarUnavailable(message = 'Your calendar is temporarily unavailable. Please try again in a little while.') {

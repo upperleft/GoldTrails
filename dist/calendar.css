@@ -36,3 +36,15 @@
 @media screen{html[data-reading-dark] .calendar-gate{background:var(--night-paper)}html[data-reading-dark] .calendar-gate-message{background:var(--night-raised);border-color:var(--night-gold)}}
 html[data-reading-contrast] .calendar-gate-message{background:#fffdf7!important;color:#20170f!important;border-color:#81715a!important}
 @media print{.calendar-gate-sketch{display:none}.calendar-gate{min-height:0;border:0}.calendar-gate-overlay{position:static}.calendar-gate-message{box-shadow:none;background:#fff}}
+
+/* Friends see the existing calendar views with fictional, read-only entries. */
+.calendar-guest .calendar-guest-note{font-size:1rem;line-height:1.6;margin:0 0 20px}
+.calendar-guest .calendar-guest-date-tools{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:0 0 16px}
+.calendar-guest .calendar-guest-date-tools .calendar-field{max-width:220px;flex:1;min-width:170px}
+[data-calendar-guest-dialog] .calendar-guest-event-facts{margin:0 0 18px;line-height:1.6}
+[data-calendar-guest-dialog] .calendar-guest-event-facts>div{margin:12px 0}
+[data-calendar-guest-dialog] dt{font-weight:700;font-size:.875rem}
+[data-calendar-guest-dialog] dd{margin:4px 0;font-size:1rem}
+[data-calendar-guest-dialog]>p{line-height:1.7}
+[data-calendar-guest-dialog] .calendar-help{margin-top:16px}
+@media(max-width:480px){.calendar-guest .calendar-guest-date-tools .calendar-field{max-width:none;flex-basis:100%}.calendar-guest .calendar-guest-note{font-size:.9375rem}}

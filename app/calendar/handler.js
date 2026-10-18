@@ -2,7 +2,8 @@ import {randomBytes,timingSafeEqual} from 'node:crypto';
 import {digest} from '../admin-auth.js';
 import {CalendarError,validateCalendar,validateEvent,validateRange} from './model.js';
 import {createRecurrencePool} from './worker-pool.js';
-import {calendarPage,calendarPreview,calendarUnavailable} from './views.js';
+import {calendarPage,calendarGuestPage,calendarPreview,calendarUnavailable} from './views.js';
+import {guestPlusAccess} from '../plus/guest-access.js';
 
 const uuid=/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
 const views=new Set(['dayGridMonth','timeGridWeek','timeGridDay','listMonth']);
@@ -30,7 +31,7 @@ async function body(req){
 const seriesFields=['id',...eventFields,'revision'];
 const series=event=>({...Object.fromEntries(seriesFields.map(key=>[key,event[key]??null])),hasExceptions:Boolean(event.exceptions?.length)});
 
-export function createCalendarHandler({members=null,store=null,config=null,log=console.error}={}){
+export function createCalendarHandler({members=null,store=null,config=null,guests=guestPlusAccess,log=console.error}={}){
  const pool=createRecurrencePool();
  // A small process-local cache contains only authenticated, owner-keyed
  // expansion results. Revision changes invalidate it without a public cache.
@@ -65,8 +66,19 @@ export function createCalendarHandler({members=null,store=null,config=null,log=c
    const prefs=url.pathname==='/calendar/api/preferences';
    if(url.pathname!=='/calendar/'&&!route&&!prefs){fail(404,'That calendar page does not exist.');return true;}
    if(!['GET','HEAD','POST'].includes(req.method)){fail(405,'Use the calendar controls.');return true;}
-   const member=members&&config?await members.session(read(req,'member')):null;
-   if(!member){if(!api&&req.method!=='POST')send(200,calendarPreview());else fail(401,'Sign in to use your private calendar.');return true;}
+   const memberToken=read(req,'member');
+   const member=memberToken&&members&&config?await members.session(memberToken):null;
+   if(!member){
+    if(!api&&req.method!=='POST'){
+     if(guests?.read(req)){
+      // This tour has only fictional in-browser examples. Personal calendar APIs
+      // below still require the owner's real member session.
+      guests.attach(req,res,url,{calendarTour:true});
+      send(200,calendarGuestPage());
+     }else send(200,calendarPreview());
+    }else fail(401,'Sign in to use your private calendar.');
+    return true;
+   }
    if(!store||!await store.ready()){fail(503,'Your calendar is being prepared. Your account and other Gold Trails pages are available.');return true;}
    const owner=member.id,csrf=read(req,'form');
    if(!api){if(req.method==='POST')throw new CalendarError('Use the calendar controls.',405);send(200,calendarPage({member,csrf}));return true;}
