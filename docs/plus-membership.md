@@ -23,6 +23,19 @@ Existing member_accounts, member_memberships and member_subscriptions provide pe
 
 Stripe is the intended provider. No Vercel deployment or new hosting platform is needed. No live or test chargeable products have been created, respecting the brief’s approval boundary. The provider adapter, checkout, signed webhook processor, provider-event deduplication storage, account portal, failed-payment notices and reconciliation job still need implementation/configuration and provider testing; disabled routes are boundaries, not a claim that these work.
 
+### Three-month subscription pause — requested October 18, 2026
+
+Confirmed requirement from Paul: offer a **Pause for three months** option when subscription billing is configured. This is a future billing requirement; no pause control or payment functionality has been activated.
+
+Planned behavior for implementation:
+- Place the pause option alongside cancellation in the account's subscription controls.
+- Start the pause after the current paid-through period, preserving access already purchased. Pause billing and Plus access for three calendar months; retain the free account and its saved information.
+- Permit an earlier restart and continued access to cancellation. Show the exact pause and restart dates and applicable recurring price before confirming.
+- Resume the subscription after the three-month pause with an advance email reminder, clearly explaining automatic resumption when the pause is selected. Do not accumulate charges for the paused period.
+- Verify the billing-provider lifecycle and server-side entitlements together. Pausing must not merely suppress payment collection while unpaid invoices accumulate.
+
+These behavior details are proposed implementation defaults, not claims about existing Stripe configuration. Confirm their customer-facing wording during payment setup.
+
 The future integration must:
 1. Create a subscription checkout only for a signed-in verified account, with server-selected USD 500/month pricing. Bind customer and subscription IDs to that account. Never trust a browser membership flag, submitted amount, success URL, or email-only match. No card data on Gold Trails.
 2. Use a separate one-time payment checkout for gifts, optionally without an account. Donation events go to a separate ledger and never update member_memberships. No recurring donation option is included.
@@ -35,6 +48,7 @@ The future integration must:
 - Stripe account and sandbox configured, $5/month price and one-time donation setup reviewed.
 - Full sandbox checkout → signed webhook → correct account → Almanac access round trip. Donation round trip grants no subscription.
 - Cancel at period end, expiry, failed initial/renewal payment, recovery, duplicate/out-of-order webhook, wrong price/mode, and account isolation verified. Billing controls and emails verified.
+- Three-month pause, paid-through transition, no billing or Plus access during the pause, preserved free account, early restart, scheduled restart/reminder, cancellation while paused, and duplicate/out-of-order pause/resume events verified before offering this control.
 - Live activation separately approved; real configuration then smoke-tested with Paul, with correct price, terms, receipts and cancellation behavior.
 - Staging notices removed in the same release that actually enables payment and cancellation. No charging on deployment by default.
 
