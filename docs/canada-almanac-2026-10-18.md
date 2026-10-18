@@ -1,5 +1,7 @@
 # Canada on the Gold Almanac map — October 18, 2026
 
+Status: **published at `ff3ecc36003c777dbc4b22bec59bd0d3397230a4`**. The production checkout matches `origin/main` and is clean; no publication approval remains pending.
+
 The existing premium Almanac map now extends into Canada. This is the same source application and deployment used by paying members and the existing read-only friends invitation.
 
 ## Implemented
@@ -24,4 +26,6 @@ Creator profiles and video libraries remain public. The map and its Canadian mar
 
 Browser checks at 1280px and 928px: province selection, British Columbia's four matching creators including Pioneer Pauly, Dan's town popup, Ontario discovery, and Pauly's 10-video dialog work without horizontal page overflow. Exact phone viewport rendering was not independently verified because the available viewport override does not apply to the existing browser tabs; the narrow-screen map and controls retain their responsive rules.
 
-Production publication and live checks are pending.
+After publication, **37/37 live verification checks passed**. The existing original friends invitation still exchanges successfully and opens the same production homepage. Its Almanac link opens one unified map with 50 U.S. states, 13 Canadian regions and all seven Canadian creators, without a subscription advertisement. Checks confirmed exact deployed CSS/JavaScript bytes, Canadian marker coordinates and metadata, Dan's Peachland projection, source/licence credits, public profiles/video libraries, guest California research access and unchanged anonymous/private-calendar restrictions.
+
+Live browser navigation followed the original invitation through the homepage to the Almanac. The map retained its guest status and showed no horizontal page overflow. Pioneer Pauly's Vancouver Island nugget opened the real popup, linked public profile and existing 10-video library successfully. Report and final screenshot outside Git: task workspace `outputs/canada-almanac-2026-10-18/live-verification.json` and `live-canada-map.png`. No invitation URL, token or cookie is recorded here. The exact phone-rendering limitation above remains unchanged.
