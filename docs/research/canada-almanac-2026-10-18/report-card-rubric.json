@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "status": "defined_not_scored",
+  "assessmentUnit": "Province/territory, assessed for ordinary lawful recreational hand panning, not industrial mining investment.",
+  "interpretation": "Ratings are editorial assessments from cited evidence, never government ratings or probabilities of finding gold.",
+  "unknownPolicy": "Use null when evidence is insufficient. Never assign 1 merely because information is missing.",
+  "samplingPolicy": "Before scoring a jurisdiction, define a reproducible inventory of districts/localities with comparable evidence quality. Record exclusions, current access dates and geographic bias. Do not score from one exceptional mine, a creator video or an unverified hotspot.",
+  "dimensions": {
+    "goldPotential": {
+      "label": "Documented recreational placer potential",
+      "rule": "Highest threshold supported by primary evidence; count independently documented placer districts, not individual duplicate reports. An occurrence requires more than anomalous assay data. This measures documented breadth, not expected recovery or profitability.",
+      "scale": {
+        "1": "A systematic survey finds trace occurrences only, with no confirmed placer-production district.",
+        "2": "At least one confirmed placer occurrence, but no district-level historical placer production established.",
+        "3": "At least one district has documented historical placer production.",
+        "4": "At least three distinct districts have documented historical placer production.",
+        "5": "At least three such districts plus recent primary-source confirmation of continuing placer recovery."
+      },
+      "withholdIf": "Coverage is selective, districts cannot be distinguished, or evidence concerns only lode mining."
+    },
+    "publicAccessibility": {
+      "label": "Verified recreational access",
+      "rule": "Evaluate current ordinary hand-panning pathways, independently of gold abundance. An identified locality needs land/tenure, protected status, equipment rules and access conditions checked; general Crown ownership is insufficient.",
+      "scale": {
+        "1": "A current authority establishes that the assessed recreational activity is prohibited throughout the defined assessment area.",
+        "2": "Only separately negotiated titleholder/landowner or individual permit pathways are documented.",
+        "3": "A general low-impact pathway is documented, but no individually checked public recreational locality.",
+        "4": "At least one individually checked public panning locality with conditions and a route for verifying tenure.",
+        "5": "At least three individually checked public panning localities in two or more districts with current conditions and tenure-check resources."
+      },
+      "withholdIf": "Applicable current legal pathway, Indigenous/surface rights or locality restrictions remain unresolved."
+    },
+    "beginnerFriendliness": {
+      "label": "Evidence-based visitor practicality",
+      "rule": "For each individually verified legal locality, award one point for each independently documented feature: road/trail access without specialist transport; official or established instruction; straightforward permitted hand equipment; published visitor safety/access instructions; nearby ordinary visitor facilities. Jurisdiction score is the rounded median of at least three sites, with range and site list retained. Zero qualifying features yields 1, explicitly labelled a floor.",
+      "scale": {
+        "1": "0–1 qualifying features per assessed site.",
+        "2": "2 qualifying features.",
+        "3": "3 qualifying features.",
+        "4": "4 qualifying features.",
+        "5": "5 qualifying features."
+      },
+      "withholdIf": "Fewer than three representative legal localities have been assessed, or facilities/access are inferred."
+    },
+    "typicalGoldSize": {
+      "label": "Reported placer particle size",
+      "rule": "Record source measurements and ranges before assigning a bin. Use representative placer-grain distributions or a stated typical/dominant size; ore grain dimensions and record nuggets are excluded. Higher means larger, not better or more abundant.",
+      "unit": "mm, greatest grain dimension; qualitative sources remain qualitative",
+      "scale": {
+        "1": "Typical measured size <0.1 mm.",
+        "2": "0.1 mm to <0.5 mm.",
+        "3": "0.5 mm to <1 mm.",
+        "4": "1 mm to <5 mm.",
+        "5": "5 mm or larger."
+      },
+      "withholdIf": "Only maxima, mesh sizes with unspecified standards, exceptional nuggets, locality anecdotes or insufficient distributions are available. A local description cannot become a province-wide typical value."
+    },
+    "overallOpportunity": {
+      "label": "Recreational opportunity",
+      "rule": "Only compute when goldPotential, publicAccessibility and beginnerFriendliness are all scored. Weighted mean: 40% potential + 40% accessibility + 20% beginner friendliness. Round to nearest integer; a halfway value rounds upward. Retain raw score and component citations. Gold size is descriptive and excluded.",
+      "scale": {
+        "1": "Raw weighted score below 1.5.",
+        "2": "1.5 to below 2.5.",
+        "3": "2.5 to below 3.5.",
+        "4": "3.5 to below 4.5.",
+        "5": "4.5 or above."
+      },
+      "withholdIf": "Any of the three required component scores is null. Do not average away unknowns."
+    }
+  },
+  "releaseDecision": "All Canadian jurisdiction scores remain null in this release: representative recreational site inventories and size distributions have not been established. Industrial production is retained as separate historical evidence."
+}

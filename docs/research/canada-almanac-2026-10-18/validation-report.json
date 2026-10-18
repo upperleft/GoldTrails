@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-18",
+  "checks": [
+    "Exactly 10 provinces and 3 territories matching canonical map IDs and slugs",
+    "All sources have unique IDs, descriptive titles, HTTPS URLs and inspected evidence scope",
+    "Every claim has a valid source, locator, category, date and evidence classification",
+    "All 7 categories accounted for without orphan claims or silently discarded gaps",
+    "Statistics retain units, period, geographic scope, qualifiers and production fact links",
+    "All five ratings deliberately null; five complete rubric levels; unknowns never zero",
+    "Conflicts preserve unresolved candidates without claiming verified sources",
+    "Research remains unpublished and shared seasonal guidance remains interpretation",
+    "Every source is used by a fact, conflict or shared method"
+  ],
+  "counts": {
+    "jurisdictions": 13,
+    "sourceRecords": 46,
+    "findingsAndNotes": 114,
+    "productionStatistics": 12,
+    "openGaps": 41,
+    "partlyResolvedGaps": 5,
+    "conflictsAndExclusions": 10
+  },
+  "limits": "Structural validation only; not independent factual peer review, a live interactive map test, or site-specific access approval."
+}

@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-18",
+  "sources": [
+    {
+      "id": "ca-gold",
+      "title": "Gold facts",
+      "publisher": "Natural Resources Canada",
+      "url": "https://natural-resources.canada.ca/minerals-mining/mining-data-statistics-analysis/minerals-metals-facts/gold-facts",
+      "publicationDate": null,
+      "updatedAt": "2026-02-27",
+      "checkedAt": "2026-10-18",
+      "inspection": "official_html_download",
+      "scope": "Canadian gold production by region, 2024(p); preliminary mine production, not placer yield or all-time production. Individual undisclosed regions are combined as others."
+    },
+    {
+      "id": "ca-climate",
+      "title": "Canadian Climate Normals",
+      "publisher": "Environment and Climate Change Canada",
+      "url": "https://climate.weather.gc.ca/climate_normals/index_e.html",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "1991–2020 normals search and methodology; individual station series not yet evaluated."
+    },
+    {
+      "id": "ca-water",
+      "title": "Real-Time Hydrometric Data",
+      "publisher": "Environment and Climate Change Canada",
+      "url": "https://wateroffice.ec.gc.ca/mainmenu/real_time_data_index_e.html",
+      "publicationDate": null,
+      "updatedAt": "2026-09-11",
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Station, map and data-download tools; no individual stream gauge or safe flow threshold selected."
+    },
+    {
+      "id": "bc-access",
+      "title": "Recreational hand panning",
+      "publisher": "Government of British Columbia",
+      "url": "https://www2.gov.bc.ca/gov/content/industry/mineral-exploration-mining/mineral-titles/recreational-hand-panning",
+      "publicationDate": null,
+      "updatedAt": "2024-03-01",
+      "checkedAt": "2026-10-18",
+      "inspection": "official_html_download",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "bc-gold",
+      "title": "Gold in British Columbia — Information Circular 2015-6",
+      "publisher": "British Columbia Geological Survey",
+      "url": "https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/mineral-exploration-mining/documents/mineral-development-office/gold_september_2015.pdf?v=082710",
+      "publicationDate": "2015-07",
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "Two-page historical snapshot. Production totals end in 2013. Mine-status map is not current."
+    },
+    {
+      "id": "yk-access",
+      "title": "Pan for gold recreationally",
+      "publisher": "Government of Yukon",
+      "url": "https://yukon.ca/en/outdoor-recreation-and-wildlife/trails-tours-and-activities/pan-gold-recreationally",
+      "publicationDate": null,
+      "updatedAt": "2026-09-04",
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "yk-geology",
+      "title": "Overview of Yukon placer geology, gold production, and prospects",
+      "publisher": "Yukon Geological Survey / Yukon open data",
+      "url": "https://open.yukon.ca/information/overview-of-yukon-placer-geology-gold-production-and-prospects",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_abstract",
+      "scope": "Official abstract inspected; portal record dated 2011-04-04 is not assumed to be the underlying report publication date. Production cutoff unresolved."
+    },
+    {
+      "id": "yk-discovery",
+      "title": "Discovery Claim National Historic Site",
+      "publisher": "Parks Canada",
+      "url": "https://parks.canada.ca/lhn-nhs/yt/klondike/culture/lhn-hns-disc",
+      "publicationDate": null,
+      "updatedAt": "2024-04-18",
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Historical account and milestones; internal August 16/17 discrepancy retained in conflict register."
+    },
+    {
+      "id": "yk-sulphur",
+      "title": "Yukon Placer Database: Sulphur Gold Placers, Sulphur Creek",
+      "publisher": "Yukon Geological Survey",
+      "url": "https://ygsftp.gov.yk.ca/ygsftp/publications/placer_atlas/sulphur_gold_placers_sulphur_creek.pdf",
+      "publicationDate": null,
+      "updatedAt": "2005-01-04",
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "Historical operation record, not present permission, ownership or operating status."
+    },
+    {
+      "id": "ab-access",
+      "title": "Minerals placer mining tool kit",
+      "publisher": "Government of Alberta",
+      "url": "https://www.alberta.ca/minerals-placer-mining-tool-kit",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "ab-production",
+      "title": "Mineral production",
+      "publisher": "Alberta Geological Survey",
+      "url": "https://ags.aer.ca/our-science/mineral-resources/mineral-production",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "wcsb",
+      "title": "Chapter 34: Mineral Resources of the Western Canada Sedimentary Basin",
+      "publisher": "Alberta Geological Survey",
+      "url": "https://ags.aer.ca/publications/atlas-western-canada-sedimentary-basin/chapter-34-mineral-resources",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Precious Metals section. Historical atlas, not a 2026 inventory or operating-mine list. Original publication date not established from page.",
+      "authors": [
+        "W. N. Hamilton",
+        "R. A. Olson"
+      ]
+    },
+    {
+      "id": "sk-access",
+      "title": "Recreational Gold Panning and Placer Mining",
+      "publisher": "Government of Saskatchewan",
+      "url": "https://www.saskatchewan.ca/business/agriculture-natural-resources-and-industry/mineral-exploration-and-mining/mineral-tenure/recreational-gold-panning-and-placer-mining",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "sk-gold",
+      "title": "Gold in Saskatchewan — fact sheet",
+      "publisher": "Saskatchewan Ministry of Energy and Resources",
+      "url": "https://pubsaskdev.blob.core.windows.net/pubsask-prod/139031/ER%252BFact%252BSheet%252B-%252BGold.pdf",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "Two-page sheet; explicit publication date absent. 2024 survey reference is not used as its publication date. Production cutoff unspecified."
+    },
+    {
+      "id": "sk-seabee",
+      "title": "Mineral Deposit Query: SMDI 0382, Seabee Mine / Seabee Gold Operation",
+      "publisher": "Saskatchewan Geological Survey",
+      "url": "https://mineraldeposits.saskatchewan.ca/Home/Viewdetails/0382",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Geological Details and dated Exploration History. Historic Seabee mine differs from the continuing complex using Santoy feed; avoid treating the deposit status as the entire operation status."
+    },
+    {
+      "id": "on-access",
+      "title": "Hobby Mineral Collecting Policy",
+      "publisher": "Ontario Ministry of Mines",
+      "url": "https://ero.ontario.ca/public/2023-08/Hobby%20Mineral%20Collecting%20Policy%20Final.pdf",
+      "publicationDate": "2011-03-25",
+      "updatedAt": "2023-08-16",
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "on-timmins",
+      "title": "Timmins GeoTour",
+      "publisher": "Ontario Geological Survey",
+      "url": "https://files.ontario.ca/ndmnrf-geotours-3/ndmnrf-geotours-timmins-en-2021-12-13.pdf",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "History and geology, PDF pages 3–5. Upload date in URL is not assigned as publication date. Historic production is camp-specific."
+    },
+    {
+      "id": "qc-access",
+      "title": "Obtenir un droit exclusif d’exploration (DEE)",
+      "publisher": "Gouvernement du Québec",
+      "url": "https://www.quebec.ca/agriculture-environnement-et-ressources-naturelles/mines/realiser-projet-minier/titres/droit-exclusif-exploration/obtenir",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "DEE and limited superficial prospection; no blanket stream-panning approval inferred."
+    },
+    {
+      "id": "qc-amos",
+      "title": "Geology of the Amos area — BG 2020-06",
+      "publisher": "Géologie Québec",
+      "url": "https://gq.mines.gouv.qc.ca/bulletins-geologiques_en/amos_en/",
+      "publicationDate": "2020-10-23",
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read.",
+      "authors": [
+        "Pierre Pilote",
+        "Jonathan Marleau"
+      ],
+      "translationDate": "2021-01-13"
+    },
+    {
+      "id": "qc-quaternary",
+      "title": "Géologie des dépôts de surface: Val-d’Or–Senneterre — BQ 2022-02",
+      "publisher": "Géologie Québec",
+      "url": "https://gq.mines.gouv.qc.ca/bulletins-quaternaires/bq-2022-02-abitibi-phase-1/",
+      "publicationDate": "2022",
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Quaternary mapping; Ontario–Québec Abitibi production must not be assigned wholly to Québec.",
+      "authors": [
+        "Hugo Dubé-Loubert"
+      ]
+    },
+    {
+      "id": "mb-act",
+      "title": "The Mines and Minerals Act, C.C.S.M. c. M162",
+      "publisher": "Government of Manitoba",
+      "url": "https://web2.gov.mb.ca/laws/statutes/ccsm/m162.php",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Sections 45 and 47 and Part 9; hobby-panning exemption not established."
+    },
+    {
+      "id": "mb-history",
+      "title": "Nopiming Provincial Park visitor guide",
+      "publisher": "Manitoba Parks",
+      "url": "https://manitoba.ca/sd/pubs/parks-protected-spaces/park_info/nopiming_pp.pdf",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "PDF pages 6–7 history, not permission to collect within the park."
+    },
+    {
+      "id": "ns-access",
+      "title": "Prospector Registration",
+      "publisher": "Government of Nova Scotia",
+      "url": "https://novascotia.ca/sns/paal/dnr/paal146.asp",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "ns-geology",
+      "title": "Gold Deposits in the Meguma Group of Nova Scotia — Information Circular 51",
+      "publisher": "Nova Scotia geological survey",
+      "url": "https://novascotia.ca/natr/meb/data/pubs/ic/ic51.pdf",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "See individual claim locators; no assertion that every linked document was read.",
+      "authors": [
+        "P. K. Smith",
+        "D. J. Kontak"
+      ]
+    },
+    {
+      "id": "ns-production",
+      "title": "Arsenic and Mercury Contamination from Historical Gold Mine Tailings in Nova Scotia",
+      "publisher": "Nova Scotia Report ME 2005-2, p. 19",
+      "url": "https://novascotia.ca/natr/meb/data/pubs/05re02/05re02_Abstract19.pdf",
+      "publicationDate": "2005",
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_abstract",
+      "scope": "Historical Meguma production and 2003–2005 investigations, not an all-time province total.",
+      "authors": [
+        "M. B. Parsons",
+        "P. K. Smith",
+        "T. A. Goodwin",
+        "G. E. M. Hall",
+        "J. B. Percival"
+      ]
+    },
+    {
+      "id": "ns-tailings",
+      "title": "Historic Gold Mine Tailings",
+      "publisher": "Nova Scotia Environment",
+      "url": "https://novascotia.ca/nse/contaminatedsites/goldmines.asp",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "ns-history",
+      "title": "Gold-Mining in Nova Scotia, 1858–2005",
+      "publisher": "Nova Scotia Archives",
+      "url": "https://archives.novascotia.ca/meninmines/history/gold/?Language=English",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "nb-access",
+      "title": "Mineral ownership, access and use",
+      "publisher": "Government of New Brunswick",
+      "url": "https://www.gnb.ca/en/topic/environment-resources/energy-mineral/mineral-ownership-access-use.html",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "nb-gold",
+      "title": "Gold — Mineral Commodity Profile No. 8",
+      "publisher": "New Brunswick Department of Natural Resources",
+      "url": "https://www2.gnb.ca/content/dam/gnb/Departments/en/pdf/Minerals-Minerales/MCP_8-e.pdf",
+      "publicationDate": "2011",
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "Historical geology and production; recommended citation on final page establishes author/year. Not current mine-status advice.",
+      "authors": [
+        "Kathleen G. Thorne"
+      ]
+    },
+    {
+      "id": "nb-resources",
+      "title": "Geology and subsurface resources",
+      "publisher": "New Brunswick Geological Survey",
+      "url": "https://www.gnb.ca/en/topic/environment-resources/energy-mineral/geology-subsurface-resources.html",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "See individual claim locators; no assertion that every linked document was read."
+    },
+    {
+      "id": "nl-geology",
+      "title": "Prospecting Gold in Newfoundland",
+      "publisher": "Newfoundland and Labrador Energy and Mines",
+      "url": "https://www.gov.nl.ca/em/mines/prospector/matty-mitchell/info/prospecting-gold-nl/",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Geology and historical examples only; undated language about current mines and number of occurrences is excluded.",
+      "authors": [
+        "Peter M. Dimmell"
+      ]
+    },
+    {
+      "id": "nl-act",
+      "title": "Mineral Act, SNL 1990 c. M-12",
+      "publisher": "Newfoundland and Labrador House of Assembly",
+      "url": "https://assembly.nl.ca/legislation/sr/statutes/m12.htm",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Current consolidated statute consulted, particularly consent requirements in section 12. Not the historical annual-statutes archive."
+    },
+    {
+      "id": "nt-access",
+      "title": "Regulation of Mineral Resources in the Northwest Territories",
+      "publisher": "Northwest Territories Geological Survey",
+      "url": "https://www.nwtgeoscience.ca/regulation-mineral-resources-northwest-territories",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Administrative sequence and Mining Recorder resources; no recreational exemption established."
+    },
+    {
+      "id": "nt-overview",
+      "title": "2024 Northwest Territories Mineral Exploration Overview",
+      "publisher": "Northwest Territories Geological Survey",
+      "url": "https://www.nwtgeoscience.ca/sites/ntgs/files/2024_explo_overview_20250916.pdf",
+      "publicationDate": "2025-09",
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "Historical Con/Giant output on PDF page 20; company-supplied exploration results elsewhere are not independently endorsed here."
+    },
+    {
+      "id": "nu-access",
+      "title": "Mineral exploration and development on Crown lands in Nunavut",
+      "publisher": "Crown-Indigenous Relations and Northern Affairs Canada",
+      "url": "https://www.rcaanc-cirnac.gc.ca/eng/1646252785377/1646252897683",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Licence to Prospect, Nunavut Map Selection, surface permissions and transition away from new prospecting permits. Do not confuse a licence with a permit."
+    },
+    {
+      "id": "nu-portage",
+      "title": "Preliminary results of the geology of the Portage deposit, Meadowbank gold mine — Current Research 2015-2",
+      "publisher": "Geological Survey of Canada",
+      "url": "https://publications.gc.ca/collections/collection_2016/rncan-nrcan/M44-2015-2-eng.pdf",
+      "publicationDate": "2015",
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "Portage deposit geology, not a territory-wide placer model. Catalogue footer date predates publication and is not used.",
+      "authors": [
+        "Vivien Janvier and coauthors"
+      ],
+      "catalogUrl": "https://publications.gc.ca/site/eng/9.820646/publication.html"
+    },
+    {
+      "id": "pe-act",
+      "title": "Mineral Resources Act",
+      "publisher": "Government of Prince Edward Island",
+      "url": "https://www.princeedwardisland.ca/sites/default/files/legislation/m-07-mineral_resources_act.pdf",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "Sections 17–26 and 57. Current-to date is not original enactment or page publication date.",
+      "consolidationDate": "2026-05-29"
+    },
+    {
+      "id": "pe-water",
+      "title": "Planning and Management for Surface Water Abstraction on Prince Edward Island",
+      "publisher": "Government of Prince Edward Island",
+      "url": "https://www.princeedwardisland.ca/sites/default/files/publications/planning_and_management_for_surface_water_abstraction_on_prince_edward_island.pdf",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "PEI Landscape, PDF page 8. Landscape/water evidence only, not evidence of a gold deposit."
+    },
+    {
+      "id": "ab-museum",
+      "title": "Buried Treasure — panning for gold in Edmonton’s river valley",
+      "publisher": "Royal Alberta Museum",
+      "url": "https://www.royalalbertamuseum.ca/blog/buried-treasure-panning-gold-edmontons-river-valley",
+      "publicationDate": "2022-09-07",
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Edmonton/North Saskatchewan River history, local flour-gold description and platinum association. Named hotspots are not independently verified current access recommendations.",
+      "authors": [
+        "Brandon Nadeau",
+        "Melissa Bowerman"
+      ]
+    },
+    {
+      "id": "mb-diana",
+      "title": "Mineral Inventory File 214: Diana–Gem Lake Mine",
+      "publisher": "Manitoba Mines Branch",
+      "url": "https://www.manitoba.ca/iem/min-ed/mbhistory/mininv/214.htm",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Historical inventory revised through June 1985. Deposit description and past production; old ownership/claim status not treated as current. Narrative and table differ slightly in total gold."
+    },
+    {
+      "id": "mb-project",
+      "title": "Rice Lake mine trend structural mapping project",
+      "publisher": "Manitoba Geological Survey",
+      "url": "https://www.manitoba.ca/iem/geo/mgstracker/semanitoba_completed_rice_lake_vein.html",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Completed 2019; outputs include geological maps, technical reports and field guide. Current company partnership is not inferred.",
+      "authors": [
+        "Scott Anderson (principal investigator)"
+      ]
+    },
+    {
+      "id": "nl-maps",
+      "title": "Geological Maps",
+      "publisher": "Geological Survey of Newfoundland and Labrador",
+      "url": "https://www.gov.nl.ca/em/mines/geoscience/reports-maps/geo-maps/",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Only named sections inspected; underlying links not automatically verified."
+    },
+    {
+      "id": "nl-atlas-help",
+      "title": "Geoscience Atlas: Overview of Layers",
+      "publisher": "Geological Survey of Newfoundland and Labrador",
+      "url": "https://geoatlas.gov.nl.ca/custom/help/Help_layers.html",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Layer documentation read, including Labrador coverage; interactive application workflows and current operational performance were not browser-tested."
+    },
+    {
+      "id": "nu-history",
+      "title": "Nunavut Mineral Exploration, Mining and Geoscience Overview 2011",
+      "publisher": "AANDC, Government of Nunavut, NTI and Canada–Nunavut Geoscience Office",
+      "url": "https://publications.gc.ca/collections/collection_2015/aadnc-aandc/R71-39-2011-eng.pdf",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "Historic Lupin subsection, PDF p. 30 (printed p. 30). Publication title uses 2011 reporting year; exact issue date not established. Old tenure rules and forward-looking mine plans excluded.",
+      "authors": [
+        "Karen Costello",
+        "Matthew Senkow",
+        "Alia Bigio",
+        "Paul Budkewitsch",
+        "Linda Ham"
+      ],
+      "reportingYear": 2011
+    },
+    {
+      "id": "nu-geoscience",
+      "title": "Nunavut Geoscience portal",
+      "publisher": "Canada–Nunavut Geoscience Office, CIRNAC and Government of Nunavut",
+      "url": "https://nunavutgeoscience.ca/en/",
+      "publicationDate": null,
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_page_body",
+      "scope": "Portal introduction inspected; NUMIN searches and individual download results not tested."
+    },
+    {
+      "id": "nt-regulations",
+      "title": "Mining Regulations R-015-2014",
+      "publisher": "Northwest Territories Department of Justice",
+      "url": "https://www.justice.gov.nt.ca/en/files/legislation/northwest-territories-lands/northwest-territories-lands.r7.pdf",
+      "publicationDate": "2014",
+      "updatedAt": null,
+      "checkedAt": "2026-10-18",
+      "inspection": "official_pdf_text",
+      "scope": "Consolidation lists amendments through R-134-2020. Sections 4–5 inspected. This office consolidation is not the authoritative Gazette text; no assertion that all post-2020 changes were ruled out."
+    }
+  ]
+}

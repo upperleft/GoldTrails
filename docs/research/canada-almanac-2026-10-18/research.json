@@ -1,0 +1,3013 @@
+{
+  "schemaVersion": 1,
+  "title": "Gold Trails Canadian Almanac research",
+  "checkedAt": "2026-10-18",
+  "researchStatus": "all_13_dossiers_with_explicit_gaps",
+  "publicationStatus": "research_only_not_imported_or_deployed",
+  "categories": [
+    "geology",
+    "production",
+    "seasons",
+    "access",
+    "minerals",
+    "discoveries",
+    "resources"
+  ],
+  "methodology": {
+    "priority": "Official provincial/territorial surveys, current government guidance, statutes and federal science sources.",
+    "factModel": "Individual claims link to inspected sources and locators. Interpretations, evidence limits, gaps and conflicts remain explicit.",
+    "missingData": "Null or open gap, never zero or invented facts.",
+    "historicalData": "Each number retains period, geographic scope, unit, definition and qualifier. Do not add lower bounds or annual figures into cumulative totals.",
+    "access": "Occurrence, a creator location and a mineral claim are not entry permission. Mineral rights, surface rights, Indigenous ownership, protected areas, water approvals and equipment restrictions require site-specific checks.",
+    "sourceDates": "Publication, modification, consolidation and actual check dates are distinct. Null publication dates mean not established, not unpublished.",
+    "locations": "No new coordinates, public digging sites or creator records added; preserve existing Canadian creator citations and relationships.",
+    "videos": "Existing creator/video library retained without new claims or invented timestamps. Videos do not establish land access.",
+    "ratings": "Withheld pending representative recreational evidence and comparable locality sampling; rubric in report-card-rubric.json."
+  },
+  "sharedSeasonMethod": {
+    "id": "ca-season-method",
+    "classification": "planning_interpretation",
+    "sourceIds": [
+      "ca-climate",
+      "ca-water"
+    ],
+    "checkedAt": "2026-10-18",
+    "text": "Use 1991–2020 local climate normals for historical context and WaterOffice station/map searches for current water level and discharge. Match the station to the intended locality and watershed. These tools do not establish safe wading thresholds, legal access, operational approval or a guaranteed best month.",
+    "limitations": [
+      "No individual local climate series or gauge record was evaluated for this release.",
+      "A regulated operating period is different from a safe or productive season.",
+      "No continent-wide or province-wide safe-flow threshold is claimed."
+    ]
+  },
+  "regions": [
+    {
+      "id": "british-columbia",
+      "name": "British Columbia",
+      "iso": "CA-BC",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-british-columbia-geology-1"
+          ],
+          "gapIds": [
+            "gap-british-columbia-geology-1"
+          ]
+        },
+        "production": {
+          "claimIds": [
+            "ca-british-columbia-production-1",
+            "ca-british-columbia-production-2",
+            "ca-british-columbia-production-3"
+          ],
+          "gapIds": []
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-british-columbia-seasons-1",
+            "ca-british-columbia-seasons-2"
+          ],
+          "gapIds": [
+            "gap-british-columbia-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-british-columbia-access-1"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-british-columbia-minerals-1"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-british-columbia-discoveries-1"
+          ],
+          "gapIds": [
+            "gap-british-columbia-discoveries-1"
+          ]
+        },
+        "resources": {
+          "claimIds": [
+            "ca-british-columbia-resources-1"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-british-columbia-geology-1",
+          "category": "geology",
+          "text": "Gold occurs in lode systems including porphyry, vein and skarn deposits, as well as placers; these require different research and recovery methods.",
+          "sourceIds": [
+            "bc-gold"
+          ],
+          "locator": "PDF p. 2, deposit types",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-british-columbia-minerals-1",
+          "category": "minerals",
+          "text": "Gold is associated with copper-bearing porphyry systems and several vein and sulphide deposit types; a geological association does not establish recoverable stream gold.",
+          "sourceIds": [
+            "bc-gold"
+          ],
+          "locator": "PDF p. 2, Gold Deposit Types",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-british-columbia-discoveries-1",
+          "category": "discoveries",
+          "text": "Historic camps include Cariboo–Barkerville, Bridge River, Rossland and Hedley. Their mining history is not evidence of open recreational access.",
+          "sourceIds": [
+            "bc-gold"
+          ],
+          "locator": "PDF pp. 1–2, camps and map",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-british-columbia-production-1",
+          "category": "production",
+          "text": "Approximate historical lode gold production: 32,000,000 ounces; 1858–2013. Approximate brochure total; do not combine with annual figures.",
+          "sourceIds": [
+            "bc-gold"
+          ],
+          "locator": "PDF p. 1, introductory production statement",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-british-columbia-production-2",
+          "category": "production",
+          "text": "Approximate historical placer gold production: 6,000,000 ounces; 1858–2013. Separate from lode output; not a current reserve estimate.",
+          "sourceIds": [
+            "bc-gold"
+          ],
+          "locator": "PDF p. 1, introductory production statement",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-british-columbia-production-3",
+          "category": "production",
+          "text": "Annual mine gold production: 17.6 tonnes; 2024. Preliminary; includes industrial production, not recreational returns.",
+          "sourceIds": [
+            "ca-gold"
+          ],
+          "locator": "Canadian gold production by region, 2024(p)",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-british-columbia-access-1",
+          "category": "access",
+          "text": "Limited recreational hand panning uses a pan and hand shovel, without a Free Miner Certificate. Sluices, dredges and metal detectors are outside this permission. Obtain titleholder and private-owner consent where required; parks and other excluded lands are not opened by this rule.",
+          "sourceIds": [
+            "bc-access"
+          ],
+          "locator": "What is recreational hand panning?; Where can I hand pan?",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-british-columbia-seasons-1",
+          "category": "seasons",
+          "text": "The province warns against spring freshet, early-summer high water and significant rain; check wildfire closures and road conditions before travelling.",
+          "sourceIds": [
+            "bc-access"
+          ],
+          "locator": "Safety tips",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-british-columbia-resources-1",
+          "category": "resources",
+          "text": "Use the official panning-reserve maps and current mineral-title information to investigate a specific site; a reserve listing does not waive other restrictions.",
+          "sourceIds": [
+            "bc-access"
+          ],
+          "locator": "Recreational panning reserves",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-british-columbia-seasons-2",
+          "category": "seasons",
+          "text": "Compare coastal, interior and mountain localities separately. A single provincial season would conceal important differences in water conditions and elevation.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-british-columbia-geology-1",
+          "category": "geology",
+          "text": "Typical placer particle sizes must be documented by creek or district; no province-wide nugget expectation is supported.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-british-columbia-discoveries-1",
+          "category": "discoveries",
+          "text": "Verify first-discovery chronology and named Indigenous contributors against district-specific historical records.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-british-columbia-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "bc-lode-1858-2013",
+          "claimId": "ca-british-columbia-production-1",
+          "value": 32000000,
+          "unit": "ounces",
+          "period": "1858–2013",
+          "geographicScope": "British Columbia",
+          "definition": "Approximate historical lode gold production",
+          "qualifier": "Approximate brochure total; do not combine with annual figures.",
+          "sourceIds": [
+            "bc-gold"
+          ],
+          "locator": "PDF p. 1, introductory production statement",
+          "checkedAt": "2026-10-18"
+        },
+        {
+          "id": "bc-placer-1858-2013",
+          "claimId": "ca-british-columbia-production-2",
+          "value": 6000000,
+          "unit": "ounces",
+          "period": "1858–2013",
+          "geographicScope": "British Columbia",
+          "definition": "Approximate historical placer gold production",
+          "qualifier": "Separate from lode output; not a current reserve estimate.",
+          "sourceIds": [
+            "bc-gold"
+          ],
+          "locator": "PDF p. 1, introductory production statement",
+          "checkedAt": "2026-10-18"
+        },
+        {
+          "id": "bc-mine-2024",
+          "claimId": "ca-british-columbia-production-3",
+          "value": 17.6,
+          "unit": "tonnes",
+          "period": "2024",
+          "geographicScope": "British Columbia",
+          "definition": "Annual mine gold production",
+          "qualifier": "Preliminary; includes industrial production, not recreational returns.",
+          "sourceIds": [
+            "ca-gold"
+          ],
+          "locator": "Canadian gold production by region, 2024(p)",
+          "checkedAt": "2026-10-18"
+        }
+      ],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "yukon",
+      "name": "Yukon",
+      "iso": "CA-YT",
+      "type": "territory",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-yukon-geology-1",
+            "ca-yukon-geology-2"
+          ],
+          "gapIds": []
+        },
+        "production": {
+          "claimIds": [
+            "ca-yukon-production-1"
+          ],
+          "gapIds": [
+            "gap-yukon-production-1"
+          ]
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-yukon-seasons-1"
+          ],
+          "gapIds": [
+            "gap-yukon-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-yukon-access-1"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-yukon-minerals-1"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-yukon-discoveries-1"
+          ],
+          "gapIds": [
+            "gap-yukon-discoveries-1"
+          ]
+        },
+        "resources": {
+          "claimIds": [
+            "ca-yukon-resources-1"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-yukon-geology-1",
+          "category": "geology",
+          "text": "Yukon placers include high terraces, unglaciated valley fills, interglacial deposits, glacially reworked material and recent alluvium; glacial history changes where older gravels survive.",
+          "sourceIds": [
+            "yk-geology"
+          ],
+          "locator": "Official abstract, five placer classes",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-yukon-discoveries-1",
+          "category": "discoveries",
+          "text": "The 1896 Bonanza Creek discovery triggered the Klondike rush. Parks Canada credits Keish / Skookum Jim Mason and identifies Káa Goox / Dawson Charlie, Shaaw Tláa / Kate and George Carmack in the discovery party.",
+          "sourceIds": [
+            "yk-discovery"
+          ],
+          "locator": "Background and milestones",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-yukon-minerals-1",
+          "category": "minerals",
+          "text": "A historical Sulphur Creek operation record describes gold attached to quartz and schist-rich gravels; these are local observations, not universal Yukon indicators.",
+          "sourceIds": [
+            "yk-sulphur"
+          ],
+          "locator": "PDF p. 4, Gold Comments and Surficial Geology",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-yukon-geology-2",
+          "category": "geology",
+          "text": "Sulphur Creek records describe both fine gold and small nuggets, with differences among cuts and years. This historical industrial example cannot predict a visitor’s pan.",
+          "sourceIds": [
+            "yk-sulphur"
+          ],
+          "locator": "PDF p. 4, Gold Comments",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-yukon-production-1",
+          "category": "production",
+          "text": "Annual mine gold production: 6 tonnes; 2024. Preliminary; not separated here into lode and placer.",
+          "sourceIds": [
+            "ca-gold"
+          ],
+          "locator": "Canadian gold production by region, 2024(p)",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-yukon-access-1",
+          "category": "access",
+          "text": "Recreational panning is limited to a pan and shovel on public land that is neither withdrawn nor staked. Ask the Mining Recorder where it is permitted; historic objects, fossils and bones must be left and reported as directed.",
+          "sourceIds": [
+            "yk-access"
+          ],
+          "locator": "Where you can pan; What you can use; historical objects",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-yukon-resources-1",
+          "category": "resources",
+          "text": "The survey overview organizes ten historical placer regions, including Klondike, Indian River, Mayo, Kluane and Livingstone, to guide further district research.",
+          "sourceIds": [
+            "yk-geology"
+          ],
+          "locator": "Official abstract, historical regions",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-yukon-seasons-1",
+          "category": "seasons",
+          "text": "Choose the district first and verify thaw, snow, river levels and travel logistics locally. Historical mining seasons do not establish a safe recreational window.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-yukon-production-1",
+          "category": "production",
+          "text": "An overview quotes more than 15 million crude ounces since 1886 without a verified ending year; withhold that cumulative statistic until the underlying report is identified.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-yukon-discoveries-1",
+          "category": "discoveries",
+          "text": "The Parks Canada page gives August 16 in its formal significance/milestones but August 17 in a second narrative; use 1896 until the day-level discrepancy is resolved.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-yukon-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "yk-mine-2024",
+          "claimId": "ca-yukon-production-1",
+          "value": 6,
+          "unit": "tonnes",
+          "period": "2024",
+          "geographicScope": "Yukon",
+          "definition": "Annual mine gold production",
+          "qualifier": "Preliminary; not separated here into lode and placer.",
+          "sourceIds": [
+            "ca-gold"
+          ],
+          "locator": "Canadian gold production by region, 2024(p)",
+          "checkedAt": "2026-10-18"
+        }
+      ],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "alberta",
+      "name": "Alberta",
+      "iso": "CA-AB",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-alberta-geology-1",
+            "ca-alberta-geology-2"
+          ],
+          "gapIds": []
+        },
+        "production": {
+          "claimIds": [
+            "ca-alberta-production-1"
+          ],
+          "gapIds": [
+            "gap-alberta-production-1"
+          ]
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-alberta-seasons-1",
+            "ca-alberta-seasons-2"
+          ],
+          "gapIds": [
+            "gap-alberta-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-alberta-access-1"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-alberta-minerals-1"
+          ],
+          "gapIds": [
+            "gap-alberta-minerals-1"
+          ]
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-alberta-discoveries-1",
+            "ca-alberta-discoveries-2"
+          ],
+          "gapIds": [
+            "gap-alberta-discoveries-1"
+          ]
+        },
+        "resources": {
+          "claimIds": [
+            "ca-alberta-resources-1"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-alberta-geology-1",
+          "category": "geology",
+          "text": "Placer gold is documented in river gravels; the AGS atlas describes Recent and Pleistocene placer occurrences in the western sedimentary basin.",
+          "sourceIds": [
+            "wcsb"
+          ],
+          "locator": "Metallic Minerals — Precious Metals",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-alberta-production-1",
+          "category": "production",
+          "text": "AGS describes Alberta gold recovery as a by-product of sand and gravel processing, alongside historical alluvial recovery. This does not measure a hobbyist’s likely recovery.",
+          "sourceIds": [
+            "ab-production"
+          ],
+          "locator": "Gold / metallic mineral production discussion",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-alberta-discoveries-1",
+          "category": "discoveries",
+          "text": "The atlas documents historic small-scale placer production in the basin but does not establish Alberta’s first discovery or a province-wide historical total.",
+          "sourceIds": [
+            "wcsb"
+          ],
+          "locator": "Precious Metals",
+          "reviewedAt": "2026-10-18",
+          "classification": "evidence_scope",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-alberta-access-1",
+          "category": "access",
+          "text": "Hand-held nonmechanized recreational panning needs no mineral agreement or licence. A sluicebox or other mechanized placer equipment requires a placer minerals licence. River and stream dredging is prohibited; occupied-land crossings require permission.",
+          "sourceIds": [
+            "ab-access"
+          ],
+          "locator": "Activities — Find out when and where; Sluice for gold",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-alberta-seasons-1",
+          "category": "seasons",
+          "text": "The toolkit specifies May 15–September 15 for placer operations on Class A/B waters and year-round operations on Class C/D waters, subject to restrictions. This is an operating rule, not a blanket hand-panning season or a safety forecast.",
+          "sourceIds": [
+            "ab-access"
+          ],
+          "locator": "Maps — Water body maps",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-alberta-resources-1",
+          "category": "resources",
+          "text": "The toolkit links mineral dispositions, classified water-body maps and Alberta River Basins advisories for site-specific planning.",
+          "sourceIds": [
+            "ab-access"
+          ],
+          "locator": "Maps",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-alberta-seasons-2",
+          "category": "seasons",
+          "text": "Treat legal operating dates separately from snowmelt, flood conditions and practical access. Choose a local climate station and stream gauge before recommending months.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        },
+        {
+          "id": "ca-alberta-geology-2",
+          "category": "geology",
+          "text": "In Edmonton’s North Saskatchewan River valley, the museum describes flour-gold flakes often less than half a millimetre across. This locality-specific description is not a measured average for every Alberta river.",
+          "sourceIds": [
+            "ab-museum"
+          ],
+          "locator": "Opening geology discussion, flour gold",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-alberta-minerals-1",
+          "category": "minerals",
+          "text": "The museum reports platinum flakes with North Saskatchewan River placer gold in smaller amounts. This association is local evidence, not a promise that every black-sand concentrate contains precious metals.",
+          "sourceIds": [
+            "ab-museum"
+          ],
+          "locator": "Opening geology discussion, placer deposits",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-alberta-discoveries-2",
+          "category": "discoveries",
+          "text": "James Hector reported North Saskatchewan River gold in 1859 after being shown samples from near Fort Edmonton. The museum describes a later dredging boom and the subsequent decline as miners headed to the Klondike.",
+          "sourceIds": [
+            "ab-museum"
+          ],
+          "locator": "Historic account, 1859 and 1890s",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-alberta-minerals-1",
+          "category": "minerals",
+          "text": "Verify an Alberta-specific heavy-mineral assemblage and particle-size study; do not turn generic black sands into a local gold guarantee.",
+          "status": "partly_resolved",
+          "priority": "normal",
+          "resolution": "North Saskatchewan platinum association and Edmonton flour-gold dimensions now sourced; a complete heavy-mineral assemblage is still missing."
+        },
+        {
+          "id": "gap-alberta-production-1",
+          "category": "production",
+          "text": "No cumulative provincial gold total with a defensible period and scope established.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-alberta-discoveries-1",
+          "category": "discoveries",
+          "text": "First-discovery names and dates need a directly inspected historical source.",
+          "status": "partly_resolved",
+          "priority": "normal",
+          "resolution": "1859 report near Fort Edmonton documented by Royal Alberta Museum; not asserted as the first human discovery in Alberta."
+        },
+        {
+          "id": "gap-alberta-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "saskatchewan",
+      "name": "Saskatchewan",
+      "iso": "CA-SK",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-saskatchewan-geology-1",
+            "ca-saskatchewan-geology-2"
+          ],
+          "gapIds": [
+            "gap-saskatchewan-geology-1"
+          ]
+        },
+        "production": {
+          "claimIds": [
+            "ca-saskatchewan-production-1"
+          ],
+          "gapIds": [
+            "gap-saskatchewan-production-1"
+          ]
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-saskatchewan-seasons-1"
+          ],
+          "gapIds": [
+            "gap-saskatchewan-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-saskatchewan-access-1"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-saskatchewan-minerals-1"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-saskatchewan-discoveries-1"
+          ],
+          "gapIds": []
+        },
+        "resources": {
+          "claimIds": [
+            "ca-saskatchewan-resources-1",
+            "ca-saskatchewan-resources-2"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-saskatchewan-geology-1",
+          "category": "geology",
+          "text": "The provincial fact sheet identifies fault-hosted orogenic gold in the Canadian Shield and gold associated with Flin Flon–Creighton volcanogenic massive-sulphide deposits.",
+          "sourceIds": [
+            "sk-gold"
+          ],
+          "locator": "PDF p. 1, Deposit Type",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-saskatchewan-geology-2",
+          "category": "geology",
+          "text": "The AGS basin atlas documents Recent and Pleistocene placer gravels in Saskatchewan, alongside Alberta and the Northwest Territories; it says the bedrock sources of these particular placers were unknown.",
+          "sourceIds": [
+            "wcsb"
+          ],
+          "locator": "Precious Metals",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-saskatchewan-minerals-1",
+          "category": "minerals",
+          "text": "At Seabee, shear-hosted quartz-tourmaline veins and biotite alteration accompany gold mineralization; the deposit record lists pyrite and pyrrhotite among host minerals. This is a bedrock example.",
+          "sourceIds": [
+            "sk-seabee"
+          ],
+          "locator": "Geological Details; Host Minerals",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-saskatchewan-discoveries-1",
+          "category": "discoveries",
+          "text": "The dated deposit history records Seabee operation production beginning in 1991. The original Seabee deposit and the wider operation using Santoy ore must be distinguished.",
+          "sourceIds": [
+            "sk-seabee"
+          ],
+          "locator": "Exploration History entries dated December 1, 2023/2024",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-saskatchewan-production-1",
+          "category": "production",
+          "text": "The gold fact sheet reports substantial Seabee production since 1991 and Flin Flon by-product gold, but its cumulative cutoff is not explicit; these figures are withheld from structured statistics.",
+          "sourceIds": [
+            "sk-gold"
+          ],
+          "locator": "PDF p. 1, Summary",
+          "reviewedAt": "2026-10-18",
+          "classification": "evidence_scope",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-saskatchewan-access-1",
+          "category": "access",
+          "text": "Recreational testing is pan-only: no shovel, classifier, screen or sluice. Obtain surface-owner permission and authorization for third-party mineral rights. Other equipment needs a claim and applicable approvals; do not damage the bed, bank or boundary of a waterbody.",
+          "sourceIds": [
+            "sk-access"
+          ],
+          "locator": "Recreational gold panning requirements",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-saskatchewan-resources-1",
+          "category": "resources",
+          "text": "Use Saskatchewan’s deposit database for geology, dated histories and underlying assessment references; deposit coordinates do not confer collecting permission.",
+          "sourceIds": [
+            "sk-seabee"
+          ],
+          "locator": "SMDI 0382 and linked deposit query",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-saskatchewan-resources-2",
+          "category": "resources",
+          "text": "Check MARS tenure and the province’s panning instructions before choosing land or equipment.",
+          "sourceIds": [
+            "sk-access"
+          ],
+          "locator": "Recreational panning / MARS references",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-saskatchewan-seasons-1",
+          "category": "seasons",
+          "text": "Separate the northern Shield from prairie rivers when assessing travel and climate. The pan-only equipment rule still applies during suitable weather.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-saskatchewan-geology-1",
+          "category": "geology",
+          "text": "No province-wide typical placer size verified; northern bedrock ore must not be represented as ordinary river-pan gold.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-saskatchewan-production-1",
+          "category": "production",
+          "text": "Resolve historical production cutoffs before adding cumulative statistics; no current province-wide total is asserted.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-saskatchewan-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "ontario",
+      "name": "Ontario",
+      "iso": "CA-ON",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-ontario-geology-1"
+          ],
+          "gapIds": [
+            "gap-ontario-geology-1"
+          ]
+        },
+        "production": {
+          "claimIds": [
+            "ca-ontario-production-1",
+            "ca-ontario-production-2"
+          ],
+          "gapIds": []
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-ontario-seasons-1"
+          ],
+          "gapIds": [
+            "gap-ontario-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-ontario-access-1"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-ontario-minerals-1"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-ontario-discoveries-1"
+          ],
+          "gapIds": []
+        },
+        "resources": {
+          "claimIds": [
+            "ca-ontario-resources-1"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-ontario-geology-1",
+          "category": "geology",
+          "text": "Timmins gold occurs in ancient volcanic and sedimentary Shield rocks, with gold-bearing quartz veins related to the Porcupine–Destor fault system; glacial deposits cover much of the bedrock.",
+          "sourceIds": [
+            "on-timmins"
+          ],
+          "locator": "PDF pp. 4–5, Timmins geology",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-ontario-minerals-1",
+          "category": "minerals",
+          "text": "Quartz veins are an important Timmins ore setting, but quartz alone is not proof of gold and a bedrock ore photograph is not a typical placer sample.",
+          "sourceIds": [
+            "on-timmins"
+          ],
+          "locator": "PDF pp. 3–5, quartz veins",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-ontario-discoveries-1",
+          "category": "discoveries",
+          "text": "The GeoTour describes the 1909 Big Dome discovery by Harry Preston and Jack Wilson, followed by major Hollinger and McIntyre developments.",
+          "sourceIds": [
+            "on-timmins"
+          ],
+          "locator": "PDF p. 3, Timmins mining history",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-ontario-production-1",
+          "category": "production",
+          "text": "Gold output reported for more than 50 Timmins mines: 70,000,000 ounces; century following 1909. Historical camp figure, not an Ontario total or a precisely dated current cumulative total.",
+          "sourceIds": [
+            "on-timmins"
+          ],
+          "locator": "PDF p. 3, opening history",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-ontario-production-2",
+          "category": "production",
+          "text": "Annual mine gold production: 79.9 tonnes; 2024. Preliminary; not a measure of recreational placer opportunity.",
+          "sourceIds": [
+            "ca-gold"
+          ],
+          "locator": "Canadian gold production by region, 2024(p)",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-ontario-access-1",
+          "category": "access",
+          "text": "Ontario’s hobby policy describes conditional enforcement discretion for small personal collections with hand tools, including pans. It is not a blanket exemption. Check mining and surface rights, consent, withdrawals and protected areas; other laws still apply.",
+          "sourceIds": [
+            "on-access"
+          ],
+          "locator": "PDF pp. 3–6, scope, thresholds, land categories and conditions",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-ontario-resources-1",
+          "category": "resources",
+          "text": "Use the policy’s MLAS and land-status resources before collecting; a mineral occurrence does not establish a right to enter.",
+          "sourceIds": [
+            "on-access"
+          ],
+          "locator": "PDF p. 7, resources",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-ontario-seasons-1",
+          "category": "seasons",
+          "text": "Compare southern and northern localities separately. Check local snow, ice, flow and access rather than assign the same months to the whole province.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-ontario-geology-1",
+          "category": "geology",
+          "text": "District-specific recreational placer occurrence and size evidence remains incomplete; Timmins lode production cannot supply those fields.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-ontario-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "on-timmins-century",
+          "claimId": "ca-ontario-production-1",
+          "value": 70000000,
+          "unit": "ounces",
+          "period": "century following 1909",
+          "geographicScope": "Timmins camp",
+          "definition": "Gold output reported for more than 50 Timmins mines",
+          "qualifier": "Rounded historical camp figure, not an Ontario total or a precisely dated current cumulative total.",
+          "sourceIds": [
+            "on-timmins"
+          ],
+          "locator": "PDF p. 3, opening history",
+          "checkedAt": "2026-10-18"
+        },
+        {
+          "id": "on-mine-2024",
+          "claimId": "ca-ontario-production-2",
+          "value": 79.9,
+          "unit": "tonnes",
+          "period": "2024",
+          "geographicScope": "Ontario",
+          "definition": "Annual mine gold production",
+          "qualifier": "Preliminary; not a measure of recreational placer opportunity.",
+          "sourceIds": [
+            "ca-gold"
+          ],
+          "locator": "Canadian gold production by region, 2024(p)",
+          "checkedAt": "2026-10-18"
+        }
+      ],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "quebec",
+      "name": "Québec",
+      "iso": "CA-QC",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-quebec-geology-1",
+            "ca-quebec-geology-2"
+          ],
+          "gapIds": [
+            "gap-quebec-geology-1"
+          ]
+        },
+        "production": {
+          "claimIds": [
+            "ca-quebec-production-1"
+          ],
+          "gapIds": [
+            "gap-quebec-production-1"
+          ]
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-quebec-seasons-1"
+          ],
+          "gapIds": [
+            "gap-quebec-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-quebec-access-1"
+          ],
+          "gapIds": [
+            "gap-quebec-access-1"
+          ]
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-quebec-minerals-1"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [],
+          "gapIds": [
+            "gap-quebec-discoveries-1"
+          ]
+        },
+        "resources": {
+          "claimIds": [
+            "ca-quebec-resources-1",
+            "ca-quebec-resources-2"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-quebec-geology-1",
+          "category": "geology",
+          "text": "The Amos bulletin documents Abitibi orogenic quartz-carbonate gold veins in the Bartec and Carpentier zones, plus distinct intrusion-associated styles. This regional example is not a model for every Québec gold occurrence.",
+          "sourceIds": [
+            "qc-amos"
+          ],
+          "locator": "Economic Geology — Bartec and Carpentier prospective zones",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-quebec-minerals-1",
+          "category": "minerals",
+          "text": "Quartz-carbonate gangue and sheared volcanic or intrusive rocks help describe some Amos-area gold settings; these associations require local mapping and sampling, not visual assumptions.",
+          "sourceIds": [
+            "qc-amos"
+          ],
+          "locator": "Economic Geology",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-quebec-geology-2",
+          "category": "geology",
+          "text": "Val-d’Or–Senneterre Quaternary mapping documents substantial surficial cover. Glacial sediments and transported stones must be considered separately from underlying bedrock.",
+          "sourceIds": [
+            "qc-quaternary"
+          ],
+          "locator": "Surficial geology / regional setting",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-quebec-production-1",
+          "category": "production",
+          "text": "Annual mine gold production: 55.5 tonnes; 2024. Preliminary; not a placer or cumulative historical total.",
+          "sourceIds": [
+            "ca-gold"
+          ],
+          "locator": "Canadian gold production by region, 2024(p)",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-quebec-access-1",
+          "category": "access",
+          "text": "The official guidance distinguishes very superficial prospection from work requiring a DEE, the exclusive exploration right formerly called a claim. Its no-permit wording for limited prospection must not be treated as permission to disturb streambeds or enter any property.",
+          "sourceIds": [
+            "qc-access"
+          ],
+          "locator": "Prospection; droit exclusif d’exploration",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-quebec-resources-1",
+          "category": "resources",
+          "text": "Géologie Québec bulletins link mapped outcrops, analyses and SIGEOM mineralized-site records; use their original scales and regional coverage.",
+          "sourceIds": [
+            "qc-amos"
+          ],
+          "locator": "Data and Analyses; Economic Geology",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-quebec-resources-2",
+          "category": "resources",
+          "text": "GESTIM is the official tenure resource identified by the DEE guidance. Verify current title and access conditions before planning fieldwork.",
+          "sourceIds": [
+            "qc-access"
+          ],
+          "locator": "Obtaining a DEE / GESTIM",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-quebec-seasons-1",
+          "category": "seasons",
+          "text": "Select a locality before describing the season; the southern gold districts and northern Québec cannot share a useful single weather window.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-quebec-access-1",
+          "category": "access",
+          "text": "Confirm panning-specific environmental requirements and 2025 changes for private/urban land, including exceptions. Superficial-prospecting guidance alone is insufficient for a visitor recommendation.",
+          "status": "open",
+          "priority": "high"
+        },
+        {
+          "id": "gap-quebec-discoveries-1",
+          "category": "discoveries",
+          "text": "Beauce 1835 discovery / 1847 production chronology was found in the MRNF search index, but the original page could not be retrieved. Hold dates until a directly inspectable primary record is obtained.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-quebec-production-1",
+          "category": "production",
+          "text": "Do not assign the cross-border Abitibi belt’s historical production wholly to Québec; no provincial historical total is entered.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-quebec-geology-1",
+          "category": "geology",
+          "text": "Verify locality-specific placer size rather than infer it from Abitibi ore or Beauce anecdotes.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-quebec-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "qc-mine-2024",
+          "claimId": "ca-quebec-production-1",
+          "value": 55.5,
+          "unit": "tonnes",
+          "period": "2024",
+          "geographicScope": "Québec",
+          "definition": "Annual mine gold production",
+          "qualifier": "Preliminary; not a placer or cumulative historical total.",
+          "sourceIds": [
+            "ca-gold"
+          ],
+          "locator": "Canadian gold production by region, 2024(p)",
+          "checkedAt": "2026-10-18"
+        }
+      ],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "manitoba",
+      "name": "Manitoba",
+      "iso": "CA-MB",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-manitoba-geology-1"
+          ],
+          "gapIds": [
+            "gap-manitoba-geology-1"
+          ]
+        },
+        "production": {
+          "claimIds": [
+            "ca-manitoba-production-1"
+          ],
+          "gapIds": [
+            "gap-manitoba-production-1"
+          ]
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-manitoba-seasons-1"
+          ],
+          "gapIds": [
+            "gap-manitoba-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-manitoba-access-1"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-manitoba-minerals-1",
+            "ca-manitoba-minerals-2"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-manitoba-discoveries-1"
+          ],
+          "gapIds": [
+            "gap-manitoba-discoveries-1"
+          ]
+        },
+        "resources": {
+          "claimIds": [
+            "ca-manitoba-resources-1",
+            "ca-manitoba-resources-2"
+          ],
+          "gapIds": [
+            "gap-manitoba-resources-1"
+          ]
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-manitoba-geology-1",
+          "category": "geology",
+          "text": "The Nopiming guide describes Rice Lake gold in Canadian Shield bedrock, unlike the image of easily panned Klondike-style placers; quartz veins hosted historical mines.",
+          "sourceIds": [
+            "mb-history"
+          ],
+          "locator": "PDF pp. 6–7, gold rush and Central Manitoba Mine",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-manitoba-minerals-1",
+          "category": "minerals",
+          "text": "The Central Manitoba Mine worked gold-bearing quartz veins. This is a geological history example, not proof that loose quartz or nearby gravel contains gold.",
+          "sourceIds": [
+            "mb-history"
+          ],
+          "locator": "PDF p. 7, Central Manitoba Mine",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-manitoba-discoveries-1",
+          "category": "discoveries",
+          "text": "In 1911 Duncan Twohearts brought gold-bearing Rice Lake rock to Arthur Quesnel and Captain Pelletier, helping initiate the local rush. The guide’s park context does not authorize collecting.",
+          "sourceIds": [
+            "mb-history"
+          ],
+          "locator": "PDF p. 6, Rice Lake gold discovery",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-manitoba-access-1",
+          "category": "access",
+          "text": "The Mines and Minerals Act establishes licensing and open-Crown-mineral-land conditions, subject to surface rights and restrictions. No general recreational-panning waiver was verified in this review; obtain a site-specific answer before collecting.",
+          "sourceIds": [
+            "mb-act"
+          ],
+          "locator": "Sections 45, 47 and Part 9",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-manitoba-resources-1",
+          "category": "resources",
+          "text": "Begin with the current Mines and Minerals Act and provincial mining administration for title, land-status and consent checks.",
+          "sourceIds": [
+            "mb-act"
+          ],
+          "locator": "Sections 45, 47 and Part 9",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-manitoba-seasons-1",
+          "category": "seasons",
+          "text": "Research the intended southern or northern locality, seasonal road access and flow conditions separately. Do not recommend old mine workings as panning sites.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        },
+        {
+          "id": "ca-manitoba-minerals-2",
+          "category": "minerals",
+          "text": "Diana–Gem Lake’s historical inventory describes gold-bearing quartz with arsenopyrite, pyrite, galena and chalcopyrite in an Archean volcanic/intrusive setting. This is deposit-specific ore mineralogy.",
+          "sourceIds": [
+            "mb-diana"
+          ],
+          "locator": "Description of Deposit",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-manitoba-production-1",
+          "category": "production",
+          "text": "The Diana–Gem Lake inventory records gold production in 1928–1932, 1934–1938 and 1940–1941. Small differences between its narrative and table totals must be reconciled before importing a single cumulative number.",
+          "sourceIds": [
+            "mb-diana"
+          ],
+          "locator": "History of Exploration and Development; History of Production",
+          "reviewedAt": "2026-10-18",
+          "classification": "evidence_scope",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-manitoba-resources-2",
+          "category": "resources",
+          "text": "Scott Anderson’s Rice Lake project page links structural studies, a field guide and detailed geological maps, including 1:5,000 and 1:10,000 mapping. These explain ore controls rather than recreational permissions.",
+          "sourceIds": [
+            "mb-project"
+          ],
+          "locator": "Completed outputs",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-manitoba-production-1",
+          "category": "production",
+          "text": "No provincial cumulative historical total with period and scope verified; missing does not mean zero.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-manitoba-resources-1",
+          "category": "resources",
+          "text": "Add a directly checked current geological-survey map catalogue and iMaQs instructions; statutory access coverage is stronger than map-portal coverage in this dossier.",
+          "status": "partly_resolved",
+          "priority": "normal",
+          "resolution": "Rice Lake survey project and historical mineral inventory now inspected; interactive tenure instructions still require checking."
+        },
+        {
+          "id": "gap-manitoba-discoveries-1",
+          "category": "discoveries",
+          "text": "Government historical guides differ over the recorded claim holder after the Twohearts discovery; do not settle that attribution without a claim record.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-manitoba-geology-1",
+          "category": "geology",
+          "text": "Typical placer sizes and well-supported recreational placer districts remain unverified.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-manitoba-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "nova-scotia",
+      "name": "Nova Scotia",
+      "iso": "CA-NS",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-nova-scotia-geology-1",
+            "ca-nova-scotia-geology-2"
+          ],
+          "gapIds": []
+        },
+        "production": {
+          "claimIds": [
+            "ca-nova-scotia-production-1"
+          ],
+          "gapIds": []
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-nova-scotia-seasons-1"
+          ],
+          "gapIds": [
+            "gap-nova-scotia-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-nova-scotia-access-1",
+            "ca-nova-scotia-access-2"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-nova-scotia-minerals-1"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-nova-scotia-discoveries-1"
+          ],
+          "gapIds": []
+        },
+        "resources": {
+          "claimIds": [
+            "ca-nova-scotia-resources-1",
+            "ca-nova-scotia-resources-2"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-nova-scotia-geology-1",
+          "category": "geology",
+          "text": "Meguma gold occurs in quartz veins, disseminated metasedimentary rocks and mixed styles within folded Goldenville and Halifax rocks. It is primarily a bedrock-deposit story.",
+          "sourceIds": [
+            "ns-geology"
+          ],
+          "locator": "PDF pp. 1–2, gold deposit types",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nova-scotia-minerals-1",
+          "category": "minerals",
+          "text": "Quartz, carbonate and sulphides including pyrite, pyrrhotite and arsenopyrite occur in Meguma gold settings. These minerals are not permission to sample old workings.",
+          "sourceIds": [
+            "ns-geology"
+          ],
+          "locator": "PDF pp. 1–2, mineralogy",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nova-scotia-geology-2",
+          "category": "geology",
+          "text": "The circular describes gold from microscopic grains to coarse specimens across different ore styles. Those ore observations must not become a typical stream-gold size range.",
+          "sourceIds": [
+            "ns-geology"
+          ],
+          "locator": "PDF p. 2, gold characteristics",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nova-scotia-production-1",
+          "category": "production",
+          "text": "Approximate historical gold production: 1,200,000 ounces; 1861–mid-1940s. Approximately 37 tonnes in the source; excludes later production and is not an all-time provincial total.",
+          "sourceIds": [
+            "ns-production"
+          ],
+          "locator": "Report ME 2005-2, p. 19, opening paragraph",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nova-scotia-discoveries-1",
+          "category": "discoveries",
+          "text": "Nova Scotia Archives describes the 1858 Mooseland discovery by Captain L’Estrange with Mi’kmaq guide Joe Paul, followed by Paul and John G. Pulsifer’s return and reporting in 1860.",
+          "sourceIds": [
+            "ns-history"
+          ],
+          "locator": "The Gold Rush Years, opening paragraphs",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nova-scotia-access-1",
+          "category": "access",
+          "text": "Prospector Registration covers preliminary non-ground-disturbing work on open unlicensed ground with landowner permission. Surface disruption requires at least a Mineral Exploration Licence and potentially further approvals. This is not blanket recreational-panning permission.",
+          "sourceIds": [
+            "ns-access"
+          ],
+          "locator": "Description / legal scope",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nova-scotia-access-2",
+          "category": "access",
+          "text": "Historic gold tailings may contain arsenic and mercury. The province advises against recreational use of tailings; absence from a mapped inventory is not evidence of safety.",
+          "sourceIds": [
+            "ns-tailings"
+          ],
+          "locator": "Advice to the public and tailings locations",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nova-scotia-resources-1",
+          "category": "resources",
+          "text": "Use the registration guidance and its NovaRoc references for current licensing and tenure research.",
+          "sourceIds": [
+            "ns-access"
+          ],
+          "locator": "Registration and licensing resources",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nova-scotia-resources-2",
+          "category": "resources",
+          "text": "Information Circular 51 provides a short geological introduction; the 2005 Parsons and coauthors abstract documents historical production and tailings investigations.",
+          "sourceIds": [
+            "ns-geology"
+          ],
+          "locator": "IC 51; companion research citation in source catalog",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nova-scotia-seasons-1",
+          "category": "seasons",
+          "text": "Choose a locality and examine rainfall, flow and ground conditions. Suitable weather does not make historic tailings or mine openings suitable for recreation.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-nova-scotia-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "ns-meguma-historic",
+          "claimId": "ca-nova-scotia-production-1",
+          "value": 1200000,
+          "unit": "ounces",
+          "period": "1861–mid-1940s",
+          "geographicScope": "64 Meguma gold districts",
+          "definition": "Approximate historical gold production",
+          "qualifier": "Approximately 37 tonnes in the source; excludes later production and is not an all-time provincial total.",
+          "sourceIds": [
+            "ns-production"
+          ],
+          "locator": "Report ME 2005-2, p. 19, opening paragraph",
+          "checkedAt": "2026-10-18"
+        }
+      ],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "new-brunswick",
+      "name": "New Brunswick",
+      "iso": "CA-NB",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-new-brunswick-geology-1",
+            "ca-new-brunswick-geology-2"
+          ],
+          "gapIds": []
+        },
+        "production": {
+          "claimIds": [
+            "ca-new-brunswick-production-1"
+          ],
+          "gapIds": [
+            "gap-new-brunswick-production-1"
+          ]
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-new-brunswick-seasons-1"
+          ],
+          "gapIds": [
+            "gap-new-brunswick-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-new-brunswick-access-1"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-new-brunswick-minerals-1"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-new-brunswick-discoveries-1"
+          ],
+          "gapIds": []
+        },
+        "resources": {
+          "claimIds": [
+            "ca-new-brunswick-resources-1"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-new-brunswick-geology-1",
+          "category": "geology",
+          "text": "The provincial profile documents orogenic, intrusion-related, VMS, skarn, porphyry and epithermal gold, as well as placer and paleoplacer occurrences.",
+          "sourceIds": [
+            "nb-gold"
+          ],
+          "locator": "Mineral Commodity Profile 8, deposit-type sections",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-new-brunswick-minerals-1",
+          "category": "minerals",
+          "text": "Cape Spencer includes microscopic gold associated with pyrite; some other deposits involve quartz-carbonate veins and arsenopyrite. Ore mineralogy differs by deposit.",
+          "sourceIds": [
+            "nb-gold"
+          ],
+          "locator": "Cape Spencer; Lake George sections",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-new-brunswick-geology-2",
+          "category": "geology",
+          "text": "The profile reports historic panned flakes up to 5 mm in named southwestern rivers, citing Hay (1968). This is a reported maximum from specific occurrences, not a typical size or present recovery promise.",
+          "sourceIds": [
+            "nb-gold"
+          ],
+          "locator": "PDF p. 6, Placer/Paleoplacer; Hay 1968 reference",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-new-brunswick-discoveries-1",
+          "category": "discoveries",
+          "text": "Cape Spencer became the province’s first primary gold producer in 1986, according to the 2011 profile; this is distinct from earlier by-product production.",
+          "sourceIds": [
+            "nb-gold"
+          ],
+          "locator": "PDF pp. 1–2, history",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-new-brunswick-production-1",
+          "category": "production",
+          "text": "Approximate historical primary gold output: 150,000 grams; 1986–1988. Mine-specific figure, not provincial total.",
+          "sourceIds": [
+            "nb-gold"
+          ],
+          "locator": "History, Gordex period",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-new-brunswick-access-1",
+          "category": "access",
+          "text": "Prospector licensing and NB e-CLAIMS govern mineral tenure. Mineral rights and surface access are separate; private-land procedures, existing claims and protected or withdrawn lands must be checked. A claim does not remove other approvals.",
+          "sourceIds": [
+            "nb-access"
+          ],
+          "locator": "Licensing, surface access and excluded lands",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-new-brunswick-resources-1",
+          "category": "resources",
+          "text": "The geological survey links bedrock and surficial maps, a Mineral Occurrence Database and sediment/geochemical survey indexes. Sampling anomalies are exploration evidence, not legal access or guaranteed gold.",
+          "sourceIds": [
+            "nb-resources"
+          ],
+          "locator": "Bedrock mapping; Geochemistry; Metallic mineral resources",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-new-brunswick-seasons-1",
+          "category": "seasons",
+          "text": "Assess the intended watershed using local climate and current flow observations. A historical flake report does not establish current channel conditions or permission.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-new-brunswick-production-1",
+          "category": "production",
+          "text": "A provincial cumulative total was not established. Keep the Cape Spencer statistic separate from by-product gold and later operations.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-new-brunswick-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "nb-cape-spencer-1986-88",
+          "claimId": "ca-new-brunswick-production-1",
+          "value": 150000,
+          "unit": "grams",
+          "period": "1986–1988",
+          "geographicScope": "Cape Spencer / Gordex operation",
+          "definition": "Approximate historical primary gold output",
+          "qualifier": "Mine-specific figure, not provincial total.",
+          "sourceIds": [
+            "nb-gold"
+          ],
+          "locator": "History, Gordex period",
+          "checkedAt": "2026-10-18"
+        }
+      ],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "newfoundland-and-labrador",
+      "name": "Newfoundland and Labrador",
+      "iso": "CA-NL",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-newfoundland-and-labrador-geology-1",
+            "ca-newfoundland-and-labrador-geology-2"
+          ],
+          "gapIds": [
+            "gap-newfoundland-and-labrador-geology-1"
+          ]
+        },
+        "production": {
+          "claimIds": [],
+          "gapIds": [
+            "gap-newfoundland-and-labrador-production-1"
+          ]
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-newfoundland-and-labrador-seasons-1"
+          ],
+          "gapIds": [
+            "gap-newfoundland-and-labrador-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-newfoundland-and-labrador-access-1"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-newfoundland-and-labrador-minerals-1"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-newfoundland-and-labrador-discoveries-1"
+          ],
+          "gapIds": [
+            "gap-newfoundland-and-labrador-discoveries-1"
+          ]
+        },
+        "resources": {
+          "claimIds": [
+            "ca-newfoundland-and-labrador-resources-1",
+            "ca-newfoundland-and-labrador-resources-2",
+            "ca-newfoundland-and-labrador-resources-3"
+          ],
+          "gapIds": [
+            "gap-newfoundland-and-labrador-resources-1"
+          ]
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-newfoundland-and-labrador-geology-1",
+          "category": "geology",
+          "text": "The provincial prospecting article describes gold in quartz veins and gold concealed in sulphides; altered and faulted rocks and stream-sediment sampling can support exploration.",
+          "sourceIds": [
+            "nl-geology"
+          ],
+          "locator": "Where to Look; What to Look For",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-newfoundland-and-labrador-minerals-1",
+          "category": "minerals",
+          "text": "Quartz and pyrite can occur in gold-bearing settings, but assays may be needed to establish gold that is not visible. Rust or pyrite alone does not identify a gold deposit.",
+          "sourceIds": [
+            "nl-geology"
+          ],
+          "locator": "What to Look For",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-newfoundland-and-labrador-discoveries-1",
+          "category": "discoveries",
+          "text": "The article gives historical Baie Verte examples including Goldenville near Ming’s Bight and later Nugget Pond and Hammerdown operations. Its undated present-tense mine claims are excluded.",
+          "sourceIds": [
+            "nl-geology"
+          ],
+          "locator": "Where to Look, Baie Verte history",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-newfoundland-and-labrador-access-1",
+          "category": "access",
+          "text": "The consolidated Mineral Act requires relevant consents for existing mineral titles, private interests and certain government lands. No blanket licence-free stream-panning permission was established here; check tenure, surface rights and water approvals.",
+          "sourceIds": [
+            "nl-act"
+          ],
+          "locator": "Section 12, consent requirements",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-newfoundland-and-labrador-resources-1",
+          "category": "resources",
+          "text": "The Matty Mitchell prospecting material supplies a regional introduction and observational checklist; treat its mine-status descriptions as historical until independently updated.",
+          "sourceIds": [
+            "nl-geology"
+          ],
+          "locator": "Prospecting Gold in Newfoundland",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-newfoundland-and-labrador-seasons-1",
+          "category": "seasons",
+          "text": "Treat Newfoundland and Labrador as distinct travel and climate settings; select the specific watershed and assess ice, weather and access locally.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        },
+        {
+          "id": "ca-newfoundland-and-labrador-resources-2",
+          "category": "resources",
+          "text": "The geological-survey maps page links bedrock, surficial, geochemical and geophysical maps, with separate simplified geology and prospecting-environment products for Newfoundland and Labrador.",
+          "sourceIds": [
+            "nl-maps"
+          ],
+          "locator": "Miscellaneous Maps; Links and Indexes",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-newfoundland-and-labrador-resources-3",
+          "category": "resources",
+          "text": "Atlas documentation describes mineral occurrences, bedrock and surficial geology, geochemical surveys, mineral tenure and Labrador Inuit land layers. Geological layers can be downloaded; their presence is not a land-entry decision.",
+          "sourceIds": [
+            "nl-atlas-help"
+          ],
+          "locator": "Overview; Land Use; Mineral Lands; Bedrock Geology",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-newfoundland-and-labrador-geology-2",
+          "category": "geology",
+          "text": "The atlas includes distinct southeastern Labrador bedrock mapping and Labrador lake-sediment survey information. Use those regional datasets rather than extend island geology examples across Labrador.",
+          "sourceIds": [
+            "nl-atlas-help"
+          ],
+          "locator": "SE Labrador Bedrock Geology; Detailed Lake Sediment/Water Geochemistry",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-newfoundland-and-labrador-production-1",
+          "category": "production",
+          "text": "No provincial historical total with a defined cutoff was verified; national others data cannot be divided among undisclosed provinces.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-newfoundland-and-labrador-resources-1",
+          "category": "resources",
+          "text": "Verify current GeoScience Atlas, assessment-report and MIRIAD portal URLs and instructions before importing as user-facing tools.",
+          "status": "partly_resolved",
+          "priority": "normal",
+          "resolution": "Official map index and atlas-layer documentation inspected; a live interactive workflow and current claim-application portal still need verification."
+        },
+        {
+          "id": "gap-newfoundland-and-labrador-discoveries-1",
+          "category": "discoveries",
+          "text": "Resolve early Ming’s Bight discovery dates using a fully retrievable report; avoid an unsupported province-first claim.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-newfoundland-and-labrador-geology-1",
+          "category": "geology",
+          "text": "Labrador-specific coverage and locality-specific placer sizes need stronger evidence; island examples do not cover the entire province.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-newfoundland-and-labrador-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "northwest-territories",
+      "name": "Northwest Territories",
+      "iso": "CA-NT",
+      "type": "territory",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-northwest-territories-geology-1"
+          ],
+          "gapIds": [
+            "gap-northwest-territories-geology-1"
+          ]
+        },
+        "production": {
+          "claimIds": [
+            "ca-northwest-territories-production-1",
+            "ca-northwest-territories-production-2"
+          ],
+          "gapIds": []
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-northwest-territories-seasons-1"
+          ],
+          "gapIds": [
+            "gap-northwest-territories-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-northwest-territories-access-1",
+            "ca-northwest-territories-access-2"
+          ],
+          "gapIds": [
+            "gap-northwest-territories-access-1"
+          ]
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-northwest-territories-minerals-1"
+          ],
+          "gapIds": [
+            "gap-northwest-territories-minerals-1"
+          ]
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-northwest-territories-discoveries-1"
+          ],
+          "gapIds": []
+        },
+        "resources": {
+          "claimIds": [
+            "ca-northwest-territories-resources-1"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-northwest-territories-geology-1",
+          "category": "geology",
+          "text": "The Yellowknife greenstone belt hosts major shear-related bedrock gold deposits exemplified by Con and Giant. Industrial lode output does not establish accessible placer gravels.",
+          "sourceIds": [
+            "nt-overview"
+          ],
+          "locator": "PDF p. 20, Yellowknife gold exploration context",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-northwest-territories-minerals-1",
+          "category": "minerals",
+          "text": "The report’s Yellowknife example concerns sheared greenstone-belt rocks and gold-bearing bedrock systems; it does not establish a territory-wide heavy-mineral indicator list.",
+          "sourceIds": [
+            "nt-overview"
+          ],
+          "locator": "PDF p. 20",
+          "reviewedAt": "2026-10-18",
+          "classification": "evidence_scope",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-northwest-territories-production-1",
+          "category": "production",
+          "text": "Historical gold production lower bound: 6,000,000 ounces; 1938–2003. Source says more than six million; lower bound, not exact output.",
+          "sourceIds": [
+            "nt-overview"
+          ],
+          "locator": "PDF p. 20, Con mine",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-northwest-territories-production-2",
+          "category": "production",
+          "text": "Historical gold production lower bound: 7,000,000 ounces; 1948–2004. Source says more than seven million; do not label this an NWT total.",
+          "sourceIds": [
+            "nt-overview"
+          ],
+          "locator": "PDF p. 20, Giant mine",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-northwest-territories-discoveries-1",
+          "category": "discoveries",
+          "text": "Con and Giant anchor Yellowknife’s historical gold-mining story; the documented operating periods are 1938–2003 and 1948–2004 respectively.",
+          "sourceIds": [
+            "nt-overview"
+          ],
+          "locator": "PDF p. 20, former mines",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-northwest-territories-access-1",
+          "category": "access",
+          "text": "The survey describes a Licence to Prospect before claiming, then a possible mineral lease. The Mining Recorder administers mineral rights and records. This sequence does not itself determine hobby-panning permissions or surface entry.",
+          "sourceIds": [
+            "nt-access"
+          ],
+          "locator": "Exploration Authorization Process; Mining Recorder’s Office",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-northwest-territories-resources-1",
+          "category": "resources",
+          "text": "Consult the Mining Recorder, the linked mineral-tenure viewer and annual NTGS exploration reports; land and water authorizations require separate examination.",
+          "sourceIds": [
+            "nt-access"
+          ],
+          "locator": "Mining Recorder’s Office and linked resources",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-northwest-territories-seasons-1",
+          "category": "seasons",
+          "text": "Verify local thaw, ice and remote access logistics before suggesting a field window. A territory-wide month range would hide large geographic differences.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        },
+        {
+          "id": "ca-northwest-territories-access-2",
+          "category": "access",
+          "text": "The posted regulations restrict prospecting for the purpose of staking and claim recording to licensees or authorized agents, and exclude specified lands from prospecting. Those provisions should not be rewritten as either a universal hobby exemption or a universal licence requirement.",
+          "sourceIds": [
+            "nt-regulations"
+          ],
+          "locator": "Sections 4–5",
+          "reviewedAt": "2026-10-18",
+          "classification": "evidence_scope",
+          "status": "source_checked"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-northwest-territories-access-1",
+          "category": "access",
+          "text": "An older REDI FAQ says amateur prospecting can occur without a licence, but the same page calls the 2019 Mineral Resources Act proposed. Obtain current authoritative confirmation before publishing that exemption.",
+          "status": "open",
+          "priority": "high"
+        },
+        {
+          "id": "gap-northwest-territories-minerals-1",
+          "category": "minerals",
+          "text": "Add deposit-specific mineralogy and official mine-remediation guidance; do not encourage visits to contaminated mine properties.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-northwest-territories-geology-1",
+          "category": "geology",
+          "text": "No territory-wide typical placer size established; do not infer it from Con or Giant ore.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-northwest-territories-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "nt-con-historic",
+          "claimId": "ca-northwest-territories-production-1",
+          "value": 6000000,
+          "unit": "ounces",
+          "period": "1938–2003",
+          "geographicScope": "Con mine",
+          "definition": "Historical gold production lower bound",
+          "qualifier": "Source says more than six million; lower bound, not exact output.",
+          "sourceIds": [
+            "nt-overview"
+          ],
+          "locator": "PDF p. 20, Con mine",
+          "checkedAt": "2026-10-18"
+        },
+        {
+          "id": "nt-giant-historic",
+          "claimId": "ca-northwest-territories-production-2",
+          "value": 7000000,
+          "unit": "ounces",
+          "period": "1948–2004",
+          "geographicScope": "Giant mine",
+          "definition": "Historical gold production lower bound",
+          "qualifier": "Source says more than seven million; do not label this an NWT total.",
+          "sourceIds": [
+            "nt-overview"
+          ],
+          "locator": "PDF p. 20, Giant mine",
+          "checkedAt": "2026-10-18"
+        }
+      ],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "nunavut",
+      "name": "Nunavut",
+      "iso": "CA-NU",
+      "type": "territory",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-nunavut-geology-1"
+          ],
+          "gapIds": [
+            "gap-nunavut-geology-1"
+          ]
+        },
+        "production": {
+          "claimIds": [
+            "ca-nunavut-production-1"
+          ],
+          "gapIds": [
+            "gap-nunavut-production-1"
+          ]
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-nunavut-seasons-1"
+          ],
+          "gapIds": [
+            "gap-nunavut-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-nunavut-access-1",
+            "ca-nunavut-access-2"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [
+            "ca-nunavut-minerals-1"
+          ],
+          "gapIds": []
+        },
+        "discoveries": {
+          "claimIds": [
+            "ca-nunavut-discoveries-1",
+            "ca-nunavut-discoveries-2"
+          ],
+          "gapIds": [
+            "gap-nunavut-discoveries-1"
+          ]
+        },
+        "resources": {
+          "claimIds": [
+            "ca-nunavut-resources-1",
+            "ca-nunavut-resources-2",
+            "ca-nunavut-resources-3"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-nunavut-geology-1",
+          "category": "geology",
+          "text": "At Portage, Meadowbank, gold occurs principally in banded iron formation, with additional quartz-vein mineralization in metamorphosed volcaniclastic rocks. This is a specific bedrock model.",
+          "sourceIds": [
+            "nu-portage"
+          ],
+          "locator": "Abstract and geological setting",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nunavut-minerals-1",
+          "category": "minerals",
+          "text": "Portage mineralization involves pyrrhotite and pyrite replacing magnetite in iron formation, and some gold-bearing quartz veins. These relationships do not make every iron-rich rock prospective.",
+          "sourceIds": [
+            "nu-portage"
+          ],
+          "locator": "Abstract; ore and associated mineral assemblages",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nunavut-discoveries-1",
+          "category": "discoveries",
+          "text": "The GSC study documents the Portage deposit in the Meadowbank mine area, Kivalliq. It supplies a researched geological case rather than a claim of Nunavut’s first discovery.",
+          "sourceIds": [
+            "nu-portage"
+          ],
+          "locator": "Introduction and location",
+          "reviewedAt": "2026-10-18",
+          "classification": "evidence_scope",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nunavut-access-1",
+          "category": "access",
+          "text": "Crown-land exploration uses a Licence to Prospect and Nunavut Map Selection. Claims do not convey surface rights; occupied Crown, Inuit-owned and private lands require applicable consent. Land-use, water and planning approvals may also apply.",
+          "sourceIds": [
+            "nu-access"
+          ],
+          "locator": "Licence; surface rights; other approvals",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nunavut-access-2",
+          "category": "access",
+          "text": "New prospecting permits stopped being issued in January 2021; this does not mean licences to prospect stopped. Existing transitional permits and current licences are different instruments.",
+          "sourceIds": [
+            "nu-access"
+          ],
+          "locator": "Prospecting permits and map-selection transition",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nunavut-resources-1",
+          "category": "resources",
+          "text": "Use CIRNAC’s current Crown-land guidance and Nunavut Map Selection; consult the relevant Inuit landowner and review land-use/water/planning requirements separately.",
+          "sourceIds": [
+            "nu-access"
+          ],
+          "locator": "Nunavut Map Selection; authorizations",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nunavut-resources-2",
+          "category": "resources",
+          "text": "The downloadable GSC Portage study includes geological mapping and analytical context; it is research data, not a recreational access map.",
+          "sourceIds": [
+            "nu-portage"
+          ],
+          "locator": "Current Research 2015-2",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nunavut-seasons-1",
+          "category": "seasons",
+          "text": "Choose the community and land parcel before considering seasons; weather, transport, local permissions and water conditions must all be researched together.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        },
+        {
+          "id": "ca-nunavut-discoveries-2",
+          "category": "discoveries",
+          "text": "The 2011 overview dates Lupin’s discovery to 1961 and its production to 1982–1998 and 2000–2005. The site lies within present-day Nunavut; much of that history predates the territory’s creation.",
+          "sourceIds": [
+            "nu-history"
+          ],
+          "locator": "Lupin, PDF p. 30",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nunavut-production-1",
+          "category": "production",
+          "text": "The 2011 overview estimates Lupin’s past gold output at 3.37 million ounces over its 1982–2005 operating history, which included shutdowns. This is a mine total spanning the pre-Nunavut administrative period.",
+          "sourceIds": [
+            "nu-history"
+          ],
+          "locator": "Lupin, PDF p. 30",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-nunavut-resources-3",
+          "category": "resources",
+          "text": "Nunavut Geoscience introduces NUMIN occurrence searches and downloadable public assessment reports, Open Files and other geoscience publications. Reported occurrences need source and access checks.",
+          "sourceIds": [
+            "nu-geoscience"
+          ],
+          "locator": "Welcome / information available",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-nunavut-production-1",
+          "category": "production",
+          "text": "No territory-wide historical gold total verified; pre-1999 Northwest Territories records need careful boundary reconciliation.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-nunavut-geology-1",
+          "category": "geology",
+          "text": "No well-supported jurisdiction-wide recreational placer size or ordinary walk-in panning opportunity established.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-nunavut-discoveries-1",
+          "category": "discoveries",
+          "text": "Add independently checked discovery history and original prospector credits for individual districts.",
+          "status": "partly_resolved",
+          "priority": "normal",
+          "resolution": "Lupin discovery and mining history now supported by the joint 2011 overview; original discoverer credits still need an original exploration record."
+        },
+        {
+          "id": "gap-nunavut-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [
+        {
+          "id": "nu-lupin-historic",
+          "claimId": "ca-nunavut-production-1",
+          "value": 3370000,
+          "unit": "ounces",
+          "period": "1982–2005, with interruptions",
+          "geographicScope": "Lupin mine, present-day Nunavut",
+          "definition": "Estimated historical gold production",
+          "qualifier": "Mine-specific estimate in the 2011 overview, not a Nunavut territory-wide cumulative total; historical boundary change retained.",
+          "sourceIds": [
+            "nu-history"
+          ],
+          "locator": "Lupin, PDF p. 30",
+          "checkedAt": "2026-10-18"
+        }
+      ],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    },
+    {
+      "id": "prince-edward-island",
+      "name": "Prince Edward Island",
+      "iso": "CA-PE",
+      "type": "province",
+      "status": "research_dossier",
+      "websiteImportStatus": "not_imported",
+      "categories": {
+        "geology": {
+          "claimIds": [
+            "ca-prince-edward-island-geology-1"
+          ],
+          "gapIds": [
+            "gap-prince-edward-island-geology-1"
+          ]
+        },
+        "production": {
+          "claimIds": [],
+          "gapIds": [
+            "gap-prince-edward-island-production-1"
+          ]
+        },
+        "seasons": {
+          "claimIds": [
+            "ca-prince-edward-island-seasons-1"
+          ],
+          "gapIds": [
+            "gap-prince-edward-island-seasons-1"
+          ],
+          "sharedMethodId": "ca-season-method"
+        },
+        "access": {
+          "claimIds": [
+            "ca-prince-edward-island-access-1"
+          ],
+          "gapIds": []
+        },
+        "minerals": {
+          "claimIds": [],
+          "gapIds": [
+            "gap-prince-edward-island-minerals-1"
+          ]
+        },
+        "discoveries": {
+          "claimIds": [],
+          "gapIds": [
+            "gap-prince-edward-island-discoveries-1"
+          ]
+        },
+        "resources": {
+          "claimIds": [
+            "ca-prince-edward-island-resources-1",
+            "ca-prince-edward-island-resources-2"
+          ],
+          "gapIds": []
+        }
+      },
+      "claims": [
+        {
+          "id": "ca-prince-edward-island-geology-1",
+          "category": "geology",
+          "text": "The government water study describes a sandstone-bedrock landscape and erosion-sensitive surface waters. It does not document a gold deposit.",
+          "sourceIds": [
+            "pe-water"
+          ],
+          "locator": "PDF p. 8, PEI Landscape",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-prince-edward-island-access-1",
+          "category": "access",
+          "text": "The Mineral Resources Act provides a licensing framework subject to landowner rights. No general recreational-gold-panning exemption or approved public panning location was verified in this review.",
+          "sourceIds": [
+            "pe-act"
+          ],
+          "locator": "Sections 17–26 and 57",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-prince-edward-island-resources-1",
+          "category": "resources",
+          "text": "The surface-water study is useful for landscape and water context, but must not be presented as a gold-occurrence map.",
+          "sourceIds": [
+            "pe-water"
+          ],
+          "locator": "PEI Landscape and water-management context",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-prince-edward-island-resources-2",
+          "category": "resources",
+          "text": "Use the current consolidated Mineral Resources Act and contact provincial authorities about any proposed mineral collection and land access.",
+          "sourceIds": [
+            "pe-act"
+          ],
+          "locator": "Exploration licensing and private entry",
+          "reviewedAt": "2026-10-18",
+          "classification": "documented",
+          "status": "source_checked"
+        },
+        {
+          "id": "ca-prince-edward-island-seasons-1",
+          "category": "seasons",
+          "text": "Use local climate and stream information for any permitted outing; do not advertise a gold-panning season before a credible occurrence and access basis are established.",
+          "sourceIds": [
+            "ca-climate"
+          ],
+          "locator": "1991–2020 normals introduction and location/province searches",
+          "reviewedAt": "2026-10-18",
+          "classification": "planning_interpretation",
+          "status": "editorial_review_required"
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-prince-edward-island-minerals-1",
+          "category": "minerals",
+          "text": "No locally documented gold-associated mineral assemblage verified. Sandstone or red coloration is not evidence of gold.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-prince-edward-island-production-1",
+          "category": "production",
+          "text": "No documented provincial gold production total established; retain null, not zero.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-prince-edward-island-discoveries-1",
+          "category": "discoveries",
+          "text": "No authoritative PEI gold discovery, gold rush or notable gold nugget case verified. Do not create one to fill the template.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-prince-edward-island-geology-1",
+          "category": "geology",
+          "text": "No gold-bearing locality or typical gold size verified. Absence from the reviewed sources is not a geological proof of absence.",
+          "status": "open",
+          "priority": "normal"
+        },
+        {
+          "id": "gap-prince-edward-island-seasons-1",
+          "category": "seasons",
+          "text": "No evidence-backed jurisdiction-wide best-month range established. Select a locality, representative climate station and relevant hydrometric gauge; check current closures and conditions.",
+          "status": "open",
+          "priority": "normal"
+        }
+      ],
+      "statistics": [],
+      "ratings": {
+        "goldPotential": null,
+        "publicAccessibility": null,
+        "beginnerFriendliness": null,
+        "typicalGoldSize": null,
+        "overallOpportunity": null,
+        "status": "withheld",
+        "reason": "No defensible comparable province/territory-wide recreational assessment completed; industrial output is not a panning score."
+      }
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "conflict-yk-discovery-day",
+      "regionId": "yukon",
+      "sourceIds": [
+        "yk-discovery"
+      ],
+      "issue": "One official page gives August 16, 1896 in formal significance and milestones, but August 17 in another discovery narrative.",
+      "treatment": "Use year-only discovery wording; retain precise days as unresolved, not silently harmonized."
+    },
+    {
+      "id": "conflict-mb-claimholder",
+      "regionId": "manitoba",
+      "sourceIds": [
+        "mb-history"
+      ],
+      "candidateUrls": [
+        "https://www.manitoba.ca/iem/info/libmin/gold_in_bissett.pdf"
+      ],
+      "issue": "Historical government accounts appear to differ on recorded staking attribution after Twohearts’ find; comparison document was not retrievable.",
+      "treatment": "Credit the documented discovery contribution without assigning a definitive registered claim holder."
+    },
+    {
+      "id": "outdated-nt-amateur-waiver",
+      "regionId": "northwest-territories",
+      "sourceIds": [
+        "nt-access"
+      ],
+      "candidateUrls": [
+        "https://www.gov.nt.ca/redi/en/questions-and-answers?tid=5"
+      ],
+      "issue": "Older FAQ permits amateur prospecting without a licence but also describes the 2019 Act as proposed.",
+      "treatment": "Hold recreational exemption; confirm current law with responsible authority."
+    },
+    {
+      "id": "outdated-bc-reservations",
+      "regionId": "british-columbia",
+      "sourceIds": [
+        "bc-access"
+      ],
+      "candidateUrls": [
+        "https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/mineral-exploration-mining/documents/mineral-titles/notices-mineral-placer-titles/information-updates/infoupdate2.pdf"
+      ],
+      "issue": "Older information sheet and newer hand-panning guidance differ over protected-land wording.",
+      "treatment": "Use the newer dedicated page and land-specific authority; do not imply park entry permission."
+    },
+    {
+      "id": "outdated-ns-mercury",
+      "regionId": "nova-scotia",
+      "sourceIds": [
+        "ns-tailings"
+      ],
+      "candidateUrls": [
+        "https://novascotia.ca/natr/meb/data/pubs/ic/ic04.pdf"
+      ],
+      "issue": "An old panning circular contains mercury-use recovery advice.",
+      "treatment": "Excluded. Retain current official tailings warning; do not import obsolete processing instructions."
+    },
+    {
+      "id": "qc-chronology-fetch",
+      "regionId": "quebec",
+      "sourceIds": [],
+      "candidateUrls": [
+        "https://mrnf.gouv.qc.ca/mines/industrie-substance-exploitees/industrie-histoire/dates-marquantes/"
+      ],
+      "issue": "Search index gives Beauce dates, but original page fetch failed; alternate English URL returned 404.",
+      "treatment": "Dates held, not marked source_checked."
+    },
+    {
+      "id": "nu-fees-and-tenure",
+      "regionId": "nunavut",
+      "sourceIds": [
+        "nu-access"
+      ],
+      "issue": "Legacy instructions conflate prospecting permits, licences and differing fee wording.",
+      "treatment": "Exclude fee amounts and old staking instructions. Preserve licence/permit distinction and current map-selection process."
+    },
+    {
+      "id": "sk-mine-versus-operation",
+      "regionId": "saskatchewan",
+      "sourceIds": [
+        "sk-seabee"
+      ],
+      "issue": "Database shows the original deposit post-production while later history describes the wider Seabee operation using Santoy ore.",
+      "treatment": "Distinguish deposit, mine and complex; no undated current operating-status claim."
+    },
+    {
+      "id": "mb-diana-total",
+      "regionId": "manitoba",
+      "sourceIds": [
+        "mb-diana"
+      ],
+      "issue": "Narrative reports 235.57 kg / 7,574 oz; production table reports 235.59 kg / 7,574.64 oz.",
+      "treatment": "Retain operating periods; withhold a numeric cumulative total pending reconciliation."
+    },
+    {
+      "id": "nu-publication-year",
+      "regionId": "nunavut",
+      "sourceIds": [
+        "nu-history"
+      ],
+      "issue": "2011 is the overview reporting year. Exact publication date has not been established from the inspected pages.",
+      "treatment": "Catalog publicationDate is set to null, with reportingYear 2011; do not infer a date from the upload directory."
+    }
+  ]
+}
