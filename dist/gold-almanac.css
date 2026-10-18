@@ -22,6 +22,9 @@
 /* One existing state illustration, enhanced with the existing creator controls. */
 #almanac-unified-map{width:100%;aspect-ratio:1100/650;background:transparent;isolation:isolate;font:inherit}
 #almanac-unified-map .almanac-map{padding:0;max-width:none}
+.almanac-creator-popup .leaflet-popup-content{max-height:none}
+.almanac-creator-popup .leaflet-popup-content p{margin:.65em 0;line-height:1.45}
+.almanac-creator-popup .leaflet-popup-content a{display:block;min-height:32px;align-content:center;margin:.25em 0}
 .almanac-map-wrap .leaflet-container{background:transparent}
 .almanac-creator-list{padding:24px}
 .almanac-creator-list ul{padding-left:1.25rem}

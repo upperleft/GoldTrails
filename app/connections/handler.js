@@ -40,7 +40,7 @@ export function createConnectionsHandler({store=null,members=null,owners=null,gu
    member=members&&config?await members.session(read(req,'member')):null;
    const grant=['GET','HEAD'].includes(req.method)?await guests?.read(req):null;guest=member?.effective_level==='subscriber'?null:grant;
    if(guest)privatePage=true;
-   if(url.pathname==='/connections/states/'&&req.method!=='POST'){send(200,groupsPage({guest}));return true;}
+   if(url.pathname==='/connections/states/'&&req.method!=='POST'){send(200,groupsPage({guest,member}));return true;}
    if(guest&&['/connections/new/','/connections/mine/','/connections/preferences/'].includes(url.pathname)){
     privatePage=true;send(200,shell('A look around Gold Connections',nav({guest})+guestNotice(guest)+'<p>Creating events, managing RSVPs, and changing notification preferences need your own Gold Trails account and the appropriate membership.</p><p><a href="/connections/">Return to Gold Connections events →</a></p>'));return true;
    }
@@ -78,12 +78,12 @@ export function createConnectionsHandler({store=null,members=null,owners=null,gu
     if(!await store.allowWrite(member.id))throw new ConnectionsError('Take a short break before making more changes.',429);
    }
    if(url.pathname==='/connections/mine/'){
-    requireMember();privatePage=true;if(f)throw new ConnectionsError('Use the event controls.',405);send(200,minePage(await store.mine(member.id)));return true;
+    requireMember();privatePage=true;if(f)throw new ConnectionsError('Use the event controls.',405);send(200,minePage(await store.mine(member.id),{member}));return true;
    }
    if(url.pathname==='/connections/preferences/'){
     requireMember();privatePage=true;
     if(f){const selected=f.getAll('states');if(selected.length>50||new Set(selected).size!==selected.length||selected.some(s=>!stateFor(s)||s!==stateFor(s).code))throw new ConnectionsError('Choose the listed states.');const prefs={states:selected,...Object.fromEntries(['new_events','updates','reminders','rsvp'].map(k=>[k,f.get(k)==='yes']))};const previous=await store.preferences(member.id);if(selected.some(s=>!previous.states.includes(s))||Object.values(prefs).some(v=>v===true))requirePlus();await store.savePreferences(member.id,prefs);redirect('/connections/preferences/');return true;}
-    send(200,preferencesPage(await store.preferences(member.id),csrf,url.searchParams.get('state')));return true;
+    send(200,preferencesPage(await store.preferences(member.id),csrf,url.searchParams.get('state'),{member}));return true;
    }
    if(url.pathname==='/connections/new/'){
     requirePlus();privatePage=true;
@@ -101,7 +101,7 @@ export function createConnectionsHandler({store=null,members=null,owners=null,gu
     send(200,eventForm({...event,meeting:vault.open(event.meetingCipher)},csrf,'',true));return true;
    }
    if(action==='manage/'){
-    requireMember();privatePage=true;if(!organizer)throw new ConnectionsError('Event unavailable.',404);if(f)throw new ConnectionsError('Use the event controls.',405);send(200,managePage(event,await store.attendees(member.id,event.id),csrf,await store.reports(member.id,event.id)));return true;
+    requireMember();privatePage=true;if(!organizer)throw new ConnectionsError('Event unavailable.',404);if(f)throw new ConnectionsError('Use the event controls.',405);send(200,managePage(event,await store.attendees(member.id,event.id),csrf,await store.reports(member.id,event.id),{member}));return true;
    }
    if(action==='calendar.ics'){
     if(f)throw new ConnectionsError('Download the calendar file.',405);const safe=publicEvent(event);send(200,calendarIcs(safe,config?.origin||'https://goldtrails.org'),{'Content-Type':'text/calendar; charset=utf-8','Content-Disposition':'attachment; filename="gold-connections-event.ics"'});return true;

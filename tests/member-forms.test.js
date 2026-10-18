@@ -6,7 +6,7 @@ const script=readFileSync(new URL('../dist/member-forms.js',import.meta.url),'ut
 function fixture(values={},options={}){
  const fields=Object.entries({username:'trailmember',email:'member@example.com',password:'an example long password',...values}).map(([name,value])=>({name,value,required:true,type:name.includes('assword')?'password':'text',validity:{valid:true},attrs:{},setAttribute(k,v){this.attrs[k]=v;},removeAttribute(k){delete this.attrs[k];},focus(){this.focused=true;}}));
  const button={textContent:'Create free account',attrs:{},setAttribute(k,v){this.attrs[k]=v;},removeAttribute(k){delete this.attrs[k];}};
- const element=()=>({children:[],attrs:{},append(...children){this.children.push(...children);},setAttribute(k,v){this.attrs[k]=v;},focus(){this.focused=true;}});
+ const element=(name='div')=>({tagName:name.toUpperCase(),children:[],attrs:{},append(...children){this.children.push(...children);},setAttribute(k,v){this.attrs[k]=v;},focus(){this.focused=true;}});
  const feedback={...element(),hidden:true,dataset:{},querySelector(){return this.children.find(child=>child?.href)||null;}};
  const offer=options.offer?{...element(),dataset:{signupPlusOffer:''}}:null;
  const card={...element(),querySelector:selector=>selector==='[data-signup-plus-offer]'?offer:null,replaceChildren(...children){this.children=children;}};
@@ -49,7 +49,7 @@ test('direct signup submits the actual form once and renders confirmation only a
  const ui=fixture({password:'12345678'},{direct:true,fetch:async(url,request)=>{calls++;assert.equal(url,'https://gold.example/signup/');assert.equal(request.credentials,'same-origin');assert.equal(request.headers.Accept,'application/json');assert.equal(request.body.get('password'),'12345678');assert.equal(request.body.get('csrf'),'a'.repeat(64));return new Promise(resolve=>finish=resolve);}});
  assert.equal(ui.submit(),true);assert.equal(ui.submit(),true);assert.equal(calls,1);assert.equal(ui.card.children.length,0);assert.equal(ui.confirmationEvents.length,0);
  finish(response(200,{outcome:'email_requested',title:'Check your email',message:'Your request was received. Check your inbox.'}));await settle();
- assert.equal(ui.card.children[0].textContent,'Check your email');assert.equal(ui.card.children[1].children[0].textContent,'Your request was received. Check your inbox.');assert.equal(ui.card.children[1].attrs.role,'status');assert.equal(ui.card.focused,true);assert.equal(ui.button.attrs['aria-disabled'],undefined);assert.equal(ui.timers.size,0);assert.deepEqual(ui.confirmationEvents.map(event=>event.type),['goldtrails:signup-confirmed']);
+ assert.equal(ui.card.children[0].textContent,'Check your email');assert.equal(ui.card.children[0].tagName,'H1');assert.equal(ui.card.children[0].id,'member-access-title');assert.equal(ui.card.children[1].children[0].textContent,'Your request was received. Check your inbox.');assert.equal(ui.card.children[1].attrs.role,'status');assert.equal(ui.card.focused,true);assert.equal(ui.button.attrs['aria-disabled'],undefined);assert.equal(ui.timers.size,0);assert.deepEqual(ui.confirmationEvents.map(event=>event.type),['goldtrails:signup-confirmed']);
 });
 test('confirmed signup preserves the existing Plus offer dialog while replacing the form',async()=>{
  let finish;

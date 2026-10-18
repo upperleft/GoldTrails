@@ -4,6 +4,7 @@ import {digest} from '../app/admin-auth.js';
 import {createServer} from '../app/server.js';
 import {createCalendarHandler} from '../app/calendar/handler.js';
 import {calendarMemoryStore} from './helpers/calendar-memory.js';
+import {calendarPage} from '../app/calendar/views.js';
 const csrf='a'.repeat(64),alice='b'.repeat(64),bob='c'.repeat(64),origin='https://gold.example';
 async function fixture(t,{store=calendarMemoryStore(),config={origin}}={}){
  const sessions=new Map([[alice,{id:'alice',username:'Alice',effective_level:'free',csrf_token_hash:digest(csrf)}],[bob,{id:'bob',username:'Bob',effective_level:'subscriber',csrf_token_hash:digest(csrf)}]]);
@@ -15,6 +16,15 @@ async function fixture(t,{store=calendarMemoryStore(),config={origin}}={}){
 }
 const event=calendarId=>({calendarId,title:'Private appointment',description:'Private notes',location:'At the field desk',startLocal:'2026-10-18T09:00',endLocal:'2026-10-18T10:00',timeZone:'America/New_York',allDay:false,rrule:null});
 const range='/calendar/api/events?start=2026-10-01T00:00:00Z&end=2026-11-01T00:00:00Z';
+
+test('the event editor exposes every supported repeat frequency as a selectable option',()=>{
+ const html=calendarPage({member:{username:'Sample member'},csrf});
+ const schedule=html.match(/<select name="frequency">([\s\S]*?)<\/select>/)?.[1];
+ assert.ok(schedule);
+ const choices=[...schedule.matchAll(/<option value="([^"]*)">([^<]+)<\/option>/g)].map(([,value,label])=>({value,label}));
+ assert.deepEqual(choices,[{value:'',label:'Does not repeat'},{value:'DAILY',label:'Daily'},{value:'WEEKLY',label:'Weekly'},{value:'MONTHLY',label:'Monthly'},{value:'YEARLY',label:'Yearly'}]);
+ assert.equal((schedule.match(/<option\b/g)||[]).length,choices.length,'All options have valid opening and closing tags');
+});
 
 test('free and subscriber members create persistent calendars and events; appointments are strictly isolated',async t=>{
  const {request,newCalendar}=await fixture(t);const a=await newCalendar();const b=await newCalendar('Bob private',bob);

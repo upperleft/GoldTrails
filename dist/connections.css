@@ -4,3 +4,22 @@
 .connections-preview-banner{padding:12px;background:#f3d895;text-align:center}
 .connections-more-filters{margin:1rem 0}.connections-more-filters summary{cursor:pointer;padding:.6rem 0}.connections-more-filters[open] summary{margin-bottom:.6rem}
 .connection-cover-figure{margin:0 0 1rem}.connection-cover-figure figcaption{padding:.6rem 0;font-size:1rem}
+
+/* Browsing comes first; personal tools stay one disclosure away for active Plus members. */
+.connections-navigation{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem 1.2rem;margin:0 0 1rem;border-bottom:1px solid var(--line,#c6b68d)}
+.connections-navigation>.connections-nav{margin:0;padding:.55rem 0;border:0;gap:.5rem 1.2rem;min-height:44px}
+.connections-personal{position:relative;max-width:100%}
+.connections-personal>summary{cursor:pointer;padding:.55rem 0;min-height:44px;line-height:1.6}
+.connections-personal>nav{display:flex;flex-direction:column;gap:.35rem;padding:.25rem 0 .8rem;min-width:14rem;max-width:100%}
+.connections-personal>nav>a{display:block;padding:.4rem 0;min-height:40px}
+.connections-search-actions,.connections-empty-actions{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem 1.2rem}
+.connections-search-actions>a,.connections-empty-actions>a{min-height:44px;display:inline-flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
+.connections-empty-actions>.gold-button{text-decoration:none}
+.connections-notice>p{margin:.2rem 0 .4rem}
+.connections-notice>details>summary{cursor:pointer;min-height:32px;line-height:1.6}
+.connections-notice>details>p{margin:.5rem 0 .2rem}
+.connections-results-note,.connections-state-guide{font-size:1rem;line-height:1.65;margin:1rem 0}
+.connections-state-guide>a{text-decoration:underline;text-underline-offset:3px}
+.connections-empty h2,.connections-notice h2{font-size:1.3rem;margin:0 0 .6rem}
+.connections-empty p{margin:.6rem 0 1rem}
+@media(max-width:760px){.connections-navigation{gap:.2rem .8rem}.connections-personal{width:100%}.connections-personal>nav{min-width:0}.connections-empty-actions{align-items:flex-start;gap:.4rem 1rem}}

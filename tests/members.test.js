@@ -167,3 +167,50 @@ test('resend explains that verified accounts need sign-in or recovery without ex
  }
  assert.equal(sent,0);assert.equal(results[0],results[1]);assert.match(results[0],/already verified will not receive another verification email/);assert.match(results[0],/href="\/forgot-password\/"/);
 });
+
+test('signup leads with one focused title and the free-calendar benefit while retaining accessible credential fields',async t=>{
+ let writes=0;
+ const request=await fixture(t,{mail:async()=>{},store:{ready:async()=>true,signup:async()=>writes++}});
+ const response=await request('/signup/'),html=await response.text();
+ assert.equal(response.status,200);assert.equal(writes,0);
+ assert.equal((html.match(/<h1\b/g)||[]).length,1);
+ assert.match(html,/<section class="resource-placeholder member-card member-auth-card" aria-labelledby="member-access-title"><h1 id="member-access-title">Join the camp<\/h1>/);
+ assert.doesNotMatch(html,/<h2>Join the camp<\/h2>/);
+ const intro=html.match(/<p class="member-auth-intro">([^<]+)<\/p>/)?.[1]||'';
+ assert.match(intro,/free account.*trail calendar/);assert.match(intro,/verify your address/);
+ const form=html.match(/<form\b[^>]*data-async-signup[\s\S]*?<\/form>/)?.[0]||'';
+ assert.ok(html.indexOf('member-auth-intro')<html.indexOf(form));
+ assert.match(form,/method="post" action="\/signup\/"/);assert.match(form,/name="csrf"/);
+ assert.ok(form.indexOf('name="username"')<form.indexOf('name="displayName"'));
+ assert.ok(form.indexOf('name="displayName"')<form.indexOf('name="email"'));
+ assert.ok(form.indexOf('name="email"')<form.indexOf('name="password"'));
+ for(const name of ['username','email']){
+  assert.match(form,new RegExp('name="'+name+'"[^>]*aria-describedby="member-'+name+'-guidance"'));
+  assert.ok(form.includes('id="member-'+name+'-guidance"'));
+ }
+ assert.match(form,/name="email"[^>]*autocomplete="username"[^>]*autocapitalize="none" spellcheck="false"/);
+ assert.match(form,/name="password"[^>]*autocomplete="new-password"[^>]*minlength="8" maxlength="128"[^>]*aria-describedby="password-guidance"/);
+ assert.match(form,/id="password-guidance"/);assert.match(form,/data-password-toggle aria-controls="member-password" aria-pressed="false" hidden/);
+ assert.match(form,/Create free account<\/button>/);
+ assert.match(html,/data-signup-plus-offer/);assert.doesNotMatch(html,/data-signup-plus-autoopen/);
+ const asset=html.match(/href="(\/member-auth\.css\?v=[a-f0-9]{12})"/)?.[1];assert.ok(asset);
+ const style=await request(asset);assert.equal(style.status,200);assert.match(style.headers.get('content-type'),/text\/css/);
+});
+
+test('member access pages share one title without applying auth layout to Your Camp or weakening closed signup',async t=>{
+ const request=await fixture(t,{mail:async()=>{},store:{ready:async()=>true,session:async raw=>raw===session?{username:'TrailReader',email:'reader@example.invalid',account_number:42,effective_level:'free',csrf_token_hash:digest(csrf)}:null}});
+ for(const path of ['/login/','/forgot-password/','/resend-verification/','/verify-email/?token='+link,'/reset-password/?token='+link]){
+  const response=await request(path),html=await response.text();assert.equal(response.status,200,path);
+  assert.equal((html.match(/<h1\b/g)||[]).length,1,path);
+  const title=html.match(/<h1 id="member-access-title">([^<]+)<\/h1>/)?.[1];assert.ok(title,path);
+  assert.ok(!html.includes('<h2>'+title+'</h2>'),path+' does not repeat its page title');
+  assert.match(html,/member-auth-page/);assert.match(html,/member-auth\.css\?v=/);
+ }
+ const camp=await(await request('/account/',null,{headers:{Cookie:`__Host-gold-member=${session}`}})).text();
+ assert.match(camp,/camp-page/);assert.match(camp,/account-camp\.css\?v=/);
+ assert.doesNotMatch(camp,/member-auth-page|member-auth\.css|member-access-title/);
+ assert.doesNotMatch(camp,/connections/i);
+ const closed=await fixture(t,{store:{ready:async()=>true,signup:async()=>assert.fail('unconfigured signup cannot create an account')}});
+ const html=await(await closed('/signup/')).text();assert.match(html,/Registration is temporarily unavailable/);assert.match(html,/<fieldset disabled class="member-preview">/);
+ assert.doesNotMatch(html,/data-signup-plus-offer/);
+});

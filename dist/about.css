@@ -1,17 +1,21 @@
-/* Membership comparison on About Gold Trails. */
-.about-membership-section{margin-top:28px}
-.about-memberships{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:24px 0}
-.about-plan{display:flex;flex-direction:column;min-width:0;padding:22px;background:#fffaf0;border:1px solid #d9c8a6;border-radius:14px}
+/* The membership comparison is the first stop on About Gold Trails. */
+.about-page .about-membership-section{margin:0}
+.about-page .about-membership-section>h2{font-size:1.5rem;line-height:1.4;margin:0 0 16px}
+.about-memberships{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0}
+.about-plan{display:flex;flex-direction:column;min-width:0;padding:20px 18px;background:#fffaf0;border:1px solid #d9c8a6;border-radius:14px}
 .about-plan-plus{background:#f6eacb;border-color:#b89655}
-.reading .about-plan h3{font:700 1.25rem/1.4 'DM Sans',system-ui,sans-serif;margin:0 0 12px}
-.reading .about-plan p{font-size:1rem;line-height:1.7;margin:0 0 16px}
-.reading .about-plan .about-plan-price{color:#705736;padding-bottom:16px;border-bottom:1px solid #d9c8a6}
-.reading .about-plan ul{padding-left:20px;margin:0 0 8px;font-size:1rem;line-height:1.75}
-.reading .about-plan li{margin:0 0 12px}
-.reading .about-plan .about-plan-action{margin-top:auto;margin-bottom:0;padding-top:20px}
-.about-plan-action a{display:inline-block;padding:8px 0}
-.reading .about-membership-note{margin:20px 0 0;font-size:1rem;line-height:1.75}
-@media(max-width:1100px){.about-memberships{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:650px){.about-plan{padding:20px}.about-memberships{gap:18px}}
-@media screen{html[data-reading-dark] body .about-plan{background:var(--night-raised);border-color:var(--night-line)}html[data-reading-dark] body .about-plan-plus{background:var(--night-paper);border-color:var(--night-gold)}html[data-reading-dark] body .reading .about-plan .about-plan-price{color:var(--night-muted);border-color:var(--night-line)}}
-@media print{.about-memberships{display:block}.about-plan{break-inside:avoid;margin:16px 0;background:#fff}}
+.about-plan h3{font:600 1.25rem/1.4 'DM Sans',system-ui,sans-serif;margin:0 0 8px}
+.about-plan p{font-size:1rem;line-height:1.6;margin:0 0 12px}
+.about-plan .about-plan-price{color:#705736;padding-bottom:12px;border-bottom:1px solid #d9c8a6}
+.about-plan ul{padding-left:19px;margin:0 0 6px;font-size:1rem;line-height:1.65}
+.about-plan li{margin:0 0 9px}
+.about-plan .about-plan-action{margin-top:auto;margin-bottom:0;padding-top:12px}
+.about-plan-action a{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;color:#81422d;text-decoration:underline;text-underline-offset:3px}
+.about-membership-note{margin:14px 0 0;font-size:1rem;line-height:1.65}
+.about-editorial-note{border-top:1px solid var(--line);padding-top:22px;margin-top:26px;max-width:68ch}
+.about-editorial-note h2{font-size:1.5rem;line-height:1.4;margin:0 0 12px}
+.about-editorial-note p{font-size:1.0625rem;line-height:1.7;margin:0 0 14px}
+.about-editorial-note a{display:inline-flex;align-items:center;min-height:44px;color:#81422d;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1000px){.about-memberships{grid-template-columns:minmax(0,1fr)}.about-plan{padding:18px 20px}}
+@media screen{html[data-reading-dark] body .about-plan{background:var(--night-raised);border-color:var(--night-line)}html[data-reading-dark] body .about-plan-plus{background:var(--night-paper);border-color:var(--night-gold)}html[data-reading-dark] body .about-plan .about-plan-price{color:var(--night-muted);border-color:var(--night-line)}html[data-reading-dark] body .about-plan-action a,html[data-reading-dark] body .about-editorial-note a{color:var(--night-link,#f3d38e)}}
+@media print{.about-memberships{display:block}.about-plan{break-inside:avoid;margin:12px 0;background:#fff}}

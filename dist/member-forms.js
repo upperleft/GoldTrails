@@ -53,7 +53,7 @@ for (const form of document.querySelectorAll('.member-form')) {
         return;
       }
       const card = form.closest('.member-card');
-      const heading = document.createElement('h2'); heading.textContent = result.title;
+      const heading = document.createElement('h1'); heading.id = 'member-access-title'; heading.textContent = result.title;
       const confirmation = document.createElement('div');
       confirmation.className = 'member-confirmation'; confirmation.setAttribute('role', 'status');
       const message = document.createElement('p'); message.textContent = result.message;

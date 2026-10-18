@@ -1,4 +1,6 @@
 /* Only opt-in attributes change reading styles; reset restores the original design. */
+.skip-link{top:0!important;max-width:calc(100vw - 28px);white-space:normal;overflow-wrap:anywhere;transform:translateY(calc(-100% - 12px))}
+.skip-link:focus{top:0!important;transform:translateY(12px)}
 html[data-reading-size="1"]{font-size:115%}html[data-reading-size="2"]{font-size:130%}html[data-reading-size="3"]{font-size:150%}html[data-reading-size="4"]{font-size:175%}html[data-reading-size="5"]{font-size:200%}
 .reading-options{max-width:100%;min-width:0;position:relative;z-index:1100;font-family:'DM Sans',system-ui,sans-serif;font-size:1rem;line-height:1.5;color:#382b20;letter-spacing:normal;text-align:left;flex-shrink:0}
 .reading-options[hidden]{display:none}.reading-options>summary{display:flex;gap:8px;align-items:center;min-height:44px;padding:8px 12px;background:#fff9ed;border:1px solid #a78b56;border-radius:6px;cursor:pointer;list-style:none;font-size:1rem;font-weight:700;white-space:normal}.reading-options>summary::-webkit-details-marker{display:none}.reading-options>summary:after{content:'⌄';font-family:system-ui,sans-serif;font-size:1.25rem;font-weight:700;line-height:1}.reading-options[open]>summary:after{content:'⌃'}.reading-options>summary>span{font-size:1.125rem}
