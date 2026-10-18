@@ -41,4 +41,12 @@ Token exchange/canonical redirect uses `Referrer-Policy: no-referrer`; clean gue
 
 Security reference: [OWASP Session Management](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html), reviewed October 17, 2026. Existing member authentication is retained; this limited guest capability does not replace it.
 
-Production deployment and live verification are recorded below once complete.
+## Published and verified
+
+Published implementation **752718b010baa5d88fec70a8d83af25f5afd7f7d** to the existing GitHub main branch using GitHub Desktop; the application is serving the new code at `https://goldtrails.org/`. This release also includes the preceding saved, approved website changes through 163f969. No billing activation, environment change or database migration was performed.
+
+Live HTTP checks: invitation303 to clean homepage with dedicated guest cookie; homepage/map/California/Oregon/West Virginia research/creator-map API/Connections200 for guests; account303 to login; private calendar API401. Without the guest cookie, state and creator-map APIs remain403; public creator video library and clubs directory remain200. No invitation bearer appeared in any checked HTML/JSON response.
+
+Live browser: real invitation opened homepage without a login, full map started with no selected state, keyboard selection opened California research and Clubs & groups. Connections showed the guest tour with personal actions absent. Native Leave preview cleared the banner; reopening the original invitation restored access. At 390 × 844 the welcome strip fit the viewport and document width equaled scroll width (390px). No console errors/warnings in the checked flow. Temporary viewport override reset.
+
+Proof images: task workspace `outputs/guest-plus-2026-10-17/live-guest-homepage.png` and `live-guest-phone.png`. The raw invitation is deliberately absent from screenshots and this note. A live guest homepage tab was retained for Paul.
