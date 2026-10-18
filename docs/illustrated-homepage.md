@@ -4,6 +4,8 @@ Paul supplied the annotated 1672 × 941 design on October 16, 2026. The artwork 
 
 ## Files and behavior
 
+**Latest local follow-up:** [the consolidated homepage critique](homepage-consolidated-critique-2026-10-18.md) implements the requested sidebar controls, navigation order, shorter introduction and Almanac-only card using v4 artwork. It is saved locally and awaits deployment; the verified live release remains `cc70358` until that happens.
+
 **Hero appearance preference, October 18, 2026:** Paul prefers the original illustrated hero: large serif “Explore. Learn. Connect.” with gold “Connect,” its original supporting copy and parchment. He subsequently requested removal of both buttons beneath the hero; the v3 artwork removes them while preserving the scene and lettering. Equivalent HTML text remains available to assistive technology, and reading preferences switch to the flowing text homepage. Menu updates or future design reviews must not replace this hero typography or paint new text/backgrounds over it without a specific request. See [the October 18 saved homepage changes](homepage-member-2026-10-18.md) for the current local draft and publication status; the historical implementation details below describe the original release.
 
 - `app/homepage/clean-artwork.png`: non-destructive ImageGen cleanup of the two annotation labels, leader lines, and circular anchors. Original attached image remains unchanged. No annotations were hidden with overlays.

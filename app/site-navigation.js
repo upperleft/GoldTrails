@@ -22,22 +22,23 @@ function contentBeforeSidebar(html){
  return html;
 }
 export function navigationLinks(path='/',{premium=false}={}){
- const home=path==='/';
- return destinations.filter(([href,,paid])=>!(home&&href==='/plus/')&&(!paid||premium||(home&&href==='/gold-almanac/'))).map(([href,label])=>{
-  // Home has one named Almanac entry: a public description or the member feature.
-  if(home&&href==='/gold-almanac/'){href=premium?href:'/plus/';label=premium?'Almanac':'Almanac · Plus';}
-  return `<a href="${href}"${active(href,path)?' aria-current="page"':''}>${label}</a>`;
- }).join('');
+ if(path==='/'){
+  const libraries=[['/articles/','Articles'],['/glossary/','Glossary'],['/prospectors/','Creators'],['/products/','Products'],...(premium?[['/connections/','Gold Connections']]:[]),['/clubs-groups/','Clubs &amp; Groups']];
+  const search='<details class="home-library-search"><summary>Search</summary><div><p>Choose a library to use its search and filters:</p>'+libraries.map(([href,label])=>`<a href="${href}">${label}</a>`).join('')+'</div></details>';
+  return [['/login/','Sign In'],['/articles/','Articles'],[premium?'/gold-almanac/':'/plus/',premium?'Almanac':'Almanac · Plus'],['/prospectors/','Creators'],['/glossary/','Glossary'],[premium?'/connections/':'/plus/','Gold Connections'],['/products/','Products'],[null,search],['/about-the-camp/','About']].map(([href,label])=>href?`<a href="${href}">${label}</a>`:label).join('');
+ }
+ return destinations.filter(([, ,paid])=>!paid||premium).map(([href,label])=>`<a href="${href}"${active(href,path)?' aria-current="page"':''}>${label}</a>`).join('');
 }
 export function siteNavigationMarkup(html,{path='/',premium=false}={}){
  if(typeof html!=='string'||!html.includes('</head>')||!html.includes('trail-menu')||html.includes('data-site-navigation'))return html;
  const links=navigationLinks(path,{premium});
+ const readingSlot=path==='/'?'<div class="home-reading-slot" data-home-reading-slot></div>':'';
  const menu=/<section\b[^>]*class="[^"]*\btrail-menu\b[^"]*"[^>]*>[\s\S]*?<\/section>/g;
  let found=false;
- let result=html.replace(menu,()=>{found=true;return `<section class="panel trail-menu" data-site-navigation><h2>At the field desk</h2><nav aria-label="Main navigation">${links}</nav></section>`;});
+ let result=html.replace(menu,()=>{found=true;return `<section class="panel trail-menu" data-site-navigation><h2>At the field desk</h2><nav aria-label="Main navigation">${links}</nav>${readingSlot}</section>`;});
  if(!found)return html;
  // The artwork homepage has its own main before the classic text homepage.
- result=result.replace(/<main\b(?![^>]*class="[^"]*home-graphical)[^>]*>/,match=>match+`<details class="site-mobile-menu"><summary>Menu</summary><nav aria-label="Main navigation">${links}</nav></details>`);
+ result=result.replace(/<main\b(?![^>]*class="[^"]*home-graphical)[^>]*>/,match=>match+`<details class="site-mobile-menu"><summary>Menu</summary><nav aria-label="Main navigation">${links}</nav>${readingSlot}</details>`);
  return contentBeforeSidebar(result).replace('</head>',`<link rel="stylesheet" href="${assetUrl('design-refinements.css')}"></head>`);
 }
 export function attachSiteNavigation(req,res,url,{premium=false}={}){

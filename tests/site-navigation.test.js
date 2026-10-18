@@ -53,26 +53,29 @@ test('shared navigation has consistent public labels and premium links only when
  assert.match(freeMenu,/<a href="\/prospectors\/" aria-current="page">Creators &amp; Videos<\/a>/);
  assert.match(paidMenu,/<a href="\/gold-almanac\/" aria-current="page">Almanac<\/a>/);
  assert.doesNotMatch(navigationLinks('/articles/'),/<a href="\/" aria-current/);
- assert.match(navigationLinks('/'),/<a href="\/" aria-current="page"/);
+ assert.doesNotMatch(navigationLinks('/'),/<a href="\/"/,'The homepage logo replaces a separate Home menu choice');
 });
 
 function assertHomeMenus(html,premium){
  const menus=mainMenus(html);assert.equal(menus.length,2,'Homepage sidebar and compact mobile menu both exist');
  assert.equal(menus[0],menus[1],'Homepage menus use the same member-aware destinations');
  for(const menu of menus){
-  const links=hrefs(menu);assert.equal(new Set(links).size,links.length,'Every destination occurs once');
-  assert.equal(links.filter(href=>href==='/products/').length,1,'Products stays available to every viewer');
-  assert.equal(links.filter(href=>href==='/prospectors/').length,1,'Creators and videos remain public');
-  assert.match(menu,/<a href="\/prospectors\/">Creators &amp; Videos<\/a>/);
-  assert.match(menu,new RegExp('<a href="'+(premium?'/gold-almanac/':'/plus/')+'">'+(premium?'Almanac':'Almanac · Plus')+'</a>'));
+  const chooser=menu.match(/<details class="home-library-search">([\s\S]*?)<\/details>/);
+  assert.ok(chooser,'Search is an operable native disclosure, not an invented search route');
+  assert.match(chooser[1],/^<summary>Search<\/summary>/);
+  assert.deepEqual(hrefs(chooser[1]),['/articles/','/glossary/','/prospectors/','/products/',...(premium?['/connections/']:[]),'/clubs-groups/'],'The chooser opens existing library search/filter pages');
+  const primary=menu.replace(chooser[0],'<home-search></home-search>');
+  const labels=[...primary.matchAll(/<a\b[^>]*>([^<]+)<\/a>|<home-search>/g)].map(m=>m[1]||'Search');
+  assert.deepEqual(labels,['Sign In','Articles',premium?'Almanac':'Almanac · Plus','Creators','Glossary','Gold Connections','Products','Search','About']);
+  assert.deepEqual(hrefs(primary),['/login/','/articles/',premium?'/gold-almanac/':'/plus/','/prospectors/','/glossary/',premium?'/connections/':'/plus/','/products/','/about-the-camp/']);
+  assert.equal((primary.match(/Almanac/g)||[]).length,1,'One clear Almanac choice');
   if(premium)assert.doesNotMatch(menu,/Almanac · Plus/,'Entitled homepage visitors do not receive a Plus sales label');
-  assert.equal((menu.match(/Almanac/g)||[]).length,1,'One clear Almanac entry');
-  assert.equal(links.includes('/gold-almanac/'),premium,'Only entitled viewers link directly to the Almanac');
-  assert.equal(links.includes('/plus/'),!premium,'Public Almanac description replaces separate Plus navigation');
-  assert.equal(links.includes('/connections/'),premium,'Connections retains its existing entitlement rule');
-  assert.doesNotMatch(menu,/>Gold Trails Plus<\/a>|Destinations|Creators &amp; Experts/);
-  assert.match(menu,/<a href="\/" aria-current="page">Gold Trails home<\/a>/);
+  else assert.doesNotMatch(menu,/href="\/(?:gold-almanac|connections)\//,'Public navigation never grants a premium destination');
+  assert.doesNotMatch(menu,/>Gold Trails Plus<\/a>|Destinations|Creators &amp; Experts|href="\/"|href="\/search(?:\/|\")/);
  }
+ assert.equal((html.match(/class="home-reading-slot" data-home-reading-slot/g)||[]).length,2,'Both native homepage menus have a reading target');
+ assert.match(html,/<a href="\/about-the-camp\/">About<\/a><\/nav><div class="home-reading-slot" data-home-reading-slot><\/div><\/details>/,'Mobile reading controls follow About outside the navigation');
+ assert.match(html,/<a href="\/about-the-camp\/">About<\/a><\/nav><div class="home-reading-slot" data-home-reading-slot><\/div><\/section>/,'Sidebar reading controls follow About outside the navigation');
 }
 
 test('homepage navigation uses an entitled Almanac label and public Plus description without changing other pages',()=>{
@@ -80,7 +83,7 @@ test('homepage navigation uses an entitled Almanac label and public Plus descrip
   const html=siteNavigationMarkup(staticHTML,{path:'/',premium});assertHomeMenus(html,premium);
   assert.equal(siteNavigationMarkup(html,{path:'/',premium}),html,'Homepage decoration remains idempotent');
   for(const path of ['/articles/','/prospectors/','/plus/']){
-   const other=siteNavigationMarkup(staticHTML,{path,premium});assertMenus(other,premium);
+   const other=siteNavigationMarkup(staticHTML,{path,premium});assertMenus(other,premium);assert.doesNotMatch(other,/home-library-search|data-home-reading-slot/,'Other pages keep their existing navigation and reading placement');
    for(const menu of mainMenus(other))assert.match(menu,/<a href="\/plus\/"(?: aria-current="page")?>Gold Trails Plus<\/a>/,'Other pages keep their Plus navigation');
   }
  }

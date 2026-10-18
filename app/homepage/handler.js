@@ -16,12 +16,9 @@ export function homeHotspots({member=null,guest=false}={}){
  const items=premium?[...hotspots.filter(p=>p.section!=='plus'),...memberPromotionHotspots]:hotspots;
  return items.map(item=>{
   if(item.id==='nav-almanac')return {...item,href:premium?'/gold-almanac/':'/plus/',label:premium?'Almanac':'Almanac — a Gold Trails Plus feature',showPlus:!premium};
-  if(premium&&['nav-almanac-help','nav-connections-help'].includes(item.id))return {...item,premium:false,text:item.id==='nav-connections-help'?'Find events, organize outings, RSVP, and join discussions with other members.':'Explore research, regulations, source links, clubs and groups, and a creator map for all 50 states.'};
-  if(premium||!['nav-connections','nav-connections-help'].includes(item.id))return item;
-  const name='Clubs & Groups';
-  return {...item,name:item.type==='help'?name+' help':name,label:item.type==='help'?'About '+name:name,
-   href:'/clubs-groups/',premium:false,
-   text:'Find gold prospecting clubs, organizations and online groups. The public directory is free to explore.'};
+  if(item.id==='nav-connections')return {...item,href:premium?'/connections/':'/plus/',label:premium?'Gold Connections':'Gold Connections — a Gold Trails Plus feature'};
+  if(premium&&['nav-almanac-help','nav-connections-help'].includes(item.id))return {...item,premium:false,...(item.id==='nav-connections-help'?{text:'Find events, organize outings, RSVP, and join discussions with other members.'}:{})};
+  return item;
  });
 }
 
@@ -29,9 +26,9 @@ function overlay(items,rect,member){return items.map(p=>{
  const style=position(p.rect,rect),name=p.account&&member?'My account':p.name;
  const attrs=`class="home-hotspot home-hotspot-${p.type}${p.section!=='sidebar'&&p.type==='help'?' home-help-roomy':''}" style="${style}" data-home-id="${p.id}" data-home-name="${h(name)}" aria-label="${h(p.account&&member?'My account':p.label)}"`;
  const nav=p.id.startsWith('nav-')&&p.type!=='help';
- const buttonLabel=p.id==='panel-destinations-button'?'Browse creators →':p.id==='panel-articles-button'?'Read articles →':p.id==='panel-glossary-button'?'Browse the glossary →':p.id==='panel-plus-button'?(p.href==='/connections/'?'Open Connections →':'Explore Gold Trails Plus →'):null;
+ const buttonLabel=p.id==='panel-destinations-button'?'Browse creators →':p.id==='panel-articles-button'?'Read articles →':p.id==='panel-glossary-button'?'Browse the glossary →':p.id==='panel-plus-button'?(p.href==='/gold-almanac/'?'Open Almanac →':'Explore Almanac →'):null;
  const visible=nav?`<span class="home-nav-label">${h(name)}${p.showPlus?'<span class="home-nav-plus-badge" aria-hidden="true">Plus</span>':''}</span>`:buttonLabel?`<span class="home-button-label">${h(buttonLabel)}</span>`:`<span class="home-sr">${h(name)}</span>`;
- if(p.type==='link')return `<a ${attrs} href="${p.account&&member?'/account/':p.href}"${p.id==='nav-home'?' aria-current="page"':''}${p.account?' data-home-account':''}>${visible}</a>`;
+ if(p.type==='link')return `<a ${attrs} href="${p.account&&member?'/account/':p.href}"${p.account?' data-home-account':''}>${visible}</a>`;
  return `<button ${attrs} type="button" aria-expanded="false" aria-controls="home-info"${p.type==='help'?` data-home-help="${h(p.text)}"${p.premium?' data-home-premium="plus"':''}`:' data-home-search'}>${p.type==='help'?'<span class="home-help-mark" aria-hidden="true">?</span>':visible}<span class="home-sr">${h(p.label)}</span></button>`;
  }).join('');}
 
@@ -39,25 +36,24 @@ function picture(id,rect){return `<picture><source media="${desktop}" srcset="/a
 
 function liveSceneCopy(premium=false){
  // The original hero lettering is intentional; equivalent text remains accessible below.
- const panel=(id,rect,title,subtitle,text)=>`<section class="home-live-copy home-live-panel" style="${position(rect)}" aria-labelledby="home-live-${id}"><h2 id="home-live-${id}">${title}</h2><p class="home-panel-subtitle">${subtitle}</p><p>${text}</p></section>`;
- return `<section class="home-sr home-hero-copy" aria-labelledby="home-welcome"><p>Gold Trails</p><h1 id="home-welcome">Explore. Learn. Connect.</h1><p>Gold prospecting knowledge, stories, and tools — all in one place.</p><p>Practical how-tos, destination guides, gear advice, real-world experience, and a supportive community of gold prospecting enthusiasts.</p></section>
- ${panel('creators',[327,730,289,124],'Creators &amp; Videos','Free to explore','Meet prospectors and explore their linked videos.')}
- ${panel('articles',[642,730,289,124],'Articles','Practical guides &amp; stories','Practical how-tos, geology and equipment guides.')}
- ${panel('glossary',[957,730,282,124],'Glossary','Words from the gold trail','Clear definitions, tool names and regional words.')}
- <div class="home-live-copy home-live-plus-heading" style="${position([1343,588,231,63])}"><h2>${premium?'Almanac':'Gold Trails Plus'}</h2><p>${premium?'Gold Connections':'Almanac &amp; Connections'}</p></div>
+ const panel=(id,rect,title,subtitle,text)=>`<section class="home-live-copy home-live-panel" style="${position(rect)}" aria-labelledby="home-live-${id}"><h2 id="home-live-${id}">${title}</h2>${subtitle?`<p class="home-panel-subtitle">${subtitle}</p>`:''}<p>${text}</p></section>`;
+ return `<section class="home-sr home-hero-copy" aria-labelledby="home-welcome"><h1 id="home-welcome">Explore. Learn. Connect.</h1><p>Gold prospecting knowledge, real-world experience, and a supportive community of gold prospecting enthusiasts.</p></section>
+ ${panel('creators',[327,730,289,124],'Creators &amp; Videos','','Explore linked videos from gold prospecting creators.')}
+ ${panel('articles',[642,730,289,124],'Articles','Practical guides and stories','Practical how-tos, geology, and mineral science.')}
+ ${panel('glossary',[957,730,282,124],'Glossary','Words from the gold trail','Clear definitions, tool names, and regional words.')}
+ <div class="home-live-copy home-live-plus-heading" style="${position([1343,588,231,63])}"><h2>Almanac${premium?'':' <span class="home-card-plus-badge">Plus</span>'}</h2><p>Gold research, state by state</p></div>
  <p class="home-live-copy home-live-price${premium?' home-member-greeting':''}" style="${position([1573,573,87,88])}"><strong>${premium?'Welcome':'$5'}</strong><span>${premium?'back':'/ month'}</span></p>
- <section class="home-live-copy home-live-plus" style="${position([1435,655,210,183])}" aria-label="${premium?'Almanac and Gold Connections':'Gold Trails Plus benefits'}"><ul><li><strong>50-state Almanac</strong><span>Geology, history, access research &amp; creator map</span></li><li><strong>Gold Connections</strong><span>Create events, RSVP &amp; join discussions</span></li></ul></section>`;
+ <section class="home-live-copy home-live-plus" style="${position([1435,655,210,183])}" aria-label="Almanac features"><ul><li>50 state guides</li><li>Gold geology &amp; history</li><li>Access research &amp; source links</li><li>Creator map</li></ul></section>`;
 }
 
 export function graphicalHome({member=null,guest=false,calibration=false}={}){
  const premium=memberHome({member,guest});
  const items=homeHotspots({member,guest});
- const stage=`<div class="home-art-section home-art-full" style="aspect-ratio:${canvas.width}/${canvas.height}">${picture('full-no-hero-buttons-v3',frame)}${liveSceneCopy(premium)}<nav class="home-art-navigation" aria-label="Homepage navigation">${overlay(items.filter(p=>p.section==='sidebar'),frame,member)}</nav>${overlay(items.filter(p=>p.section!=='sidebar'),frame,member)}</div>`;
+ const stage=`<div class="home-art-section home-art-full" style="aspect-ratio:${canvas.width}/${canvas.height}">${picture('full-home-critique-v4',frame)}${liveSceneCopy(premium)}<nav class="home-art-navigation" aria-label="Homepage navigation">${overlay(items.filter(p=>p.section==='sidebar'),frame,member)}</nav><div class="home-sidebar-tools" style="${position([34,595,235,105])}"><div class="header-tools"></div><button type="button" data-home-text-view>Text view</button></div>${overlay(items.filter(p=>p.section!=='sidebar'),frame,member)}</div>`;
  return `<main class="home-graphical${premium?' home-member-view':''}${calibration?' home-calibration':''}" aria-label="Gold Trails illustrated home">
  <a class="home-skip" href="#home-welcome">Skip illustrated navigation</a>
- <div class="home-art-tools" id="home-libraries"><div class="header-tools"></div><button type="button" data-home-text-view>Text view</button></div>
  <div class="home-full">${stage}</div>
- <div id="home-info" class="home-info" role="dialog" aria-labelledby="home-info-title" hidden><div class="home-info-header"><h2 id="home-info-title"><span data-home-info-title></span><span class="home-plus-badge" data-home-plus-badge hidden>${premium?'':'<span aria-hidden="true">★</span> Plus'}</span></h2><button class="home-info-close" type="button" aria-label="Close information">Close</button></div><p class="home-feature-label" data-home-feature-label hidden>${premium?'':'A Gold Trails Plus feature'}</p><p data-home-info-text></p><div data-home-search-links hidden><p>Choose a library to use its search and filters:</p><a href="/articles/">Articles</a><a href="/glossary/">Glossary</a><a href="/prospectors/">Creators &amp; Videos</a><a href="/products/">Products</a>${premium?'<a href="/connections/">Gold Connections</a>':''}<a href="/clubs-groups/">Clubs &amp; Groups</a></div></div>
+ <div id="home-info" class="home-info" role="dialog" aria-labelledby="home-info-title" hidden><div class="home-info-header"><h2 id="home-info-title"><span data-home-info-title></span><span class="home-plus-badge" data-home-plus-badge hidden>${premium?'':'<span aria-hidden="true">★</span> Plus'}</span></h2><button class="home-info-close" type="button" aria-label="Close information">Close</button></div><p class="home-feature-label" data-home-feature-label hidden>${premium?'':'A Gold Trails Plus feature'}</p><p data-home-info-text></p><div data-home-search-links hidden><p>Choose a library to use its search and filters:</p><a href="/articles/">Articles</a><a href="/glossary/">Glossary</a><a href="/prospectors/">Creators</a><a href="/products/">Products</a>${premium?'<a href="/connections/">Gold Connections</a>':''}<a href="/clubs-groups/">Clubs &amp; Groups</a></div></div>
  ${calibration?'<p class="home-calibration-note">LOCAL CALIBRATION · coordinates in app/homepage/hotspots.js · not enabled in production</p>':''}</main>`;
 }
 
