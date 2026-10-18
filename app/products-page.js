@@ -43,7 +43,7 @@ let shell=shellTemplate;
 shell=shell.replace(/<nav class="breadcrumb"[\s\S]*?<\/nav>/,'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Products</span></nav>');
 shell=shell.replace('<a href="/products/">Products</a>','<a href="/products/" aria-current="page">Products</a>');
 shell=shell.replace('</head>',`<link rel="stylesheet" href="${assetUrl('products.css')}"></head>`).replace('</body>',`<script type="module" src="${assetUrl('products.js')}"></script><script type="module" src="${assetUrl('product-photos.js')}"></script>${productPhotoDialog()}</body>`);
-const intro='<section class="category-intro rust"><div><span class="eyebrow">GOLD TRAILS / EQUIPMENT &amp; FIELD GEAR</span><h1>Products</h1><p>Tools for muddy boots, curious minds, and a day beside the water.</p></div></section>';
+const intro='<section class="category-intro rust"><div><span class="eyebrow">GOLD TRAILS / EQUIPMENT &amp; FIELD GEAR</span><h1>Products</h1><p>Tools for muddy boots, curious minds, and a day beside the water.</p></div><picture class="old-timer-vignette" aria-hidden="true"><source media="(min-width:1100px)" srcset="/assets/old-timer-coffee-v1.webp"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" width="160" height="160" alt="" loading="lazy" decoding="async"></picture></section>';
 const tokens={TITLE:'Products',DESCRIPTION:'Search and explore gold-prospecting equipment, specifications, source links, and documented creator connections.',INTRO:intro,CONTENT:content};
 shell=shell.replace(/\{\{(TITLE|DESCRIPTION|INTRO|CONTENT)\}\}/g,(_,key)=>tokens[key]);
 return shell.replace(/[ \t]+\n/g,'\n');

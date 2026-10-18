@@ -32,7 +32,7 @@ Read-only local previews use `scripts/preview-design.mjs`: public on port 4352, 
 ## Remaining ideas / work
 
 - Review/publish this saved homepage version and verify the live result.
-- Selective, restrained Old-Timer illustrations on other pages were requested for later. Use page-appropriate gestures without increasing top-of-page height or creating new features. No new illustration has been integrated.
+- Follow-up: two restrained Old-Timer illustrations are now implemented locally on Products and Glossary. See [the illustration notes](old-timer-vignettes-2026-10-18.md). They fit within the existing title areas; homepage artwork is unchanged by that follow-up.
 - Optional redundancy cleanup: the first three lower cards each have two identical help buttons and three anchors to the same destination. Treat each card as one visual promotion; consider consolidating keyboard stops/help buttons only after reviewing the interaction. This has not been changed.
 
 After the utility links are removed, Creators, Articles and Glossary have two visible homepage placements each (sidebar and card); Products has one (sidebar). Almanac/Connections use their sidebar and existing card. Do not count a card's image/title/button as three separate visual promotions. The user approved removing the utility links, not a broader redesign.

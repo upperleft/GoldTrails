@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-10-18",
+  "tool": "Built-in image_gen.imagegen",
+  "purpose": "Decorative Gold Trails character illustrations; not documentary or product-identification photographs.",
+  "images": [
+    {
+      "id": "old-timer-reading-v1",
+      "source": "app/artwork/old-timer-reading-v1.png",
+      "web": "dist/assets/old-timer-reading-v1.webp",
+      "width": 384,
+      "height": 351,
+      "bytes": 54540,
+      "references": [
+        "dist/assets/prospector.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: small decorative website vignette on a genuinely transparent background. Reference image: the attached Gold Trails Old-Timer image supplies the character identity and warm illustrated realism; it is a character reference, not an edit target. Create the SAME kindly older prospector, recognizable weathered face, white beard and curled mustache, brown weathered wide-brim hat, light gray work shirt, brown leather vest, red bandana. Chest-up composition including complete hat and both hands. He is quietly reading a small worn unlettered field book held near his chest, eyes gently lowered, faint friendly smile, turned slightly toward the left. Keep the face clear and book compact. Warm natural golden light and fine realistic painted texture matching the reference, calm and dignified, restrained rather than cartoonish. One isolated character, no landscape, no frame, no panel, no writing, no logo, no watermark, no extra people. Leave a narrow transparent margin around the silhouette. Intended to render about 130-160 CSS pixels high beside existing page copy without adding a new block or banner."
+    },
+    {
+      "id": "old-timer-coffee-v1",
+      "source": "app/artwork/old-timer-coffee-v1.png",
+      "web": "dist/assets/old-timer-coffee-v1.webp",
+      "width": 384,
+      "height": 351,
+      "bytes": 53502,
+      "references": [
+        "dist/assets/prospector.png",
+        "app/artwork/old-timer-reading-v1.png"
+      ],
+      "prompt": "Use case: illustration-story. Asset type: small decorative Gold Trails website vignette on a genuinely transparent background. Reference image 1 establishes the Gold Trails Old-Timer's identity and warm illustrated realism. Reference image 2 is the matching reading pose; match its face, outfit, illustration treatment and isolated chest-up scale. Make a NEW pose of the SAME kindly older prospector, weathered face, white beard and curled mustache, brown weathered wide-brim hat, light gray work shirt, brown leather vest and red bandana. He is relaxed and giving a modest friendly smile toward the viewer, gently holding one plain dark-blue enamel camp coffee mug with a pale rim in his right hand near chest level. The other hand rests naturally beneath the mug. Anatomically natural hands, no waving, no thumbs-up, no exaggerated grin. Show full hat, shoulders and both hands; crop at lower chest/forearms with a tidy natural silhouette. Warm natural golden lighting and realistic painted texture. One isolated character only. No background, landscape, furniture, frame, panel, writing, logos, product branding or watermarks. Narrow transparent margin. This is a decorative site character for the Products page, not a photograph identifying or endorsing an actual product. Intended to display about 110 CSS pixels wide beside existing copy."
+    }
+  ]
+}
