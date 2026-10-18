@@ -2,6 +2,7 @@ import {hasPremiumFeature} from '../plus/entitlements.js';
 import {searchCriteria} from '../directory-store.js';
 import {explorerCriteria} from '../prospectors-page.js';
 import {stateBySlug,stateUrl,assembleState} from './model.js';
+import {canadianRegionBySlug,assembleCanada} from './canada.js';
 import {almanacPage,dashboard} from './views.js';
 import {messagePage} from '../directory-views.js';
 import {lockedState} from '../plus/views.js';
@@ -10,6 +11,7 @@ export function createAlmanacHandler({store=null,members=null,owners=null,guests
  // Cache only public state projections. Entries are bounded by the 50-state registry.
  const cache=new Map();
  async function load(state){
+  if(state.id.startsWith('CA-'))return assembleCanada(state,await creators());
   const cached=cache.get(state.id);if(cached&&cached.expires>Date.now())return cached.data;
   let live=null,availability=store?'connected':'offline';
   if(store)try{live=await store(state);}catch{availability='unavailable';log('Gold Almanac public connections unavailable');}
@@ -34,8 +36,10 @@ export function createAlmanacHandler({store=null,members=null,owners=null,guests
    const connections=allowed?await creators():null;send(200,almanacPage({state:null},{preview:!allowed,connections,filters,returnTo:url.pathname+url.search}));return true;
   }
   const canonicalParams=new URLSearchParams(url.searchParams);canonicalParams.delete('state');const canonicalQuery=canonicalParams.size?'?'+canonicalParams.toString():'';
-  const state=stateBySlug(root?url.searchParams.get('state'):slug);
-  if(!state){send(404,api?JSON.stringify({error:'State not found.'}):messagePage('State not found','Choose one of the 50 states from the Gold Almanac.'),api);return true;}
+  const requested=root?url.searchParams.get('state'):slug;
+  const state=stateBySlug(requested)||canadianRegionBySlug(requested);
+  if(state?.id.startsWith('CA-')&&!filters.region)filters.region=state.slug;
+  if(!state){send(404,api?JSON.stringify({error:'State not found.'}):messagePage('Guide not found','Choose a U.S. state or a Canadian province or territory from the Gold Almanac.'),api);return true;}
   if(!api&&(root||url.pathname!==stateUrl(state))){res.writeHead(308,{'Cache-Control':'no-store',Location:stateUrl(state)+canonicalQuery});res.end();return true;}
   try{
    if(!await access()){

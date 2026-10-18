@@ -69,7 +69,7 @@ test('the expanded map retains all 50 original U.S. outlines and adds each Canad
  const html=almanacPage({state:null},{connections:{available:true,records:unifiedCreatorRecords(emptyDirectory)}});
  const mappedRegions=[...html.matchAll(/data-canada-region="([a-z-]+)"/g)].map(m=>m[1]);
  assert.deepEqual(mappedRegions.sort(),provinces);
- for(const slug of provinces)assert.ok(html.includes('href="/gold-almanac/?region='+slug+'#canada-creators"'),slug+' has a working creator-filter fallback, not an invented state guide');
+ for(const slug of provinces)assert.ok(html.includes('href="/gold-almanac/'+slug+'/"'),slug+' has a server-rendered research guide fallback');
  assert.match(html,/id="canada-creators"/,'The Canadian region links have an existing destination');
  assert.match(html,/Statistics Canada/,'The official Canadian boundary source is credited');
  assert.equal((html.match(/class="almanac-map"/g)||[]).length,1,'Canada belongs to the existing unified map');

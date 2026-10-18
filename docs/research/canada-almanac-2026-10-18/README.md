@@ -4,7 +4,7 @@ Actual source check date: **October 18, 2026**.
 
 This research pass covers **all 10 provinces and 3 territories**. It contains **114 cited findings and evidence/planning notes**, **46 source records**, and **12 scoped production statistics**. It preserves 41 open and 5 partly resolved research gaps, plus 10 conflicts or exclusions. Coverage does not mean every requested field has a verified answer.
 
-**Status: saved research, not imported or published.** No existing U.S. state records, map geometry, Canadian creators, profiles, memberships or access permissions were changed. The existing Canadian map remains creator discovery; these files do not silently create province-guide routes.
+**Integration update:** 94 documented findings and 43 supporting sources have now been imported into the working Almanac, with guides for all 13 Canadian jurisdictions. See [integration and verification details](../../almanac-canada-integration-2026-10-18.md). The full source snapshot retains its original research-only status and open investigations. Existing U.S. research, map geometry and public creator access are preserved.
 
 ## Read or reuse
 
