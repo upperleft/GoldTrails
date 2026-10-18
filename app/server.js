@@ -1,6 +1,7 @@
 import{attachReadingMarkup}from'./reading/handler.js';
 import {createPlusHandler,attachPlusMarkup} from './plus/handler.js';
 import {hasPremiumFeature} from './plus/entitlements.js';
+import {guestPlusAccess} from './plus/guest-access.js';
 import http from 'node:http';
 import {attachAnalyticsMarkup} from './analytics/handler.js';
 import {createAlmanacHandler} from './almanac/handler.js';
@@ -16,7 +17,7 @@ import {createGoldPriceFeed} from './gold-price.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
-export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, plus = createPlusHandler(), suggestions = null, analytics = null, directory = null, admin = null, members = null, memberSessions = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler(), root = resolve('dist'), log = console.error } = {}) {
+export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, guests = guestPlusAccess, plus = createPlusHandler(), suggestions = null, analytics = null, directory = null, admin = null, members = null, memberSessions = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler({guests}), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
   function send(req, res, status, body, headers = {}) {
     res.writeHead(status, { 'Content-Type':'text/html; charset=utf-8', 'X-Content-Type-Options':'nosniff', 'Cache-Control':'no-store', ...headers });
@@ -30,10 +31,12 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
     // Match only our known alias; never derive a redirect target from request headers.
     if(canonicalOrigin==='https://goldtrails.org' && req.headers.host?.toLowerCase()==='www.goldtrails.org') {
       const destination=canonicalOrigin+url.pathname+url.search;
-      if(['GET','HEAD'].includes(req.method)) {res.writeHead(308,{Location:destination,'Cache-Control':'no-store'});res.end();}
+      if(['GET','HEAD'].includes(req.method)) {res.writeHead(308,{Location:destination,'Cache-Control':'no-store',...(url.pathname==='/plus/guest/'?{'Referrer-Policy':'no-referrer','X-Robots-Tag':'noindex'}:{})});res.end();}
       else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
       return;
     }
+    if(guests&&await guests.handle(req,res,url))return;
+    guests?.attach(req,res,url);
     // Retired feature: old bookmarks lead to the account; old forms never write data.
     if (!compass && (path === '/compass' || path.startsWith('/compass/'))) {
       if (['GET','HEAD'].includes(req.method)) send(req,res,303,'',{Location:'/account/'});
@@ -120,7 +123,7 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
           if(!filters){send(req,res,400,messagePage('Let’s adjust those filters','Choose a valid view, setting, and sort order.'));return;}
           const data=mergeCatalog(await directory.map());
           let canFindOnMap=false;
-          try { canFindOnMap=await hasPremiumFeature(req,{members:memberSessions},'almanac'); }
+          try { canFindOnMap=await hasPremiumFeature(req,{members:memberSessions,guests},'almanac'); }
           catch { log('Creator map membership check unavailable'); }
           send(req,res,200,prospectorsPage(mapRecords(data.people,data.regions,data.topics),filters,{canFindOnMap}),{'Cache-Control':'private, no-store',Vary:'Cookie'});
         } else if (criteria) {

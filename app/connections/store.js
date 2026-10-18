@@ -49,9 +49,11 @@ export function createConnectionsStore(db,{vault,billingProvider='stripe'}={}){
   }if(report)await c.query("UPDATE connection_reports SET status='resolved' WHERE id=? AND event_id=? AND target_id=?",[report,id,target]);await audit(c,null,id,'owner_moderate_'+action);});},
   ready:async()=>Boolean((await db.query("SELECT version FROM schema_migrations WHERE version='013_gold_connections'")).length),
   async allowWrite(account){await db.query('INSERT INTO connection_limits(account_id,attempts) VALUES(?,1) ON DUPLICATE KEY UPDATE attempts=IF(window_started<DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 15 MINUTE),1,attempts+1),window_started=IF(window_started<DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 15 MINUTE),UTC_TIMESTAMP(6),window_started)',[account]);return Number((await db.query('SELECT attempts FROM connection_limits WHERE account_id=?',[account]))[0].attempts)<=60;},
-  async list(filters={},member=null){
+  async list(filters={},member=null,{canReadPlus=false}={}){
    const where=["e.moderated=0","e.status IN('published','cancelled')",filters.period==='past'?'e.end_utc<UTC_TIMESTAMP(6)':'e.end_utc>=UTC_TIMESTAMP(6)'],values=[];
-   if(member?.effective_level!=='subscriber')where.push("e.visibility='public'");
+   // This trusted read capability is supplied by the handler after validating a
+   // guest pass. It never changes account identity or any write eligibility.
+   if(member?.effective_level!=='subscriber'&&canReadPlus!==true)where.push("e.visibility='public'");
    if(filters.state){const codes=coverageStates(filters.state,filters.range||0).map(s=>s.code);where.push(`e.state_code IN(${codes.map(()=>'?').join(',')})`);values.push(...codes);}
    if(filters.q){where.push("(e.title LIKE ? ESCAPE '=' OR JSON_UNQUOTE(JSON_EXTRACT(e.details_json,'$.description')) LIKE ? ESCAPE '=')");const q='%'+filters.q.replace(/[=%_]/g,'=$&')+'%';values.push(q,q);}
    for(const [field,column]of [['category','category'],['level','experience_level']])if(filters[field]){where.push('e.'+column+'=?');values.push(filters[field]);}

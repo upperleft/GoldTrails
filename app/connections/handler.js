@@ -2,7 +2,8 @@ import {timingSafeEqual} from 'node:crypto';
 import {digest} from '../admin-auth.js';
 import {ConnectionsError,validateEvent,publicEvent,uuid,stateFor,eventUrl,eventFilters,text} from './model.js';
 import {coverageStates} from './geography.js';
-import {shell,nav,invite,directoryPage,groupsPage,eventForm,detailPage,managePage,minePage,preferencesPage,form,hidden,eventCards} from './views.js';
+import {shell,nav,invite,guestNotice,directoryPage,groupsPage,eventForm,detailPage,managePage,minePage,preferencesPage,form,hidden,eventCards} from './views.js';
+import {guestPlusAccess} from '../plus/guest-access.js';
 import {escapeHtml as h} from '../directory-views.js';
 import {calendarIcs} from './ics.js';
 const read=(req,name)=>(req.headers.cookie||'').match(new RegExp(`(?:^|;\\s*)__Host-gold-${name}=([a-f0-9]{64})(?:;|$)`))?.[1]||null;
@@ -13,11 +14,11 @@ async function body(req){
 }
 const revision=f=>{const n=Number(f.get('revision'));if(!Number.isInteger(n)||n<1)throw new ConnectionsError('Reload before saving.');return n;};
 export function connectionsReturnPath(value){if(typeof value!=='string'||value.length>300)return null;return /^\/connections\/(?:mine\/|preferences\/|new\/|states\/[a-z-]+\/|events\/[a-f0-9-]{36}\/(?:edit\/|manage\/)?)?$/.test(value)?value:null;}
-export function createConnectionsHandler({store=null,members=null,owners=null,config=null,vault=null,calendarStore=null,processPhoto=null,unsubscribe=null,log=console.error}={}){
+export function createConnectionsHandler({store=null,members=null,owners=null,guests=guestPlusAccess,config=null,vault=null,calendarStore=null,processPhoto=null,unsubscribe=null,log=console.error}={}){
  const handler=async(req,res,url)=>{
   if(url.pathname==='/connections'){res.writeHead(308,{Location:'/connections/','Cache-Control':'no-store'});res.end();return true;}
   if(!url.pathname.startsWith('/connections/'))return false;
-  let privatePage=false,member=null,csrf=read(req,'form');
+  let privatePage=false,member=null,guest=null,csrf=read(req,'form');
   const send=(status,body,headers={})=>{res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store',Vary:'Cookie','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...(privatePage?{'X-Robots-Tag':'noindex'}:{}),...headers});res.end(req.method==='HEAD'?undefined:body);};
   const json=(status,value)=>send(status,JSON.stringify(value),{'Content-Type':'application/json; charset=utf-8'});
   const redirect=path=>send(303,'',{Location:path});
@@ -37,13 +38,18 @@ export function createConnectionsHandler({store=null,members=null,owners=null,co
     const reports=await store.siteReports();send(200,shell('Gold Connections moderation','<p>Private owner review queue. No attendee email addresses are displayed.</p>'+reports.map(r=>'<section class="resource-placeholder"><h2>'+h(r.title)+'</h2><p>'+h(r.target_type)+' · '+h(r.reason)+'</p>'+form('/connections/moderation/',owner.csrf_token,hidden('eventId',r.event_id)+hidden('targetId',r.target_id)+hidden('targetType',r.target_type)+hidden('reportId',r.id)+'<label>Decision<select name="action"><option value="resolve">Reviewed—keep content</option><option value="hide">Hide content</option></select></label>','Save decision')+'</section>').join('')+(reports.length?'':'<p>No open reports.</p>')));return true;
    }
    member=members&&config?await members.session(read(req,'member')):null;
-   if(url.pathname==='/connections/states/'&&req.method!=='POST'){send(200,groupsPage());return true;}
+   const grant=['GET','HEAD'].includes(req.method)?await guests?.read(req):null;guest=member?.effective_level==='subscriber'?null:grant;
+   if(guest)privatePage=true;
+   if(url.pathname==='/connections/states/'&&req.method!=='POST'){send(200,groupsPage({guest}));return true;}
+   if(guest&&['/connections/new/','/connections/mine/','/connections/preferences/'].includes(url.pathname)){
+    privatePage=true;send(200,shell('A look around Gold Connections',nav({guest})+guestNotice(guest)+'<p>Creating events, managing RSVPs, and changing notification preferences need your own Gold Trails account and the appropriate membership.</p><p><a href="/connections/">Return to Gold Connections events →</a></p>'));return true;
+   }
    const stateMatch=url.pathname.match(/^\/connections\/states\/([a-z-]+)\/$/);
    if(url.pathname==='/connections/'||stateMatch){
     if(req.method==='POST')throw new ConnectionsError('Search with the event filters.',405);
     const params=new URLSearchParams(url.searchParams);let state=null;
     if(stateMatch){state=stateFor(stateMatch[1]);if(!state)throw new ConnectionsError('That state group does not exist.',404);params.set('state',state.code);}
-    const filters=eventFilters(params),result=ready?await store.list(filters,member):{events:[],hasMore:false};send(200,directoryPage(filters,result,{state,member,ready}));return true;
+    const filters=eventFilters(params),result=ready?await store.list(filters,member,{canReadPlus:Boolean(guest)}):{events:[],hasMore:false};send(200,directoryPage(filters,result,{state,member,guest,ready}));return true;
    }
    if(!ready)throw new ConnectionsError('Gold Connections is not enabled on this server yet. Your other Gold Trails features are available.',503);
    if(url.pathname==='/connections/unsubscribe/'){
@@ -53,14 +59,14 @@ export function createConnectionsHandler({store=null,members=null,owners=null,co
     send(200,shell('Turn off Gold Connections emails',form(url.pathname+'?token='+encodeURIComponent(token),'',hidden('confirmation',unsubscribe.confirmation(token)),'Turn off event emails')));return true;
    }
    const photo=url.pathname.match(/^\/connections\/photos\/([a-f0-9-]{36})\/$/);
-   if(photo){if(req.method==='POST')throw new ConnectionsError('Use the event photo controls.',405);const p=await store.photo(photo[1]);if(!p)throw new ConnectionsError('Photo unavailable.',404);const e=await store.get(p.eventId);if(!e||e.moderated&&e.organizerId!==member?.id||e.status==='draft'&&e.organizerId!==member?.id||e.visibility==='plus'&&member?.effective_level!=='subscriber'&&e.organizerId!==member?.id)throw new ConnectionsError('Photo unavailable.',404);privatePage=true;send(200,p.content,{'Content-Type':'image/jpeg','Content-Disposition':'inline','Cache-Control':'private, no-store'});return true;}
+   if(photo){if(req.method==='POST')throw new ConnectionsError('Use the event photo controls.',405);const p=await store.photo(photo[1]);if(!p)throw new ConnectionsError('Photo unavailable.',404);const e=await store.get(p.eventId),own=!guest&&e?.organizerId===member?.id;if(!e||e.moderated&&!own||e.status==='draft'&&!own||e.visibility==='plus'&&member?.effective_level!=='subscriber'&&!own&&!guest)throw new ConnectionsError('Photo unavailable.',404);privatePage=true;send(200,p.content,{'Content-Type':'image/jpeg','Content-Disposition':'inline','Cache-Control':'private, no-store'});return true;}
    const eventMatch=url.pathname.match(/^\/connections\/events\/([a-f0-9-]{36})\/(.*)$/);
    let event=null,organizer=false,participation=null;
-   if(eventMatch){if(!uuid(eventMatch[1]))throw new ConnectionsError('Event unavailable.',404);event=await store.get(eventMatch[1]);if(!event)throw new ConnectionsError('Event unavailable.',404);organizer=event.organizerId===member?.id;
+   if(eventMatch){if(!uuid(eventMatch[1]))throw new ConnectionsError('Event unavailable.',404);event=await store.get(eventMatch[1]);if(!event)throw new ConnectionsError('Event unavailable.',404);organizer=!guest&&event.organizerId===member?.id;
     if((event.status==='draft'||event.moderated)&&!organizer)throw new ConnectionsError('Event unavailable.',404);
-    if(event.visibility==='plus'&&!organizer&&member?.effective_level!=='subscriber'){privatePage=true;send(403,shell('A Plus gathering',invite(eventUrl(event.id))));return true;}
-    participation=member?await store.participation(member.id,event.id):null;
-    privatePage=event.visibility!=='public'||event.status==='draft'||Boolean(member);
+    if(event.visibility==='plus'&&!organizer&&member?.effective_level!=='subscriber'&&!guest){privatePage=true;send(403,shell('A Plus gathering',invite(eventUrl(event.id))));return true;}
+    participation=member&&!guest?await store.participation(member.id,event.id):null;
+    privatePage=event.visibility!=='public'||event.status==='draft'||Boolean(member)||Boolean(guest);
    }
    // Photo bodies are binary and have their own strict bound and CSRF header.
    const upload=eventMatch?.[2]==='photos/'&&req.method==='POST';
@@ -88,6 +94,7 @@ export function createConnectionsHandler({store=null,members=null,owners=null,co
    }
    if(!eventMatch)throw new ConnectionsError('That Gold Connections page does not exist.',404);
    const action=eventMatch[2],base=eventUrl(event.id);
+   if(guest&&['edit/','manage/'].includes(action))throw new ConnectionsError('Event management is private to its organizer.',403);
    if(action==='edit/'){
     requirePlus();privatePage=true;if(!organizer)throw new ConnectionsError('Event unavailable.',404);
     if(f){await store.update(member.id,event.id,validateEvent({...Object.fromEntries(f),recurrence:'none',occurrences:1}),revision(f));redirect(base);return true;}
@@ -140,15 +147,15 @@ export function createConnectionsHandler({store=null,members=null,owners=null,co
    if(f)throw new ConnectionsError('Use the event controls.',405);
    const view=publicEvent(event),canSeePrivate=organizer||member?.effective_level==='subscriber'&&participation?.status==='yes';
    if(canSeePrivate){view.street=event.street;view.zip=event.zip;view.mapUrl=event.mapUrl;view.addressRestricted=false;}
-   let content=detailPage(view,{member,csrf,participation,organizer,meeting:canSeePrivate?vault.open(event.meetingCipher):null,comments:await store.comments(event.id,member?.id),photos:await store.photos(event.id,member?.id)});
-   if(member)content=content.replace('<div class="connections-actions">',`<div class="connections-actions">${form(base+'calendar/',csrf,'','Add to my Gold Trails calendar')}`);
+   let content=detailPage(view,{member,guest,csrf,participation,organizer,meeting:canSeePrivate?vault.open(event.meetingCipher):null,comments:await store.comments(event.id,guest?null:member?.id),photos:await store.photos(event.id,guest?null:member?.id)});
+   if(member&&!guest)content=content.replace('<div class="connections-actions">',`<div class="connections-actions">${form(base+'calendar/',csrf,'','Add to my Gold Trails calendar')}`);
    send(200,content);return true;
   }catch(e){
    const status=e instanceof ConnectionsError?e.status:503,message=e instanceof ConnectionsError?e.message:'Gold Connections is temporarily unavailable. Please try again.';
    if(!(e instanceof ConnectionsError))log('Gold Connections request unavailable');
    privatePage=true;
    if(req.headers['x-connections-csrf'])json(status,{error:message});
-   else if(status===401||status===403)send(status,shell(status===401?'Sign in to join the gathering':'Gold Trails Plus',`<p role="alert">${h(message)}</p>${invite(connectionsReturnPath(url.pathname)||'/connections/')}`));
+   else if(status===401||status===403)send(status,shell(status===401?'Sign in to join the gathering':'Gold Trails Plus',`<p role="alert">${h(message)}</p>${guest?guestNotice(guest):invite(connectionsReturnPath(url.pathname)||'/connections/')}`));
    else send(status,shell('A pause at the gathering',`<p role="alert">${h(message)}</p><p>Use Back to keep your form entries, or <a href="/connections/">return to events</a>.</p>`));return true;
   }
  };

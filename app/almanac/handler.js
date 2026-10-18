@@ -5,7 +5,8 @@ import {stateBySlug,stateUrl,assembleState} from './model.js';
 import {almanacPage,dashboard} from './views.js';
 import {messagePage} from '../directory-views.js';
 import {lockedState} from '../plus/views.js';
-export function createAlmanacHandler({store=null,members=null,owners=null,creators=async()=>({available:false,records:[]}),log=()=>{}}={}){
+import {guestPlusAccess} from '../plus/guest-access.js';
+export function createAlmanacHandler({store=null,members=null,owners=null,guests=guestPlusAccess,creators=async()=>({available:false,records:[]}),log=()=>{}}={}){
  // Cache only public state projections. Entries are bounded by the 50-state registry.
  const cache=new Map();
  async function load(state){
@@ -20,7 +21,7 @@ export function createAlmanacHandler({store=null,members=null,owners=null,creato
   if(!api&&!/^\/gold-almanac(?:\/|$)/.test(url.pathname))return false;
   const send=(status,body,json=false)=>{res.writeHead(status,{'Content-Type':json?'application/json; charset=utf-8':'text/html; charset=utf-8','X-Content-Type-Options':'nosniff','Cache-Control':'private, no-store','Vary':'Cookie',...(!root?{'X-Robots-Tag':'noindex'}:{})});res.end(req.method==='HEAD'?undefined:body);};
   const root=['/gold-almanac','/gold-almanac/'].includes(url.pathname);
-  const access=()=>hasPremiumFeature(req,{members,owners},'almanac');
+  const access=()=>hasPremiumFeature(req,{members,owners,guests},'almanac');
   const filters=explorerCriteria(url.searchParams,searchCriteria(url.searchParams)||{q:'',region:'',topic:'',specialty:''})||{q:'',region:'',topic:'',specialty:'',sort:'az',setting:''};
   if(!['GET','HEAD'].includes(req.method)){res.setHeader('Allow','GET, HEAD');send(405,api?JSON.stringify({error:'Use GET or HEAD.'}):'Use GET or HEAD.',api);return true;}
   if(url.pathname==='/api/gold-almanac/creators/') {
