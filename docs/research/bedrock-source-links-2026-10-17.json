@@ -1,0 +1,212 @@
+{
+  "article": "dist/articles/how-deep-is-bedrock/index.html",
+  "checkedAt": "2026-10-18T01:46:11.706Z",
+  "checkedDateEastern": "2026-10-17",
+  "method": "GET request to each distinct external href (fragments removed for HTTP requests), following redirects. Binary response status/content-type checked without downloading full file. HTTP 403 or bot interstitial alone is not considered a dead link.",
+  "results": [
+    {
+      "url": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf#page=5",
+      "requestUrl": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf",
+      "checkedAt": "2026-10-18T01:46:00.058Z",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    },
+    {
+      "url": "https://pubs.usgs.gov/imap/0767j/plate-1.pdf",
+      "requestUrl": "https://pubs.usgs.gov/imap/0767j/plate-1.pdf",
+      "checkedAt": "2026-10-18T01:46:00.102Z",
+      "httpStatus": 200,
+      "finalUrl": "https://pubs.usgs.gov/imap/0767j/plate-1.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    },
+    {
+      "url": "https://pubs.usgs.gov/mf/0880-B/plate-2.pdf",
+      "requestUrl": "https://pubs.usgs.gov/mf/0880-B/plate-2.pdf",
+      "checkedAt": "2026-10-18T01:46:00.103Z",
+      "httpStatus": 200,
+      "finalUrl": "https://pubs.usgs.gov/mf/0880-B/plate-2.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    },
+    {
+      "url": "https://pubs.usgs.gov/gip/prospect1/goldgip.html",
+      "requestUrl": "https://pubs.usgs.gov/gip/prospect1/goldgip.html",
+      "checkedAt": "2026-10-18T01:46:00.103Z",
+      "httpStatus": 200,
+      "finalUrl": "https://pubs.usgs.gov/gip/prospect1/goldgip.html",
+      "contentType": "text/html",
+      "title": "Gold",
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    },
+    {
+      "url": "https://www.blm.gov/sites/default/files/documents/files/PublicRoom_Alaska_kenai-goldpanning-booklet-2018_FINAL.pdf#page=12",
+      "requestUrl": "https://www.blm.gov/sites/default/files/documents/files/PublicRoom_Alaska_kenai-goldpanning-booklet-2018_FINAL.pdf",
+      "checkedAt": "2026-10-18T01:46:00.725Z",
+      "httpStatus": 200,
+      "finalUrl": "https://www.blm.gov/sites/default/files/documents/files/PublicRoom_Alaska_kenai-goldpanning-booklet-2018_FINAL.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    },
+    {
+      "url": "https://websoilsurvey.sc.egov.usda.gov/App/",
+      "requestUrl": "https://websoilsurvey.sc.egov.usda.gov/App/",
+      "checkedAt": "2026-10-18T01:46:00.726Z",
+      "httpStatus": 200,
+      "finalUrl": "https://websoilsurvey.sc.egov.usda.gov/App/",
+      "contentType": "text/html",
+      "title": "Web Soil Survey - Home",
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    },
+    {
+      "url": "https://www.usgs.gov/maps/quaternary-sediment-thickness-and-bedrock-topography-glaciated-united-states-east-rocky",
+      "requestUrl": "https://www.usgs.gov/maps/quaternary-sediment-thickness-and-bedrock-topography-glaciated-united-states-east-rocky",
+      "checkedAt": "2026-10-18T01:46:00.727Z",
+      "httpStatus": 403,
+      "finalUrl": "https://www.usgs.gov/maps/quaternary-sediment-thickness-and-bedrock-topography-glaciated-united-states-east-rocky",
+      "contentType": "text/html",
+      "title": "ERROR: The request could not be satisfied",
+      "automatedBotBlock": false,
+      "outcome": "automated_access_forbidden",
+      "additionalVerification": {
+        "method": "Directly opened and read in browser during this article research task",
+        "checkedDateEastern": "2026-10-17",
+        "pageTitle": "Quaternary sediment thickness and bedrock topography of the glaciated United States east of the Rocky Mountains | U.S. Geological Survey",
+        "evidence": "USGS landing-page text visible; View Sheet 1 and View Sheet 2 links visible. Page identifies publication January 26, 2018, and authors David R. Soller and Christopher P. Garrity."
+      },
+      "assessment": "Available in browser; automated403 is not a dead-link finding"
+    },
+    {
+      "url": "https://www.usgs.gov/data/preliminary-digital-data-a-3-layer-geologic-model-conterminous-united-states-using-land",
+      "requestUrl": "https://www.usgs.gov/data/preliminary-digital-data-a-3-layer-geologic-model-conterminous-united-states-using-land",
+      "checkedAt": "2026-10-18T01:46:00.728Z",
+      "httpStatus": 403,
+      "finalUrl": "https://www.usgs.gov/data/preliminary-digital-data-a-3-layer-geologic-model-conterminous-united-states-using-land",
+      "contentType": "text/html",
+      "title": "ERROR: The request could not be satisfied",
+      "automatedBotBlock": false,
+      "outcome": "automated_access_forbidden",
+      "additionalVerification": {
+        "method": "Directly opened and read in browser during this article research task; followed View Data Release",
+        "checkedDateEastern": "2026-10-17",
+        "pageTitle": "Preliminary digital data for a 3-layer geologic model of the conterminous United States using land surface, top of bedrock, and top of basement (ver. 1.1, April 2025) | U.S. Geological Survey",
+        "linkedReleaseUrl": "https://www.sciencebase.gov/catalog/item/6524433ed34e44db0e2ec3ed",
+        "evidence": "USGS title, description, author table and View Data Release link visible; ScienceBase release description and download list also read."
+      },
+      "assessment": "Available in browser; automated403 is not a dead-link finding"
+    },
+    {
+      "url": "https://www.nrcs.usda.gov/sites/default/files/2022-08/WSS-Guide-to-Maps-Reports-Tables.pdf#page=3",
+      "requestUrl": "https://www.nrcs.usda.gov/sites/default/files/2022-08/WSS-Guide-to-Maps-Reports-Tables.pdf",
+      "checkedAt": "2026-10-18T01:46:01.075Z",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nrcs.usda.gov/sites/default/files/2022-08/WSS-Guide-to-Maps-Reports-Tables.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    },
+    {
+      "url": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf#page=16",
+      "requestUrl": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf",
+      "checkedAt": "2026-10-18T01:46:01.076Z",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    },
+    {
+      "url": "https://www.usgs.gov/publications/late-jurassic-early-cretaceous-orogenic-gold-mineralization-klamath-mountains",
+      "requestUrl": "https://www.usgs.gov/publications/late-jurassic-early-cretaceous-orogenic-gold-mineralization-klamath-mountains",
+      "checkedAt": "2026-10-18T01:46:01.076Z",
+      "httpStatus": 403,
+      "finalUrl": "https://www.usgs.gov/publications/late-jurassic-early-cretaceous-orogenic-gold-mineralization-klamath-mountains",
+      "contentType": "text/html",
+      "title": "ERROR: The request could not be satisfied",
+      "automatedBotBlock": false,
+      "outcome": "automated_access_forbidden",
+      "additionalVerification": {
+        "method": "Official source successfully opened and read through web tool",
+        "checkedDateEastern": "2026-10-17",
+        "pageTitle": "Late Jurassic-Early Cretaceous orogenic gold mineralization in the Klamath Mountains, California: Constraints from 40Ar/39Ar dating of hydrothermal muscovite | U.S. Geological Survey",
+        "evidence": "Official source text shows January 4, 2022, Ryan D. Taylor and coauthors, 160–140 Ma mineralization, and hydrothermal fluid flow along regional faults."
+      },
+      "assessment": "Available through web reader; automated403 is not a dead-link finding"
+    },
+    {
+      "url": "https://pubs.usgs.gov/publication/sim3392",
+      "requestUrl": "https://pubs.usgs.gov/publication/sim3392",
+      "checkedAt": "2026-10-18T01:46:01.076Z",
+      "httpStatus": 500,
+      "finalUrl": "https://pubs.usgs.gov/publication/sim3392",
+      "contentType": "text/html",
+      "title": "Service Unavailable",
+      "automatedBotBlock": false,
+      "outcome": "http_error",
+      "assessment": "Actual HTTP500 Service Unavailable returned by USGS Publications Warehouse; temporary provider outage observed, not proof of permanently dead URL"
+    },
+    {
+      "url": "https://doi.org/10.5066/P9LGSI6Q",
+      "requestUrl": "https://doi.org/10.5066/P9LGSI6Q",
+      "checkedAt": "2026-10-18T01:46:11.242Z",
+      "httpStatus": 200,
+      "finalUrl": "https://www.sciencebase.gov/catalog/item/6524433ed34e44db0e2ec3ed",
+      "contentType": "text/html;charset=UTF-8",
+      "title": "Preliminary digital data for a 3-layer geologic model of the conterminous United States using land surface, top of bedrock, and top of basement (ver. 1.1, April 2025) - ScienceBase-Catalog",
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    },
+    {
+      "url": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf",
+      "requestUrl": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf",
+      "checkedAt": "2026-10-18T01:46:11.245Z",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf",
+      "contentType": "application/pdf",
+      "title": null,
+      "automatedBotBlock": false,
+      "outcome": "http_available"
+    }
+  ],
+  "supplementalRequests": [
+    {
+      "url": "https://pubs.usgs.gov/sim/3392/sim3392_sheet1.pdf",
+      "checkedAt": "2026-10-18T01:46:54.823Z",
+      "httpStatus": 200,
+      "finalUrl": "https://pubs.usgs.gov/sim/3392/sim3392_sheet1.pdf",
+      "contentType": "application/pdf",
+      "purpose": "Check direct map-sheet alternative while Publications Warehouse record returns HTTP500"
+    },
+    {
+      "url": "https://pubs.usgs.gov/sim/3392/sim3392_sheet2.pdf",
+      "checkedAt": "2026-10-18T01:46:54.779Z",
+      "httpStatus": 200,
+      "finalUrl": "https://pubs.usgs.gov/sim/3392/sim3392_sheet2.pdf",
+      "contentType": "application/pdf",
+      "purpose": "Check direct map-sheet alternative while Publications Warehouse record returns HTTP500"
+    }
+  ],
+  "summary": {
+    "distinctArticleHrefs": 14,
+    "distinctHttpRequestUrls": 12,
+    "http200Hrefs": 10,
+    "automated403Hrefs": 3,
+    "http500Hrefs": 1,
+    "knownPermanentlyDeadUrls": 0
+  },
+  "completedAt": "2026-10-18T01:46:54.823Z"
+}

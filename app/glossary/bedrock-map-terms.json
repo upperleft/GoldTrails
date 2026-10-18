@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-17",
+  "sources": [
+    {
+      "id": "nrcs-ground-down",
+      "title": "From the Ground Down: An Introduction to Iowa Soil Surveys",
+      "publisher": "USDA Natural Resources Conservation Service",
+      "url": "https://www.nrcs.usda.gov/sites/default/files/2024-10/FromTheGroundDown.pdf",
+      "publicationDate": "2015-07",
+      "checkedAt": "2026-10-17",
+      "inspection": "original_pdf_text"
+    },
+    {
+      "id": "nrcs-wss-depth",
+      "title": "Web Soil Survey: Depth to Bedrock — View Description",
+      "publisher": "USDA Natural Resources Conservation Service",
+      "url": "https://websoilsurvey.sc.egov.usda.gov/App/",
+      "publicationDate": null,
+      "checkedAt": "2026-10-17",
+      "inspection": "live_application_description"
+    },
+    {
+      "id": "usgs-sim3392",
+      "title": "Quaternary sediment thickness and bedrock topography of the glaciated United States east of the Rocky Mountains",
+      "publisher": "U.S. Geological Survey",
+      "authors": [
+        "David R. Soller",
+        "Christopher P. Garrity"
+      ],
+      "url": "https://www.usgs.gov/maps/quaternary-sediment-thickness-and-bedrock-topography-glaciated-united-states-east-rocky",
+      "year": 2018,
+      "checkedAt": "2026-10-17",
+      "inspection": "agency_publication_description"
+    },
+    {
+      "id": "usgs-three-layer",
+      "title": "Preliminary digital data for a 3-layer geologic model of the conterminous United States using land surface, top of bedrock, and top of basement (version 1.1, April 2025)",
+      "publisher": "U.S. Geological Survey",
+      "authors": [
+        "Donald Sweetkind",
+        "Kristine L. Zellman",
+        "Judd Goldberg"
+      ],
+      "url": "https://www.usgs.gov/data/preliminary-digital-data-a-3-layer-geologic-model-conterminous-united-states-using-land",
+      "publicationDate": "2024-12-09",
+      "revisionDate": "2025-04",
+      "checkedAt": "2026-10-17",
+      "inspection": "agency_data_release_description"
+    }
+  ],
+  "terms": [
+    {
+      "id": "depth-to-bedrock",
+      "term": "Depth to bedrock",
+      "topic": "Geology",
+      "definition": "The distance down from the ground or soil surface to the bedrock boundary identified by a survey or model. It is different from topsoil thickness. Read the map description: soil surveys can distinguish hard lithic rock from softer paralithic material, and a mapped land-soil depth is not a measurement of gravel in a nearby stream.",
+      "aliases": [
+        "bedrock depth",
+        "depth to rock"
+      ],
+      "relatedTerms": [
+        "Bedrock",
+        "Topsoil",
+        "Lithic bedrock",
+        "Paralithic bedrock"
+      ],
+      "sourceIds": [
+        "nrcs-ground-down",
+        "nrcs-wss-depth"
+      ],
+      "locator": "From the Ground Down, printed page 13 (PDF page 13); Web Soil Survey, Depth to Bedrock description. Stream-channel distinction is Gold Trails' map-reading interpretation.",
+      "pdfPage": 13,
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "bedrock-topography",
+      "term": "Bedrock topography",
+      "topic": "Geology",
+      "definition": "The shape and elevation of the bedrock surface, including buried highs and valleys beneath sediment. A bedrock-topography map describes that rock surface; a sediment-thickness map describes how much sediment covers it. Neither by itself establishes that gold is present.",
+      "aliases": [
+        "bedrock surface",
+        "buried bedrock landscape"
+      ],
+      "relatedTerms": [
+        "Depth to bedrock",
+        "Unconsolidated sediment"
+      ],
+      "sourceIds": [
+        "usgs-sim3392"
+      ],
+      "locator": "Publication description, three-dimensional geometry and regional map purpose. Gold-presence caution is Gold Trails' interpretation of map scope.",
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "lithic-bedrock",
+      "term": "Lithic bedrock",
+      "topic": "Geology",
+      "definition": "In USDA soil surveys, the hardest bedrock category: rock whose material is strongly held together, rather than easily crumbled. It differs from softer paralithic bedrock. The label describes rock hardness, not whether gold occurs in it.",
+      "aliases": [
+        "lithic rock",
+        "hard bedrock"
+      ],
+      "relatedTerms": [
+        "Bedrock",
+        "Paralithic bedrock",
+        "Depth to bedrock"
+      ],
+      "sourceIds": [
+        "nrcs-wss-depth"
+      ],
+      "locator": "Soil Data Explorer → Soil Properties and Qualities → Soil Qualities and Features → Depth to Bedrock → View Description; interpretation of gold content is Gold Trails' caution.",
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "paralithic-bedrock",
+      "term": "Paralithic bedrock",
+      "topic": "Geology",
+      "definition": "In the USDA soil-survey description, rock ranging from extremely weakly to moderately coherent. It can be a weathered layer above harder lithic bedrock. A reported depth to paralithic material therefore need not be the depth to the hard rock surface a prospector has in mind.",
+      "aliases": [
+        "paralithic rock",
+        "soft bedrock",
+        "weathered bedrock"
+      ],
+      "relatedTerms": [
+        "Lithic bedrock",
+        "Depth to bedrock",
+        "False bedrock"
+      ],
+      "sourceIds": [
+        "nrcs-wss-depth"
+      ],
+      "locator": "Soil Data Explorer → Soil Properties and Qualities → Soil Qualities and Features → Depth to Bedrock → View Description; prospecting implication is Gold Trails' interpretation.",
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "soil-horizon",
+      "term": "Soil horizon",
+      "topic": "Geology",
+      "definition": "A layer in a soil profile, distinguished by properties such as color, texture, structure, or organic matter. Horizon labels such as A, B, and C describe different parts of the profile. A horizon is not automatically a gold-bearing layer or solid bedrock.",
+      "aliases": [
+        "soil layer",
+        "soil profile horizon"
+      ],
+      "relatedTerms": [
+        "Topsoil",
+        "Bedrock"
+      ],
+      "sourceIds": [
+        "nrcs-ground-down"
+      ],
+      "locator": "Soil Horizons, printed page 5 (PDF page 5). Prospecting distinction is Gold Trails' interpretation.",
+      "pdfPage": 5,
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "topsoil",
+      "term": "Topsoil",
+      "topic": "Geology",
+      "definition": "The surface mineral-soil layer commonly called the A horizon, often enriched with organic matter and darker than layers below. Its thickness is only one part of the soil profile; it does not include all the material down to bedrock.",
+      "aliases": [
+        "A horizon",
+        "topsoil thickness"
+      ],
+      "relatedTerms": [
+        "Soil horizon",
+        "Depth to bedrock",
+        "Overburden"
+      ],
+      "sourceIds": [
+        "nrcs-ground-down"
+      ],
+      "locator": "Soil Horizons — A Horizon, printed page 5 (PDF page 5).",
+      "pdfPage": 5,
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "unconsolidated-sediment",
+      "term": "Unconsolidated sediment",
+      "topic": "Geology",
+      "definition": "Sediment whose particles have not been firmly bound into solid rock, such as loose sand or gravel. The USGS three-layer model groups unconsolidated and weakly consolidated sediment into its upper layer. That broad model category does not identify a pay streak.",
+      "aliases": [
+        "unconsolidated deposits",
+        "loose sediment"
+      ],
+      "relatedTerms": [
+        "Sedimentary rock",
+        "Bedrock",
+        "Bedrock topography"
+      ],
+      "sourceIds": [
+        "usgs-three-layer"
+      ],
+      "locator": "Data-release description, upper model layer; pay-streak caution is Gold Trails' interpretation of model scope.",
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "crystalline-basement",
+      "term": "Crystalline basement",
+      "topic": "Geology",
+      "definition": "A geological foundation that, in the USGS three-layer model, includes igneous, metamorphic, or highly deformed rocks. Its mapped top can lie below a separate layer of consolidated bedrock. Definitions vary by region, so basement depth must not be substituted for depth to the first bedrock beneath soil or gravel.",
+      "aliases": [
+        "basement rock",
+        "top of basement"
+      ],
+      "relatedTerms": [
+        "Bedrock",
+        "Depth to bedrock",
+        "Metamorphic rock",
+        "Igneous rock"
+      ],
+      "sourceIds": [
+        "usgs-three-layer"
+      ],
+      "locator": "Data-release description, three model layers and regional definitions; distinction from shallow prospecting depth is Gold Trails' interpretation.",
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "quaternary",
+      "term": "Quaternary",
+      "topic": "Geology",
+      "definition": "The geological period that includes the Pleistocene and Holocene. On the USGS regional sediment-thickness map, Quaternary describes the age of the sediments being mapped; it does not describe their gold content.",
+      "aliases": [
+        "Quaternary Period",
+        "Quaternary sediments"
+      ],
+      "relatedTerms": [
+        "Pleistocene",
+        "Holocene",
+        "Unconsolidated sediment"
+      ],
+      "sourceIds": [
+        "usgs-sim3392"
+      ],
+      "locator": "Publication description, Pleistocene–Holocene history and Quaternary map scope; gold-content distinction is Gold Trails' interpretation.",
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "pleistocene",
+      "term": "Pleistocene",
+      "topic": "Geology",
+      "definition": "The geological epoch before the Holocene, when continental glaciers repeatedly advanced and retreated across much of the northern United States. Those glaciations eroded bedrock and deposited sediment, helping create the buried landscape shown on regional maps.",
+      "aliases": [
+        "Pleistocene Epoch",
+        "glacial epoch"
+      ],
+      "relatedTerms": [
+        "Holocene",
+        "Quaternary",
+        "Bedrock topography"
+      ],
+      "sourceIds": [
+        "usgs-sim3392"
+      ],
+      "locator": "Publication description, repeated glaciations and changes to the landscape and bedrock surface.",
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "holocene",
+      "term": "Holocene",
+      "topic": "Geology",
+      "definition": "The current geological epoch following the Pleistocene. The USGS map description explains that erosion and sediment deposition continued after the continental ice sheets receded, including changes in stream valleys. A modern stream channel therefore need not preserve the older landscape unchanged.",
+      "aliases": [
+        "Holocene Epoch",
+        "postglacial"
+      ],
+      "relatedTerms": [
+        "Pleistocene",
+        "Quaternary",
+        "Alluvium"
+      ],
+      "sourceIds": [
+        "usgs-sim3392"
+      ],
+      "locator": "Publication description, continued erosion and deposition since ice-sheet recession; stream-channel implication is Gold Trails' interpretation.",
+      "checkedAt": "2026-10-17"
+    },
+    {
+      "id": "densic-bedrock",
+      "term": "Densic bedrock",
+      "topic": "Geology",
+      "definition": "In the Web Soil Survey Depth to Bedrock report, a dense, noncoherent bedrock category consolidated by processes such as pressure, heat, or dewatering. The report distinguishes it from other densic layers compacted by glaciers, mudflows, or people. Because the report includes densic, lithic, and paralithic bedrock, its boundary does not always mean hard rock.",
+      "aliases": [
+        "densic rock"
+      ],
+      "relatedTerms": [
+        "Depth to bedrock",
+        "Lithic bedrock",
+        "Paralithic bedrock"
+      ],
+      "sourceIds": [
+        "nrcs-wss-depth"
+      ],
+      "locator": "Web Soil Survey, Depth to Bedrock → View Description. This definition follows that report; densic terminology can differ in other soil descriptions.",
+      "checkedAt": "2026-10-17"
+    }
+  ]
+}

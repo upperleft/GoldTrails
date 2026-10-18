@@ -3,6 +3,7 @@ import {readFile,writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {resolve} from 'node:path';
 import {createHash} from 'node:crypto';
+import {expandResearchGlossary} from './build-glossary-research.mjs';
 
 const h=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const normalized=value=>String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
@@ -65,8 +66,10 @@ export function expandGlossary(html,data){
 if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
  const path=new URL('../dist/glossary/index.html',import.meta.url);
  const data=JSON.parse(await readFile(new URL('../app/glossary/regional-terms.json',import.meta.url),'utf8'));
- const result=expandGlossary(await readFile(path,'utf8'),data);
+ const regional=expandGlossary(await readFile(path,'utf8'),data);
+ const researchData=JSON.parse(await readFile(new URL('../app/glossary/bedrock-map-terms.json',import.meta.url),'utf8'));
+ const result=expandResearchGlossary(regional.html,researchData);
  const version=createHash('sha256').update(await readFile(new URL('../dist/glossary.js',import.meta.url))).digest('hex').slice(0,12);
  await writeFile(path,result.html.replace(/src="\/glossary\.js(?:\?[^" ]*)?"/,'src="/glossary.js?v='+version+'"'));
- console.log(`Glossary: ${result.total} terms, including ${result.added} sourced regional words and tool names.`);
+ console.log(`Glossary: ${result.total} terms, including ${regional.added} sourced regional words and ${result.added} soil and bedrock map terms.`);
 }

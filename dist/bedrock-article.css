@@ -1,0 +1,19 @@
+.bedrock-article .layout,.bedrock-article .center,.bedrock-article .reading{min-width:0}
+.bedrock-article .reading>h1{font-size:2rem;line-height:1.35;overflow-wrap:break-word}
+.bedrock-article .reading h2{font-size:1.5rem;line-height:1.4}
+.bedrock-article .reading a{color:#195783;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.bedrock-article .bedrock-contents{padding:14px 18px;border:1px solid var(--line);border-radius:10px;margin:22px 0;background:transparent}
+.bedrock-contents summary{cursor:pointer;font-weight:700;line-height:1.6}
+.bedrock-contents nav{padding-top:8px}.bedrock-article .bedrock-contents a{font-size:1rem;line-height:1.6}
+.bedrock-table-wrap{max-width:100%;overflow-x:auto;margin:20px 0;overscroll-behavior-inline:contain;border:1px solid var(--line);border-radius:10px}
+.bedrock-table-wrap:focus-visible,.bedrock-contents summary:focus-visible{outline:3px solid #a97827;outline-offset:3px}
+.bedrock-comparison{border-collapse:collapse;width:100%;min-width:34rem;font-size:.9375rem;line-height:1.6;text-align:left}
+.bedrock-comparison caption{text-align:left;font-weight:700;padding:14px 16px;background:#f1e4bf;color:#3e3024}
+.bedrock-comparison th,.bedrock-comparison td{vertical-align:top;padding:14px 16px;border-bottom:1px solid var(--line)}
+.bedrock-comparison thead{background:#f6edda}.bedrock-comparison th{font-weight:700}.bedrock-comparison tbody th{width:39%}.bedrock-comparison th span{display:block;font-weight:400;margin-top:5px}
+.bedrock-article .reading .reference-list{font-size:.875rem;line-height:1.75;padding-left:22px}
+.bedrock-walkthrough li{padding-left:3px}
+html[data-reading-dark] .bedrock-article .reading a{color:#a9d4f2}
+html[data-reading-dark] .bedrock-comparison caption,html[data-reading-dark] .bedrock-comparison thead{background:#3b3426;color:#f5e8ca}
+@media(max-width:650px){.bedrock-article .reading>h1{font-size:1.7rem}.bedrock-article .reading{padding:20px}.bedrock-article .bedrock-contents{padding:12px 14px}.bedrock-comparison th,.bedrock-comparison td{padding:12px}}
+@media print{.bedrock-table-wrap{overflow:visible}.bedrock-comparison{min-width:0}.bedrock-contents{display:none}}
