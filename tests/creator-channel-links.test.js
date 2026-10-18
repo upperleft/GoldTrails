@@ -1,8 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {creatorYoutubeDestination,creatorYoutubeLink,youtubeDestination} from '../app/creator-channel-links.js';
 import {catalogProfile,creatorCatalog} from '../app/creator-catalog.js';
 import {videoLibraryFor} from '../app/creator-video-library.js';
+const canadaReview=JSON.parse(readFileSync(new URL('../docs/research/canadian-creator-locations-2026-10-18.json',import.meta.url),'utf8'));
+const canadianAdditions=new Set(canadaReview.creators.filter(c=>c.verification?.videos?.length).map(c=>c.slug));
 
 test('YouTube links reject unsafe, unrelated and incomplete destinations',()=>{
  for(const url of ['javascript:alert(1)','https://youtube.com.evil.example/@name','https://user:pass@youtube.com/@name','https://youtube.com:123/@name','https://youtube.com/results?search_query=gold','https://youtu.be/not-valid'])assert.equal(youtubeDestination(url),null,url);
@@ -23,9 +26,11 @@ test('six new checked channels are shown prominently without replacing existing 
   assert.match(creatorYoutubeLink(p),/target="_blank" rel="noopener noreferrer"/);
  }
 });
-test('prominent links distinguish source videos from channels and preserve all 84 profiles',()=>{
- const roster=creatorCatalog();assert.equal(roster.length,84);
- assert.equal(roster.filter(p=>creatorYoutubeDestination(p)).length,75);
+test('prominent links distinguish source videos from channels and preserve the original 84 profiles alongside Canadian additions',()=>{
+ const roster=creatorCatalog(),previous=roster.filter(p=>!canadianAdditions.has(p.slug));assert.equal(previous.length,84);
+ assert.equal(previous.filter(p=>creatorYoutubeDestination(p)).length,75);
+ assert.equal(roster.length,previous.length+canadianAdditions.size);
+ for(const slug of canadianAdditions)assert.equal(creatorYoutubeDestination(roster.find(p=>p.slug===slug)).isChannel,true,slug);
  assert.match(creatorYoutubeLink({official_url:'https://www.youtube.com/watch?v=Abcd_123-XY'}),/Related video on YouTube/);
  for(const p of roster.filter(p=>creatorYoutubeDestination(p)))assert.ok(catalogProfile(p).includes('creator-youtube-link'));
 });

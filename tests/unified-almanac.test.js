@@ -7,11 +7,11 @@ import {createServer} from '../app/server.js';
 import {nugget,creatorPlacements,creatorPopup} from '../dist/creator-map-shared.js';
 const directory={map:async()=>({people:[],regions:[],topics:[]}),profile:async()=>null,catalogAllowed:async()=>true};
 const active='a'.repeat(64),free='b'.repeat(64);
-test('unified projection retains one published record per creator and does not put international creators on U.S. states',()=>{
+test('unified projection retains one published record per creator and maps Canadian creators separately from U.S. insets',()=>{
  const records=unifiedCreatorRecords({people:[],regions:[],topics:[],excludedSlugs:['pioneer-pauly']});
  assert.equal(new Set(records.map(p=>p.slug)).size,records.length);assert.ok(!records.some(p=>p.slug==='pioneer-pauly'));
- const bill=records.find(p=>p.slug==='bill-southern');assert.ok(bill.mapPoint?.every(Number.isFinite));assert.equal(bill.mapRegion.label,'Arizona');
- const dan=records.find(p=>p.slug==='dan-hurd');assert.equal(dan.mapPoint,null);assert.equal(dan.mapRegion,null);assert.equal(dan.slug,'dan-hurd');
+ const bill=records.find(p=>p.slug==='bill-southern');assert.ok(bill.mapPoint?.every(Number.isFinite));assert.equal(bill.mapRegion.label,'Arizona');assert.equal(bill.mapCountry,'US');
+ const dan=records.find(p=>p.slug==='dan-hurd');assert.ok(dan.mapPoint?.every(Number.isFinite));assert.equal(dan.mapRegion.label,'Peachland, British Columbia');assert.equal(dan.mapCountry,'CA');assert.equal(dan.slug,'dan-hurd');
  assert.equal(records.find(p=>p.slug==='adventure-gold').mapPoint,null);
  const regions=[{slug:'a',regions:[{label:'X',lat:40,lng:-100}]},{slug:'b',regions:[{label:'X',lat:40,lng:-100}]}];assert.deepEqual(creatorPlacements(regions),creatorPlacements([...regions].reverse()));assert.notDeepEqual(creatorPlacements(regions).get('a'),creatorPlacements(regions).get('b'));assert.match(nugget,/fill="#dba12c"/);
 });
@@ -30,9 +30,9 @@ test('whole map and creator JSON require Plus; directory, profiles and videos st
  const server=createServer({almanac,directory,goldPrice:async()=>({}),log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));
  const root='http://127.0.0.1:'+server.address().port,request=(p,token)=>fetch(root+p,{redirect:'manual',headers:token?{Cookie:'__Host-gold-member='+token}:{}});
  for(const token of [null,free,'f'.repeat(64)]){const preview=await request('/gold-almanac/',token);assert.equal(preview.status,200);assert.doesNotMatch(await preview.text(),/class="almanac-map"|data-state="|id="almanac-creator-data"/);assert.equal((await request('/api/gold-almanac/creators/',token)).status,403);assert.equal((await request('/gold-almanac/texas/',token)).status,403);}assert.equal(creatorLookups,0);
- const full=await request('/gold-almanac/',active),html=await full.text();assert.equal(full.status,200);assert.equal((html.match(/class="almanac-map"/g)||[]).length,1);assert.equal((html.match(/data-state="/g)||[]).length,50);assert.doesNotMatch(html,/aria-pressed="true"/);assert.match(html,/id="almanac-creator-data"/);assert.match(html,/Creators beyond this U.S. map/);assert.match(html,/almanac-creators.js/);
- const api=await request('/api/gold-almanac/creators/',active);assert.equal(api.status,200);assert.equal(api.headers.get('cache-control'),'private, no-store');assert.equal((await api.json()).records.length,84);
+ const full=await request('/gold-almanac/',active),html=await full.text();assert.equal(full.status,200);assert.equal((html.match(/class="almanac-map"/g)||[]).length,1);assert.equal((html.match(/data-state="/g)||[]).length,50);assert.doesNotMatch(html,/aria-pressed="true"/);assert.match(html,/id="almanac-creator-data"/);assert.match(html,/Creators beyond this map/);assert.match(html,/almanac-creators.js/);
+ const api=await request('/api/gold-almanac/creators/',active);assert.equal(api.status,200);assert.equal(api.headers.get('cache-control'),'private, no-store');const apiRecords=(await api.json()).records;assert.equal(apiRecords.length,unifiedCreatorRecords({people:[],regions:[],topics:[]}).length);
  for(const path of ['/prospectors/','/prospectors/dan-hurd/','/prospectors/dan-hurd/videos/','/api/prospectors/dan-hurd/videos/']){const r=await request(path);assert.equal(r.status,200,path);}
- const list=await(await request('/prospectors/')).text();assert.doesNotMatch(list,/id="creator-map"/);assert.equal((list.match(/class="map-person"/g)||[]).length,84);
+ const list=await(await request('/prospectors/')).text();assert.doesNotMatch(list,/id="creator-map"/);assert.equal((list.match(/class="map-person"/g)||[]).length,apiRecords.length);
  const redirect=await request('/prospectors/?view=map&q=Bill&region=arizona');assert.equal(redirect.headers.get('location'),'/gold-almanac/?q=Bill&region=arizona');
 });

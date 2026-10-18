@@ -83,17 +83,23 @@
     "slug": "crux-prospecting",
     "name": "Crux Prospecting / Cyle Haddon",
     "official_url": "https://cruxprospecting.com/?setCurrencyId=1",
-    "region": null,
+    "region": "British Columbia, Canada",
     "status": "verified",
-    "checked_at": "2026-10-09"
+    "checked_at": "2026-10-09",
+    "region_source": "https://cruxprospecting.com/videos/",
+    "region_checked_at": "2026-10-18",
+    "region_type": "documented_video_coverage"
   },
   {
     "slug": "dan-hurd",
     "name": "Dan Hurd",
     "official_url": "https://www.youtube.com/@Danhurd",
-    "region": "British Columbia, Canada",
+    "region": "Peachland, British Columbia, Canada",
     "status": "published",
-    "checked_at": "2026-10-07"
+    "checked_at": "2026-10-07",
+    "region_source": "https://danhurdprospecting.com/about/",
+    "region_checked_at": "2026-10-18",
+    "region_type": "approximate_public_town_region"
   },
   {
     "slug": "dave-mccracken",
@@ -406,7 +412,10 @@
     "official_url": "https://www.youtube.com/@PioneerPauly",
     "region": "Vancouver Island, Canada",
     "status": "published",
-    "checked_at": "2026-10-07"
+    "checked_at": "2026-10-07",
+    "region_source": "https://cruxprospecting.com/videos/",
+    "region_checked_at": "2026-10-18",
+    "region_type": "documented_video_coverage"
   },
   {
     "slug": "prospection-de-loisir",
@@ -542,7 +551,10 @@
     "official_url": "https://www.yukondan.com/index.html",
     "region": "Yukon and British Columbia, Canada",
     "status": "verified",
-    "checked_at": "2026-10-09"
+    "checked_at": "2026-10-09",
+    "region_source": "https://www.yukondan.com/",
+    "region_checked_at": "2026-10-18",
+    "region_type": "documented_public_coverage"
   },
   {
     "slug": "ghost-town-living",
@@ -598,7 +610,9 @@
         "publication_date": null,
         "verified_at": "2026-10-16"
       }
-    ]
+    ],
+    "region_checked_at": "2026-10-18",
+    "region_type": "documented_video_coverage"
   },
   {
     "slug": "gold-putz",
@@ -961,6 +975,74 @@
         "source_title": "Creator’s YouTube channel",
         "publication_date": null,
         "verified_at": "2026-10-16"
+      }
+    ]
+  },
+  {
+    "slug": "nick-molnar",
+    "name": "Nick Molnar",
+    "official_url": "https://www.youtube.com/@SuperNmolnar",
+    "youtube_channel_id": "UClqiCo-ZHKOBYtpEPDVcGnA",
+    "channel_aliases": [
+      "https://www.youtube.com/channel/UClqiCo-ZHKOBYtpEPDVcGnA"
+    ],
+    "region": "Ontario, Canada",
+    "region_source": "https://www.youtube.com/watch?v=6M1zv-cXdA4",
+    "region_type": "documented_video_coverage",
+    "region_checked_at": "2026-10-18",
+    "status": "verified",
+    "checked_at": "2026-10-18",
+    "verification_scope": "channel_identity_and_public_location_metadata_only",
+    "search_aliases": "SuperNmolnar Ontario Canada gold panning prospecting",
+    "summary": "Nick Molnar has published gold-panning and prospecting-kit videos labeled Ontario, Canada.",
+    "biography": [
+      {
+        "text": "In a January 2022 video, Nick shares gold he says he panned during 2021 and signs off from Ontario, Canada. That published coverage supports a broad Ontario marker; it does not establish his residence or an exact prospecting site.",
+        "source_url": "https://www.youtube.com/watch?v=6M1zv-cXdA4",
+        "source_title": "Ontario gold-panning video and description",
+        "publication_date": "2022-01-11",
+        "verified_at": "2026-10-18"
+      },
+      {
+        "text": "A second video introduces a gold-panning kit for prospecting in Ontario. The linked examples are historical uploads, and their titles and uploader identity were checked against YouTube metadata.",
+        "source_url": "https://www.youtube.com/watch?v=MesBdGiTq2M",
+        "source_title": "Ontario panning-kit video",
+        "publication_date": "2022-07-21",
+        "verified_at": "2026-10-18"
+      }
+    ]
+  },
+  {
+    "slug": "chercheurs-dor-du-quebec",
+    "name": "chercheurs d’or du Québec",
+    "official_url": "https://www.youtube.com/@chercheursdorduquebec5068",
+    "youtube_channel_id": "UCVUyNahOPwuDK-XEovRWY7Q",
+    "channel_aliases": [
+      "https://www.youtube.com/channel/UCVUyNahOPwuDK-XEovRWY7Q"
+    ],
+    "region": "Quebec, Canada",
+    "region_source": "https://www.youtube.com/channel/UCVUyNahOPwuDK-XEovRWY7Q",
+    "region_type": "documented_video_coverage",
+    "region_checked_at": "2026-10-18",
+    "status": "verified",
+    "checked_at": "2026-10-18",
+    "verification_scope": "channel_identity_and_public_location_metadata_only",
+    "search_aliases": "chercheurs d or du Quebec chercheursdorduquebec5068 orpaillage gold panning Quebec Québec Canada French",
+    "summary": "French-language gold-panning outings presented under the chercheurs d’or du Québec channel.",
+    "biography": [
+      {
+        "text": "The channel describes looking for gold as a pastime and publishes French-language gold-panning outings under the name chercheurs d’or du Québec. Its public name and video titles support province-level Québec coverage, rather than an exact location or a residence.",
+        "source_url": "https://www.youtube.com/channel/UCVUyNahOPwuDK-XEovRWY7Q",
+        "source_title": "Creator’s public YouTube channel",
+        "publication_date": null,
+        "verified_at": "2026-10-18"
+      },
+      {
+        "text": "The linked 2019 outing with Gabriel and 2016 prospecting video are historical examples. Their titles and uploader identity were confirmed with YouTube metadata; they do not establish current access permission at any location shown.",
+        "source_url": "https://www.youtube.com/watch?v=jC2NYbmSMBU",
+        "source_title": "Gold-panning outing with Gabriel",
+        "publication_date": "2019-07-28",
+        "verified_at": "2026-10-18"
       }
     ]
   }

@@ -56,6 +56,7 @@
   catch{status.textContent='State link: '+url;const input=document.createElement('input');input.value=url;input.readOnly=true;input.setAttribute('aria-label','Copy this state link');status.append(input);input.focus();input.select();}
  });
  details.addEventListener('click',()=>requestAnimationFrame(()=>document.getElementById('state-heading')?.focus({preventScroll:true})));
+ window.addEventListener('gold-trails:canada-region',()=>{clearSelection();status.textContent='Canadian creator coverage selected. Matching profiles and videos are listed below the map.';});
  window.addEventListener('popstate',()=>{
   if(['/gold-almanac','/gold-almanac/'].includes(location.pathname)){clearSelection();return;}
   const slug=location.pathname.match(/^\/gold-almanac\/([a-z-]+)\/$/)?.[1];

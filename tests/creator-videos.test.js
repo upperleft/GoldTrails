@@ -6,6 +6,9 @@ import {validateVideoLibrary,videoLibraryFor,videoLibraryCount,videoLibraryLink,
 
 const catalog=JSON.parse(readFileSync(new URL('../app/creator-catalog.json',import.meta.url),'utf8'));
 const libraryData=JSON.parse(readFileSync(new URL('../app/creator-video-library.json',import.meta.url),'utf8'));
+const previousExpansion=JSON.parse(readFileSync(new URL('../database/map-data/creator-video-expansion-2026-10-17.json',import.meta.url),'utf8'));
+const canadaReview=JSON.parse(readFileSync(new URL('../docs/research/canadian-creator-locations-2026-10-18.json',import.meta.url),'utf8'));
+const canadianAdditions=canadaReview.creators.filter(c=>c.verification?.videos?.length);
 const channelId='UC'+'A'.repeat(22);
 const fixture=()=>({version:1,checkedAt:'2026-10-12',creators:[{slug:'test-creator',name:'Test creator',channelId,channelUrl:'https://www.youtube.com/channel/'+channelId,videos:[{id:'Abcd_123-XY',title:'A panning lesson',url:'https://www.youtube.com/watch?v=Abcd_123-XY',channelId,ownershipStatus:'source_checked',checkedAt:'2026-10-12',subject:'Beginner panning',tags:['panning']}]}]});
 const picked=()=>{
@@ -38,8 +41,8 @@ test('video metadata rejects spoofed owners, unsafe destinations and duplicate i
 });
 
 test('the shipped library contains roster matches and public link metadata without unreviewed research fields',()=>{
-  assert.equal(libraryData.creators.length,61);
-  assert.equal(libraryData.creators.reduce((count,c)=>count+c.videos.length,0),226);
+  assert.equal(libraryData.creators.length,previousExpansion.totalLibraryCreators+canadianAdditions.length);
+  assert.equal(libraryData.creators.reduce((count,c)=>count+c.videos.length,0),previousExpansion.totalVideos+canadianAdditions.reduce((count,c)=>count+c.verification.videos.length,0));
   const roster=new Set(catalog.map(c=>c.slug));
   const forbidden=['description_excerpt','research_notes','published_label_or_date','views_at_scan','duration_minutes','region','discovery_method','transcript_verified','claim_verified','originalRecord','private_notes','reviewer_note'];
   for(const creator of libraryData.creators){
@@ -50,6 +53,21 @@ test('the shipped library contains roster matches and public link metadata witho
     for(const video of publicLibrary.videos){assert.equal(video.ownershipStatus,'source_checked');assert.equal(video.channelId,creator.channelId);}
   }
   assert.doesNotThrow(()=>validateVideoLibrary(libraryData));
+});
+
+test('new Ontario and Quebec video libraries retain the checked uploader and individual primary metadata evidence',()=>{
+  assert.deepEqual(canadianAdditions.map(c=>c.slug).sort(),['chercheurs-dor-du-quebec','nick-molnar']);
+  for(const source of canadianAdditions){
+    const library=videoLibraryFor(source.slug);assert.ok(library,source.slug);
+    assert.equal(library.channelId,source.channel_id);assert.equal(library.checkedAt,canadaReview.checked_at);
+    assert.equal(source.verification.channel_http_status,200);assert.equal(source.verification.channel_external_id,source.channel_id);
+    assert.deepEqual(library.videos.map(v=>v.id).sort(),source.verification.videos.map(v=>v.id).sort());
+    for(const video of library.videos){
+      const checked=source.verification.videos.find(v=>v.id===video.id);assert.equal(video.title,checked.title);assert.equal(video.channelId,source.channel_id);
+      assert.equal(checked.oembed_http_status,200);assert.equal(checked.author_url,source.canonical_channel_url);
+      assert.equal(video.ownershipStatus,'source_checked');
+    }
+  }
 });
 
 test('library lookups do not let callers mutate the shared catalog and missing creators have no button',()=>{

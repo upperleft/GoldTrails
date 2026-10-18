@@ -20,13 +20,22 @@
 
 .almanac-page [hidden]{display:none!important}
 /* One existing state illustration, enhanced with the existing creator controls. */
-#almanac-unified-map{width:100%;aspect-ratio:1100/650;background:transparent;isolation:isolate;font:inherit}
+#almanac-unified-map{width:100%;height:clamp(420px,65vw,720px);background:transparent;isolation:isolate;font:inherit}
 #almanac-unified-map .almanac-map{padding:0;max-width:none}
 .almanac-creator-popup .leaflet-popup-content{max-height:none}
 .almanac-creator-popup .leaflet-popup-content p{margin:.65em 0;line-height:1.45}
 .almanac-creator-popup .leaflet-popup-content a{display:block;min-height:32px;align-content:center;margin:.25em 0}
 .almanac-map-wrap .leaflet-container{background:transparent}
 .almanac-creator-list{padding:24px}
+.almanac-canada-creators{padding:24px;margin-top:24px;scroll-margin-top:20px}
+.almanac-canada-creators h2{font:var(--weight-strong) var(--type-heading)/1.5 'Libre Baskerville',Georgia,serif;margin:0 0 12px}
+.almanac-canada-creators p,.almanac-canada-creators li{font-size:var(--type-body);line-height:1.65}
+.almanac-canada-creators ul{list-style:none;padding:0;margin:12px 0}
+.almanac-canada-creators li{padding:12px 0;border-bottom:1px dashed var(--line)}
+.almanac-canada-creators .creator-video-link{display:inline-flex;margin:7px 0 0 12px}
+.almanac-province .almanac-outline{fill-rule:evenodd}
+.almanac-map[data-map-bounds] .almanac-state text{font-size:18px}
+@media(max-width:750px){#almanac-unified-map{height:480px}.almanac-canada-creators{padding:18px}.almanac-canada-creators .creator-video-link{display:flex;width:fit-content;margin-left:0}}
 .almanac-creator-list ul{padding-left:1.25rem}
 .almanac-creator-list li{margin:.7rem 0}
 .almanac-map-panel .explorer-form{margin:1rem 0}

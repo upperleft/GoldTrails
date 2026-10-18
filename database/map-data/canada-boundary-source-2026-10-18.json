@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-10-18",
+  "downloadedAt": "2026-10-18T20:00:04.580Z",
+  "publisher": "Statistics Canada; Statistical Geomatics Centre",
+  "title": "2021 Population Ecumene Boundary Files — province and territory cartographic boundary layer",
+  "referenceYear": 2021,
+  "publicationDate": "2022-02-09",
+  "layerId": 0,
+  "layerName": "PR - lpr_000e21s_e",
+  "sourceUrl": "https://geo.statcan.gc.ca/geo_wa/rest/services/2021/Population_ecumene_boundary_files/MapServer/0/",
+  "queryUrl": "https://geo.statcan.gc.ca/geo_wa/rest/services/2021/Population_ecumene_boundary_files/MapServer/0/query/?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&maxAllowableOffset=0.025&geometryPrecision=4&f=geojson",
+  "metadataUrl": "https://geo.statcan.gc.ca/geo_wa/rest/services/2021/Population_ecumene_boundary_files/MapServer/?f=pjson",
+  "sourceFile": "database/map-data/canada-provinces-2021.geojson",
+  "sha256": "b1b9f9b209dbdab85ba39b0ff4ec7378e27b84cde6d118f11df4ce7323cd779b",
+  "bytes": 601245,
+  "featureCount": 13,
+  "sourceUids": [
+    "10",
+    "11",
+    "12",
+    "13",
+    "24",
+    "35",
+    "46",
+    "47",
+    "48",
+    "59",
+    "60",
+    "61",
+    "62"
+  ],
+  "originalCrs": "EPSG:3347 — NAD83 / Statistics Canada Lambert",
+  "downloadCrs": "EPSG:4326 — WGS84 longitude/latitude",
+  "queryGeneralization": {
+    "maxAllowableOffset": 0.025,
+    "geometryPrecision": 4
+  },
+  "licence": "Open Government Licence — Canada",
+  "licenceUrl": "https://open.canada.ca/en/open-government-licence-canada",
+  "licenceInspection": "The downloaded official service metadata explicitly declares the Open Government Licence — Canada. The Statistics Canada Open Licence was also reviewed directly for reuse and adaptation/source-acknowledgement terms.",
+  "licenceTermsReviewedUrl": "https://www.statcan.gc.ca/en/terms-conditions/open-licence",
+  "attribution": "Adapted from Statistics Canada, 2021 Population Ecumene Boundary Files, province and territory cartographic boundaries (2021). This does not constitute an endorsement by Statistics Canada of this product. Contains information licensed under the Open Government Licence — Canada.",
+  "scope": "All 10 provinces and 3 territories; this is layer 0 of the service, not the separate population ecumene polygons in layer 2. Generalized cartographic boundaries provide map context, not prospecting permission or parcel boundaries.",
+  "compilation": {
+    "script": "scripts/build-canada-map.mjs",
+    "output": "app/almanac/canada-provinces.json",
+    "projection": "d3-geo geoAlbers",
+    "scale": 1300,
+    "translate": [
+      487.5,
+      305
+    ],
+    "parallels": [
+      29.5,
+      45.5
+    ],
+    "rotate": [
+      96,
+      0
+    ],
+    "center": [
+      -0.6,
+      38.7
+    ],
+    "pathDigits": 1,
+    "winding": "Project each nondegenerate closed ring independently with d3 spherical clockwise winding; SVG evenodd fill restores nested holes and avoids generalized source hole/island grouping artifacts. The WGS84 download remains unchanged.",
+    "usGeometry": "Existing app/almanac/states.json is read for a byte-preservation assertion and is never written",
+    "minimumRingAreaSquareDegrees": 1e-8,
+    "renderFillRule": "evenodd",
+    "sourceRings": 2768,
+    "collapsedRings": 213
+  }
+}

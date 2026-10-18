@@ -12,6 +12,9 @@ import {matchesCreator} from '../dist/prospectors-data.js';
 const root=new URL('../research/creator-discovery/2026-10-16/',import.meta.url);
 const read=name=>JSON.parse(readFileSync(new URL(name,root),'utf8'));
 const baseline=read('baseline.json'),additions=read('new-creators.json'),manifest=read('manifest.json');
+const canadaReview=JSON.parse(readFileSync(new URL('../docs/research/canadian-creator-locations-2026-10-18.json',import.meta.url),'utf8'));
+const canadianAdditions=new Set(canadaReview.creators.filter(c=>c.verification?.videos?.length).map(c=>c.slug));
+const regionalFields=['region','region_source','region_checked_at','region_type'];
 
 test('discovery import accounts for every submitted record and preserves all existing research',()=>{
  assert.equal(createHash('sha256').update(readFileSync(new URL('original.json',root))).digest('hex'),manifest.source_sha256);
@@ -21,15 +24,25 @@ test('discovery import accounts for every submitted record and preserves all exi
  assert.equal(crosswalk.filter(r=>r.decision==='preserve_existing').length,12);
  assert.equal(crosswalk.filter(r=>r.decision==='hold_identity_conflict').length,1);
  assert.equal(leads.filter(r=>r.decision==='preserve_existing').length,4);
- const catalog=creatorCatalog();assert.equal(catalog.length,baseline.catalog.length+14);
- for(const old of baseline.catalog)assert.deepEqual(catalog.find(p=>p.slug===old.slug),old,old.slug);
+ const catalog=creatorCatalog(),previous=catalog.filter(p=>!canadianAdditions.has(p.slug));assert.equal(previous.length,baseline.catalog.length+14);assert.equal(catalog.length,previous.length+canadianAdditions.size);
+ for(const old of baseline.catalog){
+  const current=catalog.find(p=>p.slug===old.slug),historical=structuredClone(current),review=canadaReview.creators.find(p=>p.slug===old.slug);
+  if(review){
+   assert.ok([old.region,review.region].includes(current.region),old.slug+' retains its original region label or the dated reviewed refinement');assert.equal(current.region_type,review.region_type);assert.equal(current.region_checked_at,canadaReview.checked_at);
+   const sourceUrls=review.source_ids.map(id=>canadaReview.sources.find(s=>s.id===id)?.url);assert.ok(sourceUrls.includes(current.region_source),old.slug+' region source is retained in the review');
+   for(const key of regionalFields){if(Object.hasOwn(old,key))historical[key]=old[key];else delete historical[key];}
+  }
+  assert.deepEqual(historical,old,old.slug+' preserves its original research apart from explicitly reviewed regional fields');
+ }
  for(const row of additions){assert.deepEqual(catalog.find(p=>p.slug===row.slug),row);assert.equal(new URL(row.official_url).pathname,'/channel/'+row.youtube_channel_id);assert.ok(row.biography.every(f=>f.source_url&&f.verified_at==='2026-10-16'));}
  assert.equal(new Set(additions.map(r=>r.youtube_channel_id)).size,14);
  assert.ok(!catalog.some(p=>p.youtube_channel_id==='UC0fuMC2COaYUWyl1jZM6DuA'));
 });
 
 test('full roster remains importable and reviewed channel aliases prevent duplicate ownership',()=>{
- assert.equal(planCatalog(creatorCatalog(),[],[]).add,84);
+ const catalog=creatorCatalog(),previous=catalog.filter(p=>!canadianAdditions.has(p.slug));
+ assert.equal(planCatalog(previous,[],[]).add,baseline.catalog.length+additions.length);
+ assert.equal(planCatalog(catalog,[],[]).add,catalog.length);
  const row=additions.find(p=>p.slug==='gold-putz');
  assert.equal(planCatalog([row],[],[{canonical_url:'https://m.youtube.com/@GOLDPUTZ/videos',archived_at:'2026-10-01'}]).conflicts,1);
  assert.equal(planCatalog([row],[{slug:row.slug,archived_at:'2026-10-01'}],[]).preserve,1);

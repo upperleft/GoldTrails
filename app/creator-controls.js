@@ -1,6 +1,6 @@
 import {escapeHtml as h} from './directory-views.js';
-export function creatorControls(records,filters,{action='/prospectors/',views=true}={}){
- const regions=[...new Map(records.flatMap(p=>p.regionOptions).map(r=>[r.slug,r])).values()].sort((a,b)=>a.name.localeCompare(b.name));
+export function creatorControls(records,filters,{action='/prospectors/',views=true,extraRegions=[]}={}){
+ const regions=[...new Map([...records.flatMap(p=>p.regionOptions),...extraRegions].map(r=>[r.slug,r])).values()].sort((a,b)=>a.name.localeCompare(b.name));
  const topics=[...new Map(records.flatMap(p=>p.topics).map(t=>[t.slug,t])).values()].filter(t=>t.slug).sort((a,b)=>a.name.localeCompare(b.name));
  const specialties=[...new Set(records.flatMap(p=>p.specialties))].sort().map(slug=>({slug,name:slug.replaceAll('-',' ')}));
  const select=(id,label,options,value,all)=>`<label>${h(label)}<select id="${id}" name="${id.replace('map-','')}"><option value="">${h(all)}</option>${options.map(o=>`<option value="${h(o.slug)}"${o.slug===value?' selected':''}>${h(o.name)}</option>`).join('')}${value&&!options.some(o=>o.slug===value)?`<option value="${h(value)}" selected>${h(value.replaceAll('-',' '))}</option>`:''}</select></label>`;

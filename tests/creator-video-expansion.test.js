@@ -6,9 +6,12 @@ import {createServer} from '../app/server.js';
 import {videoLibraryFor,videoLibraryBody,validateVideoLibrary} from '../app/creator-video-library.js';
 import {creatorYoutubeDestination} from '../app/creator-channel-links.js';
 const data=JSON.parse(readFileSync(new URL('../app/creator-video-library.json',import.meta.url))),evidence=JSON.parse(readFileSync(new URL('../database/map-data/creator-video-expansion-2026-10-17.json',import.meta.url)));
+// Keep the original 17-library hash scoped to those identities as later,
+// independently sourced additions are imported into the same public library.
+const originalSlugs=new Set(['ask-jeff-williams','busted-knuckles-prospecting','chris-ralph','dan-hurd','dave-mccracken','flour-gold-wizards','gold-hog','hip-bee-explorer','internal-compass-of-nc','klesh','miller-prospecting','misha-boylan','pioneer-pauly','sluice-goose','the-sluicers','two-toes','vo-gus-prospecting']);
 test('all added videos have an uploader and individually connected primary metadata evidence; original libraries are intact',()=>{
  assert.doesNotThrow(()=>validateVideoLibrary(data));assert.equal(evidence.addedCreators,44);assert.equal(evidence.addedVideos,129);
- const addedSlugs=new Set(evidence.libraries.map(r=>r.slug)),old=data.creators.filter(c=>!addedSlugs.has(c.slug));
+ const old=data.creators.filter(c=>originalSlugs.has(c.slug));assert.equal(old.length,evidence.previousLibraryCreators);
  assert.equal(createHash('sha256').update(JSON.stringify(old)).digest('hex'),evidence.preservedLibrariesSha256);
  for(const source of evidence.libraries){const library=videoLibraryFor(source.slug);assert.equal(library.channelId,source.channelId);assert.equal(library.uploaderName,source.channelTitle);assert.equal(library.checkedAt,'2026-10-17');for(const v of library.videos){const fact=source.selectedVideos.find(x=>x.id===v.id);assert.ok(fact,v.id);assert.equal(fact.title,v.title);assert.equal(fact.channelId,v.channelId);assert.ok(fact.metadataSource.startsWith('https://www.youtube.com/'));}}
  assert.equal(videoLibraryFor('dan-hurd').checkedAt,'2026-10-12');assert.match(videoLibraryBody(videoLibraryFor('gold-cube')),/Channel ownership checked 2026-10-17/);

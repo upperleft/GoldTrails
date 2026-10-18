@@ -2916,6 +2916,89 @@
           "tags": []
         }
       ]
+    },
+    {
+      "slug": "nick-molnar",
+      "name": "Nick Molnar",
+      "channelId": "UClqiCo-ZHKOBYtpEPDVcGnA",
+      "channelUrl": "https://www.youtube.com/channel/UClqiCo-ZHKOBYtpEPDVcGnA",
+      "checkedAt": "2026-10-18",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Nick Molnar",
+      "videos": [
+        {
+          "id": "6M1zv-cXdA4",
+          "title": "Gold Gold Gold - Oh Canada ! Gold Prospecting / Panning Ontario Canada!",
+          "url": "https://www.youtube.com/watch?v=6M1zv-cXdA4",
+          "channelId": "UClqiCo-ZHKOBYtpEPDVcGnA",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-10-18",
+          "subject": "Gold panning",
+          "tags": [
+            "Ontario",
+            "Canada",
+            "gold panning"
+          ]
+        },
+        {
+          "id": "MesBdGiTq2M",
+          "title": "New Gold Panning Kit  - For GOLD Prospecting Ontario Canada",
+          "url": "https://www.youtube.com/watch?v=MesBdGiTq2M",
+          "channelId": "UClqiCo-ZHKOBYtpEPDVcGnA",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-10-18",
+          "subject": "Panning equipment",
+          "tags": [
+            "Ontario",
+            "Canada",
+            "gold pan",
+            "panning kit"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "chercheurs-dor-du-quebec",
+      "name": "chercheurs d’or du Québec",
+      "channelId": "UCVUyNahOPwuDK-XEovRWY7Q",
+      "channelUrl": "https://www.youtube.com/channel/UCVUyNahOPwuDK-XEovRWY7Q",
+      "checkedAt": "2026-10-18",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "chercheurs d'or du Québec",
+      "videos": [
+        {
+          "id": "jC2NYbmSMBU",
+          "title": "Chercheurs d'or du Québec avec Gabriel",
+          "url": "https://www.youtube.com/watch?v=jC2NYbmSMBU",
+          "channelId": "UCVUyNahOPwuDK-XEovRWY7Q",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-10-18",
+          "subject": "Gold panning",
+          "tags": [
+            "Quebec",
+            "Québec",
+            "Canada",
+            "French",
+            "orpaillage"
+          ]
+        },
+        {
+          "id": "8ikcWy5phxk",
+          "title": "Chercheur d'or du Québec Sortie orpaillage     Gold Prospecting",
+          "url": "https://www.youtube.com/watch?v=8ikcWy5phxk",
+          "channelId": "UCVUyNahOPwuDK-XEovRWY7Q",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-10-18",
+          "subject": "Gold panning",
+          "tags": [
+            "Quebec",
+            "Québec",
+            "Canada",
+            "French",
+            "orpaillage"
+          ]
+        }
+      ]
     }
   ]
 }

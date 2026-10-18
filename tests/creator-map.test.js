@@ -16,7 +16,7 @@ test('map uses recognized broad regions, retains unknowns and overlapping settin
 test('unified directory displays the full roster and old map links redirect to the premium Almanac',async()=>{
  const server=createServer({directory:{map:async()=>({people:[{id:'1',slug:'a',display_name:'A'}],regions:[],topics:[]})},log:()=>{}});
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
- try{const root='http://127.0.0.1:'+server.address().port;const response=await fetch(root+'/prospectors/');assert.equal(response.status,200);const html=await response.text();assert.doesNotMatch(html,/List view|Map view/);assert.match(html,/Search creators/);assert.equal((html.match(/class="map-person"/g)||[]).length,85);assert.ok(!html.includes('href="/creator-map/"'));const redirect=await fetch(root+'/creator-map?q=A',{redirect:'manual'});assert.equal(redirect.status,308);assert.equal(redirect.headers.get('location'),'/gold-almanac/?q=A');assert.equal((await fetch(root+'/prospectors/?view=nope')).status,400);}finally{await new Promise(r=>server.close(r));}
+ try{const root='http://127.0.0.1:'+server.address().port;const response=await fetch(root+'/prospectors/');assert.equal(response.status,200);const html=await response.text();assert.doesNotMatch(html,/List view|Map view/);assert.match(html,/Search creators/);assert.equal((html.match(/class="map-person"/g)||[]).length,creatorCatalog().length+1);assert.ok(!html.includes('href="/creator-map/"'));const redirect=await fetch(root+'/creator-map?q=A',{redirect:'manual'});assert.equal(redirect.status,308);assert.equal(redirect.headers.get('location'),'/gold-almanac/?q=A');assert.equal((await fetch(root+'/prospectors/?view=nope')).status,400);}finally{await new Promise(r=>server.close(r));}
 });
 
 test('shared filters preserve region/topic links and distinguish unknown and unmapped regions',()=>{
@@ -27,7 +27,7 @@ test('shared filters preserve region/topic links and distinguish unknown and unm
  assert.equal(explorerCriteria(new URLSearchParams('setting=invalid'),{}),null);
 });
 
-import {mergeCatalog,catalogProfile} from '../app/creator-catalog.js';
+import {mergeCatalog,catalogProfile,creatorCatalog} from '../app/creator-catalog.js';
 test('catalog preserves database overrides, blocked profiles and unknown locations',()=>{const data=mergeCatalog({people:[{id:'live',slug:'dan-hurd',display_name:'Dan'}],regions:[],topics:[],excludedSlugs:['pioneer-pauly']});assert.equal(data.people.filter(p=>p.slug==='dan-hurd').length,1);assert.ok(!data.people.some(p=>p.slug==='pioneer-pauly'));assert.match(catalogProfile({name:'Test',status:'lead',checked_at:'2026-10-09',official_url:'https://example.com'}),/Location unknown at this time/);});
 
 test('new creator profiles, official YouTube links and cited biographies are public',async t=>{
