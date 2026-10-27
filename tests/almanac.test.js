@@ -15,9 +15,11 @@ test('published research renders with citations, preserves legacy records and ex
   const current=content.states.find(s=>s.id===previous.id);
   for(const key of Object.keys(previous)){
    if(['facts','destinations'].includes(key))for(const item of previous[key])assert.deepEqual(current[key].find(f=>f.id===item.id),item);
+   else if(key==='articleIds'&&previous.id==='US-ME')assert.deepEqual(current[key],[...previous[key],'article:ghost-rivers']);
    else assert.deepEqual(current[key],previous[key],previous.id+':'+key);
   }
  }
+ assert.match(dashboard(assembleState(stateBySlug('maine'))),/href="\/ghost-rivers\/"/);
  const claims=JSON.parse(readFileSync(new URL('./fixtures/almanac-research-review-status.json',import.meta.url),'utf8'));
  for(const state of states){
   const html=dashboard(assembleState(state));
