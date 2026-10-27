@@ -35,7 +35,7 @@ test('article keyword and category search, empty results, and all four sort choi
  const script=[...listing.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]).find(code=>code.includes("querySelector('#article-list')"));assert.ok(script);
  vm.runInNewContext(script,{document:{querySelector:selector=>nodes[selector]}});
  search.value='screen';search.handlers.input();assert.equal(items.filter(x=>!x.hidden).length,1);assert.match(items.find(x=>!x.hidden).dataset.title,/Classification/);
- search.value='geology';search.handlers.input();assert.equal(items.filter(x=>!x.hidden).length,5,'Category text remains searchable');
+ search.value='geology';search.handlers.input();assert.equal(items.filter(x=>!x.hidden).length,6,'Category text remains searchable');
  search.value='not-a-matching-prospecting-topic';search.handlers.input();assert.equal(count.textContent,'0 articles');assert.equal(empty.hidden,false);
  search.value='';sort.value='az';sort.handlers.change();assert.equal(empty.hidden,true);assert.equal(count.textContent,rows.length+' articles');assert.match(list.children[0].dataset.title,/Black Sands/);assert.match(list.children.at(-1).dataset.title,/Where Gold Settles/);
  sort.value='za';sort.handlers.change();assert.match(list.children[0].dataset.title,/Where Gold Settles/);

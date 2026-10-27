@@ -4,6 +4,7 @@ import {mergeCatalog} from '../creator-catalog.js';
 import {safeUrl} from '../directory-views.js';
 const products=JSON.parse(readFileSync(new URL('../product-catalog.json',import.meta.url),'utf8')).tables.products;
 const articles=[
+ ['ghost-rivers','Ghost Rivers: Finding the Gold Traps Time Left Behind','Explore older waterways through the Swift River case study, attributed geological map layers, and a practical field guide.',['river','geology','history'],['locations','learn'],9,'/ghost-rivers/'],
  ['seven-prospecting-rules','Where Does Gold Really Hide in a Stream? 7 Prospecting Rules Worth Questioning','Question river-prospecting shortcuts using attributed video examples and geological research.',['river','geology','panning'],['first','locations','learn'],8],
  ['where-gold-settles','Where Gold Settles in a River—and How to Test Your Hunch','Read a stream, then test your hunch with repeatable samples.',['river','locations','geology','panning'],['first','locations','vacation','learn'],1],
  ['is-that-really-gold','Is That Really Gold? A Careful Look at Fool’s Gold','Use careful observation to distinguish gold from lookalikes.',['geology','panning'],['first','learn'],2],
@@ -15,7 +16,7 @@ const articles=[
 ];
 export function tagsFor(text){const t=String(text).toLowerCase(),out=[];for(const [tag,re] of Object.entries({panning:/pann|cleanup|concentrate|fine gold/,river:/river|stream|creek/,sluicing:/sluic|highbank/,detecting:/detect|pinpoint/,geology:/geolog|rock|minerals|black sand/,locations:/location|sampling|bedrock|gravel|deposit/,history:/history|historic/,equipment:/equipment|tools|technology/,creators:/youtube|video/,family:/family|children/}))if(re.test(t))out.push(tag);return out;}
 export function productCategory(p){const s=(p.subcategory+' '+p.product_name).toLowerCase();if(/coil|holster|attachment|replacement|conversion|concentrator|machine/.test(p.subcategory.toLowerCase()))return'other';if(/gold pan|panning kit|pan kit/.test(s))return'pan';if(/highbank/.test(s))return'highbanker';if(/sluic/.test(s))return'sluice';if(/pinpoint/.test(s))return'pinpointer';if(/detector/.test(s))return'detector';if(/snuffer|guzzler/.test(s))return'snuffer';if(/classif|screen|sieve/.test(s))return'classifier';if(/gold pan|panning kit|pan kit/.test(s))return'pan';if(/crevic|scrap|hook/.test(s))return'crevice';if(/shovel|digging|pick/.test(s))return'shovel';if(/magnif|scale/.test(s))return'magnifier';if(/pump/.test(s))return'pump';return'other';}
-export const publishedArticles=()=>articles.filter(a=>existsSync(new URL('../../dist/articles/'+a[0]+'/index.html',import.meta.url))).map(([slug,title,summary,tags,goals,order])=>({id:'article:'+slug,kind:'article',title,summary,tags,goals,order,url:'/articles/'+slug+'/',source:'Gold Trails published article'}));
+export const publishedArticles=()=>articles.filter(a=>existsSync(new URL('../../dist'+(a[6]||'/articles/'+a[0]+'/')+'index.html',import.meta.url))).map(([slug,title,summary,tags,goals,order,route])=>({id:'article:'+slug,kind:'article',title,summary,tags,goals,order,url:route||'/articles/'+slug+'/',source:'Gold Trails published article'}));
 export function createCompassContent({directory,store,productsStore=null}){let cache=null,until=0;
  return async()=>{
   if(cache&&Date.now()<until)return structuredClone(cache);
