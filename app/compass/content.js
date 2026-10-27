@@ -4,6 +4,7 @@ import {mergeCatalog} from '../creator-catalog.js';
 import {safeUrl} from '../directory-views.js';
 const products=JSON.parse(readFileSync(new URL('../product-catalog.json',import.meta.url),'utf8')).tables.products;
 const articles=[
+ ['seven-prospecting-rules','Where Does Gold Really Hide in a Stream? 7 Prospecting Rules Worth Questioning','Question river-prospecting shortcuts using attributed video examples and geological research.',['river','geology','panning'],['first','locations','learn'],8],
  ['where-gold-settles','Where Gold Settles in a River—and How to Test Your Hunch','Read a stream, then test your hunch with repeatable samples.',['river','locations','geology','panning'],['first','locations','vacation','learn'],1],
  ['is-that-really-gold','Is That Really Gold? A Careful Look at Fool’s Gold','Use careful observation to distinguish gold from lookalikes.',['geology','panning'],['first','learn'],2],
  ['black-sands','Black Sands in Your Pan: A Clue, Not a Gold Count','Understand what black sands can and cannot tell you.',['geology','panning'],['fine','panning','learn'],3],
