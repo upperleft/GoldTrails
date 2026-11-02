@@ -1,21 +1,22 @@
 # Gold Trails launch roadmap
 
-Reviewed November 1, 2026. Gold Trails is already publicly accessible at [goldtrails.org](https://goldtrails.org/). The next milestones are a creator invitation launch and the launch of paid Plus subscriptions. Stripe remains the largest unfinished feature. Permanent creator invitations are implemented and verified, and production migration 014 is applied. Complete owner setup and the first personal invitations next.
+Reviewed November 2, 2026. Gold Trails is already publicly accessible at [goldtrails.org](https://goldtrails.org/). The current phase is a quiet creator preview before a broad availability announcement. Four personalized, unsent invitations are ready with tested homepage-first links. Allow creators time to explore and report issues while the $5/month Stripe subscription is completed and tested. Hold the general announcement until billing and the remaining launch checks pass.
 
 ## Current position
 
 | Area | Current state | Remaining work |
 | --- | --- | --- |
 | Website and hosting | Existing GitHub → Hostinger Node 22 application; custom domain serves the site | Verify the final release and account flows before announcing paid membership |
-| Articles | Eight article pages and a searchable index | Develop the river clothing guide, then a first outing guide |
+| Articles | Nine article pages and a searchable index, including the interactive gold-sniping field guide | Develop the river clothing guide, then a first outing guide |
 | Creator directory | 86 source records, including 20 research leads; 63 video libraries with 230 selected videos | Resolve identities, fill gaps, verify contact routes and invite creators |
 | Products | 63 products from 28 manufacturers; 18 unresolved research leads | Expand clothing and footwear; refresh specifications, availability and photos |
-| Accounts | Signup, verification, sign-in, recovery, sessions, free membership and creator invitation acceptance implemented | Complete owner setup and verify the first real creator acceptance |
+| Accounts | Owner setup complete; administrator recovery, one-hour sign-in forms and Show/Hide password are live; four unique invitations created | Verify the first real creator acceptance and triage feedback |
+| Creator email | Sender and retained-copy forwarding verified; private email-reference panel and 30-minute watch are live | Review and send the first batch, then track replies and acceptance |
 | Plus | Server-side access checks and complimentary membership support implemented | Connect subscription billing and preserve complimentary creator access |
 | Stripe | Billing routes deliberately disabled | Checkout, webhooks, billing portal, renewal/cancellation/pause handling and reconciliation |
 | Research maintenance | Existing daily automation remains active in the original website chat | Turn reviewed findings into articles and catalog updates; preserve its existing budget safeguards |
 
-Inventory numbers describe repository files, not registered creator accounts or a fresh count of production database rows. A directory listing does not mean that its creator has joined Gold Trails. The checkout now includes the October 27 content release `a7e5498`, including the eighth article and Ghost Rivers pages.
+Inventory numbers describe repository files, not registered creator accounts or a fresh count of production database rows. A directory listing does not mean that its creator has joined Gold Trails. The checkout includes the October 27 Ghost Rivers release and the November 2 gold-sniping field guide.
 
 ## Membership decisions
 
@@ -39,15 +40,19 @@ The friends' guest pass expired October 31 at 9:19 p.m. Eastern. Its shared, tem
 
 Implementation starts with the existing [account schema](../database/migrations/004_member_accounts.sql), [member store](../app/member-store.js), [membership rules](member-accounts.md) and [mail adapter](../app/member-mail.js). The schema contains invitation-token and creator-account association foundations; the creator workflow and copyable invitation message are now implemented. Automatic invitation email sending remains separate.
 
-## Outreach on November 1 or 2
+## Creator preview before the public announcement
 
-Prepare personal drafts and check contact routes now. Send the access invitation after its acceptance flow and sender have passed the controlled test. If reaching out sooner, use a public profile feedback message and explain that complimentary account access will follow.
+The first four personalized emails are prepared for November 3: **Chris Ralph, Gary / Two Toes, Yukon Dan and Kyle / Utmost Outdoors**. Each uses a suitable official contact route and a distinct tested personal link. The links open the homepage first and expire November 16; accepted complimentary access has no expiry. Drafts and bearer links remain private and outside Git. No creator email has been sent.
 
-The first two checked routes are Chris Ralph's published business email and Dan Hurd's general contact form. Obtain Dan's preferred account email through that form before generating his email-bound invitation. Expand the batch only as suitable creator-owned contact routes are confirmed; the full directory is not an email-ready list.
+Dan Hurd's contact-form introduction is also prepared. Obtain his preferred account email before generating his email-bound invitation. The full directory is not an email-ready list.
+
+After the reviewed invitations are sent, let creators evaluate the site and collect corrections through the private mail panel. Fix access problems and confusing flows before the general announcement; retain content and equipment suggestions in the editorial queue. Creators keep free access when paid membership launches. The site remains reachable during this quiet preview; it is not a closed access gate.
 
 The [creator outreach plan and draft](creator-outreach.md) covers personalization, sender checks, tracking and future automation. Automate draft preparation, invitation generation, duplicate suppression and status tracking first. Keep a review step for recipients and final copy. Follow-ups must stop on replies, declines, delivery failures or opt-outs.
 
 ## Second milestone Stripe subscriptions
+
+Use a Gold Trails Stripe business account under the existing Stripe login for this separate website. Stripe recommends separate accounts for independently operated projects; businesses under the same legal entity can reuse their tax ID and business information. Verify the existing dashboard and Buy Me a Coffee connection before creating anything. Keep the existing connection intact. This is an account setup recommendation, not a completed integration. [Stripe account guidance](https://support.stripe.com/questions/create-and-manage-multiple-stripe-accounts)
 
 1. Configure the Stripe account and test environment; create a server-selected **$5.00 USD/month (500 cents)** price. Enter credentials privately in the hosting environment. Enforce the allowed provider and test/live mode consistently across member and Connections access checks.
 2. Add hosted subscription Checkout for verified signed-in members, binding Stripe customer and subscription IDs to the account and preventing duplicate subscriptions. Complimentary creators should see their included access rather than a purchase prompt.

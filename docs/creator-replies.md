@@ -1,12 +1,22 @@
 # Gold Trails email references
 
-The private administrator page at `/admin/creator-replies/` lists header references for incoming messages addressed to `paul@goldtrails.org` and copied to the connected mailbox configured privately in `CREATOR_REPLY_MAILBOX` mailbox. It stores sender, subject, received time and a Gmail reference. Open the original message in Gmail to read or reply. Message bodies, snippets, attachments and invitation links are not imported.
+The private administrator page at `/admin/creator-replies/` lists header references for incoming messages addressed to `paul@goldtrails.org` and copied to the connected mailbox configured privately in `CREATOR_REPLY_MAILBOX`. It stores sender, subject, received time and a Gmail reference. Open the original message in Gmail to read or reply. Message bodies, snippets, attachments and invitation links are not imported.
 
 Sender addresses are matched exactly to the canonical target email of previously issued creator invitations. A unique creator match links to the existing editor. Unmatched senders and addresses shared by multiple creators remain **General Gold Trails email**. A matching header does not verify identity, change account ownership, grant membership, consume an invitation or send email. Marking a reference reviewed affects only this private list.
 
-## Setup and current limits
+## Production activation on November 2 2026
 
-The code is prepared; forwarding, scheduled checks, the private import key and production migration are separate activation steps. An enabled import endpoint does not establish that forwarding or a monitor is running. The panel shows this distinction and the last successful metadata check. A successful empty batch records a check without inventing a message.
+Migration **015 was applied once and verified in production**, after a complete private SQL export of all 78 existing tables. Do not rerun it on production. Its SHA256 is `7a6238360ab0f8f1a8cf88744bd526078b795e727192adeebfd04536b8aa48e5`; the 259,598-byte backup has SHA256 `fdafcf98f2051749cd2ccc1662022a54b2c3c75413603bfebbfd8fe6886321ce`. Keep the backup private and outside Git.
+
+Retained-copy forwarding and outgoing delivery were verified using only the owner's addresses. The connected mailbox and scoped import key are configured privately on Hostinger. A real delivery-test header reference was imported and appeared in the authenticated panel, with the correct original-message link. Four creator invitations remained pending; no creator messages or membership grants were created by this activation.
+
+The **Watch Gold Trails email** automation checks every 30 minutes, queues only incoming Gold Trails metadata, updates this panel and reports meaningful new replies or failures. It stays quiet when there is no actionable change. The local Mac and desktop app must be running for scheduled local checks. The separate daily research automation remains unchanged.
+
+The final source passes **493 tests**, six real isolated MariaDB checks and the production build (22 HTML pages, 754 local references). These checks are separate from a real creator accepting an invitation, which remains part of the preview period.
+
+## Setup for a new environment
+
+Forwarding, scheduled checks, the private import key and the database migration are separate activation steps. An enabled import endpoint does not establish that forwarding or a monitor is running. The panel shows the last successful metadata check. A successful empty batch records a check without inventing a message.
 
 1. Back up the live database and apply `database/migrations/015_creator_reply_references.sql` once after migration 014. It adds the reference table and singleton sync state. It creates no account, invitation, grant or email. No migration runs on startup. MariaDB DDL commits implicitly; inspect partial failure before retrying.
 2. Verify delivery from the existing Hostinger mailbox into the connected Gmail account using a controlled test. Retain the original Hostinger copy. Do not claim forwarding works until that test arrives. [Hostinger forwarding instructions](https://www.hostinger.com/support/1583221-how-to-set-up-a-forwarder-for-hostinger-email/)
