@@ -1,6 +1,6 @@
 # Gold Trails launch roadmap
 
-Reviewed November 1, 2026. Gold Trails is already publicly accessible at [goldtrails.org](https://goldtrails.org/). The next milestones are a creator invitation launch and the launch of paid Plus subscriptions. Stripe remains the largest unfinished feature. Permanent creator invitations are implemented and locally verified; production activation and final account checks come next.
+Reviewed November 1, 2026. Gold Trails is already publicly accessible at [goldtrails.org](https://goldtrails.org/). The next milestones are a creator invitation launch and the launch of paid Plus subscriptions. Stripe remains the largest unfinished feature. Permanent creator invitations are implemented and verified, and production migration 014 is applied. Complete owner setup and the first personal invitations next.
 
 ## Current position
 
@@ -10,7 +10,7 @@ Reviewed November 1, 2026. Gold Trails is already publicly accessible at [goldtr
 | Articles | Eight article pages and a searchable index | Develop the river clothing guide, then a first outing guide |
 | Creator directory | 86 source records, including 20 research leads; 63 video libraries with 230 selected videos | Resolve identities, fill gaps, verify contact routes and invite creators |
 | Products | 63 products from 28 manufacturers; 18 unresolved research leads | Expand clothing and footwear; refresh specifications, availability and photos |
-| Accounts | Signup, verification, sign-in, recovery, sessions, free membership and creator invitation acceptance implemented | Deploy invitation migration and complete owner setup |
+| Accounts | Signup, verification, sign-in, recovery, sessions, free membership and creator invitation acceptance implemented | Complete owner setup and verify the first real creator acceptance |
 | Plus | Server-side access checks and complimentary membership support implemented | Connect subscription billing and preserve complimentary creator access |
 | Stripe | Billing routes deliberately disabled | Checkout, webhooks, billing portal, renewal/cancellation/pause handling and reconciliation |
 | Research maintenance | Existing daily automation remains active in the original website chat | Turn reviewed findings into articles and catalog updates; preserve its existing budget safeguards |
@@ -77,7 +77,8 @@ The existing maintenance automation is **Gold Trails daily research maintenance*
 
 ## Paid launch acceptance
 
-- [ ] Creator invitations and permanent complimentary account access work end to end.
+- [x] Creator invitations and permanent complimentary account access pass local end-to-end checks; production migration 014 is applied.
+- [ ] The first real creator accepts a personal invitation.
 - [ ] Live signup, verification, sign-in, recovery and sign-out work on goldtrails.org.
 - [ ] Stripe test scenarios above pass, including cancellation and three-month pause.
 - [ ] Price, renewal, cancellation, pause, support and relevant policy wording match implemented behavior.

@@ -24,7 +24,9 @@ If verification opens in another browser, the creator can reopen the original in
 
 ## Database and release
 
-Apply [migration 014](../database/migrations/014_creator_invitations.sql) once after the existing member/account foundation, using a current complete private database export. It extends the creator affiliation enum and adds settings, invitation and audit tables. It seeds only an empty settings row; no real account, privilege or membership is created.
+Production migration **014 was applied and verified on November 1, 2026**, after a complete private SQL backup of all 75 existing tables. Verification found the migration marker and all three invitation tables, with zero invitations and no owner binding created automatically. Do not rerun this migration on production.
+
+For a new database, apply [migration 014](../database/migrations/014_creator_invitations.sql) once after the existing member/account foundation, using a current complete private database export. It extends the creator affiliation enum and adds settings, invitation and audit tables. It seeds only an empty settings row; no real account, privilege or membership is created.
 
 MariaDB DDL commits implicitly. If any statement fails, stop and inspect partial state before continuing; do not blindly rerun the migration or drop populated tables. Existing owner sessions, credentials, signup settings and email-provider settings do not need changing.
 
