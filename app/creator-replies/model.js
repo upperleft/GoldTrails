@@ -1,6 +1,5 @@
 import {createHash,timingSafeEqual} from 'node:crypto';
 
-export const replyMailbox='pshmker@gmail.com';
 export const replyDestination='paul@goldtrails.org';
 export const replyMigration='015_creator_reply_references';
 export class CreatorReplyInputError extends Error {}
@@ -12,13 +11,15 @@ const address=value=>{
  if(typeof value!=='string'||value.length>254||!value||value!==value.trim()||!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(value))invalid();
  return value.toLowerCase();
 };
+export const configuredReplyMailbox=value=>{try{return address(value);}catch{return null;}};
 const header=(value,max,required=false)=>{
  if(typeof value!=='string'||value.length>max||/[\x00-\x1f\x7f]/.test(value)||required&&!value.trim())invalid();
  // Header text is never treated as HTML; remove invitation capabilities even in subjects.
  return value.replace(/https?:\/\/[^\s<>]*(?:creator-invitation|[?&]token=)[^\s<>]*/gi,'[private link removed]').replace(/[a-f0-9]{64,}/gi,'[private token removed]').trim();
 };
-export function replyBatch(value,{now=Date.now()}={}){
- if(!fields(value,['mailbox','destination','records'])||value.mailbox!==replyMailbox||value.destination!==replyDestination||!Array.isArray(value.records)||value.records.length>20)invalid();
+export function replyBatch(value,{mailbox=null,now=Date.now()}={}){
+ const expectedMailbox=configuredReplyMailbox(mailbox);
+ if(!expectedMailbox||!fields(value,['mailbox','destination','records'])||value.mailbox!==expectedMailbox||value.destination!==replyDestination||!Array.isArray(value.records)||value.records.length>20)invalid();
  const ids=new Set();
  return value.records.map(row=>{
   if(!fields(row,['message_id','thread_id','from_email','from_name','to_email','subject','received_at'])||!gmailId(row.message_id)||!gmailId(row.thread_id)||ids.has(row.message_id)||row.to_email!==replyDestination)invalid();
@@ -35,4 +36,4 @@ export function syncAuthorized(header,expected){
  const supplied=typeof header==='string'?header.match(/^Bearer ([a-f0-9]{64})$/)?.[1]:null;
  return Boolean(expected&&supplied&&timingSafeEqual(createHash('sha256').update(supplied).digest(),expected));
 }
-export const gmailReplyUrl=threadId=>gmailId(threadId)?'https://mail.google.com/mail/u/?authuser='+encodeURIComponent(replyMailbox)+'#all/'+threadId:null;
+export const gmailReplyUrl=(threadId,mailbox)=>gmailId(threadId)&&configuredReplyMailbox(mailbox)?'https://mail.google.com/mail/u/?authuser='+encodeURIComponent(configuredReplyMailbox(mailbox))+'#all/'+threadId:null;

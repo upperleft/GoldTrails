@@ -1,8 +1,9 @@
-import {CreatorReplyInputError,replyBatch,syncKeyHash,syncAuthorized} from './model.js';
+import {CreatorReplyInputError,replyBatch,syncKeyHash,syncAuthorized,configuredReplyMailbox} from './model.js';
 import {creatorRepliesView} from './views.js';
 
-export function createCreatorRepliesImportHandler({store=null,syncKey=process.env.CREATOR_REPLY_SYNC_KEY,log=console.error}={}){
+export function createCreatorRepliesImportHandler({store=null,syncKey=process.env.CREATOR_REPLY_SYNC_KEY,mailbox=process.env.CREATOR_REPLY_MAILBOX,log=console.error}={}){
  const keyHash=syncKeyHash(syncKey);
+ const expectedMailbox=configuredReplyMailbox(mailbox);
  const handler=async(req,res,url)=>{
   if(url.pathname!=='/api/creator-replies/import')return false;
   const send=(status,data,extra={})=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'private, no-store','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','X-Robots-Tag':'noindex, nofollow','Content-Security-Policy':"default-src 'none'; frame-ancestors 'none'",...extra});res.end(req.method==='HEAD'?undefined:JSON.stringify(data));};
@@ -10,7 +11,7 @@ export function createCreatorRepliesImportHandler({store=null,syncKey=process.en
   if(url.search){send(400,{error:'Use the exact import endpoint without a query.'});return true;}
   // This is a server-to-server endpoint. No browser origin or CORS permission is accepted.
   if(req.headers.origin){send(403,{error:'Browser-origin imports are unavailable.'});return true;}
-  if(!keyHash){send(503,{error:'Creator reply imports are not configured.'});return true;}
+  if(!keyHash||!expectedMailbox){send(503,{error:'Creator reply imports are not configured.'});return true;}
   if(!syncAuthorized(req.headers.authorization,keyHash)){send(401,{error:'Import authorization required.'},{'WWW-Authenticate':'Bearer'});return true;}
   if(!/^application\/json(?:;\s*charset=utf-8)?$/i.test(req.headers['content-type']||'')){send(415,{error:'Use JSON metadata.'});return true;}
   if(Number(req.headers['content-length'])>32768){send(413,{error:'Keep metadata batches within 32 KiB.'});return true;}
@@ -18,7 +19,7 @@ export function createCreatorRepliesImportHandler({store=null,syncKey=process.en
    let length=0;const chunks=[];
    for await(const chunk of req){length+=chunk.length;if(length>32768){send(413,{error:'Keep metadata batches within 32 KiB.'});return true;}chunks.push(chunk);}
    let value;try{value=JSON.parse(Buffer.concat(chunks).toString('utf8'));}catch{send(400,{error:'Use valid JSON metadata.'});return true;}
-   const records=replyBatch(value);
+   const records=replyBatch(value,{mailbox:expectedMailbox});
    if(!store||!await store.ready()){send(503,{error:'Creator reply storage is unavailable.'});return true;}
    const result=await store.importBatch(records);
    send(200,{ok:true,...result});return true;
@@ -28,7 +29,7 @@ export function createCreatorRepliesImportHandler({store=null,syncKey=process.en
    send(503,{error:'Creator reply import was not confirmed. Retry the same message IDs.'});return true;
   }
  };
- handler.configured=Boolean(keyHash);
+ handler.configured=Boolean(keyHash&&expectedMailbox);
  return handler;
 }
 

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {createCreatorRepliesStore} from '../app/creator-replies/store.js';
 import {replyDestination,CreatorReplyInputError} from '../app/creator-replies/model.js';
 
+const mailbox='owner@example.invalid';
 const personId='11111111-1111-4111-8111-111111111111',invitationId='22222222-2222-4222-8222-222222222222';
 const row=(extra={})=>({message_id:'1a16063e26c25562',thread_id:'1a16063e26c25562',from_email:'creator@example.invalid',from_name:'Creator',to_email:replyDestination,subject:'An invitation reply',received_at:'2026-11-01T16:20:00.000Z',...extra});
 function fixture({matches=[{person_id:personId,invitation_id:invitationId}],failUpdate=false}={}){
@@ -17,7 +18,7 @@ function fixture({matches=[{person_id:personId,invitation_id:invitationId}],fail
   return {affectedRows:1};
  };
  const connection={query,beginTransaction:async()=>{working=new Map(records);},commit:async()=>{records.clear();for(const [k,v] of working)records.set(k,v);committed++;},rollback:async()=>{rolledBack++;},release:()=>{released++;}};
- const store=createCreatorRepliesStore({getConnection:async()=>connection,query});
+ const store=createCreatorRepliesStore({getConnection:async()=>connection,query},{mailbox});
  return {store,records,queries,state:()=>({committed,rolledBack,released})};
 }
 
@@ -60,5 +61,15 @@ test('only supported private review states and administrator labels reach the da
  const {store,queries}=fixture();
  for(const args of [['not-an-id','reviewed','owner'],[personId,'deleted','owner'],[personId,'reviewed','owner\nforged']])await assert.rejects(()=>store.review(...args),CreatorReplyInputError);
  assert.equal(queries.length,0);
- await store.review(personId,'reviewed','owner');assert.equal(queries.length,1);assert.deepEqual(queries[0][1],['reviewed','owner',personId]);
+ await store.review(personId,'reviewed','owner');assert.equal(queries.length,1);assert.deepEqual(queries[0][1],['reviewed','owner',personId,mailbox]);
+});
+
+test('unconfigured mailbox cannot read references or import and configured queries stay mailbox scoped',async()=>{
+ let queries=0;
+ const unavailable=createCreatorRepliesStore({query:()=>{queries++;throw Error('must not query');},getConnection:()=>{queries++;throw Error('must not connect');}},{mailbox:''});
+ assert.deepEqual(await unavailable.overview(),{state:null,replies:[],mailbox:null});
+ await assert.rejects(()=>unavailable.importBatch([]),CreatorReplyInputError);assert.equal(queries,0);
+ const {store,queries:sql}=fixture();await store.overview();
+ const query=sql.find(([statement])=>statement.includes('FROM creator_reply_references r LEFT JOIN'));
+ assert.match(query[0],/WHERE r\.mailbox=\?/);assert.deepEqual(query[1],[mailbox]);
 });

@@ -7,12 +7,13 @@ import mariadb from 'mariadb';
 import {createCreatorRepliesStore} from '../app/creator-replies/store.js';
 import {replyDestination} from '../app/creator-replies/model.js';
 
+const mailbox='owner@example.invalid';
 const socket=process.env.CREATOR_REPLIES_DB_SOCKET||'';
 const enabled=process.env.RUN_CREATOR_REPLIES_DB_TESTS==='true'&&/^\/private\/tmp\/goldtrails-invitations-db-[A-Za-z0-9]+\/mysql\.sock$/.test(socket);
 test('isolated MariaDB reply metadata persistence, concurrency and rollback',{skip:!enabled},async t=>{
  const db=mariadb.createPool({socketPath:socket,user:'root',database:'gold_creator_invitation_test',connectionLimit:5,dateStrings:true,timezone:'+00:00',initSql:["SET time_zone='+00:00'"]});
  const ids={owner:randomUUID(),person:randomUUID(),invitation:randomUUID()},suffix=randomBytes(4).toString('hex'),messages=[];
- const store=createCreatorRepliesStore(db);let oldState=null,seeded=false;
+ const store=createCreatorRepliesStore(db,{mailbox});let oldState=null,seeded=false;
  t.after(async()=>{try{
   if(messages.length)await db.query('DELETE FROM creator_reply_references WHERE message_id IN ('+messages.map(()=>'?').join(',')+')',messages);
   if(seeded){await db.query('DELETE FROM creator_invitations WHERE id=?',[ids.invitation]);await db.query('DELETE FROM people WHERE id=?',[ids.person]);await db.query('DELETE FROM member_accounts WHERE id=?',[ids.owner]);}
@@ -47,7 +48,7 @@ test('isolated MariaDB reply metadata persistence, concurrency and rollback',{sk
  await t.test('a late state failure rolls back inserted references and preserves prior success',async()=>{
   const before=(await store.overview()).state,bad=row();
   const failing={getConnection:async()=>{const c=await db.getConnection();return {beginTransaction:()=>c.beginTransaction(),commit:()=>c.commit(),rollback:()=>c.rollback(),release:()=>c.release(),query:(sql,args)=>{if(sql.startsWith('UPDATE creator_reply_sync_state'))throw Error('isolated late failure');return c.query(sql,args);}};}};
-  await assert.rejects(()=>createCreatorRepliesStore(failing).importBatch([bad]),/isolated late failure/);
+  await assert.rejects(()=>createCreatorRepliesStore(failing,{mailbox}).importBatch([bad]),/isolated late failure/);
   assert.equal(Number((await db.query('SELECT COUNT(*) AS n FROM creator_reply_references WHERE message_id=?',[bad.message_id]))[0].n),0);
   assert.deepEqual((await store.overview()).state,before);
  });

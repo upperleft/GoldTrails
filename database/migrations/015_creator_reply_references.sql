@@ -18,7 +18,7 @@ CREATE TABLE creator_reply_references (
  UNIQUE KEY creator_reply_message(mailbox,message_id),
  FOREIGN KEY(person_id) REFERENCES people(id) ON DELETE RESTRICT,
  FOREIGN KEY(invitation_id) REFERENCES creator_invitations(id) ON DELETE RESTRICT,
- CHECK(mailbox='pshmker@gmail.com'),
+ CHECK(CHAR_LENGTH(TRIM(mailbox)) BETWEEN 3 AND 254 AND LOCATE('@',mailbox)>1),
  INDEX creator_replies_received(received_at,id),
  INDEX creator_replies_person(person_id,received_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

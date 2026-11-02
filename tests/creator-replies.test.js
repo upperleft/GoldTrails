@@ -3,20 +3,23 @@ import assert from 'node:assert/strict';
 import {createServer} from '../app/server.js';
 import {createAdminHandler} from '../app/admin.js';
 import {createCreatorRepliesImportHandler} from '../app/creator-replies/handler.js';
-import {CreatorReplyInputError,replyBatch,replyMailbox,replyDestination,gmailReplyUrl} from '../app/creator-replies/model.js';
+import {CreatorReplyInputError,replyBatch,configuredReplyMailbox,replyDestination,gmailReplyUrl} from '../app/creator-replies/model.js';
 
+const replyMailbox='owner@example.invalid';
+const validate=(value,options={})=>replyBatch(value,{mailbox:replyMailbox,...options});
 const key='a'.repeat(64),csrf='b'.repeat(64),session='c'.repeat(64),origin='https://gold.example';
 const replyId='11111111-1111-4111-8111-111111111111',personId='22222222-2222-4222-8222-222222222222';
 const record=(extra={})=>({message_id:'1a16063e26c25562',thread_id:'1a16063e26c25562',from_email:'creator@example.invalid',from_name:'Creator',to_email:replyDestination,subject:'Re: Your Gold Trails invitation',received_at:'2026-11-01T16:20:00.000Z',...extra});
 const batch=(rows=[record()])=>({mailbox:replyMailbox,destination:replyDestination,records:rows});
-const metadata=()=>({state:null,replies:[{id:replyId,person_id:personId,display_name:'River Teacher',...record(),received_at:'2026-11-01 16:20:00.000000',status:'new'}]});
+const metadata=()=>({mailbox:replyMailbox,state:null,replies:[{id:replyId,person_id:personId,display_name:'River Teacher',...record(),received_at:'2026-11-01 16:20:00.000000',status:'new'}]});
 
-async function fixture(t,{syncKey=key,replyStore={},adminStore={},analytics=null}={}){
+async function fixture(t,{syncKey=key,mailbox=replyMailbox,replyStore={},adminStore={},analytics=null}={}){
  const state={imports:[],reviews:[],logs:[]};
  const replies={ready:async()=>true,importBatch:async rows=>{state.imports.push(rows);return {imported:rows.length,duplicates:0,unmatched:0,ambiguous:0};},overview:async()=>metadata(),review:async(...args)=>state.reviews.push(args),...replyStore};
  const owners={session:async raw=>raw===session?{authenticated:true,csrf_token:csrf}:null,...adminStore};
  const log=value=>state.logs.push(value);
- const importer=createCreatorRepliesImportHandler({store:replies,syncKey,log});
+ const importer=createCreatorRepliesImportHandler({store:replies,syncKey,mailbox,log});
+ state.configured=importer.configured;
  const admin=createAdminHandler({store:owners,config:{username:'owner',origin},creatorReplies:replies,creatorRepliesSyncConfigured:importer.configured,log});
  const server=createServer({creatorRepliesImport:importer,admin,guests:null,plus:null,almanac:async()=>false,analytics,log});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
@@ -28,25 +31,38 @@ async function fixture(t,{syncKey=key,replyStore={},adminStore={},analytics=null
 }
 
 test('reply metadata excludes personal Gmail destinations, bodies, snippets, attachments and unexpected fields',()=>{
- assert.equal(replyBatch(batch())[0].from_email,'creator@example.invalid');
+ assert.equal(validate(batch())[0].from_email,'creator@example.invalid');
  const invalid=[
-  {...batch(),mailbox:'other@gmail.com'}, {...batch(),destination:'other@example.invalid'},
-  {...batch(),body:'private'},batch([record({to_email:'pshmker@gmail.com'})]),batch([record({snippet:'private'})]),
+  {...batch(),mailbox:'other@example.invalid'}, {...batch(),destination:'other@example.invalid'},
+  {...batch(),body:'private'},batch([record({to_email:'owner@example.invalid'})]),batch([record({snippet:'private'})]),
   batch([record({body:'private'})]),batch([record({attachments:[]})]),batch([record({from_email:'Display <x@example.invalid>'})]),
   batch([record({subject:'Header\r\nInjection'})]),batch([record({thread_id:'https://evil.invalid/'})]),
   batch([record({received_at:'2026-02-31T16:20:00.000Z'})]),batch([record({received_at:'2099-01-01T00:00:00.000Z'})]),
   batch([record(),record()]),batch(Array.from({length:21},(_,i)=>record({message_id:i.toString(16).padStart(16,'0')})))
  ];
- for(const value of invalid)assert.throws(()=>replyBatch(value),CreatorReplyInputError);
- assert.deepEqual(replyBatch(batch([])),[],'Empty checks are allowed without importing email contents');
+ for(const value of invalid)assert.throws(()=>validate(value),CreatorReplyInputError);
+ assert.deepEqual(validate(batch([])),[],'Empty checks are allowed without importing email contents');
+});
+
+test('mailbox configuration has no default and request data cannot select a different mailbox',async t=>{
+ assert.equal(configuredReplyMailbox('Owner@Example.Invalid'),'owner@example.invalid');
+ for(const value of [undefined,null,'','not-an-email',' owner@example.invalid','owner@example.invalid\r\nBcc:x@example.invalid']){
+  assert.equal(configuredReplyMailbox(value),null);
+  assert.throws(()=>replyBatch(batch(),{mailbox:value}),CreatorReplyInputError);
+  const {post,state}=await fixture(t,{mailbox:value??''});
+  const response=await post();assert.equal(response.status,503);assert.equal(state.configured,false);assert.equal(state.imports.length,0);
+ }
+ const {post,state}=await fixture(t,{mailbox:'different@example.invalid'});
+ assert.equal(state.configured,true);assert.equal((await post()).status,400);assert.equal(state.imports.length,0);
+ assert.equal(gmailReplyUrl(record().thread_id),null);
 });
 
 test('subjects and names remove invitation capabilities and original links are constructed from Gmail IDs',()=>{
  const raw='d'.repeat(64),link='https://goldtrails.org/creator-invitation/?token='+raw;
- const row=replyBatch(batch([record({subject:'Re: '+link,from_name:raw})]))[0];
+ const row=validate(batch([record({subject:'Re: '+link,from_name:raw})]))[0];
  assert.ok(!JSON.stringify(row).includes(raw));assert.ok(!row.subject.includes('/creator-invitation/'));
- assert.equal(gmailReplyUrl('https://evil.invalid/'),null);
- assert.equal(gmailReplyUrl(record().thread_id),'https://mail.google.com/mail/u/?authuser=pshmker%40gmail.com#all/'+record().thread_id);
+ assert.equal(gmailReplyUrl('https://evil.invalid/',replyMailbox),null);
+ assert.equal(gmailReplyUrl(record().thread_id,replyMailbox),'https://mail.google.com/mail/u/?authuser=owner%40example.invalid#all/'+record().thread_id);
 });
 
 test('metadata endpoint requires a configured 256-bit key and does not disclose metadata on rejected imports',async t=>{
@@ -116,8 +132,8 @@ test('private panel escapes headers, distinguishes general mail and shows honest
  assert.equal(response.status,200);const html=await response.text();
  assert.match(html,/&lt;script&gt;alert\(1\)&lt;\/script&gt;/);assert.doesNotMatch(html,/<script>alert|<img src=x/);
  assert.match(html,/General Gold Trails email/);assert.match(html,/No unique creator match/);
- assert.match(html,/disabled until its private sync key is configured/);assert.match(html,/Forwarding and scheduled checks must be connected separately/);assert.match(html,/No successful import yet/);
- assert.match(html,/https:\/\/mail\.google\.com\/mail\/u\/\?authuser=pshmker%40gmail.com#all\//);
+ assert.match(html,/disabled until its private sync key and forwarding mailbox are configured/);assert.match(html,/Forwarding and scheduled checks must be connected separately/);assert.match(html,/No successful import yet/);
+ assert.match(html,/https:\/\/mail\.google\.com\/mail\/u\/\?authuser=owner%40example.invalid#all\//);
  assert.equal(response.headers.get('cache-control'),'no-store');assert.equal(response.headers.get('x-robots-tag'),'noindex, nofollow');
 });
 
