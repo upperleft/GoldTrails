@@ -86,7 +86,7 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
    }
    if(url.pathname==='/login/'){
     const next=memberDestination(req.method==='POST'?f.get('next'):url.searchParams.get('next'))||(invitation?'/creator-invitation/':null);
-    const loginForm=()=>form('/login/',csrf,(next?hidden('next',next):'')+input('email','Email','email','username')+input('password','Password','password','current-password'),'Sign in');
+    const loginForm=()=>form('/login/',csrf,(next?hidden('next',next):'')+input('email','Email','email','username')+input('password','Password','password','current-password')+'<div class="member-password-controls"><button type="button" class="member-password-toggle" data-password-toggle aria-controls="member-password" aria-pressed="false" hidden>Show password</button></div>','Sign in');
     if(req.method==='POST'){
      if(!await store.allow('login')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}
      const email=(f.get('email')||'').trim().toLowerCase(),password=f.get('password')||'';

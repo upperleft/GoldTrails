@@ -15,10 +15,11 @@ import { searchCriteria } from './directory-store.js';
 import { directoryPage, profilePage, messagePage, page, escapeHtml } from './directory-views.js';
 import {videoLibraryFor,videoLibraryBody} from './creator-video-library.js';
 import {createGoldPriceFeed} from './gold-price.js';
+import {creatorInvitationHome} from './creator-invitations/context.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
-export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, guests = guestPlusAccess, plus = createPlusHandler(), creatorInvitations = null, suggestions = null, analytics = null, directory = null, admin = null, members = null, memberSessions = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler({guests}), root = resolve('dist'), log = console.error } = {}) {
+export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, guests = guestPlusAccess, plus = createPlusHandler(), creatorRepliesImport = null, creatorInvitations = null, suggestions = null, analytics = null, directory = null, admin = null, members = null, memberSessions = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler({guests}), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
   function send(req, res, status, body, headers = {}) {
     res.writeHead(status, { 'Content-Type':'text/html; charset=utf-8', 'X-Content-Type-Options':'nosniff', 'Cache-Control':'no-store', ...headers });
@@ -36,8 +37,11 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
       return;
     }
+    // Private metadata imports never enter analytics, member sessions or public wrappers.
+    if(creatorRepliesImport&&await creatorRepliesImport(req,res,url))return;
     // Invitation capabilities never enter public analytics or promotional wrappers.
     if(creatorInvitations&&await creatorInvitations(req,res,url))return;
+    const invitationHome=req[creatorInvitationHome]===true;
     if(guests&&await guests.handle(req,res,url))return;
     guests?.attach(req,res,url);
     if(['GET','HEAD'].includes(req.method)&&['/creators-experts','/creators-experts/','/creators-experts/index.html'].includes(path)){
@@ -57,10 +61,10 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       try {if(req.headers.cookie)navigationPremium=await hasPremiumFeature(req,{members:memberSessions,guests},'almanac');}
       catch {log('Navigation membership check unavailable');}
     }
-    attachSiteNavigation(req,res,url,{premium:navigationPremium});
-    attachPlusMarkup(req,res,url,{premium:navigationPremium});
+    attachSiteNavigation(req,res,url,{premium:navigationPremium,creatorInvitation:invitationHome});
+    if(!invitationHome)attachPlusMarkup(req,res,url,{premium:navigationPremium});
     if(suggestions){if(await suggestions(req,res,url))return;if(await suggestions.enabled())suggestions.attach(req,res,url);}
-    if(analytics){if(await analytics(req,res,url))return;if(await analytics.enabled())attachAnalyticsMarkup(req,res,url);}
+    if(analytics&&!invitationHome){if(await analytics(req,res,url))return;if(await analytics.enabled())attachAnalyticsMarkup(req,res,url);}
     if(plus&&await plus(req,res,url))return;
     if(path === '/api/gold-price' || path === '/api/gold-price/') {
       const headers={'Content-Type':'application/json; charset=utf-8','X-Content-Type-Options':'nosniff','Cache-Control':'public, max-age=30'};

@@ -21,17 +21,18 @@ function contentBeforeSidebar(html){
  while((token=divs.exec(result))){depth+=token[0].startsWith('</')?-1:1;if(depth===0)return result.slice(0,divs.lastIndex)+sidebar[0]+result.slice(divs.lastIndex);}
  return html;
 }
-export function navigationLinks(path='/',{premium=false}={}){
+export function navigationLinks(path='/',{premium=false,creatorInvitation=false}={}){
  if(path==='/'){
   const libraries=[['/articles/','Articles'],['/glossary/','Glossary'],['/prospectors/','Creators'],['/products/','Products'],...(premium?[['/connections/','Gold Connections']]:[]),['/clubs-groups/','Clubs &amp; Groups']];
   const search='<details class="home-library-search"><summary>Search</summary><div><p>Choose a library to use its search and filters:</p>'+libraries.map(([href,label])=>`<a href="${href}">${label}</a>`).join('')+'</div></details>';
-  return [['/login/','Sign In'],['/articles/','Articles'],[premium?'/gold-almanac/':'/plus/',premium?'Almanac':'Almanac · Plus'],['/prospectors/','Creators'],['/glossary/','Glossary'],[premium?'/connections/':'/plus/','Gold Connections'],['/products/','Products'],[null,search],['/about-the-camp/','About']].map(([href,label])=>href?`<a href="${href}">${label}</a>`:label).join('');
+  const pending=creatorInvitation&&!premium,premiumDestination=pending?'/creator-invitation/':'/plus/';
+  return [['/login/','Sign In'],['/articles/','Articles'],[premium?'/gold-almanac/':premiumDestination,premium||pending?'Almanac':'Almanac · Plus'],['/prospectors/','Creators'],['/glossary/','Glossary'],[premium?'/connections/':premiumDestination,'Gold Connections'],['/products/','Products'],[null,search],['/about-the-camp/','About']].map(([href,label])=>href?`<a href="${href}">${label}</a>`:label).join('');
  }
  return destinations.filter(([, ,paid])=>!paid||premium).map(([href,label])=>`<a href="${href}"${active(href,path)?' aria-current="page"':''}>${label}</a>`).join('');
 }
-export function siteNavigationMarkup(html,{path='/',premium=false}={}){
+export function siteNavigationMarkup(html,{path='/',premium=false,creatorInvitation=false}={}){
  if(typeof html!=='string'||!html.includes('</head>')||!html.includes('trail-menu')||html.includes('data-site-navigation'))return html;
- const links=navigationLinks(path,{premium});
+ const links=navigationLinks(path,{premium,creatorInvitation});
  const readingSlot=path==='/'?'<div class="home-reading-slot" data-home-reading-slot></div>':'';
  const menu=/<section\b[^>]*class="[^"]*\btrail-menu\b[^"]*"[^>]*>[\s\S]*?<\/section>/g;
  let found=false;
@@ -41,7 +42,7 @@ export function siteNavigationMarkup(html,{path='/',premium=false}={}){
  result=result.replace(/<main\b(?![^>]*class="[^"]*home-graphical)[^>]*>/,match=>match+`<details class="site-mobile-menu"><summary>Menu</summary><nav aria-label="Main navigation">${links}</nav>${readingSlot}</details>`);
  return contentBeforeSidebar(result).replace('</head>',`<link rel="stylesheet" href="${assetUrl('design-refinements.css')}"></head>`);
 }
-export function attachSiteNavigation(req,res,url,{premium=false}={}){
+export function attachSiteNavigation(req,res,url,{premium=false,creatorInvitation=false}={}){
  if(!['GET','HEAD'].includes(req.method)||/^\/(?:admin|api)(?:\/|$)/.test(url.pathname))return;
  const end=res.end.bind(res),head=res.writeHead.bind(res);let type='';
  res.writeHead=function(status,message,headers){
@@ -59,7 +60,7 @@ export function attachSiteNavigation(req,res,url,{premium=false}={}){
   return typeof message==='string'?head(status,message,headers):head(status,message);
  };
  res.end=function(chunk,encoding,callback){
-  if(type.includes('text/html')&&chunk)chunk=Buffer.from(siteNavigationMarkup(Buffer.isBuffer(chunk)?chunk.toString('utf8'):String(chunk),{path:url.pathname,premium}));
+  if(type.includes('text/html')&&chunk)chunk=Buffer.from(siteNavigationMarkup(Buffer.isBuffer(chunk)?chunk.toString('utf8'):String(chunk),{path:url.pathname,premium,creatorInvitation}));
   return end(chunk,encoding,callback);
  };
 }

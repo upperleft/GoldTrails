@@ -1,7 +1,7 @@
 import {businessContacts} from './business-contacts.js';
 import {previewCatalog,importCatalog,backupCreators} from './catalog-import.js';
 import { randomUUID } from 'node:crypto';
-import { digest, token } from './admin-auth.js';
+import { digest, token, ADMIN_LOGIN_FORM_TTL_SECONDS, ADMIN_SESSION_TTL_SECONDS } from './admin-auth.js';
 import { starterTopics, topicChoices } from './creator-taxonomy.js';
 export class EditConflict extends Error {}
 export function createAdminStore(db, credentialVersion = '') {
@@ -15,7 +15,7 @@ export function createAdminStore(db, credentialVersion = '') {
   async newSession(authenticated) {
    const raw=token(), csrf=token();
    await db.query('DELETE FROM admin_sessions WHERE expires_at<UTC_TIMESTAMP(6)');
-   await db.query('INSERT INTO admin_sessions(token_hash,csrf_token,authenticated,expires_at) VALUES(?,?,?,DATE_ADD(UTC_TIMESTAMP(6),INTERVAL ? SECOND))',[sessionDigest(raw),csrf,authenticated ? 1:0,authenticated ? 28800:900]);
+   await db.query('INSERT INTO admin_sessions(token_hash,csrf_token,authenticated,expires_at) VALUES(?,?,?,DATE_ADD(UTC_TIMESTAMP(6),INTERVAL ? SECOND))',[sessionDigest(raw),csrf,authenticated ? 1:0,authenticated ? ADMIN_SESSION_TTL_SECONDS:ADMIN_LOGIN_FORM_TTL_SECONDS]);
    return { raw, csrf_token:csrf, authenticated };
   },
   async logout(raw) { if (raw) await db.query('DELETE FROM admin_sessions WHERE token_hash=?',[sessionDigest(raw)]); },

@@ -24,6 +24,8 @@ import {memberMail} from './app/member-mail.js';
 import { adminConfig } from './app/admin-auth.js';
 import {createCreatorInvitationStore} from './app/creator-invitations/store.js';
 import {createCreatorInvitationHandler} from './app/creator-invitations/handler.js';
+import {createCreatorRepliesStore} from './app/creator-replies/store.js';
+import {createCreatorRepliesImportHandler} from './app/creator-replies/handler.js';
 
 
 import {createProductWorkspace} from './app/product-workspace.js';
@@ -39,7 +41,9 @@ const suggestionStore=db?createSuggestionStore(db):null;
 const analyticsStore=db?createAnalyticsStore(db):null;
 const ownerStore=db?createAdminStore(db,config?.passwordHash):null;
 const invitationStore=db?createCreatorInvitationStore(db):null;
-const admin=createAdminHandler({workspace:productWorkspace,store:ownerStore,config,analyticsStore,suggestionStore,creatorInvitations:invitationStore});
+const creatorReplies=db?createCreatorRepliesStore(db):null;
+const creatorRepliesImport=createCreatorRepliesImportHandler({store:creatorReplies});
+const admin=createAdminHandler({workspace:productWorkspace,store:ownerStore,config,analyticsStore,suggestionStore,creatorInvitations:invitationStore,creatorReplies,creatorRepliesSyncConfigured:creatorRepliesImport.configured});
 const memberStore=db?createMemberStore(db):null, memberSettings=memberConfig();
 const directory=db?createDirectoryStore(db):null;
 const members=createMemberHandler({store:memberStore,config:memberSettings,mail:memberMail(),invitations:invitationStore});
@@ -48,7 +52,7 @@ const products=createProductsHandler({store:productWorkspace,members:memberStore
 const connectionsVault=meetingVault(process.env.CONNECTIONS_ENCRYPTION_KEY);
 const connections=createConnectionsHandler({store:db?createConnectionsStore(db,{vault:connectionsVault,billingProvider:'stripe'}):null,members:memberStore,owners:ownerStore,config:memberSettings,vault:connectionsVault,processPhoto:processEventPhoto,unsubscribe:unsubscribeLinks(process.env.CONNECTIONS_UNSUBSCRIBE_SECRET),calendarStore:db?createCalendarStore(db):null});
 const calendar=createCalendarHandler({members:memberStore,store:db?createCalendarStore(db):null,config:memberSettings});
-const server = createServer({ creatorInvitations, homepage:createHomepageHandler({members:memberStore,config:memberSettings}), connections, suggestions:createSuggestionsHandler({store:suggestionStore,origin:memberSettings?.origin||config?.origin}), analytics:createAnalyticsHandler({store:analyticsStore,origin:memberSettings?.origin||config?.origin}), calendar, members, memberSessions:memberStore, directory, admin, products, almanac:createAlmanacHandler({creators:createAlmanacCreators(directory),store:db?createAlmanacStore(db):null,members:memberStore,owners:ownerStore,log:console.error}) });
+const server = createServer({ creatorRepliesImport, creatorInvitations, homepage:createHomepageHandler({members:memberStore,config:memberSettings}), connections, suggestions:createSuggestionsHandler({store:suggestionStore,origin:memberSettings?.origin||config?.origin}), analytics:createAnalyticsHandler({store:analyticsStore,origin:memberSettings?.origin||config?.origin}), calendar, members, memberSessions:memberStore, directory, admin, products, almanac:createAlmanacHandler({creators:createAlmanacCreators(directory),store:db?createAlmanacStore(db):null,members:memberStore,owners:ownerStore,log:console.error}) });
 const port = Number(process.env.PORT || 3000);
 server.listen(port,'0.0.0.0',() => console.log(`Gold Trails listening on port ${port}`));
 for (const signal of ['SIGTERM','SIGINT']) process.on(signal,() => {

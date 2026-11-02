@@ -8,9 +8,10 @@ import {createDashboardRouter} from './admin-dashboard.js';
 import {CatalogConflict} from './catalog-import.js';
 import { timingSafeEqual } from 'node:crypto';
 import { escapeHtml as h, safeUrl, page } from './directory-views.js';
-import { verifyPassword, readCookie, sessionCookie } from './admin-auth.js';
+import { verifyPassword, readCookie, sessionCookie, ADMIN_LOGIN_FORM_TTL_SECONDS } from './admin-auth.js';
 import { EditConflict } from './admin-store.js';
 import {createAdminInvitationRouter} from './creator-invitations/handler.js';
+import {createAdminCreatorRepliesRouter} from './creator-replies/handler.js';
 const uuid=/^[a-f0-9]{8}-(?:[a-f0-9]{4}-){3}[a-f0-9]{12}$/i;
 const relationships=[['co_creator','Co-creator'],['partner','Partner'],['friend','Friend'],['collaborator','Collaborator'],['other','Other']];
 const platforms=['YouTube','Facebook','Instagram','website','podcast','other'];
@@ -71,9 +72,10 @@ const field=(name,label,value='',max=180,type='text')=>`<label>${label}<input na
 const area=(name,label,value='',max=12000)=>`<label>${label}<textarea name="${name}" maxlength="${max}" rows="5">${h(value??'')}</textarea></label>`;
 const select=(name,label,values,current)=>`<label>${label}<select name="${name}">${values.map(([v,l])=>`<option value="${h(v)}"${v===String(current??'')?' selected':''}>${h(l)}</option>`).join('')}</select></label>`;
 const csrf=s=>hidden('csrf',s.csrf_token);
-const frame=(title,content)=>page(title,'Private Gold Trails administration',content,'','Your private field desk.').replace('class="category-page"','class="category-page admin-page"').replace('GOLD TRAILS / PROSPECTOR DIRECTORY','GOLD TRAILS / ADMINISTRATION').replace(/<aside class="left">[\s\S]*?<\/aside>/,'<aside class="left"><section class="panel trail-menu"><h2>Administration</h2><a href="/">Gold Trails home</a><a href="/admin/">Dashboard</a><a href="/connections/moderation/">Gold Connections moderation</a><a href="/admin/analytics/">Traffic &amp; clicks</a><a href="/admin/suggestions/">Reader suggestions</a><a href="/admin/creators/">Creators &amp; profiles</a><a href="/admin/creator-invitations/">Creator invitations</a><a href="/admin/products/">Products</a><a href="/admin/contacts/">Contact research</a><a href="/admin/reports/">Product corrections</a><a href="/admin/members/">Member accounts</a></section></aside>').replace(/<nav class="breadcrumb"[\s\S]*?<\/nav>/,`<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${h(title)}</span></nav>`).replace('</head>',`<link rel="stylesheet" href="${assetUrl('admin-dashboard.css')}"></head>`);
+const frame=(title,content)=>page(title,'Private Gold Trails administration',content,'','Your private field desk.').replace('class="category-page"','class="category-page admin-page"').replace('GOLD TRAILS / PROSPECTOR DIRECTORY','GOLD TRAILS / ADMINISTRATION').replace(/<aside class="left">[\s\S]*?<\/aside>/,'<aside class="left"><section class="panel trail-menu"><h2>Administration</h2><a href="/">Gold Trails home</a><a href="/admin/">Dashboard</a><a href="/connections/moderation/">Gold Connections moderation</a><a href="/admin/analytics/">Traffic &amp; clicks</a><a href="/admin/suggestions/">Reader suggestions</a><a href="/admin/creators/">Creators &amp; profiles</a><a href="/admin/creator-invitations/">Creator invitations</a><a href="/admin/creator-replies/">Gold Trails email</a><a href="/admin/products/">Products</a><a href="/admin/contacts/">Contact research</a><a href="/admin/reports/">Product corrections</a><a href="/admin/members/">Member accounts</a></section></aside>').replace(/<nav class="breadcrumb"[\s\S]*?<\/nav>/,`<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">${h(title)}</span></nav>`).replace('</head>',`<link rel="stylesheet" href="${assetUrl('admin-dashboard.css')}"></head>`);
 const logout=s=>`<form method="post" action="/admin/logout/">${csrf(s)}<button type="submit">Sign out</button></form>`;
-function login(s,error='') {return frame('Administrator sign-in',`<section class="resource-placeholder"><h2>Welcome back to camp</h2>${error?`<p role="alert">${h(error)}</p>`:''}<form class="admin-form" method="post" action="/admin/login/">${csrf(s)}<label>Username<input name="username" autocomplete="username" maxlength="180" required></label><label>Password<input type="password" name="password" autocomplete="current-password" maxlength="128" required></label><button class="gold-button">Sign in</button></form></section>`);}
+function login(s,error='',username='') {return frame('Administrator sign-in',`<section class="resource-placeholder admin-login-card"><h2>Sign in to administration</h2><p id="admin-login-guidance">Use your administrator username and administrator password. These are separate from your Gold Trails member email and password. <a href="/login/">Member sign-in</a></p>${error?`<p class="admin-login-error" role="alert">${h(error)}</p>`:''}<form class="admin-form" method="post" action="/admin/login/" aria-describedby="admin-login-guidance">${csrf(s)}<label>Administrator username<input name="username" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="180" value="${h(String(username).slice(0,180))}" required></label><label>Administrator password<input id="admin-login-password" type="password" name="password" autocomplete="current-password" maxlength="128" required></label><button type="button" class="admin-password-toggle" data-admin-password-toggle aria-controls="admin-login-password" aria-pressed="false" hidden>Show password</button><button type="submit" class="gold-button">Sign in</button></form></section>`).replace('</body>',`<script src="${assetUrl('admin-login.js')}" defer></script></body>`);}
+const adminPolicy="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'none'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'";
 function listing(rows,s) {return frame('Creator workspace',`<section class="resource-placeholder"><h2>Keep the campfire growing</h2><a class="gold-button" href="/admin/creators/new/">Add a creator</a> <a href="/admin/creators/import/">Import the research roster</a><p>Drafts stay private. Archived profiles are preserved. Showing up to 500 creators.</p><ul class="admin-list">${rows.map(p=>`<li><a href="/admin/creators/${h(p.id)}/">${h(p.display_name)}</a> <span>${p.archived_at?'Archived':h(p.publication_status)}</span></li>`).join('')||'<li>No creators yet.</li>'}</ul></section>`);}
 function editor(p,regions,taxonomy,s,notice='') {
  const isNew=!p.id,archived=Boolean(p.archived_at),path=isNew?'/admin/creators/new/':`/admin/creators/${p.id}/`;
@@ -93,12 +95,20 @@ async function body(req) {
  const keys=new Set();for(const key of f.keys()){if(keys.has(key))throw new FormError('Duplicate form field');keys.add(key);}
  return f;
 }
-export function createAdminHandler({store,config,workspace=null,analyticsStore=null,suggestionStore=null,creatorInvitations=null,log=console.error}) {
+export function createAdminHandler({store,config,workspace=null,analyticsStore=null,suggestionStore=null,creatorInvitations=null,creatorReplies=null,creatorRepliesSyncConfigured=false,log=console.error}) {
  const dashboard=workspace?createDashboardRouter(workspace):null;
  const invitationRouter=createAdminInvitationRouter(creatorInvitations,config?.origin);
+ const creatorRepliesRouter=createAdminCreatorRepliesRouter({store:creatorReplies,configured:creatorRepliesSyncConfigured,log});
  return async(req,res,url)=>{
   if(url.pathname!=='/admin'&&!url.pathname.startsWith('/admin/'))return false;
-  const send=(status,html,extra={})=>{if(s?.authenticated&&typeof html==='string')html=html.replace(/<div class="header-tools">[\s\S]*?<\/div>/,`<div class="header-tools">${logout(s)}</div>`);res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'same-origin','X-Frame-Options':'DENY','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'none'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...extra});res.end(req.method==='HEAD'?undefined:html);};
+  const send=(status,html,extra={})=>{if(s?.authenticated&&typeof html==='string')html=html.replace(/<div class="header-tools">[\s\S]*?<\/div>/,`<div class="header-tools">${logout(s)}</div>`);res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'same-origin','X-Frame-Options':'DENY','Content-Security-Policy':adminPolicy,...extra});res.end(req.method==='HEAD'?undefined:html);};
+  // Only the sign-in form may run this exact same-origin, versioned local asset.
+  const sendLogin=(status,error='',username='',extra={})=>send(status,login(s,error,username),{'Content-Security-Policy':adminPolicy.replace("script-src 'none'",`script-src ${config.origin}/admin-login.js`),...extra});
+  const loginError=async(status,error,username='')=>{
+   try{s=await store.newSession(false);}
+   catch{log('Gold Trails administrator sign-in form unavailable');send(503,frame('Workspace temporarily unavailable','<p>Please return to administrator sign-in shortly. Your public site remains available.</p>'));return;}
+   sendLogin(status,error,username,{'Set-Cookie':sessionCookie(s.raw,ADMIN_LOGIN_FORM_TTL_SECONDS)});
+  };
   const redirect=path=>send(303,'',{'Location':path});
   const raw=readCookie(req);let s,f;
   try {
@@ -109,21 +119,23 @@ export function createAdminHandler({store,config,workspace=null,analyticsStore=n
     if(req.headers.origin!==config.origin){send(403,frame('Form expired','<p>Return to the workspace and try again.</p>'));return true;}
     f=await body(req);
     const t=f.get('csrf')||'';
-    if(!s||!/^[a-f0-9]{64}$/.test(t)||!timingSafeEqual(Buffer.from(t),Buffer.from(s.csrf_token))){send(403,frame('Form expired','<p>Sign in again to continue.</p>'));return true;}
+    if(!s||!/^[a-f0-9]{64}$/.test(t)||!timingSafeEqual(Buffer.from(t),Buffer.from(s.csrf_token))){if(url.pathname==='/admin/login/')await loginError(403,'Your sign-in form expired or changed and has been refreshed for one hour. Your administrator username is kept below; enter your password and try again.',f.get('username')||'');else send(403,frame('Form expired','<p>Sign in again to continue.</p>'));return true;}
    }
    if(url.pathname==='/admin/login/') {
     if(req.method==='POST') {
-     if(!await store.allowLogin()){send(429,login(s,'Please wait 15 minutes before trying again.'),{'Retry-After':'900'});return true;}
+     if(!await store.allowLogin()){sendLogin(429,'Please wait 15 minutes before trying again.',f.get('username')||'',{'Retry-After':'900'});return true;}
      const password=f.get('password')||'';
      const verified=await verifyPassword(password,config.passwordHash);
-     if(f.get('username')!==config.username||!verified){send(401,login(s,'Sign-in details were not recognized.'));return true;}
+     if(f.get('username')!==config.username||!verified){sendLogin(401,'Administrator sign-in details were not recognized. Check your administrator username and password, or use Member sign-in for your member account.',f.get('username')||'');return true;}
      await store.logout(raw);const fresh=await store.newSession(true);
      send(303,'',{'Location':dashboard?'/admin/':'/admin/creators/','Set-Cookie':sessionCookie(fresh.raw)});return true;
     }
     if(s?.authenticated){redirect(dashboard?'/admin/':'/admin/creators/');return true;}
-    if(!s){s=await store.newSession(false);send(200,login(s),{'Set-Cookie':sessionCookie(s.raw,900)});}else send(200,login(s));return true;
+    s=await store.newSession(false);sendLogin(200,'','',{'Set-Cookie':sessionCookie(s.raw,ADMIN_LOGIN_FORM_TTL_SECONDS)});return true;
    }
    if(!s?.authenticated){redirect('/admin/login/');return true;}
+   const creatorRepliesView=await creatorRepliesRouter(url,f,s,config.username);
+   if(creatorRepliesView){res.setHeader('X-Robots-Tag','noindex, nofollow');if(creatorRepliesView.redirect)redirect(creatorRepliesView.redirect);else send(creatorRepliesView.status||200,frame(creatorRepliesView.title,creatorRepliesView.body));return true;}
    const invitationView=await invitationRouter(url,f,s,config.username);
    if(invitationView){res.setHeader('X-Robots-Tag','noindex, nofollow');if(invitationView.redirect)redirect(invitationView.redirect);else send(invitationView.status||200,frame(invitationView.title,invitationView.body),{'Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex, nofollow'});return true;}
    if(url.pathname==='/admin/logout/'&&req.method==='POST'){await store.logout(raw);send(303,'',{'Location':'/admin/login/','Set-Cookie':sessionCookie('',0)});return true;}
@@ -178,7 +190,7 @@ export function createAdminHandler({store,config,workspace=null,analyticsStore=n
    if(e instanceof ProductInputError)send(400,frame('Check the form',`<p role="alert">${h(e.message)}</p><p>Use Back to correct your entries.</p>`));
    else if(e instanceof ProductConflict)send(409,frame('Another edit came first','<p>Reload this record before saving. Your changes were not applied.</p>'));
    else if(e instanceof CatalogConflict)send(409,frame('Reload the import preview','<p>The roster or database changed, or an import prerequisite is unavailable. No partial batch was saved. Return to the import preview and review the batch again.</p><a href="/admin/creators/import/">Review import</a>'));
-   else if(e instanceof FormError)send(400,frame('Check the form',`<p role="alert">${h(e.message)}</p><p>Use your browser’s Back button to correct the form.</p>`));
+   else if(e instanceof FormError){if(url.pathname==='/admin/login/')await loginError(400,'The sign-in form could not be read. Enter your administrator username and password and try again.');else send(400,frame('Check the form',`<p role="alert">${h(e.message)}</p><p>Use your browser’s Back button to correct the form.</p>`));}
    else if(e instanceof EditConflict)send(409,frame('Another edit came first','<p>Reload the profile before saving again. Your changes were not applied.</p>'));
    else if(e.code==='ER_DUP_ENTRY')send(409,frame('That route is already in use','<p>Choose a different page route. Your changes were not applied.</p>'));
    else {log('Gold Trails administrator request unavailable');send(503,frame('Workspace temporarily unavailable','<p>Please try again shortly. Your public site remains available.</p>'));}

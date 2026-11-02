@@ -89,6 +89,24 @@ test('effective subscribers and guest readers keep one direct Almanac link and p
  }
 });
 
+test('pending creator invitations guide premium discovery to acceptance without overriding existing entitlement',()=>{
+ for(const options of [{creatorInvitation:true},{creatorInvitation:true,member:{effective_level:'free',plan:'plus'}}]){
+  const items=homeHotspots(options),html=graphicalHome(options);
+  for(const id of ['nav-almanac','nav-connections','panel-plus','panel-plus-button'])assert.equal(items.find(item=>item.id===id).href,'/creator-invitation/');
+  assert.doesNotMatch(html,/href="\/(?:plus|gold-almanac|connections)\/"|data-home-premium="plus"|home-nav-plus-badge|home-card-plus-badge|\$5|\/ month/);
+  assert.match(html,/Continue invitation →/);
+  assert.equal(items.filter(item=>item.id.startsWith('nav-')&&item.type!=='help').length,9);
+  assert.equal(items.find(item=>item.id==='nav-articles').href,'/articles/');
+  assert.equal(items.find(item=>item.id==='nav-products').href,'/products/');
+ }
+ for(const options of [{creatorInvitation:true,member:{effective_level:'subscriber'}},{creatorInvitation:true,guest:true}]){
+  const items=homeHotspots(options),html=graphicalHome(options);
+  assert.equal(items.find(item=>item.id==='nav-almanac').href,'/gold-almanac/');
+  assert.equal(items.find(item=>item.id==='nav-connections').href,'/connections/');
+  assert.match(html,/<strong>Welcome<\/strong><span>back<\/span>/);
+ }
+});
+
 test('every viewer gets the same nine ordered sidebar choices with public creators and reading tools below About',()=>{
  for(const options of [{},{member:{effective_level:'free'}},{member:{effective_level:'expired',plan:'plus'}},{member:{plan:'plus'}},{member:{effective_level:'subscriber'}},{guest:true}]){
   const items=homeHotspots(options),html=graphicalHome(options);

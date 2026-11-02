@@ -212,7 +212,7 @@
     recurrenceFields(values.rrule, fields.timeZone.value, fields.allDay.checked);
   }
   function openEvent(event = null, date = null) {
-    if (!state.calendars.length) { state.pendingNewDate = date; state.pendingNewEvent = true; openCalendar(); return; }
+    if (!state.calendars.length) { openCalendar(null, { forEvent: true, date }); return; }
     eventForm.reset(); formError(eventForm);
     state.editingEvent = event ? eventFields(event) : null;
     eventForm.elements.calendarId.replaceChildren(...state.calendars.map(calendar => { const option = document.createElement('option'); option.value = calendar.id; option.textContent = calendar.name; return option; }));
@@ -228,10 +228,14 @@
     fillEvent(current ? recurring ? current.series || current : current : { startLocal: start.toFormat("yyyy-MM-dd'T'HH:mm"), endLocal: start.plus({ hours: 1 }).toFormat("yyyy-MM-dd'T'HH:mm"), timeZone: state.timeZone });
     eventDialog.showModal(); eventForm.elements.title.focus();
   }
-  function openCalendar(calendar = null) {
+  function openCalendar(calendar = null, { forEvent = false, date = null } = {}) {
+    state.pendingNewEvent = forEvent; state.pendingNewDate = forEvent ? date : null;
     state.editingCalendar = calendar; calendarForm.reset(); formError(calendarForm);
     calendarForm.elements.name.value = calendar?.name || ''; calendarForm.elements.color.value = calendar?.color || '#984c32';
-    $('#calendar-calendar-heading').textContent = calendar ? 'Edit calendar' : 'New calendar';
+    $('#calendar-calendar-heading').textContent = calendar ? 'Edit calendar' : forEvent ? 'First, create a calendar' : 'New calendar';
+    $('#calendar-calendar-help').textContent = forEvent ? 'Events belong to a calendar. Name your first calendar below, then you can add your event.' : '';
+    $('#calendar-calendar-help').hidden = !forEvent;
+    $('#calendar-save-calendar').textContent = forEvent ? 'Continue to new event' : 'Save calendar';
     $('#calendar-delete-calendar').hidden = !calendar;
     calendarDialog.showModal(); calendarForm.elements.name.focus();
   }

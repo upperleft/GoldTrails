@@ -7,6 +7,7 @@ import {createMemberHandler} from '../app/members.js';
 import {digest,hashPassword} from '../app/admin-auth.js';
 import {publicPath} from '../app/analytics/model.js';
 import {analyticsMarkup} from '../app/analytics/handler.js';
+import {createHomepageHandler} from '../app/homepage/handler.js';
 
 const origin='https://gold.example';
 const path='/creator-invitation/';
@@ -45,7 +46,7 @@ async function fixture(t,options={}){
  const config={origin,open:true};
  const log=value=>state.logs.push(String(value));
  const handler=createCreatorInvitationHandler({store:invitations,members,config,log});
- const server=createServer({creatorInvitations:handler,memberSessions:members,
+ const server=createServer({creatorInvitations:handler,memberSessions:members,homepage:createHomepageHandler({members,config,guests:null}),analytics:options.analytics,
   members:createMemberHandler({store:members,invitations,config,mail:options.mail||(async()=>{}),log}),
   goldPrice:async()=>({}),log});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
@@ -61,7 +62,7 @@ test('invitation GET exchanges a bearer for a secure cookie and removes it from 
  const {request,state}=await fixture(t);
  const response=await request(path+'?token='+raw);
  assert.equal(response.status,303);
- assert.equal(response.headers.get('location'),path);
+ assert.equal(response.headers.get('location'),'/');
  const setCookie=response.headers.getSetCookie().find(value=>value.startsWith('__Host-gold-creator-invite='));
  assert.ok(setCookie);
  assert.match(setCookie,new RegExp('^__Host-gold-creator-invite='+raw+';'));
@@ -73,6 +74,76 @@ test('invitation GET exchanges a bearer for a secure cookie and removes it from 
  assert.match(response.headers.get('x-robots-tag'),/noindex/);
  assert.doesNotMatch(await response.text(),new RegExp(raw));
  assert.equal(state.accepts,0);assert.equal(state.consumed,false);
+});
+
+test('a valid invitation opens the homepage first without revealing or consuming its capability',async t=>{
+ let analyticsRequests=0;
+ const analytics=Object.assign(async()=>{analyticsRequests++;return false;},{enabled:async()=>true});
+ const {request,state,account}=await fixture(t,{analytics});
+ const exchange=await request(path+'?token='+raw);
+ assert.equal(exchange.status,303);assert.equal(exchange.headers.get('location'),'/');
+ assert.equal(exchange.headers.get('referrer-policy'),'no-referrer');
+ const browserCookies=exchange.headers.getSetCookie().map(value=>value.split(';')[0]).join('; ');
+ for(const method of ['GET','HEAD','GET']){
+  const response=await request('/',{method,headers:{Cookie:browserCookies}});
+  assert.equal(response.status,200);
+  assert.equal(response.headers.get('cache-control'),'private, no-store');
+  assert.equal(response.headers.get('vary'),'Cookie');
+  assert.equal(response.headers.get('referrer-policy'),'strict-origin');
+  assert.equal(response.headers.get('x-robots-tag'),'noindex, nofollow');
+  const html=await response.text();
+  if(method==='HEAD'){assert.equal(html,'');continue;}
+  assert.equal((html.match(/class="home-invitation-welcome"/g)||[]).length,1,'One welcome is shared by illustrated and text layouts');
+  assert.match(html,/Your complimentary creator invitation is waiting/);
+  assert.match(html,/href="\/creator-invitation\/">Continue to your free creator account<\/a>/);
+  assert.match(html,/home-graphical/);assert.match(html,/class="hero"/,'The normal homepage remains available to explore');
+  assert.match(html,/data-home-id="nav-almanac"[^>]*href="\/creator-invitation\/"/);
+  assert.match(html,/data-home-id="nav-connections"[^>]*href="\/creator-invitation\/"/);
+  assert.match(html,/<strong>Free<\/strong><span>for creators<\/span>/);
+  assert.doesNotMatch(html,/site-analytics\.(?:js|css)|data-plus-support|\$5|\/ month|href="\/plus\/"/);
+  for(const privateValue of [raw,targetEmail,invitationId,creatorId,accountId,'River Teacher'])assert.ok(!html.includes(privateValue));
+ }
+ assert.equal(analyticsRequests,0);
+ assert.equal(state.acceptAttempts,0);assert.equal(state.accepts,0);assert.equal(state.consumed,false);
+ assert.equal(account.effective_level,'free');
+ const continueInvitation=await request(path,{headers:{Cookie:browserCookies}});
+ assert.equal(continueInvitation.status,200);assert.match(await continueInvitation.text(),/Create your free account/);
+ assert.equal(state.accepts,0);
+});
+
+test('ordinary, malformed and no-longer-pending invitation cookies keep the public homepage ordinary',async t=>{
+ let analyticsRequests=0;
+ const analytics=Object.assign(async()=>{analyticsRequests++;return false;},{enabled:async()=>true});
+ const {request,state}=await fixture(t,{analytics});
+ const ordinary=async value=>{
+  const response=await request('/',{headers:value?{Cookie:cookie({'creator-invite':value})}:{}});
+  assert.equal(response.status,200);const html=await response.text();
+  assert.doesNotMatch(html,/home-invitation-welcome|data-complimentary-invitation/);
+  assert.match(html,/<strong>\$5<\/strong><span>\/ month<\/span>/);
+  assert.match(html,/site-analytics\.js/);
+  assert.notEqual(response.headers.get('x-robots-tag'),'noindex, nofollow');
+  assert.ok(!html.includes(raw));
+ };
+ await ordinary();await ordinary('short');assert.equal(state.reads,0);
+ await ordinary('f'.repeat(64));
+ for(const field of ['expired','revoked','consumed']){state[field]=true;await ordinary(raw);state[field]=false;}
+ assert.equal(analyticsRequests,6);assert.equal(state.acceptAttempts,0);assert.equal(state.accepts,0);
+});
+
+test('optional invitation checks fail gracefully on the homepage without logging private data',async t=>{
+ for(const failingMethod of ['ready','read']){
+  const {request,state}=await fixture(t,{invitations:{[failingMethod]:async()=>{throw Error('private failure '+raw+' '+targetEmail);}}});
+  const response=await request('/',{headers:{Cookie:cookie({'creator-invite':raw})}});
+  assert.equal(response.status,200);const html=await response.text();
+  assert.match(html,/class="hero"/);assert.match(html,/<strong>\$5<\/strong>/);
+  assert.doesNotMatch(html,/home-invitation-welcome|private failure/);
+  assert.equal(state.acceptAttempts,0);assert.equal(state.accepts,0);
+  assert.deepEqual(state.logs,['Gold Trails homepage invitation check unavailable']);
+ }
+ const {request,state}=await fixture(t,{invitations:{ready:async()=>false}});
+ const response=await request('/',{headers:{Cookie:cookie({'creator-invite':raw})}});
+ assert.equal(response.status,200);assert.doesNotMatch(await response.text(),/home-invitation-welcome/);
+ assert.equal(state.reads,0);assert.equal(state.accepts,0);
 });
 
 test('a clean anonymous invitation page escapes the creator and masks recipient details',async t=>{

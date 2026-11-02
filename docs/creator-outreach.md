@@ -21,7 +21,7 @@ I'm Paul, the person building Gold Trails, a learning site for people interested
 
 [Personal line from below.]
 
-I'd love for you to take a look and tell me what you think. As a featured creator, you're invited to complimentary Gold Trails Plus, with no subscription fee or card required. This link lets you create or sign in to your own account and accept your creator invitation:
+I'd love for you to take a look and tell me what you think. As a featured creator, you're invited to complimentary Gold Trails Plus, with no subscription fee or card required. This personal link opens the homepage so you can explore. Choose **Continue to your free creator account** there to create or sign in to your account and accept your invitation:
 
 [Unique invitation link]
 

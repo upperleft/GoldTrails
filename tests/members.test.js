@@ -214,3 +214,12 @@ test('member access pages share one title without applying auth layout to Your C
  const html=await(await closed('/signup/')).text();assert.match(html,/Registration is temporarily unavailable/);assert.match(html,/<fieldset disabled class="member-preview">/);
  assert.doesNotMatch(html,/data-signup-plus-offer/);
 });
+
+test('member sign-in offers the existing accessible password visibility control',async t=>{
+ const request=await fixture(t,{store:{ready:async()=>true,session:async()=>null}});
+ const response=await request('/login/'),html=await response.text();
+ assert.equal(response.status,200);
+ assert.match(html,/name="password"[^>]*autocomplete="current-password"/);
+ assert.match(html,/type="button" class="member-password-toggle" data-password-toggle aria-controls="member-password" aria-pressed="false" hidden>Show password/);
+ assert.match(html,/src="\/member-forms\.js\?v=[a-f0-9]{12}"/);
+});

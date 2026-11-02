@@ -3,6 +3,7 @@ import {digest,token} from '../admin-auth.js';
 import {CreatorInvitationError} from './model.js';
 import {creatorInvitationPage,invitationBody,adminInvitationsView} from './views.js';
 import {escapeHtml as h} from '../directory-views.js';
+import {creatorInvitationHome} from './context.js';
 
 const validToken=value=>/^[a-f0-9]{64}$/.test(value||'');
 const read=(req,name)=>(req.headers.cookie||'').match(new RegExp(`(?:^|;\\s*)__Host-gold-${name}=([a-f0-9]{64})(?:;|$)`))?.[1]||null;
@@ -20,6 +21,15 @@ async function body(req){
 
 export function createCreatorInvitationHandler({store=null,members=null,config=null,log=console.error}={}){
  return async(req,res,url)=>{
+  // Optional invitation storage must never prevent the public homepage opening.
+  // Read only: the homepage welcome cannot accept or otherwise consume a link.
+  if(url.pathname==='/'&&['GET','HEAD'].includes(req.method)){
+   const raw=read(req,'creator-invite');
+   if(raw&&store&&members&&config)try{
+    if(await store.ready()&&await store.read(raw))req[creatorInvitationHome]=true;
+   }catch{log('Gold Trails homepage invitation check unavailable');}
+   return false;
+  }
   if(!['/creator-invitation','/creator-invitation/'].includes(url.pathname))return false;
   const csrf=read(req,'form')||token();
   const send=(status,title,content,extra={})=>{
@@ -43,7 +53,7 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
     const invite=await store.read(raw);
     if(!invite){unavailable();return true;}
     const age=Math.min(30*86400,Math.max(1,Math.floor((expires(invite.expires_at)-Date.now())/1000)));
-    send(303,'Your creator invitation','',{Location:'/creator-invitation/','Referrer-Policy':'no-referrer','Set-Cookie':[cookie('creator-invite',raw,age),cookie('form',csrf)]});return true;
+    send(303,'Your creator invitation','',{Location:'/','Referrer-Policy':'no-referrer','Set-Cookie':[cookie('creator-invite',raw,age),cookie('form',csrf)]});return true;
    }
    const raw=read(req,'creator-invite');
    if(!raw){unavailable();return true;}

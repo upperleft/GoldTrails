@@ -1,6 +1,8 @@
 import { randomBytes, createHash, scrypt, timingSafeEqual } from 'node:crypto';
 import { promisify } from 'node:util';
 const derive = promisify(scrypt);
+export const ADMIN_LOGIN_FORM_TTL_SECONDS = 3600;
+export const ADMIN_SESSION_TTL_SECONDS = 28800;
 export const token = () => randomBytes(32).toString('hex');
 export const digest = value => createHash('sha256').update(value).digest('hex');
 const options = { N:131072, r:8, p:1, maxmem:160 * 1024 * 1024 };
@@ -21,7 +23,7 @@ export function adminConfig(env = process.env) {
   if (url.protocol !== 'https:' || url.origin !== env.ADMIN_ORIGIN || url.username || url.password || env.ADMIN_USERNAME.length > 180) return null;
   return { username:env.ADMIN_USERNAME, passwordHash:env.ADMIN_PASSWORD_HASH, origin:url.origin };
 }
-export function sessionCookie(value, age=28800) {
+export function sessionCookie(value, age=ADMIN_SESSION_TTL_SECONDS) {
   return `__Host-gold-admin=${value}; Path=/; Secure; HttpOnly; SameSite=Strict; Max-Age=${age}`;
 }
 export function readCookie(req) {
