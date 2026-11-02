@@ -7,6 +7,7 @@ const people = icon('<circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12
 
 export function accountView(member, csrf) {
   const plus = member.effective_level === 'subscriber';
+  const complimentary=plus&&member.grant_source==='complimentary';
   return `<header class="camp-welcome">
     <span class="camp-emblem">${compass}</span>
     <div><h2>Welcome back, ${h(member.display_name || member.username)}.</h2><p>Make yourself at home. Your next trail starts here.</p></div>
@@ -21,5 +22,5 @@ export function accountView(member, csrf) {
     <dl><div><dt>Account number</dt><dd>GT-${h(String(member.account_number).padStart(6, '0'))}</dd></div><div><dt>Username</dt><dd>${h(member.username)}</dd></div><div class="camp-email"><dt>Email</dt><dd>${h(member.email)}</dd></div></dl>
   </section>
   <div class="camp-plus"><div><strong>${plus ? 'Your State Almanac is ready to explore.' : 'A little deeper down the trail'}</strong><p>${plus ? 'Explore the full State Almanac with Gold Trails Plus.' : 'Discover the State Almanac with Gold Trails Plus · $5/month.'}</p></div><a href="${plus ? '/gold-almanac/' : '/plus/'}">${plus ? 'Open Almanac' : 'Explore Plus'} <span aria-hidden="true">→</span></a></div>
-  <footer class="camp-footer"><p>New subscriptions and billing controls are not open yet.</p><form method="post" action="/logout/"><input type="hidden" name="csrf" value="${h(csrf)}"><button type="submit">Sign out</button></form></footer>`;
+  <footer class="camp-footer"><p>${complimentary?'Your Plus access is complimentary. No subscription fee or card is required.'+(member.ends_at?'':' Your included access has no expiry.'):'New subscriptions and billing controls are not open yet.'}</p><form method="post" action="/logout/"><input type="hidden" name="csrf" value="${h(csrf)}"><button type="submit">Sign out</button></form></footer>`;
 }

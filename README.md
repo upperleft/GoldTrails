@@ -2,6 +2,12 @@
 
 A frontier-themed gold-prospecting field library with static topic pages and a server-rendered prospector directory.
 
+## Project status
+
+The public site is [goldtrails.org](https://goldtrails.org/). Start with the [launch roadmap](docs/launch-roadmap.md) for current priorities, creator invitations, complimentary creator access and the remaining USD $5/month Stripe integration. The [creator outreach draft](docs/creator-outreach.md) and [river clothing research brief](docs/river-clothing-research-2026-11-01.md) support the next content and outreach work.
+
+As reviewed November 1, 2026, member accounts, creator administration, calendars, Plus access checks and [complimentary creator invitations](docs/creator-invitations.md) are implemented. Checkout and billing remain disabled. Creator invitations require migration 014 and one owner setup step. Existing daily private research maintenance continues separately from website publication.
+
 ## Preview
 
 Serve `dist/` with a local HTTP server, then open the server URL in a browser. For example, with Python installed:
@@ -19,11 +25,11 @@ Open http://localhost:4173.
 - `dist/assets/`: artwork
 - Category, collection, guide, prospector, location, resource, and tool pages use directory-based URLs with their own `index.html`.
 
-This version includes 48 static pages and server-rendered prospector search/profile routes. Content and the fictional sample profile remain placeholders. Login, subscriptions and social destinations are not implemented. The live directory needs server-only database settings; see [directory setup](docs/directory-connection.md).
+The site combines static articles and resources with server-rendered creator, account, calendar, Almanac and Connections routes. The November 1 build checks 21 static HTML pages; generated route counts differ from that static count. The live directory needs server-only database settings; see [directory setup](docs/directory-connection.md).
 
 ## Hostinger GitHub deployment
 
-The site is plain HTML and CSS. The package configuration adds a Node server and MariaDB connector for Hostinger's app deployment workflow. Membership and payments remain a later phase.
+The site uses HTML, CSS, browser JavaScript, a Node server and MariaDB through Hostinger's app deployment workflow. Membership accounts and entitlement checks are implemented; payment processing remains a launch milestone.
 
 - Repository root: `/`
 - Branch: `main`

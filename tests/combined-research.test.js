@@ -16,7 +16,7 @@ test('research snapshot and full record crosswalk preserve provenance without co
  const gaps=read('research-gaps.json');assert.equal(gaps.unconfirmedLeads.destinations.length,50);assert.equal(gaps.unconfirmedLeads.community.length,33);assert.equal(read('source-database.json').observations.length,296);
 });
 test('all previous state research, sources and community entries survive the archive import unchanged',()=>{
- for(const old of baseline.almanac.states){const current=content.states.find(s=>s.id===old.id);assert.ok(current);for(const[key,value]of Object.entries(old)){if(key==='destinations'){for(const d of value)assert.deepEqual(current.destinations.find(n=>n.id===d.id),d);}else assert.deepEqual(current[key],value,old.id+' '+key);}}
+ for(const old of baseline.almanac.states){const current=content.states.find(s=>s.id===old.id);assert.ok(current);for(const[key,value]of Object.entries(old)){if(key==='destinations'){for(const d of value)assert.deepEqual(current.destinations.find(n=>n.id===d.id),d);}else if(key==='articleIds'){assert.deepEqual(current.articleIds.filter(id=>value.includes(id)),value,old.id+' original article links');}else assert.deepEqual(current[key],value,old.id+' '+key);}}
  for(const old of baseline.almanac.sources)assert.deepEqual(content.sources.find(s=>s.id===old.id),old);
  assert.deepEqual(content.archives,baseline.almanac.archives);
  for(const old of baseline.community.entries)assert.deepEqual(communityCatalog.entries.find(e=>e.id===old.id),old);
