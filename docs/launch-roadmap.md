@@ -1,6 +1,6 @@
 # Gold Trails launch roadmap
 
-Reviewed November 1, 2026. Gold Trails is already publicly accessible at [goldtrails.org](https://goldtrails.org/). The next milestones are a creator invitation launch and the launch of paid Plus subscriptions. Stripe is the largest remaining feature, followed by permanent creator invitations and final account and billing checks.
+Reviewed November 1, 2026. Gold Trails is already publicly accessible at [goldtrails.org](https://goldtrails.org/). The next milestones are a creator invitation launch and the launch of paid Plus subscriptions. Stripe remains the largest unfinished feature. Permanent creator invitations are implemented and locally verified; production activation and final account checks come next.
 
 ## Current position
 
@@ -87,7 +87,7 @@ The existing maintenance automation is **Gold Trails daily research maintenance*
 
 ## Verification on November 1
 
-All **423 existing tests passed** on Node 22.23.3. The build passed with **16 HTML pages and 580 local links/assets checked**, leaving tracked output unchanged. These checks do not validate real Stripe transactions or inbox delivery.
+The creator invitation release passes **453 automated tests** on Node 22.23.3, **10 real MariaDB checks**, and native Safari acceptance and owner-form checks with fictional accounts. The build passes **21 HTML pages and 732 local references**. These checks do not validate real Stripe transactions or inbox delivery.
 
 Fresh unauthenticated public requests returned 200 for the homepage, Plus, articles, products, creators, signup, login and Connections pages. California Almanac research correctly returned 403, and `/billing/subscribe/` returned the intended 503 payments-disabled response. The live Plus page still says checkout is not connected. Authenticated flows and production database state were not exercised in this audit.
 
