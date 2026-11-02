@@ -1,0 +1,12 @@
+Please prepare one downloadable handoff file for the coding agent building GoldTrails.org. The agent already has the Gold Sniping project brief and is building the local preview; do not rewrite the brief or start a competing implementation.
+
+Please export the actual material from this conversation:
+
+1. The interactive gold-sniping demonstration we developed, preferably its complete HTML, CSS and JavaScript. If the original source is unavailable, say so and describe only the interface you can actually recover.
+2. Relevant Gold Behavior Matrix entries and their existing source/provenance fields.
+3. Relevant imported prospecting transcript findings. For every finding preserve the creator, exact video title, source URL, recorded timestamp or time range, geological setting, observed gold position, sampling/recovery result, and confidence/verification status. Distinguish a visual observation from a creator's interpretation or a transcript-derived report.
+4. Scientific references used in that work, with links and the specific claim each supports.
+
+Use the original material you can access. Do not invent missing citations, timestamps, observations or results. Explicitly list anything unavailable, missing, or unverified. Do not call a timestamp or observation verified merely because it appeared in an earlier answer.
+
+Package everything as one downloadable file with clearly labeled sections so I only need to transfer one attachment. A plain-text handoff is fine if a ZIP cannot be created.

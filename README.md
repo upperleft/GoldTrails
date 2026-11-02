@@ -45,6 +45,8 @@ The site uses HTML, CSS, browser JavaScript, a Node server and MariaDB through H
 
 For local preview, run `npm start` and visit http://localhost:3000.
 
+The interactive [Gold Sniping field guide](docs/gold-sniping-guide.md) is a research edition at `/articles/gold-sniping/`, approved for publication on November 2, 2026. Its five sections and six conceptual trap diagrams use reusable progressive-enhancement components, and remain readable without JavaScript. Source provenance and missing matrix/transcript integration are recorded in the [research log](docs/gold-sniping-research.md).
+
 Commit and push this entire project, including package.json, package-lock.json, server.js, app/, scripts/, database/, and dist/. In Hostinger, choose the repository and confirm these settings before deploying. If Hostinger offers a static-only mode, it can serve dist/ directly without starting the Node server.
 
 ## Creator administration

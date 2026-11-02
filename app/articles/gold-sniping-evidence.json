@@ -1,0 +1,119 @@
+{
+  "checkedAt": "2026-11-02",
+  "videos": [
+    {
+      "id": "v7zARaLTyqw",
+      "creator": "Vo-Gus Prospecting",
+      "title": "Sniping Gold Out of Bedrock Cracks!",
+      "url": "https://www.youtube.com/watch?v=v7zARaLTyqw",
+      "verification": "Video identity and free YouTube auto-captions checked November 2, 2026. Links use caption timestamps; audio and footage have not been independently reviewed.",
+      "setting": "Shallow creek water over cracked bedrock; locality and lithology unverified.",
+      "position": "Creator-reported bedrock gold after opening rock; its original undisturbed position is unknown.",
+      "result": "Caption-reported fine-gold recovery after pumping and panning; no independently verified yield.",
+      "confidence": "Transcript-supported creator reports; auto-caption errors and disturbed sediment limit interpretation.",
+      "observations": [
+        {
+          "seconds": 163,
+          "label": "Gentle clearing and difficult light · 2:43",
+          "text": "He reports trying hand movements to reveal fine particles without moving them away. Yellow light made recognition difficult. This is a reported experience, not a tested recovery method.",
+          "status": "Auto-caption-derived creator report; audio and footage review pending"
+        },
+        {
+          "seconds": 284,
+          "label": "A clay prediction, then no find · 4:44",
+          "text": "He predicts fine gold in clay, then reports no find yet at 5:25. Keep the prediction separate from that negative result; clay alone did not confirm gold.",
+          "status": "Auto-caption-derived interpretation and negative report; footage review pending",
+          "supportingSeconds": [325]
+        },
+        {
+          "seconds": 411,
+          "label": "Pan check and disturbed bedrock · 6:51",
+          "text": "He reports fine gold after hand pumping and panning, then describes a pale appearance at 7:11. At 7:54 he says he broke open the rock: this was disturbed material.",
+          "status": "Auto-caption-derived recovery report; audio and footage review pending",
+          "supportingSeconds": [431, 474]
+        }
+      ]
+    },
+    {
+      "id": "cjRjEki3fMM",
+      "creator": "Dan Hurd (Dan Hurd Prospecting)",
+      "title": "Reading a river, where does gold deposit.",
+      "url": "https://www.youtube.com/watch?v=cjRjEki3fMM",
+      "verification": "Title, uploader, channel ID, public availability and description checked against the YouTube page on November 2, 2026. No exact instructional timestamp has been verified.",
+      "setting": "The creator describes visits to rivers for a school prospecting course. Locality and flow measurements are not verified.",
+      "position": "The video description lists bends, rocks, bank deposits and pay streaks as teaching topics; these are not independently confirmed underwater gold positions.",
+      "result": "No independently verified sample comparison or recovery result recorded.",
+      "confidence": "High for identity and description; field observations remain unverified.",
+      "observations": []
+    }
+  ],
+  "science": [
+    {
+      "id": "usgs-gold",
+      "title": "Gold",
+      "publisher": "Harold Kirkemo, William L. Newman and Roger P. Ashley · U.S. Geological Survey",
+      "url": "https://pubs.usgs.gov/gip/prospect1/goldgip.html",
+      "note": "Explains gold's high density and concentration on or near bedrock as moving stream sediment is agitated during high water. General process guidance, not a prediction for an individual crevice. Primary text inspected; HTTP 200 confirmed after an initial automated-access block."
+    },
+    {
+      "id": "usgs-placer-model",
+      "title": "Descriptive model of Placer Au–PGE · Model 39a",
+      "publisher": "Warren E. Yeend · USGS Bulletin 1693 (1986)",
+      "url": "https://pubs.usgs.gov/bul/b1693/html/bull6945.htm",
+      "note": "Describes gold concentrations associated with fractured bedrock, natural riffles, basal gravel and gravel above clay layers. The model describes deposit settings; it does not verify any diagrammed trap. Primary text inspected; HTTP 200 confirmed after an initial automated-access block."
+    },
+    {
+      "id": "usfs-blm-guide",
+      "title": "Gold Panning · 2018 revision · printed page 8",
+      "publisher": "U.S. Forest Service and Bureau of Land Management",
+      "url": "https://www.blm.gov/sites/default/files/documents/files/PublicRoom_Alaska_kenai-goldpanning-booklet-2018_FINAL.pdf#page=12",
+      "note": "Identifies bedrock crevices, pockets, downstream sides of boulders and impermeable clay contacts as candidate sampling settings. This is a Kenai Peninsula guide; its access rules and seasonal advice are not transferred to New England. PDF text and HTTP availability checked."
+    }
+  ],
+  "safety": [
+    {
+      "id": "nws-coldwater",
+      "title": "Cold Water Hazards and Safety",
+      "publisher": "National Weather Service",
+      "url": "https://www.weather.gov/safety/coldwater",
+      "note": "Cold shock can disrupt breathing before hypothermia develops. Dress for water temperature, use appropriate flotation and leave the water if conditions exceed your preparation. Full page inspected."
+    },
+    {
+      "id": "nps-river-safety",
+      "title": "River and Stream Safety",
+      "publisher": "National Park Service",
+      "url": "https://www.nps.gov/articles/river-and-stream-safety.htm",
+      "note": "Warns about currents beneath calm-looking surfaces, slippery rocks, narrow gaps, strainers and rapidly changing water levels. These hazards apply to observation as well as collection. Primary text and HTTP availability checked."
+    },
+    {
+      "id": "maine-statute",
+      "title": "Title 38, §480-Q · Gold panning and motorized recreational gold prospecting",
+      "publisher": "Maine Legislature",
+      "url": "https://legislature.maine.gov/statutes/38/title38sec480-Q.html",
+      "note": "The gold-panning exemption has conditions, including no stream-bank disturbance or unlicensed discharge. Motorized prospecting has separate conditions and closures. This is not blanket permission for crevicing, suction devices or any particular site. Current statute text and HTTP availability checked; confirm method and site with the responsible agency."
+    },
+    {
+      "id": "maine-lupc",
+      "title": "Recreational Gold Prospecting · hand-method guidance",
+      "publisher": "Maine Land Use Planning Commission · form revised October 2020",
+      "url": "https://www.maine.gov/dacf/lupc/application_forms/applications/ShorelandAlt_Recreational%20Gold%20Prospect_ver2020.pdf#page=2",
+      "note": "For LUPC-jurisdiction waters, the guidance describes conditional hand-method exemptions, landowner permission, protecting banks and habitat, and restoring disturbed river-bottom sediment. Its geographic scope is limited; ask LUPC about your exact method and site. PDF text inspected."
+    },
+    {
+      "id": "vermont-dec",
+      "title": "River Management · Mineral Prospecting",
+      "publisher": "Vermont Department of Environmental Conservation",
+      "url": "https://dec.vermont.gov/watershed/rivers/river-management",
+      "note": "Vermont distinguishes hand panning, permitted sluices and prohibited suction dredges, and requires written permission on private land. Maine permissions do not carry across a state boundary. Current primary text and HTTP availability checked; confirm the proposed tools before use."
+    }
+  ],
+  "gaps": [
+    "No Gold Behavior Matrix dataset or route was found in this checkout. Existing river-reading articles provide related discussion; a live matrix connection cannot be claimed.",
+    "The pre-existing imported transcript collection was not found in this checkout. New Vo-Gus auto-caption reports are included here; older articles' retained caption anchors have not been upgraded to verified underwater observations.",
+    "Two creator video identities were rechecked. Three Vo-Gus reports have timestamped auto-caption support; zero recovery observations or measured yields were independently verified against audio and footage.",
+    "Vo-Gus timestamp links use a free native YouTube auto-caption export, which can contain transcription errors. Original undisturbed gold positions remain unknown after reported bedrock disturbance.",
+    "Direct caption requests initially returned empty responses, but the browser's free native transcript export succeeded for Vo-Gus. Dan Hurd's export reported no transcript available. No paid transcript service was used.",
+    "No controlled comparison of upstream and downstream boulder positions, pothole depths, or sediment layers was verified. Apparent disagreements must remain research questions.",
+    "Gold dots and sampling zones in illustrations are conceptual. No local gold deposit, access permission, safe depth or guaranteed result is established."
+  ]
+}

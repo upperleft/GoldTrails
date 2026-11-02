@@ -40,7 +40,7 @@ test('article keyword and category search, empty results, and all four sort choi
  search.value='';sort.value='az';sort.handlers.change();assert.equal(empty.hidden,true);assert.equal(count.textContent,rows.length+' articles');assert.match(list.children[0].dataset.title,/Black Sands/);assert.match(list.children.at(-1).dataset.title,/Where Gold Settles/);
  sort.value='za';sort.handlers.change();assert.match(list.children[0].dataset.title,/Where Gold Settles/);
  sort.value='oldest';sort.handlers.change();assert.equal(list.children[0].dataset.date,'2026-10-07');
- sort.value='newest';sort.handlers.change();assert.equal(list.children[0].dataset.date,'2026-10-27');
+ sort.value='newest';sort.handlers.change();assert.equal(list.children[0].dataset.date,rows.map(row=>row.date).sort().at(-1));
 });
 
 test('About leads with the three access levels while preserving free creator access and editorial qualifications',()=>{
