@@ -2,7 +2,7 @@ import {timingSafeEqual} from 'node:crypto';
 import {digest,token,hashPassword} from '../admin-auth.js';
 import {memberIdentity} from '../members.js';
 import {CreatorInvitationError} from './model.js';
-import {creatorInvitationPage,invitationBody,adminInvitationsView} from './views.js';
+import {creatorInvitationPage,invitationBody,creatorWelcomeBackBody,adminInvitationsView} from './views.js';
 import {escapeHtml as h} from '../directory-views.js';
 import {creatorInvitationHome,creatorInvitationFlow,creatorAccessRoutes,creatorInvitationName,creatorNameSlug} from './context.js';
 
@@ -43,13 +43,23 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
   const namedEntry=url.pathname.match(/^\/invite\/([^/]+)\/?$/);
   const namedPath=url.pathname==='/invite'||url.pathname.startsWith('/invite/');
   if(!namedPath&&!['/creator-invitation','/creator-invitation/'].includes(url.pathname))return false;
-  const csrf=read(req,'form')||token();
+  const csrf=read(req,'form')||token();let submittedValues={};
   const send=(status,title,content,extra={})=>{
    // Keep Origin available on native form POSTs; the clean page contains no bearer URL.
    res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store',Vary:'Cookie','Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...extra});
    res.end(req.method==='HEAD'?undefined:creatorInvitationPage(title,content));
   };
   const clearInvitation=()=>[cookie('creator-invite','',0),cookie('creator-name','',0)];
+  const alreadyAccepted=async(raw,slug=null,entry=false)=>{
+   const receipt=store?.accepted&&await store.accepted(raw);
+   if(!receipt||slug&&receipt.slug!==slug)return false;
+   if(entry){send(303,'Welcome back','',{Location:'/creator-invitation/','Referrer-Policy':'no-referrer','Set-Cookie':[cookie('creator-invite',raw,300),cookie('creator-name','',0),cookie('form',csrf)]});return true;}
+   const member=await members.session(read(req,'member'));
+   const cookies=[...clearInvitation(),cookie('form',csrf)];
+   if(member?.id===receipt.accountId){send(303,'Welcome back','',{Location:'/?creator=accepted','Set-Cookie':cookies});return true;}
+   if(member&&!equal(digest(csrf),member.csrf_token_hash)){send(303,'Welcome back','',{Location:'/login/?next=%2F','Set-Cookie':cookies});return true;}
+   send(200,'Welcome back',creatorWelcomeBackBody({accepted:true,member,csrf}),{'Set-Cookie':cookies});return true;
+  };
   const unavailable=()=>send(410,'Invitation unavailable','<p>This invitation has expired, was replaced, revoked or already accepted. If you accepted it, your complimentary access stays with your account.</p><p><a href="/login/">Sign in</a> or ask Paul for a fresh personal invitation.</p>',{'Set-Cookie':clearInvitation()});
   try{
    if(!['GET','HEAD','POST'].includes(req.method)){send(405,'Use your invitation link','<p>Open the personal link Paul sent you.</p>',{Allow:'GET, HEAD, POST'});return true;}
@@ -68,7 +78,8 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
      const raw=url.searchParams.get('code');
      if(url.searchParams.size!==1||url.searchParams.getAll('code').length!==1||!validToken(raw)){unavailable();return true;}
      const invite=await store.read(raw);
-     if(!invite||invite.slug!==slug){unavailable();return true;}
+     if(!invite){if(await alreadyAccepted(raw,slug,true))return true;unavailable();return true;}
+     if(invite.slug!==slug){unavailable();return true;}
      const age=Math.min(30*86400,Math.max(1,Math.floor((expires(invite.expires_at)-Date.now())/1000)));
      send(303,'Your creator invitation','',{Location:'/','Referrer-Policy':'no-referrer','Set-Cookie':[cookie('creator-invite',raw,age),cookie('creator-name','',0),cookie('form',csrf)]});return true;
     }
@@ -81,7 +92,7 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
     const raw=url.searchParams.get('token');
     if(!['GET','HEAD'].includes(req.method)||url.searchParams.size!==1||url.searchParams.getAll('token').length!==1||!validToken(raw)){unavailable();return true;}
     const invite=await store.read(raw);
-    if(!invite){unavailable();return true;}
+    if(!invite){if(await alreadyAccepted(raw,null,true))return true;unavailable();return true;}
     const age=Math.min(30*86400,Math.max(1,Math.floor((expires(invite.expires_at)-Date.now())/1000)));
     send(303,'Your creator invitation','',{Location:'/','Referrer-Policy':'no-referrer','Set-Cookie':[cookie('creator-invite',raw,age),cookie('creator-name','',0),cookie('form',csrf)]});return true;
    }
@@ -89,7 +100,7 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
    if(!raw&&!name){unavailable();return true;}
    const member=await members.session(read(req,'member'));
    const invite=raw?await store.read(raw):await store.readNamed(name,member?.id||null);
-   if(!invite){unavailable();return true;}
+   if(!invite){if(raw&&['GET','HEAD'].includes(req.method)&&await alreadyAccepted(raw))return true;unavailable();return true;}
    if(req.method==='POST'){
     if(req.headers.origin!==config.origin){send(403,'Refresh your invitation','<p>Please open your personal invitation again and use its acceptance button.</p>');return true;}
     const f=await body(req);
@@ -103,7 +114,7 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
      if(!config.open){send(503,'Account setup is temporarily unavailable','<p>Please return shortly to finish your complimentary membership.</p>');return true;}
      const allowed=new Set(['csrf','action','username','email','displayName','password','confirmPassword']);
      if([...f.keys()].some(key=>!allowed.has(key))){send(400,'Check the invitation form',invitationBody(invite,null,csrf));return true;}
-     let data;
+     submittedValues={username:f.get('username'),displayName:f.get('displayName')};let data;
      try{data=memberIdentity(f);}catch(error){send(400,'Check your account details',`<p role="alert">${h(error.message)}</p>`+invitationBody(invite,null,csrf,{values:{username:f.get('username'),displayName:f.get('displayName')}}));return true;}
      if(data.email!==invite.target_email){send(403,'Use the invited email','<p>Your private invitation is for a different email address. Open the invitation sent to the address you want to use.</p>');return true;}
      if(!await members.allow('signup')||!await members.allow('token')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>',{'Retry-After':'900'});return true;}
@@ -119,12 +130,25 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
     if(raw)await store.accept(raw,member.id);else await store.acceptNamed(name,member.id);
     send(303,'Your creator access is ready','',{Location:'/?creator=accepted','Set-Cookie':clearInvitation()});return true;
    }
+   if(raw&&!member&&store.recipientState){
+    const state=await store.recipientState(raw);
+    if(state==='active'){send(200,'Welcome back',creatorWelcomeBackBody(),{'Set-Cookie':cookie('form',csrf)});return true;}
+    if(state==='blocked'){send(409,'Let’s finish your account','<p>Please reply to Paul’s invitation for help finishing this account. Your invitation has not been used.</p>');return true;}
+   }
    send(200,'Your Gold Trails creator invitation',invitationBody(invite,member,csrf),{'Set-Cookie':cookie('form',csrf)});return true;
   }catch(error){
    if(error instanceof CreatorInvitationError){
     if(error.code==='invitation_unavailable'){unavailable();return true;}
     if(error.code==='account_exists'){
-     send(error.status,'Account details already in use',`<p role="alert">${h(error.message)}</p><p><a href="/login/?next=%2Fcreator-invitation%2F">Sign in to your existing account</a>, or return to your invitation to choose another username. If you cannot sign in, reply to Paul’s invitation for help finishing your account. Your invitation has not been used.</p><p><a href="/creator-invitation/">Return to your invitation</a></p>`);return true;
+     send(error.status,'Welcome back',creatorWelcomeBackBody());return true;
+    }
+    if(error.code==='account_unavailable'){
+     send(error.status,'Let’s finish your account','<p>Please reply to Paul’s invitation for help finishing this account. Your invitation has not been used.</p>');return true;
+    }
+    if(error.code==='username_unavailable'){
+     const raw=read(req,'creator-invite'),invite=raw&&await store.read(raw);
+     if(!invite){unavailable();return true;}
+     send(error.status,'Choose another username',`<p role="alert">That username is already taken. Choose another username below to finish your free membership.</p>`+invitationBody(invite,null,csrf,{values:submittedValues}));return true;
     }
     send(error.status,'Your creator invitation',`<p role="alert">${h(error.message)}</p><p><a href="/creator-invitation/">Return to your invitation</a></p>`);return true;
    }

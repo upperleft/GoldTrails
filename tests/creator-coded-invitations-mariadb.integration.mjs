@@ -56,8 +56,23 @@ test('real MariaDB coded invitation signup and secure pending account completion
  });
  const failingDb=fail=>({getConnection:async()=>{const c=await db.getConnection();return{beginTransaction:()=>c.beginTransaction(),commit:()=>c.commit(),rollback:()=>c.rollback(),release:()=>c.release(),query:async(sql,args)=>{if(fail(sql,args))throw Error('simulated coded invitation failure');return c.query(sql,args);}};}});
 
+ await t.test('recipient state distinguishes new, pending, verified and blocked accounts without writing',async()=>{
+  const fresh=await issue('state_new@example.invalid');assert.equal(await store.recipientState(fresh.raw),'new');assert.equal(await store.accepted(fresh.raw),null);await pending(fresh);
+  for(const state of ['pending','active','suspended','archived','active_unverified','pending_verified']){
+   const existing=await seedAccount('state_'+state,state==='active'?'active':'pending_verification');
+   if(state==='suspended')await db.query("UPDATE member_accounts SET status='suspended' WHERE id=?",[existing.id]);
+   if(state==='archived')await db.query('UPDATE member_accounts SET archived_at=UTC_TIMESTAMP(6) WHERE id=?',[existing.id]);
+   if(state==='active_unverified')await db.query("UPDATE member_accounts SET status='active' WHERE id=?",[existing.id]);
+   if(state==='pending_verified')await db.query('UPDATE member_accounts SET email_verified_at=UTC_TIMESTAMP(6) WHERE id=?',[existing.id]);
+   const invitation=await issue(existing.email),before=await snapshot(existing.id);
+   assert.equal(await store.recipientState(invitation.raw),['pending','active'].includes(state)?state:'blocked');
+   assert.equal(await store.accepted(invitation.raw),null);assert.deepEqual(await snapshot(existing.id),before);await pending(invitation);
+  }
+  for(const token of ['not-a-token','f'.repeat(64)]){assert.equal(await store.recipientState(token),null);assert.equal(await store.accepted(token),null);}
+ });
  await t.test('a secret creates a verified permanent Plus account and only hashed fresh session',async()=>{
   const invitation=await issue('fresh@example.invalid');
+  assert.equal(await store.recipientState(invitation.raw),'new');assert.equal(await store.accepted(invitation.raw),null);
   for(let count=0;count<2;count++)assert.ok(await store.read(invitation.raw));
   assert.equal((await db.query("SELECT id FROM member_accounts WHERE email='fresh@example.invalid'")).length,0,'Invitation reads never create accounts.');
   const joined=await store.join(invitation.raw,data('fresh',{email:' FRESH@EXAMPLE.INVALID '}));
@@ -75,6 +90,13 @@ test('real MariaDB coded invitation signup and secure pending account completion
   assert.equal((await db.query('SELECT token_hash FROM member_tokens WHERE account_id=?',[joined.accountId])).length,0,'No second verification email token is needed.');
   assert.deepEqual(await store.acceptedProfile(joined.accountId),joined.profile);
   const receipt=(await db.query('SELECT consumed_at,accepted_account_id FROM creator_invitations WHERE id=?',[invitation.id]))[0];assert.ok(receipt.consumed_at);assert.equal(receipt.accepted_account_id,joined.accountId);
+  assert.equal(await store.recipientState(invitation.raw),null);assert.deepEqual(await store.accepted(invitation.raw),{accountId:joined.accountId,slug:'coded-creator'});
+  const before=await snapshot(joined.accountId);
+  await db.query('UPDATE creator_invitations SET created_at=DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 2 DAY),expires_at=DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 1 DAY) WHERE id=?',[invitation.id]);
+  await db.query('UPDATE creator_invitation_settings SET owner_account_id=NULL WHERE id=1');await db.query("UPDATE member_accounts SET status='suspended' WHERE id=?",[ownerId]);
+  assert.deepEqual(await store.accepted(invitation.raw),{accountId:joined.accountId,slug:'coded-creator'},'A consumed receipt survives old link expiry and owner configuration changes.');
+  assert.deepEqual(await snapshot(joined.accountId),before,'Receipt lookup never changes credentials, sessions, membership or grants.');
+  await db.query("UPDATE member_accounts SET status='active' WHERE id=?",[ownerId]);await db.query('UPDATE creator_invitation_settings SET owner_account_id=? WHERE id=1',[ownerId]);
   await assert.rejects(()=>store.join(invitation.raw,data('fresh')),e=>e.code==='invitation_unavailable');
  });
  await t.test('invalid and wrong-email secrets cannot probe accounts or create access',async()=>{
@@ -85,17 +107,22 @@ test('real MariaDB coded invitation signup and secure pending account completion
   await pending(invitation);assert.equal((await db.query("SELECT id FROM member_accounts WHERE email IN ('bound@example.invalid','wrong@example.invalid')")).length,0);
  });
  await t.test('active, suspended, archived and username conflicts are untouched',async()=>{
+  const collision=await seedAccount('taken_username');
   for(const status of ['active','suspended','archived']){
    const existing=await seedAccount('existing_'+status,status==='active'?'active':'pending_verification');
    if(status==='suspended')await db.query("UPDATE member_accounts SET status='suspended' WHERE id=?",[existing.id]);
    if(status==='archived')await db.query('UPDATE member_accounts SET archived_at=UTC_TIMESTAMP(6) WHERE id=?',[existing.id]);
    const invitation=await issue(existing.email),before=await snapshot(existing.id);
-   await assert.rejects(()=>store.join(invitation.raw,data('replacement_'+status,{email:existing.email})),e=>e.code==='account_exists');
+   await assert.rejects(()=>store.join(invitation.raw,data('replacement_'+status,{email:existing.email})),e=>e.code===(status==='active'?'account_exists':'account_unavailable')&&e.status===409);
+   if(status==='active')await assert.rejects(()=>store.join(invitation.raw,data('TAKEN_USERNAME',{email:existing.email})),e=>e.code==='account_exists'&&e.status===409,'Existing verified email takes precedence over a separate username collision.');
    assert.deepEqual(await snapshot(existing.id),before);await pending(invitation);
   }
-  const collision=await seedAccount('taken_username'),invitation=await issue('unique_email@example.invalid');
-  await assert.rejects(()=>store.join(invitation.raw,data('TAKEN_USERNAME',{email:'unique_email@example.invalid'})),e=>e.code==='account_exists');
+  const invitation=await issue('unique_email@example.invalid');
+  await assert.rejects(()=>store.join(invitation.raw,data('TAKEN_USERNAME',{email:'unique_email@example.invalid'})),e=>e.code==='username_unavailable'&&e.status===400&&/Choose another username/.test(e.message));
   assert.equal((await db.query("SELECT id FROM member_accounts WHERE email='unique_email@example.invalid'")).length,0);await pending(invitation);assert.ok(await snapshot(collision.id));
+  const pendingAccount=await seedAccount('pending_username_collision'),pendingInvite=await issue(pendingAccount.email),before=await snapshot(pendingAccount.id);
+  await assert.rejects(()=>store.join(pendingInvite.raw,data('TAKEN_USERNAME',{email:pendingAccount.email})),e=>e.code==='username_unavailable'&&e.status===400);
+  assert.deepEqual(await snapshot(pendingAccount.id),before);await pending(pendingInvite);
  });
  await t.test('pending completion removes pre-registration credentials, sessions and tokens',async()=>{
   const original=await seedAccount('preregistered'),oldSession='a'.repeat(64),oldToken='b'.repeat(64);
@@ -119,7 +146,8 @@ test('real MariaDB coded invitation signup and secure pending account completion
    if(restriction==='subscription')await db.query("INSERT INTO member_subscriptions(id,account_id,provider,provider_subscription_id,status) VALUES(?,?,'fixture',?,'canceled')",[randomUUID(),existing.id,randomUUID()]);
    if(restriction==='membership')await db.query("UPDATE member_memberships SET status='suspended' WHERE account_id=?",[existing.id]);
    if(restriction==='future')await db.query('UPDATE member_memberships SET starts_at=DATE_ADD(UTC_TIMESTAMP(6),INTERVAL 1 DAY) WHERE account_id=?',[existing.id]);
-   const before=await snapshot(existing.id);await assert.rejects(()=>store.join(invitation.raw,data('new_'+restriction,{email:existing.email})),e=>e.code==='account_exists');assert.deepEqual(await snapshot(existing.id),before);await pending(invitation);
+   const before=await snapshot(existing.id);await assert.rejects(()=>store.join(invitation.raw,data('new_'+restriction,{email:existing.email})),e=>e.code==='account_unavailable'&&e.status===409);assert.deepEqual(await snapshot(existing.id),before);await pending(invitation);
+   if(restriction==='role')await assert.rejects(()=>store.join(invitation.raw,data('TAKEN_USERNAME',{email:existing.email})),e=>e.code==='account_unavailable'&&e.status===409,'A nonordinary pending account needs owner help even when its chosen username also collides.');
   }
  });
  await t.test('expiry, revocation, publication and owner eligibility block signup',async()=>{
@@ -132,6 +160,7 @@ test('real MariaDB coded invitation signup and secure pending account completion
    if(restriction==='sample')await db.query('UPDATE people SET is_sample=TRUE WHERE id=?',[personId]);
    if(restriction==='archived')await db.query('UPDATE people SET archived_at=UTC_TIMESTAMP(6) WHERE id=?',[personId]);
    if(restriction==='owner')await db.query("UPDATE member_accounts SET status='suspended' WHERE id=?",[ownerId]);
+   assert.equal(await store.recipientState(invitation.raw),null);assert.equal(await store.accepted(invitation.raw),null);
    await assert.rejects(()=>store.join(invitation.raw,data(name)),e=>['invitation_unavailable','creator_unavailable','owner_unavailable'].includes(e.code));
    assert.equal((await db.query('SELECT id FROM member_accounts WHERE email=?',[name+'@example.invalid'])).length,0);
    await db.query("UPDATE people SET publication_status='published',is_sample=FALSE,archived_at=NULL WHERE id=?",[personId]);await db.query("UPDATE member_accounts SET status='active' WHERE id=?",[ownerId]);
@@ -157,7 +186,7 @@ test('real MariaDB coded invitation signup and secure pending account completion
    assert.equal((await members.session(joined.value.session)).effective_level,'subscriber');
    if(ordinary.status==='rejected')assert.ok(['ER_DUP_ENTRY','ER_LOCK_DEADLOCK'].includes(ordinary.reason.code));
   }else{
-   assert.equal(ordinary.status,'fulfilled');assert.ok(['account_exists','ER_LOCK_DEADLOCK'].includes(joined.reason.code));
+   assert.equal(ordinary.status,'fulfilled');assert.ok(['account_exists','account_unavailable','ER_LOCK_DEADLOCK'].includes(joined.reason.code));
    assert.equal(accounts[0].status,'pending_verification');assert.equal(accounts[0].password_hash,oldHash);assert.equal(accounts[0].email_verified_at,null);await pending(invitation);
    assert.equal((await db.query('SELECT level FROM member_memberships WHERE account_id=?',[accounts[0].id]))[0].level,'free');
    assert.equal((await db.query('SELECT token_hash FROM member_sessions WHERE account_id=?',[accounts[0].id])).length,0);

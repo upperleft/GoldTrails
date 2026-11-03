@@ -64,6 +64,8 @@ async function fixture(t,options={}){
  const invitations={
   ready:async()=>true,
   read:async value=>{state.reads++;return value===raw&&!state.consumed&&!state.revoked&&!state.expired?{...invitation}:null;},
+  recipientState:async value=>value===raw?'new':null,
+  accepted:async()=>null,
   readNamed:async(slug,id=null)=>{
    if(slug!==invitation.slug||state.consumed||state.revoked||state.expired)return null;
    const matched=id===accountId&&account.email===targetEmail;
@@ -193,7 +195,7 @@ test('a clean private invitation page escapes the creator and binds its account 
  const emailInput=html.match(/<input\b[^>]*name="email"[^>]*>/)?.[0]||'';
  assert.ok(emailInput.includes('value="'+targetEmail+'"'));assert.match(emailInput,/\breadonly\b/);
  assert.doesNotMatch(html,new RegExp(raw));
- assert.match(html,/href="\/login\/(?:\?[^\"]*)?"/);
+ assert.doesNotMatch(html,/href="\/login\//);
  assert.match(html,/<form\b[^>]*action="\/creator-invitation\/"/);
  assert.match(html,/name="action" value="create_account"/);
  assert.doesNotMatch(html,/href="\/(?:signup|verify-email|resend-verification)\/|verify your email|verification email is on its way/i);
@@ -576,7 +578,10 @@ test('pending invitation context keeps all member access and recovery screens fo
     if(method==='HEAD'){assert.equal(html,'');continue;}
     assertFocusedAccess(html,route);
     assert.doesNotMatch(html,/data-signup-plus-offer|data-plus-support|site-analytics/);
-    assert.ok(!html.includes(targetEmail),route+' does not reveal the invited address');
+    if(route==='/login/'&&context['creator-invite']){
+     const email=html.match(/<input\b[^>]*name="email"[^>]*>/)?.[0]||'';
+     assert.ok(email.includes('value="'+targetEmail+'"'));assert.match(email,/\breadonly\b/);
+    }else assert.ok(!html.includes(targetEmail),route+' does not reveal the invited address');
    }
   }
  }

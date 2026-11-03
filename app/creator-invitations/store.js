@@ -5,7 +5,10 @@ import {CreatorInvitationError,invitationActor,invitationEmail,invitationId,invi
 const unavailable=()=>new CreatorInvitationError('invitation_unavailable','This invitation has ended or is no longer available. Ask Paul for a new invitation.',410);
 const wrongAccount=()=>new CreatorInvitationError('wrong_account','Sign in with the verified account that received this invitation.',403);
 const ownerUnavailable=()=>new CreatorInvitationError('owner_unavailable','The invitation owner account needs attention before invitations can be used.',409);
-const accountExists=()=>new CreatorInvitationError('account_exists','An existing account needs sign-in or account recovery before this invitation can be accepted. This invitation has not been used.',409);
+const accountExists=()=>new CreatorInvitationError('account_exists','You already have a verified Gold Trails account at this email. Sign in to accept your invitation. This invitation has not been used.',409);
+const accountUnavailable=()=>new CreatorInvitationError('account_unavailable','This account needs help from Paul before the invitation can be accepted. This invitation has not been used.',409);
+const existingAccountError=account=>account.status==='active'&&account.email_verified_at&&!account.archived_at?accountExists():accountUnavailable();
+const usernameUnavailable=()=>new CreatorInvitationError('username_unavailable','That username is already in use. Choose another username to set up your account. This invitation has not been used.',400);
 const visibleCreator="is_sample=FALSE AND archived_at IS NULL AND publication_status='published'";
 
 export function createCreatorInvitationStore(db){
@@ -101,6 +104,19 @@ export function createCreatorInvitationStore(db){
    // consumes or changes the invitation or authenticates an account.
    return(await db.query(`SELECT i.id,i.target_email,i.person_id,p.display_name,p.slug,i.expires_at FROM creator_invitations i JOIN people p ON p.id=i.person_id JOIN creator_invitation_settings s ON s.id=1 AND s.owner_account_id=i.invited_by JOIN member_accounts o ON o.id=i.invited_by WHERE i.token_hash=? AND i.consumed_at IS NULL AND i.revoked_at IS NULL AND i.expires_at>UTC_TIMESTAMP(6) AND p.is_sample=FALSE AND p.archived_at IS NULL AND p.publication_status='published' AND o.status='active' AND o.email_verified_at IS NOT NULL AND o.archived_at IS NULL`,[digest(raw)]))[0]||null;
   },
+  async recipientState(raw){
+   if(!invitationToken(raw))return null;
+   // Only a valid private invitation can distinguish account setup from sign-in.
+   // This is presentation context, never authentication or a membership grant.
+   const row=(await db.query("SELECT CASE WHEN a.id IS NULL THEN 'new' WHEN a.status='active' AND a.email_verified_at IS NOT NULL AND a.archived_at IS NULL THEN 'active' WHEN a.status='pending_verification' AND a.email_verified_at IS NULL AND a.archived_at IS NULL THEN 'pending' ELSE 'blocked' END AS state FROM creator_invitations i JOIN people p ON p.id=i.person_id JOIN creator_invitation_settings s ON s.id=1 AND s.owner_account_id=i.invited_by JOIN member_accounts o ON o.id=i.invited_by LEFT JOIN member_accounts a ON a.email=i.target_email WHERE i.token_hash=? AND i.consumed_at IS NULL AND i.revoked_at IS NULL AND i.expires_at>UTC_TIMESTAMP(6) AND p.is_sample=FALSE AND p.archived_at IS NULL AND p.publication_status='published' AND o.status='active' AND o.email_verified_at IS NOT NULL AND o.archived_at IS NULL",[digest(raw)]))[0];
+   return row?.state||null;
+  },
+  async accepted(raw){
+   if(!invitationToken(raw))return null;
+   // A consumed receipt helps route a returning visitor to ordinary sign-in.
+   // It supplies no session or grant and remains a receipt after link expiry.
+   return(await db.query('SELECT i.accepted_account_id AS accountId,p.slug FROM creator_invitations i JOIN people p ON p.id=i.person_id WHERE i.token_hash=? AND i.consumed_at IS NOT NULL AND i.accepted_account_id IS NOT NULL LIMIT 1',[digest(raw)]))[0]||null;
+  },
   async readNamed(slug,accountId=null){
    if(!invitationSlug(slug))return null;
    // Conditional projection prevents anonymous/wrong-account reads from ever
@@ -126,26 +142,36 @@ export function createCreatorInvitationStore(db){
     if(!i||i.invited_by!==o.id)throw unavailable();
     if(data.email!==i.target_email)throw wrongAccount();
     const p=await creator(c,i.person_id);
-    if(username&&username.id!==previous?.id)throw accountExists();
+    if(previous&&(previous.status!=='pending_verification'||previous.email_verified_at||previous.archived_at))throw existingAccountError(previous);
     let id=previous?.id||randomUUID(),version=0;
     if(previous){
      // A mailbox-delivered secret can finish an untouched pending account only
      // after replacing every attacker-known credential and revoking old access.
-     if(previous.status!=='pending_verification'||previous.email_verified_at||previous.archived_at)throw accountExists();
      const m=(await c.query('SELECT level,status,grant_source,subscription_id,granted_by,ends_at,starts_at>UTC_TIMESTAMP(6) AS future_start FROM member_memberships WHERE account_id=? FOR UPDATE',[id]))[0];
-     if(!m||m.level!=='free'||m.status!=='active'||m.grant_source!=='free'||m.subscription_id||m.granted_by||m.ends_at||Number(m.future_start))throw accountExists();
+     if(!m||m.level!=='free'||m.status!=='active'||m.grant_source!=='free'||m.subscription_id||m.granted_by||m.ends_at||Number(m.future_start))throw accountUnavailable();
      const roles=await c.query("SELECT role_code FROM member_role_grants WHERE account_id=? AND role_code<>'member' FOR UPDATE",[id]);
      const affiliations=await c.query('SELECT person_id FROM member_creator_connections WHERE account_id=? FOR UPDATE',[id]);
      const subscriptions=await c.query('SELECT id FROM member_subscriptions WHERE account_id=? FOR UPDATE',[id]);
      const billingReady=await c.query("SELECT version FROM schema_migrations WHERE version='016_stripe_billing'");
      const checkouts=billingReady.length?await c.query('SELECT id FROM billing_checkout_attempts WHERE account_id=? FOR UPDATE',[id]):[];
-     if(roles.length||affiliations.length||subscriptions.length||checkouts.length)throw accountExists();
+     if(roles.length||affiliations.length||subscriptions.length||checkouts.length)throw accountUnavailable();
+     if(username&&username.id!==previous.id)throw usernameUnavailable();
      version=Number(previous.auth_version)+1;
-     try{await c.query("UPDATE member_accounts SET username=?,password_hash=?,password_changed_at=UTC_TIMESTAMP(6),auth_version=?,status='active',email_verified_at=UTC_TIMESTAMP(6) WHERE id=?",[data.username,data.passwordHash,version,id]);}catch(error){if(error.code==='ER_DUP_ENTRY')throw accountExists();throw error;}
+     try{await c.query("UPDATE member_accounts SET username=?,password_hash=?,password_changed_at=UTC_TIMESTAMP(6),auth_version=?,status='active',email_verified_at=UTC_TIMESTAMP(6) WHERE id=?",[data.username,data.passwordHash,version,id]);}catch(error){if(error.code==='ER_DUP_ENTRY')throw usernameUnavailable();throw error;}
      await c.query('UPDATE member_sessions SET revoked_at=UTC_TIMESTAMP(6) WHERE account_id=? AND revoked_at IS NULL',[id]);
      await c.query('UPDATE member_tokens SET revoked_at=UTC_TIMESTAMP(6) WHERE account_id=? AND revoked_at IS NULL',[id]);
     }else{
-     try{await c.query("INSERT INTO member_accounts(id,username,email,password_hash,status,email_verified_at) VALUES(?,?,?,?,'active',UTC_TIMESTAMP(6))",[id,data.username,data.email,data.passwordHash]);}catch(error){if(error.code==='ER_DUP_ENTRY')throw accountExists();throw error;}
+     if(username)throw usernameUnavailable();
+     try{await c.query("INSERT INTO member_accounts(id,username,email,password_hash,status,email_verified_at) VALUES(?,?,?,?,'active',UTC_TIMESTAMP(6))",[id,data.username,data.email,data.passwordHash]);}catch(error){
+      if(error.code==='ER_DUP_ENTRY'){
+       // An ordinary signup may race these locks. Classify only the actual
+       // unique constraint conflict, with the invited email taking priority.
+       const existing=(await c.query('SELECT status,email_verified_at,archived_at FROM member_accounts WHERE email=? FOR UPDATE',[data.email]))[0];
+       if(existing)throw existingAccountError(existing);
+       if((await c.query('SELECT id FROM member_accounts WHERE username=? FOR UPDATE',[data.username])).length)throw usernameUnavailable();
+      }
+      throw error;
+     }
      await c.query('INSERT INTO member_memberships(account_id) VALUES(?)',[id]);
     }
     await c.query('INSERT INTO member_profiles(account_id,display_name) VALUES(?,?) ON DUPLICATE KEY UPDATE display_name=VALUES(display_name)',[id,data.displayName]);

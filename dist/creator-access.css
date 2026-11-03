@@ -11,6 +11,7 @@
 .creator-access-page .creator-access-card p{margin:.8rem 0}
 .creator-access-page .creator-access-card :is(input,select,textarea,button,a){max-width:100%}
 .creator-access-page .creator-access-card :is(input,select,textarea){min-width:0}
+.creator-access-page [data-creator-account-setup] .member-field>.member-form-guidance{margin:.5rem 0}
 .creator-access-page .creator-access-card .gold-button{min-height:48px;font-size:1rem;line-height:1.5;padding:.8rem 1.2rem;text-align:center;white-space:normal}
 .creator-access-page .creator-access-footer{background:none;border-top:1px solid var(--line);color:#6b583d;padding:1.25rem 1.5rem}
 .creator-access-page .creator-access-footer p{margin:0;font-size:.875rem;line-height:1.6}
