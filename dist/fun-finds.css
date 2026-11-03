@@ -1,0 +1,65 @@
+.fun-finds-page .layout{grid-template-columns:225px minmax(0,1fr)}
+.fun-finds-page .center{min-width:0}
+.fun-finds-page .category-intro h1{font-size:2.5rem;line-height:1.25}
+.fun-finds-page .category-intro p{font-size:1.125rem;line-height:1.75;max-width:66ch}
+.fun-finds-page .center h2{font-size:1.6rem;line-height:1.4;margin:0 0 .7rem}
+.fun-finds-page .center h3{font-size:1.2rem;line-height:1.4}
+.fun-finds-page .center p{line-height:1.75}
+.finds-section-links{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.8rem;align-items:stretch}
+.finds-section-links a{padding:.5rem .7rem;min-height:44px;border:1px solid var(--line);border-radius:4px;background:#fff9eb;color:#744528;text-decoration:underline;text-underline-offset:3px}
+.finds-section{margin:0 0 2.2rem;scroll-margin-top:1.5rem}
+.finds-section-intro{max-width:65ch;margin:0 0 1rem!important;color:#64533d}
+.finds-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;align-items:start}
+.find-card{background:#fff9eb;border:1px solid var(--line);border-radius:8px;min-width:0}
+.find-card>article{padding:1.15rem}
+.find-heading{display:flex;align-items:flex-start;gap:.8rem;margin-bottom:.9rem}
+.find-heading>div{min-width:0}
+.find-icon{flex:0 0 42px;display:grid;place-items:center;width:42px;height:42px;background:#f0dfb2;border:1px solid #b59a5e;border-radius:8px;font-size:1.6rem;color:#6d5128;line-height:1}
+.find-classification{color:#744528;font-weight:700;font-size:.92rem;line-height:1.5!important;margin:0 0 .4rem!important}
+.find-card h3{overflow-wrap:anywhere}
+.find-card .find-material,.find-card .find-location{margin:.8rem 0!important;font-size:.95rem}
+.find-availability{margin:1rem 0!important;border-left:3px solid #99762f;padding:.3rem 0 .3rem .65rem;font-size:.95rem}
+.find-price{font-weight:700;margin:.75rem 0!important}
+.find-price span{display:block;font-weight:400;font-size:.9rem}
+.find-link a{display:inline-block;min-height:44px;padding:.5rem 0;color:#744528;text-decoration:underline;text-underline-offset:3px;font-weight:700;overflow-wrap:anywhere}
+.find-checked{font-size:.88rem;color:#64533d;margin:.3rem 0 .7rem!important}
+.find-sources{border-top:1px solid var(--line);font-size:.92rem}
+.find-sources summary{cursor:pointer;font-weight:700;min-height:44px;padding:.55rem 0}
+.find-sources ul{padding-left:1.2rem;margin:.5rem 0}
+.find-sources li{margin:.8rem 0;overflow-wrap:anywhere}
+.find-sources a,.finds-snack a,.finds-about a{color:#744528;text-decoration:underline;text-underline-offset:3px}
+.find-sources small{display:block;margin-top:.35rem;font-size:.88rem;line-height:1.65}
+.finds-kitchen,.finds-concepts{border-top:1px solid var(--line);padding-top:1.8rem;margin:0 0 2rem;scroll-margin-top:1.5rem}
+.finds-kitchen>.eyebrow,.finds-concepts>.eyebrow{display:block;margin-bottom:.4rem}
+.finds-kitchen>p{max-width:65ch}
+.finds-ideas{display:grid;gap:1rem;margin-top:1rem}
+.finds-ideas article,.finds-concepts article{padding:1.15rem;background:#fff9eb;border:1px solid var(--line);border-radius:8px;min-width:0}
+.finds-ideas article p,.finds-concepts article p{margin:.7rem 0 0!important}
+.finds-ideas ol{padding-left:1.3rem;margin:.75rem 0}
+.finds-ideas li{padding-left:.2rem;margin:.5rem 0;line-height:1.7}
+.finds-note{font-size:.92rem;color:#64533d}
+.finds-snack{padding:1rem 1.2rem;margin:1.5rem 0 2rem;border:1px solid #a9b29a;border-radius:8px;background:#e5e8d9;max-width:40rem}
+.finds-snack h2{font-size:1.25rem!important;margin:.4rem 0!important}
+.finds-snack p{margin:.4rem 0!important}
+.finds-snack a{display:inline-block;padding:.5rem 0;min-height:44px}
+.finds-snack small{display:block;font-size:.88rem;line-height:1.6}
+.finds-concept-label{font-size:.94rem;color:#744528}
+.finds-about{border-top:1px solid var(--line);padding-top:1.5rem;margin-bottom:2rem}
+.finds-about p{max-width:65ch;margin:.7rem 0!important}
+.fun-finds-page :is(a,summary):focus-visible{outline:3px solid #896016;outline-offset:4px}
+@media(max-width:1100px){.fun-finds-page .layout{grid-template-columns:190px minmax(0,1fr)}.finds-grid{grid-template-columns:1fr}}
+@media(max-width:750px){.fun-finds-page .layout{display:flex}.fun-finds-page .category-intro h1{font-size:2rem}.finds-grid{grid-template-columns:1fr}.find-card>article,.finds-ideas article,.finds-concepts article{padding:1rem}.finds-section-links{font-size:.94rem;gap:.45rem}.finds-section-links a{padding:.5rem .6rem}}
+@media screen{
+ html[data-reading-dark] .fun-finds-page :is(.find-card,.finds-ideas article,.finds-concepts article,.finds-section-links a){background:var(--night-paper,#182522)!important;color:var(--night-text,#f2ead8)!important;border-color:var(--night-line,#51635b)!important}
+ html[data-reading-dark] .fun-finds-page .finds-snack{background:var(--night-raised,#22342e)!important;color:var(--night-text,#f2ead8)!important;border-color:var(--night-line,#51635b)!important}
+ html[data-reading-dark] .fun-finds-page :is(.finds-section-intro,.find-classification,.find-checked,.finds-note,.find-sources small){color:var(--night-text,#f2ead8)!important}
+ html[data-reading-dark] .fun-finds-page :is(.find-link a,.find-sources a,.finds-snack a,.finds-about a,.finds-section-links a,.finds-concept-label){color:var(--night-gold,#f0ca70)!important}
+ html[data-reading-dark] .fun-finds-page .find-icon{background:#344638;color:#f0ca70;border-color:#9c8c57}
+ html[data-reading-dark] .fun-finds-page :is(.find-sources,.finds-kitchen,.finds-concepts,.finds-about){border-color:var(--night-line,#51635b)!important}
+ html[data-reading-dark] .fun-finds-page :is(a,summary):focus-visible{outline-color:var(--night-gold,#f0ca70)}
+}
+@media print{
+ .fun-finds-page header,.fun-finds-page .announcement,.fun-finds-page .site-mobile-menu,.fun-finds-page .left,.fun-finds-page footer,.fun-finds-page .fun-finds-nav,.fun-finds-page .finds-section-links{display:none!important}
+ .fun-finds-page main,.fun-finds-page .layout,.fun-finds-page .center{display:block;padding:0;margin:0;max-width:none;width:auto}
+ .fun-finds-page{background:#fff!important;color:#000!important}.finds-grid{grid-template-columns:1fr}.find-card,.finds-ideas article,.finds-concepts article{break-inside:avoid;background:#fff}
+}

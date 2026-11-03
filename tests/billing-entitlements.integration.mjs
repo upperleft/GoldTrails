@@ -22,7 +22,7 @@ test('real MariaDB paid and complimentary eligibility across sessions and Connec
  const subscriptionId=randomUUID(),otherSubscriptionId=randomUUID(),sessions=new Map();
  let seeded=false,eventId;
  t.after(async()=>{try{if(seeded){
-  for(const table of ['connection_notifications','connection_rsvps','connection_follows','connection_preferences','connection_audit','connection_events','creator_invitation_audit','creator_invitations','member_creator_connections','billing_events','billing_checkout_attempts','billing_customers','member_audit_log','member_sessions','member_memberships','member_subscriptions'])await db.query('DELETE FROM '+table);
+  for(const table of ['connection_notifications','connection_rsvps','connection_follows','connection_preferences','connection_audit','connection_events','creator_invitation_audit','creator_invitations','member_creator_connections','billing_events','billing_checkout_attempts','billing_customers','member_audit_log','member_sessions','member_tokens','member_role_grants','member_profiles','member_memberships','member_subscriptions'])await db.query('DELETE FROM '+table);
   await db.query("UPDATE creator_invitation_settings SET owner_account_id=NULL,configured_by='' WHERE id=1");
   await db.query('DELETE FROM member_accounts');await db.query('DELETE FROM people WHERE id=?',[ids.person]);
  }}finally{await db.end();}});
@@ -130,5 +130,27 @@ test('real MariaDB paid and complimentary eligibility across sessions and Connec
   const membership=(await db.query('SELECT grant_source FROM member_memberships WHERE account_id=?',[ids.race]))[0];
   const checkouts=await db.query("SELECT id FROM billing_checkout_attempts WHERE account_id=? AND status IN ('creating','open')",[ids.race]);
   assert.equal(membership.grant_source==='complimentary'&&checkouts.length>0,false,'An open checkout must not coexist with a newly accepted complimentary grant.');
+ });
+ await t.test('private-code pending account completion respects installed billing history before changing credentials',async()=>{
+  const invitations=createCreatorInvitationStore(db),accountId=randomUUID(),checkoutId=randomUUID(),email='coded_pending_billing@example.invalid';
+  await db.query("INSERT INTO member_accounts(id,username,email,password_hash,status) VALUES(?,'coded_pending_billing',?,?,'pending_verification')",[accountId,email,'x'.repeat(100)]);
+  await db.query('INSERT INTO member_memberships(account_id) VALUES(?)',[accountId]);
+  const invitation=await invitations.issue({personId:ids.person,email,actor:'fixture-owner'});
+  const input={username:'coded_pending_verified',email,passwordHash:'scrypt:'+'a'.repeat(32)+':'+'b'.repeat(128),displayName:'Pending creator',csrf:'c'.repeat(64)};
+  await db.query("INSERT INTO billing_checkout_attempts(id,account_id,stripe_account_id,livemode,provider_customer_id,status,created_at,expires_at) VALUES(?,?,?,1,'cus_pending_creator_fixture','creating',DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 2 DAY),DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 1 DAY))",[checkoutId,accountId,scope.stripeAccountId]);
+  const before=(await db.query('SELECT username,password_hash,status,email_verified_at,auth_version FROM member_accounts WHERE id=?',[accountId]))[0];
+  for(const status of ['creating','open','completed','expired','failed']){
+   await db.query('UPDATE billing_checkout_attempts SET status=? WHERE id=?',[status,checkoutId]);
+   await assert.rejects(()=>invitations.join(invitation.raw,input),error=>error.code==='account_unavailable');
+   assert.deepEqual((await db.query('SELECT username,password_hash,status,email_verified_at,auth_version FROM member_accounts WHERE id=?',[accountId]))[0],before);
+   assert.equal((await db.query('SELECT consumed_at FROM creator_invitations WHERE id=?',[invitation.id]))[0].consumed_at,null);
+   assert.equal((await db.query('SELECT level FROM member_memberships WHERE account_id=?',[accountId]))[0].level,'free');
+   assert.equal(Number((await db.query('SELECT COUNT(*) AS n FROM member_sessions WHERE account_id=?',[accountId]))[0].n),0);
+  }
+  // With no financial history, the same private invitation may finish the
+  // pending account, replace its credential and grant permanent creator access.
+  await db.query('DELETE FROM billing_checkout_attempts WHERE id=?',[checkoutId]);
+  const joined=await invitations.join(invitation.raw,input),member=await live.members.session(joined.session);
+  assert.equal(joined.accountId,accountId);assert.equal(member.effective_level,'subscriber');assert.equal(member.grant_source,'complimentary');assert.equal(member.ends_at,null);
  });
 });

@@ -1,4 +1,6 @@
 import {accountView} from './account-view.js';
+import {creatorInvitationName,creatorInvitationFlow,creatorAccessRoutes} from './creator-invitations/context.js';
+import {focusedCreatorAccessPage} from './creator-invitations/access-page.js';
 import {signupPlusOffer} from './plus/signup-offer.js';
 import {readingMarkup} from './reading/handler.js';
 import {assetUrl} from './asset-url.js';
@@ -17,7 +19,7 @@ const validEmail=e=>e.length<=254&&/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(e);
 function passwordInput(f){const p=f.get('password')||'';if(p.length<8||p.length>128)throw new InputError('Use a password of 8–128 characters.');if(f.has('confirmPassword')&&p!==f.get('confirmPassword'))throw new InputError('The two passwords do not match.');return p;}
 async function body(req){if(!/^application\/x-www-form-urlencoded(?:;|$)/i.test(req.headers['content-type']||''))throw new InputError('Unsupported form.');let n=0,b=[];for await(const c of req){n+=c.length;if(n>8192)throw new InputError('Form too large.');b.push(c);}const f=new URLSearchParams(Buffer.concat(b).toString('utf8')),seen=new Set();for(const k of f.keys()){if(seen.has(k))throw new InputError('Duplicate field.');seen.add(k);}return f;}
 const hidden=(k,v)=>`<input type="hidden" name="${k}" value="${h(v)}">`;
-const memberDestinations=new Set(['/calendar/','/account/','/gold-almanac/','/plus/','/creator-invitation/']);
+const memberDestinations=new Set(['/','/calendar/','/account/','/gold-almanac/','/plus/','/creator-invitation/']);
 const memberDestination=value=>memberDestinations.has(value)||almanacReturnPath(value)||connectionsReturnPath(value)?value:null;
 const memberLanding=()=>'/account/';
 const input=(name,label,type='text',auto='',hint='')=>{
@@ -60,40 +62,45 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
  return async(req,res,url)=>{
   if(routes.has(url.pathname+'/')){res.writeHead(308,{Location:url.pathname+'/'+url.search,'Cache-Control':'no-store'});res.end();return true;}
   if(!routes.has(url.pathname))return false;
-  let csrf=read(req,'form')||token(),newCookie=!read(req,'form');const raw=read(req,'member');
+  let csrf=read(req,'form')||token(),newCookie=!read(req,'form'),creatorAccessFlow=req[creatorInvitationFlow]===true;const raw=read(req,'member');
   // Native POST forms need a non-null Origin. strict-origin preserves it on HTTPS
   // while never sending verification/reset tokens or other URL paths as referrers.
-  const send=(status,title,content,extra={},member=null)=>{const json=url.pathname==='/signup/'&&req.method==='POST'&&req.headers.accept==='application/json';res.writeHead(status,{'Content-Type':json?'application/json; charset=utf-8':'text/html; charset=utf-8','Cache-Control':'no-store','Referrer-Policy':'strict-origin','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...(newCookie?{'Set-Cookie':cookie('form',csrf)}:{}),...extra});res.end(req.method==='HEAD'?undefined:json?JSON.stringify({outcome:status===200&&title==='Check your email'?'email_requested':'error',title,message:(content.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)?.[1]||content).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()}):shell(title,content,member).replace('</body>',`<script src="${assetUrl('member-forms.js')}" defer></script></body>`));};
+  const send=(status,title,content,extra={},member=null)=>{const json=url.pathname==='/signup/'&&req.method==='POST'&&req.headers.accept==='application/json';res.writeHead(status,{'Content-Type':json?'application/json; charset=utf-8':'text/html; charset=utf-8','Cache-Control':'no-store','Referrer-Policy':'strict-origin','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...(newCookie?{'Set-Cookie':cookie('form',csrf)}:{}),...extra});res.end(req.method==='HEAD'?undefined:json?JSON.stringify({outcome:status===200&&title==='Check your email'?'email_requested':'error',title,message:(content.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)?.[1]||content).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()}):(creatorAccessFlow?focusedCreatorAccessPage(title,content):shell(title,content,member)).replace('</body>',`<script src="${assetUrl('member-forms.js')}" defer></script></body>`));};
   const redirect=(path,cookies)=>send(303,'Continue','',{'Location':path,...(cookies?{'Set-Cookie':cookies}:{})});
   const emailLink=async(p,purpose)=>{const raw=await store.issue(p.id,purpose);await mail({to:p.email,purpose,url:`${config.origin}/${purpose==='verify_email'?'verify-email':'reset-password'}/?token=${raw}`});};
   try{
    if(!['GET','HEAD','POST'].includes(req.method)){send(405,'Use the form','<p>That action is unavailable.</p>',{Allow:'GET, HEAD, POST'});return true;}
    const ready=store&&config&&await store.ready(),open=ready&&config.open&&Boolean(mail);let f;
-   const inviteRaw=read(req,'creator-invite');
+   const inviteRaw=read(req,'creator-invite'),inviteName=creatorInvitationName(req);
    let invitation=null;
    // An optional invitation must never block ordinary sign-in, recovery or sign-out.
-   if(ready&&inviteRaw&&invitations&&['/signup/','/login/','/verify-email/'].includes(url.pathname)){
-    try{if(await invitations.ready())invitation=await invitations.read(inviteRaw);}
+   if(ready&&(inviteRaw||inviteName)&&invitations&&creatorAccessRoutes.has(url.pathname)){
+    try{if(await invitations.ready())invitation=inviteRaw?await invitations.read(inviteRaw):await invitations.readNamed(inviteName);}
     catch{log('Gold Trails creator invitation context unavailable');}
    }
-   const inviteNotice=invitation?'<p data-creator-invitation>Your creator invitation is waiting. Use the invited email, verify your account, then sign in to accept complimentary Plus with no subscription fee.</p>':'';
+   creatorAccessFlow=Boolean(invitation);
+   const privateInvitation=Boolean(invitation&&inviteRaw);
+   const inviteNotice=invitation?(privateInvitation?'<p data-creator-invitation>Sign in below to accept your complimentary Gold Trails Plus membership. No separate verification email is needed.</p>':'<p data-creator-invitation>Your creator invitation is waiting. Use the invited email, verify your account, then sign in to accept complimentary Plus with no subscription fee.</p>'):'';
    const inviteLogin=invitation?'/login/?next=%2Fcreator-invitation%2F':'/login/';
+   if(privateInvitation&&url.pathname==='/signup/'){redirect('/creator-invitation/');return true;}
    if(req.method==='POST'){if(!ready){send(503,'Members coming soon','<p>Member access is being prepared.</p>');return true;}if(req.headers.origin!==config.origin){send(403,'Form expired','<p>Return to the page and try again.</p>');return true;}f=await body(req);if(!equal(read(req,'form'),f.get('csrf'))){send(403,'Form expired','<p>Refresh the form and try again.</p>');return true;}}
    if(url.pathname==='/signup/'){
     if(!open){send(200,'Join the camp',`<p class="member-auth-intro">A free account includes your own trail calendar.</p><p>Registration is temporarily unavailable. Please return shortly, or sign in to an existing account.</p><fieldset disabled class="member-preview"><legend>Registration form</legend>${form('/signup/',csrf,signupFields(),'Create free account')}</fieldset><p>Already a member? <a href="/login/">Sign in</a>.</p>`);return true;}
     if(req.method==='POST'){if(!await store.allow('signup')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}const data=memberIdentity(f);let p;try{p=await store.signup({...data,passwordHash:await hashPassword(data.password,{minLength:8})});}catch(e){if(e.code!=='ER_DUP_ENTRY')throw e;}if(p)await emailLink(p,'verify_email');send(200,'Check your email','<div class="member-confirmation" role="status"><h2>Your signup request was received</h2><p>If these details are available for a new account, a verification email is on its way. Already joined? Sign in or reset your existing password below. Creating another account does not change an existing password.</p></div><p><a href="/login/">Sign in</a> · <a href="/forgot-password/">Reset your existing password</a></p><p>Verification emails are for accounts that still need verification. <a href="/resend-verification/">Request another verification email</a>.</p>'+inviteNotice+(invitation?'':signupPlusOffer({autoOpen:true})));return true;}
-    send(200,'Join the camp',`<p class="member-auth-intro">Create a free account for your own trail calendar. We’ll email a link to verify your address.</p>${inviteNotice}${form('/signup/',csrf,signupFields(true),'Create free account')}<p class="member-auth-signin">Already a member? <a href="/login/">Sign in</a>.</p>${invitation?'':signupPlusOffer()}`);return true;
+    send(200,'Join the camp',`<p class="member-auth-intro">${invitation?'Create your free account to accept complimentary Gold Trails Plus.':'Create a free account for your own trail calendar.'} We’ll email a link to verify your address.</p>${inviteNotice}${form('/signup/',csrf,signupFields(true),'Create free account')}<p class="member-auth-signin">Already a member? <a href="/login/">Sign in</a>.</p>${invitation?'':signupPlusOffer()}`);return true;
    }
    if(url.pathname==='/login/'){
     const next=memberDestination(req.method==='POST'?f.get('next'):url.searchParams.get('next'))||(invitation?'/creator-invitation/':null);
-    const loginForm=()=>form('/login/',csrf,(next?hidden('next',next):'')+input('email','Email','email','username')+input('password','Password','password','current-password')+'<div class="member-password-controls"><button type="button" class="member-password-toggle" data-password-toggle aria-controls="member-password" aria-pressed="false" hidden>Show password</button></div>','Sign in');
+    const loginEmail=()=>{const field=input('email','Email','email','username');return privateInvitation?field.replace(' required>',` value="${h(invitation.target_email)}" readonly required>`):field;};
+    const loginForm=()=>form('/login/',csrf,(next?hidden('next',next):'')+loginEmail()+input('password','Password','password','current-password')+'<div class="member-password-controls"><button type="button" class="member-password-toggle" data-password-toggle aria-controls="member-password" aria-pressed="false" hidden>Show password</button></div>','Sign in');
     if(req.method==='POST'){
      if(!await store.allow('login')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}
      const email=(f.get('email')||'').trim().toLowerCase(),password=f.get('password')||'';
+     if(privateInvitation&&email!==invitation.target_email){send(400,'Use the invited email','<p role="alert">Sign in using the invited email shown below.</p>'+loginForm());return true;}
      const p=validEmail(email)?await store.find(email):null;
      const dummy='scrypt:'+'0'.repeat(32)+':'+'0'.repeat(128);
      const ok=await verifyPassword(password,p?.password_hash||dummy);
-     if(!p||!ok||p.status!=='active'||!p.email_verified_at){send(401,'Sign in to Gold Trails','<p role="alert">Sign-in details were not recognized, or email verification is pending.</p>'+loginForm()+'<a href="/forgot-password/">Reset password</a> · <a href="/resend-verification/">Verify email</a>');return true;}
+     if(!p||!ok||p.status!=='active'||!p.email_verified_at){send(401,'Sign in to Gold Trails',(privateInvitation?'<p role="alert">Sign-in details were not recognized. Check your password or reset it below.</p>':'<p role="alert">Sign-in details were not recognized, or email verification is pending.</p>')+loginForm()+'<a href="/forgot-password/">Reset password</a>'+(privateInvitation?'':' · <a href="/resend-verification/">Verify email</a>'));return true;}
      await store.logout(raw);csrf=token();const fresh=await store.login(p.id,p.auth_version,csrf);
      if(!fresh){send(401,'Sign in to Gold Trails','<p>Please try again.</p>'+loginForm());return true;}
      const membership=await store.session(fresh);
@@ -101,12 +108,17 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
     }
     const membership=ready&&raw?await store.session(raw):null;
     if(membership&&equal(digest(csrf),membership.csrf_token_hash)){redirect(next||memberLanding(membership));return true;}
-    send(200,'Sign in to Gold Trails',inviteNotice+'<p>Sign in with the email address you used to join Gold Trails.</p>'+loginForm()+'<p><a href="/forgot-password/">Forgot your password?</a> · <a href="/signup/">Join free</a></p><p><a href="/admin/login/">Administrator sign-in</a></p>');return true;
+    send(200,privateInvitation?'Welcome back':'Sign in to Gold Trails',inviteNotice+(privateInvitation?'':'<p>Sign in with the email address you used to join Gold Trails.</p>')+loginForm()+'<p><a href="/forgot-password/">Forgot your password?</a>'+(privateInvitation?'':' · <a href="/signup/">Join free</a>')+'</p>'+(invitation?'':'<p><a href="/admin/login/">Administrator sign-in</a></p>'));return true;
    }
    if(url.pathname==='/account/'||url.pathname==='/logout/'){
-    const p=ready?await store.session(raw):null;if(!p){redirect('/login/');return true;}if(url.pathname==='/logout/'){if(req.method!=='POST'){send(405,'Use the sign-out button','<p>Return to your account.</p>');return true;}if(!equal(digest(csrf),p.csrf_token_hash)){send(403,'Form expired','<p>Sign in again.</p>');return true;}await store.logout(raw);redirect('/login/',[cookie('member','',0),cookie('form','',0)]);return true;}
+    const p=ready?await store.session(raw):null;if(!p){redirect('/login/');return true;}if(url.pathname==='/logout/'){if(req.method!=='POST'){send(405,'Use the sign-out button','<p>Return to your account.</p>');return true;}if(!equal(digest(csrf),p.csrf_token_hash)){send(403,'Form expired','<p>Sign in again.</p>');return true;}await store.logout(raw);const next=memberDestination(f.get('next'));redirect(next?'/login/?next='+encodeURIComponent(next):'/login/',[cookie('member','',0),cookie('form','',0)]);return true;}
     if(req.method==='POST'){send(405,'Account overview','<p>Profile editing is coming later.</p>');return true;}
-    send(200,'Your camp',accountView(p,csrf),{},p);return true;
+    if(invitation){redirect('/creator-invitation/');return true;}
+    let creatorProfile=null;
+    if(p.effective_level==='subscriber'&&p.grant_source==='complimentary'&&invitations?.acceptedProfile)try{
+     if(await invitations.ready())creatorProfile=await invitations.acceptedProfile(p.id);
+    }catch{log('Gold Trails accepted creator profile unavailable');}
+    send(200,'Your camp',accountView(p,csrf,{creatorProfile}),{},p);return true;
    }
    if(url.pathname==='/forgot-password/'||url.pathname==='/resend-verification/'){
     const verify=url.pathname==='/resend-verification/';if(req.method==='POST'){if(!mail){send(503,'Email service being prepared','<p>Please return when member email is ready.</p>');return true;}if(!await store.allow('recovery')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}const email=(f.get('email')||'').trim().toLowerCase();if(!validEmail(email))throw new InputError('Enter a valid email address.');const p=await store.find(email);if(p&&p.status!=='suspended'&&(verify?!p.email_verified_at:Boolean(p.email_verified_at))){try{await emailLink(p,verify?'verify_email':'reset_password');}catch{log('Gold Trails member email unavailable');}}send(200,'Check your email',verify?'<p>If an account at this address still needs verification, an email is on its way. An account that is already verified will not receive another verification email.</p><p><a href="/login/">Sign in</a> · <a href="/forgot-password/">Reset your existing password</a></p>':'<p>If an eligible account exists, an email is on its way. Please check your inbox and spam folder.</p>');return true;}

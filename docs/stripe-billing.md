@@ -4,6 +4,14 @@ The application implements one Gold Trails Plus price: **USD $5 per month, quant
 
 Billing is disabled until configured and verified. Do not enable live purchases based only on the local tests. Those tests use mocked Stripe objects and an isolated MariaDB instance, not the actual Stripe account.
 
+## Local integration checkpoint
+
+The local `codex/stripe-current-main` branch integrates the preserved billing checkpoint `27934e7` with committed main `5303158`. The current private-code creator signup, returning-creator sign-in, homepage invitation context and Gold Fun & Finds navigation are preserved. Production compatibility remains optional: creator invitations do not query billing tables until migration 016 is installed.
+
+Verification on this integrated branch passed: the full 608-test Node suite; the build with 28 HTML pages and 966 local references; 57 isolated MariaDB billing/entitlement tests; and 26 isolated private-code/named-creator compatibility tests without migration 016. The database checks also cover private-code pending-account completion with migration 016 installed: any existing checkout history blocks credential changes and complimentary conversion without consuming the invitation. An untouched pending account can still complete its complimentary creator account.
+
+This checkpoint is local and unpublished. Stripe account/price/webhook configuration and actual Stripe sandbox payments remain unverified; no purchase activation or production migration was performed. Merge any later main changes and repeat relevant integration checks before preparing a release.
+
 ## Configuration
 
 The protected server environment needs `STRIPE_MODE` (`test` or `live`), `STRIPE_ACCOUNT_ID`, `STRIPE_PRICE_ID`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` and `STRIPE_PORTAL_CONFIGURATION_ID`. `MEMBER_ORIGIN` must be `https://goldtrails.org`. Keep keys out of Git, browser code, logs and support messages. `BILLING_ENABLED=true` opens purchases after the provider checks pass. Otherwise new purchases remain closed.

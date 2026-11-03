@@ -16,7 +16,7 @@ import { searchCriteria } from './directory-store.js';
 import { directoryPage, profilePage, messagePage, page, escapeHtml } from './directory-views.js';
 import {videoLibraryFor,videoLibraryBody} from './creator-video-library.js';
 import {createGoldPriceFeed} from './gold-price.js';
-import {creatorInvitationHome} from './creator-invitations/context.js';
+import {creatorInvitationHome,creatorInvitationFlow} from './creator-invitations/context.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
@@ -34,7 +34,7 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
     // Match only our known alias; never derive a redirect target from request headers.
     if(canonicalOrigin==='https://goldtrails.org' && req.headers.host?.toLowerCase()==='www.goldtrails.org') {
       const destination=canonicalOrigin+url.pathname+url.search;
-      if(['GET','HEAD'].includes(req.method)) {res.writeHead(308,{Location:destination,'Cache-Control':'no-store',...(['/plus/guest/','/creator-invitation/','/creator-invitation'].includes(url.pathname)?{'Referrer-Policy':'no-referrer','X-Robots-Tag':'noindex'}:{})});res.end();}
+      if(['GET','HEAD'].includes(req.method)) {res.writeHead(308,{Location:destination,'Cache-Control':'no-store',...((['/plus/guest/','/creator-invitation/','/creator-invitation','/invite'].includes(url.pathname)||url.pathname.startsWith('/invite/'))?{'Referrer-Policy':'no-referrer','X-Robots-Tag':'noindex'}:{})});res.end();}
       else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
       return;
     }
@@ -45,6 +45,10 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
     // Invitation capabilities never enter public analytics or promotional wrappers.
     if(creatorInvitations&&await creatorInvitations(req,res,url))return;
     const invitationHome=req[creatorInvitationHome]===true;
+    // Serve the focused invitation journey before public event, promotion and
+    // suggestion wrappers can introduce unrelated links.
+    if(invitationHome&&homepage&&await homepage(req,res,url))return;
+    if(req[creatorInvitationFlow]&&members&&await members(req,res,url))return;
     if(guests&&await guests.handle(req,res,url))return;
     guests?.attach(req,res,url);
     if(['GET','HEAD'].includes(req.method)&&['/creators-experts','/creators-experts/','/creators-experts/index.html'].includes(path)){

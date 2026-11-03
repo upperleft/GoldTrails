@@ -111,7 +111,7 @@ test('format shortcuts, modifier clicks and direct hidden-entry anchors remain u
 test('secondary discovery links preserve primary menus and appear on article index and footer',()=>{
  const fixture='<!doctype html><html><head></head><body><main><aside class="left"><section class="panel trail-menu">Old links</section></aside><div class="center"><h1>Articles</h1></div></main><footer><p>Footer</p></footer></body></html>';
  const html=siteNavigationMarkup(fixture,{path:'/articles/'});
- assert.match(html,/<details class="site-resource-menu"><summary>Resources<\/summary><nav aria-label="Resources"><a href="\/gold-games\/">Gold Games<\/a>/);
+ assert.match(html,/<details class="site-resource-menu"><summary>Gold Fun &amp; Finds<\/summary><nav aria-label="Gold Fun &amp; Finds"><a href="\/gold-games\/">Gold Games<\/a>/);
  assert.match(html,/<p class="site-games-discovery">Learning together\?/);
  assert.ok(!navigationLinks('/articles/').includes('/gold-games/'),'No extra primary menu item');
  assert.equal(siteNavigationMarkup(html,{path:'/articles/'}),html,'Navigation stays idempotent');

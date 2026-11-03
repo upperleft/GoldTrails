@@ -3,7 +3,9 @@ import {hotspots,canvas,memberPromotionHotspots} from './hotspots.js';
 import {escapeHtml as h} from '../directory-views.js';
 import {assetUrl} from '../asset-url.js';
 import {guestPlusAccess} from '../plus/guest-access.js';
-import {creatorInvitationHome} from '../creator-invitations/context.js';
+import {creatorInvitationHome,creatorNameSlug} from '../creator-invitations/context.js';
+import {focusedCreatorHomePage} from '../creator-invitations/access-page.js';
+import {siteNavigationMarkup} from '../site-navigation.js';
 
 const blank='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
 const desktop='(min-width: 1280px) and (hover: hover) and (pointer: fine)';
@@ -64,17 +66,39 @@ export function graphicalHome({member=null,guest=false,creatorInvitation=false,c
  ${calibration?'<p class="home-calibration-note">LOCAL CALIBRATION · coordinates in app/homepage/hotspots.js · not enabled in production</p>':''}</main>`;
 }
 
-const invitationWelcome='<section class="home-invitation-welcome" data-complimentary-invitation aria-labelledby="creator-home-welcome"><h2 id="creator-home-welcome">Welcome to Gold Trails</h2><p>Your complimentary creator invitation is waiting. Explore the site, then accept your free Plus access. No subscription fee or card required.</p><a class="gold-button" href="/creator-invitation/">Continue to your free creator account</a></section>';
-export function homepageMarkup(html,options={}){if(html.includes('home-graphical'))return html;return html.replace('</head>',`<link rel="stylesheet" href="${assetUrl('home-art.css')}"><script src="${assetUrl('home-art.js')}" defer></script></head>`).replace(/(<body[^>]*>)/,`$1${options.creatorInvitation?invitationWelcome:''}${graphicalHome(options)}<div class="home-classic">`).replace('</body>','</div></body>');}
+export function inertHomepageMarkup(html){
+ const attributes=raw=>[...raw.matchAll(/([^\s=/>]+)(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/g)].filter(match=>/^(?:class|id|style|title|aria-label|aria-hidden|data-home-id|data-home-name)$/.test(match[1])).map(match=>match[0]).join(' ');
+ return html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'')
+  .replace(/<a\b[^>]*class="[^"]*\b(?:skip-link|home-skip)\b[^"]*"[^>]*>[\s\S]*?<\/a>/gi,'')
+  .replace(/<(a|button)\b([^>]*)>/gi,(_match,tag,attrs)=>`<span ${attributes(attrs)} role="${tag.toLowerCase()==='a'?'link':'button'}" aria-disabled="true">`).replace(/<\/(?:a|button)>/gi,'</span>')
+  .replace(/<(?:input|select|textarea)\b([^>]*)>/gi,(match,attrs)=>match.replace(/\s(?:tabindex|autofocus|formaction|formtarget)\b(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/gi,'').replace(/>$/,' disabled>'))
+  .replace(/<form\b[^>]*>/gi,'<div class="creator-inert-form">').replace(/<\/form>/gi,'</div>')
+  .replace(/<(details|summary|main)\b([^>]*)>/gi,(_match,tag,attrs)=>`<${tag.toLowerCase()==='summary'?'p':'section'} ${attributes(attrs)}>`).replace(/<\/summary>/gi,'</p>').replace(/<\/(?:details|main)>/gi,'</section>')
+  .replace(/\sdata-home-(?:help|search|text-view|account|premium)(?:-[a-z-]+)?(?:="[^"]*")?/gi,'');
+}
+function creatorInvitationHomepage(original){
+ const normal=siteNavigationMarkup(original,{path:'/',creatorInvitation:true});
+ const classic=normal.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)?.[1] || '';
+ const scene=inertHomepageMarkup(graphicalHome({creatorInvitation:true}));
+ const banner='<section class="home-invitation-welcome" aria-labelledby="creator-home-welcome"><div><h1 id="creator-home-welcome">Welcome to Gold Trails</h1><p>Your complimentary Gold Trails Plus invitation is waiting. Accept your free membership first, then explore the site and your creator profile. No subscription fee or card required.</p><p class="creator-invitation-instruction">The homepage navigation opens after you accept.</p><a class="gold-button" href="/creator-invitation/">Continue to your free creator account</a></div><div class="header-tools"></div></section>';
+ return focusedCreatorHomePage('Welcome to Gold Trails',`<main class="creator-access-home-main" id="main-content">${banner}${scene}<div class="home-classic creator-inert-classic">${inertHomepageMarkup(classic).replace(/id="main-content"/g,'id="creator-preview-main-content"')}</div></main>`);
+}
+function creatorReadyBanner({member=null,acceptedProfile=null}={}){
+ if(member?.effective_level!=='subscriber'||member.grant_source!=='complimentary'||!creatorNameSlug(acceptedProfile?.slug)||typeof acceptedProfile.display_name!=='string'||!acceptedProfile.display_name.trim()||acceptedProfile.display_name.length>180)return '';
+ return `<section class="home-creator-ready" data-creator-membership-ready role="status"><h2>Your complimentary creator membership is ready</h2><p>Welcome, ${h(acceptedProfile.display_name)}. Your Plus access is active.</p><a href="/prospectors/${h(acceptedProfile.slug)}/">View your creator profile</a></section>`;
+}
+export function homepageMarkup(html,options={}){if(options.creatorInvitation)return creatorInvitationHomepage(html);if(html.includes('home-graphical'))return html;const ready=creatorReadyBanner(options);return html.replace('</head>',`<link rel="stylesheet" href="${assetUrl('home-art.css')}"><script src="${assetUrl('home-art.js')}" defer></script>${ready?`<link rel="stylesheet" href="${assetUrl('creator-access.css')}">`:''}</head>`).replace(/(<body[^>]*>)/,`$1${ready}${graphicalHome(options)}<div class="home-classic">`).replace('</body>','</div></body>');}
 
-export function createHomepageHandler({members=null,config=null,guests=guestPlusAccess,root='dist',calibration=false}={}){return async(req,res,url)=>{
+export function createHomepageHandler({members=null,config=null,guests=guestPlusAccess,invitations=null,root='dist',calibration=false}={}){return async(req,res,url)=>{
  if(url.pathname!=='/'||!['GET','HEAD'].includes(req.method))return false;
  const token=(req.headers.cookie||'').match(/(?:^|;\s*)__Host-gold-member=([a-f0-9]{64})(?:;|$)/)?.[1];
  let member=null,guest=false;
  if(token&&members&&config)try{member=await members.session(token);}catch{}
  try{guest=Boolean(guests?.read(req));}catch{}
  const creatorInvitation=req[creatorInvitationHome]===true;
- const html=homepageMarkup(await readFile(root+'/index.html','utf8'),{member,guest,creatorInvitation,calibration});
+ let acceptedProfile=null;
+ if(!creatorInvitation&&url.searchParams.get('creator')==='accepted'&&member?.id&&member.effective_level==='subscriber'&&member.grant_source==='complimentary'&&invitations?.acceptedProfile)try{if(!invitations.ready||await invitations.ready())acceptedProfile=await invitations.acceptedProfile(member.id);}catch{}
+ const html=homepageMarkup(await readFile(root+'/index.html','utf8'),{member,guest,creatorInvitation,calibration,acceptedProfile});
  res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store',Vary:'Cookie','X-Content-Type-Options':'nosniff',...(creatorInvitation?{'Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex, nofollow'}:{})});
  res.end(req.method==='HEAD'?undefined:html);return true;
 };}

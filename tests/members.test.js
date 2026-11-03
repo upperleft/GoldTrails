@@ -223,3 +223,50 @@ test('member sign-in offers the existing accessible password visibility control'
  assert.match(html,/type="button" class="member-password-toggle" data-password-toggle aria-controls="member-password" aria-pressed="false" hidden>Show password/);
  assert.match(html,/src="\/member-forms\.js\?v=[a-f0-9]{12}"/);
 });
+
+test('complimentary creator accounts receive a profile shortcut from the accepted invitation lookup',async t=>{
+ const id='33333333-3333-4333-8333-333333333333';let lookups=0;
+ const request=await fixture(t,{invitations:{ready:async()=>true,acceptedProfile:async account=>{
+  assert.equal(account,id);lookups++;return {slug:'river-teacher',display_name:'River Teacher <script>unsafe()</script>'};
+ }},store:{ready:async()=>true,session:async raw=>raw===session?{
+  id,username:'RiverTeacher',display_name:'River Teacher',email:'creator@example.invalid',account_number:42,
+  effective_level:'subscriber',grant_source:'complimentary',csrf_token_hash:digest(csrf)
+ }:null}});
+ const headers={Cookie:`__Host-gold-member=${session}; __Host-gold-form=${csrf}`};
+ for(const route of ['/account/','/account/?creator=accepted']){
+  const response=await request(route,null,{headers});assert.equal(response.status,200);
+  assert.equal(response.headers.get('cache-control'),'private, no-store');
+  const html=await response.text();
+  assert.match(html,/Your creator account is ready/);
+  assert.match(html,/href="\/prospectors\/river-teacher\/">View your creator profile/);
+  assert.match(html,/River Teacher &lt;script&gt;unsafe\(\)&lt;\/script&gt;/);assert.doesNotMatch(html,/<script>unsafe/);
+  assert.match(html,/Your Plus access is complimentary/);
+ }
+ assert.equal(lookups,2);
+});
+
+test('an acceptance query cannot give free or paid accounts a complimentary creator shortcut',async t=>{
+ for(const access of [{effective_level:'free',grant_source:'complimentary'},{effective_level:'subscriber',grant_source:'stripe'}]){
+  let lookups=0;
+  const request=await fixture(t,{invitations:{ready:async()=>true,acceptedProfile:async()=>{lookups++;return {slug:'river-teacher',display_name:'A creator'};}},store:{
+   ready:async()=>true,session:async()=>({id:'33333333-3333-4333-8333-333333333333',username:'TrailReader',display_name:'Trail Reader',email:'reader@example.invalid',account_number:42,csrf_token_hash:digest(csrf),...access})
+  }});
+  const response=await request('/account/?creator=accepted',null,{headers:{Cookie:`__Host-gold-member=${session}`}});
+  assert.equal(response.status,200);const html=await response.text();
+  assert.doesNotMatch(html,/Your creator account is ready|View your creator profile|camp-creator-welcome/);
+  assert.equal(lookups,0);
+ }
+});
+
+test('missing or unavailable accepted-profile records leave the complimentary account usable',async t=>{
+ for(const acceptedProfile of [async()=>null,async()=>{throw Error('PRIVATE_PROFILE_LOOKUP creator@example.invalid');}]){
+  const request=await fixture(t,{invitations:{ready:async()=>true,acceptedProfile},store:{ready:async()=>true,session:async()=>({
+   id:'33333333-3333-4333-8333-333333333333',username:'RiverTeacher',email:'creator@example.invalid',account_number:42,
+   effective_level:'subscriber',grant_source:'complimentary',csrf_token_hash:digest(csrf)
+  })}});
+  const response=await request('/account/?creator=accepted',null,{headers:{Cookie:`__Host-gold-member=${session}`}});
+  assert.equal(response.status,200);const html=await response.text();
+  assert.match(html,/Your Plus access is complimentary/);assert.match(html,/href="\/gold-almanac\/"/);
+  assert.doesNotMatch(html,/View your creator profile|PRIVATE_PROFILE_LOOKUP/);
+ }
+});

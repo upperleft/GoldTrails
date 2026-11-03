@@ -11,6 +11,9 @@ test('www redirects to the fixed production origin before sessions or feature ha
  for(const method of ['GET','HEAD']) {
   const r=await request(base+'/login/?next=%2Fcalendar%2F',{method,redirect:'manual',headers:{Host:'www.goldtrails.org'}});
   assert.equal(r.status,308);assert.equal(r.headers.get('location'),'https://goldtrails.org/login/?next=%2Fcalendar%2F');assert.equal(r.headers.get('set-cookie'),null);
+  const invitation=await request(base+'/invite/river-teacher/',{method,headers:{Host:'www.goldtrails.org'}});
+  assert.equal(invitation.status,308);assert.equal(invitation.headers.get('location'),'https://goldtrails.org/invite/river-teacher/');
+  assert.equal(invitation.headers.get('referrer-policy'),'no-referrer');assert.equal(invitation.headers.get('x-robots-tag'),'noindex');
  }
  const post=await request(base+'/login/',{method:'POST',redirect:'manual',headers:{Host:'www.goldtrails.org'},body:'csrf=invalid'});
  assert.equal(post.status,421);assert.equal(post.headers.get('location'),null);assert.equal(calls,0);
