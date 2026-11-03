@@ -24,7 +24,7 @@
   }
   html[data-reading-dark] body:not(.admin-editor) :is(
     .panel,.resource-placeholder,.article-card,.featured,.welcome,.category-intro,
-    .product-desk,.map-desk,.reading,.field-note,.category-callout,.takeaways,
+    .product-desk,.product-merchandise,.map-desk,.reading,.field-note,.category-callout,.takeaways,
     .culture-card,.culture-welcome,.culture-controls,.culture-about,.culture-site-nav,
     .almanac-section,.almanac-destination,.almanac-promo,.plus-hero,.plus-sample,
     .plus-almanac-preview,.plus-locked,.plus-billing-details,.community-access,
@@ -44,7 +44,7 @@
     box-shadow: 0 4px 16px #0002 !important;
   }
   /* Light parchment is decorative; swap it for quiet dark paper while reading. */
-  html[data-reading-dark] body:not(.admin-editor) :is(.reading,.category-intro,.field-note,.category-callout,.takeaways,.resource-placeholder)::before {
+  html[data-reading-dark] body:not(.admin-editor) :is(.reading,.category-intro,.field-note,.category-callout,.takeaways,.resource-placeholder,.product-desk)::before {
     display: none !important;
   }
   html[data-reading-dark] body:not(.admin-editor) :is(.reading,.field-note,.category-callout,.takeaways) {
@@ -132,6 +132,11 @@
   }
   /* Keep documentary photos, artwork, map tiles and their colors untouched. */
   html[data-reading-dark] body:not(.admin-editor) .product-photo-shrink { background: white; }
+  html[data-reading-dark] body:not(.admin-editor) .product-merchandise-link {
+    background: var(--night-raised) !important;
+    color: var(--night-text) !important;
+    border-color: var(--night-line) !important;
+  }
   html[data-reading-dark] body:not(.admin-editor) :is(.leaflet-popup-content-wrapper,.leaflet-popup-tip,.leaflet-control-attribution) { background: var(--night-paper); color: var(--night-text); }
   html[data-reading-dark] body:not(.admin-editor) :is(.leaflet-control-attribution,.leaflet-popup-content) a { color: var(--night-link) !important; }
   html[data-reading-dark] body:not(.admin-editor) .leaflet-bar a { background: #292720; color: #f1e8d5; border-color: #70624a; }
