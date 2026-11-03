@@ -8,7 +8,7 @@
     "node": "22.x"
   },
   "scripts": {
-    "build": "node scripts/prepare-calendar-assets.mjs && node scripts/build-glossary-regional.mjs && node scripts/build-products.mjs && node scripts/build-communities.mjs && node scripts/build-gold-sniping.mjs && node scripts/build-sluice-tuning.mjs && node scripts/build-drywashing.mjs && node scripts/version-assets.mjs && node scripts/check-site.mjs",
+    "build": "node scripts/prepare-calendar-assets.mjs && node scripts/build-glossary-regional.mjs && node scripts/build-products.mjs && node scripts/build-communities.mjs && node scripts/build-gold-sniping.mjs && node scripts/build-sluice-tuning.mjs && node scripts/build-drywashing.mjs && node scripts/build-magnet-cleanup.mjs && node scripts/version-assets.mjs && node scripts/check-site.mjs",
     "start": "node server.js",
     "check": "node scripts/check-site.mjs",
     "test": "node --test tests/*.test.js",

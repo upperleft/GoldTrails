@@ -4,6 +4,7 @@ import {mergeCatalog} from '../creator-catalog.js';
 import {safeUrl} from '../directory-views.js';
 const products=JSON.parse(readFileSync(new URL('../product-catalog.json',import.meta.url),'utf8')).tables.products;
 const articles=[
+ ['wet-or-dry-magnet-cleanup','Wet or Dry? Six Creators on Removing Black Sand with a Magnet','Compare six creator accounts of magnetic cleanup, their working conditions, and what the evidence can establish.',['equipment','panning','creators'],['fine','panning','learn'],13],
  ['drywashing-for-gold','Drywashing for Gold: Air, Dry Gravel, and the Right Machine','Understand air-assisted recovery, compare drywasher product examples, and plan feed preparation and tailings checks.',['equipment','sluicing','geology'],['sluice','fine','learn'],12],
  ['sluice-flow-and-angle','Sluice & Highbanker Tuning: Flow, Angle, and the Gravel You Feed','Measure slope and water delivery, prepare difficult gravel, and compare recovery with repeatable tailings tests.',['equipment','sluicing','panning'],['sluice','fine','learn'],11],
  ['gold-sniping','Gold Sniping: Finding Gold Where It Hides Underwater','Explore underwater traps, compare conceptual sampling positions and follow the source evidence.',['river','geology','equipment'],['first','locations','learn'],10],

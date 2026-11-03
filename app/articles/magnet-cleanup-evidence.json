@@ -1,0 +1,160 @@
+{
+  "checkedAt": "2026-11-03",
+  "publicationStatus": "published",
+  "title": "Wet or Dry? Six Creators on Removing Black Sand with a Magnet",
+  "route": "/articles/wet-or-dry-magnet-cleanup/",
+  "question": "Should magnetic black sand be removed from fine-gold concentrate while dry or under water?",
+  "sampling": {
+    "method": "Purposeful selection of six creators with accessible primary written instructions or newly reviewed automatic captions; not a random sample or complete creator census.",
+    "unit": "One creator, counted once; multiple sources do not create additional votes.",
+    "counts": {
+      "wet_method": 3,
+      "both_dry_and_submerged": 1,
+      "dry_hand_tool_instruction": 1,
+      "dry_under_pan_experiment": 1
+    },
+    "wetCompatible": 4,
+    "allCreators": 6,
+    "handheldWetCompatible": 4,
+    "handheldExplicitInstructionCreators": 5,
+    "notEstablished": "Population prevalence, exclusive wet preference, comparative recovery, or a universal best method."
+  },
+  "sources": [
+    {
+      "id": "ralph",
+      "creator": "Chris Ralph",
+      "title": "Dealing with Black Sands: Capturing the Gold",
+      "url": "https://nevada-outback-gems.com/Reference_pages/black_sands.htm",
+      "kind": "Creator-written method",
+      "classification": "wet_method",
+      "tableMethod": "Wet lifting",
+      "tableDetail": "A magnet above a thin submerged layer; check the removed fraction.",
+      "locator": "Small-quantity cleanup and magnetic-separation instructions",
+      "verification": "Full primary page inspected November 3, 2026.",
+      "limits": "Personal workflow; no matched wet-versus-dry recovery trial."
+    },
+    {
+      "id": "mccracken",
+      "creator": "Dave McCracken",
+      "title": "Gold Panning Instructions",
+      "url": "https://goldgold.com/gold-prospectinggold-panning-instructions.html",
+      "kind": "Creator-written method",
+      "classification": "wet_method",
+      "tableMethod": "Wet re-washing",
+      "tableDetail": "Removed magnetic sand is swished in another pan and picked up again.",
+      "locator": "Magnetic-net warning and second-pan procedure",
+      "verification": "Full primary page inspected November 3, 2026.",
+      "limits": "A described checking routine, not a measured recovery percentage."
+    },
+    {
+      "id": "singel",
+      "creator": "Kevin Singel",
+      "title": "Finish processing your concentrates after a day of digging",
+      "url": "https://findinggoldincolorado.com/finish-processing-your-concentrates-after-a-day-of-digging/",
+      "kind": "Creator-written method and authored clarification",
+      "classification": "wet_method",
+      "tableMethod": "Wet lifting; dry reject check",
+      "tableDetail": "Draw magnetic material through water; later inspect the magnetic rejects.",
+      "locator": "January 22, 2016 article, steps 2–3; archived KevinInCO comment dated April 6, 2016",
+      "verification": "Full primary article and identified author comment inspected November 3, 2026.",
+      "limits": "Drying the removed fraction for checking is not a dry-feed recommendation."
+    },
+    {
+      "id": "hurd",
+      "creator": "Dan Hurd",
+      "title": "How-to use magnets to recover your gold.",
+      "publishedAt": "2018-02-10",
+      "url": "https://www.youtube.com/watch?v=Qjel7A_x_Tc",
+      "kind": "Creator demonstration; automatic-caption evidence",
+      "classification": "both_dry_and_submerged",
+      "tableMethod": "Dry or fully submerged",
+      "tableDetail": "Distinguishes both conditions from damp material; describes re-washing.",
+      "locator": "2:31, 3:08, 3:40 and 4:09",
+      "verification": "Root research review checked newly retrieved automatic captions November 3, 2026; precise audio/footage independently unverified.",
+      "moments": [
+        {
+          "seconds": 151,
+          "label": "Dry, submerged, and damp · 2:31"
+        },
+        {
+          "seconds": 188,
+          "label": "Through-water pickup · 3:08"
+        },
+        {
+          "seconds": 220,
+          "label": "Reported gold carried along · 3:40"
+        },
+        {
+          "seconds": 249,
+          "label": "Re-washing · 4:09"
+        }
+      ],
+      "limits": "Caption-supported account; no independently measured loss or controlled comparison. This source does not establish his position for every later tool.",
+      "editorialLimit": "Only the early magnetic segment is summarized; later mercury-related context is excluded."
+    },
+    {
+      "id": "klesh",
+      "creator": "Klesh",
+      "title": "Magnetic Black Sand Removal Tool",
+      "url": "https://kleshgold.com/products/p/magnetic-black-sand-removal-tool",
+      "kind": "Creator's commercial tool instructions",
+      "classification": "dry_hand_tool_instruction",
+      "tableMethod": "Dry-only instruction",
+      "tableDetail": "The current product page warns against wet use, in broad terms.",
+      "locator": "Dry-material instruction below the product description",
+      "verification": "Full current official product page inspected November 3, 2026.",
+      "limits": "Seller instruction and broad warning; no comparative recovery results supplied."
+    },
+    {
+      "id": "au77",
+      "creator": "Au77",
+      "title": "GOLD is not Magnetic, But…",
+      "publishedAt": "2023-09-16",
+      "url": "https://www.youtube.com/watch?v=Zqiv9DYqy00",
+      "kind": "Creator experiment; automatic-caption evidence",
+      "classification": "dry_under_pan_experiment",
+      "tableMethod": "Dry preferred in this experiment",
+      "tableDetail": "Magnets beneath the pan; a different arrangement from lifting sand out.",
+      "locator": "3:32–4:21; wet-material discussion begins at 4:05",
+      "verification": "Root research review checked newly retrieved automatic captions November 3, 2026; precise audio/footage independently unverified.",
+      "moments": [
+        {
+          "seconds": 212,
+          "label": "Experiment discussion · 3:32"
+        },
+        {
+          "seconds": 245,
+          "label": "Wet-material comparison · 4:05"
+        }
+      ],
+      "limits": "Reported experience, not a matched recovery test; excluded from the handheld-instruction denominator."
+    }
+  ],
+  "contextSources": [
+    {
+      "id": "epa",
+      "creator": "U.S. Environmental Protection Agency",
+      "title": "Artisanal and Small-Scale Gold Mining Without Mercury — Magnets",
+      "url": "https://www.epa.gov/international-cooperation/artisanal-and-small-scale-gold-mining-without-mercury#other-concentration-methods",
+      "kind": "Government method context; excluded from creator counts",
+      "locator": "Other Concentration Methods, Magnets; updated January 7, 2026",
+      "verification": "Full primary magnetic-separation section inspected November 3, 2026.",
+      "limits": "Describes a dry technique; no matched wet-versus-dry recovery comparison."
+    }
+  ],
+  "editorialMethods": [
+    "Separate dry, damp and submerged conditions in the comparison",
+    "Record magnet placement, tool, classification and loading",
+    "Retain magnetic and nonmagnetic fractions with their washings",
+    "Use repeated comparable portions and an independent reject check",
+    "Compare accounted loss fractions rather than raw tailings amounts"
+  ],
+  "notClaimed": [
+    "Four out of six creators prefer wet cleanup exclusively",
+    "A poll of all prospectors or creators",
+    "That equal volumes contain equal gold",
+    "That counts of opinions establish recovery performance",
+    "That another dry-machine demonstration retracts a creator's earlier wet method"
+  ],
+  "publishedAt": "2026-11-03"
+}
