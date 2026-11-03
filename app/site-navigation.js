@@ -10,6 +10,10 @@ const destinations=[
  ['/about-the-camp/', 'About Gold Trails']
 ];
 const active=(href,path)=>href==='/'?path==='/':path===href||path.startsWith(href);
+const funFindsDestinations=[['/gold-games/','Gold Games'],['/gold-you-can-eat/','Gold You Can Eat'],['/gold-gifts-oddities/','Gold Gifts &amp; Oddities']];
+export function funFindsNavigation(path='/'){
+ return `<nav class="fun-finds-nav" aria-label="Gold Fun &amp; Finds" data-fun-finds-navigation><span>Gold Fun &amp; Finds</span>${funFindsDestinations.map(([href,label])=>`<a href="${href}"${active(href,path)?' aria-current="page"':''}>${label}</a>`).join('')}</nav>`;
+}
 function contentBeforeSidebar(html){
  const sidebar=html.match(/<aside\b[^>]*class="[^"]*\bleft\b[^"]*"[^>]*>[\s\S]*?<\/aside>/);
  const center=html.match(/<div\b[^>]*class="[^"]*\bcenter\b[^"]*"[^>]*>/);
@@ -38,6 +42,11 @@ export function siteNavigationMarkup(html,{path='/',premium=false,creatorInvitat
  let found=false;
  let result=html.replace(menu,()=>{found=true;return `<section class="panel trail-menu" data-site-navigation><h2>At the field desk</h2><nav aria-label="Main navigation">${links}</nav>${readingSlot}</section>`;});
  if(!found)return html;
+ // Games and playful discoveries share secondary navigation, keeping the primary menu compact.
+ const resources=`<details class="site-resource-menu"><summary>Gold Fun &amp; Finds</summary><nav aria-label="Gold Fun &amp; Finds">${funFindsDestinations.map(([href,label])=>`<a href="${href}"${active(href,path)?' aria-current="page"':''}>${label}</a>`).join('')}</nav></details>`;
+ result=result.replace('</footer>',resources+'</footer>');
+ if(funFindsDestinations.some(([href])=>active(href,path))&&!result.includes('data-fun-finds-navigation'))result=result.replace(/(<div\b[^>]*class="[^"]*\bcenter\b[^"]*"[^>]*>)/,'$1'+funFindsNavigation(path));
+ if(path==='/articles/')result=result.replace('<h1>Articles</h1>','<h1>Articles</h1><p class="site-games-discovery">Learning together? Explore <a href="/gold-games/">Gold Games</a> for free learning games, family tabletop picks, and real panning challenges.</p>');
  // The artwork homepage has its own main before the classic text homepage.
  result=result.replace(/<main\b(?![^>]*class="[^"]*home-graphical)[^>]*>/,match=>match+`<details class="site-mobile-menu"><summary>Menu</summary><nav aria-label="Main navigation">${links}</nav>${readingSlot}</details>`);
  return contentBeforeSidebar(result).replace('</head>',`<link rel="stylesheet" href="${assetUrl('design-refinements.css')}"></head>`);
