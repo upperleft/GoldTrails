@@ -79,8 +79,10 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
     catch{log('Gold Trails creator invitation context unavailable');}
    }
    creatorAccessFlow=Boolean(invitation);
-   const inviteNotice=invitation?'<p data-creator-invitation>Your creator invitation is waiting. Use the invited email, verify your account, then sign in to accept complimentary Plus with no subscription fee.</p>':'';
+   const privateInvitation=Boolean(invitation&&inviteRaw);
+   const inviteNotice=invitation?(privateInvitation?'<p data-creator-invitation>Your private creator invitation confirms your invited email. Sign in to accept complimentary Plus, or use your invitation to set up an account. No separate verification email is needed.</p>':'<p data-creator-invitation>Your creator invitation is waiting. Use the invited email, verify your account, then sign in to accept complimentary Plus with no subscription fee.</p>'):'';
    const inviteLogin=invitation?'/login/?next=%2Fcreator-invitation%2F':'/login/';
+   if(privateInvitation&&url.pathname==='/signup/'){redirect('/creator-invitation/');return true;}
    if(req.method==='POST'){if(!ready){send(503,'Members coming soon','<p>Member access is being prepared.</p>');return true;}if(req.headers.origin!==config.origin){send(403,'Form expired','<p>Return to the page and try again.</p>');return true;}f=await body(req);if(!equal(read(req,'form'),f.get('csrf'))){send(403,'Form expired','<p>Refresh the form and try again.</p>');return true;}}
    if(url.pathname==='/signup/'){
     if(!open){send(200,'Join the camp',`<p class="member-auth-intro">A free account includes your own trail calendar.</p><p>Registration is temporarily unavailable. Please return shortly, or sign in to an existing account.</p><fieldset disabled class="member-preview"><legend>Registration form</legend>${form('/signup/',csrf,signupFields(),'Create free account')}</fieldset><p>Already a member? <a href="/login/">Sign in</a>.</p>`);return true;}

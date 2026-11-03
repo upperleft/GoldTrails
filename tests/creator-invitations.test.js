@@ -143,7 +143,7 @@ test('a valid invitation opens the illustrated homepage with only Continue activ
  assert.equal(state.acceptAttempts,0);assert.equal(state.accepts,0);assert.equal(state.consumed,false);
  assert.equal(account.effective_level,'free');
  const continueInvitation=await request(path,{headers:{Cookie:browserCookies}});
- assert.equal(continueInvitation.status,200);assert.match(await continueInvitation.text(),/Create your free account/);
+ assert.equal(continueInvitation.status,200);assert.match(await continueInvitation.text(),/name="action" value="create_account"/);
  assert.equal(state.accepts,0);
 });
 
@@ -182,7 +182,7 @@ test('optional invitation checks fail gracefully on the homepage without logging
  assert.equal(state.reads,0);assert.equal(state.accepts,0);
 });
 
-test('a clean anonymous invitation page escapes the creator and masks recipient details',async t=>{
+test('a clean private invitation page escapes the creator and binds its account form to the invited recipient',async t=>{
  const {request,state}=await fixture(t);
  const response=await request(path,{headers:{Cookie:cookie({'creator-invite':raw})}});
  assert.equal(response.status,200);
@@ -190,10 +190,13 @@ test('a clean anonymous invitation page escapes the creator and masks recipient 
  assertFocusedAccess(html,'anonymous invitation');
  assert.match(html,/River Teacher &lt;script&gt;unsafe\(\)&lt;\/script&gt;/);
  assert.doesNotMatch(html,/<script>unsafe/);
- assert.doesNotMatch(html,new RegExp(targetEmail.replace('.','\\.')));
+ const emailInput=html.match(/<input\b[^>]*name="email"[^>]*>/)?.[0]||'';
+ assert.ok(emailInput.includes('value="'+targetEmail+'"'));assert.match(emailInput,/\breadonly\b/);
  assert.doesNotMatch(html,new RegExp(raw));
  assert.match(html,/href="\/login\/(?:\?[^\"]*)?"/);
- assert.match(html,/href="\/signup\/(?:\?[^\"]*)?"/);
+ assert.match(html,/<form\b[^>]*action="\/creator-invitation\/"/);
+ assert.match(html,/name="action" value="create_account"/);
+ assert.doesNotMatch(html,/href="\/(?:signup|verify-email|resend-verification)\/|verify your email|verification email is on its way/i);
  assert.match(html,/complimentary|free/i);
  assert.match(response.headers.get('cache-control'),/private.*no-store|no-store.*private/);
  assert.equal(response.headers.get('referrer-policy'),'strict-origin');
@@ -332,24 +335,20 @@ test('creator invitations are excluded from optional usage statistics',()=>{
  assert.equal(analyticsMarkup(html,path),html);
 });
 
-test('invited signup and verification retain the invitation without displaying a paid signup offer',async t=>{
- let signups=0,verificationSends=0,verifications=0;
- const {request}=await fixture(t,{mail:async message=>{assert.equal(message.purpose,'verify_email');verificationSends++;},members:{
-  signup:async data=>{assert.equal(data.email,targetEmail);signups++;return{id:accountId,email:data.email};},
-  issue:async()=>verification,
-  consume:async(value,purpose)=>{assert.equal(value,verification);assert.equal(purpose,'verify_email');verifications++;return true;}
+test('a private invitation redirects ordinary signup back to its own account form without requesting verification',async t=>{
+ let signups=0,verificationSends=0,issued=0;
+ const {request,state}=await fixture(t,{mail:async()=>verificationSends++,members:{
+  signup:async()=>signups++,issue:async()=>{issued++;return verification;}
  }});
  const headers={Cookie:cookie({form:csrf,'creator-invite':raw})};
- const signup=await request('/signup/',{headers});assert.equal(signup.status,200);
- const signupHtml=await signup.text();assertFocusedAccess(signupHtml,'invited signup');assert.doesNotMatch(signupHtml,/data-signup-plus-offer|data-signup-plus-autoopen/);assert.match(signupHtml,/invitation|creator/i);
+ for(const method of ['GET','HEAD']){
+  const signup=await request('/signup/',{method,headers});assert.equal(signup.status,303);assert.equal(signup.headers.get('location'),path);
+ }
  const created=await request('/signup/',{method:'POST',headers:{...headers,Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},
   body:new URLSearchParams({csrf,username:'RiverTeacher',email:targetEmail,password:'new creator test password'})});
- assert.equal(created.status,200);const createdHtml=await created.text();assertFocusedAccess(createdHtml,'signup confirmation');assert.doesNotMatch(createdHtml,/data-signup-plus-offer|data-signup-plus-autoopen/);
- assert.equal(signups,1);assert.equal(verificationSends,1);
- assert.equal((await request('/verify-email/?token='+verification,{headers})).status,200);assert.equal(verifications,0);
- const verified=await request('/verify-email/',{method:'POST',headers:{...headers,Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({csrf,token:verification})});
- assert.equal(verified.status,200);assert.equal(verifications,1);
- const verifiedHtml=await verified.text();assertFocusedAccess(verifiedHtml,'verification confirmation');assert.match(verifiedHtml,/creator-invitation/);assert.doesNotMatch(verifiedHtml,/data-signup-plus-offer/);
+ assert.equal(created.status,303);assert.equal(created.headers.get('location'),path);
+ const createdHtml=await created.text();assert.doesNotMatch(createdHtml,/data-signup-plus-offer|new creator test password/);
+ assert.equal(signups,0);assert.equal(verificationSends,0);assert.equal(issued,0);assert.equal(state.accepts,0);
 });
 
 test('creator sign-in rotates the session and returns to the clean invitation path',async t=>{
@@ -569,7 +568,9 @@ test('pending invitation context keeps all member access and recovery screens fo
   const headers={Cookie:cookie({form:csrf,...context})};
   for(const route of ['/signup/','/login/','/forgot-password/','/resend-verification/','/verify-email/?token='+verification,'/reset-password/?token='+verification]){
    for(const method of ['GET','HEAD']){
-    const response=await request(route,{method,headers});assert.equal(response.status,200,route);
+    const response=await request(route,{method,headers});
+    if(route==='/signup/'&&context['creator-invite']){assert.equal(response.status,303);assert.equal(response.headers.get('location'),path);continue;}
+    assert.equal(response.status,200,route);
     assert.match(response.headers.get('cache-control'),/no-store/);
     const html=await response.text();
     if(method==='HEAD'){assert.equal(html,'');continue;}
@@ -595,6 +596,7 @@ test('pending member validation and recovery results stay in the invitation shel
    ['/reset-password/',{token:verification,password:'a new test password'},200]
   ]){
    const response=await request(route,{method:'POST',headers,body:new URLSearchParams({csrf,...fields})});
+   if(route==='/signup/'&&context['creator-invite']){assert.equal(response.status,303);assert.equal(response.headers.get('location'),path);continue;}
    assert.equal(response.status,status,route);assertFocusedAccess(await response.text(),route+' result');
   }
  }
@@ -637,7 +639,9 @@ test('public response wrappers cannot add unrelated links to pending creator hom
  for(const context of [{'creator-name':'river-teacher'},{'creator-invite':raw}]){
   const headers={Cookie:cookie(context)};
   for(const route of ['/','/signup/','/login/','/forgot-password/','/resend-verification/','/verify-email/?token='+verification,'/reset-password/?token='+verification]){
-   const response=await request(route,{headers});assert.equal(response.status,200,route);
+   const response=await request(route,{headers});
+   if(route==='/signup/'&&context['creator-invite']){assert.equal(response.status,303);assert.equal(response.headers.get('location'),path);continue;}
+   assert.equal(response.status,200,route);
    const html=await response.text();if(route==='/')assertPendingHomepage(html);else assertFocusedAccess(html,'unwrapped '+route);
    assert.doesNotMatch(html,/Wrapper shopping link|site-analytics\.js/);
   }

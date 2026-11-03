@@ -66,7 +66,7 @@ test('owner invitation actions require the existing owner Origin and CSRF contro
  assert.equal(state.issued.length,0);assert.equal(state.revoked.length,0);assert.equal(state.configured.length,0);
 });
 
-test('owner setup and issue actions generate a creator-name link without exposing a bearer token',async t=>{
+test('owner issue shows the private creator code once while later overviews keep that capability private',async t=>{
  const {post,ownerGet,state}=await fixture(t);
  const configured=await post({action:'configure_owner',email:ownerEmail});assert.equal(configured.status,200);
  assert.deepEqual(state.configured,[{email:ownerEmail,actor:'site-owner'}]);
@@ -74,11 +74,14 @@ test('owner setup and issue actions generate a creator-name link without exposin
  assert.equal(issued.status,200);
  assert.deepEqual(state.issued,[{personId:creatorId,email:targetEmail,actor:'site-owner'}]);
  const html=await issued.text();
- assert.ok(html.includes(origin+'/invite/river-teacher/'));
- assert.ok(!html.includes(inviteToken));
+ assert.ok(html.includes(origin+'/invite/river-teacher/?code='+inviteToken));
+ const personalLink=html.match(/<input\b[^>]*aria-label="Personal invitation link"[^>]*>/)?.[0]||'';
+ assert.ok(personalLink.includes('value="'+origin+'/invite/river-teacher/?code='+inviteToken+'"'));
+ assert.match(personalLink,/\breadonly\b/);
  assert.ok(!html.includes('https://untrusted.example'));
  assert.match(html,/readonly[^>]*aria-label="Personal invitation link"/);
  assert.match(html,/Invitation message/);assert.match(html,/has not been sent/i);
+ assert.match(html,/without a separate verification email|No separate verification email/i);
  assert.match(issued.headers.get('cache-control'),/no-store/);
  assert.equal(issued.headers.get('referrer-policy'),'strict-origin');
  assert.match(issued.headers.get('x-robots-tag'),/noindex/);

@@ -1,5 +1,6 @@
 import {timingSafeEqual} from 'node:crypto';
-import {digest,token} from '../admin-auth.js';
+import {digest,token,hashPassword} from '../admin-auth.js';
+import {memberIdentity} from '../members.js';
 import {CreatorInvitationError} from './model.js';
 import {creatorInvitationPage,invitationBody,adminInvitationsView} from './views.js';
 import {escapeHtml as h} from '../directory-views.js';
@@ -62,7 +63,15 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
    }
    if(namedPath){
     const slug=namedEntry?.[1];
-    if(!creatorNameSlug(slug)||url.search){unavailable();return true;}
+    if(!creatorNameSlug(slug)){unavailable();return true;}
+    if(url.search){
+     const raw=url.searchParams.get('code');
+     if(url.searchParams.size!==1||url.searchParams.getAll('code').length!==1||!validToken(raw)){unavailable();return true;}
+     const invite=await store.read(raw);
+     if(!invite||invite.slug!==slug){unavailable();return true;}
+     const age=Math.min(30*86400,Math.max(1,Math.floor((expires(invite.expires_at)-Date.now())/1000)));
+     send(303,'Your creator invitation','',{Location:'/','Referrer-Policy':'no-referrer','Set-Cookie':[cookie('creator-invite',raw,age),cookie('creator-name','',0),cookie('form',csrf)]});return true;
+    }
     const invite=await store.readNamed(slug);
     if(!invite){unavailable();return true;}
     const age=Math.min(30*86400,Math.max(1,Math.floor((expires(invite.expires_at)-Date.now())/1000)));
@@ -87,6 +96,22 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
     if(!f||!equal(read(req,'form'),f.get('csrf'))){
      send(403,'Sign in to accept','<p>Sign in with the invited email, then return here to accept.</p><p><a href="/login/?next=%2Fcreator-invitation%2F">Sign in</a></p>');return true;
     }
+    const action=f.get('action')||'accept';
+    if(action==='create_account'){
+     if(!raw||!store.join){send(403,'Use your private invitation','<p>Open the complete private link from your invitation email to set up your account without a separate verification email.</p>');return true;}
+     if(member){send(409,'Use your signed-in account',invitationBody(invite,member,csrf));return true;}
+     if(!config.open){send(503,'Account setup is temporarily unavailable','<p>Please return shortly to finish your complimentary membership.</p>');return true;}
+     const allowed=new Set(['csrf','action','username','email','displayName','password','confirmPassword']);
+     if([...f.keys()].some(key=>!allowed.has(key))){send(400,'Check the invitation form',invitationBody(invite,null,csrf));return true;}
+     let data;
+     try{data=memberIdentity(f);}catch(error){send(400,'Check your account details',`<p role="alert">${h(error.message)}</p>`+invitationBody(invite,null,csrf,{values:{username:f.get('username'),displayName:f.get('displayName')}}));return true;}
+     if(data.email!==invite.target_email){send(403,'Use the invited email','<p>Your private invitation is for a different email address. Open the invitation sent to the address you want to use.</p>');return true;}
+     if(!await members.allow('signup')||!await members.allow('token')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>',{'Retry-After':'900'});return true;}
+     const freshCsrf=token(),passwordHash=await hashPassword(data.password,{minLength:8});
+     const joined=await store.join(raw,{username:data.username,email:data.email,passwordHash,displayName:data.displayName,csrf:freshCsrf});
+     send(303,'Your creator access is ready','',{Location:'/?creator=accepted','Set-Cookie':[...clearInvitation(),cookie('member',joined.session),cookie('form',freshCsrf)]});return true;
+    }
+    if(action!=='accept'){send(400,'Use the invitation form','<p>Return to your invitation and use its acceptance button.</p><p><a href="/creator-invitation/">Return to your invitation</a></p>');return true;}
     if(!member){send(303,'Sign in to accept','',{Location:'/login/?next=%2Fcreator-invitation%2F'});return true;}
     if(!equal(digest(csrf),member.csrf_token_hash)){send(403,'Sign in to accept','<p>Sign in again, then return here to accept your invitation.</p><p><a href="/login/?next=%2Fcreator-invitation%2F">Sign in</a></p>');return true;}
     if(String(member.email).trim().toLowerCase()!==invite.target_email){send(403,'Sign in with the invited account',invitationBody(invite,member,csrf));return true;}
@@ -98,6 +123,9 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
   }catch(error){
    if(error instanceof CreatorInvitationError){
     if(error.code==='invitation_unavailable'){unavailable();return true;}
+    if(error.code==='account_exists'){
+     send(error.status,'Account details already in use',`<p role="alert">${h(error.message)}</p><p><a href="/login/?next=%2Fcreator-invitation%2F">Sign in to your existing account</a>, or return to your invitation to choose another username. If you cannot sign in, reply to Paul’s invitation for help finishing your account. Your invitation has not been used.</p><p><a href="/creator-invitation/">Return to your invitation</a></p>`);return true;
+    }
     send(error.status,'Your creator invitation',`<p role="alert">${h(error.message)}</p><p><a href="/creator-invitation/">Return to your invitation</a></p>`);return true;
    }
    log('Gold Trails creator invitation request unavailable');
@@ -119,7 +147,7 @@ export function createAdminInvitationRouter(store,origin){
     if(f.get('action')==='configure_owner'){await store.configureOwner(f.get('email')||'',actor);notice='Your invitation account is set.';}
     else if(f.get('action')==='issue'){
      created=await store.issue({personId:f.get('personId'),email:f.get('email'),actor});
-     link=origin+'/invite/'+encodeURIComponent(created.slug)+'/';
+     link=origin+'/invite/'+encodeURIComponent(created.slug)+'/?code='+created.raw;
     }else if(f.get('action')==='revoke'){await store.revoke(f.get('id'),actor);notice='The pending invitation link has been revoked.';}
     else return result('<p role="alert">Choose one of the invitation actions.</p>',400);
    }

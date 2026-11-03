@@ -115,7 +115,9 @@ for (const form of document.querySelectorAll('.member-form')) {
     form.setAttribute('aria-busy', 'true');
     tell('Sending your request. Please wait for the confirmation page.');
     slowRequest = window.setTimeout(() => {
-      tell('This is taking longer than expected. If the page does not change, check your connection. For signup, check your email before trying again.');
+      tell(form.hasAttribute('data-creator-account-setup')
+        ? 'This is taking longer than expected. Please wait for confirmation before trying again. Your private invitation does not need another verification email.'
+        : 'This is taking longer than expected. If the page does not change, check your connection. For signup, check your email before trying again.');
     }, 15000);
     if (direct) void sendSignup();
   });
