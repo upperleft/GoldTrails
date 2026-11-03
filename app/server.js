@@ -34,7 +34,7 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
     // Match only our known alias; never derive a redirect target from request headers.
     if(canonicalOrigin==='https://goldtrails.org' && req.headers.host?.toLowerCase()==='www.goldtrails.org') {
       const destination=canonicalOrigin+url.pathname+url.search;
-      if(['GET','HEAD'].includes(req.method)) {res.writeHead(308,{Location:destination,'Cache-Control':'no-store',...(['/plus/guest/','/creator-invitation/','/creator-invitation'].includes(url.pathname)?{'Referrer-Policy':'no-referrer','X-Robots-Tag':'noindex'}:{})});res.end();}
+      if(['GET','HEAD'].includes(req.method)) {res.writeHead(308,{Location:destination,'Cache-Control':'no-store',...((['/plus/guest/','/creator-invitation/','/creator-invitation','/invite'].includes(url.pathname)||url.pathname.startsWith('/invite/'))?{'Referrer-Policy':'no-referrer','X-Robots-Tag':'noindex'}:{})});res.end();}
       else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
       return;
     }

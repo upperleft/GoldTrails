@@ -1,4 +1,5 @@
 import {accountView} from './account-view.js';
+import {creatorInvitationName} from './creator-invitations/context.js';
 import {signupPlusOffer} from './plus/signup-offer.js';
 import {readingMarkup} from './reading/handler.js';
 import {assetUrl} from './asset-url.js';
@@ -69,11 +70,11 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
   try{
    if(!['GET','HEAD','POST'].includes(req.method)){send(405,'Use the form','<p>That action is unavailable.</p>',{Allow:'GET, HEAD, POST'});return true;}
    const ready=store&&config&&await store.ready(),open=ready&&config.open&&Boolean(mail);let f;
-   const inviteRaw=read(req,'creator-invite');
+   const inviteRaw=read(req,'creator-invite'),inviteName=creatorInvitationName(req);
    let invitation=null;
    // An optional invitation must never block ordinary sign-in, recovery or sign-out.
-   if(ready&&inviteRaw&&invitations&&['/signup/','/login/','/verify-email/'].includes(url.pathname)){
-    try{if(await invitations.ready())invitation=await invitations.read(inviteRaw);}
+   if(ready&&(inviteRaw||inviteName)&&invitations&&['/signup/','/login/','/verify-email/'].includes(url.pathname)){
+    try{if(await invitations.ready())invitation=inviteRaw?await invitations.read(inviteRaw):await invitations.readNamed(inviteName);}
     catch{log('Gold Trails creator invitation context unavailable');}
    }
    const inviteNotice=invitation?'<p data-creator-invitation>Your creator invitation is waiting. Use the invited email, verify your account, then sign in to accept complimentary Plus with no subscription fee.</p>':'';
@@ -82,7 +83,7 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
    if(url.pathname==='/signup/'){
     if(!open){send(200,'Join the camp',`<p class="member-auth-intro">A free account includes your own trail calendar.</p><p>Registration is temporarily unavailable. Please return shortly, or sign in to an existing account.</p><fieldset disabled class="member-preview"><legend>Registration form</legend>${form('/signup/',csrf,signupFields(),'Create free account')}</fieldset><p>Already a member? <a href="/login/">Sign in</a>.</p>`);return true;}
     if(req.method==='POST'){if(!await store.allow('signup')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}const data=memberIdentity(f);let p;try{p=await store.signup({...data,passwordHash:await hashPassword(data.password,{minLength:8})});}catch(e){if(e.code!=='ER_DUP_ENTRY')throw e;}if(p)await emailLink(p,'verify_email');send(200,'Check your email','<div class="member-confirmation" role="status"><h2>Your signup request was received</h2><p>If these details are available for a new account, a verification email is on its way. Already joined? Sign in or reset your existing password below. Creating another account does not change an existing password.</p></div><p><a href="/login/">Sign in</a> · <a href="/forgot-password/">Reset your existing password</a></p><p>Verification emails are for accounts that still need verification. <a href="/resend-verification/">Request another verification email</a>.</p>'+inviteNotice+(invitation?'':signupPlusOffer({autoOpen:true})));return true;}
-    send(200,'Join the camp',`<p class="member-auth-intro">Create a free account for your own trail calendar. We’ll email a link to verify your address.</p>${inviteNotice}${form('/signup/',csrf,signupFields(true),'Create free account')}<p class="member-auth-signin">Already a member? <a href="/login/">Sign in</a>.</p>${invitation?'':signupPlusOffer()}`);return true;
+    send(200,'Join the camp',`<p class="member-auth-intro">${invitation?'Create your free account to accept complimentary Gold Trails Plus.':'Create a free account for your own trail calendar.'} We’ll email a link to verify your address.</p>${inviteNotice}${form('/signup/',csrf,signupFields(true),'Create free account')}<p class="member-auth-signin">Already a member? <a href="/login/">Sign in</a>.</p>${invitation?'':signupPlusOffer()}`);return true;
    }
    if(url.pathname==='/login/'){
     const next=memberDestination(req.method==='POST'?f.get('next'):url.searchParams.get('next'))||(invitation?'/creator-invitation/':null);

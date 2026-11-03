@@ -3,7 +3,7 @@ import {digest,token} from '../admin-auth.js';
 import {CreatorInvitationError} from './model.js';
 import {creatorInvitationPage,invitationBody,adminInvitationsView} from './views.js';
 import {escapeHtml as h} from '../directory-views.js';
-import {creatorInvitationHome} from './context.js';
+import {creatorInvitationHome,creatorInvitationName,creatorNameSlug} from './context.js';
 
 const validToken=value=>/^[a-f0-9]{64}$/.test(value||'');
 const read=(req,name)=>(req.headers.cookie||'').match(new RegExp(`(?:^|;\\s*)__Host-gold-${name}=([a-f0-9]{64})(?:;|$)`))?.[1]||null;
@@ -24,22 +24,26 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
   // Optional invitation storage must never prevent the public homepage opening.
   // Read only: the homepage welcome cannot accept or otherwise consume a link.
   if(url.pathname==='/'&&['GET','HEAD'].includes(req.method)){
-   const raw=read(req,'creator-invite');
-   if(raw&&store&&members&&config)try{
-    if(await store.ready()&&await store.read(raw))req[creatorInvitationHome]=true;
+   const raw=read(req,'creator-invite'),name=creatorInvitationName(req);
+   if((raw||name)&&store&&members&&config)try{
+    if(await store.ready()&&(raw?await store.read(raw):await store.readNamed(name)))req[creatorInvitationHome]=true;
    }catch{log('Gold Trails homepage invitation check unavailable');}
    return false;
   }
-  if(!['/creator-invitation','/creator-invitation/'].includes(url.pathname))return false;
+  const namedEntry=url.pathname.match(/^\/invite\/([^/]+)\/?$/);
+  const namedPath=url.pathname==='/invite'||url.pathname.startsWith('/invite/');
+  if(!namedPath&&!['/creator-invitation','/creator-invitation/'].includes(url.pathname))return false;
   const csrf=read(req,'form')||token();
   const send=(status,title,content,extra={})=>{
    // Keep Origin available on native form POSTs; the clean page contains no bearer URL.
    res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store',Vary:'Cookie','Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'none'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...extra});
    res.end(req.method==='HEAD'?undefined:creatorInvitationPage(title,content));
   };
-  const unavailable=()=>send(410,'Invitation unavailable','<p>This invitation has expired, was replaced, revoked or already accepted. If you accepted it, your complimentary access stays with your account.</p><p><a href="/login/">Sign in</a> or ask Paul for a fresh personal invitation.</p>',{'Set-Cookie':cookie('creator-invite','',0)});
+  const clearInvitation=()=>[cookie('creator-invite','',0),cookie('creator-name','',0)];
+  const unavailable=()=>send(410,'Invitation unavailable','<p>This invitation has expired, was replaced, revoked or already accepted. If you accepted it, your complimentary access stays with your account.</p><p><a href="/login/">Sign in</a> or ask Paul for a fresh personal invitation.</p>',{'Set-Cookie':clearInvitation()});
   try{
    if(!['GET','HEAD','POST'].includes(req.method)){send(405,'Use your invitation link','<p>Open the personal link Paul sent you.</p>',{Allow:'GET, HEAD, POST'});return true;}
+   if(namedPath&&req.method==='POST'){send(405,'Use the invitation form','<p>Open your invitation link and use its acceptance button.</p>',{Allow:'GET, HEAD'});return true;}
    if(url.pathname==='/creator-invitation'){
     if(req.method==='POST'){send(405,'Use the invitation form','<p>Open your personal invitation again.</p>',{Allow:'GET, HEAD'});return true;}
     send(308,'Your creator invitation','',{Location:'/creator-invitation/'+url.search});return true;
@@ -47,19 +51,27 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
    if(!store||!members||!config||!await store.ready()){
     send(503,'Creator invitations are being prepared','<p>Your creator invitation service is temporarily unavailable. Please return shortly.</p>');return true;
    }
+   if(namedPath){
+    const slug=namedEntry?.[1];
+    if(!creatorNameSlug(slug)||url.search){unavailable();return true;}
+    const invite=await store.readNamed(slug);
+    if(!invite){unavailable();return true;}
+    const age=Math.min(30*86400,Math.max(1,Math.floor((expires(invite.expires_at)-Date.now())/1000)));
+    send(303,'Your creator invitation','',{Location:'/','Referrer-Policy':'no-referrer','Set-Cookie':[cookie('creator-name',slug,age),cookie('creator-invite','',0),cookie('form',csrf)]});return true;
+   }
    if(url.search){
     const raw=url.searchParams.get('token');
     if(!['GET','HEAD'].includes(req.method)||url.searchParams.size!==1||url.searchParams.getAll('token').length!==1||!validToken(raw)){unavailable();return true;}
     const invite=await store.read(raw);
     if(!invite){unavailable();return true;}
     const age=Math.min(30*86400,Math.max(1,Math.floor((expires(invite.expires_at)-Date.now())/1000)));
-    send(303,'Your creator invitation','',{Location:'/','Referrer-Policy':'no-referrer','Set-Cookie':[cookie('creator-invite',raw,age),cookie('form',csrf)]});return true;
+    send(303,'Your creator invitation','',{Location:'/','Referrer-Policy':'no-referrer','Set-Cookie':[cookie('creator-invite',raw,age),cookie('creator-name','',0),cookie('form',csrf)]});return true;
    }
-   const raw=read(req,'creator-invite');
-   if(!raw){unavailable();return true;}
-   const invite=await store.read(raw);
-   if(!invite){unavailable();return true;}
+   const raw=read(req,'creator-invite'),name=creatorInvitationName(req);
+   if(!raw&&!name){unavailable();return true;}
    const member=await members.session(read(req,'member'));
+   const invite=raw?await store.read(raw):await store.readNamed(name,member?.id||null);
+   if(!invite){unavailable();return true;}
    if(req.method==='POST'){
     if(req.headers.origin!==config.origin){send(403,'Refresh your invitation','<p>Please open your personal invitation again and use its acceptance button.</p>');return true;}
     const f=await body(req);
@@ -67,10 +79,10 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
      send(403,'Sign in to accept','<p>Sign in with the invited email, then return here to accept.</p><p><a href="/login/?next=%2Fcreator-invitation%2F">Sign in</a></p>');return true;
     }
     if(!member){send(303,'Sign in to accept','',{Location:'/login/?next=%2Fcreator-invitation%2F'});return true;}
-    if(!equal(digest(csrf),member.csrf_token_hash)||String(member.email).trim().toLowerCase()!==invite.target_email){send(403,'Sign in with the invited account','<p>This invitation belongs to a different account, or your sign-in form has expired. Sign in with the invited email and return to accept.</p><p><a href="/account/">Open your account</a></p>');return true;}
+    if(!equal(digest(csrf),member.csrf_token_hash)||String(member.email).trim().toLowerCase()!==invite.target_email){send(403,'Sign in with the invited account','<p>Use the email address that received your invitation, then return here to accept. Your account remains private.</p><p><a href="/account/">Open your account</a></p>');return true;}
     if(!await members.allow('token')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>',{'Retry-After':'900'});return true;}
-    await store.accept(raw,member.id);
-    send(303,'Your creator access is ready','',{Location:'/account/?creator=accepted','Set-Cookie':cookie('creator-invite','',0)});return true;
+    if(raw)await store.accept(raw,member.id);else await store.acceptNamed(name,member.id);
+    send(303,'Your creator access is ready','',{Location:'/account/?creator=accepted','Set-Cookie':clearInvitation()});return true;
    }
    send(200,'Your Gold Trails creator invitation',invitationBody(invite,member,csrf),{'Set-Cookie':cookie('form',csrf)});return true;
   }catch(error){
@@ -97,7 +109,7 @@ export function createAdminInvitationRouter(store,origin){
     if(f.get('action')==='configure_owner'){await store.configureOwner(f.get('email')||'',actor);notice='Your invitation account is set.';}
     else if(f.get('action')==='issue'){
      created=await store.issue({personId:f.get('personId'),email:f.get('email'),actor});
-     link=origin+'/creator-invitation/?token='+created.raw;
+     link=origin+'/invite/'+encodeURIComponent(created.slug)+'/';
     }else if(f.get('action')==='revoke'){await store.revoke(f.get('id'),actor);notice='The pending invitation link has been revoked.';}
     else return result('<p role="alert">Choose one of the invitation actions.</p>',400);
    }

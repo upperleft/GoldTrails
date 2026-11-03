@@ -32,6 +32,11 @@ async function fixture(t,options={}){
  const invitations={
   ready:async()=>true,
   read:async value=>{state.reads++;return value===raw&&!state.consumed&&!state.revoked&&!state.expired?{...invitation}:null;},
+  readNamed:async(slug,id=null)=>{
+   if(slug!==invitation.slug||state.consumed||state.revoked||state.expired)return null;
+   const matched=id===accountId&&account.email===targetEmail;
+   return {...invitation,named:true,matched,id:matched?invitationId:null,target_email:matched?targetEmail:null};
+  },
   accept:async(value,id)=>{
    state.acceptAttempts++;
    assert.equal(value,raw);assert.equal(id,accountId);
@@ -40,7 +45,9 @@ async function fixture(t,options={}){
    state.accepts++;
    state.consumed=true;account.effective_level='subscriber';account.grant_source='complimentary';account.ends_at=null;
    return {person_id:creatorId,display_name:invitation.display_name,slug:invitation.slug};
-  },...options.invitations
+  },
+  acceptNamed:async(slug,id)=>{assert.equal(slug,invitation.slug);state.namedAccepts=(state.namedAccepts||0)+1;return invitations.accept(raw,id);},
+  ...options.invitations
  };
  const members={ready:async()=>true,allow:async()=>true,session:async value=>value===session?{...account}:null,...options.members};
  const config={origin,open:true};
@@ -265,6 +272,7 @@ test('acceptance throttling and outages do not leak token, email or private data
 
 test('creator invitations are excluded from optional usage statistics',()=>{
  assert.equal(publicPath(path),null);
+ assert.equal(publicPath('/invite/river-teacher/'),null);
  const html='<!doctype html><html><head></head><body>Private invitation</body></html>';
  assert.equal(analyticsMarkup(html,path),html);
 });
@@ -349,4 +357,106 @@ test('optional invitation storage failures leave ordinary member account flows a
   assert.equal(state.accepts,0);
   assert.ok(state.logs.every(value=>!value.includes(raw)&&!value.includes('private invitation database failure')));
  }
+});
+
+test('creator-name links open the homepage first and preserve all acceptance state on GET and HEAD',async t=>{
+ const {request,state}=await fixture(t);
+ for(const method of ['GET','HEAD']){
+  for(const suffix of ['','/']){
+   const response=await request('/invite/river-teacher'+suffix,{method});
+   assert.equal(response.status,303);assert.equal(response.headers.get('location'),'/');
+   const cookies=response.headers.getSetCookie();
+   assert.ok(cookies.some(value=>/^__Host-gold-creator-name=river-teacher;/.test(value)&&/Secure; HttpOnly; SameSite=Lax/.test(value)));
+   assert.ok(cookies.some(value=>/^__Host-gold-creator-invite=;/.test(value)&&/Max-Age=0/.test(value)));
+   assert.equal(response.headers.get('referrer-policy'),'no-referrer');
+   const text=await response.text();for(const secret of [raw,targetEmail,invitationId,accountId])assert.ok(!text.includes(secret));
+   if(method==='HEAD')assert.equal(text,'');
+  }
+ }
+ assert.equal(state.acceptAttempts,0);assert.equal(state.consumed,false);
+});
+
+test('name invitation context welcomes creators at home without revealing the recipient or changing membership',async t=>{
+ let analyticsRequests=0;const analytics=Object.assign(async()=>{analyticsRequests++;return false;},{enabled:async()=>true});
+ const {request,state}=await fixture(t,{analytics});
+ const headers={Cookie:cookie({'creator-name':'river-teacher'})};
+ const home=await request('/',{headers}),homeHtml=await home.text();
+ assert.equal(home.status,200);assert.match(homeHtml,/Continue to your free creator account/);
+ assert.doesNotMatch(homeHtml,/site-analytics|data-plus-support/);
+ for(const privateValue of [targetEmail,raw,invitationId,creatorId,accountId])assert.ok(!homeHtml.includes(privateValue));
+ assert.equal(analyticsRequests,0);
+ const page=await request(path,{headers}),html=await page.text();assert.equal(page.status,200);
+ assert.match(html,/normally \$5\/month/);assert.match(html,/email address that received your invitation/);
+ assert.doesNotMatch(html,/c\*\*\*@example\.invalid/);assert.ok(!html.includes(targetEmail));assert.ok(!html.includes(raw));
+ assert.equal(state.acceptAttempts,0);
+});
+
+test('a public creator name cannot open another member account or grant access to a different verified email',async t=>{
+ const {request,state}=await fixture(t,{account:{email:'other@example.invalid'}});
+ const headers={Cookie:cookie({form:csrf,member:session,'creator-name':'river-teacher'})};
+ const page=await request(path,{headers}),html=await page.text();assert.equal(page.status,200);
+ assert.match(html,/different email address/);assert.doesNotMatch(html,/Accept complimentary creator access/);
+ assert.ok(!html.includes(targetEmail));
+ const response=await request(path,{method:'POST',headers:{...headers,Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({csrf})});
+ assert.equal(response.status,403);assert.equal(state.acceptAttempts,0);assert.equal(state.consumed,false);
+});
+
+test('name invitation acceptance requires the existing session, Origin and CSRF protections',async t=>{
+ const {request,state}=await fixture(t);
+ const context=() => cookie({form:csrf,member:session,'creator-name':'river-teacher'});
+ const submit=(headers={},nonce=csrf)=>request(path,{method:'POST',headers:{Cookie:context(),Origin:origin,'Content-Type':'application/x-www-form-urlencoded',...headers},body:new URLSearchParams({csrf:nonce})});
+ assert.equal((await submit({Cookie:cookie({form:csrf,'creator-name':'river-teacher'})})).status,303);
+ assert.equal((await submit({Origin:'https://other.example'})).status,403);
+ assert.equal((await submit({},'f'.repeat(64))).status,403);
+ assert.equal(state.accepts,0);
+ const accepted=await submit();assert.equal(accepted.status,303);assert.equal(accepted.headers.get('location'),'/account/?creator=accepted');
+ assert.equal(state.namedAccepts,1);assert.equal(state.accepts,1);
+ assert.ok(accepted.headers.getSetCookie().some(value=>/^__Host-gold-creator-name=;/.test(value)&&/Max-Age=0/.test(value)));
+ const account=await request('/account/',{headers:{Cookie:cookie({form:csrf,member:session})}});assert.equal(account.status,200);assert.match(await account.text(),/complimentary/i);
+});
+
+test('named signup, verification and sign-in retain the invitation without a subscription offer',async t=>{
+ const password='named invitation password',passwordHash=await hashPassword(password);
+ let verificationCalls=0;
+ const {request,state}=await fixture(t,{members:{
+  find:async()=>({id:accountId,email:targetEmail,password_hash:passwordHash,status:'active',email_verified_at:new Date(),auth_version:0}),
+  logout:async()=>{},login:async()=>session,consume:async()=>{verificationCalls++;return true;}
+ }});
+ const headers={Cookie:cookie({form:csrf,'creator-name':'river-teacher'})};
+ for(const route of ['/signup/','/login/']){
+  const response=await request(route,{headers});assert.equal(response.status,200);const html=await response.text();
+  assert.match(html,/creator invitation is waiting/);assert.doesNotMatch(html,/data-signup-plus-offer/);
+ }
+ const verify=await request('/verify-email/',{method:'POST',headers:{...headers,Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({csrf,token:verification})});
+ assert.equal(verify.status,200);assert.match(await verify.text(),/login\/\?next=%2Fcreator-invitation%2F/);assert.equal(verificationCalls,1);
+ const login=await request('/login/',{method:'POST',headers:{...headers,Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({csrf,email:targetEmail,password})});
+ assert.equal(login.status,303);assert.equal(login.headers.get('location'),path);assert.equal(state.accepts,0);
+});
+
+test('malformed, missing and ended creator-name invitations never enable an account',async t=>{
+ const {request,state}=await fixture(t);
+ for(const route of ['/invite/','/invite/UNKNOWN/','/invite/river-teacher/?next=https://other.example/','/invite/no-such-creator/'])assert.equal((await request(route)).status,410,route);
+ const directPost=await request('/invite/river-teacher/',{method:'POST',body:new URLSearchParams({csrf})});assert.equal(directPost.status,405);
+ for(const field of ['revoked','expired','consumed']){state[field]=true;assert.equal((await request('/invite/river-teacher/')).status,410);state[field]=false;}
+ const forged=await request(path,{headers:{Cookie:cookie({'creator-name':'../private'})}});assert.equal(forged.status,410);
+ assert.equal(state.accepts,0);
+});
+
+test('a valid legacy bearer link clears named context and remains usable',async t=>{
+ const {request,state}=await fixture(t);
+ const response=await request(path+'?token='+raw,{headers:{Cookie:cookie({'creator-name':'river-teacher'})}});
+ assert.equal(response.status,303);
+ assert.ok(response.headers.getSetCookie().some(value=>/^__Host-gold-creator-name=;/.test(value)&&/Max-Age=0/.test(value)));
+ assert.ok(response.headers.getSetCookie().some(value=>value.startsWith('__Host-gold-creator-invite='+raw+';')));
+ assert.equal(state.accepts,0);
+});
+
+test('a failed optional named invitation lookup leaves ordinary account sign-in available',async t=>{
+ const {request,state}=await fixture(t,{invitations:{readNamed:async()=>{throw new Error('PRIVATE_EMAIL '+targetEmail);}}});
+ for(const route of ['/','/login/','/signup/','/forgot-password/']){
+  const response=await request(route,{headers:{Cookie:cookie({'creator-name':'river-teacher'})}});assert.equal(response.status,200);
+  assert.doesNotMatch(await response.text(),/PRIVATE_EMAIL|creator invitation is waiting/);
+ }
+ assert.ok(state.logs.every(value=>!value.includes('PRIVATE_EMAIL')&&!value.includes(targetEmail)));
+ assert.equal(state.accepts,0);
 });

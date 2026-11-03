@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createCreatorInvitationStore} from '../app/creator-invitations/store.js';
-import {CreatorInvitationError,invitationEmail,invitationId} from '../app/creator-invitations/model.js';
+import {CreatorInvitationError,invitationEmail,invitationId,invitationSlug} from '../app/creator-invitations/model.js';
 import {digest} from '../app/admin-auth.js';
 
 const ownerId='11111111-1111-4111-8111-111111111111',accountId='22222222-2222-4222-8222-222222222222',personId='33333333-3333-4333-8333-333333333333',inviteId='44444444-4444-4444-8444-444444444444';
@@ -15,7 +15,13 @@ function fixture(overrides={}){
   if(sql.startsWith('SELECT id,email,username FROM member_accounts WHERE id='))return[args[0]===ownerId?rows.owner:rows.account].filter(Boolean);
   if(sql.startsWith('SELECT id,email,username FROM member_accounts WHERE email='))return rows.owner?[rows.owner]:[];
   if(sql.startsWith('SELECT id,display_name,slug FROM people'))return[{id:personId,display_name:'Test creator',slug:'test-creator'}];
-  if(sql.startsWith('SELECT id,target_email,person_id,invited_by FROM creator_invitations'))return rows.invitation?[rows.invitation]:[];
+  if(sql.startsWith('SELECT id,target_email,person_id,invited_by FROM creator_invitations')){
+   const invitations=rows.invitations||(rows.invitation?[rows.invitation]:[]);
+   return sql.includes('WHERE person_id=')?invitations.filter(i=>i.person_id===args[0]&&i.target_email===args[1]&&i.invited_by===args[2]).slice(0,1):invitations.slice(0,1);
+  }
+  if(sql.startsWith('SELECT id FROM creator_invitations WHERE person_id='))return(rows.invitations||(rows.invitation?[rows.invitation]:[])).filter(i=>i.person_id===args[0]&&i.invited_by===args[1]).map(i=>({id:i.id}));
+  if(sql.startsWith("SELECT version FROM schema_migrations WHERE version='016_stripe_billing'"))return rows.billingReady?[{version:'016_stripe_billing'}]:[];
+  if(sql.startsWith('SELECT id FROM billing_checkout_attempts'))return rows.checkouts||[];
   if(sql.startsWith('SELECT expires_at'))return[{expires_at:'2030-01-14 00:00:00.000000'}];
   if(sql.startsWith('SELECT level,status,grant_source'))return rows.membership?[rows.membership]:[];
   if(sql.startsWith('SELECT id FROM member_subscriptions'))return rows.subscriptions;
@@ -32,11 +38,15 @@ test('invitation email canonicalization rejects headers and identifiers are UUID
  assert.equal(invitationEmail(' Creator@Example.Invalid '),'creator@example.invalid');
  for(const value of ['name@example.invalid\r\nBcc:x@y.invalid','not-an-email','a'.repeat(255)+'@example.invalid'])assert.throws(()=>invitationEmail(value),failure('input'));
  assert.equal(invitationId(personId),true);assert.equal(invitationId('catalog:creator'),false);
+ assert.equal(invitationSlug('chris-ralph'),true);
+ for(const slug of ['../admin','Chris-Ralph','test%2fcreator','-creator','creator-','a'.repeat(161)])assert.equal(invitationSlug(slug),false);
 });
 test('malformed links and issue inputs fail before database access',async()=>{
  const store=createCreatorInvitationStore({getConnection:()=>{throw Error('must not access DB');},query:()=>{throw Error('must not access DB');}});
  assert.equal(await store.read('not-a-token'),null);
+ assert.equal(await store.readNamed('../admin',accountId),null);
  await assert.rejects(()=>store.accept('bad',accountId),failure('invitation_unavailable'));
+ await assert.rejects(()=>store.acceptNamed('test-creator','not-an-account'),failure('invitation_unavailable'));
  await assert.rejects(()=>store.issue({personId,email:'creator@example.invalid',actor:'owner',days:0}),failure('input'));
  await assert.rejects(()=>store.issue({personId,email:'creator@example.invalid',actor:'owner\r\nforged'}),failure('input'));
 });
@@ -81,4 +91,36 @@ test('existing editor permissions and complimentary reviewer remain unchanged',a
 test('late database failure rolls back grant, affiliation, consumption and audit together',async()=>{
  const {store,state}=fixture({failAudit:true});await assert.rejects(()=>store.accept(raw,accountId),/simulated database failure/);
  assert.deepEqual(state(),{committed:0,rolledBack:1,released:1});
+});
+test('named reads use a conditional recipient projection and never perform writes',async()=>{
+ const calls=[],publicRow={id:null,target_email:null,person_id:personId,display_name:'Test creator',slug:'test-creator',expires_at:'2030-01-14 00:00:00',matched:'0'};
+ const store=createCreatorInvitationStore({query:async(sql,args)=>{calls.push([sql,args]);return[publicRow];}});
+ const result=await store.readNamed('test-creator','invalid-account');
+ assert.deepEqual(result,{...publicRow,named:true,matched:false});assert.deepEqual(calls[0][1],[null,'test-creator']);
+ assert.match(calls[0][0],/CASE WHEN a\.id IS NOT NULL AND a\.email=i\.target_email THEN i\.id ELSE NULL/);
+ assert.match(calls[0][0],/a\.email_verified_at IS NOT NULL/);assert.match(calls[0][0],/ORDER BY matched DESC,i\.expires_at DESC/);
+ assert.equal(calls.some(([sql])=>/^(UPDATE|INSERT|DELETE)/.test(sql)),false);
+});
+test('named acceptance selects the verified email among multiple pending invitations',async()=>{
+ const other={id:'55555555-5555-4555-8555-555555555555',target_email:'other@example.invalid',person_id:personId,invited_by:ownerId};
+ const {store,queries}=fixture({invitations:[other,{id:inviteId,target_email:'creator@example.invalid',person_id:personId,invited_by:ownerId}]});
+ assert.deepEqual(await store.acceptNamed('test-creator',accountId),{person_id:personId,display_name:'Test creator',slug:'test-creator'});
+ const consumed=queries.find(([sql])=>sql.startsWith('UPDATE creator_invitations SET consumed_at'));
+ assert.deepEqual(consumed[1],[accountId,inviteId]);
+ assert.equal(queries.some(([sql])=>sql.includes('member_role_grants')||sql.startsWith('INSERT INTO creator_invitations(')),false);
+});
+test('a wrong verified email cannot accept a creator-name invitation',async()=>{
+ const {store,queries,state}=fixture({account:{id:accountId,email:'wrong@example.invalid',username:'other'}});
+ await assert.rejects(()=>store.acceptNamed('test-creator',accountId),failure('wrong_account'));
+ assert.equal(queries.some(([sql])=>/^(UPDATE|INSERT)/.test(sql)),false);assert.equal(state().rolledBack,1);
+});
+test('both acceptance entry points preserve billing and affiliation restrictions',async()=>{
+ for(const accept of [(store)=>store.accept(raw,accountId),(store)=>store.acceptNamed('test-creator',accountId)]){
+  for(const [overrides,code] of [[{subscriptions:[{id:'paused'}]},'billing_resolution_required'],[{membership:{status:'suspended'}},'membership_suspended'],[{affiliation:{status:'revoked',permission:'creator'}},'affiliation_blocked'],[{billingReady:true,checkouts:[{id:'unresolved-checkout'}]},'billing_resolution_required']]){
+   const {store,queries}=fixture(overrides);await assert.rejects(()=>accept(store),failure(code));
+   assert.equal(queries.some(([sql])=>sql.startsWith('UPDATE member_memberships')||sql.startsWith('UPDATE creator_invitations SET consumed')),false);
+  }
+ }
+ const legacy=fixture();await legacy.store.acceptNamed('test-creator',accountId);
+ assert.equal(legacy.queries.some(([sql])=>sql.includes('FROM billing_checkout_attempts')),false,'014/015 does not reference later billing tables.');
 });

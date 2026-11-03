@@ -1,8 +1,9 @@
 import {randomUUID} from 'node:crypto';
 import {digest,token} from '../admin-auth.js';
-import {CreatorInvitationError,invitationActor,invitationEmail,invitationId,invitationToken} from './model.js';
+import {CreatorInvitationError,invitationActor,invitationEmail,invitationId,invitationSlug,invitationToken} from './model.js';
 
 const unavailable=()=>new CreatorInvitationError('invitation_unavailable','This invitation has ended or is no longer available. Ask Paul for a new invitation.',410);
+const wrongAccount=()=>new CreatorInvitationError('wrong_account','Sign in with the verified account that received this invitation.',403);
 const ownerUnavailable=()=>new CreatorInvitationError('owner_unavailable','The invitation owner account needs attention before invitations can be used.',409);
 const visibleCreator="is_sample=FALSE AND archived_at IS NULL AND publication_status='published'";
 
@@ -15,6 +16,38 @@ export function createCreatorInvitationStore(db){
  const activeAccount=async(c,id)=>{if(!invitationId(id))return null;return(await c.query("SELECT id,email,username FROM member_accounts WHERE id=? AND status='active' AND email_verified_at IS NOT NULL AND archived_at IS NULL FOR UPDATE",[id]))[0]||null;};
  const owner=async(c,s)=>{if(!s.owner_account_id)throw new CreatorInvitationError('owner_required','Configure your verified owner account before creating invitations.',409);const account=await activeAccount(c,s.owner_account_id);if(!account)throw ownerUnavailable();return account;};
  const creator=async(c,id)=>{if(!invitationId(id))throw new CreatorInvitationError('input','Choose an available creator profile.');const row=(await c.query(`SELECT id,display_name,slug FROM people WHERE id=? AND ${visibleCreator} FOR UPDATE`,[id]))[0];if(!row)throw new CreatorInvitationError('creator_unavailable','This creator must have a published profile before an invitation can be used.',409);return row;};
+ // Both entry points consume the same owner-issued invitation and run identical
+ // membership checks under the settings -> owner -> recipient account locks.
+ const acceptInvitation=async(accountId,resolve)=>tx(async c=>{
+  const s=await settings(c),o=await owner(c,s),a=await activeAccount(c,accountId);
+  if(!a)throw wrongAccount();
+  const i=await resolve(c,o,a);
+  if(!i||i.invited_by!==o.id)throw unavailable();
+  if(a.email!==i.target_email)throw wrongAccount();
+  const p=await creator(c,i.person_id);
+  const m=(await c.query('SELECT level,status,grant_source,granted_by,starts_at,ends_at FROM member_memberships WHERE account_id=? FOR UPDATE',[a.id]))[0];
+  if(!m||m.status==='suspended')throw new CreatorInvitationError('membership_suspended','Your membership needs owner review before this invitation can be accepted.',409);
+  const subscriptions=await c.query("SELECT id FROM member_subscriptions WHERE account_id=? AND status IN ('pending','active','trialing','past_due','incomplete','unpaid','paused','unknown') FOR UPDATE",[a.id]);
+  if(subscriptions.length)throw new CreatorInvitationError('billing_resolution_required','Ask Paul to resolve your existing subscription before accepting complimentary creator access. This invitation has not been used.',409);
+  // Production 014/015 has no billing tables. Keep that schema working, while
+  // a later billing installation must also resolve provider checkouts first.
+  const billingReady=await c.query("SELECT version FROM schema_migrations WHERE version='016_stripe_billing'");
+  if(billingReady.length){
+   const checkouts=await c.query("SELECT id FROM billing_checkout_attempts WHERE account_id=? AND status IN ('creating','open') FOR UPDATE",[a.id]);
+   if(checkouts.length)throw new CreatorInvitationError('billing_resolution_required','Finish or cancel your existing checkout with Paul before accepting complimentary creator access. This invitation has not been used.',409);
+  }
+  const affiliation=(await c.query('SELECT status,permission FROM member_creator_connections WHERE account_id=? AND person_id=? FOR UPDATE',[a.id,p.id]))[0];
+  if(affiliation&&['revoked','rejected'].includes(affiliation.status))throw new CreatorInvitationError('affiliation_blocked','This creator association needs owner review before an invitation can be accepted.',409);
+  if(!affiliation)await c.query("INSERT INTO member_creator_connections(account_id,person_id,status,permission,reviewed_by,reviewed_at,review_note) VALUES(?,?,'approved','creator',?,UTC_TIMESTAMP(6),'Accepted owner-issued creator invitation')",[a.id,p.id,o.id]);
+  else if(affiliation.status!=='approved')await c.query("UPDATE member_creator_connections SET status='approved',permission='creator',reviewed_by=?,reviewed_at=UTC_TIMESTAMP(6),review_note='Accepted owner-issued creator invitation' WHERE account_id=? AND person_id=?",[o.id,a.id,p.id]);
+  if(m.level==='subscriber'&&m.status==='active'&&m.grant_source==='complimentary'&&m.granted_by){
+   await c.query('UPDATE member_memberships SET starts_at=LEAST(starts_at,UTC_TIMESTAMP(6)),ends_at=NULL WHERE account_id=?',[a.id]);
+  }else await c.query("UPDATE member_memberships SET level='subscriber',status='active',grant_source='complimentary',subscription_id=NULL,granted_by=?,starts_at=UTC_TIMESTAMP(6),ends_at=NULL WHERE account_id=?",[o.id,a.id]);
+  await c.query('UPDATE creator_invitations SET consumed_at=UTC_TIMESTAMP(6),accepted_account_id=? WHERE id=? AND consumed_at IS NULL AND revoked_at IS NULL',[a.id,i.id]);
+  await audit(c,i.id,a.id,'member:'+a.username,'accept');
+  await c.query("INSERT INTO member_audit_log(id,account_id,actor_account_id,action) VALUES(?,?,?,'creator_invitation_accepted')",[randomUUID(),a.id,o.id]);
+  return{person_id:p.id,display_name:p.display_name,slug:p.slug};
+ });
  return {
   async ready(){return(await db.query("SELECT version FROM schema_migrations WHERE version='014_creator_invitations'")).length===1;},
   async overview(){
@@ -54,33 +87,26 @@ export function createCreatorInvitationStore(db){
    // This read never consumes or changes an invitation. Its email stays server-side.
    return(await db.query(`SELECT i.id,i.target_email,i.person_id,p.display_name,p.slug,i.expires_at FROM creator_invitations i JOIN people p ON p.id=i.person_id JOIN creator_invitation_settings s ON s.id=1 AND s.owner_account_id=i.invited_by JOIN member_accounts o ON o.id=i.invited_by WHERE i.token_hash=? AND i.consumed_at IS NULL AND i.revoked_at IS NULL AND i.expires_at>UTC_TIMESTAMP(6) AND p.is_sample=FALSE AND p.archived_at IS NULL AND p.publication_status='published' AND o.status='active' AND o.email_verified_at IS NOT NULL AND o.archived_at IS NULL`,[digest(raw)]))[0]||null;
   },
+  async readNamed(slug,accountId=null){
+   if(!invitationSlug(slug))return null;
+   // Conditional projection prevents anonymous/wrong-account reads from ever
+   // returning recipient email addresses, invitation IDs or token material.
+   // Matching the verified recipient sorts ahead of all other pending emails.
+   const row=(await db.query(`SELECT CASE WHEN a.id IS NOT NULL AND a.email=i.target_email THEN i.id ELSE NULL END AS id,CASE WHEN a.id IS NOT NULL AND a.email=i.target_email THEN i.target_email ELSE NULL END AS target_email,i.person_id,p.display_name,p.slug,i.expires_at,CASE WHEN a.id IS NOT NULL AND a.email=i.target_email THEN 1 ELSE 0 END AS matched FROM creator_invitations i JOIN people p ON p.id=i.person_id JOIN creator_invitation_settings s ON s.id=1 AND s.owner_account_id=i.invited_by JOIN member_accounts o ON o.id=i.invited_by LEFT JOIN member_accounts a ON a.id=? AND a.status='active' AND a.email_verified_at IS NOT NULL AND a.archived_at IS NULL WHERE p.slug=? AND i.consumed_at IS NULL AND i.revoked_at IS NULL AND i.expires_at>UTC_TIMESTAMP(6) AND p.is_sample=FALSE AND p.archived_at IS NULL AND p.publication_status='published' AND o.status='active' AND o.email_verified_at IS NOT NULL AND o.archived_at IS NULL ORDER BY matched DESC,i.expires_at DESC,i.created_at DESC,i.id DESC LIMIT 1`,[invitationId(accountId)?accountId:null,slug]))[0];
+   return row?{...row,named:true,matched:Boolean(Number(row.matched))}:null;
+  },
   async accept(raw,accountId){
    if(!invitationToken(raw)||!invitationId(accountId))throw unavailable();
-   return tx(async c=>{
-    const s=await settings(c),o=await owner(c,s);
-    const a=await activeAccount(c,accountId);
-    if(!a)throw new CreatorInvitationError('wrong_account','Sign in with the verified account that received this invitation.',403);
-    const i=(await c.query('SELECT id,target_email,person_id,invited_by FROM creator_invitations WHERE token_hash=? AND consumed_at IS NULL AND revoked_at IS NULL AND expires_at>UTC_TIMESTAMP(6) FOR UPDATE',[digest(raw)]))[0];
-    if(!i||i.invited_by!==o.id)throw unavailable();
-    if(a.email!==i.target_email)throw new CreatorInvitationError('wrong_account','Sign in with the verified account that received this invitation.',403);
-    const p=await creator(c,i.person_id);
-    const m=(await c.query('SELECT level,status,grant_source,granted_by,starts_at,ends_at FROM member_memberships WHERE account_id=? FOR UPDATE',[a.id]))[0];
-    if(!m||m.status==='suspended')throw new CreatorInvitationError('membership_suspended','Your membership needs owner review before this invitation can be accepted.',409);
-    const subscriptions=await c.query("SELECT id FROM member_subscriptions WHERE account_id=? AND status IN ('pending','active','trialing','past_due') FOR UPDATE",[a.id]);
-    if(subscriptions.length)throw new CreatorInvitationError('billing_resolution_required','Ask Paul to resolve your existing subscription before accepting complimentary creator access. This invitation has not been used.',409);
-    const affiliation=(await c.query('SELECT status,permission FROM member_creator_connections WHERE account_id=? AND person_id=? FOR UPDATE',[a.id,p.id]))[0];
-    if(affiliation&&['revoked','rejected'].includes(affiliation.status))throw new CreatorInvitationError('affiliation_blocked','This creator association needs owner review before an invitation can be accepted.',409);
-    if(!affiliation)await c.query("INSERT INTO member_creator_connections(account_id,person_id,status,permission,reviewed_by,reviewed_at,review_note) VALUES(?,?,'approved','creator',?,UTC_TIMESTAMP(6),'Accepted owner-issued creator invitation')",[a.id,p.id,o.id]);
-    else if(affiliation.status!=='approved')await c.query("UPDATE member_creator_connections SET status='approved',permission='creator',reviewed_by=?,reviewed_at=UTC_TIMESTAMP(6),review_note='Accepted owner-issued creator invitation' WHERE account_id=? AND person_id=?",[o.id,a.id,p.id]);
-    // Keep an existing complimentary grant's reviewer and start date when extending it.
-    // Otherwise the audited invitation owner is the grantor. No role grants are added.
-    if(m.level==='subscriber'&&m.status==='active'&&m.grant_source==='complimentary'&&m.granted_by){
-     await c.query('UPDATE member_memberships SET starts_at=LEAST(starts_at,UTC_TIMESTAMP(6)),ends_at=NULL WHERE account_id=?',[a.id]);
-    }else await c.query("UPDATE member_memberships SET level='subscriber',status='active',grant_source='complimentary',subscription_id=NULL,granted_by=?,starts_at=UTC_TIMESTAMP(6),ends_at=NULL WHERE account_id=?",[o.id,a.id]);
-    await c.query('UPDATE creator_invitations SET consumed_at=UTC_TIMESTAMP(6),accepted_account_id=? WHERE id=? AND consumed_at IS NULL AND revoked_at IS NULL',[a.id,i.id]);
-    await audit(c,i.id,a.id,'member:'+a.username,'accept');
-    await c.query("INSERT INTO member_audit_log(id,account_id,actor_account_id,action) VALUES(?,?,?,'creator_invitation_accepted')",[randomUUID(),a.id,o.id]);
-    return{person_id:p.id,display_name:p.display_name,slug:p.slug};
+   return acceptInvitation(accountId,async c=>(await c.query('SELECT id,target_email,person_id,invited_by FROM creator_invitations WHERE token_hash=? AND consumed_at IS NULL AND revoked_at IS NULL AND expires_at>UTC_TIMESTAMP(6) FOR UPDATE',[digest(raw)]))[0]);
+  },
+  async acceptNamed(slug,accountId){
+   if(!invitationSlug(slug)||!invitationId(accountId))throw unavailable();
+   return acceptInvitation(accountId,async(c,o,a)=>{
+    const p=(await c.query(`SELECT id,display_name,slug FROM people WHERE slug=? AND ${visibleCreator} FOR UPDATE`,[slug]))[0];
+    if(!p)throw unavailable();
+    const i=(await c.query('SELECT id,target_email,person_id,invited_by FROM creator_invitations WHERE person_id=? AND target_email=? AND invited_by=? AND consumed_at IS NULL AND revoked_at IS NULL AND expires_at>UTC_TIMESTAMP(6) ORDER BY expires_at DESC,created_at DESC,id DESC LIMIT 1 FOR UPDATE',[p.id,a.email,o.id]))[0];
+    if(!i&&(await c.query('SELECT id FROM creator_invitations WHERE person_id=? AND invited_by=? AND consumed_at IS NULL AND revoked_at IS NULL AND expires_at>UTC_TIMESTAMP(6) LIMIT 1 FOR UPDATE',[p.id,o.id])).length)throw wrongAccount();
+    return i;
    });
   },
   // Revoking a link is deliberately separate from removing already accepted access.
