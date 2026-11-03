@@ -34,7 +34,7 @@ test('all supplied products render without a database, with unique anchors and o
    assert.match(match[0],/target="_blank"/);assert.match(match[0],/rel="noopener noreferrer"/);
   }
   assert.match(html,/Currency not confirmed/);assert.match(html,/Purchase suggestion only/);
-  assert.equal((html.match(/href="\/products\/"/g)||[]).length,2); // Full sidebar and compact mobile navigation.
+  assert.equal((html.match(/href="\/products\/"/g)||[]).length,3); // Sidebar, compact mobile navigation, and All products category link.
   assert.match(html,/href="\/">Gold Trails home/);
   assert.equal((await fetch(origin+'/products',{redirect:'manual'})).status,308);
  }finally{await new Promise(resolve=>server.close(resolve));}

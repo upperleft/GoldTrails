@@ -16,7 +16,7 @@ export function createProductsHandler({store=null,members=null,config=null,log=c
  if(!['GET','HEAD','POST'].includes(req.method)){send(405,shell('Use the report form','<p>This action is unavailable.</p>'),{Allow:'GET, HEAD, POST'});return true;}
  if(url.pathname==='/products/'){
   if(req.method==='POST'){send(405,shell('Use the product form','<p>Browse the catalog or report a change.</p>'),{Allow:'GET, HEAD'});return true;}
-  try{send(200,renderProductsPage(store?await store.products():productCatalog()));}catch{log('Gold Trails product updates unavailable');send(200,renderProductsPage(productCatalog(),'Editor updates are temporarily unavailable. Showing the original research catalog.'));}return true;
+  try{send(200,renderProductsPage(store?await store.products():productCatalog(),'',url.searchParams));}catch{log('Gold Trails product updates unavailable');send(200,renderProductsPage(productCatalog(),'Editor updates are temporarily unavailable. Showing the original research catalog.',url.searchParams));}return true;
  }
  const csp={'Content-Security-Policy':"default-src 'self'; script-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; form-action 'self'; base-uri 'none'"};
  let nonce=read(req)||token();
