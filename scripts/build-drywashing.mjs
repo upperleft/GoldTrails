@@ -1,0 +1,101 @@
+import {readFile, writeFile, mkdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {escape as e} from '../app/articles/tabbed-article.js';
+
+const evidence = JSON.parse(await readFile('app/articles/drywashing-evidence.json', 'utf8'));
+const {title, route} = evidence;
+const publicationDate = evidence.publishedAt || evidence.checkedAt;
+const publicationLabel = new Intl.DateTimeFormat('en-US', {dateStyle:'long', timeZone:'UTC'}).format(new Date(publicationDate));
+const summary = 'Explore how drywashers use air and agitation, compare four manufacturer-listed machines, and plan practical feed and tailings checks away from water.';
+const external = (url, label) => `<a href="${e(url)}" target="_blank" rel="noopener noreferrer">${e(label)}</a>`;
+const cite = id => {
+  const index = evidence.sources.findIndex(source => source.id === id);
+  if (index < 0) throw new Error('Unknown drywashing source: ' + id);
+  return ` <a class="source-cite" href="#source-${id}" aria-label="Source ${index + 1}: ${e(evidence.sources[index].title)}">[${index + 1}]</a>`;
+};
+const table = (caption, headings, rows) => `<div class="table-scroll" role="region" aria-label="${e(caption)}" tabindex="0"><table class="material-table"><caption>${caption}</caption><thead><tr>${headings.map(label => `<th scope="col">${label}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr><th scope="row">${row[0]}</th>${row.slice(1).map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const sections = [
+  ['air-instead-of-water', 'How a drywasher works'],
+  ['dry-feed', 'Begin with the material'],
+  ['product-examples', 'Four product examples'],
+  ['tune-the-machine', 'Tune air, angle, and feed together'],
+  ['test-the-tailings', 'Check what leaves the machine'],
+  ['dust-and-access', 'Plan for dust and access'],
+  ['sources', 'Sources and scope']
+];
+
+const content = `<span class="eyebrow">DRYWASHING · EQUIPMENT · FIELD TESTING</span>
+<h1 id="article-title">${e(title)}</h1>
+<p class="article-deck">Gold recovery does not always need a stream. A drywasher uses air and agitation to concentrate suitable dry placer material—but moisture, feed preparation, and dust change the whole working routine.</p>
+<p class="article-meta">By Paul Shoemaker · Research and writing with assistance from ChatGPT · Published <time datetime="${publicationDate}">${publicationLabel}</time></p>
+<p>The machine sometimes described as “a highbanker with air” is usually called a <strong>drywasher</strong>. It belongs in the same equipment conversation, but deserves its own field method. Replacing water with air changes how the gravel must be prepared, how the machine is adjusted, and how its rejects can be checked.</p>
+<aside class="takeaways" aria-label="The starting decision"><h2>Choose the process before the machine.</h2><p>Start by asking whether the gold is free in dry, loose material that can be classified and fed consistently. Then compare complete machine setups, learn the maker’s controls, and test the tailings. A larger blower cannot answer a question about damp clay or gold still enclosed in rock.</p></aside>
+<nav class="article-contents" aria-label="In this article"><h2>In this article</h2>${sections.map(([id, label]) => `<a href="#${id}">${label}</a>`).join('')}</nav>
+
+<section id="air-instead-of-water"><h2>How a drywasher works</h2>
+<p>A traditional drywasher sends air up through porous fabric beneath an inclined riffle tray. Agitation helps dense gold settle while lighter material travels out. It produces a concentrate, rather than clean gold.${cite('silva')}</p>
+<p>Two common arrangements illustrate the differences. A <strong>bellows or puffer</strong> machine supplies pulses of air. Keene’s DW2 family uses that approach, with a hand-crank version and a separate battery-powered variant. A <strong>blower-driven</strong> machine receives a continuous air supply and uses a vibrating recovery arrangement. Their controls and operating rhythms differ, so instructions for one cannot simply be transferred to the other.${cite('dw-manual')}${cite('140s')}</p>
+<p>This is dry placer concentration. It is not a substitute for crushing and liberating gold enclosed in hard rock. Likewise, a claim about electrostatic assistance is a description of a manufacturer’s design, not evidence that a particular machine will recover every fine particle.</p></section>
+
+<section id="dry-feed"><h2>Begin with the material</h2>
+<p>California’s guide calls for dry, disintegrated feed and warns that material beneath a dry surface can be damp; very fine gold remains difficult to save.${cite('silva')}</p>
+<p>Our suggested first check is to take a small representative portion from the material you actually intend to process. Look through the whole sample for damp interiors and coherent lumps. Record the condition, rather than assigning an unmeasured moisture percentage. If it needs drying or breaking apart, deal with that before comparing machine settings; avoid creating unnecessary airborne dust.</p>
+<p>Classify to the machine’s specified opening and keep the retained oversize identifiable. A screen separates by size, not by gold content. Inspect the coarse fraction and note remaining coatings or clods. Read <a href="/articles/classification-basics/">Classification: What Your Screen Separates</a> for the recordkeeping behind that step.</p>
+<p>Do not assume that a heated-air feature makes wet gravel or sticky clay suitable. Keene markets the 151S’s preheated air as an aid to drying damp material. That is a supplier feature claim, not a measured moisture limit or permission to skip preparation.${cite('151s')}</p></section>
+
+<section id="product-examples"><h2>Four product examples</h2>
+<p>These official listings, checked November 2, 2026, illustrate different setups. They are examples to investigate, not a performance ranking. Confirm the current package, blower compatibility, transport weight, availability, and instructions before buying.</p>
+${table('Compare the whole setup, not just the recovery tray', ['Manufacturer and model', 'What it illustrates', 'What to account for'], [
+  [external('https://www.keene.store/mm5/merchant.mvc?Product_Code=DW2&Screen=PROD', 'Keene DW2 Hand Crank Mini'), 'A hand-operated bellows/puffer option with adjustable hopper feed and a removable riffle tray.' + cite('dw2') + cite('dw-manual'), 'Hand-crank work is part of processing. Distinguish the DW2 from the separately listed battery-powered DW212V.'],
+  [external('https://www.keene.store/mm5/merchant.mvc?Product_Code=140S&Screen=PROD', 'Keene 140S Vibrostatic Back Pack'), 'A blower-driven concentrator with adjustable vibrator and feed gate.' + cite('140s'), 'The listing describes compatible yard-type blowers or a Vac Pack. Confirm the blower, hose, and accessories required for the complete setup.'],
+  [external('https://www.keene.store/?Product_Code=151S&Screen=PROD', 'Keene 151S with Hot Air Induction'), 'A larger powered example: the listing specifies a 5 HP Briggs & Stratton engine, radial blower, and 10 ft of 4 in hose.' + cite('151s'), 'The stated weight is 99 lb. Plan transport and handling; heated-air and electrostatic features do not establish a recovery percentage.'],
+  [external('https://royalmfgind.com/product/explorer/', 'Royal Explorer'), 'An air-fed alternative from another manufacturer, with a 7 × 18 in recovery box, adjustable feed valve, and baffled first riffle.' + cite('royal'), 'Royal lists 20 lb. Confirm which blower and hose are suitable and included: the cited page does not establish a complete powered package.']
+])}
+<p>A useful comparison includes the work needed to prepare and carry the feed, run the air source, clean the machine, and check its rejects. Buying capacity you cannot supply with consistent prepared material may add weight without improving the experiment.</p></section>
+
+<section id="tune-the-machine"><h2>Tune air, angle, and feed together</h2>
+<p>Secure the machine on stable ground and follow its assembly and startup instructions. Distinguish the hopper’s pitch from the recovery tray’s angle. Record the tray angle relative to horizontal and the crosswise level; do not borrow the wet-sluice setting from our <a href="/articles/sluice-flow-and-angle/">flow-and-angle guide</a>.</p>
+<p>For a concrete example, Keene’s 151S manual starts its recovery tray at approximately 15°, then calls for adjustment toward the flattest position at which material flows freely. Its blast gate changes air pressure and vibration together. That is model-specific starting guidance, not a universal drywasher angle or a simple “more air” control.${cite('151-manual')}</p>
+<p>The DW2 manual instead describes its bellows system, level setup, and a steady hopper feed. Use the hand-crank instructions for that machine rather than converting a blower’s throttle position into a guessed pulse rate.${cite('dw-manual')}</p>
+${table('A practical tuning notebook', ['Record separately', 'Why it helps the comparison'], [
+  ['Feed preparation and rate', 'Screen opening, clod condition, amount, and feeding time distinguish preparation from machine adjustment.'],
+  ['Recovery angle and crosswise level', 'The measured tray position lets you return to baseline after another test.'],
+  ['Air-source and control setting', 'Record the exact blower or crank arrangement and gate settings. A blower label is not a measured velocity through the fabric.'],
+  ['Bed behavior and run length', 'Note accumulation, uneven travel, and how the bed changes as concentrates collect. Appearance is an observation, not a capture percentage.']
+])}
+<p>These are Gold Trails’ recording suggestions. Begin with steady, modest feed and the maker’s baseline. If the bed loads unevenly, first check assembly, fabric condition, level, and feed distribution. Change one control for the next comparison, then return to baseline. Stop and secure moving equipment before inspecting or changing components.</p></section>
+
+<section id="test-the-tailings"><h2>Check what leaves the machine</h2>
+<p>A yellow particle in a drywasher’s concentrate is encouraging. It does not tell you how many particles escaped. The following small-batch comparison is an editorial field method, not an independently validated recovery test.</p>
+<ol class="test-steps">
+<li><strong>Prepare comparable portions.</strong> Mix a manageable dry batch and divide it with repeated small alternating scoops. Label each portion. Natural gold can remain unevenly distributed, so equal feed weights do not guarantee equal gold.</li>
+<li><strong>Record baseline A.</strong> Note the machine, feed preparation, amount, duration, angle, air controls, and starting bed condition. Keep classifier oversize, concentrate, settled discharge, and spills separate.</li>
+<li><strong>Retain a useful check sample.</strong> Arrange collection of settled tailings without restricting the designed air passages or changing discharge behavior. Do not bag the exhaust or improvise an enclosure that interferes with the process. A catch tray can miss airborne fines; record that limit.</li>
+<li><strong>Examine with an appropriate second method.</strong> A retained sample can be carefully wet-panned later in a contained tub where permitted. Keep those checking rejects too. Running it through the same drywasher again can repeat the same separation bias.</li>
+<li><strong>Compare B, then repeat A.</strong> Change one setting within the manufacturer’s guidance. Repeat with similar prepared portions and compare the fraction of accounted gold lost, not only raw tailings-gold amounts. Different feed grades can otherwise make a setting look better by accident.</li>
+</ol>
+<p><a class="gold-button" href="/downloads/drywashing-test-log.csv" download>Download the drywashing test log (CSV)</a></p>
+<p>A precise recovery percentage needs accounted gold in the retained concentrate and all relevant losses. Escaped dust, missed fine gold in the check method, and unmeasured spills prevent a complete balance. “No visible gold in this checked sample” is an observation, not proof of 100% recovery. See <a href="/articles/compare-test-pans/">How to Compare Test Pans Without Fooling Yourself</a> for the broader comparison habits.</p></section>
+
+<section id="dust-and-access"><h2>Plan for dust and access</h2>
+<p>Dry mineral processing can raise dust from soil, sand, and rock containing crystalline silica. NIOSH identifies respirable silica as a cause of serious lung disease. Working outside does not measure the exposure or establish that it is safe.${cite('silica')}</p>
+<p>NIOSH recommends controlling dust at its source, using suitable engineering controls, and avoiding dry sweeping or compressed-air cleanup. Respiratory protection is an additional measure when controls are insufficient and must suit the exposure and fit correctly. Consult the manufacturer about compatible controls; do not wet the feed or modify the air circuit as a substitute for a sound dust-control plan.${cite('dust-controls')}</p>
+<p>Keep other people clear of dusty work and follow the engine, hearing-protection, and equipment instructions. Confirm landowner permission, claim status where applicable, permitted motorized equipment, disturbance limits, and current fire restrictions with the responsible land manager. A site away from water still has an access rulebook.</p>
+<p>Drywashing is worth investigating when the material and setting suit it. The useful purchase is a complete setup you can operate, maintain, and test with the feed you actually have.</p></section>
+
+<section id="sources"><h2>Sources and scope</h2><p>Sources checked November 2, 2026. Product features and operating examples come from the named manufacturers. The comparison routine and notebook suggestions are Gold Trails’ editorial synthesis. No listed machine was independently tested, no recovery guarantee is adopted, and no price or stock commitment is made.</p><ol class="reference-list">${evidence.sources.map(source => `<li id="source-${source.id}">${external(source.url, source.title)}. ${e(source.publisher)}.<small>${e(source.type)} · ${e(source.location)}. ${e(source.limits)}${source.id.endsWith('manual') ? ' Original PDF text was inspected; direct web-reader retrieval was blocked.' : ''}</small></li>`).join('')}</ol></section>
+<p class="article-endnote">Companion guide: <a href="/articles/sluice-flow-and-angle/">Sluice &amp; Highbanker Tuning: Flow, Angle, and the Gravel You Feed</a>.</p>`;
+
+let template = await readFile('dist/articles/classification-basics/index.html', 'utf8');
+if (!template.includes('<article class="reading"') || !template.includes('</article>')) throw new Error('Reading-page template changed; review the article shell.');
+let html = template.replace(/<article class="reading"[\s\S]*?<\/article>/, `<article class="reading tuning-article" aria-labelledby="article-title">${content}</article>`)
+  .replace(/<title>[\s\S]*?<\/title>/, `<title>${e(title)} — Gold Trails</title>`)
+  .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${e(summary)}">`)
+  .replace(/<script>document\.querySelectorAll\('\.source-marker'\)[\s\S]*?<\/script>/, '');
+const version = createHash('sha256').update(await readFile('dist/sluice-tuning.css')).digest('hex').slice(0, 12);
+html = html.replace('</head>', `<link rel="stylesheet" href="/sluice-tuning.css?v=${version}"><link rel="canonical" href="https://goldtrails.org${route}"><meta property="og:type" content="article"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(summary)}"><script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'Article',headline:title,description:summary,datePublished:publicationDate,dateModified:publicationDate,author:{'@type':'Person',name:'Paul Shoemaker'},publisher:{'@type':'Organization',name:'Gold Trails'},mainEntityOfPage:'https://goldtrails.org'+route}).replace(/</g, '\\u003c')}</script></head>`);
+await mkdir('dist' + route, {recursive:true});
+await writeFile('dist' + route + 'index.html', html);
+await mkdir('dist/downloads', {recursive:true});
+await writeFile('dist/downloads/drywashing-test-log.csv', 'Date,Test ID,A or B repeat,Feed source,Machine and air source,Screen opening and unit,Moisture and clod observations,Feed preparation,Feed amount,Feed unit,Feed duration,Recovery tray angle degrees,Crosswise level,Air or crank setting,Gate settings,Starting bed condition,Run duration,Concentrate ID,Settled tailings ID,Oversize ID,Spills and airborne losses,Check method,Checking rejects retained,Gold retained mass g,Accounted lost gold mass g,Mass measurement limit,Gold size and shape,Single change made,Unaccounted outputs or limits,Notes\n');
+console.log('Drywashing guide built: 7 sections, 4 product examples, 9 primary sources and test log.');

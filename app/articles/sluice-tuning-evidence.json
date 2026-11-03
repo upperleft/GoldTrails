@@ -1,0 +1,133 @@
+{
+  "checkedAt": "2026-11-02",
+  "title": "Sluice & Highbanker Tuning: Flow, Angle, and the Gravel You Feed",
+  "route": "/articles/sluice-flow-and-angle/",
+  "scope": "Practical editorial guide synthesized from original recovery research, government field guidance and manufacturer instructions. No Gold Trails recovery trial or universal optimum is claimed.",
+  "sources": [
+    {
+      "id": "poling",
+      "title": "Fine Gold Recovery of Selected Sluicebox Configurations",
+      "publisher": "G. W. Poling and J. F. Hamilton; University of British Columbia / Canada–Yukon research program, undated report",
+      "url": "https://ygsftp.gov.yk.ca/ygsftp/publications/tech/fine_gold_recovery_sluiceboxes.pdf",
+      "location": "Printed pp. 60–61, sections 5.4–5.5; discussion of clay and suspended solids",
+      "type": "Original pilot-scale research",
+      "verification": "Original report text inspected",
+      "supports": "Slope, water and feed interact; riffle-specific scour patterns; similar scour across tested slopes; muddy appearance alone is not a recovery measurement.",
+      "limits": "Specific test geometry, feed and gold fractions; short trials do not establish performance of modern hobby mats or long-duration clay loading."
+    },
+    {
+      "id": "yukon-losses",
+      "title": "Gold Losses at Klondike Placer Mines — Gold Recovery Project (Phase 1)",
+      "publisher": "Government of Yukon; original placer recovery project report",
+      "url": "https://open.yukon.ca/information/gold-losses-at-klondike-placer-mines-gold-recovery-project-phase-1",
+      "location": "Government report abstract: sampling design and difficult feed conditions",
+      "type": "Original field research",
+      "verification": "Official report abstract inspected",
+      "supports": "Representative discharge sampling, nugget effect, clay/fines and heavy-mineral challenges; recovered plus lost gold mass is required for recovery estimation.",
+      "limits": "Commercial placer sampling is more rigorous than a recreational pan check; historical operating rates are not prescribed here."
+    },
+    {
+      "id": "silva",
+      "title": "Placer Gold Recovery Methods — Special Publication 87",
+      "publisher": "Michael Silva; California Division of Mines and Geology, 1986",
+      "url": "https://www.conservation.ca.gov/cgs/Documents/Publications/Special-Publications/SP_087.pdf",
+      "location": "Printed pp. 1, 6–7 and 22",
+      "type": "Government technical field guide",
+      "verification": "Original PDF text inspected",
+      "supports": "Gravity concentration, riffled sluice operation, site-specific recovery, classification and testing.",
+      "limits": "Historical equipment guidance; its traditional sluice velocity recommendations are not universal targets for modern mats."
+    },
+    {
+      "id": "dream",
+      "title": "Dream Mat FAQ",
+      "publisher": "Prospectors Dream",
+      "url": "https://prospectorsdream.com/pages/faq",
+      "location": "Questions 2 and 8",
+      "type": "Manufacturer guidance",
+      "verification": "Current page text inspected",
+      "supports": "7–12 degree family-level starting range dependent on flow and material; cell exchange; clay liberation.",
+      "limits": "Manufacturer guidance, not independent recovery validation or an instruction for every mat design."
+    },
+    {
+      "id": "keene",
+      "title": "High Banker Sluice Conversion Kit — instructions",
+      "publisher": "Keene Engineering",
+      "url": "https://www.keeneeng.com/pdfFiles/Mini%20High%20banker.pdf",
+      "location": "Setting up the sluice box, item 1",
+      "type": "Manufacturer instructions",
+      "verification": "Official indexed PDF text inspected; direct PDF fetch returned HTTP 403",
+      "supports": "Approximately 10 degrees initially for this kit, then adjust once water flow is established; avoid gravel buildup and excessive slope.",
+      "limits": "Specific conversion kit. Indexed text availability is recorded; direct PDF retrieval was blocked."
+    },
+    {
+      "id": "hog-tuning",
+      "title": "Tuning Your Sluice — The Fear Factor",
+      "publisher": "Doc / Gold Hog",
+      "url": "https://goldhog.com/tuning-your-sluice-the-fear-factor/",
+      "location": "Loading, capture-zone exchange and tailings testing",
+      "type": "Manufacturer field interpretation",
+      "verification": "Current page text inspected",
+      "supports": "A slow, overloaded bed can lose gold; tailings gold alone does not diagnose excessive speed; particle shape affects behavior.",
+      "limits": "No general recovery percentage is adopted. Deliberately losing gold into an uncontrolled stream is not recommended."
+    },
+    {
+      "id": "hog-slurry",
+      "title": "Tuning Your Gold Sluice — Part 2",
+      "publisher": "Doc / Gold Hog",
+      "url": "https://goldhog.com/tuning-your-gold-sluice-part-2/",
+      "location": "Slurry density / viscosity and feed-rate discussion",
+      "type": "Manufacturer field interpretation",
+      "verification": "Current page text inspected",
+      "supports": "Solids loading and slurry character affect tuning; reducing feed relative to water is a possible adjustment.",
+      "limits": "Suspended silt/clay is not dissolved sediment; the source's loose terminology and proprietary superiority claims are not adopted."
+    },
+    {
+      "id": "hog-pumps",
+      "title": "Prospecting Water Pumps — Some Basic Thoughts",
+      "publisher": "Doc / Gold Hog",
+      "url": "https://goldhog.com/prospecting-water-pumps-some-basic-thoughts/",
+      "location": "Lift, hose friction and delivered water",
+      "type": "Manufacturer field guidance",
+      "verification": "Current page text inspected",
+      "supports": "Pump label output differs from delivery through a lifted hose system.",
+      "limits": "No universal derating or advice to throttle an arbitrary pump is adopted; follow the pump's own instructions."
+    },
+    {
+      "id": "snake",
+      "title": "Instructions for Using Your Sluice",
+      "publisher": "Snake River Products",
+      "url": "https://snakeriverproducts.com/downloads/sluice_instructions.pdf",
+      "location": "PDF pp. 1–2: intake/exhaust vents and fluidization",
+      "type": "Manufacturer instructions",
+      "verification": "Original PDF text inspected",
+      "supports": "Fluidizing-vent systems require unobstructed intakes/exhausts and appropriate volume as well as speed.",
+      "limits": "A distinct recovery design; conventional riffle appearance rules cannot be applied blindly."
+    },
+    {
+      "id": "epa",
+      "title": "5.1 Stream Flow — Volunteer Stream Monitoring",
+      "publisher": "U.S. Environmental Protection Agency, archived guidance",
+      "url": "https://archive.epa.gov/water/archive/web/html/vms51.html",
+      "location": "Discharge definition, cross-sectional area and surface-float method",
+      "type": "Government measurement guidance",
+      "verification": "Original archived text inspected",
+      "supports": "Discharge differs from velocity; a float measures surface motion, which differs from depth-averaged flow.",
+      "limits": "Natural-stream correction factors are not validated for a shallow riffled sluice and are not used here."
+    }
+  ],
+  "editorialMethods": [
+    "Small contained batches with all test discharge retained where feasible",
+    "Comparable prepared feed and A–B–A repeats",
+    "One control changed at a time, then coupled settings retested",
+    "No recovery percentage from a single tailings pan",
+    "Angle conversions use vertical drop divided by horizontal run"
+  ],
+  "notClaimed": [
+    "A universal best angle, GPH, depth or velocity",
+    "Independent testing of listed products",
+    "A guaranteed capture percentage",
+    "Visual confirmation of gold recovery from mat appearance",
+    "That muddy water alone proves poor recovery"
+  ],
+  "publishedAt": "2026-11-03"
+}

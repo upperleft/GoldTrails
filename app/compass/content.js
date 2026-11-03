@@ -4,6 +4,8 @@ import {mergeCatalog} from '../creator-catalog.js';
 import {safeUrl} from '../directory-views.js';
 const products=JSON.parse(readFileSync(new URL('../product-catalog.json',import.meta.url),'utf8')).tables.products;
 const articles=[
+ ['drywashing-for-gold','Drywashing for Gold: Air, Dry Gravel, and the Right Machine','Understand air-assisted recovery, compare drywasher product examples, and plan feed preparation and tailings checks.',['equipment','sluicing','geology'],['sluice','fine','learn'],12],
+ ['sluice-flow-and-angle','Sluice & Highbanker Tuning: Flow, Angle, and the Gravel You Feed','Measure slope and water delivery, prepare difficult gravel, and compare recovery with repeatable tailings tests.',['equipment','sluicing','panning'],['sluice','fine','learn'],11],
  ['gold-sniping','Gold Sniping: Finding Gold Where It Hides Underwater','Explore underwater traps, compare conceptual sampling positions and follow the source evidence.',['river','geology','equipment'],['first','locations','learn'],10],
  ['ghost-rivers','Ghost Rivers: Finding the Gold Traps Time Left Behind','Explore older waterways through the Swift River case study, attributed geological map layers, and a practical field guide.',['river','geology','history'],['locations','learn'],9,'/ghost-rivers/'],
  ['seven-prospecting-rules','Where Does Gold Really Hide in a Stream? 7 Prospecting Rules Worth Questioning','Question river-prospecting shortcuts using attributed video examples and geological research.',['river','geology','panning'],['first','locations','learn'],8],

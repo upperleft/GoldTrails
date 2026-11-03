@@ -1,0 +1,122 @@
+{
+  "checkedAt": "2026-11-02",
+  "title": "Drywashing for Gold: Air, Dry Gravel, and the Right Machine",
+  "route": "/articles/drywashing-for-gold/",
+  "scope": "Introductory editorial guide to dry placer concentration, with manufacturer-listed product examples. No equipment was independently tested or purchased.",
+  "sources": [
+    {
+      "id": "silva",
+      "title": "Placer Gold Recovery Methods — Special Publication 87",
+      "publisher": "Michael Silva; California Division of Mines and Geology, 1986",
+      "url": "https://www.conservation.ca.gov/cgs/Documents/Publications/Special-Publications/SP_087.pdf",
+      "location": "Printed pp. 10–11, dry placers and dry washers",
+      "type": "Government technical guide",
+      "verification": "Original PDF text inspected",
+      "supports": "Air-through-fabric separation, agitation, dry disintegrated feed and fine-gold limitations.",
+      "limits": "Historical descriptions do not prescribe settings or recovery for current products."
+    },
+    {
+      "id": "dw2",
+      "title": "DW2 Hand Crank Mini Dry Washer",
+      "publisher": "Keene Engineering",
+      "url": "https://www.keene.store/mm5/merchant.mvc?Product_Code=DW2&Screen=PROD",
+      "location": "Current product listing",
+      "type": "Manufacturer product example",
+      "verification": "Official listing inspected November 2, 2026",
+      "supports": "Hand crank, adjustable hopper flow and removable riffle tray.",
+      "limits": "Features are supplier descriptions, not independent performance comparisons."
+    },
+    {
+      "id": "140s",
+      "title": "140S Vibrostatic Back Pack Dry Washer",
+      "publisher": "Keene Engineering",
+      "url": "https://www.keene.store/mm5/merchant.mvc?Product_Code=140S&Screen=PROD",
+      "location": "Current product details",
+      "type": "Manufacturer product example",
+      "verification": "Official listing inspected November 2, 2026",
+      "supports": "Adjustable vibrator and feed gate; compatibility with yard-type blowers or Vac Pack.",
+      "limits": "Weight omitted because current listing and an older official catalog conflict; complete blower package contents must be confirmed."
+    },
+    {
+      "id": "151s",
+      "title": "151S Vibrostatic Dry Washer with Hot Air Induction",
+      "publisher": "Keene Engineering",
+      "url": "https://www.keene.store/?Product_Code=151S&Screen=PROD",
+      "location": "Current product details and package specifications",
+      "type": "Manufacturer product example",
+      "verification": "Official listing inspected November 2, 2026",
+      "supports": "Listed 5 HP Briggs & Stratton engine, radial blower, ten-foot four-inch hose and 99 lb weight; supplier heated-air feature.",
+      "limits": "Heated-air and electrostatic features are manufacturer claims, not independently measured moisture tolerance or recovery."
+    },
+    {
+      "id": "royal",
+      "title": "Royal Explorer Dry Washer",
+      "publisher": "Royal Manufacturing Industries",
+      "url": "https://royalmfgind.com/product/explorer/",
+      "location": "Current product features",
+      "type": "Manufacturer product example",
+      "verification": "Official listing inspected November 2, 2026",
+      "supports": "7 by 18 inch recovery box, adjustable feed valve, baffled first riffle and listed 20 lb weight.",
+      "limits": "Blower and hose inclusion is not established by this listing; no recovery guarantee is adopted."
+    },
+    {
+      "id": "dw-manual",
+      "title": "DW2 / DW212V Instructions",
+      "publisher": "Keene Engineering",
+      "url": "https://keeneeng.com/pdfFiles/DW2-DW212%20Instructions%20.pdf",
+      "location": "PDF pp. 2–4: bellows operation and setup",
+      "type": "Manufacturer manual",
+      "verification": "Original PDF read with PDFKit by research agent; web-reader requests returned HTTP 403",
+      "supports": "Puffer mechanism, dry feed, level setup, steady feed and model-specific crank instructions.",
+      "limits": "Specific to the listed hand-crank/battery family; not a universal pulse rate."
+    },
+    {
+      "id": "151-manual",
+      "title": "151S Dry Washer Instructions",
+      "publisher": "Keene Engineering",
+      "url": "https://keeneeng.com/pdfFiles/151S%20inst.pdf",
+      "location": "PDF pp. 5–6: initial angle, feed and blast-gate controls",
+      "type": "Manufacturer manual",
+      "verification": "Original PDF read with PDFKit by research agent; web-reader requests returned HTTP 403",
+      "supports": "Approximately 15 degree initial recovery-tray angle; freely moving feed; coupled air-pressure and vibration adjustment.",
+      "limits": "Specific model instructions; avoid ambiguous drop-without-run wording and unsafe inspection of moving parts."
+    },
+    {
+      "id": "silica",
+      "title": "Silica and Worker Health",
+      "publisher": "CDC / NIOSH, updated July 7, 2026",
+      "url": "https://www.cdc.gov/niosh/silica/about/index.html",
+      "location": "Overview and where crystalline silica is found",
+      "type": "Official occupational health guidance",
+      "verification": "Current primary page inspected",
+      "supports": "Crystalline silica in soil, sand and rock; respirable dust and serious lung disease.",
+      "limits": "General hazard guidance; it does not measure exposure from these drywashers."
+    },
+    {
+      "id": "dust-controls",
+      "title": "Safe Work Practices — Silica",
+      "publisher": "CDC / NIOSH, updated July 7, 2026",
+      "url": "https://www.cdc.gov/niosh/silica/work/index.html",
+      "location": "Exposure prevention, engineering controls and respiratory protection",
+      "type": "Official occupational health guidance",
+      "verification": "Current primary page inspected",
+      "supports": "Control hierarchy, suitable ventilation/HEPA controls, avoidance of dry sweeping or compressed-air cleanup, and respiratory protection when controls are insufficient.",
+      "limits": "Workplace prevention principles, not validation of a hobby-machine dust retrofit or a claim about recreational legal requirements."
+    }
+  ],
+  "editorialMethods": [
+    "Check moisture throughout a representative sample rather than judging only the surface",
+    "Record recovery-tray angle, air control, feed and starting bed condition separately",
+    "Compare repeated prepared portions while changing one control",
+    "Retain identifiable solid outputs without restricting designed airflow",
+    "Treat uncollected airborne fines and imperfect check recovery as accounting limits"
+  ],
+  "notClaimed": [
+    "A universal best drywasher angle, airflow, pulse rate or moisture percentage",
+    "Guaranteed fine-gold recovery",
+    "That heated air makes wet clay suitable",
+    "That outdoor operation or a dustless label proves safe dust exposure",
+    "Product ranking, independent testing, current stock or complete package contents where unspecified"
+  ],
+  "publishedAt": "2026-11-03"
+}
