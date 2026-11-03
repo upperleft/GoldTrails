@@ -5,7 +5,7 @@
 .connections-more-filters{margin:1rem 0}.connections-more-filters summary{cursor:pointer;padding:.6rem 0}.connections-more-filters[open] summary{margin-bottom:.6rem}
 .connection-cover-figure{margin:0 0 1rem}.connection-cover-figure figcaption{padding:.6rem 0;font-size:1rem}
 
-/* Browsing comes first; personal tools stay one disclosure away for active Plus members. */
+/* Event creation stays visible; personal preferences remain in their disclosure. */
 .connections-navigation{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem 1.2rem;margin:0 0 1rem;border-bottom:1px solid var(--line,#c6b68d)}
 .connections-navigation>.connections-nav{margin:0;padding:.55rem 0;border:0;gap:.5rem 1.2rem;min-height:44px}
 .connections-personal{position:relative;max-width:100%}
@@ -22,4 +22,13 @@
 .connections-state-guide>a{text-decoration:underline;text-underline-offset:3px}
 .connections-empty h2,.connections-notice h2{font-size:1.3rem;margin:0 0 .6rem}
 .connections-empty p{margin:.6rem 0 1rem}
+.connections-create-tools{display:flex;align-items:flex-start;flex-wrap:wrap;gap:.4rem 1rem;max-width:100%}
+.connections-create-tools>.connections-create-event{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;margin:0}
+.connections-creation-note{margin:.5rem 0 1.1rem;font-size:1rem}
+.connections-creation-note p{margin:.4rem 0}
+.connections-share{padding:1rem;border:1px solid var(--line,#c9b58b);border-radius:8px}
+.connections-share h2{margin:.1rem 0 .5rem;font-size:1.3rem}
+.connections-share-actions{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem 1rem}
+.connections-share [data-event-share-status]{min-height:1.5em;margin:.4rem 0 0}
+.connections [data-event-share-copy][hidden]{display:none}
 @media(max-width:760px){.connections-navigation{gap:.2rem .8rem}.connections-personal{width:100%}.connections-personal>nav{min-width:0}.connections-empty-actions{align-items:flex-start;gap:.4rem 1rem}}

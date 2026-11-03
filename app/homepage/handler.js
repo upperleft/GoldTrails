@@ -58,7 +58,7 @@ function liveSceneCopy(premium=false,creatorInvitation=false){
 export function graphicalHome({member=null,guest=false,creatorInvitation=false,calibration=false}={}){
  const premium=memberHome({member,guest});
  const items=homeHotspots({member,guest,creatorInvitation});
- const stage=`<div class="home-art-section home-art-full" style="aspect-ratio:${canvas.width}/${canvas.height}">${picture('full-home-critique-v4',frame)}${liveSceneCopy(premium,creatorInvitation)}<nav class="home-art-navigation" aria-label="Homepage navigation">${overlay(items.filter(p=>p.section==='sidebar'),frame,member)}</nav><div class="home-sidebar-tools" style="${position([34,595,235,105])}"><div class="header-tools"></div><button type="button" data-home-text-view>Text view</button></div>${overlay(items.filter(p=>p.section!=='sidebar'),frame,member)}</div>`;
+ const stage=`<div class="home-art-section home-art-full" style="aspect-ratio:${canvas.width}/${canvas.height}">${picture('full-home-critique-v4',frame)}${liveSceneCopy(premium,creatorInvitation)}<nav class="home-art-navigation" aria-label="Homepage navigation">${overlay(items.filter(p=>p.section==='sidebar'),frame,member)}</nav><div class="home-sidebar-tools" style="${position([34,595,235,105])}"><div class="header-tools"></div><button type="button" data-home-text-view>Text view</button></div><div class="home-gold-price-slot" style="${position([34,714,235,220])}"></div>${overlay(items.filter(p=>p.section!=='sidebar'),frame,member)}</div>`;
  return `<main class="home-graphical${premium?' home-member-view':''}${calibration?' home-calibration':''}" aria-label="Gold Trails illustrated home">
  <a class="home-skip" href="#home-welcome">Skip illustrated navigation</a>
  <div class="home-full">${stage}</div>

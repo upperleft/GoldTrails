@@ -52,7 +52,7 @@ html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"])
 }
 @media(max-width:750px){
  .header-tools{gap:8px;width:100%;flex-wrap:wrap}
- .header-tools .reading-options>summary{font-size:.875rem;padding:9px 10px;min-height:44px}
+ .header-tools .reading-options>summary{font-size:1rem;padding:6px 10px;min-height:44px}
  .header-tools .site-help-switch>summary{font-size:.875rem;padding:9px 10px}
  .header-tools .login-button{font-size:.875rem;padding:9px 12px;min-height:44px}
  .site-mobile-menu{display:block;margin:0 0 .8rem;border:1px solid var(--line);border-radius:10px;background:var(--paper,#fff9ed)}

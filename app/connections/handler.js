@@ -2,7 +2,7 @@ import {timingSafeEqual} from 'node:crypto';
 import {digest} from '../admin-auth.js';
 import {ConnectionsError,validateEvent,publicEvent,uuid,stateFor,eventUrl,eventFilters,text} from './model.js';
 import {coverageStates} from './geography.js';
-import {shell,nav,invite,guestNotice,directoryPage,groupsPage,eventForm,detailPage,managePage,minePage,preferencesPage,form,hidden,eventCards} from './views.js';
+import {shell,nav,invite,guestNotice,directoryPage,groupsPage,eventForm,detailPage,managePage,minePage,preferencesPage,form,hidden,eventCards,publicEventShareUrl} from './views.js';
 import {guestPlusAccess} from '../plus/guest-access.js';
 import {escapeHtml as h} from '../directory-views.js';
 import {calendarIcs} from './ics.js';
@@ -101,7 +101,7 @@ export function createConnectionsHandler({store=null,members=null,owners=null,gu
     send(200,eventForm({...event,meeting:vault.open(event.meetingCipher)},csrf,'',true));return true;
    }
    if(action==='manage/'){
-    requireMember();privatePage=true;if(!organizer)throw new ConnectionsError('Event unavailable.',404);if(f)throw new ConnectionsError('Use the event controls.',405);send(200,managePage(event,await store.attendees(member.id,event.id),csrf,await store.reports(member.id,event.id),{member}));return true;
+    requireMember();privatePage=true;if(!organizer)throw new ConnectionsError('Event unavailable.',404);if(f)throw new ConnectionsError('Use the event controls.',405);send(200,managePage(event,await store.attendees(member.id,event.id),csrf,await store.reports(member.id,event.id),{member,shareUrl:publicEventShareUrl(event,config?.origin)}));return true;
    }
    if(action==='calendar.ics'){
     if(f)throw new ConnectionsError('Download the calendar file.',405);const safe=publicEvent(event);send(200,calendarIcs(safe,config?.origin||'https://goldtrails.org'),{'Content-Type':'text/calendar; charset=utf-8','Content-Disposition':'attachment; filename="gold-connections-event.ics"'});return true;
@@ -147,7 +147,7 @@ export function createConnectionsHandler({store=null,members=null,owners=null,gu
    if(f)throw new ConnectionsError('Use the event controls.',405);
    const view=publicEvent(event),canSeePrivate=organizer||member?.effective_level==='subscriber'&&participation?.status==='yes';
    if(canSeePrivate){view.street=event.street;view.zip=event.zip;view.mapUrl=event.mapUrl;view.addressRestricted=false;}
-   let content=detailPage(view,{member,guest,csrf,participation,organizer,meeting:canSeePrivate?vault.open(event.meetingCipher):null,comments:await store.comments(event.id,guest?null:member?.id),photos:await store.photos(event.id,guest?null:member?.id)});
+   let content=detailPage(view,{member,guest,csrf,participation,organizer,meeting:canSeePrivate?vault.open(event.meetingCipher):null,comments:await store.comments(event.id,guest?null:member?.id),photos:await store.photos(event.id,guest?null:member?.id),shareUrl:publicEventShareUrl(event,config?.origin)});
    if(member&&!guest)content=content.replace('<div class="connections-actions">',`<div class="connections-actions">${form(base+'calendar/',csrf,'','Add to my Gold Trails calendar')}`);
    send(200,content);return true;
   }catch(e){
