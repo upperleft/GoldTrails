@@ -124,3 +124,11 @@ test('both acceptance entry points preserve billing and affiliation restrictions
  const legacy=fixture();await legacy.store.acceptNamed('test-creator',accountId);
  assert.equal(legacy.queries.some(([sql])=>sql.includes('FROM billing_checkout_attempts')),false,'014/015 does not reference later billing tables.');
 });
+test('accepted profile lookup is read-only and binds the current verified account',async()=>{
+ const calls=[],profile={slug:'test-creator',display_name:'Test creator'};
+ const store=createCreatorInvitationStore({query:async(sql,args)=>{calls.push([sql,args]);return[profile];},getConnection:()=>{throw Error('Read must not open a write transaction');}});
+ assert.equal(await store.acceptedProfile('invalid-account'),null);assert.equal(calls.length,0);
+ assert.deepEqual(await store.acceptedProfile(accountId),profile);assert.deepEqual(calls[0][1],[accountId]);
+ assert.match(calls[0][0],/i\.accepted_account_id=a\.id AND i\.consumed_at IS NOT NULL/);assert.match(calls[0][0],/c\.status='approved'/);assert.match(calls[0][0],/m\.grant_source='complimentary'/);
+ assert.doesNotMatch(calls[0][0],/FOR UPDATE|creator_invitation_settings|i\.expires_at|JOIN member_accounts o/);
+});

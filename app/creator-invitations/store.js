@@ -50,6 +50,12 @@ export function createCreatorInvitationStore(db){
  });
  return {
   async ready(){return(await db.query("SELECT version FROM schema_migrations WHERE version='014_creator_invitations'")).length===1;},
+  async acceptedProfile(accountId){
+   if(!invitationId(accountId))return null;
+   // Accepted grants belong to the recipient account permanently; the original
+   // invitation's expiry and the owner's later account status do not govern them.
+   return(await db.query("SELECT p.slug,p.display_name FROM member_accounts a JOIN member_memberships m ON m.account_id=a.id JOIN creator_invitations i ON i.accepted_account_id=a.id AND i.consumed_at IS NOT NULL JOIN member_creator_connections c ON c.account_id=a.id AND c.person_id=i.person_id AND c.status='approved' JOIN people p ON p.id=i.person_id WHERE a.id=? AND a.status='active' AND a.email_verified_at IS NOT NULL AND a.archived_at IS NULL AND m.level='subscriber' AND m.status='active' AND m.grant_source='complimentary' AND m.granted_by IS NOT NULL AND m.starts_at<=UTC_TIMESTAMP(6) AND (m.ends_at IS NULL OR m.ends_at>UTC_TIMESTAMP(6)) AND p.publication_status='published' AND p.is_sample=FALSE AND p.archived_at IS NULL ORDER BY i.consumed_at DESC,i.id DESC LIMIT 1",[accountId]))[0]||null;
+  },
   async overview(){
    const owner=(await db.query("SELECT a.id,a.email,a.username FROM creator_invitation_settings s JOIN member_accounts a ON a.id=s.owner_account_id WHERE s.id=1 AND a.status='active' AND a.email_verified_at IS NOT NULL AND a.archived_at IS NULL"))[0]||null;
    const creators=await db.query(`SELECT id,slug,display_name FROM people WHERE ${visibleCreator} ORDER BY display_name LIMIT 1000`);

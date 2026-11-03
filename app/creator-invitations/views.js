@@ -1,5 +1,5 @@
-import {escapeHtml as h, page} from '../directory-views.js';
-import {assetUrl} from '../asset-url.js';
+import {escapeHtml as h} from '../directory-views.js';
+import {focusedCreatorAccessPage} from './access-page.js';
 
 const hidden=(name,value)=>`<input type="hidden" name="${h(name)}" value="${h(value)}">`;
 export const invitationDate=value=>{
@@ -11,22 +11,18 @@ export const maskedEmail=email=>{
  return domain?`${local.slice(0,1)}***@${domain}`:'the invited email address';
 };
 export function creatorInvitationPage(title,body){
- return page(title,'Your complimentary Gold Trails creator account',`<section class="resource-placeholder member-card member-auth-card" aria-labelledby="member-access-title"><h1 id="member-access-title">${h(title)}</h1>${body}</section>`,'','A place for the people who share the trail.')
-  .replace('class="category-page"','class="category-page member-page member-auth-page"')
-  .replace(/<section class="category-intro rust">[\s\S]*?<\/section>/,'')
-  .replace('</head>',`<link rel="stylesheet" href="${assetUrl('member-auth.css')}"></head>`);
+ return focusedCreatorAccessPage(title,body);
 }
 export function invitationBody(invitation,member,csrf){
- const profile='/prospectors/'+encodeURIComponent(invitation.slug)+'/';
- const intro=`<p>Paul has invited you to join Gold Trails as <strong>${h(invitation.display_name)}</strong>.</p><p>All Gold Trails Plus features are complimentary for you as a creator—normally $5/month. There is no subscription fee, card requirement, expiry after acceptance or obligation to promote the site. Explore the Almanac and Gold Connections.</p><p><a href="${h(profile)}">View your creator profile</a></p>`;
+ const intro=`<p>Paul has invited you to join Gold Trails as <strong>${h(invitation.display_name)}</strong>.</p><p>All Gold Trails Plus features are complimentary for you as a creator—normally $5/month. There is no subscription fee, card requirement, expiry after acceptance or obligation to promote the site.</p><p>Accept your free membership first. Then you can view your creator profile and explore the Almanac, Gold Connections and the rest of Gold Trails.</p>`;
  const accountInstruction=invitation.named?'Use the email address that received your invitation to create or sign in to your own account.':'This invitation is for <strong>'+h(maskedEmail(invitation.target_email))+'</strong>. Use that email to create or sign in to your account, then return here to accept.';
  if(!member)return intro+`<p>${accountInstruction}</p><p><a class="gold-button" href="/signup/?next=%2Fcreator-invitation%2F">Create your free account</a></p><p><a href="/login/?next=%2Fcreator-invitation%2F">Already have an account? Sign in</a></p><p>The invitation can be accepted until ${h(invitationDate(invitation.expires_at))}. Your complimentary membership has no expiry after acceptance.</p>`;
- if(String(member.email).trim().toLowerCase()!==invitation.target_email)return intro+`<p role="alert">You are signed in with a different email address. Sign out from your account, then sign in with ${invitation.named?'the email address that received your invitation':`the invited address ${h(maskedEmail(invitation.target_email))}`}.</p><p><a href="/account/">Open your account</a></p>`;
+ if(String(member.email).trim().toLowerCase()!==invitation.target_email)return intro+`<p role="alert">You are signed in with a different email address. Sign out, then sign in with ${invitation.named?'the email address that received your invitation':`the invited address ${h(maskedEmail(invitation.target_email))}`}.</p><form class="admin-form member-form" method="post" action="/logout/">${hidden('csrf',csrf)}<button class="gold-button" type="submit">Sign out and use the invited email</button></form>`;
  return intro+`<p>You are signed in as ${h(member.email)}. Accept to connect this creator profile to your account and activate your complimentary Plus access.</p><form class="admin-form member-form" method="post" action="/creator-invitation/">${hidden('csrf',csrf)}<button class="gold-button" type="submit">Accept complimentary creator access</button></form><p>Your access follows your account on every device. Profile corrections can be sent to Paul; accepting does not give administration or profile editing permissions.</p>`;
 }
 
 export function invitationMessage(invitation,url){
- return `Hi ${invitation.display_name},\n\nI'm Paul, the person building Gold Trails, a learning site for gold prospectors. We've included your work in our creator directory, and I'd love your feedback.\n\nYou're invited to complimentary Gold Trails Plus, with no subscription fee or card required. This personal link opens the Gold Trails homepage so you can explore. Choose “Continue to your free creator account” there to create or sign in to your account and accept your invitation:\n\n${url}\n\nUse the email address this invitation was sent to. The invitation link expires ${invitationDate(invitation.expires_at)}; your complimentary access has no expiry once accepted and follows your account on every device.\n\nIf anything on your profile needs correcting, just reply. There's no obligation to promote the site.\n\nThanks,\nPaul\nGold Trails\nhttps://goldtrails.org/`;
+ return `Hi ${invitation.display_name},\n\nI'm Paul Shoemaker, and I'm building Gold Trails, a learning site for gold prospectors. I'd love your feedback before our wider launch.\n\nI'd like to offer you complimentary Gold Trails Plus, normally $5/month, with no subscription fee or card required and no obligation to promote the site. Your access has no expiry once you accept.\n\nHere's your personal invitation—no reply is needed to get started:\n${url}\n\nIt opens the Gold Trails homepage. Choose “Continue to your free creator account,” then join or sign in using the email this invitation was sent to, verify your email if prompted, and accept. You'll return to the homepage, ready to explore and view your creator profile.\n\nIf you like what you see, we'd love it if you mentioned Gold Trails on your channel.\n\nThanks for taking a look!\nPaul Shoemaker\nGold Trails\npaul@goldtrails.org\n\nYour invitation link expires ${invitationDate(invitation.expires_at)}. Prefer another email, or no further invitations? Just let me know.`;
 }
 
 export function adminInvitationsView(data,session,{created=null,url=null,notice=''}={}){

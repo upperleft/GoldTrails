@@ -1,5 +1,6 @@
 import {accountView} from './account-view.js';
-import {creatorInvitationName} from './creator-invitations/context.js';
+import {creatorInvitationName,creatorInvitationFlow,creatorAccessRoutes} from './creator-invitations/context.js';
+import {focusedCreatorAccessPage} from './creator-invitations/access-page.js';
 import {signupPlusOffer} from './plus/signup-offer.js';
 import {readingMarkup} from './reading/handler.js';
 import {assetUrl} from './asset-url.js';
@@ -61,10 +62,10 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
  return async(req,res,url)=>{
   if(routes.has(url.pathname+'/')){res.writeHead(308,{Location:url.pathname+'/'+url.search,'Cache-Control':'no-store'});res.end();return true;}
   if(!routes.has(url.pathname))return false;
-  let csrf=read(req,'form')||token(),newCookie=!read(req,'form');const raw=read(req,'member');
+  let csrf=read(req,'form')||token(),newCookie=!read(req,'form'),creatorAccessFlow=req[creatorInvitationFlow]===true;const raw=read(req,'member');
   // Native POST forms need a non-null Origin. strict-origin preserves it on HTTPS
   // while never sending verification/reset tokens or other URL paths as referrers.
-  const send=(status,title,content,extra={},member=null)=>{const json=url.pathname==='/signup/'&&req.method==='POST'&&req.headers.accept==='application/json';res.writeHead(status,{'Content-Type':json?'application/json; charset=utf-8':'text/html; charset=utf-8','Cache-Control':'no-store','Referrer-Policy':'strict-origin','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...(newCookie?{'Set-Cookie':cookie('form',csrf)}:{}),...extra});res.end(req.method==='HEAD'?undefined:json?JSON.stringify({outcome:status===200&&title==='Check your email'?'email_requested':'error',title,message:(content.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)?.[1]||content).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()}):shell(title,content,member).replace('</body>',`<script src="${assetUrl('member-forms.js')}" defer></script></body>`));};
+  const send=(status,title,content,extra={},member=null)=>{const json=url.pathname==='/signup/'&&req.method==='POST'&&req.headers.accept==='application/json';res.writeHead(status,{'Content-Type':json?'application/json; charset=utf-8':'text/html; charset=utf-8','Cache-Control':'no-store','Referrer-Policy':'strict-origin','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...(newCookie?{'Set-Cookie':cookie('form',csrf)}:{}),...extra});res.end(req.method==='HEAD'?undefined:json?JSON.stringify({outcome:status===200&&title==='Check your email'?'email_requested':'error',title,message:(content.match(/<p\b[^>]*>([\s\S]*?)<\/p>/)?.[1]||content).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()}):(creatorAccessFlow?focusedCreatorAccessPage(title,content):shell(title,content,member)).replace('</body>',`<script src="${assetUrl('member-forms.js')}" defer></script></body>`));};
   const redirect=(path,cookies)=>send(303,'Continue','',{'Location':path,...(cookies?{'Set-Cookie':cookies}:{})});
   const emailLink=async(p,purpose)=>{const raw=await store.issue(p.id,purpose);await mail({to:p.email,purpose,url:`${config.origin}/${purpose==='verify_email'?'verify-email':'reset-password'}/?token=${raw}`});};
   try{
@@ -73,10 +74,11 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
    const inviteRaw=read(req,'creator-invite'),inviteName=creatorInvitationName(req);
    let invitation=null;
    // An optional invitation must never block ordinary sign-in, recovery or sign-out.
-   if(ready&&(inviteRaw||inviteName)&&invitations&&['/signup/','/login/','/verify-email/'].includes(url.pathname)){
+   if(ready&&(inviteRaw||inviteName)&&invitations&&creatorAccessRoutes.has(url.pathname)){
     try{if(await invitations.ready())invitation=inviteRaw?await invitations.read(inviteRaw):await invitations.readNamed(inviteName);}
     catch{log('Gold Trails creator invitation context unavailable');}
    }
+   creatorAccessFlow=Boolean(invitation);
    const inviteNotice=invitation?'<p data-creator-invitation>Your creator invitation is waiting. Use the invited email, verify your account, then sign in to accept complimentary Plus with no subscription fee.</p>':'';
    const inviteLogin=invitation?'/login/?next=%2Fcreator-invitation%2F':'/login/';
    if(req.method==='POST'){if(!ready){send(503,'Members coming soon','<p>Member access is being prepared.</p>');return true;}if(req.headers.origin!==config.origin){send(403,'Form expired','<p>Return to the page and try again.</p>');return true;}f=await body(req);if(!equal(read(req,'form'),f.get('csrf'))){send(403,'Form expired','<p>Refresh the form and try again.</p>');return true;}}
@@ -102,12 +104,17 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
     }
     const membership=ready&&raw?await store.session(raw):null;
     if(membership&&equal(digest(csrf),membership.csrf_token_hash)){redirect(next||memberLanding(membership));return true;}
-    send(200,'Sign in to Gold Trails',inviteNotice+'<p>Sign in with the email address you used to join Gold Trails.</p>'+loginForm()+'<p><a href="/forgot-password/">Forgot your password?</a> · <a href="/signup/">Join free</a></p><p><a href="/admin/login/">Administrator sign-in</a></p>');return true;
+    send(200,'Sign in to Gold Trails',inviteNotice+'<p>Sign in with the email address you used to join Gold Trails.</p>'+loginForm()+'<p><a href="/forgot-password/">Forgot your password?</a> · <a href="/signup/">Join free</a></p>'+(invitation?'':'<p><a href="/admin/login/">Administrator sign-in</a></p>'));return true;
    }
    if(url.pathname==='/account/'||url.pathname==='/logout/'){
     const p=ready?await store.session(raw):null;if(!p){redirect('/login/');return true;}if(url.pathname==='/logout/'){if(req.method!=='POST'){send(405,'Use the sign-out button','<p>Return to your account.</p>');return true;}if(!equal(digest(csrf),p.csrf_token_hash)){send(403,'Form expired','<p>Sign in again.</p>');return true;}await store.logout(raw);redirect('/login/',[cookie('member','',0),cookie('form','',0)]);return true;}
     if(req.method==='POST'){send(405,'Account overview','<p>Profile editing is coming later.</p>');return true;}
-    send(200,'Your camp',accountView(p,csrf),{},p);return true;
+    if(invitation){redirect('/creator-invitation/');return true;}
+    let creatorProfile=null;
+    if(p.effective_level==='subscriber'&&p.grant_source==='complimentary'&&invitations?.acceptedProfile)try{
+     if(await invitations.ready())creatorProfile=await invitations.acceptedProfile(p.id);
+    }catch{log('Gold Trails accepted creator profile unavailable');}
+    send(200,'Your camp',accountView(p,csrf,{creatorProfile}),{},p);return true;
    }
    if(url.pathname==='/forgot-password/'||url.pathname==='/resend-verification/'){
     const verify=url.pathname==='/resend-verification/';if(req.method==='POST'){if(!mail){send(503,'Email service being prepared','<p>Please return when member email is ready.</p>');return true;}if(!await store.allow('recovery')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}const email=(f.get('email')||'').trim().toLowerCase();if(!validEmail(email))throw new InputError('Enter a valid email address.');const p=await store.find(email);if(p&&p.status!=='suspended'&&(verify?!p.email_verified_at:Boolean(p.email_verified_at))){try{await emailLink(p,verify?'verify_email':'reset_password');}catch{log('Gold Trails member email unavailable');}}send(200,'Check your email',verify?'<p>If an account at this address still needs verification, an email is on its way. An account that is already verified will not receive another verification email.</p><p><a href="/login/">Sign in</a> · <a href="/forgot-password/">Reset your existing password</a></p>':'<p>If an eligible account exists, an email is on its way. Please check your inbox and spam folder.</p>');return true;}

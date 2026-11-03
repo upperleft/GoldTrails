@@ -3,7 +3,7 @@ import {digest,token} from '../admin-auth.js';
 import {CreatorInvitationError} from './model.js';
 import {creatorInvitationPage,invitationBody,adminInvitationsView} from './views.js';
 import {escapeHtml as h} from '../directory-views.js';
-import {creatorInvitationHome,creatorInvitationName,creatorNameSlug} from './context.js';
+import {creatorInvitationHome,creatorInvitationFlow,creatorAccessRoutes,creatorInvitationName,creatorNameSlug} from './context.js';
 
 const validToken=value=>/^[a-f0-9]{64}$/.test(value||'');
 const read=(req,name)=>(req.headers.cookie||'').match(new RegExp(`(?:^|;\\s*)__Host-gold-${name}=([a-f0-9]{64})(?:;|$)`))?.[1]||null;
@@ -21,12 +21,21 @@ async function body(req){
 
 export function createCreatorInvitationHandler({store=null,members=null,config=null,log=console.error}={}){
  return async(req,res,url)=>{
-  // Optional invitation storage must never prevent the public homepage opening.
-  // Read only: the homepage welcome cannot accept or otherwise consume a link.
-  if(url.pathname==='/'&&['GET','HEAD'].includes(req.method)){
+  // Keep the invitation journey focused until acceptance. Public creator profiles
+  // remain public outside this browser's valid, pending invitation context.
+  const profile=url.pathname.match(/^\/prospectors\/([a-z0-9]+(?:-[a-z0-9]+)*)(?:\/videos)?\/?$/);
+  const accessPath=creatorAccessRoutes.has(url.pathname)||creatorAccessRoutes.has(url.pathname+'/');
+  if((url.pathname==='/'||profile||accessPath)&&(['GET','HEAD'].includes(req.method)||accessPath)){
    const raw=read(req,'creator-invite'),name=creatorInvitationName(req);
    if((raw||name)&&store&&members&&config)try{
-    if(await store.ready()&&(raw?await store.read(raw):await store.readNamed(name)))req[creatorInvitationHome]=true;
+    const invite=await store.ready()&&(raw?await store.read(raw):await store.readNamed(name));
+    if(invite){
+     if(url.pathname==='/')req[creatorInvitationHome]=true;
+     if(accessPath)req[creatorInvitationFlow]=true;
+     if(profile&&profile[1]===invite.slug){
+      res.writeHead(303,{Location:'/creator-invitation/','Cache-Control':'private, no-store',Vary:'Cookie','Referrer-Policy':'no-referrer','X-Robots-Tag':'noindex, nofollow'});res.end();return true;
+     }
+    }
    }catch{log('Gold Trails homepage invitation check unavailable');}
    return false;
   }
@@ -36,7 +45,7 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
   const csrf=read(req,'form')||token();
   const send=(status,title,content,extra={})=>{
    // Keep Origin available on native form POSTs; the clean page contains no bearer URL.
-   res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store',Vary:'Cookie','Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'none'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...extra});
+   res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store',Vary:'Cookie','Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",...extra});
    res.end(req.method==='HEAD'?undefined:creatorInvitationPage(title,content));
   };
   const clearInvitation=()=>[cookie('creator-invite','',0),cookie('creator-name','',0)];
@@ -79,16 +88,17 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
      send(403,'Sign in to accept','<p>Sign in with the invited email, then return here to accept.</p><p><a href="/login/?next=%2Fcreator-invitation%2F">Sign in</a></p>');return true;
     }
     if(!member){send(303,'Sign in to accept','',{Location:'/login/?next=%2Fcreator-invitation%2F'});return true;}
-    if(!equal(digest(csrf),member.csrf_token_hash)||String(member.email).trim().toLowerCase()!==invite.target_email){send(403,'Sign in with the invited account','<p>Use the email address that received your invitation, then return here to accept. Your account remains private.</p><p><a href="/account/">Open your account</a></p>');return true;}
+    if(!equal(digest(csrf),member.csrf_token_hash)){send(403,'Sign in to accept','<p>Sign in again, then return here to accept your invitation.</p><p><a href="/login/?next=%2Fcreator-invitation%2F">Sign in</a></p>');return true;}
+    if(String(member.email).trim().toLowerCase()!==invite.target_email){send(403,'Sign in with the invited account',invitationBody(invite,member,csrf));return true;}
     if(!await members.allow('token')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>',{'Retry-After':'900'});return true;}
     if(raw)await store.accept(raw,member.id);else await store.acceptNamed(name,member.id);
-    send(303,'Your creator access is ready','',{Location:'/account/?creator=accepted','Set-Cookie':clearInvitation()});return true;
+    send(303,'Your creator access is ready','',{Location:'/?creator=accepted','Set-Cookie':clearInvitation()});return true;
    }
    send(200,'Your Gold Trails creator invitation',invitationBody(invite,member,csrf),{'Set-Cookie':cookie('form',csrf)});return true;
   }catch(error){
    if(error instanceof CreatorInvitationError){
     if(error.code==='invitation_unavailable'){unavailable();return true;}
-    send(error.status,'Your creator invitation',`<p role="alert">${h(error.message)}</p><p><a href="/creator-invitation/">Return to your invitation</a> · <a href="/account/">Open your account</a></p>`);return true;
+    send(error.status,'Your creator invitation',`<p role="alert">${h(error.message)}</p><p><a href="/creator-invitation/">Return to your invitation</a></p>`);return true;
    }
    log('Gold Trails creator invitation request unavailable');
    send(503,'A pause along the trail','<p>We could not finish this request. If you already accepted, sign in to check your account. Otherwise return to your personal invitation shortly.</p>');return true;

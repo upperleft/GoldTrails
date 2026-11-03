@@ -1,0 +1,40 @@
+/* Invitation acceptance keeps one clear task while preserving reading preferences. */
+.creator-access-page .creator-access-header{max-width:76rem;padding:1.5rem 2rem;gap:1.25rem;align-items:center}
+.creator-access-page .creator-access-brand{font-size:1.9rem;max-width:100%;min-width:0}
+.creator-access-brand>span:last-child{min-width:0}
+.creator-access-page .creator-access-brand small{font-size:.625rem;line-height:1.5;letter-spacing:1.4px}
+.creator-access-page .creator-access-header .header-tools{display:flex;align-items:center;justify-content:flex-end;min-width:0;margin-left:auto}
+.creator-access-page .creator-access-main{max-width:76rem;margin:0 auto;padding:2rem 1.5rem 3rem}
+.creator-access-page .creator-access-card{width:100%;max-width:36rem;margin:0 auto;background:#fffaf0;overflow-wrap:anywhere}
+.creator-access-page .creator-access-card>h1{font:400 clamp(1.75rem,3vw,2.25rem)/1.3 Rye,Georgia,serif;text-wrap:balance;margin:0 0 1.2rem}
+.creator-access-page .creator-access-card :is(p,li,label){font-size:1rem;line-height:1.7}
+.creator-access-page .creator-access-card p{margin:.8rem 0}
+.creator-access-page .creator-access-card :is(input,select,textarea,button,a){max-width:100%}
+.creator-access-page .creator-access-card :is(input,select,textarea){min-width:0}
+.creator-access-page .creator-access-card .gold-button{min-height:48px;font-size:1rem;line-height:1.5;padding:.8rem 1.2rem;text-align:center;white-space:normal}
+.creator-access-page .creator-access-footer{background:none;border-top:1px solid var(--line);color:#6b583d;padding:1.25rem 1.5rem}
+.creator-access-page .creator-access-footer p{margin:0;font-size:.875rem;line-height:1.6}
+.creator-access-page :is(a,button,input,summary):focus-visible{outline:3px solid #345f55;outline-offset:4px}
+html[data-reading-size] .creator-access-card{overflow-wrap:anywhere}
+.creator-access-home-full .creator-access-home-main{max-width:none;width:100%;padding:0;margin:0}
+.creator-access-home-full .home-invitation-welcome{display:flex;align-items:flex-start;gap:1.25rem;width:calc(100% - 2rem);margin:1rem auto}
+.creator-access-home-full .home-invitation-welcome>div:first-child{flex:1;min-width:0}
+.creator-access-home-full .home-invitation-welcome h1{font:400 1.65rem/1.3 Rye,Georgia,serif;margin:0 0 .5rem}
+.creator-access-home-full .home-invitation-welcome p{font-size:1rem;line-height:1.65}
+.creator-access-home-full .home-invitation-welcome .creator-invitation-instruction{font-size:.9375rem;margin-bottom:.7rem}
+.creator-access-home-full .home-invitation-welcome .header-tools{display:flex;flex:none;max-width:100%;min-width:0}
+.creator-access-home-full .home-invitation-welcome .gold-button{font-size:1rem;line-height:1.5;min-height:48px;text-align:center}
+.creator-access-home-full [aria-disabled=true]{cursor:default!important}
+.creator-inert-classic .trail-menu>nav>[role=link],.creator-inert-classic .site-mobile-menu>nav>[role=link]{display:block;padding:.65rem 0;border-bottom:1px solid var(--line);font-size:1rem;line-height:1.6}
+.creator-inert-classic .site-mobile-menu>p{font-weight:700;padding:.65rem 1rem;margin:0}
+.creator-inert-classic .home-library-search>p{min-height:44px;padding:.65rem 0;margin:0}
+.creator-inert-classic .home-library-search>div{display:none}
+.creator-inert-classic .article-content>[role=link]{font-size:.8125rem;font-weight:700;color:var(--rust);border-bottom:1px solid #c89b66}
+.home-creator-ready{box-sizing:border-box;max-width:1100px;margin:1rem auto;padding:1rem 1.3rem;border:1px solid #a68b51;border-radius:8px;background:#fff4d9;color:#302414;font:1rem/1.6 'DM Sans',sans-serif}
+.home-creator-ready h2{font-size:1.35rem;line-height:1.4;margin:0 0 .4rem}
+.home-creator-ready p{margin:0 0 .5rem}
+.home-creator-ready a{display:inline-block;padding:.45rem 0;min-height:44px;color:#66401e;text-decoration:underline;text-underline-offset:3px;font-weight:700}
+@media(min-width:1280px) and (hover:hover) and (pointer:fine){.creator-access-home-full .home-sidebar-tools>[role=button]{display:flex;align-items:center;justify-content:center;width:100%;height:100%;min-height:32px;padding:4px 7px;border:1px solid #b9904d;border-radius:4px;background:#2b1e13;color:#fff4d7;font:400 clamp(.8125rem,1.04cqw,1rem)/1.25 Georgia,serif}.creator-access-home-full .home-sidebar-tools .header-tools:empty{min-height:32px}html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) .creator-access-home-full .home-graphical{display:none!important}html:is([data-reading-size="3"],[data-reading-size="4"],[data-reading-size="5"]) .creator-access-home-full .home-classic{display:block!important}}
+@media(max-width:750px){.creator-access-page .creator-access-header{padding:1.25rem 1rem;flex-wrap:wrap;gap:1rem}.creator-access-page .creator-access-header .header-tools{width:auto;max-width:100%;margin-left:0;justify-content:flex-start}.creator-access-page .creator-access-main{padding:1.25rem 1rem 2rem}.creator-access-page .creator-access-card{padding:1.35rem 1.1rem}.creator-access-page .creator-access-brand{font-size:1.75rem}.creator-access-page .creator-access-brand small{font-size:.58rem;letter-spacing:1px}.creator-access-home-full .home-invitation-welcome{flex-direction:column;gap:.8rem;padding:1rem}.home-creator-ready{margin:.75rem;padding:1rem}.creator-inert-classic .site-mobile-menu>nav{display:block;padding:0 1rem .65rem}}
+@media screen{html[data-reading-dark] .creator-access-page .creator-access-card,html[data-reading-dark] .home-creator-ready,html[data-reading-dark] .creator-access-home-full .home-invitation-welcome{background:var(--night-paper,#182522)!important;color:var(--night-text,#f2ead8)!important;border-color:var(--night-line,#6a755f)!important}html[data-reading-dark] .creator-access-page .creator-access-footer{color:var(--night-muted,#d1c7af)!important}html[data-reading-dark] .home-creator-ready a{color:var(--night-gold,#f0ca70)!important}html[data-reading-dark] .creator-access-page :is(a,button,input,summary):focus-visible{outline-color:var(--night-gold,#f0ca70)}}
+@media print{.creator-access-page .header-tools,.creator-access-page .skip-link{display:none!important}.creator-access-page .creator-access-main{padding:0}.creator-access-page .creator-access-card{box-shadow:none;border:0}}

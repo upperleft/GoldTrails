@@ -46,6 +46,7 @@ test('real MariaDB creator-name privacy, email matching, token compatibility and
   assert.equal(await store.readNamed('not-invited'),null);assert.equal(await store.readNamed('../admin'),null);
   assert.equal(Number((await db.query('SELECT COUNT(*) AS n FROM creator_invitations WHERE consumed_at IS NOT NULL'))[0].n),0);
   assert.equal(Number((await db.query("SELECT COUNT(*) AS n FROM member_memberships WHERE grant_source='complimentary'"))[0].n),0);
+  for(const accountId of [ids.creator,ids.second,ids.other,ids.unverified,randomUUID()])assert.equal(await store.acceptedProfile(accountId),null,'A pending invitation never supplies an accepted profile.');
  });
  await t.test('a verified account resolves its own invitation among multiple target emails',async()=>{
   const a=await store.readNamed('named-multiple-emails',ids.creator),b=await store.readNamed('named-multiple-emails',ids.second);
@@ -64,10 +65,47 @@ test('real MariaDB creator-name privacy, email matching, token compatibility and
   assert.equal(accepted.length,1);assert.equal(accepted[0].id,primary.id);assert.equal(accepted[0].accepted_account_id,ids.creator);
   const members=createMemberStore(db),raw=await members.login(ids.creator,0,'a'.repeat(64)),session=await members.session(raw);
   assert.equal(session.effective_level,'subscriber');assert.equal(session.grant_source,'complimentary');assert.equal(session.ends_at,null);
+  assert.deepEqual(await store.acceptedProfile(ids.creator),{slug:'named-multiple-emails',display_name:'Creator named-multiple-emails'});assert.equal(await store.acceptedProfile(ids.other),null);
   const connection=(await db.query('SELECT status,permission FROM member_creator_connections WHERE account_id=? AND person_id=?',[ids.creator,ids.person]))[0];assert.equal(connection.status,'approved');assert.equal(connection.permission,'creator');
   assert.equal(Number((await db.query('SELECT COUNT(*) AS n FROM member_role_grants WHERE account_id=?',[ids.creator]))[0].n),0);
   await store.acceptNamed('named-multiple-emails',ids.second);assert.equal(await store.read(alternate.raw),null);
   publicOnly(await store.readNamed('named-multiple-emails',ids.creator));
+ });
+ await t.test('accepted profile requires current account, complimentary membership and published affiliation',async()=>{
+  const expected={slug:'named-multiple-emails',display_name:'Creator named-multiple-emails'};
+  const restore=async()=>{
+   await db.query("UPDATE member_accounts SET status='active',email_verified_at=UTC_TIMESTAMP(6),archived_at=NULL WHERE id=?",[ids.creator]);
+   await db.query("UPDATE member_memberships SET level='subscriber',status='active',grant_source='complimentary',subscription_id=NULL,granted_by=?,starts_at=DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 1 DAY),ends_at=NULL WHERE account_id=?",[ids.owner,ids.creator]);
+   await db.query("UPDATE people SET publication_status='published',is_sample=FALSE,archived_at=NULL WHERE id=?",[ids.person]);
+   await db.query("UPDATE member_creator_connections SET status='approved' WHERE account_id=? AND person_id=?",[ids.creator,ids.person]);
+   await db.query('UPDATE creator_invitations SET consumed_at=UTC_TIMESTAMP(6),accepted_account_id=? WHERE id=?',[ids.creator,primary.id]);
+  };
+  const cases=[
+   ["UPDATE member_accounts SET status='suspended' WHERE id=?",[ids.creator]],
+   ['UPDATE member_accounts SET email_verified_at=NULL WHERE id=?',[ids.creator]],
+   ['UPDATE member_accounts SET archived_at=UTC_TIMESTAMP(6) WHERE id=?',[ids.creator]],
+   ["UPDATE member_memberships SET level='free',grant_source='free',granted_by=NULL WHERE account_id=?",[ids.creator]],
+   ["UPDATE member_memberships SET status='suspended' WHERE account_id=?",[ids.creator]],
+   ["UPDATE member_memberships SET status='expired' WHERE account_id=?",[ids.creator]],
+   ['UPDATE member_memberships SET starts_at=DATE_ADD(UTC_TIMESTAMP(6),INTERVAL 1 DAY) WHERE account_id=?',[ids.creator]],
+   ['UPDATE member_memberships SET ends_at=DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 1 SECOND) WHERE account_id=?',[ids.creator]],
+   ["UPDATE member_creator_connections SET status='revoked' WHERE account_id=? AND person_id=?",[ids.creator,ids.person]],
+   ["UPDATE member_creator_connections SET status='requested' WHERE account_id=? AND person_id=?",[ids.creator,ids.person]],
+   ["UPDATE people SET publication_status='draft' WHERE id=?",[ids.person]],
+   ['UPDATE people SET is_sample=TRUE WHERE id=?',[ids.person]],
+   ['UPDATE people SET archived_at=UTC_TIMESTAMP(6) WHERE id=?',[ids.person]],
+   ['UPDATE creator_invitations SET consumed_at=NULL,accepted_account_id=NULL WHERE id=?',[primary.id]],
+   ['UPDATE creator_invitations SET accepted_account_id=? WHERE id=?',[ids.other,primary.id]]
+  ];
+  for(const [sql,args] of cases){await restore();await db.query(sql,args);assert.equal(await store.acceptedProfile(ids.creator),null,sql);}
+  await restore();
+  const paid=randomUUID();await db.query("INSERT INTO member_subscriptions(id,account_id,provider,provider_subscription_id,status) VALUES(?,?,'stripe',?,'active')",[paid,ids.creator,'profile_paid_'+paid]);
+  await db.query("UPDATE member_memberships SET grant_source='payment',subscription_id=?,granted_by=NULL WHERE account_id=?",[paid,ids.creator]);assert.equal(await store.acceptedProfile(ids.creator),null,'Paid membership is not complimentary creator access.');await restore();await db.query('DELETE FROM member_subscriptions WHERE id=?',[paid]);
+  await db.query('UPDATE creator_invitations SET created_at=DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 2 DAY),expires_at=DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 1 DAY) WHERE id=?',[primary.id]);
+  await db.query("UPDATE member_accounts SET status='suspended',email_verified_at=NULL,archived_at=UTC_TIMESTAMP(6) WHERE id=?",[ids.owner]);
+  await db.query('UPDATE creator_invitation_settings SET owner_account_id=NULL WHERE id=1');
+  assert.deepEqual(await store.acceptedProfile(ids.creator),expected,'Accepted permanent access survives invitation expiry and owner changes.');
+  await db.query("UPDATE member_accounts SET status='active',email_verified_at=UTC_TIMESTAMP(6),archived_at=NULL WHERE id=?",[ids.owner]);await db.query('UPDATE creator_invitation_settings SET owner_account_id=? WHERE id=1',[ids.owner]);
  });
  await t.test('concurrent old-token and named acceptance consume exactly one invitation',async()=>{
   const invitation=await issue(ids.racePerson,'race@example.invalid');
@@ -134,7 +172,7 @@ test('real MariaDB creator-name privacy, email matching, token compatibility and
    const entry=await request('/invite/named-http-flow/',{method,headers:{Cookie:cookies()}});assert.equal(entry.status,303);assert.equal(entry.headers.get('location'),'/');capture(entry);
    assert.equal(jar.get('__Host-gold-creator-name'),'named-http-flow');assert.equal(jar.get('__Host-gold-creator-invite'),'');
    const home=await request('/',{method,headers:{Cookie:cookies()}});assert.equal(home.status,200);const homeHtml=await home.text();
-   if(method==='HEAD')assert.equal(homeHtml,'');else{assert.match(homeHtml,/Your complimentary creator invitation is waiting/);assert.match(homeHtml,/href="\/creator-invitation\/">Continue to your free creator account/);for(const secret of [invitation.id,invitation.raw,'http@example.invalid'])assert.equal(homeHtml.includes(secret),false);}
+   if(method==='HEAD')assert.equal(homeHtml,'');else{assert.match(homeHtml,/Your complimentary (?:Gold Trails Plus |creator )invitation is waiting/);assert.match(homeHtml,/href="\/creator-invitation\/">Continue to your free creator account/);for(const secret of [invitation.id,invitation.raw,'http@example.invalid'])assert.equal(homeHtml.includes(secret),false);}
    const clean=await request('/creator-invitation/',{method,headers:{Cookie:cookies(goodSession)}});assert.equal(clean.status,200);const html=await clean.text();
    if(method==='HEAD')assert.equal(html,'');else{assert.match(html,/Accept complimentary creator access/);assert.match(html,/action="\/creator-invitation\/"/);assert.match(html,new RegExp('name="csrf" value="'+csrf+'"'));assert.match(html,/normally \$5\/month/);}
    await assertPending();
@@ -143,12 +181,18 @@ test('real MariaDB creator-name privacy, email matching, token compatibility and
   assert.equal((await submit(wrongSession)).status,403);await assertPending();
   assert.equal((await db.query('SELECT level FROM member_memberships WHERE account_id=?',[ids.httpother]))[0].level,'free');
   assert.equal((await submit(goodSession,'https://other.example')).status,403);assert.equal((await submit(goodSession,origin,'0'.repeat(64))).status,403);await assertPending();
-  const accepted=await submit(goodSession);assert.equal(accepted.status,303);assert.equal(accepted.headers.get('location'),'/account/?creator=accepted');
+  const accepted=await submit(goodSession);assert.equal(accepted.status,303);assert.equal(accepted.headers.get('location'),'/?creator=accepted');
   const grant=(await db.query('SELECT level,status,grant_source,granted_by,ends_at,subscription_id FROM member_memberships WHERE account_id=?',[ids.http]))[0];
   assert.equal(grant.level,'subscriber');assert.equal(grant.status,'active');assert.equal(grant.grant_source,'complimentary');assert.equal(grant.granted_by,ids.owner);assert.equal(grant.ends_at,null);assert.equal(grant.subscription_id,null);
   const consumed=(await db.query('SELECT consumed_at,accepted_account_id FROM creator_invitations WHERE id=?',[invitation.id]))[0];assert.ok(consumed.consumed_at);assert.equal(consumed.accepted_account_id,ids.http);
   assert.equal(Number((await db.query("SELECT COUNT(*) AS n FROM creator_invitation_audit WHERE invitation_id=? AND action='accept'",[invitation.id]))[0].n),1);
   assert.equal(Number((await db.query('SELECT COUNT(*) AS n FROM member_role_grants WHERE account_id=?',[ids.http]))[0].n),0);
   assert.equal((await submit(goodSession)).status,410);assert.deepEqual(logs,[]);
+ });
+ await t.test('the latest accepted published creator profile is selected for this account',async()=>{
+  const invitation=await issue(ids.lifePerson,'creator@example.invalid');await store.accept(invitation.raw,ids.creator);
+  assert.deepEqual(await store.acceptedProfile(ids.creator),{slug:'named-lifecycle',display_name:'Creator named-lifecycle'});
+  await db.query('UPDATE people SET archived_at=UTC_TIMESTAMP(6) WHERE id=?',[ids.lifePerson]);
+  assert.deepEqual(await store.acceptedProfile(ids.creator),{slug:'named-multiple-emails',display_name:'Creator named-multiple-emails'},'An unpublished newer profile does not hide an older published accepted profile.');
  });
 });

@@ -16,7 +16,7 @@ import { searchCriteria } from './directory-store.js';
 import { directoryPage, profilePage, messagePage, page, escapeHtml } from './directory-views.js';
 import {videoLibraryFor,videoLibraryBody} from './creator-video-library.js';
 import {createGoldPriceFeed} from './gold-price.js';
-import {creatorInvitationHome} from './creator-invitations/context.js';
+import {creatorInvitationHome,creatorInvitationFlow} from './creator-invitations/context.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
@@ -43,6 +43,10 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
     // Invitation capabilities never enter public analytics or promotional wrappers.
     if(creatorInvitations&&await creatorInvitations(req,res,url))return;
     const invitationHome=req[creatorInvitationHome]===true;
+    // Serve the focused invitation journey before public event, promotion and
+    // suggestion wrappers can introduce unrelated links.
+    if(invitationHome&&homepage&&await homepage(req,res,url))return;
+    if(req[creatorInvitationFlow]&&members&&await members(req,res,url))return;
     if(guests&&await guests.handle(req,res,url))return;
     guests?.attach(req,res,url);
     if(['GET','HEAD'].includes(req.method)&&['/creators-experts','/creators-experts/','/creators-experts/index.html'].includes(path)){
