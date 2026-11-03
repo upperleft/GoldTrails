@@ -46,3 +46,14 @@
 html[data-reading-dark] .almanac-promo-footer{background:linear-gradient(120deg,#3b321f,#292b24);border-top-color:var(--night-line,#8c8064)}
 html[data-reading-dark] .plus-offer h3,html[data-reading-dark] .plus-offer-price{color:var(--night-gold,#ffda69)}
 html[data-reading-dark] .plus-offer-includes,html[data-reading-dark] .almanac-promo-features .almanac-feature-proof{color:var(--night-muted,#d2c5aa)}
+
+/* A quiet value label belongs only on the two Plus feature pages. */
+.category-page .category-intro .plus-feature-label{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;width:fit-content;max-width:100%;margin:.5rem 0 .75rem;padding:.25rem .7rem;border:1px solid #bba575;border-radius:6px;background:#f3e6c5;color:#513b23;font-size:.875rem;line-height:1.5;letter-spacing:0}
+.plus-feature-label>a{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.25rem;min-height:32px;color:inherit;text-decoration:underline;text-underline-offset:3px}
+.plus-feature-label strong{font-weight:700}
+.plus-feature-label-context{display:block;font-size:.8125rem;line-height:1.5}
+.plus-feature-label>a:focus-visible{outline:3px solid #896016;outline-offset:4px}
+html[data-reading-dark] .category-page .category-intro .plus-feature-label{background:var(--night-raised,#26342d)!important;color:var(--night-text,#f4ead2)!important;border-color:var(--night-line,#8c8064)!important}
+html[data-reading-dark] .plus-feature-label :is(a,strong,span){color:var(--night-text,#f4ead2)!important}
+html[data-reading-dark] .plus-feature-label>a:focus-visible{outline-color:var(--night-gold,#ffda69)}
+@media(max-width:650px){.category-page .category-intro .plus-feature-label{font-size:.875rem;padding:.3rem .6rem}.plus-feature-label>a{min-height:44px;gap:.15rem .25rem}}

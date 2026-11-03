@@ -2,6 +2,7 @@ import{attachReadingMarkup}from'./reading/handler.js';
 import{attachSiteNavigation}from'./site-navigation.js';
 import {createPlusHandler,attachPlusMarkup} from './plus/handler.js';
 import {hasPremiumFeature} from './plus/entitlements.js';
+import {attachFeatureLabel,featureLabelPage,featureLabelMember} from './plus/feature-label.js';
 import {guestPlusAccess} from './plus/guest-access.js';
 import http from 'node:http';
 import {attachAnalyticsMarkup} from './analytics/handler.js';
@@ -55,12 +56,23 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
     }
     if(connections?.attach)await connections.attach(req,res,url);
     attachReadingMarkup(req,res,url);
-    let navigationPremium=false;
+    let navigationPremium=false,labelMember=null,labelGuest=null;
+    const labelFeature=featureLabelPage(path);
     // Do not query membership for images, scripts, styles or anonymous requests.
     if(['GET','HEAD'].includes(req.method)&&!/^\/(?:api|admin)(?:\/|$)/.test(path)&&(!extname(path)||extname(path)==='.html')){
-      try {if(req.headers.cookie)navigationPremium=await hasPremiumFeature(req,{members:memberSessions,guests},'almanac');}
+      try {if(req.headers.cookie){
+        let navigationMembers=memberSessions;
+        if(labelFeature&&memberSessions){
+          try {labelMember=await featureLabelMember(req,memberSessions);}catch {log('Feature label membership check unavailable');}
+          // Reuse the same verified session for navigation rather than a second database read.
+          navigationMembers={session:async()=>labelMember};
+        }
+        navigationPremium=await hasPremiumFeature(req,{members:navigationMembers,guests},'almanac');
+        if(labelFeature)try {labelGuest=await guests?.read(req);}catch {/* A guest lookup failure must not change member access. */}
+      }}
       catch {log('Navigation membership check unavailable');}
     }
+    attachFeatureLabel(req,res,url,{feature:labelFeature,member:labelMember,guest:labelGuest});
     attachSiteNavigation(req,res,url,{premium:navigationPremium,creatorInvitation:invitationHome});
     if(!invitationHome)attachPlusMarkup(req,res,url,{premium:navigationPremium});
     if(suggestions){if(await suggestions(req,res,url))return;if(await suggestions.enabled())suggestions.attach(req,res,url);}
