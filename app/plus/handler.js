@@ -20,12 +20,12 @@ export function attachPlusMarkup(req,res,url,{premium=false}={}){
 }
 // Payment routes deliberately cannot charge. A real provider must be configured,
 // verified in test mode, and separately approved before this gate is changed.
-export function createPlusHandler(){return async(req,res,url)=>{
+export function createPlusHandler({billing=null}={}){return async(req,res,url)=>{
  const routes=['/plus/','/donate/','/billing/subscribe/','/billing/donate/','/billing/manage/','/billing/webhook/'];
  if(!routes.includes(url.pathname)&&!['/plus','/donate'].includes(url.pathname))return false;
  const send=(status,html,headers={})=>{res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff',...headers});res.end(req.method==='HEAD'?undefined:html);};
- if(url.pathname.startsWith('/billing/')){send(503,'<!doctype html><html lang="en"><meta charset="utf-8"><title>Payments are not open — Gold Trails</title><h1>Payments are not open yet</h1><p>No payment has been created or confirmed. <a href="/plus/">Return to Gold Trails Plus</a>.</p></html>');return true;}
+ if(url.pathname.startsWith('/billing/')){if(billing)return billing(req,res,url);send(503,'<!doctype html><html lang="en"><meta charset="utf-8"><title>Payments are not open — Gold Trails</title><h1>Payments are not open yet</h1><p>No payment has been created or confirmed. <a href="/plus/">Return to Gold Trails Plus</a>.</p></html>');return true;}
  if(!['GET','HEAD'].includes(req.method)){send(405,'Use GET or HEAD.',{Allow:'GET, HEAD'});return true;}
  if(!url.pathname.endsWith('/')){send(308,'',{Location:url.pathname+'/'});return true;}
- send(200,url.pathname==='/plus/'?plusPage():donationPage());return true;
+ send(200,url.pathname==='/plus/'?plusPage(billing?.offer?await billing.offer(req):{}):donationPage());return true;
 };}

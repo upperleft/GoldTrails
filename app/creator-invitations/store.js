@@ -66,8 +66,15 @@ export function createCreatorInvitationStore(db){
     const p=await creator(c,i.person_id);
     const m=(await c.query('SELECT level,status,grant_source,granted_by,starts_at,ends_at FROM member_memberships WHERE account_id=? FOR UPDATE',[a.id]))[0];
     if(!m||m.status==='suspended')throw new CreatorInvitationError('membership_suspended','Your membership needs owner review before this invitation can be accepted.',409);
-    const subscriptions=await c.query("SELECT id FROM member_subscriptions WHERE account_id=? AND status IN ('pending','active','trialing','past_due') FOR UPDATE",[a.id]);
+    const subscriptions=await c.query("SELECT id FROM member_subscriptions WHERE account_id=? AND status IN ('pending','active','trialing','past_due','incomplete','unpaid','paused','unknown') FOR UPDATE",[a.id]);
     if(subscriptions.length)throw new CreatorInvitationError('billing_resolution_required','Ask Paul to resolve your existing subscription before accepting complimentary creator access. This invitation has not been used.',409);
+    // Serialize with checkout reservation on the already locked member account.
+    // An open provider checkout can still charge even if its local expiry passed.
+    const billingReady=await c.query("SELECT version FROM schema_migrations WHERE version='016_stripe_billing'");
+    if(billingReady.length){
+     const checkouts=await c.query("SELECT id FROM billing_checkout_attempts WHERE account_id=? AND status IN ('creating','open') FOR UPDATE",[a.id]);
+     if(checkouts.length)throw new CreatorInvitationError('billing_resolution_required','Finish or cancel your existing checkout with Paul before accepting complimentary creator access. This invitation has not been used.',409);
+    }
     const affiliation=(await c.query('SELECT status,permission FROM member_creator_connections WHERE account_id=? AND person_id=? FOR UPDATE',[a.id,p.id]))[0];
     if(affiliation&&['revoked','rejected'].includes(affiliation.status))throw new CreatorInvitationError('affiliation_blocked','This creator association needs owner review before an invitation can be accepted.',409);
     if(!affiliation)await c.query("INSERT INTO member_creator_connections(account_id,person_id,status,permission,reviewed_by,reviewed_at,review_note) VALUES(?,?,'approved','creator',?,UTC_TIMESTAMP(6),'Accepted owner-issued creator invitation')",[a.id,p.id,o.id]);

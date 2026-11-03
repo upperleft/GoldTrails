@@ -1,5 +1,11 @@
 /* Shared refinements from the approved October 17 design review. */
 .site-mobile-menu{display:none}
+.site-resource-menu{max-width:32rem;margin:1rem auto;text-align:center}
+.site-resource-menu>summary{cursor:pointer;min-height:44px;padding:.6rem;font-weight:700}
+.site-resource-menu>nav{display:flex;justify-content:center;padding:.25rem;gap:1rem}
+.site-resource-menu>nav>a{display:inline-flex;align-items:center;min-height:44px;padding:.5rem 1rem;text-decoration:underline;text-underline-offset:3px}
+.site-games-discovery{margin:0 0 1.2rem;padding:1rem;border:1px solid var(--line);border-radius:6px;line-height:1.7}
+.site-games-discovery a{text-decoration:underline;text-underline-offset:3px;font-weight:700}
 .layout>.left{grid-column:1;grid-row:1}
 .layout>.center{grid-column:2;grid-row:1}
 .layout>.right{grid-column:3;grid-row:1}

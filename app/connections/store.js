@@ -1,6 +1,7 @@
 import {randomUUID} from 'node:crypto';
 import {ConnectionsError,occurrenceInputs,publicEvent} from './model.js';
 import {coverageStates} from './geography.js';
+import {paidSubscriptionPredicate} from '../billing/entitlements.js';
 const sqlTime=value=>value?new Date(value).toISOString().slice(0,23).replace('T',' '):null;
 const iso=value=>value?(value instanceof Date?value.toISOString():String(value).replace(' ','T').replace(/Z?$/,'Z')):null;
 const json=value=>typeof value==='string'?JSON.parse(value):value;
@@ -20,8 +21,9 @@ export function allocateRsvp(event,current,yesCount,now=Date.now()){
  if(event.waitlist)return 'waitlisted';
  throw new ConnectionsError('This event is full.',409);
 }
-export function createConnectionsStore(db,{vault,billingProvider='stripe'}={}){
+export function createConnectionsStore(db,{vault,billingProvider='stripe',billing=null}={}){
  if(!['stripe','stripe_test'].includes(billingProvider))throw Error('Invalid billing provider');
+ const paid=paidSubscriptionPredicate('s',billing);
  const tx=async fn=>{const c=await db.getConnection();try{await c.beginTransaction();const value=await fn(c);await c.commit();return value;}catch(e){await c.rollback();throw e;}finally{c.release();}};
  const audit=(c,account,event,action)=>c.query('INSERT INTO connection_audit(id,account_id,event_id,action) VALUES(?,?,?,?)',[randomUUID(),account,event,action]);
  const get=async(c,id)=>eventFromRow((await c.query(baseSelect+' WHERE e.id=?',[id]))[0]);
@@ -30,7 +32,7 @@ export function createConnectionsStore(db,{vault,billingProvider='stripe'}={}){
  const eventValues=(event,cipher)=>[event.state,event.title,event.status,event.visibility,event.mode,event.category,event.level,sqlTime(event.startUtc),sqlTime(event.endUtc),sqlTime(event.deadlineUtc),event.capacity,event.waitlist?1:0,JSON.stringify(Object.fromEntries(Object.entries(event).filter(([k])=>!['meeting','meetingCipher','id','organizerId','organizerName','revision','seriesId','yesCount','waitlistCount','imageId'].includes(k)))),cipher];
  const queue=(c,event,account,kind,revision=event.revision,due=null)=>c.query('INSERT IGNORE INTO connection_notifications(id,event_id,account_id,kind,event_revision,due_at) VALUES(?,?,?,?,?,?)',[randomUUID(),event.id,account,kind,kind==='new_event'?0:revision,sqlTime(due||new Date())]);
  // Eligibility is rechecked before delivery; complimentary access follows the same existing Plus rule.
- const eligible=`a.status='active' AND a.email_verified_at IS NOT NULL AND a.archived_at IS NULL AND m.level='subscriber' AND m.status='active' AND m.starts_at<=UTC_TIMESTAMP(6) AND (m.ends_at IS NULL OR m.ends_at>UTC_TIMESTAMP(6)) AND ((m.grant_source='complimentary' AND m.granted_by IS NOT NULL) OR (m.grant_source='payment' AND EXISTS(SELECT 1 FROM member_subscriptions s WHERE s.id=m.subscription_id AND s.account_id=a.id AND s.provider='${billingProvider}' AND s.status IN('active','trialing') AND s.current_period_start<=UTC_TIMESTAMP(6) AND s.current_period_end>UTC_TIMESTAMP(6))))`;
+ const eligible=`a.status='active' AND a.email_verified_at IS NOT NULL AND a.archived_at IS NULL AND m.level='subscriber' AND m.status='active' AND m.starts_at<=UTC_TIMESTAMP(6) AND (m.ends_at IS NULL OR m.ends_at>UTC_TIMESTAMP(6)) AND ((m.grant_source='complimentary' AND m.granted_by IS NOT NULL) OR (m.grant_source='payment' AND m.ends_at IS NOT NULL AND EXISTS(SELECT 1 FROM member_subscriptions s WHERE s.id=m.subscription_id AND s.account_id=a.id AND ${paid})))`;
  const activeAccount=async(c,account)=>Boolean((await c.query(`SELECT a.id FROM member_accounts a JOIN member_memberships m ON m.account_id=a.id WHERE a.id=? AND ${eligible}`,[account])).length);
  const notifyFollowers=async(c,event)=>{const codes=coverageStates(event.state,event.notificationRange).map(s=>s.code);await c.query(`INSERT IGNORE INTO connection_notifications(id,event_id,account_id,kind,event_revision,due_at) SELECT UUID(),?,f.account_id,'new_event',0,UTC_TIMESTAMP(6) FROM connection_follows f JOIN connection_preferences p ON p.account_id=f.account_id WHERE f.state_code IN(${codes.map(()=>'?').join(',')}) AND p.new_events=1 GROUP BY f.account_id`,[event.id,...codes]);};
  const notifyAttendees=async(c,event,kind,revision=event.revision)=>{await c.query(`INSERT IGNORE INTO connection_notifications(id,event_id,account_id,kind,event_revision,due_at) SELECT UUID(),?,r.account_id,?,?,UTC_TIMESTAMP(6) FROM connection_rsvps r WHERE r.event_id=? AND r.status IN('yes','waitlisted')`,[event.id,kind,revision,event.id]);};

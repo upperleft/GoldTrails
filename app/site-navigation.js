@@ -38,6 +38,10 @@ export function siteNavigationMarkup(html,{path='/',premium=false,creatorInvitat
  let found=false;
  let result=html.replace(menu,()=>{found=true;return `<section class="panel trail-menu" data-site-navigation><h2>At the field desk</h2><nav aria-label="Main navigation">${links}</nav>${readingSlot}</section>`;});
  if(!found)return html;
+ // A free discovery resource lives in the footer rather than adding a primary menu item.
+ const resources=`<details class="site-resource-menu"><summary>Resources</summary><nav aria-label="Resources"><a href="/gold-games/"${active('/gold-games/',path)?' aria-current="page"':''}>Gold Games</a></nav></details>`;
+ result=result.replace('</footer>',resources+'</footer>');
+ if(path==='/articles/')result=result.replace('<h1>Articles</h1>','<h1>Articles</h1><p class="site-games-discovery">Learning together? Explore <a href="/gold-games/">Gold Games</a> for free learning games, family tabletop picks, and real panning challenges.</p>');
  // The artwork homepage has its own main before the classic text homepage.
  result=result.replace(/<main\b(?![^>]*class="[^"]*home-graphical)[^>]*>/,match=>match+`<details class="site-mobile-menu"><summary>Menu</summary><nav aria-label="Main navigation">${links}</nav>${readingSlot}</details>`);
  return contentBeforeSidebar(result).replace('</head>',`<link rel="stylesheet" href="${assetUrl('design-refinements.css')}"></head>`);

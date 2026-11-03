@@ -20,7 +20,7 @@ import {creatorInvitationHome} from './creator-invitations/context.js';
 
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
-export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, guests = guestPlusAccess, plus = createPlusHandler(), creatorRepliesImport = null, creatorInvitations = null, suggestions = null, analytics = null, directory = null, admin = null, members = null, memberSessions = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler({guests}), root = resolve('dist'), log = console.error } = {}) {
+export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, guests = guestPlusAccess, billing = null, plus = createPlusHandler(), creatorRepliesImport = null, creatorInvitations = null, suggestions = null, analytics = null, directory = null, admin = null, members = null, memberSessions = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler({guests}), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
   function send(req, res, status, body, headers = {}) {
     res.writeHead(status, { 'Content-Type':'text/html; charset=utf-8', 'X-Content-Type-Options':'nosniff', 'Cache-Control':'no-store', ...headers });
@@ -38,6 +38,8 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
       return;
     }
+    // Read Stripe's exact signed body before analytics or any public wrapper.
+    if(billing&&await billing(req,res,url))return;
     // Private metadata imports never enter analytics, member sessions or public wrappers.
     if(creatorRepliesImport&&await creatorRepliesImport(req,res,url))return;
     // Invitation capabilities never enter public analytics or promotional wrappers.

@@ -26,6 +26,11 @@ import {createCreatorInvitationStore} from './app/creator-invitations/store.js';
 import {createCreatorInvitationHandler} from './app/creator-invitations/handler.js';
 import {createCreatorRepliesStore} from './app/creator-replies/store.js';
 import {createCreatorRepliesImportHandler} from './app/creator-replies/handler.js';
+import {billingScope,stripeConfig} from './app/billing/config.js';
+import {createBillingStore} from './app/billing/store.js';
+import {createStripeProvider} from './app/billing/provider.js';
+import {createBillingHandler} from './app/billing/handler.js';
+import {createPlusHandler} from './app/plus/handler.js';
 
 
 import {createProductWorkspace} from './app/product-workspace.js';
@@ -45,15 +50,20 @@ const creatorReplyMailbox=process.env.CREATOR_REPLY_MAILBOX;
 const creatorReplies=db?createCreatorRepliesStore(db,{mailbox:creatorReplyMailbox}):null;
 const creatorRepliesImport=createCreatorRepliesImportHandler({store:creatorReplies,mailbox:creatorReplyMailbox});
 const admin=createAdminHandler({workspace:productWorkspace,store:ownerStore,config,analyticsStore,suggestionStore,creatorInvitations:invitationStore,creatorReplies,creatorRepliesSyncConfigured:creatorRepliesImport.configured});
-const memberStore=db?createMemberStore(db):null, memberSettings=memberConfig();
+const subscriptionScope=billingScope();
+let stripeSettings=null;
+try{stripeSettings=stripeConfig();}catch{console.error('Gold Trails billing settings need attention');}
+const memberStore=db?createMemberStore(db,{billing:subscriptionScope}):null, memberSettings=memberConfig();
+const billingStore=db&&subscriptionScope?createBillingStore(db,subscriptionScope):null;
+const billing=createBillingHandler({store:billingStore,members:memberStore,provider:stripeSettings?createStripeProvider(stripeSettings):null,config:stripeSettings,invitations:invitationStore});
 const directory=db?createDirectoryStore(db):null;
 const members=createMemberHandler({store:memberStore,config:memberSettings,mail:memberMail(),invitations:invitationStore});
 const creatorInvitations=createCreatorInvitationHandler({store:invitationStore,members:memberStore,config:memberSettings});
 const products=createProductsHandler({store:productWorkspace,members:memberStore,config:memberSettings});
 const connectionsVault=meetingVault(process.env.CONNECTIONS_ENCRYPTION_KEY);
-const connections=createConnectionsHandler({store:db?createConnectionsStore(db,{vault:connectionsVault,billingProvider:'stripe'}):null,members:memberStore,owners:ownerStore,config:memberSettings,vault:connectionsVault,processPhoto:processEventPhoto,unsubscribe:unsubscribeLinks(process.env.CONNECTIONS_UNSUBSCRIBE_SECRET),calendarStore:db?createCalendarStore(db):null});
+const connections=createConnectionsHandler({store:db?createConnectionsStore(db,{vault:connectionsVault,billingProvider:'stripe',billing:subscriptionScope}):null,members:memberStore,owners:ownerStore,config:memberSettings,vault:connectionsVault,processPhoto:processEventPhoto,unsubscribe:unsubscribeLinks(process.env.CONNECTIONS_UNSUBSCRIBE_SECRET),calendarStore:db?createCalendarStore(db):null});
 const calendar=createCalendarHandler({members:memberStore,store:db?createCalendarStore(db):null,config:memberSettings});
-const server = createServer({ creatorRepliesImport, creatorInvitations, homepage:createHomepageHandler({members:memberStore,config:memberSettings}), connections, suggestions:createSuggestionsHandler({store:suggestionStore,origin:memberSettings?.origin||config?.origin}), analytics:createAnalyticsHandler({store:analyticsStore,origin:memberSettings?.origin||config?.origin}), calendar, members, memberSessions:memberStore, directory, admin, products, almanac:createAlmanacHandler({creators:createAlmanacCreators(directory),store:db?createAlmanacStore(db):null,members:memberStore,owners:ownerStore,log:console.error}) });
+const server = createServer({ billing, plus:createPlusHandler({billing}), creatorRepliesImport, creatorInvitations, homepage:createHomepageHandler({members:memberStore,config:memberSettings}), connections, suggestions:createSuggestionsHandler({store:suggestionStore,origin:memberSettings?.origin||config?.origin}), analytics:createAnalyticsHandler({store:analyticsStore,origin:memberSettings?.origin||config?.origin}), calendar, members, memberSessions:memberStore, directory, admin, products, almanac:createAlmanacHandler({creators:createAlmanacCreators(directory),store:db?createAlmanacStore(db):null,members:memberStore,owners:ownerStore,log:console.error}) });
 const port = Number(process.env.PORT || 3000);
 server.listen(port,'0.0.0.0',() => console.log(`Gold Trails listening on port ${port}`));
 for (const signal of ['SIGTERM','SIGINT']) process.on(signal,() => {

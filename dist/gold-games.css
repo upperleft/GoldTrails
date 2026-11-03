@@ -1,0 +1,95 @@
+.gold-games-page .layout{grid-template-columns:225px minmax(0,1fr)}
+.gold-games-page .center{min-width:0}
+.gold-games-page .category-intro h1{font-size:2.5rem;line-height:1.2}
+.gold-games-page .category-intro p{font-size:1.125rem;line-height:1.7;max-width:66ch}
+.gold-games-page .category-intro>div{max-width:850px}
+.games-jump{display:inline-block;margin-top:1rem;padding:.4rem 0;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.games-start,.games-directory,.games-competition,.games-home-activities,.games-about{margin-bottom:2rem;scroll-margin-top:1.5rem}
+.gold-games-page .center h2{font-size:1.6rem;line-height:1.35;margin-bottom:.75rem}
+.gold-games-page .center h3{font-size:1.18rem;line-height:1.4}
+.gold-games-page .center p{line-height:1.75}
+.games-start>p{margin-bottom:1rem}
+.games-pick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.games-pick-grid>div{background:#fff9eb;border:1px solid var(--line);border-radius:8px;padding:1rem 1.15rem}
+.games-pick-grid h3{margin-bottom:.5rem}
+.games-pick-grid a{display:block;min-height:44px;padding:.45rem 0;color:#754127;text-decoration:underline;text-underline-offset:3px}
+.games-section-heading{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap;margin:0 0 1rem}
+.games-section-heading h2{margin:.2rem 0 0!important}
+.games-format-links{display:flex;gap:.5rem;flex-wrap:wrap;align-items:stretch;margin:0 0 1rem}
+.games-format-links>a{border:1px solid var(--line);border-radius:5px;padding:.6rem .8rem;min-height:44px;background:#fff9eb;color:#613820;text-decoration:underline;font-size:1rem}
+.games-filters{border:1px solid var(--line);border-radius:8px;background:#eee2c6;padding:1.15rem;margin-bottom:1rem}
+.games-filters[hidden],.games-card[hidden],.games-empty[hidden],.games-print[hidden]{display:none}
+.games-filters label{font-size:1rem;line-height:1.5;font-weight:600;min-width:0}
+.games-filters input[type=search],.games-filters select{display:block;width:100%;min-width:0;min-height:46px;margin-top:.4rem;border:1px solid #9d8868;border-radius:4px;background:#fffdf5;color:#382b20;font:inherit;padding:.6rem .7rem}
+.games-format-options{border:0;padding:0;margin:1rem 0;display:flex;flex-wrap:wrap;gap:.4rem .8rem}
+.games-format-options legend{font-weight:700;margin-bottom:.45rem}
+.games-format-options legend span{font-weight:400}
+.games-format-options label,.games-older-control{display:flex;gap:.5rem;align-items:center;min-height:44px}
+.games-format-options input,.games-older-control input{width:20px;height:20px;flex-shrink:0;accent-color:#70402b}
+.games-more-filters{border-top:1px solid #cfb98d;padding:.7rem 0 0}
+.games-more-filters>summary,.games-evidence>summary{cursor:pointer;font-weight:700;min-height:44px;padding:.5rem 0}
+.games-filter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:.6rem 0}
+.games-filter-end{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:.7rem}
+.games-older-control{flex-wrap:wrap;column-gap:.5rem;row-gap:0;flex:1 1 320px}
+.games-older-control span{font-size:.9rem;font-weight:400;margin-left:1.75rem;flex-basis:100%}
+.games-filters button,.games-print,.games-empty button{font:inherit;font-weight:700;min-height:44px;border:1px solid #8d6d3b;border-radius:4px;padding:.5rem 1rem;background:#fff9eb;color:#613820;cursor:pointer}
+.gold-games-page :is(input,select,button,summary,a):focus-visible{outline:3px solid #896016;outline-offset:4px}
+.games-note,.games-maker,.games-theme,.games-evidence small{font-size:.92rem;line-height:1.65}
+.games-note{color:#62513b;margin:.75rem 0}
+#games-count{font-weight:700;margin:1rem 0}
+.games-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;align-items:start}
+.games-card{min-width:0;border:1px solid var(--line);border-radius:8px;background:#fff9eb;scroll-margin-top:1.5rem}
+.games-card>article{padding:1.15rem}
+.games-card-heading{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:.9rem}
+.games-card-heading>div{min-width:0}
+.games-icon{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border:1px solid #bba36c;border-radius:8px;background:#f0e0b8;color:#654b20;font-size:1.5rem;line-height:1}
+.games-theme{font-weight:700;color:#754127;margin-bottom:.3rem!important}
+.games-maker{margin-top:.4rem!important;color:#62513b}
+.games-card h3{overflow-wrap:anywhere}
+.games-status{font-size:.95rem;border-left:3px solid #97712e;padding:.3rem 0 .3rem .65rem;margin:.8rem 0!important}
+.games-status-upcoming,.games-status-older,.games-status-unavailable,.games-status-delisted{border-color:#8b4c34}
+.games-event{font-size:.95rem;margin:.7rem 0!important}
+.games-compatibility{font-size:.95rem;margin:.7rem 0!important}
+.games-facts{margin:1rem 0;font-size:.94rem}
+.games-facts>div{display:grid;grid-template-columns:95px minmax(0,1fr);gap:.65rem;padding:.4rem 0;border-bottom:1px solid #e3d5b8}
+.games-facts dt{font-weight:700}
+.games-facts dd{margin:0;overflow-wrap:anywhere}
+.games-actions{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin:.6rem 0}
+.games-actions>a{display:inline-block;min-height:44px;padding:.45rem 0;color:#754127;font-weight:700;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.games-evidence{border-top:1px solid var(--line);margin-top:.7rem;font-size:.95rem}
+.games-evidence p{margin:.7rem 0!important}
+.games-evidence ul{padding-left:1.2rem}
+.games-evidence li{margin:.8rem 0;overflow-wrap:anywhere}
+.games-evidence a{color:#754127;text-decoration:underline;text-underline-offset:3px}
+.games-evidence small{display:block;margin-top:.3rem}
+.games-empty{background:#fff9eb;padding:1.4rem;border:1px solid var(--line);border-radius:8px}
+.games-empty p{margin:.6rem 0!important}
+.games-competition{border:1px solid #abb29c;border-radius:8px;background:#e7eadb;padding:1.3rem;margin-top:2rem}
+.games-competition h2{margin:.4rem 0 .8rem!important}
+.games-competition>p{margin:.7rem 0!important}
+.games-home-activities{border-top:1px solid var(--line);padding-top:1.8rem}
+.games-activity-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem}
+.games-activity-grid article{padding:1.15rem;border:1px solid var(--line);border-radius:8px;background:#fff9eb}
+.games-activity-grid p{margin:.7rem 0 0!important}
+.games-about{border-top:1px solid var(--line);padding-top:1.5rem}
+.games-about p{margin:.7rem 0!important}
+.games-about a{color:#754127;text-decoration:underline;text-underline-offset:3px}
+.games-print-source{display:none}
+@media(max-width:1100px){.gold-games-page .layout{grid-template-columns:190px minmax(0,1fr)}.games-list{grid-template-columns:1fr}}
+@media(max-width:750px){.gold-games-page .layout{display:flex}.gold-games-page .category-intro h1{font-size:2rem}.games-pick-grid{grid-template-columns:1fr}.games-filters{padding:1rem}.games-filter-grid{grid-template-columns:1fr}.games-list{grid-template-columns:1fr}.games-card>article{padding:1rem}.games-facts>div{grid-template-columns:90px minmax(0,1fr)}.games-format-options{display:grid;gap:0}.games-format-links>a{font-size:.94rem}.games-section-heading{align-items:flex-start}}
+@media screen{
+ html[data-reading-dark] .gold-games-page :is(.games-pick-grid>div,.games-card,.games-empty,.games-activity-grid article,.games-format-links>a){background:var(--night-paper,#182522)!important;color:var(--night-text,#f2ead8)!important;border-color:var(--night-line,#51635b)!important}
+ html[data-reading-dark] .gold-games-page :is(.games-filters,.games-competition){background:var(--night-raised,#22342e)!important;color:var(--night-text,#f2ead8)!important;border-color:var(--night-line,#51635b)!important}
+ html[data-reading-dark] .gold-games-page :is(.games-note,.games-maker,.games-theme,.games-evidence small){color:var(--night-text,#f2ead8)!important}
+ html[data-reading-dark] .gold-games-page :is(.games-actions>a,.games-evidence a,.games-pick-grid a,.games-about a,.games-format-links>a,.games-jump){color:var(--night-gold,#f0ca70)!important}
+ html[data-reading-dark] .gold-games-page :is(input[type=search],select,button){background:var(--night-paper,#182522)!important;color:var(--night-text,#f2ead8)!important;border-color:var(--night-line,#51635b)!important}
+ html[data-reading-dark] .gold-games-page :is(.games-facts>div,.games-evidence,.games-more-filters){border-color:var(--night-line,#51635b)!important}
+ html[data-reading-dark] .gold-games-page .games-icon{background:#344638;color:#f0ca70;border-color:#9c8c57}
+ html[data-reading-dark] .gold-games-page :is(input,select,button,summary,a):focus-visible{outline-color:var(--night-gold,#f0ca70)}
+}
+@media print{
+ .gold-games-page header,.gold-games-page .announcement,.gold-games-page .breadcrumb,.gold-games-page .category-intro,.gold-games-page .site-mobile-menu,.gold-games-page .left,.gold-games-page footer,.gold-games-page .games-start,.gold-games-page .games-directory,.gold-games-page .games-competition,.gold-games-page .games-about,.games-print{display:none!important}
+ .gold-games-page main,.gold-games-page .layout,.gold-games-page .center{display:block;padding:0;margin:0;max-width:none;width:auto}
+ .gold-games-page{color:#000!important;background:#fff!important;font:11pt/1.45 Georgia,serif}
+ .games-home-activities{border:0;margin:0;padding:0}.games-activity-grid{display:block}.games-activity-grid article{background:#fff;border:1px solid #777;break-inside:avoid;margin:1rem 0;padding:1rem}.games-print-source{display:block;margin-top:1rem}
+}

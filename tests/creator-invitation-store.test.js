@@ -11,6 +11,8 @@ function fixture(overrides={}){
  const rows={owner:{id:ownerId,email:'owner@example.invalid',username:'owner'},account:{id:accountId,email:'creator@example.invalid',username:'creator'},invitation:{id:inviteId,target_email:'creator@example.invalid',person_id:personId,invited_by:ownerId},membership:{level:'free',status:'active',grant_source:'free'},subscriptions:[],affiliation:null,...overrides};
  const query=async(sql,args=[])=>{
   queries.push([sql,args]);
+  if(sql.includes("version='016_stripe_billing'"))return overrides.billingReady?[{version:'016_stripe_billing'}]:[];
+  if(sql.startsWith('SELECT id FROM billing_checkout_attempts'))return overrides.checkouts||[];
   if(sql.includes('FROM creator_invitation_settings WHERE id=1 FOR UPDATE'))return[{owner_account_id:ownerId}];
   if(sql.startsWith('SELECT id,email,username FROM member_accounts WHERE id='))return[args[0]===ownerId?rows.owner:rows.account].filter(Boolean);
   if(sql.startsWith('SELECT id,email,username FROM member_accounts WHERE email='))return rows.owner?[rows.owner]:[];
@@ -18,7 +20,7 @@ function fixture(overrides={}){
   if(sql.startsWith('SELECT id,target_email,person_id,invited_by FROM creator_invitations'))return rows.invitation?[rows.invitation]:[];
   if(sql.startsWith('SELECT expires_at'))return[{expires_at:'2030-01-14 00:00:00.000000'}];
   if(sql.startsWith('SELECT level,status,grant_source'))return rows.membership?[rows.membership]:[];
-  if(sql.startsWith('SELECT id FROM member_subscriptions'))return rows.subscriptions;
+  if(sql.startsWith('SELECT id FROM member_subscriptions'))return rows.subscriptions.filter(row=>!row.status||sql.includes("'"+row.status+"'"));
   if(sql.startsWith('SELECT status,permission FROM member_creator_connections'))return rows.affiliation?[rows.affiliation]:[];
   if(overrides.failAudit&&sql.startsWith('INSERT INTO member_audit_log'))throw new Error('simulated database failure');
   return{affectedRows:1};
@@ -57,6 +59,34 @@ test('ongoing subscription prevents free conversion before any write',async()=>{
  const {store,queries}=fixture({subscriptions:[{id:'existing-subscription'}]});
  await assert.rejects(()=>store.accept(raw,accountId),failure('billing_resolution_required'));
  assert.equal(queries.some(([sql])=>/^(UPDATE|INSERT)/.test(sql)),false);
+});
+test('resumable, unpaid, incomplete and unknown billing states cannot become free creator access',async()=>{
+ for(const status of ['pending','active','trialing','past_due','incomplete','unpaid','paused','unknown']){
+  const {store,queries,state}=fixture({subscriptions:[{id:'existing-subscription',status}]});
+  await assert.rejects(()=>store.accept(raw,accountId),failure('billing_resolution_required'),status);
+  assert.equal(queries.some(([sql])=>/^(UPDATE|INSERT)/.test(sql)),false,status);
+  assert.deepEqual(state(),{committed:0,rolledBack:1,released:1},status);
+ }
+});
+test('terminal subscription records do not prevent accepting a creator invitation',async()=>{
+ for(const status of ['canceled','expired','incomplete_expired']){
+  const {store,state}=fixture({subscriptions:[{id:'ended-subscription',status}]});
+  await store.accept(raw,accountId);assert.equal(state().committed,1,status);
+ }
+});
+test('unresolved provider checkout blocks creator conversion under the same account lock',async()=>{
+ for(const status of ['creating','open']){
+  const {store,queries,state}=fixture({billingReady:true,checkouts:[{id:'unresolved',status}]});
+  await assert.rejects(()=>store.accept(raw,accountId),failure('billing_resolution_required'));
+  const accountLock=queries.findIndex(([sql,args])=>sql.startsWith('SELECT id,email,username FROM member_accounts WHERE id=')&&args[0]===accountId);
+  const checkoutLock=queries.findIndex(([sql])=>sql.startsWith('SELECT id FROM billing_checkout_attempts'));
+  assert.ok(accountLock>=0&&checkoutLock>accountLock);
+  assert.match(queries[checkoutLock][0],/FOR UPDATE/);
+  assert.equal(queries.some(([sql])=>/^(UPDATE|INSERT)/.test(sql)),false);
+  assert.equal(state().rolledBack,1);
+ }
+ const prior=fixture();await prior.store.accept(raw,accountId);
+ assert.equal(prior.queries.some(([sql])=>sql.includes('FROM billing_checkout_attempts')),false);
 });
 test('suspended membership and revoked creator affiliations require owner review',async()=>{
  for(const [overrides,code] of [[{membership:{status:'suspended'}},'membership_suspended'],[{affiliation:{status:'revoked',permission:'creator'}},'affiliation_blocked']]){
