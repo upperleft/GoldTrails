@@ -86,7 +86,7 @@ test('guest plus a free account grants no event creation, RSVP, discussion or up
 
 test('a real paid member with a guest cookie retains normal controls, RSVP and confirmed attendee details',async t=>{
  const {request,plusId}=await setup(t),path=eventUrl(plusId);
- let html=await(await request(path,{role:'member'})).text();assert.match(html,/RSVP Yes/);assert.match(html,/Create an event · Plus/);assert.doesNotMatch(html,/Welcome to your Plus guest tour|PRIVATE TEST PASSCODE/);
+ let html=await(await request(path,{role:'member'})).text();assert.match(html,/RSVP Yes/);assert.match(html,/class="gold-button connections-create-event"[^>]*>Create an event<\/a>/);assert.doesNotMatch(html,/Welcome to your Plus guest tour|PRIVATE TEST PASSCODE/);
  assert.equal((await request(path+'rsvp/',{role:'member',post:{action:'yes'}})).status,303);
  html=await(await request(path,{role:'member'})).text();assert.match(html,/PRIVATE TEST ADDRESS|PRIVATE TEST PASSCODE/);assert.match(html,/Cancel my RSVP/);
  assert.equal((await request(path+'comments/',{role:'member',post:{body:'A real member comment',kind:'comment'}})).status,303);

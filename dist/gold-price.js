@@ -1,9 +1,17 @@
 (() => {
  const menu=document.querySelector('.left .trail-menu');
  if(!menu || document.body.classList.contains('admin-editor')) return;
+ const slot=document.querySelector('.home-gold-price-slot');
+ const desktop=slot&&typeof window.matchMedia==='function'?window.matchMedia('(min-width: 1280px) and (hover: hover) and (pointer: fine)'):null;
  const box=document.createElement('section');box.className='gold-price-box';box.setAttribute('aria-labelledby','gold-price-title');
- box.innerHTML='<div class="gold-price-heading"><span aria-hidden="true">✦</span><h3 id="gold-price-title">Gold price</h3></div><p class="gold-price-unit">Spot reference · USD</p><dl><div><dt>Per troy ounce</dt><dd data-gold-ounce>—</dd></div><div><dt>Per gram</dt><dd data-gold-gram>—</dd></div></dl><p class="gold-price-status" role="status">Checking price…</p><p class="gold-price-date" hidden>Feed updated <time></time></p><a class="gold-price-source" href="https://goldpricezone.com/widget" target="_blank" rel="noopener noreferrer" data-help="View the gold-price feed source in a new tab. This is a spot reference for pure gold, not a quote for selling natural nuggets. One troy ounce is 31.1034768 grams.">Source: GoldPriceZone ↗</a>';
- menu.append(box);
+ box.innerHTML='<div class="gold-price-heading"><span aria-hidden="true">✦</span><h3 id="gold-price-title">Gold price</h3></div><p class="gold-price-unit">Spot reference · USD</p><dl><div><dt>Per troy ounce</dt><dd data-gold-ounce>—</dd></div><div><dt>Per gram</dt><dd data-gold-gram>—</dd></div></dl><p class="gold-price-status" role="status">Checking price…</p><p class="gold-price-date" hidden><span class="gold-price-date-prefix">Feed updated </span><time></time></p><a class="gold-price-source" href="https://gold-api.com/" target="_blank" rel="noopener noreferrer" data-help="View the gold-price feed source in a new tab. This is a spot reference for pure gold, not a quote for selling natural nuggets. One troy ounce is 31.1034768 grams.">Source: Gold API ↗</a>';
+ const relocate=()=>{const target=slot&&desktop?.matches&&!document.body.classList.contains('home-text-mode')?slot:menu;if(box.parentNode!==target)target.append(box);};
+ relocate();
+ if(slot){
+  if(desktop?.addEventListener)desktop.addEventListener('change',relocate);else desktop?.addListener?.(relocate);
+  if(typeof MutationObserver==='function')new MutationObserver(relocate).observe(document.body,{attributes:true,attributeFilter:['class']});
+  window.addEventListener('resize',relocate);
+ }
  const ounce=box.querySelector('[data-gold-ounce]'),gram=box.querySelector('[data-gold-gram]'),status=box.querySelector('.gold-price-status'),date=box.querySelector('.gold-price-date'),time=box.querySelector('time'),money=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2});
  const maxAge=72*60*60_000;let last=null,busy=false,timer;
  function render(quote,failed=false){

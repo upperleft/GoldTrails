@@ -2,6 +2,8 @@
 
 The customer header offers Reading options beside Login / My account on full site pages. app/reading/handler.js injects the shared controls; admin pages and API responses are excluded. Without JavaScript visitors retain the original site.
 
+The shared disclosure uses a compact grid with a separate Aa mark, wrapping label and centered CSS chevron. Desktop controls have a 40px minimum height; narrow/touch layouts retain a 44px minimum. The illustrated homepage keeps its smaller utility-row treatment and the same chevron alignment. Opening the native details disclosure reverses the chevron, while keyboard focus and the existing reading settings are preserved.
+
 Choices: text size 100%, 115%, 130%, 150%, 175%, 200%; bolder text; stronger contrast; more line spacing; simple Arial font. Reset restores original styles. Escape and Done close the panel and return focus. The panel scrolls within small viewports. Larger text reflows columns and the hero.
 
 Settings use sessionStorage only, remain during navigation/reloads in the same tab, and are not saved to accounts or sent to the server. Browser session restoration can retain a tab's settings. Reset clears them. Storage denial still permits current-page controls.

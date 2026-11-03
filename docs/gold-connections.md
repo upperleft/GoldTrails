@@ -1,5 +1,7 @@
 # Gold Connections — implementation and release boundaries
 
+Plus members, including complimentary creators, have a prominent **Create an event** action above the directory filters and in its empty state. Free and anonymous visitors receive membership or sign-in guidance. Organizer manage pages explain how to publish a draft or change a Plus-only event to public visibility. Published public events expose a canonical event link with a deliberate Copy action and manual-copy fallback; drafts, restricted, cancelled and moderated records do not expose that sharing control. Copying a link never sends email or event invitations.
+
 Brief received October 16, 2026. This is an addition to the existing Node 22/MariaDB application, not a new site or membership. The public directory, state groups and public event details are free; create/RSVP/discuss/state-follow actions use the existing effective Plus entitlement. Free members retain cancellation, unsubscribe and privacy controls. The personal calendar remains private and free.
 
 ## Infrastructure assessment and plan

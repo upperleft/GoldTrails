@@ -1,14 +1,16 @@
 // Public, attributed spot reference. No member data or credentials are sent upstream.
 export const gramsPerTroyOunce = 31.1034768;
-export const goldPriceSource = 'https://goldpricezone.com/widget';
-const endpoint = 'https://goldpricezone.com/api/public/widget-data';
+// Gold API documents this live XAU/USD endpoint as free, without a key, and per troy ounce.
+// https://gold-api.com/docs · https://gold-api.com/faqs (checked November 3, 2026).
+export const goldPriceSource = 'https://gold-api.com/';
+const endpoint = 'https://api.gold-api.com/price/XAU/USD';
 const refreshMs = 60_000, delayedMs = 15 * 60_000, maxAgeMs = 72 * 60 * 60_000;
 
 export function normalizeGoldPrice(data, now = Date.now()) {
- const price = data?.metals?.gold, asOf = Date.parse(data?.updated);
- if(data?.base !== 'USD' || typeof price !== 'number' || !Number.isFinite(price) || price <= 0 || price > 10_000_000 || !Number.isFinite(asOf) || asOf > now + 300_000 || now - asOf > maxAgeMs) throw new Error('Invalid gold-price feed');
+ const price = data?.price, asOf = Date.parse(data?.updatedAt);
+ if(data?.symbol !== 'XAU' || data?.currency !== 'USD' || typeof price !== 'number' || !Number.isFinite(price) || price <= 0 || price > 10_000_000 || !Number.isFinite(asOf) || asOf > now + 300_000 || now - asOf > maxAgeMs) throw new Error('Invalid gold-price feed');
  if(data.gramsPerTroyOunce !== undefined && (typeof data.gramsPerTroyOunce !== 'number' || Math.abs(data.gramsPerTroyOunce - gramsPerTroyOunce) > 0.000001)) throw new Error('Unexpected gold-price weight unit');
- return {currency:'USD',perTroyOunce:price,perGram:price / gramsPerTroyOunce,asOf:new Date(asOf).toISOString(),source:'GoldPriceZone',sourceUrl:goldPriceSource};
+ return {currency:'USD',perTroyOunce:price,perGram:price / gramsPerTroyOunce,asOf:new Date(asOf).toISOString(),source:'Gold API',sourceUrl:goldPriceSource};
 }
 
 export function createGoldPriceFeed({fetchImpl = fetch, now = Date.now} = {}) {
