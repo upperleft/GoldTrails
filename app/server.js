@@ -17,8 +17,9 @@ import { directoryPage, profilePage, messagePage, page, escapeHtml } from './dir
 import {videoLibraryFor,videoLibraryBody} from './creator-video-library.js';
 import {createGoldPriceFeed} from './gold-price.js';
 import {creatorInvitationHome,creatorInvitationFlow} from './creator-invitations/context.js';
+import {articleAudioMarkup} from './article-audio.js';
 
-const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon' };
+const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon', '.mp3':'audio/mpeg' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
 export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, guests = guestPlusAccess, billing = null, plus = createPlusHandler(), creatorRepliesImport = null, creatorInvitations = null, suggestions = null, analytics = null, directory = null, admin = null, members = null, memberSessions = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler({guests}), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
@@ -191,8 +192,26 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       const actualFile = await realpath(file);
       if (!actualFile.startsWith(root + sep)) { send(req,res,403,'Forbidden'); return; }
       const data = await readFile(actualFile);
+      if (extname(file) === '.mp3') {
+        const headers = {'Content-Type':'audio/mpeg','X-Content-Type-Options':'nosniff','Accept-Ranges':'bytes','Content-Length':data.length};
+        const range = req.headers.range;
+        if (range && !req.headers['if-range']) {
+          const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+          let start = match?.[1] ? Number(match[1]) : 0;
+          let end = match?.[2] ? Number(match[2]) : data.length - 1;
+          if (match && !match[1] && match[2]) {start = Math.max(0, data.length - end); end = data.length - 1;}
+          if (!match || (!match[1] && !match[2]) || !Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start < 0 || start >= data.length || end < start) {
+            res.writeHead(416, {...headers,'Content-Range':`bytes */${data.length}`,'Content-Length':0}); res.end(); return;
+          }
+          end = Math.min(end, data.length - 1);
+          res.writeHead(206, {...headers,'Content-Range':`bytes ${start}-${end}/${data.length}`,'Content-Length':end - start + 1});
+          res.end(req.method === 'HEAD' ? undefined : data.subarray(start, end + 1)); return;
+        }
+        res.writeHead(200, headers); res.end(req.method === 'HEAD' ? undefined : data); return;
+      }
+      const output = extname(file) === '.html' ? articleAudioMarkup(data.toString('utf8'), path) : data;
       res.writeHead(200,{ 'Content-Type':types[extname(file)] || 'application/octet-stream', 'X-Content-Type-Options':'nosniff' });
-      res.end(req.method === 'HEAD' ? undefined : data);
+      res.end(req.method === 'HEAD' ? undefined : output);
     } catch { send(req,res,404,messagePage('Trail not found','That page is not available.')); }
   });
   server.on('close', () => { calendar?.close?.().catch(() => {}); });

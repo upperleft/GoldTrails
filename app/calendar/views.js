@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { page, escapeHtml as h } from '../directory-views.js';
+import { featureAudio, attachFeatureAudioAssets } from '../feature-audio.js';
 
 const version = (guest = false) => createHash('sha256')
   .update(readFileSync(new URL('../../dist/calendar.js', import.meta.url)))
@@ -62,12 +63,12 @@ export function calendarPage({ csrf = '', member = null } = {}) {
       <section class="calendar-display-settings">${field('Display time zone', '<input id="calendar-display-zone" list="calendar-timezones" maxlength="100" autocomplete="off" value="America/New_York">')}<button type="button" class="calendar-text-button" id="calendar-apply-zone">Apply time zone</button><p class="calendar-help">All-day plans keep their date. Timed plans display in this time zone.</p></section>
       <div class="calendar-sidebar-note"><span aria-hidden="true">✦</span><p>${name ? `${h(name)}, this` : 'This'} is your private planner. Add your own plans, meetings, and days in the field.</p></div>
     </aside>
-    <div class="calendar-workspace"><p class="calendar-instructions">Click or tap a day, or choose <strong>New event</strong>, to add your plans. Fill in the details and select <strong>Save event</strong>.</p><div class="calendar-toolbar"><div class="calendar-date-navigation"><button type="button" class="calendar-icon-button" id="calendar-previous" aria-label="Previous date range">‹</button><h2 id="calendar-range-title" aria-live="polite">Your calendar</h2><button type="button" class="calendar-icon-button" id="calendar-next" aria-label="Next date range">›</button></div><div class="calendar-view-controls" role="group" aria-label="Calendar view"><button type="button" data-view="dayGridMonth" aria-pressed="true">Month</button><button type="button" data-view="timeGridWeek" aria-pressed="false">Week</button><button type="button" data-view="timeGridDay" aria-pressed="false">Day</button><button type="button" data-view="listMonth" aria-pressed="false">Agenda</button></div></div>
+    <div class="calendar-workspace"><div class="feature-audio-guide"><p class="calendar-instructions">Click or tap a day, or choose <strong>New event</strong>, to add your plans. Fill in the details and select <strong>Save event</strong>.</p>${featureAudio({id: 'calendar-introduction', title: 'the Old-Timer’s calendar introduction', src: '/assets/audio/calendar-introduction.mp3', transcript: 'Got a day on the river in mind? Click or tap a day on your calendar, or choose New event. Add your details, then select Save event. Your plans stay private, and you can come back to edit them anytime.'})}</div><div class="calendar-toolbar"><div class="calendar-date-navigation"><button type="button" class="calendar-icon-button" id="calendar-previous" aria-label="Previous date range">‹</button><h2 id="calendar-range-title" aria-live="polite">Your calendar</h2><button type="button" class="calendar-icon-button" id="calendar-next" aria-label="Next date range">›</button></div><div class="calendar-view-controls" role="group" aria-label="Calendar view"><button type="button" data-view="dayGridMonth" aria-pressed="true">Month</button><button type="button" data-view="timeGridWeek" aria-pressed="false">Week</button><button type="button" data-view="timeGridDay" aria-pressed="false">Day</button><button type="button" data-view="listMonth" aria-pressed="false">Agenda</button></div></div>
       <div class="calendar-search-row">${field('Search this date range', '<input type="search" id="calendar-search" maxlength="200" placeholder="Find an event, place, or note">')}<span id="calendar-event-count" role="status"></span></div>
       <p id="calendar-notice" class="calendar-notice" role="status" hidden></p><div id="calendar-status" class="calendar-status" role="status">Opening your field planner…</div><div id="calendar-board" aria-label="Calendar events"></div>
       <p class="calendar-workspace-note">Select a day to make a plan. Select an event to edit it. Your changes are saved to your Gold Trails account.</p>
     </div></section>${dialogs()}<noscript><p class="calendar-notice">The interactive calendar needs JavaScript. You can still <a href="/account/">visit your account</a> or <a href="/articles/">explore the field library</a>.</p></noscript>`;
-  return shell('Your trail calendar', content, true, true);
+  return attachFeatureAudioAssets(shell('Your trail calendar', content, true, true));
 }
 
 export function calendarPreview() {
