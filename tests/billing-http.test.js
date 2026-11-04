@@ -34,6 +34,19 @@ test('subscribe requires authenticated session, exact Origin, double CSRF and fi
  assert.equal((await f.post('/billing/subscribe/',{csrf,priceId:'price_other'})).status,400);assert.deepEqual(f.calls,[]);
  const r=await f.post('/billing/subscribe/');assert.equal(r.status,303);assert.equal(r.headers.get('location'),'https://checkout.stripe.com/c/pay/fixture');assert.deepEqual(f.calls,['reserve','create','checkout','finish','checkout']);
 });
+test('billing form policy permits hosted Stripe redirects while keeping other origins blocked',async t=>{
+ const f=await fixture(t),overview=await f.request('/billing/');
+ const policy=overview.headers.get('content-security-policy'),directives=new Map(policy.split(';').map(value=>value.trim().split(/\s+/)).filter(parts=>parts[0]).map(([name,...sources])=>[name,sources]));
+ const sources=directives.get('form-action');
+ assert.deepEqual(new Set(sources),new Set(["'self'",'https://checkout.stripe.com','https://billing.stripe.com']));
+ assert.deepEqual(directives.get('default-src'),["'self'"]);assert.deepEqual(directives.get('script-src'),["'self'"]);assert.deepEqual(directives.get('frame-ancestors'),["'none'"]);assert.deepEqual(directives.get('base-uri'),["'none'"]);
+ for(const path of ['/billing/subscribe/','/billing/manage/']){
+  const response=await f.post(path);assert.equal(response.status,303);
+  assert.ok(sources.includes(new URL(response.headers.get('location')).origin),'The form policy must allow the actual hosted redirect destination.');
+  assert.equal(response.headers.get('content-security-policy'),policy);
+ }
+ for(const origin of ['https://attacker.invalid','https://checkout.stripe.com.attacker.invalid','https://untrusted.stripe.com','http://checkout.stripe.com','https://billing.stripe.com:8443'])assert.equal(sources.includes(origin),false);
+});
 test('complimentary creators and pending invitation holders are kept out of paid checkout',async t=>{
  const creator=await fixture(t,{state:{membership:{grant_source:'complimentary',status:'active'}}});assert.equal((await creator.post('/billing/subscribe/')).status,409);assert.deepEqual(creator.calls,[]);
  const pending=await fixture(t,{invitations:{ready:async()=>true,read:async()=>({})}});assert.equal((await pending.post('/billing/subscribe/',{csrf},{Cookie:`__Host-gold-member=${rawSession}; __Host-gold-form=${csrf}; __Host-gold-creator-invite=${'d'.repeat(64)}`})).status,409);assert.deepEqual(pending.calls,[]);

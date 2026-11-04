@@ -33,7 +33,8 @@ export function createBillingHandler({store=null,members=null,provider=null,conf
  };
  const handler=async(req,res,url)=>{
   if(!url.pathname.startsWith('/billing'))return false;
-  const send=(status,title,content,headers={})=>{res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'",Vary:'Cookie',...headers});res.end(req.method==='HEAD'?undefined:shell(title,content));};
+  // Safari also checks form-action against the hosted destination after our 303.
+  const send=(status,title,content,headers={})=>{res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; form-action 'self' https://checkout.stripe.com https://billing.stripe.com; base-uri 'none'",Vary:'Cookie',...headers});res.end(req.method==='HEAD'?undefined:shell(title,content));};
   const redirect=destination=>send(303,'Continue to billing','',{Location:destination});
   const json=(status,payload)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(payload));};
   if(!routes.has(url.pathname)){if(routes.has(url.pathname+'/')&&['GET','HEAD'].includes(req.method)){send(308,'Billing','',{Location:url.pathname+'/'});return true;}return false;}
