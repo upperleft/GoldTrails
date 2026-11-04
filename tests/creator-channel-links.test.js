@@ -28,7 +28,7 @@ test('six new checked channels are shown prominently without replacing existing 
 });
 test('prominent links distinguish source videos from channels and preserve the original 84 profiles alongside Canadian additions',()=>{
  const roster=creatorCatalog(),previous=roster.filter(p=>!canadianAdditions.has(p.slug));assert.equal(previous.length,84);
- assert.equal(previous.filter(p=>creatorYoutubeDestination(p)).length,75);
+ assert.equal(previous.filter(p=>creatorYoutubeDestination(p)).length,79);
  assert.equal(roster.length,previous.length+canadianAdditions.size);
  for(const slug of canadianAdditions)assert.equal(creatorYoutubeDestination(roster.find(p=>p.slug===slug)).isChannel,true,slug);
  assert.match(creatorYoutubeLink({official_url:'https://www.youtube.com/watch?v=Abcd_123-XY'}),/Related video on YouTube/);

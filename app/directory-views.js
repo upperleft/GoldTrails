@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import {videoLibraryLink,videoLibraryAssets} from './creator-video-library.js';
-import {creatorYoutubeLink} from './creator-channel-links.js';
+import {creatorYoutubeLink,creatorVideoLink,creatorSiteVideosLink} from './creator-channel-links.js';
 import {assetUrl} from './asset-url.js';
 // Hostinger loads the entry through require(), so startup must remain synchronous.
 const shell = readFileSync(new URL('./page-shell.html', import.meta.url), 'utf8');
@@ -47,7 +47,7 @@ function directoryContext() {
 export function directoryPage(criteria,result) {
  const select=(name,label,items)=>'<label>'+label+'<select name="'+name+'"><option value="">All '+label.toLowerCase()+'</option>'+items.map(x=>'<option value="'+escapeHtml(x.slug)+'"'+(criteria[name]===x.slug?' selected':'')+'>'+escapeHtml(x.name)+'</option>').join('')+'</select></label>';
  const search='<form class="directory-search" action="/prospectors/" method="get"><label class="search-keyword">Search creators<input name="q" type="search" maxlength="100" value="'+escapeHtml(criteria.q)+'" placeholder="Name, topic, region, or channel"></label>'+select('topic','Topics',result.topics)+select('region','Regions',result.regions)+((result.specialties||[]).length?select('specialty','Specialties',result.specialties):'')+'<button class="gold-button" type="submit">Find creators</button><a href="/prospectors/">Clear search</a></form>';
- const cards=result.people.map(p=>'<article class="article-card"><div class="article-content"><h2><a href="/prospectors/'+encodeURIComponent(p.slug)+'/">'+escapeHtml(p.display_name)+'</a></h2>'+(p.primary_region?'<p class="profile-region directory-region">⌖ '+escapeHtml(p.primary_region)+'</p>':'')+(creatorDescription(p.short_introduction)?'<p>'+escapeHtml(creatorDescription(p.short_introduction))+'</p>':'')+'<a href="/prospectors/'+encodeURIComponent(p.slug)+'/">View creator profile →</a>'+videoLibraryLink(p.slug,p.display_name)+'</div></article>').join('');
+ const cards=result.people.map(p=>'<article class="article-card"><div class="article-content"><h2><a href="/prospectors/'+encodeURIComponent(p.slug)+'/">'+escapeHtml(p.display_name)+'</a></h2>'+(p.primary_region?'<p class="profile-region directory-region">⌖ '+escapeHtml(p.primary_region)+'</p>':'')+(creatorDescription(p.short_introduction)?'<p>'+escapeHtml(creatorDescription(p.short_introduction))+'</p>':'')+'<a href="/prospectors/'+encodeURIComponent(p.slug)+'/">View creator profile →</a>'+creatorVideoLink(p)+'</div></article>').join('');
  const filtered=criteria.q||criteria.topic||criteria.region||criteria.specialty;
  const empty=section(filtered?'No matching creators yet':'The campfire is taking shape','<p>'+(filtered?'Try a different name, topic, or region, or clear your search.':'Our first researched profiles will appear here as they are ready.')+'</p><a href="/articles/">Browse articles</a>');
  const pageLink=number=>{const params=new URLSearchParams({q:criteria.q,topic:criteria.topic,region:criteria.region,specialty:criteria.specialty||'',page:String(number)});return '/prospectors/?'+escapeHtml(params.toString());};
@@ -61,7 +61,7 @@ export function profilePage(p) {
  const summary=creatorDescription(p.short_introduction);
  const location=p.primary_region||[p.state_province,p.country_code].filter(hasValue).join(', ');
  const roles=list(p.roles||[]);
- const actions=creatorYoutubeLink(p)+videoLibraryLink(p.slug,p.display_name);
+ const actions=creatorYoutubeLink(p)+videoLibraryLink(p.slug,p.display_name)+creatorSiteVideosLink(p);
  const intro='<section class="profile-summary" aria-label="Creator channels and location"><div>'+(roles?'<p class="profile-role">'+escapeHtml(roles)+'</p>':'')+'<p class="profile-region">⌖ '+escapeHtml(location||'Location unknown at this time')+'</p>'+(actions?'<div class="profile-actions">'+actions+'</div>':'')+(topicButtons?'<div class="topic-buttons">'+topicButtons+'</div>':'')+'</div></section>';
  const instruction=p.offers_instruction===null||p.offers_instruction===undefined?null:Boolean(p.offers_instruction);
  const factRows=knownFact('State / province',p.state_province)+knownFact('Country',p.country_code)+knownFact('Prospecting since',p.experience_since_year)+knownFact('Best for',list(p.audience||[]))+knownFact('Content formats',list(p.formats||[]))+knownFact('Languages',list(p.languages||[]))+knownFact('Offers instruction',instruction)+knownFact('Also known as',p.nickname);

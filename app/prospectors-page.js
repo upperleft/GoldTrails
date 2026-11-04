@@ -1,7 +1,7 @@
 import {creatorControls} from './creator-controls.js';
 import {creatorPage,creatorDescription,escapeHtml as h} from './directory-views.js';
 import {assetUrl} from './asset-url.js';
-import {videoLibraryLink} from './creator-video-library.js';
+import {creatorVideoLink} from './creator-channel-links.js';
 import {matchesCreator,sortCreators} from '../dist/prospectors-data.js';
 export function explorerCriteria(params,criteria){
  const view=params.get('view')||'list',setting=params.get('setting')||'',sort=params.get('sort')||'az';
@@ -11,7 +11,7 @@ export function explorerCriteria(params,criteria){
 export function prospectorsPage(records,filters,{canFindOnMap=false}={}){
  const ordered=sortCreators(records,filters.sort),visible=ordered.filter(p=>matchesCreator(p,filters));
  const cards=ordered.map(p=>{
-  const videos=videoLibraryLink(p.slug,p.name),description=creatorDescription(p.introduction);
+  const videos=creatorVideoLink(p),description=creatorDescription(p.introduction);
   const map=canFindOnMap&&p.regions.length?`<a class="map-find" href="/gold-almanac/?creator=${encodeURIComponent(p.slug)}">Find on map</a>`:'';
   return `<article class="map-person" data-slug="${h(p.slug)}"${matchesCreator(p,filters)?'':' hidden'}><div><h2><a href="${h(p.profileUrl||'/prospectors/'+encodeURIComponent(p.slug)+'/')}">${h(p.name)}</a></h2>${p.location?`<p class="creator-region">⌖ ${h(p.location)}</p>`:''}${description?`<p>${h(description)}</p>`:''}${p.topics.length?`<small>${h([...new Set(p.topics.map(t=>t.name))].slice(0,5).join(' · '))}</small>`:''}</div>${videos||map?`<div class="creator-actions">${videos}${map}</div>`:''}</article>`;
  }).join('');

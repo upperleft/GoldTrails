@@ -1,0 +1,82 @@
+{
+  "checked_at": "2026-11-04",
+  "scope": "All creator button coverage; targeted primary-source review of entries without selected video libraries. Existing selected libraries preserved.",
+  "limitations": "Direct YouTube retrieval was throttled. Official-site attribution and primary indexed sources establish the new destinations; playback availability and all uploader metadata were not independently rechecked. No new selected-video libraries or ownership claims invented.",
+  "new_or_improved_destinations": [
+    {
+      "slug": "green-mountain-gold-trap",
+      "canonical": "https://www.youtube.com/channel/UCZ10Pk2Pjw7RxipHdO8H80g",
+      "source_url": "https://greenmountaingoldtrap.com/blog/welcome-to-green-mountain-gold-trap/",
+      "title": "Official Green Mountain Gold Trap YouTube channel",
+      "identity_note": "Current official site explicitly links this channel as its own; direct YouTube metadata was throttled.",
+      "checked_at": "2026-11-04"
+    },
+    {
+      "slug": "mantis-gold-mining",
+      "canonical": "https://www.youtube.com/channel/UCBk6Yk79KsKFrLJWrjdZR0Q",
+      "source_url": "https://www.mantisgoldmining.com/blogs/news/now-carrying-green-mountain-gold-traps",
+      "title": "Official Mantis Gold Mining YouTube channel",
+      "identity_note": "Current official website links the channel in its social navigation; direct YouTube metadata was throttled.",
+      "checked_at": "2026-11-04"
+    },
+    {
+      "slug": "kevin-singel",
+      "canonical": "https://www.youtube.com/watch?v=Y9NqefV8wis",
+      "source_url": "https://findinggoldincolorado.com/where-to-look-for-gold/",
+      "title": "Kevin Singel gold-panning video",
+      "identity_note": "The author identifies the linked four-minute panning video as his own. This establishes a related video, not ownership of its uploader channel.",
+      "checked_at": "2026-11-04"
+    },
+    {
+      "slug": "yukon-dan",
+      "canonical": "https://www.youtube.com/watch?v=exI6YROm4ok",
+      "source_url": "https://www.youtube.com/watch?v=exI6YROm4ok",
+      "title": "Panning for Gold with Yukon Dan — Kitco News",
+      "identity_note": "Primary Kitco News interview featuring Yukon Dan. The uploader is Kitco; this is a related video, not a creator-owned channel.",
+      "checked_at": "2026-11-04"
+    },
+    {
+      "slug": "crux-prospecting",
+      "video_page_url": "https://cruxprospecting.com/videos/",
+      "source_url": "https://cruxprospecting.com/videos/",
+      "title": "Crux Prospecting official video collection",
+      "identity_note": "Official collection features Crux equipment and Cyle appearances in multiple creators’ videos; no uploader channel is attributed to Crux.",
+      "checked_at": "2026-11-04"
+    },
+    {
+      "slug": "tyler-mahoney",
+      "video_page_url": "https://theprospectorsclub.shop/pages/the-complete-gold-prospecting-course",
+      "access": "paid",
+      "source_url": "https://theprospectorsclub.shop/pages/the-complete-gold-prospecting-course",
+      "title": "The Prospectors Club gold-prospecting video course",
+      "identity_note": "Official course identifies Ted and Tyler as instructors. Paid access required; the button must disclose this.",
+      "checked_at": "2026-11-04"
+    },
+    {
+      "slug": "prospection-de-loisir",
+      "canonical": "https://www.youtube.com/@prospectiondeloisir",
+      "source_url": "https://www.prospection-de-loisir.fr/qui-je-suis/",
+      "title": "Prospection de loisir official YouTube channel",
+      "identity_note": "Official author about page directly links this YouTube handle.",
+      "checked_at": "2026-11-04"
+    },
+    {
+      "slug": "tassie-boys-prospecting",
+      "canonical": "https://www.youtube.com/channel/UCaFzHYMrIhVahBCfmc1AjNw",
+      "source_url": "https://www.youtube.com/@officialtassieboysprospecting",
+      "title": "Tassie Boys Prospecting official YouTube channel",
+      "identity_note": "Primary indexed YouTube channel identifies Tassie Boys Prospecting and its official handle. Direct channel fetch was throttled.",
+      "checked_at": "2026-11-04"
+    }
+  ],
+  "unresolved_slugs": [
+    "dons-mining-office",
+    "steve-herschbach",
+    "tony-ledford"
+  ],
+  "candidate_rebrands_held": [
+    "adventure-gold",
+    "chasing-gold-australia"
+  ],
+  "no_ownership_inferred_from_other_uploaders": true
+}
