@@ -75,6 +75,26 @@ test('subscription snapshot uses item periods and refuses customer or metadata r
  assert.deepEqual([...f.calls.find(c=>c.url.pathname==='/v1/subscriptions/sub_FixtureA1').url.searchParams].filter(([key])=>/^expand\[\d+\]$/.test(key)).map(([,value])=>value),['latest_invoice','latest_invoice.amount_paid_off_stripe','schedule']);
  f.responses.sub={...f.data.sub,customer:'cus_other'};await assert.rejects(()=>f.provider.snapshot('sub_FixtureA1',accountId,'cus_FixtureA1'),e=>e.code==='billing_identity');
 });
+test('flexible Portal cancellation maps the sole item end without removing confirmed paid access',async()=>{
+ const f=fixture();f.data.sub.cancel_at=f.data.item.current_period_end;
+ assert.equal(f.data.sub.cancel_at_period_end,false);
+ const snapshot=await f.provider.snapshot('sub_FixtureA1',accountId,'cus_FixtureA1');
+ assert.equal(snapshot.cancelAtPeriodEnd,true);assert.equal(snapshot.status,'active');assert.equal(snapshot.latestInvoicePaid,true);assert.equal(snapshot.paidThrough,f.data.item.current_period_end);
+ f.data.sub.cancel_at=null;
+ const resumed=await f.provider.snapshot('sub_FixtureA1',accountId,'cus_FixtureA1');
+ assert.equal(resumed.cancelAtPeriodEnd,false);assert.equal(resumed.latestInvoicePaid,true);assert.equal(resumed.paidThrough,snapshot.paidThrough);
+ assert.equal(f.calls.some(c=>c.options.method!=='GET'),false);
+});
+test('cancellation normalization preserves the legacy flag and requires an exact valid single-item end',async()=>{
+ const legacy=fixture();legacy.data.sub.cancel_at_period_end=true;legacy.data.sub.cancel_at=null;
+ assert.equal((await legacy.provider.snapshot('sub_FixtureA1',accountId,'cus_FixtureA1')).cancelAtPeriodEnd,true);
+ for(const value of [undefined,null,0,-1,String(unix('2030-12-01T00:00:00Z')),1.5,Number.MAX_SAFE_INTEGER+1,unix('2031-01-01T00:00:00Z')]){
+  const f=fixture();f.data.sub.cancel_at=value;
+  assert.equal((await f.provider.snapshot('sub_FixtureA1',accountId,'cus_FixtureA1')).cancelAtPeriodEnd,false);
+ }
+ const multiple=fixture();multiple.data.sub.cancel_at=multiple.data.item.current_period_end;multiple.data.sub.items.data.push(structuredClone(multiple.data.item));
+ assert.equal((await multiple.provider.snapshot('sub_FixtureA1',accountId,'cus_FixtureA1')).cancelAtPeriodEnd,false);
+});
 test('maintenance disables new purchases while cancellation portal and authoritative reads still work',async()=>{
  const {provider}=fixture({config:{...config,enabled:false}});
  await assert.rejects(()=>provider.createCustomer({id:accountId,email:'member@example.invalid'}),e=>e.code==='stripe_unavailable');
@@ -83,6 +103,14 @@ test('maintenance disables new purchases while cancellation portal and authorita
 test('three-month pause uses true service scheduling at paid period end and resumes only after payment',async()=>{
  const {provider,calls}=fixture();const dates=await provider.schedulePause(accountId,'cus_FixtureA1','sub_FixtureA1','2030-12-01T00:00:00Z');assert.equal(dates.resumeAt.toISOString(),'2031-03-01T00:00:00.000Z');
  const schedule=calls.find(c=>c.url.pathname==='/v1/subscription_schedules');assert.equal(schedule.fields.get('from_subscription'),'sub_FixtureA1');assert.equal(schedule.fields.get('pause_schedules[0][resume][settings][payment_behavior]'),'resume_on_payment_success');assert.equal(schedule.fields.get('pause_schedules[0][resume][settings][billing_cycle_anchor]'),'resume_at');assert.equal([...schedule.fields.keys()].some(k=>k.includes('pause_collection')),false);
+});
+test('a scheduled cancellation blocks service-pause writes even when the legacy flag is false',async()=>{
+ for(const cancelAt of [unix('2030-12-01T00:00:00Z'),unix('2031-01-01T00:00:00Z')]){
+  const f=fixture();f.data.sub.cancel_at=cancelAt;
+  assert.equal(f.data.sub.cancel_at_period_end,false);
+  await assert.rejects(()=>f.provider.schedulePause(accountId,'cus_FixtureA1','sub_FixtureA1','2030-12-01T00:00:00Z'),e=>e.code==='pause_unavailable');
+  assert.equal(f.calls.some(c=>c.options.method!=='GET'),false);
+ }
 });
 test('scheduled pause cancellation releases the schedule then retains the paid active term',async()=>{
  const f=fixture({config:{...config,enabled:false}});f.data.sub.schedule={id:'sub_sched_FixtureA1'};

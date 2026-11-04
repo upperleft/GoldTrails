@@ -6,6 +6,7 @@ const unavailable=()=>new BillingError('stripe_unavailable','Secure billing is t
 const identity=()=>new BillingError('billing_identity','The billing account could not be verified.',409);
 const id=value=>typeof value==='string'?value:value?.id;
 const metadata=(object,accountId)=>object?.metadata?.goldtrails_app==='goldtrails'&&object.metadata.goldtrails_account_id===accountId;
+const cancellationAt=sub=>Number.isSafeInteger(sub.cancel_at)&&sub.cancel_at>0?sub.cancel_at:null;
 function encode(values){const fields=new URLSearchParams();const add=(key,value)=>{if(value===undefined||value===null)return;if(Array.isArray(value))value.forEach((v,i)=>add(`${key}[${i}]`,v));else if(typeof value==='object')for(const [k,v] of Object.entries(value))add(key?`${key}[${k}]`:k,v);else fields.append(key,String(value));};for(const [k,v]of Object.entries(values||{}))add(k,v);return fields;}
 export function stripeRedirect(value,kind){
  try{const url=new URL(value);if(url.protocol!=='https:'||url.username||url.password||url.port||url.hostname!==(kind==='portal'?'billing.stripe.com':'checkout.stripe.com'))throw Error();return url.href;}catch{throw unavailable();}
@@ -76,7 +77,9 @@ export function createStripeProvider(config,{fetchImpl=fetch,now=()=>new Date()}
   const paid=single&&confirmedInvoice(invoice,sub,item,config);
   const schedule=typeof sub.schedule==='object'?sub.schedule:null,pause=schedule?.pause_schedules?.[0];
   const pauseAt=pause?.pause?.pause_at,resumeAt=pause?.resume?.resume_at;
-  return{accountId:sub.metadata.goldtrails_account_id,stripeAccountId:config.stripeAccountId,livemode:sub.livemode,customerId:id(sub.customer),subscriptionId:sub.id,status:sub.status,priceId:price.id,quantity:single?item.quantity:0,currency:price.currency,unitAmount:price.unit_amount,interval:price.recurring?.interval,intervalCount:price.recurring?.interval_count,currentPeriodStart:item.current_period_start??null,currentPeriodEnd:item.current_period_end??null,cancelAtPeriodEnd:sub.cancel_at_period_end===true,latestInvoicePaid:paid,paidThrough:paid?item.current_period_end:null,scheduleId:id(sub.schedule)||null,pauseAt:Number.isSafeInteger(pauseAt)&&Number.isSafeInteger(resumeAt)?pauseAt:null,resumeAt:Number.isSafeInteger(pauseAt)&&Number.isSafeInteger(resumeAt)?resumeAt:null};
+  // Flexible-billing Portal cancellations use cancel_at instead of the boolean.
+  const cancelAt=cancellationAt(sub),cancelAtPeriodEnd=sub.cancel_at_period_end===true||(single&&cancelAt!==null&&cancelAt===item.current_period_end);
+  return{accountId:sub.metadata.goldtrails_account_id,stripeAccountId:config.stripeAccountId,livemode:sub.livemode,customerId:id(sub.customer),subscriptionId:sub.id,status:sub.status,priceId:price.id,quantity:single?item.quantity:0,currency:price.currency,unitAmount:price.unit_amount,interval:price.recurring?.interval,intervalCount:price.recurring?.interval_count,currentPeriodStart:item.current_period_start??null,currentPeriodEnd:item.current_period_end??null,cancelAtPeriodEnd,latestInvoicePaid:paid,paidThrough:paid?item.current_period_end:null,scheduleId:id(sub.schedule)||null,pauseAt:Number.isSafeInteger(pauseAt)&&Number.isSafeInteger(resumeAt)?pauseAt:null,resumeAt:Number.isSafeInteger(pauseAt)&&Number.isSafeInteger(resumeAt)?resumeAt:null};
  };
  const getCheckout=async(sessionId,accountId,customerId)=>{
   if(!stripeId(sessionId,config.livemode?'cs_live':'cs_test'))throw identity();
@@ -133,7 +136,7 @@ export function createStripeProvider(config,{fetchImpl=fetch,now=()=>new Date()}
   async schedulePause(accountId,customerId,subscriptionId,paidThrough){
    await ensureReady();if(!config.pauseEnabled)throw new BillingError('pause_unavailable','Subscription pauses are not open yet.',503);
    const sub=await subscriptionObject(subscriptionId,accountId,customerId),snapshot=snapshotFrom(sub),dates=threeMonthPause(paidThrough,{now});
-   if(sub.status!=='active'||sub.cancel_at_period_end||sub.pause_collection||sub.billing_mode?.type!=='flexible'||sub.collection_method!=='charge_automatically'||sub.items?.data?.length!==1||snapshot.priceId!==config.priceId||snapshot.quantity!==1||!snapshot.latestInvoicePaid||snapshot.currentPeriodEnd!==Math.floor(dates.pauseAt.getTime()/1000))throw new BillingError('pause_unavailable','This subscription needs review before a pause can be scheduled.',409);
+   if(sub.status!=='active'||sub.cancel_at_period_end||cancellationAt(sub)!==null||sub.pause_collection||sub.billing_mode?.type!=='flexible'||sub.collection_method!=='charge_automatically'||sub.items?.data?.length!==1||snapshot.priceId!==config.priceId||snapshot.quantity!==1||!snapshot.latestInvoicePaid||snapshot.currentPeriodEnd!==Math.floor(dates.pauseAt.getTime()/1000))throw new BillingError('pause_unavailable','This subscription needs review before a pause can be scheduled.',409);
    const existing=typeof sub.schedule==='object'?sub.schedule:null;
    if(existing?.pause_schedules?.length){const p=existing.pause_schedules[0];if(p.pause?.pause_at===Math.floor(dates.pauseAt.getTime()/1000)&&p.resume?.resume_at===Math.floor(dates.resumeAt.getTime()/1000))return dates;throw new BillingError('pause_exists','A pause is already scheduled. Contact Paul to change it.',409);}
    const values={pause_schedules:[{pause:{pause_at:{type:'timestamp',timestamp:Math.floor(dates.pauseAt.getTime()/1000)}},resume:{resume_at:{type:'timestamp',timestamp:Math.floor(dates.resumeAt.getTime()/1000)},settings:{billing_cycle_anchor:'resume_at',payment_behavior:'resume_on_payment_success'}}}]};
