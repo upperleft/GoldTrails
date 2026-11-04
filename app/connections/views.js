@@ -1,6 +1,7 @@
 import {DateTime} from 'luxon';
 import {page,escapeHtml as h} from '../directory-views.js';
 import {assetUrl} from '../asset-url.js';
+import {featureAudio,attachFeatureAudioAssets} from '../feature-audio.js';
 import {states,stateFor,categories,levels,eventUrl,httpsUrl,uuid} from './model.js';
 import {coverageStates} from './geography.js';
 const link=(url,label)=>`<a href="${h(url)}">${h(label)}</a>`;
@@ -63,10 +64,11 @@ export function directoryPage(filters,result,{state=null,member=null,guest=null,
  }
  const params=new URLSearchParams(Object.entries(filters).filter(([k,v])=>k!=='page'&&v!==''&&v!==false).map(([k,v])=>[k,v===true?'yes':v]));
  const pagination=`<nav class="connections-pagination" aria-label="Event pages">${filters.page>1?link('?'+new URLSearchParams([...params,['page',filters.page-1]]),'← Previous'):''}${result.hasMore?link('?'+new URLSearchParams([...params,['page',filters.page+1]]),'More events →'):''}</nav>`;
- const intro=state?'Find prospecting outings, club meetings and online gatherings hosted in '+state.name+'.':'Create prospecting outings, club meetings and online gatherings, and share them with Gold Trails members in your area.';
+ const intro=state?'Find prospecting outings, club meetings and online gatherings hosted in '+state.name+'.':'Think of Gold Connections as Meetup for gold lovers.';
+ const introduction=state?'':featureAudio({id:'connections-introduction',title:'the Old-Timer’s Gold Connections introduction',src:'/assets/audio/connections-introduction.mp3',transcript:'Think of Gold Connections as Meetup for gold lovers. Find fellow prospectors, discover outings and online get-togethers, and open an event to see the details. Plus members, including invited creators, can organize events, RSVP, and join the conversation.'});
  const stateGuide=state?'<p class="connections-state-guide">'+link('/gold-almanac/'+state.slug+'/','Read the '+state.name+' Almanac · Plus')+'</p>':'';
  const resultsNote=result.events.length?'<p class="connections-results-note" role="status">'+result.events.length+' matching event'+(result.events.length===1?'':'s')+' on this results page.'+(result.hasMore?' More events are available on the next page.':'')+'</p>':'';
- return shell(title,nav({guest,member,state:state||stateFor(filters.state)})+guestNotice(guest)+creationNotice({member,guest,next:newHref})+controls+(!ready?'<section class="connections-notice" role="status"><h2>Event listings are unavailable right now.</h2><p>Please try again later. This does not mean there are no events.</p></section>':resultsNote+listing+pagination)+stateGuide+(member?.effective_level==='subscriber'||guest?'':invite()),intro);
+ return attachFeatureAudioAssets(shell(title,introduction+nav({guest,member,state:state||stateFor(filters.state)})+guestNotice(guest)+creationNotice({member,guest,next:newHref})+controls+(!ready?'<section class="connections-notice" role="status"><h2>Event listings are unavailable right now.</h2><p>Please try again later. This does not mean there are no events.</p></section>':resultsNote+listing+pagination)+stateGuide+(member?.effective_level==='subscriber'||guest?'':invite()),intro));
 }
 export const groupsPage=({guest=null,member=null}={})=>shell('Find your state group',nav({guest,member})+guestNotice(guest)+`<div class="connections-groups">${states.map(s=>`<a href="/connections/states/${s.slug}/"><span>${h(s.code)}</span> ${h(s.name)}</a>`).join('')}</div>`,'Choose a host state to browse prospecting outings, club meetings and online gatherings.');
 export function eventForm(event={},csrf='',error='',editing=false){

@@ -1,0 +1,92 @@
+[
+  {
+    "path": "/articles/wet-or-dry-magnet-cleanup/",
+    "title": "Wet or Dry? Six Creators on Removing Black Sand with a Magnet",
+    "script": "Six creators offer different ways to lift magnetic sand, from dry handling to submerged pickup and repeated washing. This comparison keeps their conditions separate, explains the disagreement, and reminds us that checking what the magnet removes matters more than declaring one method the winner.",
+    "src": "/assets/audio/articles/wet-or-dry-magnet-cleanup.mp3"
+  },
+  {
+    "path": "/articles/drywashing-for-gold/",
+    "title": "Drywashing for Gold: Air, Dry Gravel, and the Right Machine",
+    "script": "A drywasher uses air and agitation to concentrate suitable dry gravel. This guide explains feed preparation, different machine arrangements, and tuning air, angle, and feed together. It also looks at checking tailings, planning for dust, and comparing complete equipment setups without assuming perfect recovery.",
+    "src": "/assets/audio/articles/drywashing-for-gold.mp3"
+  },
+  {
+    "path": "/articles/sluice-flow-and-angle/",
+    "title": "Sluice & Highbanker Tuning: Flow, Angle, and the Gravel You Feed",
+    "script": "A lively sluice doesn’t tell you how much gold it keeps. Here we separate slope, water delivery, speed, and feed rate, then look at gravel preparation and repeatable tailings checks. The useful setting depends on your equipment and material, not one universal angle.",
+    "src": "/assets/audio/articles/sluice-flow-and-angle.mp3"
+  },
+  {
+    "path": "/articles/gold-sniping/",
+    "title": "Gold Sniping: Finding Gold Where It Hides Underwater",
+    "script": "A clear view can reveal a crevice or pocket, but it cannot promise gold. This guide explores six possible underwater traps, careful observation in shallow water, and separate samples, while distinguishing conceptual diagrams and creator reports from verified findings. Safety and permitted methods come first.",
+    "src": "/assets/audio/articles/gold-sniping.mp3"
+  },
+  {
+    "path": "/ghost-rivers/",
+    "title": "Ghost Rivers: Finding the Gold Traps Time Left Behind",
+    "script": "Today’s river is only part of the landscape’s story. Ghost Rivers explores abandoned channels, terraces, and glacial deposits, asking what evidence can distinguish them. The aim is to investigate older waterways carefully, without treating an old channel as proof of a gold deposit.",
+    "src": "/assets/audio/articles/ghost-rivers.mp3"
+  },
+  {
+    "path": "/articles/seven-prospecting-rules/",
+    "title": "Where Does Gold Really Hide in a Stream? 7 Prospecting Rules Worth Questioning",
+    "script": "Inside bends, big boulders, bedrock, and black sand all offer clues, but none settles the question alone. This article examines seven familiar shortcuts, compares attributed creator accounts with geological background, and turns confident rules into smaller questions that comparable samples can investigate.",
+    "src": "/assets/audio/articles/seven-prospecting-rules.mp3"
+  },
+  {
+    "path": "/articles/identifying-river-rocks/",
+    "title": "Identifying River Rocks by Color, Pattern, and Density",
+    "script": "A river stone carries clues in its grains, crystals, bands, and weight for its size. This guide compares common rocks through identified photographs, texture, color, and density, while explaining why no single feature names every stone or establishes that gold is present.",
+    "src": "/assets/audio/articles/identifying-river-rocks.mp3"
+  },
+  {
+    "path": "/articles/how-deep-is-bedrock/",
+    "title": "How Deep Is Bedrock? Maps That Help Gold Prospectors Read the Ground",
+    "script": "Before choosing where to investigate, it helps to understand what a map means by bedrock. This guide compares soil depth and geological resources, walks through Web Soil Survey, and explains why mapped boundaries need local context, access checks, and evidence from the ground.",
+    "src": "/assets/audio/articles/how-deep-is-bedrock.mp3"
+  },
+  {
+    "path": "/articles/classification-basics/",
+    "title": "Classification: What Your Screen Separates—and What It Doesn’t",
+    "script": "A classifier sorts gravel by size, not by gold content. This guide explains the two fractions a screen creates, why both need attention, and how recording the opening and measuring consistently can make your sample comparisons more useful.",
+    "src": "/assets/audio/articles/classification-basics.mp3"
+  },
+  {
+    "path": "/articles/black-sands/",
+    "title": "Black Sands in Your Pan: A Clue, Not a Gold Count",
+    "script": "Black sand is a clue worth examining, but it isn’t a count of gold. Here we look at heavy mineral mixtures, careful cleanup, and what a magnet actually separates, while keeping dark concentrate and confirmed gold as separate observations.",
+    "src": "/assets/audio/articles/black-sands.mp3"
+  },
+  {
+    "path": "/articles/is-that-really-gold/",
+    "title": "Is That Really Gold? A Careful Look at Fool’s Gold",
+    "script": "A yellow flash can be exciting, but color alone cannot identify gold. This guide compares common lookalikes, explains the limits of physical tests on tiny particles, and shows why patient observations and a label reading suspected gold can be useful.",
+    "src": "/assets/audio/articles/is-that-really-gold.mp3"
+  },
+  {
+    "path": "/articles/compare-test-pans/",
+    "title": "How to Compare Test Pans Without Fooling Yourself",
+    "script": "A useful comparison starts before you wash the gravel. This guide follows consistent sample amounts, steady processing, careful identification, and repeat pans, with a simple notebook routine that helps you choose the next sample without claiming more than the evidence supports.",
+    "src": "/assets/audio/articles/compare-test-pans.mp3"
+  },
+  {
+    "path": "/articles/where-gold-settles/",
+    "title": "Where Gold Settles in a River—and How to Test Your Hunch",
+    "script": "A promising bend is a question, not a guarantee. This guide looks at a river’s gold history, sediment sorting, and possible traps, then uses separate, comparable samples to test the hunch. The aim is a better next decision, not a promised find.",
+    "src": "/assets/audio/articles/where-gold-settles.mp3"
+  },
+  {
+    "path": "/ghost-rivers/swift-river-maine/",
+    "title": "The Swift River, Maine: Searching for the Waterways That Came Before",
+    "script": "Around Byron and Coos Canyon, published mapping records older reworked gravel and glacial meltwater features. This case study separates those documented interpretations from ideas about gold traps, explains the limits of the study area, and identifies what further research still needs to establish.",
+    "src": "/assets/audio/articles/swift-river-maine.mp3"
+  },
+  {
+    "path": "/ghost-rivers/swift-river-maine/field-guide/",
+    "title": "Swift River: Preliminary Field-Analysis Guide",
+    "script": "This preliminary guide starts with permission, then follows careful observations of landforms, sediments, and their history. It proposes separate notes for map dates, geological age, sample conditions, and results, with small comparisons only where permitted. It offers a research routine, not confirmed digging locations.",
+    "src": "/assets/audio/articles/swift-river-maine-field-guide.mp3"
+  }
+]
