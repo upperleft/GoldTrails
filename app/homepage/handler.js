@@ -8,7 +8,7 @@ import {focusedCreatorHomePage} from '../creator-invitations/access-page.js';
 import {siteNavigationMarkup} from '../site-navigation.js';
 
 const blank='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
-const desktop='(min-width: 1280px) and (hover: hover) and (pointer: fine)';
+const desktop='(min-width: 1024px)';
 const frame=[0,0,canvas.width,canvas.height];
 const position=([x,y,w,height],[sx,sy,sw,sh]=frame)=>`left:${(x-sx)/sw*100}%;top:${(y-sy)/sh*100}%;width:${w/sw*100}%;height:${height/sh*100}%`;
 const memberHome=({member=null,guest=false}={})=>member?.effective_level==='subscriber'||guest===true;
