@@ -47,4 +47,5 @@ html[data-reading-contrast] .calendar-gate-message{background:#fffdf7!important;
 [data-calendar-guest-dialog] dd{margin:4px 0;font-size:1rem}
 [data-calendar-guest-dialog]>p{line-height:1.7}
 [data-calendar-guest-dialog] .calendar-help{margin-top:16px}
+.calendar-instructions{margin:0 0 18px;font-size:0.875rem;line-height:1.65;color:var(--ink)}
 @media(max-width:480px){.calendar-guest .calendar-guest-date-tools .calendar-field{max-width:none;flex-basis:100%}.calendar-guest .calendar-guest-note{font-size:.9375rem}}

@@ -90,10 +90,22 @@ export function createCalendarStore(db) {
     },
 
     async listCalendars(owner) {
-      const [rows, preferences] = await Promise.all([
+      let [rows, preferences] = await Promise.all([
         db.query('SELECT id,name,color,visible,revision FROM calendar_calendars WHERE owner_id=? ORDER BY created_at,id', [owner]),
         db.query('SELECT view_name,time_zone FROM calendar_preferences WHERE owner_id=?', [owner]),
       ]);
+      if (!rows.length) {
+        rows = await transaction(async connection => {
+          await lockOwner(connection, owner);
+          // Another request may have created a calendar while this one waited.
+          const existing = await connection.query('SELECT id,name,color,visible,revision FROM calendar_calendars WHERE owner_id=? ORDER BY created_at,id FOR UPDATE', [owner]);
+          if (existing.length) return existing;
+          const id = randomUUID(), name = 'Panning Days', color = '#984c32';
+          await connection.query('INSERT INTO calendar_calendars(id,owner_id,name,color,visible,revision) VALUES(?,?,?,?,TRUE,1)', [id, owner, name, color]);
+          await audit(connection, owner, 'calendar.create', 'calendar', id, 1);
+          return [{id, name, color, visible: true, revision: 1}];
+        });
+      }
       return {calendars: rows.map(calendarFromRow), preferences: preferences[0] ? {view: preferences[0].view_name, timeZone: preferences[0].time_zone} : {...DEFAULT_PREFERENCES}, hasSavedPreferences: Boolean(preferences[0])};
     },
 

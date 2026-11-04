@@ -45,7 +45,42 @@ function fixture(onQuery = () => undefined) {
 }
 const status = expected => error => error.status === expected;
 
-test('calendar readiness is read-only; owner-bound calendars return saved or default display preferences', async () => {
+function calendarListingFixture({calendars = [], preferences = []} = {}) {
+  const calls = [], locks = new Map();
+  const query = async (sql, args = []) => {
+    calls.push({sql, args});
+    if (sql.startsWith('SELECT id,name,color,visible,revision FROM calendar_calendars')) return calendars.filter(row => row.owner_id === args[0]).map(row => ({...row}));
+    if (sql.startsWith('SELECT view_name,time_zone')) return preferences.filter(row => row.owner_id === args[0]);
+    if (sql.startsWith('INSERT INTO calendar_calendars')) {
+      const [id, owner_id, name, color] = args;
+      calendars.push({id, owner_id, name, color, visible: 1, revision: 1});
+      return {affectedRows: 1};
+    }
+    if (sql.startsWith('INSERT INTO calendar_audit_log')) return {affectedRows: 1};
+    throw new Error(`Unexpected fixture query: ${sql}`);
+  };
+  const store = createCalendarStore({
+    query,
+    getConnection: async () => {
+      let unlock = () => {};
+      return {
+        beginTransaction: async () => {}, commit: async () => unlock(), rollback: async () => unlock(), release: () => {},
+        query: async (sql, args) => {
+          if (!sql.startsWith('SELECT id FROM member_accounts')) return query(sql, args);
+          calls.push({sql, args});
+          const previous = locks.get(args[0]) || Promise.resolve();
+          const gate = new Promise(resolve => {unlock = resolve;});
+          locks.set(args[0], previous.then(() => gate));
+          await previous;
+          return [{id: args[0]}];
+        },
+      };
+    },
+  });
+  return {store, calls, calendars, preferences};
+}
+
+test('calendar readiness and existing calendars are read-only and preserve saved display preferences', async () => {
   const a = fixture((sql, args) => {
     if (sql.startsWith('SELECT version')) return [{version: '009_native_calendar'}];
     if (sql.startsWith('SELECT view_name')) {
@@ -59,10 +94,46 @@ test('calendar readiness is read-only; owner-bound calendars return saved or def
   assert.deepEqual(saved.preferences, {view: 'timeGridWeek', timeZone: 'America/Denver'});
   assert.deepEqual(saved.calendars, [{...calendar, visible: true}]);
   assert.ok(a.calls.every(({sql}) => sql.startsWith('SELECT ')));
-  const empty = await fixture().store.listCalendars(otherOwner);
-  assert.equal(empty.hasSavedPreferences, false);
-  assert.deepEqual(empty.calendars, []);
-  assert.deepEqual(empty.preferences, {view: 'dayGridMonth', timeZone: 'America/New_York'});
+  assert.equal(a.state.begins, 0);
+});
+
+test('an empty account automatically gets its own visible Panning Days calendar and default display preferences', async () => {
+  const foreignCalendar = {...calendar, owner_id: otherOwner};
+  const a = calendarListingFixture({calendars: [foreignCalendar]});
+  const result = await a.store.listCalendars(owner);
+  assert.equal(result.calendars.length, 1);
+  const created = result.calendars[0];
+  assert.deepEqual(created, {id: created.id, name: 'Panning Days', color: '#984c32', visible: true, revision: 1});
+  assert.match(created.id, /^[0-9a-f-]{36}$/);
+  assert.equal(result.hasSavedPreferences, false);
+  assert.deepEqual(result.preferences, {view: 'dayGridMonth', timeZone: 'America/New_York'});
+  assert.deepEqual(a.calendars, [foreignCalendar, {...created, owner_id: owner, visible: 1}]);
+  const lock = a.calls.findIndex(({sql}) => sql.startsWith('SELECT id FROM member_accounts'));
+  const recheck = a.calls.findIndex(({sql}) => sql.startsWith('SELECT id,name,color') && sql.endsWith('FOR UPDATE'));
+  const insert = a.calls.findIndex(({sql}) => sql.startsWith('INSERT INTO calendar_calendars'));
+  assert.ok(lock < recheck && recheck < insert);
+  assert.deepEqual(a.calls[lock].args, [owner]);
+  assert.deepEqual(a.calls[recheck].args, [owner]);
+  assert.deepEqual(a.calls[insert].args, [created.id, owner, 'Panning Days', '#984c32']);
+  const audit = a.calls.find(({sql}) => sql.startsWith('INSERT INTO calendar_audit_log'));
+  assert.deepEqual(audit.args.slice(1), [owner, 'calendar.create', 'calendar', created.id, 1]);
+});
+
+test('concurrent and repeated first loads share one default calendar and preserve saved preferences', async () => {
+  const preferences = [{owner_id: owner, view_name: 'listMonth', time_zone: 'America/Denver'}];
+  const a = calendarListingFixture({preferences});
+  const results = await Promise.all(Array.from({length: 8}, () => a.store.listCalendars(owner)));
+  results.push(await a.store.listCalendars(owner));
+  assert.equal(a.calendars.length, 1);
+  for (const result of results) {
+    assert.deepEqual(result.calendars, results[0].calendars);
+    assert.deepEqual(result.preferences, {view: 'listMonth', timeZone: 'America/Denver'});
+    assert.equal(result.hasSavedPreferences, true);
+  }
+  assert.equal(a.calls.filter(({sql}) => sql.startsWith('INSERT INTO calendar_calendars')).length, 1);
+  assert.equal(a.calls.filter(({sql}) => sql.startsWith('INSERT INTO calendar_audit_log')).length, 1);
+  assert.equal(a.calls.filter(({sql}) => sql.startsWith('SELECT id FROM member_accounts')).length, 8);
+  assert.deepEqual(a.preferences, [{owner_id: owner, view_name: 'listMonth', time_zone: 'America/Denver'}]);
 });
 
 test('every calendar write locks the authenticated account first and uses metadata-only audit records', async () => {

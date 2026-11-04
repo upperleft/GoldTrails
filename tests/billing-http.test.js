@@ -26,6 +26,26 @@ test('billing return and GET actions cannot create or confirm payments',async t=
  for(const path of ['/billing/subscribe/','/billing/manage/','/billing/pause/','/billing/refresh/'])assert.equal((await f.request(path)).status,405);
  assert.deepEqual(f.calls,[]);assert.equal(f.analytics(),0,'Billing capabilities bypass analytics and public wrappers.');
 });
+test('billing overview clearly separates free, paid and complimentary membership without changing billing',async t=>{
+ const free=await fixture(t),freeResponse=await free.request('/billing/'),freeHtml=await freeResponse.text();
+ assert.equal(freeResponse.status,200);assert.match(freeHtml,/<h2>Membership &amp; billing<\/h2>/);
+ assert.match(freeHtml,/You’re currently a free member\. You don’t have a paid Plus subscription\./);
+ assert.match(freeHtml,/Upgrade to Gold Trails Plus/);assert.match(freeHtml,/\$5 USD per month, renewing automatically until canceled/);
+ assert.match(freeHtml,/action="\/billing\/subscribe\/"/);assert.deepEqual(free.calls,[]);
+ const ineligible=await fixture(t,{state:{subscription:null,canSubscribe:false}}),ineligibleResponse=await ineligible.request('/billing/'),ineligibleHtml=await ineligibleResponse.text();
+ assert.equal(ineligibleResponse.status,200);assert.doesNotMatch(ineligibleHtml,/action="\/billing\/subscribe\/"/);assert.deepEqual(ineligible.calls,[]);
+ const subscription={id:accountId,subscriptionId:'sub_fixture',status:'active',paidThrough:new Date('2030-12-03T12:00:00Z')};
+ const paid=await fixture(t,{state:{membership:{grant_source:'payment',status:'active',subscription_id:accountId},subscription,canSubscribe:false}}),paidResponse=await paid.request('/billing/'),paidHtml=await paidResponse.text();
+ assert.equal(paidResponse.status,200);assert.match(paidHtml,/<h2>Membership &amp; billing<\/h2>/);
+ assert.match(paidHtml,/Status: <strong>active<\/strong>/);assert.match(paidHtml,/Confirmed paid through 2030-12-03 \(UTC\)/);
+ assert.doesNotMatch(paidHtml,/currently a free member|Upgrade to Gold Trails Plus|action="\/billing\/subscribe\/"/);assert.deepEqual(paid.calls,[]);
+ const unconfirmed=await fixture(t,{state:{subscription:{...subscription,paidThrough:null},canSubscribe:false}}),unconfirmedHtml=await(await unconfirmed.request('/billing/')).text();
+ assert.match(unconfirmedHtml,/Status: <strong>active<\/strong>/);assert.doesNotMatch(unconfirmedHtml,/Confirmed paid through/);assert.deepEqual(unconfirmed.calls,[]);
+ const creator=await fixture(t,{state:{membership:{grant_source:'complimentary',status:'active'},canSubscribe:true}}),creatorResponse=await creator.request('/billing/'),creatorHtml=await creatorResponse.text();
+ assert.equal(creatorResponse.status,200);assert.match(creatorHtml,/<h2>Membership &amp; billing<\/h2>/);
+ assert.match(creatorHtml,/Your creator access is complimentary\. No subscription fee or card is required\./);
+ assert.doesNotMatch(creatorHtml,/currently a free member|Upgrade to Gold Trails Plus|action="\/billing\/subscribe\/"/);assert.deepEqual(creator.calls,[]);
+});
 test('subscribe requires authenticated session, exact Origin, double CSRF and fixed server fields',async t=>{
  const f=await fixture(t);
  const unsigned=await f.post('/billing/subscribe/',{csrf},{Cookie:''});assert.equal(unsigned.status,401);assert.match(await unsigned.text(),/mailto:paul@goldtrails\.org/);
