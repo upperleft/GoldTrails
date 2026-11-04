@@ -95,9 +95,9 @@ async function body(req) {
  const keys=new Set();for(const key of f.keys()){if(keys.has(key))throw new FormError('Duplicate form field');keys.add(key);}
  return f;
 }
-export function createAdminHandler({store,config,workspace=null,analyticsStore=null,suggestionStore=null,creatorInvitations=null,creatorReplies=null,creatorRepliesSyncConfigured=false,log=console.error}) {
+export function createAdminHandler({store,config,workspace=null,analyticsStore=null,suggestionStore=null,creatorInvitations=null,creatorOutreach=null,creatorInvitationMail=null,creatorReplies=null,creatorRepliesSyncConfigured=false,log=console.error}) {
  const dashboard=workspace?createDashboardRouter(workspace):null;
- const invitationRouter=createAdminInvitationRouter(creatorInvitations,config?.origin);
+ const invitationRouter=createAdminInvitationRouter(creatorInvitations,config?.origin,{outreach:creatorOutreach,mail:creatorInvitationMail});
  const creatorRepliesRouter=createAdminCreatorRepliesRouter({store:creatorReplies,configured:creatorRepliesSyncConfigured,log});
  return async(req,res,url)=>{
   if(url.pathname!=='/admin'&&!url.pathname.startsWith('/admin/'))return false;
@@ -137,7 +137,7 @@ export function createAdminHandler({store,config,workspace=null,analyticsStore=n
    const creatorRepliesView=await creatorRepliesRouter(url,f,s,config.username);
    if(creatorRepliesView){res.setHeader('X-Robots-Tag','noindex, nofollow');if(creatorRepliesView.redirect)redirect(creatorRepliesView.redirect);else send(creatorRepliesView.status||200,frame(creatorRepliesView.title,creatorRepliesView.body));return true;}
    const invitationView=await invitationRouter(url,f,s,config.username);
-   if(invitationView){res.setHeader('X-Robots-Tag','noindex, nofollow');if(invitationView.redirect)redirect(invitationView.redirect);else send(invitationView.status||200,frame(invitationView.title,invitationView.body),{'Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex, nofollow'});return true;}
+   if(invitationView){res.setHeader('X-Robots-Tag','noindex, nofollow');if(invitationView.redirect)redirect(invitationView.redirect);else send(invitationView.status||200,frame(invitationView.title,invitationView.body),{'Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex, nofollow','Content-Security-Policy':adminPolicy.replace("script-src 'none'",'script-src '+config.origin+'/admin-creator-invitations.js')});return true;}
    if(url.pathname==='/admin/logout/'&&req.method==='POST'){await store.logout(raw);send(303,'',{'Location':'/admin/login/','Set-Cookie':sessionCookie('',0)});return true;}
    if(url.pathname==='/admin/suggestions/'){
     if(!suggestionStore||!await suggestionStore.ready()){send(503,frame('Reader suggestions','<p>The suggestion inbox is temporarily unavailable.</p>'));return true;}

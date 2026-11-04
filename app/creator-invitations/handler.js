@@ -2,6 +2,7 @@ import {timingSafeEqual} from 'node:crypto';
 import {digest,token,hashPassword} from '../admin-auth.js';
 import {memberIdentity} from '../members.js';
 import {CreatorInvitationError} from './model.js';
+import {creatorOutreachContact} from './outreach.js';
 import {creatorInvitationPage,invitationBody,creatorWelcomeBackBody,adminInvitationsView} from './views.js';
 import {escapeHtml as h} from '../directory-views.js';
 import {creatorInvitationHome,creatorInvitationFlow,creatorAccessRoutes,creatorInvitationName,creatorNameSlug} from './context.js';
@@ -159,23 +160,36 @@ export function createCreatorInvitationHandler({store=null,members=null,config=n
 }
 
 // Invoked only after the existing owner authentication and CSRF checks.
-export function createAdminInvitationRouter(store,origin){
+export function createAdminInvitationRouter(store,origin,{outreach=null,mail=null}={}){
  return async(url,f,session,actor)=>{
   if(!['/admin/creator-invitations/','/admin/creator-invitations'].includes(url.pathname))return null;
   if(!url.pathname.endsWith('/'))return {redirect:'/admin/creator-invitations/'};
   const result=(body,status=200)=>({title:'Creator invitations',body,status});
   if(!store||!await store.ready())return result('<section class="resource-placeholder"><h2>Creator invitations are being prepared</h2><p>Complete the creator invitation database setup before creating links. Existing accounts and the public site stay available.</p></section>',503);
   try{
-   let created=null,link=null,notice='';
+   let created=null,link=null,notice=url.searchParams.get('mail')==='sent'?'Invitation sent. The contact record has been updated.':url.searchParams.get('mail')==='uncertain'?'The email outcome is uncertain. Review the previous attempt before sending again.':url.searchParams.get('mail')==='failed'?'The invitation email could not be sent. See the contact status below.':'';
    if(f){
     if(f.get('action')==='configure_owner'){await store.configureOwner(f.get('email')||'',actor);notice='Your invitation account is set.';}
     else if(f.get('action')==='issue'){
      created=await store.issue({personId:f.get('personId'),email:f.get('email'),actor});
      link=origin+'/invite/'+encodeURIComponent(created.slug)+'/?code='+created.raw;
     }else if(f.get('action')==='revoke'){await store.revoke(f.get('id'),actor);notice='The pending invitation link has been revoked.';}
-    else return result('<p role="alert">Choose one of the invitation actions.</p>',400);
+    else if(f.get('action')==='send'){
+     if(!mail||!outreach)throw new CreatorInvitationError('mail_unavailable','Invitation email is not configured yet.',503);
+     const invitation=await outreach.issueForEmail({personId:f.get('personId'),email:f.get('email'),actor,operationId:f.get('operationId')});
+     let outcome;try{outcome=await mail({invitation,url:origin+'/invite/'+encodeURIComponent(invitation.slug)+'/?code='+invitation.raw,contact:creatorOutreachContact(invitation.slug)||{}});}catch{outcome={status:'uncertain'};}
+     await outreach.recordMailResult({operationId:f.get('operationId'),status:outcome.status,actor});
+     return {redirect:'/admin/creator-invitations/?mail='+outcome.status};
+    }else if(f.get('action')==='suppress'){
+     if(!outreach)throw new CreatorInvitationError('mail_unavailable','Creator contact tracking is unavailable.',503);
+     await outreach.suppress({personId:f.get('personId'),email:f.get('email'),status:f.get('status'),actor});notice='This creator will not receive further invitations.';
+    }else if(f.get('action')==='import_sent'){
+     if(!outreach)throw new CreatorInvitationError('mail_unavailable','Creator contact tracking is unavailable.',503);
+     let records;try{records=JSON.parse(f.get('records')||'');}catch{throw new CreatorInvitationError('input','Use a valid JSON list of sent receipt records.');}
+     const imported=await outreach.importSent(records,actor);notice='Historical sent records saved. No email was sent by this import.';
+    }else return result('<p role="alert">Choose one of the invitation actions.</p>',400);
    }
-   return result(adminInvitationsView(await store.overview(),session,{created,url:link,notice}));
+   const data=await store.overview();if(outreach)Object.assign(data,await outreach.overview());data.mailConfigured=Boolean(mail);return result(adminInvitationsView(data,session,{created,url:link,notice}));
   }catch(error){
    if(!(error instanceof CreatorInvitationError))throw error;
    return result(`<section class="resource-placeholder"><h2>Check the invitation</h2><p role="alert">${h(error.message)}</p><p><a href="/admin/creator-invitations/">Return to creator invitations</a></p></section>`,error.status);
