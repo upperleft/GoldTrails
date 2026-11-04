@@ -10,7 +10,9 @@ The local `codex/stripe-current-main` branch integrates the preserved billing ch
 
 Verification after merging `8a2d2c2` passed: the full 618-test Node suite and the build with 28 HTML pages and 966 local references. The previous integration passed 57 isolated MariaDB billing/entitlement tests and 26 isolated private-code/named-creator compatibility tests without migration 016. Those database checks remain applicable: this latest merge did not change billing, financial entitlement readers or invitation guards, so they were not repeated. The database checks also cover private-code pending-account completion with migration 016 installed: any existing checkout history blocks credential changes and complimentary conversion without consuming the invitation. An untouched pending account can still complete its complimentary creator account.
 
-This checkpoint is local and unpublished. Stripe account/price/webhook configuration and actual Stripe sandbox payments remain unverified; no purchase activation or production migration was performed. Merge any later main changes and repeat relevant integration checks before preparing a release.
+The provider request guard now preserves case-sensitive Stripe object IDs in URL segments, while rejecting traversal, encoded separators, query/fragment injection and empty segments. Provider fixtures use mixed-case fake account, price, portal, customer, Checkout and subscription IDs. After this fix, all 620 Node tests pass and the build checks 28 HTML pages and 966 local references.
+
+This checkpoint is local and unpublished. A separate read-only sandbox readiness check passed with account, price and portal each returning HTTP 200, with zero writes. Actual sandbox Checkout, signed payment-webhook reconciliation and the production signing-secret setup remain unverified; no purchase activation or production migration was performed. Merge any later main changes and repeat relevant integration checks before preparing a release.
 
 ## Configuration
 

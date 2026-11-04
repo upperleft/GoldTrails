@@ -32,7 +32,9 @@ export function createStripeProvider(config,{fetchImpl=fetch,now=()=>new Date()}
  if(!config||config.origin!=='https://goldtrails.org')throw unavailable();
  let verifiedAt=0,verifying=null,identityAt=0;
  const request=async(method,path,values={},key=null)=>{
-  if(!/^\/v1\/[a-z0-9_/]+$/.test(path))throw identity();
+  // Stripe object IDs are case-sensitive and can contain uppercase letters.
+  // Keep every segment explicit so queries, escapes and traversal stay blocked.
+  if(!/^\/v1\/[a-z][a-z0-9_]*(?:\/[A-Za-z0-9_]+)*$/.test(path))throw identity();
   const params=encode(values),url='https://api.stripe.com'+path+(method==='GET'&&params.size?'?'+params:'');
   try{
    const response=await fetchImpl(url,{method,redirect:'error',signal:AbortSignal.timeout(5000),headers:{Authorization:'Bearer '+config.secretKey,'Stripe-Version':stripeVersion,...(method!=='GET'?{'Content-Type':'application/x-www-form-urlencoded'}:{}),...(key?{'Idempotency-Key':key}:{})},...(method!=='GET'?{body:params.toString()}:{})});
