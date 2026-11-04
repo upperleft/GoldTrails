@@ -20,6 +20,9 @@ function fixture(overrides={}){
  const responses={account:{id:'acct_FixtureA1',type:'standard',charges_enabled:true,details_submitted:true},price:{id:'price_PlusA1',livemode:false,active:true,type:'recurring',currency:'usd',unit_amount:500,recurring:{interval:'month',interval_count:1,usage_type:'licensed'},product:{id:'prod_FixtureA1',active:true}},portal:{id:'bpc_FixtureA1',livemode:false,active:true,features:{subscription_cancel:{enabled:true,mode:'at_period_end'},subscription_update:{enabled:false},payment_method_update:{enabled:true}}},...overrides};
  const fetchImpl=async(url,options)=>{
   const parsed=new URL(url),fields=new URLSearchParams(options.body||'');calls.push({url:parsed,options,fields});let result;
+  // Endive rejects this removed create parameter even though the response still
+  // contains payment_method_types. Model that API failure at the transport edge.
+  if(parsed.pathname==='/v1/checkout/sessions'&&options.method==='POST'&&[...fields.keys()].some(k=>k==='payment_method_types'||k.startsWith('payment_method_types[')))return new Response(JSON.stringify({error:{type:'invalid_request_error',param:'payment_method_types'}}),{status:400});
   if(parsed.pathname==='/v1/account')result=responses.account;
   else if(parsed.pathname==='/v1/prices/price_PlusA1')result=responses.price;
   else if(parsed.pathname==='/v1/billing_portal/configurations/bpc_FixtureA1')result=responses.portal;
@@ -63,13 +66,13 @@ test('readiness blocks Express, wrong prices, wrong mode and unsafe portal setti
 });
 test('only a fully paid, matching invoice line proves the service period',()=>{
  const {sub,item,invoice}=objects();assert.equal(confirmedInvoice(invoice,sub,item,config),true);
- for(const extra of [{amount_paid:0},{amount_paid_off_stripe:500},{currency:'cad'},{status:'open'},{billing_reason:'manual'},{total_discount_amounts:[{amount:500}]},{parent:{subscription_details:{subscription:'sub_other'}}}])assert.equal(confirmedInvoice({...invoice,...extra},sub,item,config),false);
+ for(const extra of [{amount_paid:0},{amount_paid_off_stripe:500},{amount_paid_off_stripe:undefined},{currency:'cad'},{status:'open'},{billing_reason:'manual'},{total_discount_amounts:[{amount:500}]},{parent:{subscription_details:{subscription:'sub_other'}}}])assert.equal(confirmedInvoice({...invoice,...extra},sub,item,config),false);
  const altered=structuredClone(invoice);altered.lines.data[0].period.end++;assert.equal(confirmedInvoice(altered,sub,item,config),false);
  const proration=structuredClone(invoice);proration.lines.data[0].parent.subscription_item_details.proration=true;assert.equal(confirmedInvoice(proration,sub,item,config),false);
 });
 test('subscription snapshot uses item periods and refuses customer or metadata reassignment',async()=>{
  const f=fixture(),snapshot=await f.provider.snapshot('sub_FixtureA1',accountId,'cus_FixtureA1');assert.equal(snapshot.latestInvoicePaid,true);assert.equal(snapshot.paidThrough,f.data.item.current_period_end);assert.equal(snapshot.priceId,'price_PlusA1');
- assert.ok(f.calls.find(c=>c.url.pathname==='/v1/subscriptions/sub_FixtureA1').url.searchParams.toString().includes('amount_paid_off_stripe'));
+ assert.deepEqual([...f.calls.find(c=>c.url.pathname==='/v1/subscriptions/sub_FixtureA1').url.searchParams].filter(([key])=>/^expand\[\d+\]$/.test(key)).map(([,value])=>value),['latest_invoice','latest_invoice.amount_paid_off_stripe','schedule']);
  f.responses.sub={...f.data.sub,customer:'cus_other'};await assert.rejects(()=>f.provider.snapshot('sub_FixtureA1',accountId,'cus_FixtureA1'),e=>e.code==='billing_identity');
 });
 test('maintenance disables new purchases while cancellation portal and authoritative reads still work',async()=>{
@@ -117,4 +120,15 @@ test('request paths reject traversal, encoded separators, query fragments and em
   assert.equal(calls.some(c=>c.url.pathname.startsWith('/v1/prices/')),false);
   assert.equal(calls.some(c=>c.options.method!=='GET'||c.url.origin!=='https://api.stripe.com'),false);
  }
+});
+
+test('Endive Checkout uses the card allowlist with hosted flexible subscriptions and no removed create parameter',async()=>{
+ const {provider,calls}=fixture();
+ const session=await provider.createCheckout(accountId,{id:accountId,customerId:'cus_FixtureA1',idempotencyKey:'endive-contract-fixture'});
+ assert.equal(session.sessionId,'cs_test_FixtureA1');
+ const checkout=calls.find(c=>c.url.pathname==='/v1/checkout/sessions'&&c.options.method==='POST');
+ assert.equal(checkout.options.headers['Stripe-Version'],'2026-10-28.endive');
+ assert.deepEqual([...checkout.fields].filter(([key])=>key.startsWith('allowed_payment_method_types')), [['allowed_payment_method_types[0]','card']]);
+ assert.equal(checkout.fields.get('ui_mode'),'hosted_page');assert.equal(checkout.fields.get('subscription_data[billing_mode][type]'),'flexible');
+ assert.equal([...checkout.fields.keys()].some(key=>key==='payment_method_types'||key.startsWith('payment_method_types[')),false);
 });

@@ -65,6 +65,8 @@ export function createStripeProvider(config,{fetchImpl=fetch,now=()=>new Date()}
  };
  const subscriptionObject=async(subscriptionId,accountId,customerId)=>{
   if(!stripeId(subscriptionId,'sub')||!billingId(accountId)||!stripeId(customerId,'cus'))throw identity();
+  // This scalar is includable rather than returned by default; Stripe uses
+  // expand for it as well as the linked invoice and schedule objects.
   const sub=await request('GET','/v1/subscriptions/'+subscriptionId,{expand:['latest_invoice','latest_invoice.amount_paid_off_stripe','schedule']});
   if(sub.id!==subscriptionId||sub.livemode!==config.livemode||id(sub.customer)!==customerId||!metadata(sub,accountId))throw identity();return sub;
  };
@@ -90,7 +92,7 @@ export function createStripeProvider(config,{fetchImpl=fetch,now=()=>new Date()}
   },
   async createCheckout(accountId,attempt){
    await ensureReady();await customerObject(attempt.customerId,accountId);
-   const session=await request('POST','/v1/checkout/sessions',{mode:'subscription',ui_mode:'hosted_page',customer:attempt.customerId,client_reference_id:accountId,line_items:[{price:config.priceId,quantity:1}],payment_method_types:['card'],payment_method_collection:'always',allow_promotion_codes:false,automatic_tax:{enabled:config.automaticTax===true},success_url:config.origin+'/billing/return/',cancel_url:config.origin+'/billing/?checkout=canceled',metadata:{goldtrails_app:'goldtrails',goldtrails_account_id:accountId,goldtrails_checkout_id:attempt.id},subscription_data:{billing_mode:{type:'flexible'},metadata:{goldtrails_app:'goldtrails',goldtrails_account_id:accountId}}},attempt.idempotencyKey);
+   const session=await request('POST','/v1/checkout/sessions',{mode:'subscription',ui_mode:'hosted_page',customer:attempt.customerId,client_reference_id:accountId,line_items:[{price:config.priceId,quantity:1}],allowed_payment_method_types:['card'],payment_method_collection:'always',allow_promotion_codes:false,automatic_tax:{enabled:config.automaticTax===true},success_url:config.origin+'/billing/return/',cancel_url:config.origin+'/billing/?checkout=canceled',metadata:{goldtrails_app:'goldtrails',goldtrails_account_id:accountId,goldtrails_checkout_id:attempt.id},subscription_data:{billing_mode:{type:'flexible'},metadata:{goldtrails_app:'goldtrails',goldtrails_account_id:accountId}}},attempt.idempotencyKey);
    if(session.livemode!==config.livemode||id(session.customer)!==attempt.customerId||session.client_reference_id!==accountId||!metadata(session,accountId)||!stripeId(session.id,config.livemode?'cs_live':'cs_test'))throw identity();
    return{sessionId:session.id,customerId:attempt.customerId,expiresAt:session.expires_at,url:session.status==='open'?stripeRedirect(session.url,'checkout'):null,status:session.status,subscriptionId:id(session.subscription)||null};
   },
