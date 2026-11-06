@@ -12,6 +12,7 @@
     const status = widget.querySelector('[role="status"]');
     if (!audio || !button || !label || !status || typeof audio.play !== 'function' || widget.dataset.audioEnhanced) continue;
 
+    const listenLabel = label.textContent || 'Listen';
     const title = widget.dataset.audioTitle || 'this introduction';
     const triggers = [button, ...externalTriggers.filter(trigger => trigger.dataset.featureAudioTarget === widget.id)];
     const transcript = widget.querySelector('.feature-audio-transcript');
@@ -39,7 +40,7 @@
     };
     const update = () => {
       const playing = !audio.paused && !audio.ended;
-      label.textContent = playing ? 'Pause' : audio.ended ? 'Listen again' : 'Listen';
+      label.textContent = playing ? 'Pause' : audio.ended ? 'Listen again' : listenLabel;
       for (const trigger of triggers) {
         trigger.setAttribute('aria-pressed', String(playing));
         trigger.setAttribute('aria-label', trigger.dataset.featureAudioAdvance === 'true'

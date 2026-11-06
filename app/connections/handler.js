@@ -107,7 +107,7 @@ export function createConnectionsHandler({store=null,members=null,owners=null,gu
     if(f)throw new ConnectionsError('Download the calendar file.',405);const safe=publicEvent(event);send(200,calendarIcs(safe,config?.origin||'https://goldtrails.org'),{'Content-Type':'text/calendar; charset=utf-8','Content-Disposition':'attachment; filename="gold-connections-event.ics"'});return true;
    }
    if(action==='calendar/'){
-    requireMember();if(!f)throw new ConnectionsError('Use Add to my calendar.',405);if(!calendarStore||!await calendarStore.ready())throw new ConnectionsError('Your personal calendar is unavailable.',503);
+    requirePlus();if(!f)throw new ConnectionsError('Use Add to my calendar.',405);if(!calendarStore||!await calendarStore.ready())throw new ConnectionsError('Your personal calendar is unavailable.',503);
     await store.copyToCalendar(member.id,event.id);redirect('/calendar/');return true;
    }
    if(action==='rsvp/'){
@@ -148,7 +148,7 @@ export function createConnectionsHandler({store=null,members=null,owners=null,gu
    const view=publicEvent(event),canSeePrivate=organizer||member?.effective_level==='subscriber'&&participation?.status==='yes';
    if(canSeePrivate){view.street=event.street;view.zip=event.zip;view.mapUrl=event.mapUrl;view.addressRestricted=false;}
    let content=detailPage(view,{member,guest,csrf,participation,organizer,meeting:canSeePrivate?vault.open(event.meetingCipher):null,comments:await store.comments(event.id,guest?null:member?.id),photos:await store.photos(event.id,guest?null:member?.id),shareUrl:publicEventShareUrl(event,config?.origin)});
-   if(member&&!guest)content=content.replace('<div class="connections-actions">',`<div class="connections-actions">${form(base+'calendar/',csrf,'','Add to my Gold Trails calendar')}`);
+   if(member?.effective_level==='subscriber'&&!guest)content=content.replace('<div class="connections-actions">',`<div class="connections-actions">${form(base+'calendar/',csrf,'','Add to my Gold Trails calendar')}`);
    send(200,content);return true;
   }catch(e){
    const status=e instanceof ConnectionsError?e.status:503,message=e instanceof ConnectionsError?e.message:'Gold Connections is temporarily unavailable. Please try again.';

@@ -19,7 +19,10 @@ test('account overview keeps private access, escaped identity, entitlement links
   assert.match(html,/Alex &lt;script&gt;bad\(\)&lt;\/script&gt;/);assert.doesNotMatch(html,/<script>bad/);
   assert.match(html,new RegExp(effective_level==='subscriber'?'href="/gold-almanac/">Open Almanac':'href="/plus/">Explore Plus'));
   if(effective_level==='subscriber')assert.match(html,/class="camp-shortcut" href="\/connections\/mine\/"/);
-  else assert.doesNotMatch(html,/connections/i);
+  else {
+   assert.doesNotMatch(html,/class="camp-shortcut" href="\/connections\/mine\/"/);
+   assert.match(html,/<strong>Private calendar<\/strong><span>Included with Gold Trails Plus/);
+  }
   assert.match(html,/<form method="post" action="\/logout\/">/);assert.match(html,new RegExp(`name="csrf" value="${csrf}"`));
   assert.equal((await request('/logout/',null,{headers})).status,405);assert.equal(signouts,0);
   assert.equal((await request('/logout/',{csrf:'d'.repeat(64)},headers)).status,403);assert.equal(signouts,0);
@@ -30,9 +33,9 @@ async function fixture(t,options={}){const server=createServer({members:createMe
 test('signup remains closed without email, even when enabled',async t=>{let writes=0;const request=await fixture(t,{store:{ready:async()=>true,signup:async()=>writes++}});const response=await request('/signup/',{username:'newmember'});assert.equal(response.status,200);assert.match(await response.text(),/fieldset disabled/);assert.equal(writes,0);});
 test('mutation requires matching origin and CSRF; email link GET cannot activate account',async t=>{let consumes=0;const request=await fixture(t,{store:{ready:async()=>true,allow:async()=>true,consume:async()=>{consumes++;return true;}}});assert.equal((await request('/verify-email/',{token:link},{Origin:'https://other.example'})).status,403);assert.equal((await request('/verify-email/',{token:link,csrf:'d'.repeat(64)})).status,403);const response=await request('/verify-email/?token='+link);assert.equal(response.status,200);assert.equal(consumes,0);assert.equal(response.headers.get('referrer-policy'),'strict-origin');assert.equal((await request('/verify-email/',{token:link})).status,200);assert.equal(consumes,1);});
 test('verified login rotates session and account does not trust raw subscription level',async t=>{const hash=await hashPassword('an example long password');let loggedIn=false;const request=await fixture(t,{store:{ready:async()=>true,allow:async()=>true,find:async()=>({id:'account',password_hash:hash,status:'active',email_verified_at:new Date(),auth_version:0}),logout:async()=>{},login:async(id,version,nonce)=>{assert.equal(id,'account');assert.equal(version,0);assert.notEqual(nonce,csrf);loggedIn=true;return session;},session:async()=>({username:'member',email:'me@example.com',account_number:28,level:'subscriber',effective_level:'free'})}});const response=await request('/login/',{email:'me@example.com',password:'an example long password'});assert.equal(response.status,303);assert.equal(response.headers.get('location'),'/account/');assert.match(response.headers.get('set-cookie'),/__Host-gold-member=.*Secure; HttpOnly/);assert.ok(loggedIn);const page=await request('/account/',null,{headers:{Cookie:`__Host-gold-member=${session}`}});assert.match(await page.text(),/GT-000028/);});
-test('one website sign-in opens the calendar with the same session and rotated CSRF',async t=>{
+test('one website sign-in opens the Plus calendar with the same session and rotated CSRF',async t=>{
  const hash=await hashPassword('an example long password'),sessions=new Map(),calendarStore=calendarMemoryStore();
- const memberStore={ready:async()=>true,allow:async()=>true,find:async()=>({id:'member',password_hash:hash,status:'active',email_verified_at:new Date(),auth_version:0}),logout:async raw=>sessions.delete(raw),login:async(id,version,nonce)=>{sessions.set(session,{id,username:'Member',effective_level:'free',csrf_token_hash:digest(nonce)});return session;},session:async raw=>sessions.get(raw)};
+ const memberStore={ready:async()=>true,allow:async()=>true,find:async()=>({id:'member',password_hash:hash,status:'active',email_verified_at:new Date(),auth_version:0}),logout:async raw=>sessions.delete(raw),login:async(id,version,nonce)=>{sessions.set(session,{id,username:'Member',effective_level:'subscriber',csrf_token_hash:digest(nonce)});return session;},session:async raw=>sessions.get(raw)};
  const server=createServer({members:createMemberHandler({store:memberStore,config:{origin},log:()=>{}}),calendar:createCalendarHandler({members:memberStore,store:calendarStore,config:{origin},log:()=>{}})});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>server.close(resolve)));
  const request=(path,options={})=>fetch(`http://127.0.0.1:${server.address().port}${path}`,{redirect:'manual',...options});
@@ -168,7 +171,7 @@ test('resend explains that verified accounts need sign-in or recovery without ex
  assert.equal(sent,0);assert.equal(results[0],results[1]);assert.match(results[0],/already verified will not receive another verification email/);assert.match(results[0],/href="\/forgot-password\/"/);
 });
 
-test('signup leads with one focused title and the free-calendar benefit while retaining accessible credential fields',async t=>{
+test('signup leads with one focused title and the free-account invitation while retaining accessible credential fields',async t=>{
  let writes=0;
  const request=await fixture(t,{mail:async()=>{},store:{ready:async()=>true,signup:async()=>writes++}});
  const response=await request('/signup/'),html=await response.text();
@@ -177,7 +180,7 @@ test('signup leads with one focused title and the free-calendar benefit while re
  assert.match(html,/<section class="resource-placeholder member-card member-auth-card" aria-labelledby="member-access-title"><h1 id="member-access-title">Join the camp<\/h1>/);
  assert.doesNotMatch(html,/<h2>Join the camp<\/h2>/);
  const intro=html.match(/<p class="member-auth-intro">([^<]+)<\/p>/)?.[1]||'';
- assert.match(intro,/free account.*trail calendar/);assert.match(intro,/verify your address/);
+ assert.match(intro,/free Gold Trails account/);assert.match(intro,/verify your address/);
  const form=html.match(/<form\b[^>]*data-async-signup[\s\S]*?<\/form>/)?.[0]||'';
  assert.ok(html.indexOf('member-auth-intro')<html.indexOf(form));
  assert.match(form,/method="post" action="\/signup\/"/);assert.match(form,/name="csrf"/);
@@ -209,7 +212,7 @@ test('member access pages share one title without applying auth layout to Your C
  const camp=await(await request('/account/',null,{headers:{Cookie:`__Host-gold-member=${session}`}})).text();
  assert.match(camp,/camp-page/);assert.match(camp,/account-camp\.css\?v=/);
  assert.doesNotMatch(camp,/member-auth-page|member-auth\.css|member-access-title/);
- assert.doesNotMatch(camp,/connections/i);
+ assert.doesNotMatch(camp,/class="camp-shortcut" href="\/connections\/mine\/"/);
  const closed=await fixture(t,{store:{ready:async()=>true,signup:async()=>assert.fail('unconfigured signup cannot create an account')}});
  const html=await(await closed('/signup/')).text();assert.match(html,/Registration is temporarily unavailable/);assert.match(html,/<fieldset disabled class="member-preview">/);
  assert.doesNotMatch(html,/data-signup-plus-offer/);

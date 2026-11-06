@@ -2,9 +2,9 @@
 
 ## Implementation plan
 
-Phase 1 adds a private native calendar to the existing buildless Node 22 server, MariaDB database, and verified member sessions. Calendar ownership always comes from the validated session. Both free and subscriber members may manage their own calendars; membership and billing do not change.
+Phase 1 adds a private native calendar to the existing buildless Node 22 server, MariaDB database, and verified member sessions. Calendar ownership always comes from the validated session. A signed-in Gold Trails Plus member may manage their own calendars. Paid and complimentary access use the same effective membership check. Existing calendar data remains associated with its owner when Plus is inactive.
 
-Calendar access is part of the Gold Trails website: use the existing site sign-in, then choose My calendar in the shared navigation, the account page, or the My Gold Trail dashboard. The calendar entry links to `/login/?next=/calendar/`; a successful website sign-in returns there, and an already signed-in member continues without another password prompt. Return destinations are restricted to the three named member pages. The homepage remains public and can be shared without a login.
+The calendar preview links to Gold Trails Plus and uses `/login/?next=/calendar/` to return members to the calendar after website sign-in. Plus members can open the private editor from navigation or their account. Free members see the upgrade page. The separate guest tour uses fictional examples and cannot access private calendar data.
 
 Components: `app/calendar/model.js` validates calendar/event input, `recurrence.js` expands bounded wall-clock series, `store.js` owns transactions and scoped SQL, `handler.js` enforces session/Origin/CSRF checks, and `views.js` with `dist/calendar.js`/`.css` presents accessible dialogs and four calendar views. FullCalendar 6.1.19, Luxon 3.7.2 and rrule 2.8.1 are pinned; browser libraries are served locally. FullCalendar's maintained version 6 documentation and rrule's official recurrence documentation informed the implementation. Official references: [FullCalendar global builds](https://legacy.fullcalendar.io/v6/initialize-globals), [Luxon](https://moment.github.io/luxon/), and [rrule](https://github.com/jkbrzt/rrule).
 

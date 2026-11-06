@@ -13,5 +13,5 @@
 .feature-audio-guide{display:flex;align-items:flex-start;justify-content:space-between;gap:14px 22px;margin-bottom:18px}
 .feature-audio-guide>.calendar-instructions{flex:1;min-width:0;margin:0}
 .feature-audio-guide>.feature-audio{flex-shrink:0;max-width:45%}
-.article-audio{margin:14px 0 22px}
+.article-audio,.plus-introduction-audio{margin:14px 0 22px}
 @media(max-width:650px){.feature-audio-guide{flex-wrap:wrap;gap:10px}.feature-audio-guide>.calendar-instructions{flex-basis:100%}.feature-audio-guide>.feature-audio{max-width:100%;flex-shrink:1}}

@@ -7,7 +7,7 @@ import {guestPlusAccess} from './plus/guest-access.js';
 import http from 'node:http';
 import {attachAnalyticsMarkup} from './analytics/handler.js';
 import {createAlmanacHandler} from './almanac/handler.js';
-import {mergeCatalog,catalogBySlug,catalogProfile} from './creator-catalog.js';
+import {mergeCatalog,catalogBySlug,catalogProfile,withCatalogDescription} from './creator-catalog.js';
 import {mapRecords} from './creator-map.js';
 import {prospectorsPage,explorerCriteria} from './prospectors-page.js';
 import { readFile, realpath, stat } from 'node:fs/promises';
@@ -58,7 +58,7 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
     // Retired feature: old bookmarks lead to the account; old forms never write data.
     if (!compass && (path === '/compass' || path.startsWith('/compass/'))) {
       if (['GET','HEAD'].includes(req.method)) send(req,res,303,'',{Location:'/account/'});
-      else send(req,res,410,messagePage('This feature has been removed','Your account and personal calendar are still available.'));
+      else send(req,res,410,messagePage('This feature has been removed','Visit your account to manage your Gold Trails membership.'));
       return;
     }
     if(connections?.attach)await connections.attach(req,res,url);
@@ -167,12 +167,12 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
           if (criteria.page > Math.max(1, Math.ceil(result.total / criteria.pageSize))) {
             send(req,res,404,messagePage('No results on that page','Return to the directory to start a new search.')); return;
           }
-          send(req,res,200,directoryPage(criteria,result));
+          send(req,res,200,directoryPage(criteria,{...result,people:result.people.map(withCatalogDescription)}));
         } else {
           const profile = await directory.profile(match[1]);
           if (!profile) {const entry=catalogBySlug(match[1]);if(entry && directory.catalogAllowed && await directory.catalogAllowed(match[1]))send(req,res,200,catalogProfile(entry));else send(req,res,404,messagePage('Trail not found','This profile is not available.'));}
           else if (profile.archived) send(req,res,410,messagePage('An archived trail', `${profile.display_name}’s profile has been archived. Browse the directory for current profiles.`));
-          else send(req,res,200,profilePage(profile));
+          else send(req,res,200,profilePage(withCatalogDescription(profile)));
         }
       } catch {
         // Do not publish or log SQL, host names, credentials, or private records.

@@ -17,13 +17,13 @@ export function accountView(member, csrf, {creatorProfile=null}={}) {
     <span class="camp-membership">${plus ? 'Gold Trails Plus' : 'Free member'}</span>
   </header>
   <nav class="camp-destinations" aria-label="Your camp shortcuts">
-    <a class="camp-shortcut" href="/calendar/"><span class="camp-icon">${calendar}</span><span><strong>My calendar</strong><span>Keep your dates together</span></span><span class="camp-arrow" aria-hidden="true">→</span></a>
+    <a class="camp-shortcut" href="/calendar/"><span class="camp-icon">${calendar}</span><span><strong>${plus?'My calendar':'Private calendar'}</strong><span>${plus?'Keep your dates together':'Included with Gold Trails Plus'}</span></span><span class="camp-arrow" aria-hidden="true">→</span></a>
     ${plus ? `<a class="camp-shortcut" href="/connections/mine/"><span class="camp-icon">${people}</span><span><strong>Gold Connections</strong><span>Your events &amp; RSVPs</span></span><span class="camp-arrow" aria-hidden="true">→</span></a>` : ''}
   </nav>
   <section class="camp-details" aria-labelledby="camp-details-heading">
     <h3 id="camp-details-heading">Your account</h3>
     <dl><div><dt>Account number</dt><dd>GT-${h(String(member.account_number).padStart(6, '0'))}</dd></div><div><dt>Username</dt><dd>${h(member.username)}</dd></div><div class="camp-email"><dt>Email</dt><dd>${h(member.email)}</dd></div></dl>
   </section>
-  <div class="camp-plus"><div><strong>${plus ? 'Your State Almanac is ready to explore.' : 'A little deeper down the trail'}</strong><p>${plus ? 'Explore the full State Almanac with Gold Trails Plus.' : 'Discover the State Almanac with Gold Trails Plus · $5/month.'}</p></div><a href="${plus ? '/gold-almanac/' : '/plus/'}">${plus ? 'Open Almanac' : 'Explore Plus'} <span aria-hidden="true">→</span></a></div>
+  <div class="camp-plus"><div><strong>${plus ? 'Your State Almanac is ready to explore.' : 'A little deeper down the trail'}</strong><p>${plus ? 'Explore the full State Almanac with Gold Trails Plus.' : 'Get the State Almanac, private calendar, and Gold Connections participation with Plus · $5/month.'}</p></div><a href="${plus ? '/gold-almanac/' : '/plus/'}">${plus ? 'Open Almanac' : 'Explore Plus'} <span aria-hidden="true">→</span></a></div>
   <footer class="camp-footer"><p>${complimentary?'Your Plus access is complimentary. No subscription fee or card is required.'+(member.ends_at?'':' Your included access has no expiry.'):'<a href="/billing/">Subscription, payment method &amp; cancellation</a>'}</p><form method="post" action="/logout/"><input type="hidden" name="csrf" value="${h(csrf)}"><button type="submit">Sign out</button></form></footer>`;
 }

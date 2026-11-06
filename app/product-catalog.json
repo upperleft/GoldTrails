@@ -5,8 +5,8 @@
   "next_ids": {
     "product": "GT-P0064",
     "manufacturer": "GT-M029",
-    "creator": "GT-C006",
-    "evidence": "GT-E0008",
+    "creator": "GT-C008",
+    "evidence": "GT-E0010",
     "lead": "GT-L0019"
   },
   "tables": {
@@ -2333,10 +2333,10 @@
         "creator_owned": "",
         "inventor_run": "",
         "documented_creator_or_inventor": "",
-        "associated_creator_ids": "",
-        "associated_creator_names": "",
-        "creator_channel_urls": "",
-        "creator_evidence_ids": "",
+        "associated_creator_ids": "GT-C006|GT-C007",
+        "associated_creator_names": "Nugget Shooterette Expeditions|Shane’Oz Gold Rush",
+        "creator_channel_urls": "https://www.youtube.com/channel/UCy2Y4cgtNuFlK98SuBYrpPg|https://www.youtube.com/channel/UCbl7WnO9SPctmzLQ45aoifw",
+        "creator_evidence_ids": "GT-E0008|GT-E0009",
         "source_urls": "https://www.minelab.com/tech-specs/gpx6000/|https://usa.minelab.com/media/wysiwyg/InstructionManual_GPX6000_USA.pdf",
         "source_page_reference": "Manual printed p26 (PDF page 26), Specifications; official technical page",
         "source_hierarchy_notes": "Primary brand/manufacturer source inspected",
@@ -3912,7 +3912,8 @@
         "stated_favorite": false,
         "count_in_usage_summary": true,
         "date_checked": "2026-10-09",
-        "notes": "Use is inferred from the creator’s explicit page-wide used-extensively statement applied to this named recommendation. Not a directly observed video; no favorite label."
+        "notes": "Use is inferred from the creator’s explicit page-wide used-extensively statement applied to this named recommendation. Not a directly observed video; no favorite label.",
+        "use_scope": "exact_model"
       },
       {
         "evidence_id": "GT-E0003",
@@ -3940,7 +3941,8 @@
         "stated_favorite": false,
         "count_in_usage_summary": true,
         "date_checked": "2026-10-09",
-        "notes": "Named model confirmed. Current retailer mat configuration may differ from his purchased version."
+        "notes": "Named model confirmed. Current retailer mat configuration may differ from his purchased version.",
+        "use_scope": "exact_model"
       },
       {
         "evidence_id": "GT-E0004",
@@ -3968,7 +3970,8 @@
         "stated_favorite": false,
         "count_in_usage_summary": true,
         "date_checked": "2026-10-09",
-        "notes": "Historical use; later text describes a modified Cube. Current personal stack configuration is not established."
+        "notes": "Historical use; later text describes a modified Cube. Current personal stack configuration is not established.",
+        "use_scope": "exact_model"
       },
       {
         "evidence_id": "GT-E0005",
@@ -3996,7 +3999,8 @@
         "stated_favorite": false,
         "count_in_usage_summary": true,
         "date_checked": "2026-10-09",
-        "notes": "Gold Cube Trommel product family confirmed; current next-generation revision not established. No video timestamp claimed."
+        "notes": "Gold Cube Trommel product family confirmed; current next-generation revision not established. No video timestamp claimed.",
+        "use_scope": "product_family"
       },
       {
         "evidence_id": "GT-E0006",
@@ -4053,6 +4057,64 @@
         "count_in_usage_summary": true,
         "date_checked": "2026-10-09",
         "notes": "Recommendation in written creator article. First-person teamwork remark is not treated as independently confirmed exact-model use. Material/generation and video timestamp unverified."
+      },
+      {
+        "evidence_id": "GT-E0008",
+        "batch_id": "GT-B004",
+        "creator_id": "GT-C006",
+        "creator_name": "Nugget Shooterette Expeditions",
+        "creator_channel_url": "https://www.youtube.com/channel/UCy2Y4cgtNuFlK98SuBYrpPg",
+        "product_id": "GT-P0044",
+        "brand": "Minelab",
+        "model": "GPX 6000",
+        "relationship_type": "creator field use",
+        "evidence_type": "Field use in a creator video",
+        "source_title": "What A Learning Experience: Chasing Ghost Targets With The GPX 6000",
+        "source_url": "https://www.youtube.com/watch?v=2S-F-SXvdyA",
+        "publication_date": "",
+        "source_updated_date": "",
+        "timestamp": "",
+        "page_reference": "Title and creator-written description",
+        "verified_paraphrase": "The creator describes detecting with the GPX 6000 in the Arizona desert while learning to recognize ghost targets.",
+        "sponsorship_or_affiliate_disclosure": "",
+        "identification_confidence": "confirmed",
+        "confirmed_use": true,
+        "use_basis": "The creator names the exact detector in the title and describes using it in the field.",
+        "explicit_recommendation": false,
+        "stated_favorite": false,
+        "count_in_usage_summary": true,
+        "date_checked": "2026-11-05",
+        "notes": "The creator identifies the detector model. The coil and setup may vary.",
+        "use_scope": "exact_model"
+      },
+      {
+        "evidence_id": "GT-E0009",
+        "batch_id": "GT-B004",
+        "creator_id": "GT-C007",
+        "creator_name": "Shane’Oz Gold Rush",
+        "creator_channel_url": "https://www.youtube.com/channel/UCbl7WnO9SPctmzLQ45aoifw",
+        "product_id": "GT-P0044",
+        "brand": "Minelab",
+        "model": "GPX 6000",
+        "relationship_type": "creator field use",
+        "evidence_type": "Field use in a creator video",
+        "source_title": "A Golden Day Prospecting with the GPX 6000 Super Detector (Episode 204)",
+        "source_url": "https://www.youtube.com/watch?v=SVYgfwFnEcY",
+        "publication_date": "",
+        "source_updated_date": "",
+        "timestamp": "",
+        "page_reference": "Title and creator-written description",
+        "verified_paraphrase": "The channel’s episode title names the GPX 6000 as the detector used on a gold prospecting outing in Victoria’s Golden Triangle.",
+        "sponsorship_or_affiliate_disclosure": "",
+        "identification_confidence": "confirmed",
+        "confirmed_use": true,
+        "use_basis": "The creator’s video title identifies field prospecting with the named model.",
+        "explicit_recommendation": false,
+        "stated_favorite": false,
+        "count_in_usage_summary": true,
+        "date_checked": "2026-11-05",
+        "notes": "The creator identifies the detector model. The coil and setup may vary.",
+        "use_scope": "exact_model"
       }
     ],
     "creators": [
@@ -4078,7 +4140,8 @@
         "reviewed_material": "Two creator-authored equipment articles and their author bylines",
         "product_level_evidence_available": true,
         "date_checked": "2026-10-09",
-        "notes": "Publishing channel is his own website, not an inferred YouTube account. Usage is written self-report, not independently observed video."
+        "notes": "Publishing channel is his own website, not an inferred YouTube account. Usage is written self-report, not independently observed video.",
+        "profile_slug": "kevin-singel"
       },
       {
         "creator_id": "GT-C003",
@@ -4115,6 +4178,32 @@
         "product_level_evidence_available": false,
         "date_checked": "2026-10-09",
         "notes": "Cross-link to the intended YouTube account not verified. No equipment connection counted."
+      },
+      {
+        "creator_id": "GT-C006",
+        "creator_name": "Nugget Shooterette Expeditions",
+        "creator_channel_url": "https://www.youtube.com/channel/UCy2Y4cgtNuFlK98SuBYrpPg",
+        "other_official_urls": "",
+        "identity_source_urls": "https://www.youtube.com/channel/UCy2Y4cgtNuFlK98SuBYrpPg|https://www.youtube.com/watch?v=2S-F-SXvdyA",
+        "identity_status": "confirmed",
+        "reviewed_material": "Creator channel and video metadata",
+        "product_level_evidence_available": true,
+        "date_checked": "2026-11-05",
+        "notes": "Channel identity matches the Gold Trails creator video library.",
+        "profile_slug": "nugget-shooterette-expeditions"
+      },
+      {
+        "creator_id": "GT-C007",
+        "creator_name": "Shane’Oz Gold Rush",
+        "creator_channel_url": "https://www.youtube.com/channel/UCbl7WnO9SPctmzLQ45aoifw",
+        "other_official_urls": "",
+        "identity_source_urls": "https://www.youtube.com/channel/UCbl7WnO9SPctmzLQ45aoifw|https://www.youtube.com/watch?v=SVYgfwFnEcY",
+        "identity_status": "confirmed",
+        "reviewed_material": "Creator channel and video metadata",
+        "product_level_evidence_available": true,
+        "date_checked": "2026-11-05",
+        "notes": "Channel identity matches the Gold Trails creator video library.",
+        "profile_slug": "shaneoz-gold-rush"
       }
     ],
     "creator_usage_summary": [
@@ -4202,6 +4291,23 @@
         "sponsorship_caveats": "Author discloses receiving fees from certain purchase links.",
         "sample_description": "Cumulative website evidence: five creator candidates, two with usable product-level evidence; no systematic video corpus.",
         "notes": "Distinct creator counts across batches 1–2. Use is written self-report where marked; no verified video timestamps or stated favorites."
+      },
+      {
+        "product_id": "GT-P0044",
+        "product_name": "Minelab GPX 6000",
+        "distinct_creators_with_confirmed_use": 2,
+        "distinct_creators_with_explicit_recommendations": 0,
+        "distinct_creators_calling_it_a_favorite": 0,
+        "distinct_creators_any_counted_connection": 2,
+        "creator_names": "Nugget Shooterette Expeditions|Shane’Oz Gold Rush",
+        "confirmed_use_creator_names": "Nugget Shooterette Expeditions|Shane’Oz Gold Rush",
+        "recommendation_creator_names": "",
+        "favorite_creator_names": "",
+        "evidence_ids": "GT-E0008|GT-E0009",
+        "supporting_evidence_urls": "https://www.youtube.com/watch?v=2S-F-SXvdyA|https://www.youtube.com/watch?v=SVYgfwFnEcY",
+        "sponsorship_caveats": "",
+        "sample_description": "Two creator-published videos already in the Gold Trails video library.",
+        "notes": "Use documented by creator video metadata. No particular coil, recommendation, or favorite established."
       }
     ],
     "verification_leads": [

@@ -3,11 +3,15 @@ import {matchesProduct,compareProducts,productFilters,productFilterUrl} from '..
 import {assetUrl} from './asset-url.js';
 import {readFileSync} from 'node:fs';
 import {escapeHtml as h,safeUrl} from './directory-views.js';
+import {catalogBySlug} from './creator-catalog.js';
 
 // The supplied research stays in a portable file; no database migration is needed.
 const catalog=JSON.parse(readFileSync(new URL('./product-catalog.json',import.meta.url),'utf8'));
 const shellTemplate=readFileSync(new URL('./page-shell.html',import.meta.url),'utf8');
 const evidence=catalog.tables.creator_product_evidence;
+const creatorProfiles=new Map(catalog.tables.creators
+ .filter(creator=>creator.identity_status==='confirmed'&&creator.profile_slug)
+ .map(creator=>[creator.creator_id,catalogBySlug(creator.profile_slug)]));
 export const productCatalog=()=>structuredClone(catalog.tables.products);
 export function mergedProducts(overrides=[]) {
  const byId=new Map(overrides.map(r=>[r.product_id, typeof r.changes_json==='string'?JSON.parse(r.changes_json):r.changes_json]));
@@ -26,19 +30,40 @@ function price(p){
  return `${p.currency||p.price_symbol_as_displayed||''} ${p.listed_price}${p.listed_price_max!==''&&p.listed_price_max!=null?'–'+p.listed_price_max:''}`.trim();
 }
 function productItem(p){
- const names=[...new Set(evidence.filter(item=>item.product_id===p.product_id).map(item=>item.creator_name))];
+ const names=[...new Set(evidence.filter(item=>item.product_id===p.product_id)
+  .flatMap(item=>[item.creator_name,creatorProfiles.get(item.creator_id)?.name]).filter(Boolean))];
  return {name:p.product_name,brand:p.manufacturer_or_brand,category:p.category,search:[p.product_name,p.manufacturer_or_brand,p.model,p.category,p.subcategory,p.short_description,p.intended_gold_prospecting_use,p.techniques,p.settings,p.important_specifications,...names].join(' ')};
+}
+function creatorEvidenceSections(product,connections){
+ const documented=[],related=[];
+ for(const item of connections){
+  const sameModel=item.model===product.model&&item.brand===product.manufacturer_or_brand;
+  const exactUse=sameModel&&item.use_scope==='exact_model'&&item.confirmed_use===true&&item.identification_confidence==='confirmed';
+  const profile=exactUse?creatorProfiles.get(item.creator_id):null;
+  const name=profile?`<a href="/prospectors/${encodeURIComponent(profile.slug)}/">${h(profile.name)}</a>`:h(item.creator_name);
+  let label=item.evidence_type&&item.evidence_type!=='unclear'?item.evidence_type:item.relationship_type;
+  if(exactUse&&item.explicit_recommendation)label='Use and recommendation';
+  else if(item.use_scope==='product_family')label='Use of the product family';
+  else if(item.use_scope==='exact_model'&&!sameModel)label='Use reported for '+item.model;
+  const card=`<div><p><strong>${name}</strong> · ${h(label)}</p><p>${h(item.verified_paraphrase)}</p>
+   ${item.sponsorship_or_affiliate_disclosure?`<p class="product-note">${h(item.sponsorship_or_affiliate_disclosure)}</p>`:''}
+   ${link(item.source_url,item.source_title||'Evidence source')}${item.timestamp?`<small> · ${h(item.timestamp)}</small>`:''}
+   ${item.notes?`<p class="product-note">${h(item.notes)}</p>`:''}</div>`;
+  (exactUse?documented:related).push(card);
+ }
+ const use=documented.length?`<section class="product-evidence"><h3>Documented product use</h3>${documented.join('')}</section>`:'';
+ const other=related.length?`<section class="product-evidence"><h3>${documented.length?'Other creator connections':'Creator connections'}</h3>${related.join('')}</section>`:'';
+ return use+other;
 }
 function row(p,hidden=false){
  const connections=evidence.filter(e=>e.product_id===p.product_id);
- const names=[...new Set(connections.map(e=>e.creator_name))];
  const search=productItem(p).search;
  const sources=[...new Set(split(p.source_urls))];
  const purchases=[...new Set([p.manufacturer_purchase_url,...split(p.reseller_purchase_urls)].filter(url=>url&&url!==p.official_product_url))];
  return `<li class="product-row" id="${h(p.product_id)}" data-name="${h(p.product_name)}" data-brand="${h(p.manufacturer_or_brand)}" data-category="${h(p.category)}" data-search="${h(search)}"${hidden?' hidden':''}><article>
  <div class="product-overview"><div class="product-summary"><h2>${h(p.product_name)}</h2><p class="product-brand">${h(split(p.manufacturer_or_brand).join(' · '))} · ${h(p.category)}</p><p class="product-description">${h(p.short_description)}</p><div class="product-actions">${link(p.official_product_url||p.manufacturer_website,'Manufacturer website')}<span class="product-price${p.listed_price===''||p.listed_price===null||p.listed_price===undefined?' product-price-unknown':''}">${h(price(p))}${p.listed_price!==''&&p.listed_price!==null&&p.listed_price!==undefined&&!p.currency?' <span class="product-currency-note">(Currency not confirmed)</span>':''}</span></div></div><div class="product-media">${productPhotoLinks(p)}</div></div>
- <details class="product-details"><summary>Details &amp; sources</summary><div class="product-detail-body">${p.techniques?`<p class="product-tags"><strong>Techniques:</strong> ${h(split(p.techniques).join(' · '))}</p>`:''}${names.length?`<p class="product-connections"><strong>Creator connections:</strong> ${h(names.join(' · '))}</p>`:''}<dl class="product-facts">${fact('Type',p.subcategory||p.category)}${fact('Recorded availability',availability(p.availability))}${fact('Price checked',p.price_checked_date?date(p.price_checked_date):'')}${fact('Gold-prospecting use',p.intended_gold_prospecting_use)}${fact('Specifications',p.important_specifications)}${fact('Dimensions',p.dimensions)}${fact('Weight',p.weight_value!==''?`${p.weight_value} ${p.weight_unit||''}`:'')}${fact('Weight basis',p.weight_basis)}${fact('Power',p.power_requirements)}${fact('Water',p.water_requirements)}${fact('Portability',p.portability_notes)}${fact('Compatibility',p.compatibility)}${fact('Required accessories',p.required_accessories)}${fact('Variants',p.variant_options)}${fact('Price context',p.price_basis)}${fact('Stock notes',p.stock_status_notes)}${fact('Research date',p.date_researched)}</dl>
- ${connections.length?`<section class="product-evidence"><h3>Creator connections</h3>${connections.map(e=>`<div><p><strong>${h(e.creator_name)}</strong> · ${h(e.evidence_type||e.relationship_type)}</p><p>${h(e.verified_paraphrase)}</p>${e.sponsorship_or_affiliate_disclosure?`<p class="product-note">${h(e.sponsorship_or_affiliate_disclosure)}</p>`:''}${link(e.source_url,e.source_title||'Evidence source')}${e.timestamp?`<small> · ${h(e.timestamp)}</small>`:''}${e.notes?`<p class="product-note">${h(e.notes)}</p>`:''}</div>`).join('')}</section>`:''}
+ <details class="product-details"><summary>Details &amp; sources</summary><div class="product-detail-body">${p.techniques?`<p class="product-tags"><strong>Techniques:</strong> ${h(split(p.techniques).join(' · '))}</p>`:''}<dl class="product-facts">${fact('Type',p.subcategory||p.category)}${fact('Recorded availability',availability(p.availability))}${fact('Price checked',p.price_checked_date?date(p.price_checked_date):'')}${fact('Gold-prospecting use',p.intended_gold_prospecting_use)}${fact('Specifications',p.important_specifications)}${fact('Dimensions',p.dimensions)}${fact('Weight',p.weight_value!==''?`${p.weight_value} ${p.weight_unit||''}`:'')}${fact('Weight basis',p.weight_basis)}${fact('Power',p.power_requirements)}${fact('Water',p.water_requirements)}${fact('Portability',p.portability_notes)}${fact('Compatibility',p.compatibility)}${fact('Required accessories',p.required_accessories)}${fact('Variants',p.variant_options)}${fact('Price context',p.price_basis)}${fact('Stock notes',p.stock_status_notes)}${fact('Research date',p.date_researched)}</dl>
+ ${creatorEvidenceSections(p,connections)}
  <section class="product-sources"><h3>Sources &amp; purchase links</h3><ul>${sources.map((url,i)=>link(url,`Research source ${i+1}`)).filter(Boolean).map(a=>`<li>${a}</li>`).join('')}${purchases.map((url,i)=>link(url,`Purchase listing ${i+1}`)).filter(Boolean).map(a=>`<li>${a}</li>`).join('')}</ul></section>
  ${p.missing_information_and_uncertainty?`<p class="product-note"><strong>Research notes:</strong> ${h(p.missing_information_and_uncertainty)}</p>`:''}<p class="product-feedback"><a href="/products/report/?product=${h(p.product_id)}" aria-label="${h('Report a change to '+p.product_name)}">Report a change</a><span>Suggest a correction or updated product information for the Gold Trails editor to review.</span></p></div></details></article></li>`;
 }

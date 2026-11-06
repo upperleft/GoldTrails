@@ -11,7 +11,7 @@ const noSalesPrompt=html=>{
 test('active paid members see included features and access actions even when new checkout is disabled',()=>{
  for(const enabled of [true,false]){
   const html=plusPage({...offer(),enabled});
-  assert.match(html,/Both Plus features are included with your membership\./);
+  assert.match(html,/These Plus features are included with your membership\./);
   assert.match(html,/<h3>Your Gold Trails Plus<\/h3>/);
   assert.match(html,/Included with your membership/);
   assert.match(html,/href="\/gold-almanac\/">Open your Almanac<\/a>/);
@@ -22,7 +22,7 @@ test('active paid members see included features and access actions even when new
 test('complimentary creators see their access, its normal value and no fee or card requirement',()=>{
  for(const member of [{effective_level:'subscriber',grant_source:'complimentary'},{effective_level:'subscriber'}]){
   const html=plusPage({...offer('complimentary'),member});
-  assert.match(html,/Your complimentary Plus access includes both features\./);
+  assert.match(html,/Your complimentary Plus access includes all these features\./);
   assert.match(html,/Complimentary access \(normally \$5\/month\)/);
   assert.match(html,/Your Plus access is complimentary\. No subscription fee or card is required\./);
   assert.match(html,/href="\/gold-almanac\/">Open your Almanac<\/a>/);
@@ -51,7 +51,7 @@ test('inactive complimentary membership keeps no-fee details without claiming ac
 
 test('anonymous and free members retain the regular five-dollar offer',()=>{
  const disabled=plusPage();
- assert.match(disabled,/Both Plus features\. <strong>\$5 \/ month<\/strong>/);
+ assert.match(disabled,/One membership\. <strong>\$5 \/ month<\/strong>/);
  assert.match(disabled,/disabled aria-describedby="plus-payment-status">Subscribe · \$5\/month/);
  const anonymous=plusPage({enabled:true});
  assert.match(anonymous,/Sign in to subscribe · \$5\/month/);

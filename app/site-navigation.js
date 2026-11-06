@@ -32,7 +32,7 @@ export function navigationLinks(path='/',{premium=false,creatorInvitation=false}
   const pending=creatorInvitation&&!premium,premiumDestination=pending?'/creator-invitation/':'/plus/';
   return [['/login/','Sign In'],['/articles/','Articles'],[premium?'/gold-almanac/':premiumDestination,premium||pending?'Almanac':'Almanac · Plus'],['/prospectors/','Creators'],['/glossary/','Glossary'],[premium?'/connections/':premiumDestination,'Gold Connections'],['/products/','Products'],[null,search],['/about-the-camp/','About']].map(([href,label])=>href?`<a href="${href}">${label}</a>`:label).join('');
  }
- return destinations.filter(([, ,paid])=>!paid||premium).map(([href,label])=>`<a href="${href}"${active(href,path)?' aria-current="page"':''}>${label}</a>`).join('');
+ return destinations.filter(([, ,paid])=>!paid||premium).map(([href,label])=>`<a href="${href}"${active(href,path)?' aria-current="page"':''}>${href==='/calendar/'&&!premium?'Calendar · Plus':label}</a>`).join('');
 }
 export function siteNavigationMarkup(html,{path='/',premium=false,creatorInvitation=false}={}){
  if(typeof html!=='string'||!html.includes('</head>')||!html.includes('trail-menu')||html.includes('data-site-navigation'))return html;
@@ -46,7 +46,7 @@ export function siteNavigationMarkup(html,{path='/',premium=false,creatorInvitat
  const resources=`<details class="site-resource-menu"><summary>Gold Fun &amp; Finds</summary><nav aria-label="Gold Fun &amp; Finds">${funFindsDestinations.map(([href,label])=>`<a href="${href}"${active(href,path)?' aria-current="page"':''}>${label}</a>`).join('')}</nav></details>`;
  result=result.replace('</footer>',resources+'</footer>');
  if(funFindsDestinations.some(([href])=>active(href,path))&&!result.includes('data-fun-finds-navigation'))result=result.replace(/(<div\b[^>]*class="[^"]*\bcenter\b[^"]*"[^>]*>)/,'$1'+funFindsNavigation(path));
- if(path==='/articles/')result=result.replace('<h1>Articles</h1>','<h1>Articles</h1><p class="site-games-discovery">Learning together? Explore <a href="/gold-games/">Gold Games</a> for free learning games, family tabletop picks, and real panning challenges.</p>');
+ if(path==='/articles/')result=result.replace('<h1>Articles</h1>','<h1>Articles</h1><p>Open an article and look for <strong>Listen to the Old-Timer</strong> near the title.</p><p class="site-games-discovery">Learning together? Explore <a href="/gold-games/">Gold Games</a> for free learning games, family tabletop picks, and real panning challenges.</p>');
  // The artwork homepage has its own main before the classic text homepage.
  result=result.replace(/<main\b(?![^>]*class="[^"]*home-graphical)[^>]*>/,match=>match+`<details class="site-mobile-menu"><summary>Menu</summary><nav aria-label="Main navigation">${links}</nav>${readingSlot}</details>`);
  return contentBeforeSidebar(result).replace('</head>',`<link rel="stylesheet" href="${assetUrl('design-refinements.css')}"></head>`);

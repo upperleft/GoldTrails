@@ -50,7 +50,10 @@ test('About leads with the three access levels while preserving free creator acc
  for(const heading of ['Visitor','Free member','Gold Trails Plus'])assert.ok(about.includes('>'+heading+'</h3>'));
  for(const id of ['visitor-features','free-member-features','plus-member-features'])assert.equal((about.match(new RegExp('id="'+id+'"','g'))||[]).length,1);
  assert.match(about,/Free · no account needed/);assert.match(about,/Creator profiles and links to creators’ videos always remain free/);
- assert.match(about,/private calendar of outings/);assert.match(about,/Set up recurring events/);assert.match(about,/\$5 USD per month/);assert.match(about,/full 50-state Almanac/);assert.match(about,/Create Gold Connections events, RSVP, and join event discussions/);
+ const free=about.match(/aria-labelledby="free-member-features">([\s\S]*?)<\/section>/)?.[1];
+ const plus=about.match(/aria-labelledby="plus-member-features">([\s\S]*?)<\/section>/)?.[1];
+ assert.ok(free&&plus);assert.doesNotMatch(free,/private calendar|recurring events/);
+ assert.match(plus,/private calendar of outings/);assert.match(plus,/Set up recurring events/);assert.match(plus,/\$5 USD per month/);assert.match(plus,/full 50-state Almanac/);assert.match(plus,/Create Gold Connections events, RSVP, and join event discussions/);
  assert.match(about,/Everything available to visitors, plus/);assert.match(about,/Everything in free membership, plus/);
  assert.match(about,/supporting references/);assert.match(about,/Old-Timer is our editorial voice/);assert.match(about,/assistance from ChatGPT is labeled accordingly/);assert.match(about,/illustrations, not evidence of a particular field result/);
  assert.match(about,/href="\/signup\/"/);assert.match(about,/href="\/plus\/"/);

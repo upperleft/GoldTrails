@@ -30,7 +30,7 @@ export function articleAudioMarkup(html, path) {
   if (!heading) return html;
   const slug = canonicalPath.split('/').filter(Boolean).at(-1);
   if (!/^[a-z0-9-]+$/i.test(slug || '')) return html;
-  const audio = featureAudio({id: 'article-' + slug, title: 'the Old-Timer’s summary of ' + entry.title, src: entry.src, transcript: entry.script});
+  const audio = featureAudio({id: 'article-' + slug, title: 'the Old-Timer’s summary of ' + entry.title, src: entry.src, transcript: entry.script, label: 'Listen to the Old-Timer'});
   const insertion = start + heading.index + heading[0].length;
   return attachFeatureAudioAssets(html.slice(0, insertion) + `<div class="article-audio" data-article-audio>${audio}</div>` + html.slice(insertion));
 }

@@ -189,7 +189,7 @@ test('the public calendar gate remains in place for invalid, expired and revoked
  const f=await fixture(t);
  const gate=async cookie=>{
   const response=await f.request('/calendar/',{cookie}),html=await response.text();assert.equal(response.status,200);
-  assert.match(html,/Register and log in to access the calendar\./);assert.doesNotMatch(html,/data-calendar-guest\b|data-calendar-app\b|data-guest-plus-banner|calendar-guest\.js/);assertNoSecrets(html);
+  assert.match(html,/Your private calendar is included with Gold Trails Plus/);assert.doesNotMatch(html,/data-calendar-guest\b|data-calendar-app\b|data-guest-plus-banner|calendar-guest\.js/);assertNoSecrets(html);
  };
  for(const cookie of ['', '__Host-gold-plus-guest='+unknown,guestCookie+'; '+guestCookie,'__Host-gold-member='+raw])await gate(cookie);
  f.pass.revoked=true;await gate(guestCookie);f.pass.revoked=false;
@@ -213,17 +213,22 @@ test('a calendar tour does not open personal calendar APIs or accept any calenda
  assert.equal(f.privateReady(),0);assert.equal(f.privateReads(),0);assert.equal(f.privateWrites(),0);
 });
 
-test('a real free or Plus member keeps their personal planner when their browser also has a guest invitation',async t=>{
- const f=await fixture(t);
- for(const token of [free,paid]){
-  const cookie=guestCookie+'; __Host-gold-member='+token;
-  const response=await f.request('/calendar/',{cookie}),html=await response.text();assert.equal(response.status,200);
-  assert.match(html,/data-calendar-app\b/);assert.match(html,/src="\/calendar\.js\?v=/);assert.doesNotMatch(html,/data-calendar-guest\b|calendar-guest\.js|data-guest-plus-banner|Fictional example/,'A real account must not be mislabeled as the fictional tour');
-  const data=await f.request('/calendar/api/calendars',{cookie});assert.equal(data.status,200);assert.deepEqual(await data.json(),[]);
- }
- assert.equal(f.privateReads(),2,'Only the two genuine member requests read their personal-calendar store');assert.equal(f.privateWrites(),0);
+test('a guest invitation cannot give free members a personal planner or replace a Plus member’s planner',async t=>{
+ const f=await fixture(t),freeCookie=guestCookie+'; __Host-gold-member='+free,paidCookie=guestCookie+'; __Host-gold-member='+paid;
+ const upgrade=await f.request('/calendar/',{cookie:freeCookie}),upgradeHtml=await upgrade.text();
+ assert.equal(upgrade.status,403);
+ assert.match(upgradeHtml,/Upgrade to Gold Trails Plus/);
+ assert.doesNotMatch(upgradeHtml,/data-calendar-app\b|data-calendar-guest\b|data-guest-plus-banner/);
+ assert.equal((await f.request('/calendar/api/calendars',{cookie:freeCookie})).status,403);
+ assert.equal(f.privateReady(),0);
+ const personal=await f.request('/calendar/',{cookie:paidCookie}),personalHtml=await personal.text();
+ assert.equal(personal.status,200);
+ assert.match(personalHtml,/data-calendar-app\b/);assert.match(personalHtml,/src="\/calendar\.js\?v=/);
+ assert.doesNotMatch(personalHtml,/data-calendar-guest\b|calendar-guest\.js|data-guest-plus-banner|Fictional example/);
+ const data=await f.request('/calendar/api/calendars',{cookie:paidCookie});assert.equal(data.status,200);assert.deepEqual(await data.json(),[]);
+ assert.equal(f.privateReads(),1);assert.equal(f.privateWrites(),0);
  f.pass.revoked=true;
- const response=await f.request('/calendar/',{cookie:guestCookie+'; __Host-gold-member='+paid});assert.equal(response.status,200);assert.match(await response.text(),/data-calendar-app\b/,'Revoking a guest pass cannot remove a real member’s planner');
+ const response=await f.request('/calendar/',{cookie:paidCookie});assert.equal(response.status,200);assert.match(await response.text(),/data-calendar-app\b/,'Revoking a guest pass cannot remove a real member’s planner');
 });
 
 test('a guest calendar tour works without a member database session or an available personal-calendar store',async t=>{

@@ -79,6 +79,11 @@ export function createCalendarHandler({members=null,store=null,config=null,guest
     }else fail(401,'Sign in to use your private calendar.');
     return true;
    }
+   if(member.effective_level!=='subscriber'){
+    if(api)fail(403,'Gold Trails Plus is required to use your private calendar.');
+    else send(403,calendarPreview({signedIn:true}));
+    return true;
+   }
    if(!store||!await store.ready()){fail(503,'Your calendar is being prepared. Your account and other Gold Trails pages are available.');return true;}
    const owner=member.id,csrf=read(req,'form');
    if(!api){if(req.method==='POST')throw new CalendarError('Use the calendar controls.',405);send(200,calendarPage({member,csrf}));return true;}

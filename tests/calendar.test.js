@@ -7,12 +7,12 @@ import {calendarMemoryStore} from './helpers/calendar-memory.js';
 import {calendarPage} from '../app/calendar/views.js';
 const csrf='a'.repeat(64),alice='b'.repeat(64),bob='c'.repeat(64),origin='https://gold.example';
 async function fixture(t,{store=calendarMemoryStore(),config={origin}}={}){
- const sessions=new Map([[alice,{id:'alice',username:'Alice',effective_level:'free',csrf_token_hash:digest(csrf)}],[bob,{id:'bob',username:'Bob',effective_level:'subscriber',csrf_token_hash:digest(csrf)}]]);
+ const sessions=new Map([[alice,{id:'alice',username:'Alice',level:'subscriber',effective_level:'subscriber',grant_source:'payment',csrf_token_hash:digest(csrf)}],[bob,{id:'bob',username:'Bob',effective_level:'subscriber',grant_source:'complimentary',csrf_token_hash:digest(csrf)}]]);
  const server=createServer({calendar:createCalendarHandler({members:{session:async raw=>sessions.get(raw)},store,config,log:()=>{}})});
  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));t.after(()=>new Promise(resolve=>server.close(resolve)));
  const request=(path,input,session=alice,headers={})=>fetch(`http://127.0.0.1:${server.address().port}${path}`,{redirect:'manual',headers:{Cookie:`__Host-gold-member=${session}; __Host-gold-form=${csrf}`,...(input?{Origin:origin,'Content-Type':'application/json'}:{}),...headers},...(input?{method:'POST',body:JSON.stringify({csrf,...input})}:{})});
  const newCalendar=async(name='Personal',session=alice)=>{const r=await request('/calendar/api/calendars',{name,color:'#785434'},session);assert.equal(r.status,201);return (await r.json()).calendar;};
- return {store,request,newCalendar};
+ return {store,request,newCalendar,sessions};
 }
 const event=calendarId=>({calendarId,title:'Private appointment',description:'Private notes',location:'At the field desk',startLocal:'2026-10-18T09:00',endLocal:'2026-10-18T10:00',timeZone:'America/New_York',allDay:false,rrule:null});
 const range='/calendar/api/events?start=2026-10-01T00:00:00Z&end=2026-11-01T00:00:00Z';
@@ -26,8 +26,8 @@ test('the event editor exposes every supported repeat frequency as a selectable 
  assert.equal((schedule.match(/<option\b/g)||[]).length,choices.length,'All options have valid opening and closing tags');
 });
 
-test('free and subscriber members create persistent calendars and events; appointments are strictly isolated',async t=>{
- const {request,newCalendar}=await fixture(t);const a=await newCalendar();const b=await newCalendar('Bob private',bob);
+test('paid and complimentary Plus members use isolated calendars and retain saved plans if their access lapses',async t=>{
+ const {request,newCalendar,sessions,store}=await fixture(t);const a=await newCalendar();const b=await newCalendar('Bob private',bob);
  let r=await request('/calendar/api/events',event(a.id));assert.equal(r.status,201);const created=(await r.json()).event;
  r=await request(range);assert.equal((await r.json()).events[0].title,'Private appointment');
  assert.deepEqual((await (await request(range,null,bob)).json()).events,[]);
@@ -36,6 +36,18 @@ test('free and subscriber members create persistent calendars and events; appoin
  assert.equal((await request('/calendar/api/events',event(b.id))).status,404);
  assert.equal((await request('/calendar/api/calendars/'+a.id+'/delete',{revision:1,confirmation:'DELETE CALENDAR'},bob)).status,404);
  assert.equal((await request('/calendar/api/preferences',{view:'listMonth',timeZone:'America/New_York',visibleCalendarIds:[a.id]},bob)).status,404);
+ sessions.get(alice).effective_level='free';
+ const upgrade=await request('/calendar/'),upgradeHtml=await upgrade.text();
+ assert.equal(upgrade.status,403);
+ assert.match(upgradeHtml,/href="\/plus\/">Upgrade to Gold Trails Plus/);
+ assert.doesNotMatch(upgradeHtml,/data-calendar-app|Private appointment/);
+ assert.equal((await request('/calendar/api/calendars')).status,403);
+ assert.equal((await request(range)).status,403);
+ assert.equal((await request('/calendar/api/events',event(a.id))).status,403);
+ assert.equal((await request('/calendar/api/preferences',{view:'listMonth',timeZone:'America/New_York',visibleCalendarIds:[a.id]})).status,403);
+ assert.equal(store.events.size,1);
+ sessions.get(alice).effective_level='subscriber';
+ assert.equal((await (await request(range)).json()).events[0].title,'Private appointment');
  assert.equal((await request('/calendar/api/events/'+created.id,{...event(a.id),title:'Edited appointment',revision:1})).status,200);
  assert.equal((await request('/calendar/api/events/'+created.id,{...event(a.id),revision:1})).status,409);
  assert.equal((await request('/calendar/api/events/'+created.id+'/delete',{revision:2,confirmation:'DELETE EVENT'})).status,200);
@@ -50,7 +62,8 @@ test('all writes require validated session, exact origin and session-bound CSRF;
  assert.equal(store.calendars.size,0);
  assert.equal((await request('/calendar/api/events?start=bad&end=bad')).status,400);
  assert.equal((await request('/calendar/api/events?start=2026-01-01T00:00:00Z&end=2027-01-01T00:00:00Z')).status,400);
- const publicPage=await request('/calendar/',null,'0'.repeat(64));assert.equal(publicPage.status,200);assert.match(await publicPage.text(),/sign in|Sign in/);
+ const publicPage=await request('/calendar/',null,'0'.repeat(64));assert.equal(publicPage.status,200);
+ const preview=await publicPage.text();assert.match(preview,/href="\/plus\/">Explore Gold Trails Plus/);assert.match(preview,/href="\/login\/\?next=\/calendar\/">Sign in/);
 });
 test('display preferences persist per member and independently hide calendars without deleting their events',async t=>{
  const {request,newCalendar,store}=await fixture(t);const a=await newCalendar(),b=await newCalendar('Prospecting Trips');
