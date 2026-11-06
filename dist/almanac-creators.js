@@ -1,5 +1,66 @@
 import {matchesCreator,sortCreators} from './prospectors-data.js';
 import {creatorMarker,loadLeaflet} from './creator-map-shared.js';
+function mountPanningMarkers(L, map, svg) {
+ const sites = [...svg.querySelectorAll('[data-pan-point]')].map(link => {
+  const [x, y] = link.dataset.panPoint.split(',').map(Number);
+  return {link, location: [-y, x]};
+ });
+ if (!sites.length) return;
+
+ const layer = L.layerGroup().addTo(map);
+ const render = () => {
+  // Even at full zoom, Alaska's inset can put several destinations under one icon.
+  const groups = [];
+  for (const site of sites) {
+   const point = map.latLngToLayerPoint(site.location);
+   const nearby = groups.find(group => point.distanceTo(group.point) < 30);
+   if (nearby) nearby.sites.push(site);
+   else groups.push({point, location: site.location, sites: [site]});
+  }
+
+  layer.clearLayers();
+  for (const group of groups) {
+   const links = group.sites.map(site => site.link);
+   const label = links.length === 1 ? links[0].getAttribute('aria-label') : `${links.length} nearby panning destinations`;
+   const icon = document.createElement('span');
+   const graphic = links[0].querySelector('svg').cloneNode(true);
+   graphic.removeAttribute('x');
+   graphic.removeAttribute('y');
+   icon.append(graphic);
+   if (links.length > 1) {
+    const count = document.createElement('span');
+    count.className = 'almanac-pan-count';
+    count.setAttribute('aria-hidden', 'true');
+    count.textContent = links.length;
+    icon.append(count);
+   }
+
+   const list = document.createElement('ul');
+   list.className = 'almanac-pan-popup-links';
+   for (const link of links) {
+    const item = document.createElement('li');
+    const destination = document.createElement('a');
+    destination.href = link.getAttribute('href');
+    destination.textContent = link.getAttribute('aria-label');
+    item.append(destination);
+    list.append(item);
+   }
+   const marker = L.marker(group.location, {
+    title: label,
+    icon: L.divIcon({className: 'almanac-pan-marker', html: icon, iconSize: [24, 24], iconAnchor: [12, 12]}),
+    zIndexOffset: 1,
+   }).bindPopup(list, {maxHeight: 260}).addTo(layer);
+   marker.getElement().setAttribute('aria-label', label);
+   marker.on('click', ({originalEvent}) => {
+    if (originalEvent instanceof KeyboardEvent) list.querySelector('a')?.focus({preventScroll: true});
+   });
+  }
+ };
+ render();
+ map.on('zoomend', render);
+ map.getContainer().classList.add('has-pan-markers');
+}
+
 const data=document.querySelector('#almanac-creator-data');
 if(data){
  const {records}=JSON.parse(data.textContent),svg=document.querySelector('.almanac-map'),wrap=svg.parentElement,form=document.querySelector('.explorer-form'),status=document.querySelector('#almanac-creator-status');
@@ -23,7 +84,7 @@ if(data){
  try{
   const L=await loadLeaflet(),host=document.createElement('div');host.id='almanac-unified-map';host.setAttribute('aria-label','United States and Canada Almanac and creator regions map');wrap.append(host);
   const [[minX,minY],[maxX,maxY]]=JSON.parse(svg.dataset.mapBounds),bounds=L.latLngBounds([[-maxY,minX],[-minY,maxX]]);map=L.map(host,{crs:L.CRS.Simple,scrollWheelZoom:false,minZoom:-4,maxZoom:3,zoomSnap:0,attributionControl:false});
-  L.svgOverlay(svg,bounds,{interactive:true}).addTo(map);map.fitBounds(bounds,{animate:false});map.setMinZoom(map.getZoom());layer=L.layerGroup().addTo(map);update(false);focusCreator();
+  L.svgOverlay(svg,bounds,{interactive:true}).addTo(map);map.fitBounds(bounds,{animate:false});map.setMinZoom(map.getZoom());layer=L.layerGroup().addTo(map);mountPanningMarkers(L,map,svg);update(false);focusCreator();
   let width=host.clientWidth,height=host.clientHeight;const resize=new ResizeObserver(()=>{if(width===host.clientWidth&&height===host.clientHeight)return;width=host.clientWidth;height=host.clientHeight;map.invalidateSize();map.setMinZoom(-4);map.fitBounds(bounds,{animate:false});map.setMinZoom(map.getZoom());focusCreator();for(const marker of markers.values()){const popup=marker.getPopup();popup.options.maxHeight=Math.max(120,Math.min(320,map.getSize().y-190));if(marker.isPopupOpen()){marker.closePopup();marker.openPopup();}}});resize.observe(host);
  }catch{if(map){map.remove();map=null;}svg.classList.remove('leaflet-image-layer','leaflet-zoom-animated','leaflet-interactive');svg.removeAttribute('style');wrap.append(svg);document.querySelector('#almanac-unified-map')?.remove();status.textContent='Creator nuggets could not load. State selection still works; browse all creators and videos in the free directory.';}
 }

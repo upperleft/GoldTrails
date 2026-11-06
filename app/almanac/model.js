@@ -9,6 +9,7 @@ export const stateById=id=>states.find(s=>s.id===id);
 export const stateUrl=state=>'/gold-almanac/'+state.slug+'/';
 export function validateContent(data){
  const ids=new Set(),sources=new Map(data.sources.map(s=>[s.id,s])),articles=new Set(publishedArticles().map(a=>a.id)),archives=new Map(data.archives.map(a=>[a.id,a]));
+ const creatorSlugs=new Set(creatorCatalog().filter(creator=>['verified','published'].includes(creator.status)).map(creator=>creator.slug));
  const register=r=>{if(!r.id||ids.has(r.id))throw new Error('Duplicate or missing Almanac ID');ids.add(r.id);};
  const reviewed=r=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(r.reviewedAt||''))throw new Error('Review date required');};
  for(const s of data.sources){register(s);if(!safeUrl(s.url)||!s.publisher||!/^\d{4}-\d{2}-\d{2}$/.test(s.checkedAt))throw new Error('Invalid Almanac source');}
@@ -32,6 +33,22 @@ export function validateContent(data){
    if(destination.tripFactsScope!==undefined&&!verifiedFields)throw new Error('Invalid destination trip facts scope');
    if(!Array.isArray(destination.tripFacts)||(!verifiedFields&&destination.tripFacts.length!==keys.length)||new Set(destination.tripFacts.map(f=>f.key)).size!==destination.tripFacts.length||['where','entry','equipment'].some(key=>!destination.tripFacts.some(f=>f.key===key))||destination.tripFacts.some(f=>!keys.includes(f.key)||!f.text||!f.locator||!f.sourceIds?.length||f.sourceIds.some(id=>!destination.sourceIds.includes(id))))throw new Error('Invalid destination trip facts');
    if(!Array.isArray(destination.beforeYouGo)||!destination.beforeYouGo.length||destination.beforeYouGo.some(t=>typeof t!=='string'||!t.trim())||!Array.isArray(destination.articleIds)||destination.articleIds.some(id=>!articles.has(id)||!r.articleIds.includes(id)))throw new Error('Invalid destination preparation');
+   if(destination.mapLocation!==undefined){
+    const {coordinates,sourceId,locator}=destination.mapLocation||{};
+    if(!Array.isArray(coordinates)||coordinates.length!==2||!coordinates.every(Number.isFinite)||
+       Math.abs(coordinates[0])>90||Math.abs(coordinates[1])>180||coordinates.every(value=>value===0)||
+       !sources.has(sourceId)||sources.get(sourceId).inspectionBasis==='catalog_metadata'||
+       typeof locator!=='string'||!locator.trim())throw new Error('Invalid destination map location');
+   }
+   if(destination.creatorConnections!==undefined){
+    const connections=destination.creatorConnections;
+    if(!Array.isArray(connections)||connections.some(connection=>!connection||
+       !creatorSlugs.has(connection.slug)||sources.get(connection.sourceId)?.authority!=='creator'||
+       typeof connection.locator!=='string'||!connection.locator.trim())||
+       new Set(connections.map(connection=>connection.slug)).size!==connections.length){
+     throw new Error('Invalid destination creator connection');
+    }
+   }
   }
   for(const mine of r.mines||[]){
    const loc=mine.location;

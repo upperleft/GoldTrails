@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import {videoLibraryLink,videoLibraryAssets} from './creator-video-library.js';
 import {creatorYoutubeLink,creatorVideoLink,creatorSiteVideosLink} from './creator-channel-links.js';
 import {assetUrl} from './asset-url.js';
+import {destinationsForCreator} from './almanac/creator-destinations.js';
 // Hostinger loads the entry through require(), so startup must remain synchronous.
 const shell = readFileSync(new URL('./page-shell.html', import.meta.url), 'utf8');
 export const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]));
@@ -55,6 +56,12 @@ export function directoryPage(criteria,result) {
  const pagination='<nav class="directory-pagination" aria-label="Search results pages">'+(criteria.page>1?'<a href="'+pageLink(criteria.page-1)+'">← Previous</a>':'')+'<span>Page '+criteria.page+' of '+pages+'</span>'+(criteria.page<pages?'<a href="'+pageLink(criteria.page+1)+'">Next →</a>':'')+'</nav>';
  return creatorPage('Creators & Videos','Browse Gold Trails creator profiles, public channels and videos for free.','<section class="creator-directory-results">'+search+'<p class="directory-count" role="status">'+result.total+' profile'+(result.total===1?'':'s')+' found</p>'+(cards?'<div class="cards category-cards">'+cards+'</div>':empty)+pagination+'</section>',directoryContext(),'Find a familiar voice or a new one. Every creator profile and video link is free.');
 }
+export function creatorDestinations(slug) {
+ const places=destinationsForCreator(slug);
+ if(!places.length)return '';
+ const links=places.map(place=>'<li><a href="'+escapeHtml(place.href)+'">'+escapeHtml(place.title)+'</a> · '+escapeHtml(place.state)+' · Almanac Plus</li>').join('');
+ return section('Panning locations','<ul>'+links+'</ul>','creator-panning-locations');
+}
 export function profilePage(p) {
  const topics=p.topics||[],regions=p.regions||[],sources=p.sources||[],resources=p.resources||[];
  const topicButtons=[...new Map(topics.map(t=>[t.slug,t])).values()].map(t=>queryLink('topic',t.slug,t.name)).join('');
@@ -83,7 +90,7 @@ export function profilePage(p) {
  const references=sources.length?'<ul>'+sources.map(s=>'<li>'+publicLink(s.canonical_url,s.title)+'</li>').join('')+'</ul>':'';
  const sourceNotes='<details class="profile-notes" id="profile-notes"><summary>Sources &amp; profile notes</summary><div>'+(status?'<p>'+escapeHtml(status)+'</p>':'')+references+enriched+waterwaySection+'<p>Regions describe broad public content coverage, not a home address or permission to prospect.</p></div></details>';
  const context='<section class="panel related"><h2>Keep exploring</h2>'+(channelSection?'<a href="#channels">Channels &amp; contact</a>':'')+(resourceSection?'<a href="#profile-resources">Selected resources</a>':'')+'<a href="#profile-notes">Sources &amp; profile notes</a><a href="/prospectors/">Creators &amp; Videos</a></section>';
- return creatorPage(p.display_name,summary||'Public creator profile, channels and resources on Gold Trails.',intro+bio+facts+associates+coverage+channelSection+resourceSection+sourceNotes,context,summary,{profile:true});
+ return creatorPage(p.display_name,summary||'Public creator profile, channels and resources on Gold Trails.',intro+bio+facts+associates+coverage+channelSection+resourceSection+creatorDestinations(p.slug)+sourceNotes,context,summary,{profile:true});
 }
 export function messagePage(title, message) {
   return page(title, message, section(title, `<p>${escapeHtml(message)}</p><a href="/prospectors/">Return to the directory</a>`), directoryContext(), 'There is always another trail to explore.');

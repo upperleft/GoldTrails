@@ -9,12 +9,20 @@ import {states,content,validateContent,assembleState,stateBySlug,statesInCoverag
 import {dashboard,almanacPage,historicMines,panningDestinations} from '../app/almanac/views.js';
 import {stateBirds} from '../app/almanac/ornaments.js';
 
+const baseline=JSON.parse(readFileSync(new URL('./fixtures/almanac-content-before-research.json',import.meta.url),'utf8'));
+
 test('published research renders with citations, preserves legacy records and excludes held claims',()=>{
- const baseline=JSON.parse(readFileSync(new URL('./fixtures/almanac-content-before-research.json',import.meta.url),'utf8'));
  for(const previous of baseline.states){
   const current=content.states.find(s=>s.id===previous.id);
   for(const key of Object.keys(previous)){
-   if(['facts','destinations'].includes(key))for(const item of previous[key])assert.deepEqual(current[key].find(f=>f.id===item.id),item);
+   if(key==='destinations'){
+    for(const item of previous.destinations){
+     const destination=current.destinations.find(d=>d.id===item.id);
+     assert.ok(destination,item.id);
+     const {mapLocation,creatorConnections,...historical}=destination;
+     assert.deepEqual(historical,item,item.id);
+    }
+   }else if(key==='facts')for(const item of previous.facts)assert.deepEqual(current.facts.find(f=>f.id===item.id),item);
    else if(key==='articleIds'&&previous.id==='US-ME')assert.deepEqual(current[key],[...previous[key],'article:ghost-rivers']);
    else assert.deepEqual(current[key],previous[key],previous.id+':'+key);
   }
@@ -136,7 +144,7 @@ test('database projection uses published sources and explicit coverage, not resi
  const water=calls.find(c=>c.sql.includes('creator_waterway_evidence'));assert.match(water.sql,/location_status='explicit'/);assert.match(water.sql,/resolution='verified'/);assert.deepEqual(water.params,['Maine']);
  const all=calls.map(c=>c.sql).join('\n');assert.ok(!/password|email|evidence_note|quotation_excerpt|private_notes/.test(all));assert.ok(!/\b(INSERT|UPDATE|DELETE)\b/.test(all));
 });
-async function serve(handler,run){const server=createServer({almanac:handler,log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));try{await run('http://127.0.0.1:'+server.address().port);}finally{await new Promise(r=>server.close(r));}}
+async function serve(handler,run,options={}){const server=createServer({...options,almanac:handler,log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));try{await run('http://127.0.0.1:'+server.address().port);}finally{await new Promise(r=>server.close(r));}}
 test('canonical routes, refresh, all-state API and section anchors preserve selection',async()=>{
  await serve(createAlmanacHandler({members:{session:async()=>({effective_level:'subscriber'})}}),async root=>{
   const response=await fetch(root+'/gold-almanac/?state=maine',{redirect:'manual'});assert.equal(response.status,308);assert.equal(response.headers.get('location'),'/gold-almanac/maine/');
@@ -145,6 +153,51 @@ test('canonical routes, refresh, all-state API and section anchors preserve sele
   assert.equal((await fetch(root+'/gold-almanac/imaginary/')).status,404);assert.equal((await fetch(root+'/api/gold-almanac/imaginary/')).status,404);
   assert.equal((await fetch(root+'/api/gold-almanac/maine/',{method:'POST'})).status,405);assert.equal(await(await fetch(root+'/gold-almanac/maine/',{method:'HEAD'})).text(),'');
  });
+});
+test('Plus panning pins and public creator profiles link to the same sourced destination',async()=>{
+ const id='US-CO:archive-0';
+ const destination=content.states.find(s=>s.id==='US-CO').destinations.find(d=>d.id===id);
+ const href='/gold-almanac/colorado/#destination-'+encodeURIComponent(id);
+ const session='a'.repeat(64);
+ const signedIn={headers:{Cookie:'__Host-gold-member='+session}};
+ const almanac=createAlmanacHandler({members:{session:async token=>token===session?{effective_level:'subscriber'}:null}});
+ const directory={
+  profile:async slug=>slug==='klesh'?{slug,display_name:'Klesh'}:null,
+  catalogAllowed:async slug=>slug==='kevin-singel'
+ };
+ await serve(almanac,async root=>{
+  const mapResponse=await fetch(root+'/gold-almanac/',signedIn);
+  assert.equal(mapResponse.status,200);
+  const map=await mapResponse.text();
+  const pins=map.match(/<a [^>]*data-pan-point="[^"]+"[^>]*>/g)||[];
+  assert.ok(pins.some(pin=>pin.includes('href="'+href+'"')&&pin.includes(destination.title)),href);
+
+  const detailResponse=await fetch(root+'/gold-almanac/colorado/',signedIn);
+  assert.equal(detailResponse.status,200);
+  const detail=await detailResponse.text();
+  const card=detail.split('id="destination-'+id+'"')[1]?.split('</article>')[0];
+  assert.ok(card,id);
+  assert.ok(card.includes('href="/prospectors/klesh/"'));
+  assert.ok(card.includes('href="/prospectors/kevin-singel/"'));
+  for(const slug of ['klesh','kevin-singel']){
+   const profileResponse=await fetch(root+'/prospectors/'+slug+'/');
+   assert.equal(profileResponse.status,200);
+   const profile=await profileResponse.text();
+   assert.ok(profile.includes('href="'+href+'">'+destination.title+'</a> · Colorado · Almanac Plus'));
+   assert.ok(!profile.includes(destination.text));
+   assert.ok(!profile.includes(destination.mapLocation.locator));
+   assert.doesNotMatch(profile,/data-pan-point/);
+  }
+
+  for(const [path,status] of [['/gold-almanac/',200],['/gold-almanac/colorado/',403],['/api/gold-almanac/colorado/',403]]){
+   const response=await fetch(root+path);
+   assert.equal(response.status,status,path);
+   const preview=await response.text();
+   assert.doesNotMatch(preview,/data-pan-point|almanac-pan-legend/);
+   assert.ok(!preview.includes(id));
+   assert.ok(!preview.includes(destination.title));
+  }
+ },{directory});
 });
 test('public connections cache by state; outages preserve sourced notes and never expose SQL diagnostics',async()=>{
  let calls=0;const fixture={creators:[{slug:'hip-bee-explorer',display_name:'Hip Bee Explorer',region_name:'Maine',relationship_type:'covers',source_url:'https://example.com/reference',checked_at:'2026-10-11'}],regions:[],waterways:[],resources:[],excludedSlugs:[]};
@@ -201,7 +254,15 @@ test('document links open the inspected PDF page and reject malformed page refer
 });
 
 test('panning destinations require appropriate access evidence and attributed trip facts',()=>{
- const destinations=content.states.flatMap(s=>s.destinations||[]);assert.equal(destinations.length,21);
+ const destinations=content.states.flatMap(s=>s.destinations||[]);
+ const archive=JSON.parse(readFileSync(new URL('../research/combined-archive/2026-10-15/crosswalk.json',import.meta.url),'utf8'));
+ const historicalIds=new Set([
+  ...baseline.states.flatMap(s=>(s.destinations||[]).map(d=>d.id)),
+  ...archive.records.filter(r=>r.id.startsWith('destination')&&r.status==='selected_checked_fields').map(r=>r.targetId)
+ ]);
+ const currentIds=new Set(destinations.map(d=>d.id));
+ for(const id of historicalIds)assert.ok(currentIds.has(id),id);
+ assert.ok(currentIds.size>historicalIds.size,'New checked destinations are included');
  assert.deepEqual(new Set(destinations.map(d=>d.kind)),new Set(['public_hand_panning','operator_river_access','supervised_practice']));
  const mutate=fn=>{const data=structuredClone(content);fn(data.states.find(s=>s.id==='US-VT').destinations[0],data);assert.throws(()=>validateContent(data),/destination|Unattributed|Duplicate/);};
  for(const change of [d=>d.permissionSourceId='maine-gold',d=>d.status='reported_occurrence',d=>d.coordinates=[43,-72],d=>d.tripFacts[0].sourceIds=['fiction'],d=>d.tripFacts.pop(),d=>d.tripFacts[1].key=d.tripFacts[0].key,d=>d.tripFacts[0].locator='',d=>d.articleIds=['article:fictional'],d=>d.beforeYouGo=[]])mutate(change);
@@ -243,13 +304,19 @@ test('government-run practice has scoped authority and destination lessons must 
 });
 
 test('expanded panning visits retain price and seasonal qualifications and correct visitor links',()=>{
- const htmls=['california','north-carolina','georgia'].map(slug=>dashboard(assembleState(stateBySlug(slug))));
- const [ca,nc,ga]=htmls;
+ const data=['california','north-carolina','georgia'].map(slug=>assembleState(stateBySlug(slug)));
+ const htmls=data.map(dashboard);
+ const originalIds=['US-CA:marshall-panning','US-NC:reed-panning','US-GA:consolidated-panning'];
+ const [ca,nc,ga]=htmls.map((html,index)=>{
+  const card=html.split('id="destination-'+originalIds[index]+'"')[1]?.split('</article>')[0];
+  assert.ok(card,originalIds[index]);
+  return card;
+ });
  assert.match(ca,/Park hand-panning policy checked/);assert.match(ca,/hands and pan only/);assert.match(ca,/\$10/);assert.match(ca,/\$12 per person/);assert.match(ca,/differing closing times/);
  assert.match(nc,/Supervised practice program checked/);assert.match(nc,/Site visitor information/);assert.ok(!nc.includes('Operator activity information'));assert.match(nc,/\$5 plus tax/);assert.match(nc,/Call before a winter visit/);assert.match(nc,/does not grant access/);
- assert.match(ga,/Operator activity information/);assert.match(ga,/Panning-only starts at \$60/);assert.match(ga,/\$24.95/);assert.match(ga,/Indoor panning/);assert.match(ga,/Cherokee Nation/);
- for(const html of htmls){
-  assert.equal((html.match(/class="almanac-destination"/g)||[]).length,html===ca?9:1);
+ assert.match(ga,/Operator activity information/);assert.match(ga,/Panning-only starts at \$60/);assert.match(ga,/\$24.95/);assert.match(ga,/Indoor panning/);assert.match(htmls[2],/Cherokee Nation/);
+ for(const [index,html] of htmls.entries()){
+  assert.equal((html.match(/class="almanac-destination"/g)||[]).length,data[index].record.destinations.length);
   const ids=new Set([...html.matchAll(/id="(source-[^"]+)"/g)].map(m=>m[1]));for(const ref of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(ids.has(ref[1]),ref[1]);
   for(const link of html.matchAll(/<a href="https:[^"]+"([^>]+)>/g)){assert.match(link[1],/target="_blank"/);assert.match(link[1],/rel="noopener noreferrer"/);}
  }

@@ -1,5 +1,5 @@
 import {readFileSync} from 'node:fs';
-import {creatorPage,creatorDescription,escapeHtml,safeUrl} from './directory-views.js';
+import {creatorPage,creatorDescription,creatorDestinations,escapeHtml,safeUrl} from './directory-views.js';
 import {videoLibraryLink} from './creator-video-library.js';
 import {creatorYoutubeLink,creatorYoutubeDestination,youtubeDestination,creatorSiteVideosLink} from './creator-channel-links.js';
 const catalog=JSON.parse(readFileSync(new URL('./creator-catalog.json',import.meta.url),'utf8'));
@@ -63,5 +63,5 @@ export function catalogProfile(p){
  const intro='<section class="profile-summary" aria-label="Creator channels and location"><div><p class="profile-region">⌖ '+escapeHtml(region)+'</p>'+(actions?'<div class="profile-actions">'+actions+'</div>':'')+(website?'<p><a href="'+escapeHtml(website)+'" target="_blank" rel="noopener noreferrer">Official website →</a></p>':'')+'</div></section>';
  const biography=bio.some(f=>f.text.trim()!==summary)?'<section class="resource-placeholder profile-background" aria-label="About this creator">'+bio.filter(f=>f.text.trim()!==summary).map(f=>'<p>'+escapeHtml(f.text)+' <a href="'+escapeHtml(safeUrl(f.source_url))+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(f.source_title||'Source')+' ↗</a></p>').join('')+'</section>':'';
  const notes='<details class="profile-notes" id="profile-notes"><summary>Sources &amp; profile notes</summary><div><p>'+(p.status==='lead'?'Some creator details are still being checked.':bio.length?'Profile checked against the linked public sources.':'Creator included in the public research roster.')+'</p>'+(p.checked_at?'<p>Last roster check: '+escapeHtml(p.checked_at)+'</p>':'')+(safeUrl(p.region_source)?'<p><a href="'+escapeHtml(p.region_source)+'" target="_blank" rel="noopener noreferrer">Source for this coverage region</a></p>':'')+(url&&url!==youtube?.url?'<p><a href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+(youtubeDestination(url)?.isChannel?'YouTube channel source →':youtubeDestination(url)?'Related video on YouTube →':'Listed public source →')+'</a></p>':'')+summaryNotes+'<p>The region describes broad public content coverage, not an address or permission to prospect.</p></div></details>';
- return creatorPage(p.name,summary||'Public creator profile, channels and videos on Gold Trails.',intro+biography+notes,'',summary,{profile:true});
+ return creatorPage(p.name,summary||'Public creator profile, channels and videos on Gold Trails.',intro+biography+creatorDestinations(p.slug)+notes,'',summary,{profile:true});
 }

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import{readFileSync}from'node:fs';
 import{createHash}from'node:crypto';
-import{content,validateContent,stateBySlug,assembleState}from'../app/almanac/model.js';
+import{content,validateContent,stateById,assembleState}from'../app/almanac/model.js';
 import{panningDestinations,dashboard}from'../app/almanac/views.js';
 import{communityCatalog}from'../app/community-catalog.js';
 import{renderCommunitiesPage}from'../app/communities-page.js';
@@ -16,7 +16,22 @@ test('research snapshot and full record crosswalk preserve provenance without co
  const gaps=read('research-gaps.json');assert.equal(gaps.unconfirmedLeads.destinations.length,50);assert.equal(gaps.unconfirmedLeads.community.length,33);assert.equal(read('source-database.json').observations.length,296);
 });
 test('all previous state research, sources and community entries survive the archive import unchanged',()=>{
- for(const old of baseline.almanac.states){const current=content.states.find(s=>s.id===old.id);assert.ok(current);for(const[key,value]of Object.entries(old)){if(key==='destinations'){for(const d of value)assert.deepEqual(current.destinations.find(n=>n.id===d.id),d);}else if(key==='articleIds'){assert.deepEqual(current.articleIds.filter(id=>value.includes(id)),value,old.id+' original article links');}else assert.deepEqual(current[key],value,old.id+' '+key);}}
+ for(const old of baseline.almanac.states){
+  const current=content.states.find(s=>s.id===old.id);
+  assert.ok(current,old.id);
+  for(const [key,value] of Object.entries(old)){
+   if(key==='destinations'){
+    for(const item of value){
+     const destination=current.destinations.find(d=>d.id===item.id);
+     assert.ok(destination,item.id);
+     const {mapLocation,creatorConnections,...historical}=destination;
+     assert.deepEqual(historical,item,item.id);
+    }
+   }else if(key==='articleIds'){
+    assert.deepEqual(current.articleIds.filter(id=>value.includes(id)),value,old.id+' original article links');
+   }else assert.deepEqual(current[key],value,old.id+' '+key);
+  }
+ }
  for(const old of baseline.almanac.sources)assert.deepEqual(content.sources.find(s=>s.id===old.id),old);
  assert.deepEqual(content.archives,baseline.almanac.archives);
  for(const old of baseline.community.entries)assert.deepEqual(communityCatalog.entries.find(e=>e.id===old.id),old);
@@ -35,7 +50,15 @@ test('selected public fields resolve archive records and dated permission citati
  const cache=content.states.flatMap(s=>s.destinations||[]).find(d=>d.id==='US-CO:archive-0');assert.ok(!cache.tripFacts.some(f=>f.key==='fees'));assert.ok(cache.tripFacts.find(f=>f.key==='entry').sourceIds.includes('combined-archive-cache-creek-map'));
  const html=panningDestinations([cache],[]);assert.match(html,/Land-manager visitor information/);assert.match(html,/Visit notes/);assert.doesNotMatch(html,/<dt>Fees|opening dates/);
  const clubs=renderCommunitiesPage();assert.match(clubs,/<time datetime="2026-10-13">October 13, 2026<\/time>/);assert.match(clubs,/<time datetime="2026-10-15">October 15, 2026<\/time>/);
- for(const state of content.states.filter(s=>(s.destinations||[]).some(d=>d.researchProvenance))){const html=dashboard(assembleState(stateBySlug(state.id==='US-CO'?'colorado':state.id==='US-CA'?'california':state.id==='US-OR'?'oregon':state.id==='US-ID'?'idaho':'alaska')));for(const ref of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(html.includes('id="'+ref[1]+'"'));}
+ for(const record of content.states){
+  const destinations=(record.destinations||[]).filter(d=>d.researchProvenance);
+  if(!destinations.length)continue;
+  const state=stateById(record.id);
+  assert.ok(state,record.id);
+  const html=dashboard(assembleState(state));
+  for(const d of destinations)assert.ok(html.includes('id="destination-'+d.id+'"'),d.id);
+  for(const ref of html.matchAll(/href="#(source-[^"]+)"/g))assert.ok(html.includes('id="'+ref[1]+'"'),state.name+': '+ref[1]);
+ }
 });
 test('optional trip facts cannot remove core permission fields or weaken source validation',()=>{
  for(const mutate of [d=>d.tripFacts=d.tripFacts.filter(f=>f.key!=='entry'),d=>d.tripFacts.push(d.tripFacts[0]),d=>d.tripFactsScope='anything',d=>d.tripFacts[0].sourceIds=['unknown-source'],d=>d.tripFacts[0].key='invented',d=>d.permissionSourceId='maine-gold']){
