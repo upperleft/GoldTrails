@@ -37,7 +37,7 @@ test('native category pages retain all records while showing the selected catego
  assert.match(html,/data-product-category="Camp Kitchen" aria-current="page"/);
  assert.equal((html.match(/data-product-category=/g)||[]).length,new Set(products.map(p=>p.category)).size+1);
  assert.match(html,/value="Camp Kitchen" selected/);assert.match(html,/value="name-desc" selected/);assert.match(html,/value="mug"/);
- assert.match(html,/id="product-count"[^>]*>2 products of 63/);
+ assert.match(html,new RegExp(`id="product-count"[^>]*>2 products of ${products.length}</p>`));
  assert.ok(!html.includes('role="tab"'),'Links retain native keyboard navigation');
 });
 

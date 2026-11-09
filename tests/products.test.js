@@ -73,6 +73,9 @@ test('compact catalog preserves each record’s research, availability and corre
   assert.ok(details.includes('Recorded availability'));
   if(product.price_checked_date)assert.ok(details.includes('Price checked'));
   for(const url of String(product.source_urls||'').split('|').filter(Boolean))assert.ok(details.includes(escapeHtml(url)),`${id} retains source ${url}`);
+  const added=row.match(/Added <time datetime="([^"]+)">([^<]+)<\/time>/);
+  assert.equal(added?.[1],product.date_added);
+  if(added)assert.ok(added.index<row.indexOf('product-details'));
   assert.ok(row.indexOf('product-media')<row.indexOf('product-details'));
  }
  assert.match(html,/Manufacturer website/);

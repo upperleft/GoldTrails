@@ -8,6 +8,8 @@ Creator recommendations, usage, business relationships, and source caveats stay 
 
 To add an approved photo later, place it under `dist/images/products/` and add `image_url`, such as `/images/products/GT-P0001.jpg`, to the product record, then rebuild. A photo appears beside the list entry only when a record supplies it. No image placeholders or generated product photos were added.
 
+For each new listing, record `date_added` as the Gold Trails catalog addition date in `YYYY-MM-DD` format. The card displays it beside the brand and category. Keep `date_researched` and `price_checked_date` separate. Leave the addition date blank if it is unknown for an older listing.
+
 Product IDs also provide stable links, such as `/products/#GT-P0002`. A matching fragment reveals and opens that product's details. External sources and purchase links open a new tab/window. This is a reference catalog, with no checkout or affiliate integration.
 
 
