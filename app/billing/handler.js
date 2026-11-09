@@ -47,13 +47,19 @@ export function createBillingHandler({store=null,members=null,provider=null,conf
     let event;try{event=JSON.parse(raw.toString('utf8'));}catch{throw new BillingError('webhook_format','Invalid webhook.',400);}
     if(!stripeId(event?.id,'evt')||event.livemode!==config.livemode||(event.account!==undefined&&event.account!==config.stripeAccountId)||!Number.isSafeInteger(event.created)||typeof event.type!=='string')throw new BillingError('webhook_identity','Webhook account or mode does not match.',400);
     if(!webhookTypes.has(event.type)){json(200,{received:true,ignored:true});return true;}
-    const object=event.data?.object,customerId=externalId(object?.customer);
+    const object=event.data?.object,isCheckoutEvent=event.type.startsWith('checkout.session.');
+    // Stripe records one-time tips separately. Guest Checkout may have no Customer.
+    if(isCheckoutEvent&&object?.mode==='payment'){
+     if(object.object!=='checkout.session'||object.livemode!==config.livemode||!stripeId(object.id,config.livemode?'cs_live':'cs_test')||object.subscription!=null)throw new BillingError('webhook_identity','Invalid billing object.',400);
+     json(200,{received:true,ignored:true});return true;
+    }
+    const customerId=externalId(object?.customer);
     if(!object||object.livemode!==config.livemode||!stripeId(customerId,'cus'))throw new BillingError('webhook_identity','Invalid billing object.',400);
     const accountId=await store.accountForCustomer(customerId);
     if(!accountId){json(200,{received:true,ignored:true});return true;}
     if(object.metadata?.goldtrails_account_id&&object.metadata.goldtrails_account_id!==accountId)throw new BillingError('webhook_identity','Invalid billing object.',400);
     const normalized={eventId:event.id,eventType:event.type,eventCreated:event.created,livemode:event.livemode};
-    if(event.type.startsWith('checkout.session.'))await syncCheckout(accountId,customerId,object.id,normalized);
+    if(isCheckoutEvent)await syncCheckout(accountId,customerId,object.id,normalized);
     else{
      const subscriptionId=event.type.startsWith('customer.subscription.')?object.id:externalId(object.parent?.subscription_details?.subscription);
      if(!stripeId(subscriptionId,'sub'))throw new BillingError('webhook_identity','Invalid subscription object.',400);

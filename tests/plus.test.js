@@ -2,20 +2,20 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createServer} from '../app/server.js';
 import {createAlmanacHandler} from '../app/almanac/handler.js';
-import {plusMarkup} from '../app/plus/handler.js';
+import {createPlusHandler,plusMarkup} from '../app/plus/handler.js';
 import {createMemberHandler} from '../app/members.js';
 import {states} from '../app/almanac/model.js';
 import {createGuestPlusAccess} from '../app/plus/guest-access.js';
 import {createConnectionsHandler} from '../app/connections/handler.js';
 import {digest} from '../app/admin-auth.js';
 const active='a'.repeat(64),free='b'.repeat(64),expired='c'.repeat(64),owner='d'.repeat(64),rawOnly='e'.repeat(64),guest='1a'.repeat(32),unknownGuest='2b'.repeat(32);
-async function fixture(t,{offline=false}={}){
+async function fixture(t,{offline=false,donationLink=''}={}){
  let lookups=0;const sessions=new Map([[active,{effective_level:'subscriber'}],[free,{effective_level:'free'}],[expired,{level:'subscriber',effective_level:'free'}],[rawOnly,{level:'subscriber'}]]);
  const members={session:async raw=>{if(offline)throw Error('private auth detail');return sessions.get(raw)||null;}};
  const guests=createGuestPlusAccess({passes:[{id:'support-preview-test',label:'Test guests',tokenHash:digest(guest),expiresAt:'2026-10-25T00:00:00Z'}],now:()=>Date.parse('2026-10-17T12:00:00Z')});
  const almanac=createAlmanacHandler({members,guests,owners:{session:async raw=>raw===owner?{authenticated:1}:null},store:async()=>{lookups++;return{};}});
  const connections=createConnectionsHandler({members,guests,config:{origin:'https://goldtrails.org'},log:()=>{}});
- const server=createServer({almanac,connections,guests,memberSessions:members,members:createMemberHandler({}),goldPrice:async()=>({}),log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));
+ const server=createServer({almanac,connections,guests,memberSessions:members,members:createMemberHandler({}),plus:createPlusHandler({donationLink}),goldPrice:async()=>({}),log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));
  const request=(path,token=null,init={})=>fetch('http://127.0.0.1:'+server.address().port+path,{redirect:'manual',...init,headers:{...(token?{Cookie:'__Host-gold-member='+token}:{}),...init.headers}});return{request,lookups:()=>lookups};
 }
 test('all 50 guides and JSON endpoints require active access before any research lookup',async t=>{
