@@ -1,7 +1,7 @@
 {
   "version": 1,
   "checkedAt": "2026-11-16",
-  "inputSha256": "e4b514061a50c8243f626a66755ccf85ba486a22d3426a07ebb3ce42905e2dbb",
+  "inputSha256": "f58bf970e3c03abbc7d9eeaf7be174c7f5845e2d5ad52438b60ce93d959a32e5",
   "creators": [
     {
       "slug": "ask-jeff-williams",
@@ -3082,6 +3082,341 @@
             "gold prospecting",
             "Massachusetts",
             "glacial deposits"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "bruce-krista",
+      "name": "Bruce & Krista",
+      "channelId": "UCxFiZnPkirKCXlWpoca2wOA",
+      "channelUrl": "https://www.youtube.com/channel/UCxFiZnPkirKCXlWpoca2wOA",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Bruce & Krista",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "8YU4eD1pIu0",
+          "title": "Is there ANY Gold left in Coos Canyon in 2025??  | Gold Panning Maine’s Swift River",
+          "url": "https://www.youtube.com/watch?v=8YU4eD1pIu0",
+          "channelId": "UCxFiZnPkirKCXlWpoca2wOA",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Field prospecting",
+          "tags": [
+            "field prospecting",
+            "maine"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "jimmayyyyyy",
+      "name": "jimmayyyyyy",
+      "channelId": "UCNyCt_wZDePTztNH-KXhH1Q",
+      "channelUrl": "https://www.youtube.com/channel/UCNyCt_wZDePTztNH-KXhH1Q",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "jimmayyyyyy",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "bzeoAJN2-KQ",
+          "title": "Gold from panning The Wild Ammonoosuc River NH and Vermont creeks.",
+          "url": "https://www.youtube.com/watch?v=bzeoAJN2-KQ",
+          "channelId": "UCNyCt_wZDePTztNH-KXhH1Q",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Field prospecting",
+          "tags": [
+            "field prospecting",
+            "new hampshire / vermont"
+          ]
+        },
+        {
+          "id": "HxLLPDxVD84",
+          "title": "Vermont & New Hampshire Gold found by Yankee Gold Prospecting 2010",
+          "url": "https://www.youtube.com/watch?v=HxLLPDxVD84",
+          "channelId": "UCNyCt_wZDePTztNH-KXhH1Q",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Regional prospecting",
+          "tags": [
+            "regional prospecting",
+            "new hampshire / vermont"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "gold-adventures-with-bobby-freedom",
+      "name": "Gold Adventures with Bobby Freedom",
+      "channelId": "UCNLER_fAfotcuQjcASKfh7g",
+      "channelUrl": "https://www.youtube.com/channel/UCNLER_fAfotcuQjcASKfh7g",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Gold Adventures with Bobby Freedom",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "-VOh261hfW0",
+          "title": "-Coos Canyon Maine ~ Gold Prospecting~ Sluicing in Byron, ME",
+          "url": "https://www.youtube.com/watch?v=-VOh261hfW0",
+          "channelId": "UCNLER_fAfotcuQjcASKfh7g",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Sluicing",
+          "tags": [
+            "sluicing",
+            "maine"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "kelly-hinkle",
+      "name": "Kelly Hinkle",
+      "channelId": "UCAgj3hw6IPFaGxfON_ZWrOA",
+      "channelUrl": "https://www.youtube.com/channel/UCAgj3hw6IPFaGxfON_ZWrOA",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Kelly Hinkle",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "MhnV9HsEc-c",
+          "title": "Maine Gold Rush - Byron,Maine - Coos Canyon",
+          "url": "https://www.youtube.com/watch?v=MhnV9HsEc-c",
+          "channelId": "UCAgj3hw6IPFaGxfON_ZWrOA",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Field prospecting",
+          "tags": [
+            "field prospecting",
+            "maine"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "appalachian-prospectors",
+      "name": "Appalachian Prospectors",
+      "channelId": "UCyV2bPvn6zwDOqIfR_8M6TA",
+      "channelUrl": "https://www.youtube.com/channel/UCyV2bPvn6zwDOqIfR_8M6TA",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Appalachian Prospectors",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "ojNXlDksKu4",
+          "title": "Creviceing For Gold, Coos Canyon Byron, Maine",
+          "url": "https://www.youtube.com/watch?v=ojNXlDksKu4",
+          "channelId": "UCyV2bPvn6zwDOqIfR_8M6TA",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Crevicing",
+          "tags": [
+            "crevicing",
+            "maine"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "r5-adventures",
+      "name": "R5 Adventures",
+      "channelId": "UCTTmtC4io4FJ7Jm5lI7u7uw",
+      "channelUrl": "https://www.youtube.com/channel/UCTTmtC4io4FJ7Jm5lI7u7uw",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "R5 Adventures",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "Z9gydJ3DqpY",
+          "title": "Coos Canyon Panning For Gold With Gil Skillz",
+          "url": "https://www.youtube.com/watch?v=Z9gydJ3DqpY",
+          "channelId": "UCTTmtC4io4FJ7Jm5lI7u7uw",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Beginner panning",
+          "tags": [
+            "beginner panning",
+            "maine"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "prospector-jess-pj",
+      "name": "Prospector Jess (PJ)",
+      "channelId": "UCw9PTMhuJa2LV_uSeoT-GOw",
+      "channelUrl": "https://www.youtube.com/channel/UCw9PTMhuJa2LV_uSeoT-GOw",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Prospector Jess (PJ)",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "XbTv8Z5lXeA",
+          "title": "Where is Gold found in New Hampshire (Gold Location Map)",
+          "url": "https://www.youtube.com/watch?v=XbTv8Z5lXeA",
+          "channelId": "UCw9PTMhuJa2LV_uSeoT-GOw",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "River reading",
+          "tags": [
+            "river reading",
+            "new hampshire"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tyro-mix",
+      "name": "Tyro Mix",
+      "channelId": "UCOa9jWlm8SIzlcERzZso0WA",
+      "channelUrl": "https://www.youtube.com/channel/UCOa9jWlm8SIzlcERzZso0WA",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Tyro Mix",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "je7AOQYLlIo",
+          "title": "Where to Find GOLD in Maine, NH, Quebec | SECRET Prospecting Panning Locations",
+          "url": "https://www.youtube.com/watch?v=je7AOQYLlIo",
+          "channelId": "UCOa9jWlm8SIzlcERzZso0WA",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Regional prospecting",
+          "tags": [
+            "regional prospecting",
+            "maine / new hampshire / quebec"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "adventure-person",
+      "name": "Adventure Person",
+      "channelId": "UCwdDOoOxo1nOpsPRkmK56Lg",
+      "channelUrl": "https://www.youtube.com/channel/UCwdDOoOxo1nOpsPRkmK56Lg",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Adventure Person",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "2h0lAdSA2_Y",
+          "title": "How to Pan for GOLD - a Beginner's Guide to Panning for GOLD",
+          "url": "https://www.youtube.com/watch?v=2h0lAdSA2_Y",
+          "channelId": "UCwdDOoOxo1nOpsPRkmK56Lg",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Beginner panning",
+          "tags": [
+            "beginner panning"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "grh-channel",
+      "name": "GRH channel",
+      "channelId": "UCI08D-LeJQFXDCqCwmUc8pQ",
+      "channelUrl": "https://www.youtube.com/channel/UCI08D-LeJQFXDCqCwmUc8pQ",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "GRH channel",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "rkknmr57_AE",
+          "title": "How to Easily Separate GOLD from Black Sand – Step-by-Step Guide!",
+          "url": "https://www.youtube.com/watch?v=rkknmr57_AE",
+          "channelId": "UCI08D-LeJQFXDCqCwmUc8pQ",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Black sands",
+          "tags": [
+            "black sands"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "kaveman-kreations",
+      "name": "Kaveman Kreations",
+      "channelId": "UCslszOM7-H37LFlVqcSfzEg",
+      "channelUrl": "https://www.youtube.com/channel/UCslszOM7-H37LFlVqcSfzEg",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Kaveman Kreations",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "zCA8ncVtdlY",
+          "title": "Gold panning in NH.",
+          "url": "https://www.youtube.com/watch?v=zCA8ncVtdlY",
+          "channelId": "UCslszOM7-H37LFlVqcSfzEg",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Field prospecting",
+          "tags": [
+            "field prospecting",
+            "new hampshire"
+          ]
+        },
+        {
+          "id": "dbhYQn-VOco",
+          "title": "Gold panning NH, White Mountains National Forest.",
+          "url": "https://www.youtube.com/watch?v=dbhYQn-VOco",
+          "channelId": "UCslszOM7-H37LFlVqcSfzEg",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Field prospecting",
+          "tags": [
+            "field prospecting",
+            "new hampshire"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dream-mat",
+      "name": "DREAM MAT",
+      "channelId": "UCJD-sGsDeft4Zi5rW39k2lQ",
+      "channelUrl": "https://www.youtube.com/channel/UCJD-sGsDeft4Zi5rW39k2lQ",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "DREAM MAT",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "YHFcFM1pOno",
+          "title": "Backpacking the 6\" x 43\" Foldable Gold Sluice Box Kit – Gold Prospecting Made Easy!",
+          "url": "https://www.youtube.com/watch?v=YHFcFM1pOno",
+          "channelId": "UCJD-sGsDeft4Zi5rW39k2lQ",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Equipment",
+          "tags": [
+            "equipment"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cripple-fossicking-australia-cfa",
+      "name": "Cripple Fossicking Australia (CFA)",
+      "channelId": "UCXU3osRUDqntwZ2hDc6_18g",
+      "channelUrl": "https://www.youtube.com/channel/UCXU3osRUDqntwZ2hDc6_18g",
+      "attributionScope": "uploader_channel",
+      "uploaderName": "Cripple Fossicking Australia (CFA)",
+      "checkedAt": "2026-11-16",
+      "videos": [
+        {
+          "id": "e-rxAbm_bEQ",
+          "title": "How To Sluice For Gems And Gold For Beginners, Tips And Tricks!",
+          "url": "https://www.youtube.com/watch?v=e-rxAbm_bEQ",
+          "channelId": "UCXU3osRUDqntwZ2hDc6_18g",
+          "ownershipStatus": "source_checked",
+          "checkedAt": "2026-11-16",
+          "subject": "Sluicing",
+          "tags": [
+            "sluicing",
+            "australia"
           ]
         }
       ]

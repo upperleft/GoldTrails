@@ -213,11 +213,17 @@
   },
   {
     "slug": "kevin-singel",
-    "canonical": "https://www.youtube.com/watch?v=Y9NqefV8wis",
+    "canonical": "https://www.youtube.com/channel/UCSbUPY7ElPoNcMYyqzGet8Q",
     "source_url": "https://findinggoldincolorado.com/where-to-look-for-gold/",
     "title": "Kevin Singel gold-panning video",
     "identity_note": "The author identifies the linked four-minute panning video as his own. This establishes a related video, not ownership of its uploader channel.",
-    "checked_at": "2026-11-04"
+    "checked_at": "2026-11-04",
+    "previous_canonical": "https://www.youtube.com/watch?v=Y9NqefV8wis",
+    "channel_identity_evidence": {
+      "checked_at": "2026-11-16",
+      "youtube_about_url": "https://www.youtube.com/@kevinsingel7213/about",
+      "corroboration_url": "https://www.youtube.com/watch?v=Y9NqefV8wis"
+    }
   },
   {
     "slug": "yukon-dan",
@@ -233,7 +239,13 @@
     "source_url": "https://cruxprospecting.com/videos/",
     "title": "Crux Prospecting official video collection",
     "identity_note": "Official collection features Crux equipment and Cyle appearances in multiple creators’ videos; no uploader channel is attributed to Crux.",
-    "checked_at": "2026-11-04"
+    "checked_at": "2026-11-04",
+    "canonical": "https://www.youtube.com/channel/UC9jKQU6xHuy-5o_T5IA6raw",
+    "channel_identity_evidence": {
+      "checked_at": "2026-11-16",
+      "youtube_about_url": "https://www.youtube.com/@cruxprospecting/about",
+      "corroboration_url": "https://www.youtube.com/watch?v=FSWs231iXnw"
+    }
   },
   {
     "slug": "tyler-mahoney",
@@ -242,15 +254,27 @@
     "source_url": "https://theprospectorsclub.shop/pages/the-complete-gold-prospecting-course",
     "title": "The Prospectors Club gold-prospecting video course",
     "identity_note": "Official course identifies Ted and Tyler as instructors. Paid access required; the button must disclose this.",
-    "checked_at": "2026-11-04"
+    "checked_at": "2026-11-04",
+    "canonical": "https://www.youtube.com/channel/UCP7wgtV23-JZd0Wok-H_0_w",
+    "channel_identity_evidence": {
+      "checked_at": "2026-11-16",
+      "youtube_about_url": "https://www.youtube.com/@TylerMahoneyofficial/about",
+      "corroboration_url": "https://stan.store/tylermahoney8"
+    }
   },
   {
     "slug": "prospection-de-loisir",
-    "canonical": "https://www.youtube.com/@prospectiondeloisir",
+    "canonical": "https://www.youtube.com/channel/UCexrdKP69b73vdOOCcy39JA",
     "source_url": "https://www.prospection-de-loisir.fr/qui-je-suis/",
     "title": "Prospection de loisir official YouTube channel",
     "identity_note": "Official author about page directly links this YouTube handle.",
-    "checked_at": "2026-11-04"
+    "checked_at": "2026-11-04",
+    "previous_canonical": "https://www.youtube.com/@prospectiondeloisir",
+    "channel_identity_evidence": {
+      "checked_at": "2026-11-16",
+      "youtube_about_url": "https://www.youtube.com/@prospectiondeloisir/about",
+      "corroboration_url": "https://www.prospection-de-loisir.fr/qui-je-suis/"
+    }
   },
   {
     "slug": "tassie-boys-prospecting",
@@ -259,5 +283,65 @@
     "title": "Tassie Boys Prospecting official YouTube channel",
     "identity_note": "Primary indexed YouTube channel identifies Tassie Boys Prospecting and its official handle. Direct channel fetch was throttled.",
     "checked_at": "2026-11-04"
+  },
+  {
+    "slug": "alan-robertson",
+    "source_url": "https://www.youtube.com/@alanrobertson2510/about",
+    "checked_at": "2026-11-16",
+    "title": "Alan Robertson - YouTube",
+    "canonical": "https://www.youtube.com/channel/UCq2tap0uNZmPLhs0JqrQOlw",
+    "channel_identity_evidence": {
+      "checked_at": "2026-11-16",
+      "youtube_about_url": "https://www.youtube.com/@alanrobertson2510/about",
+      "corroboration_url": "https://www.youtube.com/watch?v=mtsqzGIVSHw"
+    }
+  },
+  {
+    "slug": "dirtfishmish",
+    "source_url": "https://www.youtube.com/@DirtFishMish/about",
+    "checked_at": "2026-11-16",
+    "title": "DirtFishMish - YouTube",
+    "canonical": "https://www.youtube.com/channel/UCFVNSVrzU73HT-LgYCzKY0g",
+    "channel_identity_evidence": {
+      "checked_at": "2026-11-16",
+      "youtube_about_url": "https://www.youtube.com/@DirtFishMish/about",
+      "corroboration_url": "https://www.youtube.com/watch?v=f_-fMw8oh6g"
+    }
+  },
+  {
+    "slug": "liz-kreate",
+    "source_url": "https://www.youtube.com/@LizKreate/about",
+    "checked_at": "2026-11-16",
+    "title": "Liz Kreate - YouTube",
+    "canonical": "https://www.youtube.com/channel/UCHk9xcAFrmUl_K3mfHp6zUA",
+    "channel_identity_evidence": {
+      "checked_at": "2026-11-16",
+      "youtube_about_url": "https://www.youtube.com/@LizKreate/about",
+      "corroboration_url": "https://www.youtube.com/watch?v=mAfy-Nq-aX0"
+    }
+  },
+  {
+    "slug": "mrdazp1",
+    "source_url": "https://www.youtube.com/@MrDazP1adv3ntures/about",
+    "checked_at": "2026-11-16",
+    "title": "MrDazP1 - YouTube",
+    "canonical": "https://www.youtube.com/channel/UC_6ovxSZ-AO9sD-rwURTk3A",
+    "channel_identity_evidence": {
+      "checked_at": "2026-11-16",
+      "youtube_about_url": "https://www.youtube.com/@MrDazP1adv3ntures/about",
+      "corroboration_url": "https://www.youtube.com/watch?v=S4IYY4HWGpA"
+    }
+  },
+  {
+    "slug": "adventure-gold",
+    "source_url": "https://www.youtube.com/@CancermanAUS/about",
+    "checked_at": "2026-11-16",
+    "title": "CancerMan AUS - YouTube",
+    "canonical": "https://www.youtube.com/channel/UC9Agr2fHbCNmu3Fjx9umPkQ",
+    "channel_identity_evidence": {
+      "checked_at": "2026-11-16",
+      "youtube_about_url": "https://www.youtube.com/@CancermanAUS/about",
+      "corroboration_url": "https://www.youtube.com/channel/UC9Agr2fHbCNmu3Fjx9umPkQ"
+    }
   }
 ]
