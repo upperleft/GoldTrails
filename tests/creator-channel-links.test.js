@@ -18,6 +18,15 @@ test('published database channels take precedence over supplemental and curated 
  assert.equal(creatorYoutubeDestination({slug:'dan-hurd'}).url,videoLibraryFor('dan-hurd').channelUrl);
  assert.equal(creatorYoutubeDestination({official_url:'https://youtu.be/Abcd_123-XY'}).isChannel,false);
 });
+test('a verified successor replaces only the exact retired channel URL',()=>{
+ const slug='adventure-gold';
+ const retired='https://www.youtube.com/user/19andrew72/';
+ const current='https://www.youtube.com/channel/UC9Agr2fHbCNmu3Fjx9umPkQ';
+ const independentlyPublished='https://www.youtube.com/@AnotherReviewedChannel';
+ assert.equal(creatorYoutubeDestination({slug,channels:[{canonical_url:retired}]}).url,current);
+ assert.equal(creatorYoutubeDestination({slug,videoUrl:retired,channels:[{canonical_url:independentlyPublished}]}).url,independentlyPublished);
+});
+
 test('six new checked channels are shown prominently without replacing existing research',()=>{
  for(const slug of ['bill-southern','x4prospecting','rob-parsons','outback-gold-fever','mbmmllc','michigan-prospectors']){
   const p=creatorCatalog().find(p=>p.slug===slug),link=creatorYoutubeDestination(p),html=catalogProfile(p);

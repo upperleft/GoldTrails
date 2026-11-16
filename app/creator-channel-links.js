@@ -14,8 +14,11 @@ export function youtubeDestination(value){
 }
 export function creatorYoutubeDestination(profile={}){
  const channels=[youtubeDestination(profile.videoUrl),...(profile.channels||[]).map(c=>youtubeDestination(c.canonical_url))].filter(Boolean);
- return channels.find(c=>c.isChannel)
-  ||youtubeDestination(checked.find(c=>c.slug===profile.slug)?.canonical)
+ const review=checked.find(c=>c.slug===profile.slug);
+ const verified=youtubeDestination(review?.canonical);
+ const retired=verified?.isChannel?youtubeDestination(review?.supersedes_legacy_channel):null;
+ return channels.find(c=>c.isChannel&&c.url!==retired?.url)
+  ||verified
   ||youtubeDestination(videoLibraryFor(profile.slug)?.channelUrl)
   ||youtubeDestination(profile.official_url)
   ||channels[0]||null;
