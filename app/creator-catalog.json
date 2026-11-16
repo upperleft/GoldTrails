@@ -1045,5 +1045,32 @@
         "verified_at": "2026-10-18"
       }
     ]
+  },
+  {
+    "slug": "northeast-expanse",
+    "name": "Northeast Expanse",
+    "official_url": "https://www.youtube.com/channel/UCB9GupCbkf8FyZ_LofByWWQ",
+    "status": "lead",
+    "checked_at": "2026-11-16",
+    "youtube_channel_id": "UCB9GupCbkf8FyZ_LofByWWQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "jeremy-canter-ohio-prospecting",
+    "name": "Jeremy Canter Ohio Prospecting",
+    "official_url": "https://www.youtube.com/channel/UCxHJZkVsYX-2fRJmc5yAHsA",
+    "status": "lead",
+    "checked_at": "2026-11-16",
+    "youtube_channel_id": "UCxHJZkVsYX-2fRJmc5yAHsA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "prospector-s-theory",
+    "name": "Prospector's Theory",
+    "official_url": "https://www.youtube.com/channel/UCj4XAHS4UJZGYrHNDXFoJ5g",
+    "status": "lead",
+    "checked_at": "2026-11-16",
+    "youtube_channel_id": "UCj4XAHS4UJZGYrHNDXFoJ5g",
+    "verification_scope": "channel_identity_and_public_metadata_only"
   }
 ]
