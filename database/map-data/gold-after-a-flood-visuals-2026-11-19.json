@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "article": "gold-after-a-flood",
+  "checkedAt": "2026-11-19",
+  "generatedWith": "Built-in image_gen tool",
+  "illustrations": [
+    {
+      "id": "reach-before-after",
+      "title": "The same reach before and after high water",
+      "originalFilename": "exec-a1c9a9a5-54ed-45d4-b124-a24d3eedc4bc.png",
+      "prompt": "Use case: scientific-educational. Asset type: landscape editorial illustration for the Gold Trails article \"Gold After a Flood\". Create a polished naturalistic field-guide watercolor and colored-pencil illustration on a clean warm ivory background. Two stacked wide panels, each showing EXACTLY the same small rocky gravel-bed river bend from an elevated oblique viewpoint with consistent landmarks: a large immovable gray bedrock outcrop on the near foreground side, a distinctive bent willow far behind on the other bank, a small upstream cobble bar and wooded banks. Top panel is the reach during ordinary low water BEFORE a flood. Bottom panel is the SAME reach AFTER high water has receded back to a calm ordinary low water level. Changes in bottom panel are clear but plausible: fresh pale tan surface gravel spread across part of a bar; part of a gray bedrock shelf and a shallow pocket newly exposed; another old gravel pocket partly buried under fresh fine sediment; a small eroded bank edge on the far side with exposed roots. Show a high-water debris line well above the calm present water, with ordinary small twigs/leaves. River scale is intimate, physically coherent, not a grand canyon. Water follows one continuous channel, rocks remain at the same coordinates between panels. Keep the altered surfaces visually distinct. Focus on observable erosion, deposition and exposure. Gold must NOT be visible anywhere. No gold glitter, treasure, arrows implying a guaranteed deposit, equipment, people, wading or dramatic floodwater. No labels other than small neat uppercase words \"BEFORE\" and \"AFTER\", one at upper-left of each corresponding panel. Leave a clean narrow margin between panels. Calm daylight, clear geological textures, muted gray stones, earthy ochres, olive foliage, blue-green water, excellent visual clarity for phone reading. Render as an instructional illustration, never a purported photograph or measured survey. Landscape ratio about 3:2.",
+      "kind": "AI-generated conceptual illustration",
+      "review": "Fixed bedrock and tree landmarks are retained across the two panels. Receded water, changed gravel cover, debris line and eroded bank are illustrative observations. No visible gold or documented flood claim.",
+      "originalSha256": "390aaae3567b4189d6be2d5aae4dfe789bc466cba1607bb280c1e01c8d75c45d",
+      "originalDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "files": [
+        {
+          "file": "dist/assets/articles/gold-after-a-flood/reach-before-after-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 116880,
+          "sha256": "a1ff284a38cc8125f68bd9058d774b83c85db59b4dc7a02a2a04a602711f0a16"
+        },
+        {
+          "file": "dist/assets/articles/gold-after-a-flood/reach-before-after-1024.webp",
+          "width": 1024,
+          "height": 683,
+          "bytes": 289564,
+          "sha256": "aa21a93e59de649c841cbd87e57dec7d97aedabb91655d0c1c9457632afd68d7"
+        },
+        {
+          "file": "dist/assets/articles/gold-after-a-flood/reach-before-after-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 598066,
+          "sha256": "69d7c486af9ecf3f7374d94739cf7ba145c9f6c73b30abd575c5e45940e91a64"
+        }
+      ]
+    },
+    {
+      "id": "surface-features",
+      "title": "Three features to recognize from stable ground",
+      "originalFilename": "exec-b89631d2-d1f8-4d04-a16c-58af0fa7c8d5.png",
+      "prompt": "Use case: scientific-educational. Asset type: landscape close-view instructional illustration for Gold Trails \"Gold After a Flood\". Create a clean naturalistic watercolor and colored-pencil field-guide plate on warm ivory, no decorative border. Three equally sized horizontal panels, clearly separated by ivory gutters, all with close-oblique views from stable dry ground at a small gravel-bed river AFTER the flood has receded. Panel A: a thin fresh drape of light sand and small mixed gravel lying ON TOP of older darker coarse cobbles; show the edge of this drape so the two surfaces can be distinguished without excavation. Panel B: an exposed gray bedrock shelf with one shallow irregular pocket holding a SMALL amount of loose mixed sand/gravel, with adjacent similar loose gravel outside the pocket; pocket is above the calm waterline and reachable from stable dry ground. Distinguish the bedrock surface from loose material accurately. Panel C: an eroded bank edge seen from a safe distant opposite view, showing exposed roots and an undercut overhang, with fallen branch debris at its base. No person, digging, equipment, water entry or gold visible in any panel. These are three observations, not a sequence or a claim that gold must be present. Simple label \"A\" at upper-left of first panel, \"B\" at upper-left of second, \"C\" at upper-left of third, with no other text, no arrows or symbols. Use consistent warm neutral stony textures, tan fresh sediment, muted olive vegetation, restrained blue-green low water at outer edges only. Large legible structures, geological clarity, restrained educational realism. Do not depict piles of treasure, metallic flakes, bucket samples or dangerous access. Landscape aspect ratio about 3:2, panels broad enough to read when enlarged.",
+      "kind": "AI-generated conceptual illustration",
+      "review": "Panel A illustrates a fine sediment cover over coarser cobbles; B an exposed bedrock pocket holding loose material; C an undercut bank with exposed roots. The bank is a hazard to avoid, not a sampling position.",
+      "originalSha256": "1532a3f5e17c6fd304c61a97d826383e914a77e5cc56cf1ac49a97952b109db0",
+      "originalDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "files": [
+        {
+          "file": "dist/assets/articles/gold-after-a-flood/surface-features-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 111628,
+          "sha256": "b0672513a041383c8103018bddae9cfb8792a00f7c46aafe53ea2b6a03204eb4"
+        },
+        {
+          "file": "dist/assets/articles/gold-after-a-flood/surface-features-1024.webp",
+          "width": 1024,
+          "height": 683,
+          "bytes": 267392,
+          "sha256": "c2b817591f9e3d80abc4c77daddfc6643856a8cbe5633d9abdb399b3492690e1"
+        },
+        {
+          "file": "dist/assets/articles/gold-after-a-flood/surface-features-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 530680,
+          "sha256": "b9f1ad12e005d5ab42b145a930527ed49898853a0aed706e314c49b3a9d128a3"
+        }
+      ]
+    }
+  ],
+  "photographs": [
+    {
+      "id": "powder-river",
+      "file": "dist/assets/articles/powder-river-point-bars-usgs.gif",
+      "sourceUrl": "https://pubs.usgs.gov/fs/fs-004-03/",
+      "assetUrl": "https://pubs.usgs.gov/fs/fs-004-03/images/fig4.gif",
+      "credit": "U.S. Geological Survey, Fact Sheet 004-03, Figure 4",
+      "license": "Public domain (USGS work)",
+      "provenance": "database/map-data/article-photo-inspection-2026-10-12.json",
+      "sha256": "60331f2f19dfc5128983ce544ce21925caee8fc07f691ee9fe6b5f7b32bca90e",
+      "width": 549,
+      "height": 785,
+      "review": "Original labelled aerial preserved without alteration. It illustrates bar and cutbank geometry; the image is not treated as a flood comparison, a gold occurrence or current access evidence."
+    }
+  ]
+}

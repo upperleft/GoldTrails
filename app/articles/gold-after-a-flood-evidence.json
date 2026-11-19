@@ -76,7 +76,10 @@
       "locator": "0:00 changed spot; 3:00 reported variation between pans",
       "verification": "Current YouTube video identity and uploader checked November 19, 2026. Caption-derived findings preserved from the November 17 research workbook.",
       "researchWorkbookSha256": "fff88837668d6f3f0af2cf7dde013508e6591fb9b17dd940e6b76ad0bcf38626",
-      "findingIds": ["workbook:9d29ada5c5e9312ed192c731cd9dee9f747175b4cab02310143014ad1fb684a1", "workbook:221815349779cea6d38df5903a05f6528c91483c933ca35627daa226ee10e165"],
+      "findingIds": [
+        "workbook:9d29ada5c5e9312ed192c731cd9dee9f747175b4cab02310143014ad1fb684a1",
+        "workbook:221815349779cea6d38df5903a05f6528c91483c933ca35627daa226ee10e165"
+      ],
       "limits": "Reported observations, not a discharge survey or controlled recovery test. Audio, footage, gold identity, and recovery independently unverified."
     },
     {
@@ -89,7 +92,10 @@
       "locator": "6:00 initial result and further testing; 9:00 weaker later pans",
       "verification": "Current YouTube video identity and uploader checked November 19, 2026. Caption-derived findings preserved from the November 17 research workbook.",
       "researchWorkbookSha256": "fff88837668d6f3f0af2cf7dde013508e6591fb9b17dd940e6b76ad0bcf38626",
-      "findingIds": ["workbook:ba99b7901c53fe796716c85fb21920fa1e000f0490f92948a46c43b4cb188d03", "workbook:571a6f3580e15981891e79243d0f3c09227431a6314dd357781904ba51cc66f5"],
+      "findingIds": [
+        "workbook:ba99b7901c53fe796716c85fb21920fa1e000f0490f92948a46c43b4cb188d03",
+        "workbook:571a6f3580e15981891e79243d0f3c09227431a6314dd357781904ba51cc66f5"
+      ],
       "limits": "Reported results are not weighed or controlled. Flood causation, audio, footage, gold identity, and recovery independently unverified."
     }
   ],
@@ -99,5 +105,27 @@
     "No prospecting, scouting, or crossing during a flood",
     "No bank digging, vegetation removal, or entry into moving water recommended",
     "The sample comparison is an editorial exercise, not an assay or resource estimate"
+  ],
+  "visualsRecord": "database/map-data/gold-after-a-flood-visuals-2026-11-19.json",
+  "visuals": [
+    {
+      "id": "reach-before-after",
+      "kind": "AI-generated conceptual illustration",
+      "file": "dist/assets/articles/gold-after-a-flood/reach-before-after-1536.webp",
+      "purpose": "Compare the same reach before high water and on a later low-water visit."
+    },
+    {
+      "id": "powder-river",
+      "kind": "USGS public-domain aerial photograph",
+      "file": "dist/assets/articles/powder-river-point-bars-usgs.gif",
+      "sourceUrl": "https://pubs.usgs.gov/fs/fs-004-03/",
+      "purpose": "Recognize point-bar and cutbank shapes using the original figure labels."
+    },
+    {
+      "id": "surface-features",
+      "kind": "AI-generated conceptual illustration",
+      "file": "dist/assets/articles/gold-after-a-flood/surface-features-1536.webp",
+      "purpose": "Distinguish surface sediment, loose material in a bedrock pocket, and an undercut-bank hazard."
+    }
   ]
 }

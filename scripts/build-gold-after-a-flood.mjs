@@ -18,16 +18,17 @@ if (content.includes('{{')) throw new Error('Unresolved flood article placeholde
 
 let template = await readFile('dist/articles/classification-basics/index.html', 'utf8');
 if (!template.includes('<article class="reading"') || !template.includes('</article>')) throw new Error('Reading-page template changed; review the article shell.');
-let html = template.replace(/<article class="reading"[\s\S]*?<\/article>/, `<article class="reading tuning-article" aria-labelledby="article-title">${content}</article>`)
+let html = template.replace(/<article class="reading"[\s\S]*?<\/article>/, `<article class="reading tuning-article flood-article" aria-labelledby="article-title">${content}</article>`)
   .replace(/<title>[\s\S]*?<\/title>/, `<title>${e(title)} — Gold Trails</title>`)
   .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${e(summary)}">`)
   .replace(/<script>document\.querySelectorAll\('\.source-marker'\)[\s\S]*?<\/script>/, '');
 const version = createHash('sha256').update(await readFile('dist/sluice-tuning.css')).digest('hex').slice(0, 12);
+const visualVersion = createHash('sha256').update(await readFile('dist/gold-after-a-flood.css')).digest('hex').slice(0, 12);
 const schema = {'@context':'https://schema.org','@type':'Article',headline:title,description:summary,
   datePublished:evidence.publishedAt,dateModified:evidence.checkedAt,creativeWorkStatus:'Published',
   author:{'@type':'Person',name:'Paul Shoemaker'},publisher:{'@type':'Organization',name:'Gold Trails'},
   mainEntityOfPage:'https://goldtrails.org'+route};
-html = html.replace('</head>', `<link rel="stylesheet" href="/sluice-tuning.css?v=${version}"><link rel="canonical" href="https://goldtrails.org${route}"><meta property="og:type" content="article"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(summary)}"><script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script></head>`);
+html = html.replace('</head>', `<link rel="stylesheet" href="/sluice-tuning.css?v=${version}"><link rel="stylesheet" href="/gold-after-a-flood.css?v=${visualVersion}"><link rel="canonical" href="https://goldtrails.org${route}"><meta property="og:type" content="article"><meta property="og:title" content="${e(title)}"><meta property="og:description" content="${e(summary)}"><script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script></head>`);
 await mkdir('dist' + route, {recursive:true});
 await writeFile('dist' + route + 'index.html', html);
 
