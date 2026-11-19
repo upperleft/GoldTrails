@@ -73,8 +73,8 @@ export function reconcileCreatorResearch(input,catalog,library,{today=new Date()
  for(const creator of nextLibrary.creators){
   const owners=channelOwners.get(creator.channelId)||[];
   if(!owners.some(owner=>owner.slug===creator.slug)){
-   const owner={slug:creator.slug,name:creator.name,official_url:creator.channelUrl,status:'verified',checked_at:creator.checkedAt||nextLibrary.checkedAt,youtube_channel_id:creator.channelId,verification_scope:'channel_identity_and_public_metadata_only'};
-   nextCatalog.push(owner);owners.push(owner);channelOwners.set(creator.channelId,owners);
+   const owner=nextCatalog.find(person=>person.slug===creator.slug)||{slug:creator.slug,name:creator.name,official_url:creator.channelUrl,status:'lead',checked_at:creator.checkedAt||nextLibrary.checkedAt,youtube_channel_id:creator.channelId,verification_scope:'channel_identity_and_public_metadata_only'};
+   owners.push(owner);channelOwners.set(creator.channelId,owners);
   }
  }
  const videoOwners=new Map();
@@ -85,6 +85,8 @@ export function reconcileCreatorResearch(input,catalog,library,{today=new Date()
   const existingOwners=channelOwners.get(incoming.channelId)||[];
   let profile=existingOwners.length===1?existingOwners[0]:null;
   if(existingOwners.length>1){exceptions.push({channelId:incoming.channelId,name:incoming.name,reason:'multiple existing profiles claim this YouTube channel'});continue;}
+  const confirmedIds=profile?catalogChannelIds(profile):[];
+  if(confirmedIds.length&&!confirmedIds.includes(incoming.channelId)){exceptions.push({channelId:incoming.channelId,name:incoming.name,reason:'existing profile has a conflicting confirmed channel ID'});continue;}
   const videoConflict=incoming.videos.find(video=>{
    const owners=videoOwners.get(video.id)||[];
    return owners.length>1||owners.length===1&&(owners[0].creator.channelId!==incoming.channelId||owners[0].video.title!==video.title);
@@ -99,6 +101,9 @@ export function reconcileCreatorResearch(input,catalog,library,{today=new Date()
   }
   let libraryCreator=nextLibrary.creators.find(row=>row.channelId===incoming.channelId);
   if(libraryCreator&&libraryCreator.slug!==profile.slug){exceptions.push({channelId:incoming.channelId,name:incoming.name,reason:'site video library maps this channel to a different profile slug'});continue;}
+  if(!nextCatalog.includes(profile)){
+   nextCatalog.push(profile);addedCreators.push({slug:profile.slug,name:profile.name,channelId:incoming.channelId});
+  }
   if(!libraryCreator){
    libraryCreator={slug:profile.slug,name:profile.name||incoming.name,channelId:incoming.channelId,channelUrl:incoming.channelUrl,attributionScope:'uploader_channel',uploaderName:incoming.name,videos:[]};
    nextLibrary.creators.push(libraryCreator);
@@ -112,12 +117,10 @@ export function reconcileCreatorResearch(input,catalog,library,{today=new Date()
    }
    libraryCreator.videos.push({id:video.id,title:video.title,url:video.url,channelId:incoming.channelId,ownershipStatus:'source_checked',checkedAt:video.checkedAt,subject:video.subject,tags:[...new Set(video.tags.map(clean))]});
    videoOwners.set(video.id,[{creator:libraryCreator,video:libraryCreator.videos.at(-1)}]);addedVideos.push(video.id);
+   libraryCreator.checkedAt=video.checkedAt;
   }
  }
- nextLibrary.creators.sort((a,b)=>a.name.localeCompare(b.name));
- for(const creator of nextLibrary.creators)creator.videos.sort((a,b)=>a.id.localeCompare(b.id));
  if(addedCreators.length||addedVideos.length){
-  nextLibrary.checkedAt=today;
   nextLibrary.inputSha256=createHash('sha256').update(JSON.stringify(input)).digest('hex');
  }
  return {

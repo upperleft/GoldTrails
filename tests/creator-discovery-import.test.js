@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync,readdirSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {creatorCatalog,mergeCatalog} from '../app/creator-catalog.js';
 import {planCatalog,channelKey,CatalogConflict} from '../app/catalog-import.js';
@@ -15,6 +15,29 @@ const baseline=read('baseline.json'),additions=read('new-creators.json'),manifes
 const canadaReview=JSON.parse(readFileSync(new URL('../docs/research/canadian-creator-locations-2026-10-18.json',import.meta.url),'utf8'));
 const canadianAdditions=new Set(canadaReview.creators.filter(c=>c.verification?.videos?.length).map(c=>c.slug));
 const regionalFields=['region','region_source','region_checked_at','region_type'];
+const originalProfiles=[...baseline.catalog,...additions],originalSlugs=new Set(originalProfiles.map(p=>p.slug));
+const discoveryRoot=new URL('../research/creator-discovery/',import.meta.url);
+const metadata=readdirSync(discoveryRoot,{withFileTypes:true}).filter(d=>d.isDirectory()).flatMap(d=>{
+ const path=new URL(d.name+'/metadata-provenance.json',discoveryRoot);
+ return existsSync(path)?JSON.parse(readFileSync(path,'utf8')).videos:[];
+});
+function assertPreservedProfile(old,current){
+ assert.ok(current,old.slug+' remains in the roster');
+ const historical=structuredClone(current),review=canadaReview.creators.find(p=>p.slug===old.slug);
+ if(review){
+  assert.ok([old.region,review.region].includes(current.region),old.slug+' retains its original region label or the dated reviewed refinement');assert.equal(current.region_type,review.region_type);assert.equal(current.region_checked_at,canadaReview.checked_at);
+  const sourceUrls=review.source_ids.map(id=>canadaReview.sources.find(s=>s.id===id)?.url);assert.ok(sourceUrls.includes(current.region_source),old.slug+' region source is retained in the review');
+  for(const key of regionalFields){if(Object.hasOwn(old,key))historical[key]=old[key];else delete historical[key];}
+ }
+ const identityFields=['youtube_channel_id','channel_identity_evidence'];
+ if(identityFields.some(key=>!Object.hasOwn(old,key)&&Object.hasOwn(current,key))){
+  const evidence=current.channel_identity_evidence;
+  assert.match(current.youtube_channel_id,/^UC[\w-]{22}$/);
+  assert.ok(metadata.some(v=>v.channelId===current.youtube_channel_id&&v.url===evidence?.source_url&&v.checkedAt===evidence?.checked_at),old.slug+' additive identity has matching primary metadata provenance');
+  for(const key of identityFields)if(!Object.hasOwn(old,key))delete historical[key];
+ }
+ assert.deepEqual(historical,old,old.slug+' preserves its original research apart from explicitly sourced regional and additive identity fields');
+}
 
 test('discovery import accounts for every submitted record and preserves all existing research',()=>{
  assert.equal(createHash('sha256').update(readFileSync(new URL('original.json',root))).digest('hex'),manifest.source_sha256);
@@ -24,23 +47,21 @@ test('discovery import accounts for every submitted record and preserves all exi
  assert.equal(crosswalk.filter(r=>r.decision==='preserve_existing').length,12);
  assert.equal(crosswalk.filter(r=>r.decision==='hold_identity_conflict').length,1);
  assert.equal(leads.filter(r=>r.decision==='preserve_existing').length,4);
- const catalog=creatorCatalog(),previous=catalog.filter(p=>!canadianAdditions.has(p.slug));assert.equal(previous.length,baseline.catalog.length+14);assert.equal(catalog.length,previous.length+canadianAdditions.size);
- for(const old of baseline.catalog){
-  const current=catalog.find(p=>p.slug===old.slug),historical=structuredClone(current),review=canadaReview.creators.find(p=>p.slug===old.slug);
-  if(review){
-   assert.ok([old.region,review.region].includes(current.region),old.slug+' retains its original region label or the dated reviewed refinement');assert.equal(current.region_type,review.region_type);assert.equal(current.region_checked_at,canadaReview.checked_at);
-   const sourceUrls=review.source_ids.map(id=>canadaReview.sources.find(s=>s.id===id)?.url);assert.ok(sourceUrls.includes(current.region_source),old.slug+' region source is retained in the review');
-   for(const key of regionalFields){if(Object.hasOwn(old,key))historical[key]=old[key];else delete historical[key];}
-  }
-  assert.deepEqual(historical,old,old.slug+' preserves its original research apart from explicitly reviewed regional fields');
- }
- for(const row of additions){assert.deepEqual(catalog.find(p=>p.slug===row.slug),row);assert.equal(new URL(row.official_url).pathname,'/channel/'+row.youtube_channel_id);assert.ok(row.biography.every(f=>f.source_url&&f.verified_at==='2026-10-16'));}
+ const catalog=creatorCatalog(),previous=catalog.filter(p=>originalSlugs.has(p.slug));assert.equal(previous.length,originalProfiles.length);
+ for(const old of originalProfiles)assertPreservedProfile(old,catalog.find(p=>p.slug===old.slug));
+ for(const slug of canadianAdditions)assert.ok(catalog.some(p=>p.slug===slug),slug+' retains its separately reviewed addition');
+ for(const row of additions){assert.equal(new URL(row.official_url).pathname,'/channel/'+row.youtube_channel_id);assert.ok(row.biography.every(f=>f.source_url&&f.verified_at==='2026-10-16'));}
  assert.equal(new Set(additions.map(r=>r.youtube_channel_id)).size,14);
- assert.ok(!catalog.some(p=>p.youtube_channel_id==='UC0fuMC2COaYUWyl1jZM6DuA'));
+ const conflictedChannel='UC0fuMC2COaYUWyl1jZM6DuA';
+ assert.ok(!catalog.some(p=>originalSlugs.has(p.slug)&&p.youtube_channel_id===conflictedChannel),'the historical identity conflict cannot be assigned to an existing creator');
+ for(const current of catalog.filter(p=>p.youtube_channel_id===conflictedChannel)){
+  assert.equal(current.official_url,'https://www.youtube.com/channel/'+conflictedChannel);
+  assert.ok(metadata.some(v=>v.channelId===conflictedChannel&&v.uploaderName===current.name&&v.checkedAt===current.checked_at),'a separate current uploader requires exact primary metadata, not the conflicted historical credit');
+ }
 });
 
 test('full roster remains importable and reviewed channel aliases prevent duplicate ownership',()=>{
- const catalog=creatorCatalog(),previous=catalog.filter(p=>!canadianAdditions.has(p.slug));
+ const catalog=creatorCatalog(),previous=catalog.filter(p=>originalSlugs.has(p.slug));
  assert.equal(planCatalog(previous,[],[]).add,baseline.catalog.length+additions.length);
  assert.equal(planCatalog(catalog,[],[]).add,catalog.length);
  const row=additions.find(p=>p.slug==='gold-putz');

@@ -29,7 +29,12 @@
     "official_url": "https://www.askjeffwilliams.com/",
     "region": null,
     "status": "published",
-    "checked_at": "2026-10-07"
+    "checked_at": "2026-10-07",
+    "youtube_channel_id": "UCEeEMoldn_MytOY17kYhX_g",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=lEPuODXisHQ",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "bill-southern",
@@ -45,7 +50,12 @@
     "official_url": "https://www.youtube.com/channel/UC-FXgmftIXDVF9QTSMUpo1A",
     "region": null,
     "status": "lead",
-    "checked_at": "2026-10-07"
+    "checked_at": "2026-10-07",
+    "youtube_channel_id": "UC-FXgmftIXDVF9QTSMUpo1A",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=yv7K_zcbz_w",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "california-mother-lode-prospectors",
@@ -61,7 +71,12 @@
     "official_url": "https://www.youtube.com/c/CanadianGoldMining",
     "region": null,
     "status": "lead",
-    "checked_at": "2026-10-08"
+    "checked_at": "2026-10-08",
+    "youtube_channel_id": "UCrN6KNX3Vnl3qrl3-HkwHpg",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=48IZTIpLGZY",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "chasing-gold-australia",
@@ -99,7 +114,12 @@
     "checked_at": "2026-10-07",
     "region_source": "https://danhurdprospecting.com/about/",
     "region_checked_at": "2026-10-18",
-    "region_type": "approximate_public_town_region"
+    "region_type": "approximate_public_town_region",
+    "youtube_channel_id": "UCOReOAYx8VDLwC0pOEcQD-g",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=GC1mtiyQ6ro",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "dave-mccracken",
@@ -163,7 +183,12 @@
     "official_url": "https://www.glacialgoldhunter.com/",
     "region": "Midwestern USA",
     "status": "verified",
-    "checked_at": "2026-10-09"
+    "checked_at": "2026-10-09",
+    "youtube_channel_id": "UCDRL0lGM90UsygJ85BZ16vg",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=1QdrZ3rCHJ8",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "gold-cube",
@@ -235,7 +260,12 @@
     "official_url": "https://greenmountaingoldtrap.com/blog/welcome-to-green-mountain-gold-trap/",
     "region": null,
     "status": "verified",
-    "checked_at": "2026-10-09"
+    "checked_at": "2026-10-09",
+    "youtube_channel_id": "UCZ10Pk2Pjw7RxipHdO8H80g",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=z9HRRtDPA_Y",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "have-a-go-prospecting",
@@ -300,7 +330,12 @@
     "region": "Colorado, USA",
     "status": "verified",
     "checked_at": "2026-10-09",
-    "region_source": "https://kleshgold.com/about"
+    "region_source": "https://kleshgold.com/about",
+    "youtube_channel_id": "UCW59FgUrYH16PeAf1Ttczng",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=xp_uwYH56oE",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "lxr-postal-prospecting",
@@ -364,7 +399,12 @@
     "official_url": "https://www.youtube.com/watch?v=zGLRYbTPEnY",
     "region": "California Mother Lode, USA",
     "status": "verified",
-    "checked_at": "2026-10-09"
+    "checked_at": "2026-10-09",
+    "youtube_channel_id": "UCaoh0wwyLSlf-akvaa2RStg",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=zGLRYbTPEnY",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "mrdazp1",
@@ -439,7 +479,12 @@
     "official_url": "https://www.youtube.com/channel/UC3UOAabudJhKKINePMOtAZA",
     "region": null,
     "status": "lead",
-    "checked_at": "2026-10-09"
+    "checked_at": "2026-10-09",
+    "youtube_channel_id": "UC3UOAabudJhKKINePMOtAZA",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=YBMMoaCKdec",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "sluice-goose",
@@ -503,7 +548,12 @@
     "official_url": "https://www.goldminingbasics.com/",
     "region": "Northern California, USA",
     "status": "published",
-    "checked_at": "2026-10-07"
+    "checked_at": "2026-10-07",
+    "youtube_channel_id": "UCY0Qsb5XawenYsglMVNTbLw",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=5XI1lU4Z8NE",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "tyler-mahoney",
@@ -519,7 +569,12 @@
     "official_url": "https://www.youtube.com/@VoGusProspecting",
     "region": "Australia",
     "status": "published",
-    "checked_at": "2026-10-07"
+    "checked_at": "2026-10-07",
+    "youtube_channel_id": "UCxOWMu3gx_EJO7J5Vm0ecPw",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=UWCFkv_oVyQ",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "walk-about-prospecting",
@@ -612,7 +667,12 @@
       }
     ],
     "region_checked_at": "2026-10-18",
-    "region_type": "documented_video_coverage"
+    "region_type": "documented_video_coverage",
+    "youtube_channel_id": "UCkRUStWeJlcq4c1v3JekoyQ",
+    "channel_identity_evidence": {
+      "source_url": "https://www.youtube.com/watch?v=mNnAlCayL9c",
+      "checked_at": "2026-11-19"
+    }
   },
   {
     "slug": "gold-putz",
@@ -1188,6 +1248,843 @@
     "status": "lead",
     "checked_at": "2026-11-16",
     "youtube_channel_id": "UCXU3osRUDqntwZ2hDc6_18g",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "802-outdoor-adventures",
+    "name": "802 Outdoor Adventures",
+    "official_url": "https://www.youtube.com/channel/UCA4U-eEg5pp2HyLJC5bXvLg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCA4U-eEg5pp2HyLJC5bXvLg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "911-exploration-corp",
+    "name": "911 EXPLORATION CORP",
+    "official_url": "https://www.youtube.com/channel/UCc34RSIE9EsizUCdaJnB7_Q",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCc34RSIE9EsizUCdaJnB7_Q",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "adventures-with-buttons",
+    "name": "Adventures With Buttons",
+    "official_url": "https://www.youtube.com/channel/UC8eMpWCi2Xk2uAJJenMD2qQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC8eMpWCi2Xk2uAJJenMD2qQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "an-arm-and-a-greg",
+    "name": "An Arm and a Greg",
+    "official_url": "https://www.youtube.com/channel/UCYJUKJ7JbwPopaV2wJaWi1A",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCYJUKJ7JbwPopaV2wJaWi1A",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "asr-outdoortm",
+    "name": "ASR Outdoor™",
+    "official_url": "https://www.youtube.com/channel/UCGRCIb3cLRIJiBvXfOiHdCQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCGRCIb3cLRIJiBvXfOiHdCQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "astrobouncer",
+    "name": "AstroBouncer",
+    "official_url": "https://www.youtube.com/channel/UCO25aP0iLBy2S53hoaeS16w",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCO25aP0iLBy2S53hoaeS16w",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "aurum-meum-ai-academy",
+    "name": "Aurum Meum AI Academy",
+    "official_url": "https://www.youtube.com/channel/UCWiFW5yjHXZ5ZYXmZz17mMQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCWiFW5yjHXZ5ZYXmZz17mMQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "aussie-bloke-prospector",
+    "name": "Aussie Bloke Prospector",
+    "official_url": "https://www.youtube.com/channel/UC2omBjBiaK7p14myhpKFueA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC2omBjBiaK7p14myhpKFueA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "backyard-prospecting",
+    "name": "BackYard Prospecting",
+    "official_url": "https://www.youtube.com/channel/UCoJVd2mQXUed4Ai3aDTaEiw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCoJVd2mQXUed4Ai3aDTaEiw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "best-reviews",
+    "name": "BEST REVIEWS",
+    "official_url": "https://www.youtube.com/channel/UC_nPskT9hNIUUYE7_pZK5pw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC_nPskT9hNIUUYE7_pZK5pw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "black-beard-projects",
+    "name": "Black Beard Projects",
+    "official_url": "https://www.youtube.com/channel/UC8q2GgxOUS_Dzd5KIYeJQIw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC8q2GgxOUS_Dzd5KIYeJQIw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "blade-s-world",
+    "name": "Blade's World",
+    "official_url": "https://www.youtube.com/channel/UCurA84YG_FZS0UfZipDkSPw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCurA84YG_FZS0UfZipDkSPw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "blmalaska",
+    "name": "BLMALASKA",
+    "official_url": "https://www.youtube.com/channel/UCCAdi7By_KxZKt-Ii3KVzyA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCCAdi7By_KxZKt-Ii3KVzyA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "buckeye-prospecting",
+    "name": "Buckeye Prospecting",
+    "official_url": "https://www.youtube.com/channel/UC6KJDO9xLFsB1vY1xF4ZFEw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC6KJDO9xLFsB1vY1xF4ZFEw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "cgt-prospecting-adventures",
+    "name": "CGT Prospecting Adventures",
+    "official_url": "https://www.youtube.com/channel/UCtSBz7czSlENAwwUGbBcFkQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCtSBz7czSlENAwwUGbBcFkQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "chrisundertaking",
+    "name": "chrisundertaking",
+    "official_url": "https://www.youtube.com/channel/UCOv2LIsa9tTggvj1rQTZDHQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCOv2LIsa9tTggvj1rQTZDHQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "clay-carter",
+    "name": "Clay Carter",
+    "official_url": "https://www.youtube.com/channel/UCVWp08N2RdD3aco13dHFT-A",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCVWp08N2RdD3aco13dHFT-A",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "columbia-river-mining-supplies",
+    "name": "Columbia River Mining Supplies",
+    "official_url": "https://www.youtube.com/channel/UCJz2hl6dXRAcq9zorOJNWmg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCJz2hl6dXRAcq9zorOJNWmg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "craig-the-duffy-dadventurer",
+    "name": "Craig the Duffy Dadventurer",
+    "official_url": "https://www.youtube.com/channel/UCDvnjBaNnDTxXtMn272xJ0w",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCDvnjBaNnDTxXtMn272xJ0w",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "dennis-dayton",
+    "name": "Dennis Dayton",
+    "official_url": "https://www.youtube.com/channel/UCoXTLZbUGrlbf0DwRYZOEHw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCoXTLZbUGrlbf0DwRYZOEHw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "destination-gold-detectors",
+    "name": "Destination Gold Detectors",
+    "official_url": "https://www.youtube.com/channel/UCVgKy2p0uDAQTK2Yaxid0vQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCVgKy2p0uDAQTK2Yaxid0vQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "detectormods",
+    "name": "DetectorMods",
+    "official_url": "https://www.youtube.com/channel/UCktOBf__TZaZo6NwUU_EA_A",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCktOBf__TZaZo6NwUU_EA_A",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "discovery",
+    "name": "Discovery",
+    "official_url": "https://www.youtube.com/channel/UCqOoboPm3uhY_YXhvhmL-WA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCqOoboPm3uhY_YXhvhmL-WA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "earth-clues",
+    "name": "Earth Clues",
+    "official_url": "https://www.youtube.com/channel/UC7VLci6sG-4NH0I1-tT_Htw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC7VLci6sG-4NH0I1-tT_Htw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "eric-real-deal-deleel",
+    "name": "Eric Real Deal Deleel",
+    "official_url": "https://www.youtube.com/channel/UCnefOBai_5kfAcBAYWLRPoA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCnefOBai_5kfAcBAYWLRPoA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "foam-sound",
+    "name": "FOAM SOUND",
+    "official_url": "https://www.youtube.com/channel/UCxZppAjMhqiHcsW9G9fRNvQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCxZppAjMhqiHcsW9G9fRNvQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "garrett-metal-detectors",
+    "name": "Garrett Metal Detectors",
+    "official_url": "https://www.youtube.com/channel/UCrDAu6JPiwwVjpRY9W4Y5_A",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCrDAu6JPiwwVjpRY9W4Y5_A",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "gemvibes",
+    "name": "GemVibes",
+    "official_url": "https://www.youtube.com/channel/UCbjg_G6XP2K_sP1SxZ8LU-g",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCbjg_G6XP2K_sP1SxZ8LU-g",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "geology-films",
+    "name": "Geology Films",
+    "official_url": "https://www.youtube.com/channel/UClcZXBMeHSw-4BwOfVQPK_g",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UClcZXBMeHSw-4BwOfVQPK_g",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "gold-country-miner",
+    "name": "Gold Country Miner",
+    "official_url": "https://www.youtube.com/channel/UCy4IITgYDn-rgplH2YrNjxA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCy4IITgYDn-rgplH2YrNjxA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "gold-grabbers",
+    "name": "Gold Grabbers",
+    "official_url": "https://www.youtube.com/channel/UCNmAzKcxuOP85BNDdPxwxbg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCNmAzKcxuOP85BNDdPxwxbg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "gold-mining-magazine",
+    "name": "Gold Mining Magazine",
+    "official_url": "https://www.youtube.com/channel/UC-0oK4cCEiK_gp_HeQiTrcw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC-0oK4cCEiK_gp_HeQiTrcw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "gold-seeker-adventures",
+    "name": "Gold Seeker Adventures",
+    "official_url": "https://www.youtube.com/channel/UCG_jZsFjtUy95xolMlV-zkg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCG_jZsFjtUy95xolMlV-zkg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "goldprospectingonline-com",
+    "name": "GoldProspectingOnline.com",
+    "official_url": "https://www.youtube.com/channel/UC5nvIwDyTFVL52FmSA8wtfw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC5nvIwDyTFVL52FmSA8wtfw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "goldprospectors",
+    "name": "GoldProspectors",
+    "official_url": "https://www.youtube.com/channel/UCFJqry_3DNFnmjbvOFzVleg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCFJqry_3DNFnmjbvOFzVleg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "goldrushgang",
+    "name": "goldrushgang",
+    "official_url": "https://www.youtube.com/channel/UCN_rLR0lPpKNjE2ntDbws9g",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCN_rLR0lPpKNjE2ntDbws9g",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "goldstryker",
+    "name": "Goldstryker",
+    "official_url": "https://www.youtube.com/channel/UCDYtp2_wevW3N2PIXTQfQJg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCDYtp2_wevW3N2PIXTQfQJg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "hard-rock-university",
+    "name": "Hard Rock University",
+    "official_url": "https://www.youtube.com/channel/UCbcYhenGjigBC5GgEjEANLQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCbcYhenGjigBC5GgEjEANLQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "high-road-prospecting",
+    "name": "High Road Prospecting",
+    "official_url": "https://www.youtube.com/channel/UCXGxrnTz83vsYtcpfNmB-rQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCXGxrnTz83vsYtcpfNmB-rQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "howtodrillawell",
+    "name": "HowToDrillAWell",
+    "official_url": "https://www.youtube.com/channel/UC7KQBqFNweFQFDKC9Jw2-HQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC7KQBqFNweFQFDKC9Jw2-HQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "howtoedu",
+    "name": "HowToEdu",
+    "official_url": "https://www.youtube.com/channel/UCxxP536PjW5f-aPwupsQ3zQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCxxP536PjW5f-aPwupsQ3zQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "huyen-gold-miner",
+    "name": "Huyen Gold Miner",
+    "official_url": "https://www.youtube.com/channel/UC_-S6jpP8zCcVaqvN-MIbhg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC_-S6jpP8zCcVaqvN-MIbhg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "imtv",
+    "name": "IMTV",
+    "official_url": "https://www.youtube.com/channel/UC8iGc3lOJ1HuB7glysaK0ZQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC8iGc3lOJ1HuB7glysaK0ZQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "jeff-button-adventures-and-prospecting",
+    "name": "Jeff Button Adventures And Prospecting",
+    "official_url": "https://www.youtube.com/channel/UCapc2bVJp7__vz-G-RIWRZA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCapc2bVJp7__vz-G-RIWRZA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "last-seen-online",
+    "name": "Last Seen Online",
+    "official_url": "https://www.youtube.com/channel/UC0fuMC2COaYUWyl1jZM6DuA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC0fuMC2COaYUWyl1jZM6DuA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "matt-the-miner",
+    "name": "Matt the Miner",
+    "official_url": "https://www.youtube.com/channel/UCkqkHwrAeOnPLS9dJ8Cm0kw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCkqkHwrAeOnPLS9dJ8Cm0kw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "mcdaniel-prospecting-co",
+    "name": "McDaniel Prospecting Co.",
+    "official_url": "https://www.youtube.com/channel/UC0jYgP_qzXQkOwJ4h8KrrEg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC0jYgP_qzXQkOwJ4h8KrrEg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "midwest-midas-mining",
+    "name": "Midwest Midas Mining",
+    "official_url": "https://www.youtube.com/channel/UCmPJoYkEMtfDSQb49D4OkoA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCmPJoYkEMtfDSQb49D4OkoA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "mike-d-angelo",
+    "name": "Mike D'Angelo",
+    "official_url": "https://www.youtube.com/channel/UCOEKelN9NwZQFgmCyIKZ-Dw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCOEKelN9NwZQFgmCyIKZ-Dw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "mike-pung",
+    "name": "Mike Pung",
+    "official_url": "https://www.youtube.com/channel/UCPY5-mO9CxYKe4CZJQdZowQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCPY5-mO9CxYKe4CZJQdZowQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "mikescrazyadventures",
+    "name": "MikesCrazyAdventures",
+    "official_url": "https://www.youtube.com/channel/UCir_scAA8PkDIDO4rNgqPrw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCir_scAA8PkDIDO4rNgqPrw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "mineral-process-engineering",
+    "name": "Mineral Process Engineering",
+    "official_url": "https://www.youtube.com/channel/UCRrFpW0uhw1XAQuj2tSD8WQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCRrFpW0uhw1XAQuj2tSD8WQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "mr-keenaz",
+    "name": "Mr Keenaz.",
+    "official_url": "https://www.youtube.com/channel/UCD_gw9rBl_6VgDWf3cdiTYQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCD_gw9rBl_6VgDWf3cdiTYQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "mrmyjosephine",
+    "name": "MrMyJosephine",
+    "official_url": "https://www.youtube.com/channel/UCIO9BZyjlFbDXrpklwOVS3g",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCIO9BZyjlFbDXrpklwOVS3g",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "my-mi-adventures",
+    "name": "My MI Adventures",
+    "official_url": "https://www.youtube.com/channel/UC2Orw_tb6Eimahzz4OPoNLw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC2Orw_tb6Eimahzz4OPoNLw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "mygadgetbro",
+    "name": "Mygadgetbro",
+    "official_url": "https://www.youtube.com/channel/UCiop4TZrmg-ZMYhuVrroV8w",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCiop4TZrmg-ZMYhuVrroV8w",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "nicenidaho",
+    "name": "nicenidaho",
+    "official_url": "https://www.youtube.com/channel/UCyTnV0lC3kUM7-CxltabeeQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCyTnV0lC3kUM7-CxltabeeQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "nickolas-green-outdoors",
+    "name": "Nickolas Green Outdoors",
+    "official_url": "https://www.youtube.com/channel/UCRQdQSQm8GQNjBP-0IYtkcA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCRQdQSQm8GQNjBP-0IYtkcA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "northeast-prospector",
+    "name": "Northeast Prospector",
+    "official_url": "https://www.youtube.com/channel/UCcD7bfiY8xbctFxb7hG29Og",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCcD7bfiY8xbctFxb7hG29Og",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "not-your-average-gold-digger-dr-marion-mcnabb",
+    "name": "Not Your Average Gold Digger, Dr. Marion McNabb",
+    "official_url": "https://www.youtube.com/channel/UC8jOPT1U_HeA8oMaPRQlV5w",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC8jOPT1U_HeA8oMaPRQlV5w",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "outdoor-and-travelling-videos",
+    "name": "outdoor and travelling videos",
+    "official_url": "https://www.youtube.com/channel/UCw63buXXIg5rDRFOsmlS6uA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCw63buXXIg5rDRFOsmlS6uA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "outdoors-with-josh",
+    "name": "Outdoors with Josh",
+    "official_url": "https://www.youtube.com/channel/UCHJddZIRiq-X7UI2zZFSxGg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCHJddZIRiq-X7UI2zZFSxGg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "paradox-alberta",
+    "name": "Paradox Alberta",
+    "official_url": "https://www.youtube.com/channel/UC18VSRrG_S9LWwxAd3en6EA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC18VSRrG_S9LWwxAd3en6EA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "part-time-prospector",
+    "name": "Part Time Prospector",
+    "official_url": "https://www.youtube.com/channel/UCyJ92c8sQ8x7RKlywcIGU3A",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCyJ92c8sQ8x7RKlywcIGU3A",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "paystreak",
+    "name": "paystreak",
+    "official_url": "https://www.youtube.com/channel/UCJ8OyW8Hun0Vz1nNu2oiUrg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCJ8OyW8Hun0Vz1nNu2oiUrg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "peter-pan",
+    "name": "Peter Pan",
+    "official_url": "https://www.youtube.com/channel/UCgSxivx73goR0p58cpf3fHA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCgSxivx73goR0p58cpf3fHA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "poormans-prospecting",
+    "name": "Poormans Prospecting",
+    "official_url": "https://www.youtube.com/channel/UCd_fSQc5Dtc1jhg6hrleVdg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCd_fSQc5Dtc1jhg6hrleVdg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "prospecting-for-adventure",
+    "name": "Prospecting For Adventure",
+    "official_url": "https://www.youtube.com/channel/UCT_KR8ZjQYfJesh6Uq42lsA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCT_KR8ZjQYfJesh6Uq42lsA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "prospector-phil",
+    "name": "Prospector Phil",
+    "official_url": "https://www.youtube.com/channel/UCmNPw3elgzaAoNUnER1xO5A",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCmNPw3elgzaAoNUnER1xO5A",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "queenie-wong",
+    "name": "Queenie Wong",
+    "official_url": "https://www.youtube.com/channel/UCqzI4pXXym48Fbg6ScYr6IQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCqzI4pXXym48Fbg6ScYr6IQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "raw-earth-secrets",
+    "name": "Raw Earth Secrets",
+    "official_url": "https://www.youtube.com/channel/UCNc2dCtBwkCR7bYd7geBo3g",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCNc2dCtBwkCR7bYd7geBo3g",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "real-hustle-truths",
+    "name": "Real Hustle Truths",
+    "official_url": "https://www.youtube.com/channel/UCHWQwB6vjsDAOgWH2_qPWcw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCHWQwB6vjsDAOgWH2_qPWcw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "river-gold-quest",
+    "name": "River Gold Quest",
+    "official_url": "https://www.youtube.com/channel/UC0auZ9ob5vg6c46MonuZFMg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC0auZ9ob5vg6c46MonuZFMg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "riverdance-gold-mining",
+    "name": "Riverdance Gold Mining",
+    "official_url": "https://www.youtube.com/channel/UCMwcggEK2hCu7gQpREAUvTQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCMwcggEK2hCu7gQpREAUvTQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "rockhoundturtle1980",
+    "name": "RockhoundTurtle1980",
+    "official_url": "https://www.youtube.com/channel/UCUwdgV1qyTDLT-3yxvo3EIA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCUwdgV1qyTDLT-3yxvo3EIA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "sluice-fox",
+    "name": "Sluice Fox",
+    "official_url": "https://www.youtube.com/channel/UCu0icNXK2G1X77K8d-l9txA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCu0icNXK2G1X77K8d-l9txA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "sluiceboy-prospecting",
+    "name": "SLUICEBOY PROSPECTING",
+    "official_url": "https://www.youtube.com/channel/UCao5-r1cVfhwq7UNoWp9sVg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCao5-r1cVfhwq7UNoWp9sVg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "southern-relics",
+    "name": "Southern Relics",
+    "official_url": "https://www.youtube.com/channel/UCuEzvnqsOwm-2OHDeehqbkQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCuEzvnqsOwm-2OHDeehqbkQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "stoney-creek-sparkchaser",
+    "name": "Stoney Creek Sparkchaser",
+    "official_url": "https://www.youtube.com/channel/UCjNacd85COKNT3Mf69V5woA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCjNacd85COKNT3Mf69V5woA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "swiftwaters-in-the-gold-fields",
+    "name": "SWIFTWATERS IN THE GOLD FIELDS",
+    "official_url": "https://www.youtube.com/channel/UCjrjIW8OUP8P2HVQ9_TSzaA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCjrjIW8OUP8P2HVQ9_TSzaA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "terra-ranger",
+    "name": "TERRA RANGER",
+    "official_url": "https://www.youtube.com/channel/UCak-RzzB5dZwv2FbYk6Lo2w",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCak-RzzB5dZwv2FbYk6Lo2w",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "testers-guide",
+    "name": "Testers Guide",
+    "official_url": "https://www.youtube.com/channel/UCJwRQZM8wx8I_9a3UmwhWBw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCJwRQZM8wx8I_9a3UmwhWBw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "the-do-it-yourself-world",
+    "name": "The Do It Yourself World",
+    "official_url": "https://www.youtube.com/channel/UCHAvd9oE0A-6FjM6f4J-nsg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCHAvd9oE0A-6FjM6f4J-nsg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "the-prospecting-geologist",
+    "name": "The Prospecting Geologist",
+    "official_url": "https://www.youtube.com/channel/UCy-C-XPgqH7U4eOYKy585tg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCy-C-XPgqH7U4eOYKy585tg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "the-traveling-prospector",
+    "name": "The Traveling Prospector",
+    "official_url": "https://www.youtube.com/channel/UCsp821xFNhSBuUb2N_jFg-w",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCsp821xFNhSBuUb2N_jFg-w",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "thrace-metal-detectors-thracemd",
+    "name": "Thrace Metal Detectors (thracemd)",
+    "official_url": "https://www.youtube.com/channel/UCRfA1gOL3RZf04EUYRFmyKg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCRfA1gOL3RZf04EUYRFmyKg",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "unboxingexperience7",
+    "name": "Unboxingexperience7",
+    "official_url": "https://www.youtube.com/channel/UCMZy8UBEuvQFE6YMimQrpUA",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCMZy8UBEuvQFE6YMimQrpUA",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "utahavalanch",
+    "name": "utahavalanch",
+    "official_url": "https://www.youtube.com/channel/UCtzoxS1j5l2jAgN_tfoOPfw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCtzoxS1j5l2jAgN_tfoOPfw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "very-important-product-review-vip-review",
+    "name": "Very Important Product Review (VIP Review)",
+    "official_url": "https://www.youtube.com/channel/UCI3joIuFiZgd6AbBW6EmzzQ",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCI3joIuFiZgd6AbBW6EmzzQ",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "west-coast-gold-prospecting",
+    "name": "West Coast Gold Prospecting",
+    "official_url": "https://www.youtube.com/channel/UC6rrHqxKVKaQcL_EL2tpw5w",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC6rrHqxKVKaQcL_EL2tpw5w",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "wildernesseric",
+    "name": "WildernessEric",
+    "official_url": "https://www.youtube.com/channel/UCQW7wCVww6SbdRo-YjQTm1w",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UCQW7wCVww6SbdRo-YjQTm1w",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "xeeblecast",
+    "name": "XeebleCast",
+    "official_url": "https://www.youtube.com/channel/UC9UGsQ-eGxHr9LSql1JSXHw",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC9UGsQ-eGxHr9LSql1JSXHw",
+    "verification_scope": "channel_identity_and_public_metadata_only"
+  },
+  {
+    "slug": "yankeegoldprospecting",
+    "name": "YankeeGoldProspecting",
+    "official_url": "https://www.youtube.com/channel/UC_63lBKehVjDHPkjRC5CyVg",
+    "status": "lead",
+    "checked_at": "2026-11-19",
+    "youtube_channel_id": "UC_63lBKehVjDHPkjRC5CyVg",
     "verification_scope": "channel_identity_and_public_metadata_only"
   }
 ]

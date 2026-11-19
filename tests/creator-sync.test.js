@@ -58,3 +58,29 @@ test('rejects malformed channel and video identifiers before changing data',()=>
  assert.throws(()=>reconcileCreatorResearch({version:1,creators:[{...creator,channelId:'fake'}]},catalog,library),/canonical channel ID/);
  assert.throws(()=>reconcileCreatorResearch({version:1,creators:[{...creator,videos:[{...creator.videos[0],id:'bad'}]}]},catalog,library),/Invalid video evidence/);
 });
+
+test('reuses legacy catalog profiles referenced by verified libraries without duplicate slugs or unrelated changes',()=>{
+ const legacy={slug:'river-channel',name:creator.name,official_url:'https://www.youtube.com/@riverchannel',biography:[{text:'Existing research'}]};
+ const unrelated={slug:'unrelated',name:'Unrelated',official_url:'https://example.com/'};
+ const currentLibrary={version:1,checkedAt:'2026-10-12',creators:[{slug:legacy.slug,name:legacy.name,channelId:creator.channelId,channelUrl:creator.channelUrl,videos:[]}]};
+ const result=reconcileCreatorResearch({version:1,creators:[creator]},[unrelated,legacy],currentLibrary,{today:'2026-11-19'});
+ assert.equal(result.summary.addedCreators,0);
+ assert.equal(result.summary.addedVideos,1);
+ assert.equal(result.summary.exceptions,0);
+ assert.deepEqual(result.catalog,[unrelated,legacy]);
+ assert.equal(result.library.checkedAt,'2026-10-12');
+ assert.equal(result.library.creators[0].checkedAt,'2026-11-14');
+ const replay=reconcileCreatorResearch({version:1,creators:[]},[unrelated,legacy],currentLibrary,{today:'2026-11-19'});
+ assert.deepEqual(replay.catalog,[unrelated,legacy]);
+ assert.deepEqual(replay.library,currentLibrary);
+});
+
+test('holds conflicting canonical identities even when a library shares the profile slug',()=>{
+ const profile={slug:'river-channel',name:creator.name,youtube_channel_id:'UCabcdefghijklmnopqrstuv'};
+ const currentLibrary={version:1,checkedAt:'2026-10-12',creators:[{slug:profile.slug,name:profile.name,channelId:creator.channelId,channelUrl:creator.channelUrl,videos:[]}]};
+ const result=reconcileCreatorResearch({version:1,creators:[creator]},[profile],currentLibrary);
+ assert.equal(result.summary.addedVideos,0);
+ assert.equal(result.summary.exceptions,1);
+ assert.deepEqual(result.catalog,[profile]);
+ assert.deepEqual(result.library,currentLibrary);
+});

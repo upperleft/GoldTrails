@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync,readdirSync,existsSync} from 'node:fs';
 import {createServer} from '../app/server.js';
 import {validateVideoLibrary,videoLibraryFor,videoLibraryCount,videoLibraryLink,videoLibraryCards,videoLibraryBody} from '../app/creator-video-library.js';
 
@@ -9,6 +9,12 @@ const libraryData=JSON.parse(readFileSync(new URL('../app/creator-video-library.
 const previousExpansion=JSON.parse(readFileSync(new URL('../database/map-data/creator-video-expansion-2026-10-17.json',import.meta.url),'utf8'));
 const canadaReview=JSON.parse(readFileSync(new URL('../docs/research/canadian-creator-locations-2026-10-18.json',import.meta.url),'utf8'));
 const canadianAdditions=canadaReview.creators.filter(c=>c.verification?.videos?.length);
+const originalEvidence=JSON.parse(readFileSync(new URL('../database/map-data/creator-video-library-inspection-2026-10-12.json',import.meta.url),'utf8'));
+const discoveryRoot=new URL('../research/creator-discovery/',import.meta.url);
+const metadata=readdirSync(discoveryRoot,{withFileTypes:true}).filter(d=>d.isDirectory()).flatMap(d=>{
+  const path=new URL(d.name+'/metadata-provenance.json',discoveryRoot);
+  return existsSync(path)?JSON.parse(readFileSync(path,'utf8')).videos:[];
+});
 const channelId='UC'+'A'.repeat(22);
 const fixture=()=>({version:1,checkedAt:'2026-10-12',creators:[{slug:'test-creator',name:'Test creator',channelId,channelUrl:'https://www.youtube.com/channel/'+channelId,videos:[{id:'Abcd_123-XY',title:'A panning lesson',url:'https://www.youtube.com/watch?v=Abcd_123-XY',channelId,ownershipStatus:'source_checked',checkedAt:'2026-10-12',subject:'Beginner panning',tags:['panning']}]}]});
 const picked=()=>{
@@ -41,8 +47,10 @@ test('video metadata rejects spoofed owners, unsafe destinations and duplicate i
 });
 
 test('the shipped library contains roster matches and public link metadata without unreviewed research fields',()=>{
-  assert.equal(libraryData.creators.length,previousExpansion.totalLibraryCreators+canadianAdditions.length);
-  assert.equal(libraryData.creators.reduce((count,c)=>count+c.videos.length,0),previousExpansion.totalVideos+canadianAdditions.reduce((count,c)=>count+c.verification.videos.length,0));
+  const historical=[...originalEvidence.videos,...previousExpansion.libraries.flatMap(c=>c.selectedVideos),...canadianAdditions.flatMap(c=>c.verification.videos)];
+  const shipped=new Map(libraryData.creators.flatMap(c=>c.videos.map(v=>[v.id,{...v,slug:c.slug}])));
+  for(const checked of historical){const current=shipped.get(checked.id);assert.ok(current,checked.id+' retains its original checked video');assert.equal(current.title,checked.title);assert.equal(current.channelId,checked.channelId??canadianAdditions.find(c=>c.verification.videos.some(v=>v.id===checked.id)).channel_id);}
+  for(const checked of metadata){const current=shipped.get(checked.id);assert.ok(current,checked.id+' has its reviewed metadata import');assert.equal(current.title,checked.title);assert.equal(current.channelId,checked.channelId);assert.equal(current.checkedAt,checked.checkedAt);}
   const roster=new Set(catalog.map(c=>c.slug));
   const forbidden=['description_excerpt','research_notes','published_label_or_date','views_at_scan','duration_minutes','region','discovery_method','transcript_verified','claim_verified','originalRecord','private_notes','reviewer_note'];
   for(const creator of libraryData.creators){
@@ -59,11 +67,11 @@ test('new Ontario and Quebec video libraries retain the checked uploader and ind
   assert.deepEqual(canadianAdditions.map(c=>c.slug).sort(),['chercheurs-dor-du-quebec','nick-molnar']);
   for(const source of canadianAdditions){
     const library=videoLibraryFor(source.slug);assert.ok(library,source.slug);
-    assert.equal(library.channelId,source.channel_id);assert.equal(library.checkedAt,canadaReview.checked_at);
+    assert.equal(library.channelId,source.channel_id);assert.ok(library.checkedAt>=canadaReview.checked_at);
+    if(library.checkedAt!==canadaReview.checked_at)assert.ok(library.videos.some(v=>metadata.some(m=>m.id===v.id&&m.channelId===library.channelId&&m.checkedAt===library.checkedAt)),source.slug+' later ownership check retains primary metadata provenance');
     assert.equal(source.verification.channel_http_status,200);assert.equal(source.verification.channel_external_id,source.channel_id);
-    assert.deepEqual(library.videos.map(v=>v.id).sort(),source.verification.videos.map(v=>v.id).sort());
-    for(const video of library.videos){
-      const checked=source.verification.videos.find(v=>v.id===video.id);assert.equal(video.title,checked.title);assert.equal(video.channelId,source.channel_id);
+    for(const checked of source.verification.videos){
+      const video=library.videos.find(v=>v.id===checked.id);assert.ok(video,checked.id);assert.equal(video.title,checked.title);assert.equal(video.channelId,source.channel_id);
       assert.equal(checked.oembed_http_status,200);assert.equal(checked.author_url,source.canonical_channel_url);
       assert.equal(video.ownershipStatus,'source_checked');
     }
