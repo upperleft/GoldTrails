@@ -21,9 +21,9 @@ test('guests can choose a one-time tip amount at the configured Stripe Checkout'
   const donationLink='https://'+host+'/aBc123DEF456';
   const {status,html}=await request(createPlusHandler({donationLink}),'/donate/');
   assert.equal(status,200);
-  assert.ok(html.includes('<a class="gold-button" href="'+donationLink+'">Leave a one-time tip</a>'));
+  assert.ok(html.includes('<a class="gold-button" href="'+donationLink+'">Buy me a cup of coffee</a>'));
   assert.match(html,/Choose your amount in Stripe Checkout/);
-  assert.match(html,/does not unlock Gold Trails Plus/);
+  assert.match(html,/Gold Trails Plus membership is available separately/);
   assert.match(html,/without a Gold Trails account/);
   assert.doesNotMatch(html,/disabled aria-describedby=/);
  }
