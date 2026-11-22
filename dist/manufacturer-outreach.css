@@ -1,0 +1,15 @@
+/* Private outreach overview: readable labels without oversized percentage text. */
+#manufacturers{font-size:18px;line-height:1.6}
+#manufacturers h3{font-size:28px}
+#manufacturers p,#manufacturers summary{font-size:18px;line-height:1.6}
+#manufacturers .dashboard-counts{grid-template-columns:repeat(4,minmax(0,1fr))}
+#manufacturers .dashboard-counts dt{font-size:17px;line-height:1.45;color:#493222}
+#manufacturers .dashboard-counts dd{font:700 36px/1.2 Georgia,serif}
+#manufacturers .dashboard-counts dd p{font:400 17px/1.5 system-ui;margin:10px 0 0}
+#manufacturers .admin-table{font-size:17px;line-height:1.55}
+#manufacturers .admin-table th{font-size:15px}
+#manufacturers .admin-table small{font-size:16px;line-height:1.5;color:#493222}
+#manufacturers summary{padding:10px 0;cursor:pointer}
+#manufacturers .report-message{font:400 17px/1.6 system-ui}
+@media(max-width:1000px){#manufacturers .dashboard-counts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){#manufacturers .dashboard-counts{grid-template-columns:1fr}}
