@@ -1,4 +1,6 @@
 import {randomUUID} from 'node:crypto';
+import {businessContacts,importBusinessContacts} from '../business-contacts.js';
+import {manufacturerOverview,validateManufacturerBatch} from '../manufacturer-outreach.js';
 import {readFileSync} from 'node:fs';
 import {digest,token} from '../admin-auth.js';
 import {CreatorInvitationError,invitationActor,invitationEmail,invitationId} from './model.js';
@@ -49,6 +51,8 @@ export function createCreatorOutreachStore(db){
  const repliesReady=async c=>(await c.query("SELECT version FROM schema_migrations WHERE version='015_creator_reply_references'")).length>0;
  const hasNewReply=async(c,personId,email)=>await repliesReady(c)&&(await c.query("SELECT id FROM creator_reply_references WHERE status='new' AND (person_id=? OR from_email=?) LIMIT 1",[personId,email])).length>0;
  return {
+  async manufacturerOverview(){return manufacturerOverview((await businessContacts(db)).rows);},
+  async importManufacturers(batch,actor){validateManufacturerBatch(batch);return importBusinessContacts(db,actor,batch);},
   async overview(){
    const people=await db.query('SELECT id,slug,display_name,publication_status,archived_at,is_sample FROM people ORDER BY display_name');
    const invitations=await db.query("SELECT id,person_id,target_email,invited_by,created_at,expires_at,consumed_at,revoked_at,accepted_account_id,CASE WHEN revoked_at IS NOT NULL THEN 'revoked' WHEN consumed_at IS NOT NULL THEN 'accepted' WHEN expires_at<=UTC_TIMESTAMP(6) THEN 'expired' ELSE 'pending' END AS status FROM creator_invitations ORDER BY created_at DESC,id DESC");

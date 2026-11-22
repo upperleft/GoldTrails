@@ -183,13 +183,17 @@ export function createAdminInvitationRouter(store,origin,{outreach=null,mail=nul
     }else if(f.get('action')==='suppress'){
      if(!outreach)throw new CreatorInvitationError('mail_unavailable','Creator contact tracking is unavailable.',503);
      await outreach.suppress({personId:f.get('personId'),email:f.get('email'),status:f.get('status'),actor});notice='This creator will not receive further invitations.';
+    }else if(f.get('action')==='import_manufacturers'){
+     if(!outreach?.importManufacturers)throw new CreatorInvitationError('input','Manufacturer tracking is unavailable.');
+     let batch;try{batch=JSON.parse(f.get('records')||'');await outreach.importManufacturers(batch,actor);}catch(error){throw new CreatorInvitationError('input','Manufacturer records were not saved. Check the validated contact batch.');}
+     notice='Manufacturer contact history saved. No email was sent by this import.';
     }else if(f.get('action')==='import_sent'){
      if(!outreach)throw new CreatorInvitationError('mail_unavailable','Creator contact tracking is unavailable.',503);
      let records;try{records=JSON.parse(f.get('records')||'');}catch{throw new CreatorInvitationError('input','Use a valid JSON list of sent receipt records.');}
      const imported=await outreach.importSent(records,actor);notice='Historical sent records saved. No email was sent by this import.';
     }else return result('<p role="alert">Choose one of the invitation actions.</p>',400);
    }
-   const data=await store.overview();if(outreach)Object.assign(data,await outreach.overview());data.mailConfigured=Boolean(mail);return result(adminInvitationsView(data,session,{created,url:link,notice}));
+   const data=await store.overview();if(outreach)Object.assign(data,await outreach.overview());if(outreach?.manufacturerOverview)data.manufacturers=await outreach.manufacturerOverview();data.mailConfigured=Boolean(mail);return result(adminInvitationsView(data,session,{created,url:link,notice}));
   }catch(error){
    if(!(error instanceof CreatorInvitationError))throw error;
    return result(`<section class="resource-placeholder"><h2>Check the invitation</h2><p role="alert">${h(error.message)}</p><p><a href="/admin/creator-invitations/">Return to creator invitations</a></p></section>`,error.status);
