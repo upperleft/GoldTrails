@@ -33,8 +33,7 @@ export function invitationMessage(invitation,url){
 
 function outreachRoster(data,csrf){
  if(!Array.isArray(data.outreachCreators))return '';
- const ownerEmail=String(data.owner?.email||'').trim().toLowerCase();
- const creators=data.outreachCreators.filter(p=>!ownerEmail||String(p.email||'').trim().toLowerCase()!==ownerEmail);
+ const creators=data.outreachCreators.filter(p=>p.slug!=='paul-shoemaker');
  const total=creators.length;
  const withEmail=creators.filter(p=>p.email?.trim()).length;
  const invited=creators.filter(p=>p.last_sent_at||p.contact_status==='sent').length;
@@ -42,7 +41,7 @@ function outreachRoster(data,csrf){
  const accepted=creators.filter(p=>p.accepted).length;
  const acceptedInvited=creators.filter(p=>p.accepted&&(p.last_sent_at||p.contact_status==='sent')).length;
  const percentage=(count,denominator)=>denominator?`${(100*count/denominator).toFixed(1)}%`:'0.0%';
- const summary=`<section aria-label="Creator invitation totals"><h3>Outreach at a glance</h3><dl class="dashboard-counts"><div><dt>Creators</dt><dd><strong>${total}</strong></dd></div><div><dt>With email addresses</dt><dd><strong>${withEmail}</strong> · ${percentage(withEmail,total)} of creators</dd></div><div><dt>Invited</dt><dd><strong>${invited}</strong> · ${percentage(emailedInvited,withEmail)} of creators with email</dd></div><div><dt>Accepted</dt><dd><strong>${accepted}</strong> · ${percentage(acceptedInvited,invited)} of invited creators</dd></div></dl><p>Totals exclude your invitation account. Invited counts creators with a recorded provider-accepted email, including earlier successful sends. Accepted counts creators who activated their complimentary account through an invitation.</p></section>`;
+ const summary=`<section aria-label="Creator invitation totals"><h3>Outreach at a glance</h3><dl class="dashboard-counts"><div><dt>Creators</dt><dd><strong>${total}</strong></dd></div><div><dt>With email addresses</dt><dd><strong>${withEmail}</strong> · ${percentage(withEmail,total)} of creators</dd></div><div><dt>Invited</dt><dd><strong>${invited}</strong> · ${percentage(emailedInvited,withEmail)} of creators with email</dd></div><div><dt>Accepted</dt><dd><strong>${accepted}</strong> · ${percentage(acceptedInvited,invited)} of invited creators</dd></div></dl><p>Totals exclude Paul’s owner profile. Invited counts creators with a recorded provider-accepted email, including earlier successful sends. Accepted counts creators who activated their complimentary account through an invitation.</p></section>`;
  const contactLabels={not_contacted:'No recorded contact',sent:'Sent · provider accepted',failed:'Send failed',uncertain:'Send uncertain · review required',attempting:'Send in progress'};
  const rows=data.outreachCreators.map(p=>{
   const profile=p.publication_status==='published'&&p.slug?`<a href="/prospectors/${h(encodeURIComponent(p.slug))}/">${h(p.display_name)}</a>`:h(p.display_name);
