@@ -1,0 +1,37 @@
+* { box-sizing: border-box; }
+html { color-scheme: light; background: #fbf7ed; color: #23352f; }
+body { margin: 0; font: 1.08rem/1.6 system-ui, sans-serif; }
+a { color: #25564a; text-underline-offset: .2em; }
+a:focus-visible, button:focus-visible { outline: 3px solid #ab610a; outline-offset: 4px; }
+header, footer, main { max-width: 65rem; margin-inline: auto; }
+header, footer { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1rem clamp(1rem, 4vw, 2rem); }
+header .brand { font: bold 1.7rem Georgia, serif; text-decoration: none; color: #283b32; }
+.home, footer a { font-size: .88rem; }
+h1, h2, h3 { font-family: Georgia, serif; line-height: 1.08; text-wrap: balance; }
+h1 { font-size: clamp(2.55rem, 5vw, 4.75rem); margin: .4rem 0 .85rem; letter-spacing: -.045em; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); margin: .45rem 0 .85rem; letter-spacing: -.03em; }
+h3 { font-size: 1.6rem; margin: 1.8rem 0 .65rem; }
+p { margin: 0 0 1rem; }
+.eyebrow { font: 700 .76rem/1.4 system-ui,sans-serif; letter-spacing: .1em; text-transform: uppercase; color: #775122; margin: 0; }
+.intro { background: #213f36; color: #fff9ef; display: grid; grid-template-columns: 1.1fr 1fr; overflow: hidden; border-radius: .7rem; }
+.welcome { grid-area: 1 / 1; padding: clamp(1.5rem, 4.3vw, 3.5rem); }
+.intro .eyebrow { color: #efd292; }
+.portrait { grid-area: 1 / 2; min-height: 100%; position: relative; }
+.portrait img { width: 100%; height: 100%; position: absolute; object-fit: cover; object-position: 61% 40%; }
+.button { display: inline-block; background: #edd29a; color: #20352d; font: bold 1rem/1.35 system-ui,sans-serif; padding: .78rem 1.08rem; border: 1px solid transparent; border-radius: .32rem; text-decoration: none; cursor: pointer; }
+article, .offer { margin: 2.8rem auto; max-width: 43rem; padding: 0 1.4rem; scroll-margin-top: 1rem; }
+.source { font-size: .93rem; font-weight: 600; }
+.offer { background: #f1e8d5; padding: 1.6rem; border-radius: .55rem; }
+.offer .button { background: #294b3f; color: white; }
+.actions { display: flex; gap: .8rem; flex-wrap: wrap; align-items: center; }
+.credit { font-size: .84rem; margin: 1.2rem 0 0; }
+footer { border-top: 1px solid #cfbea0; padding-block: 1.5rem; }
+@media (max-width: 700px) {
+  .intro { grid-template-columns: 1fr; border-radius: 0; }
+  .portrait { grid-area: 1 / 1; height: clamp(8rem, 42vw, 14rem); }
+  .portrait img { object-position: 50% 20%; }
+  .welcome { grid-area: 2 / 1; padding: 1.35rem 1.4rem 1.6rem; }
+  .welcome p:not(.eyebrow) { font-size: 1rem; }
+  article { margin-block: 2rem; }
+  .offer { margin: 2rem 1rem; }
+}

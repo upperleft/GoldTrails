@@ -1,3 +1,4 @@
+import {creditPaidTerm} from '../colorado-referrals.js';
 import {randomUUID} from 'node:crypto';
 import {BillingError,billingConfig,billingDate,billingId,eligiblePaidSnapshot,normalizeSubscriptionSnapshot,sqlDate,stripeId} from './model.js';
 
@@ -79,6 +80,11 @@ export function createBillingStore(db,options){
     await c.query("UPDATE member_memberships SET status='expired' WHERE account_id=? AND grant_source='payment' AND subscription_id=? AND status<>'suspended'",[accountId,subscriptionRowId]);
     membershipOutcome='paid_access_ended';
    }else membershipOutcome='not_paid';
+  }
+  // A confirmed invoice can arrive after cancellation or the end of its term.
+  const countedOutcome=['paid_access','paid_access_ended','not_paid'].includes(membershipOutcome);
+  if(config.livemode && snapshot.latestInvoicePaid && snapshot.priceValid && countedOutcome){
+   await creditPaidTerm(c,accountId,newPaid);
   }
   if(event)await c.query('INSERT INTO billing_events(stripe_account_id,livemode,event_id,account_id,provider_subscription_id,event_type,event_created,membership_outcome) VALUES(?,?,?,?,?,?,?,?)',[...scope,event.eventId,accountId,subscriptionId,event.eventType,sqlDate(event.eventCreated),membershipOutcome]);
   await audit(c,accountId,event?'billing_webhook_reconciled':'billing_reconciled');

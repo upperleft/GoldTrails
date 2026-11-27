@@ -1,3 +1,5 @@
+import {coloradoSources, sourceForPath} from './colorado-referrals.js';
+import {coloradoPreview} from './colorado-preview.js';
 import {accountView} from './account-view.js';
 import {creatorInvitationName,creatorInvitationFlow,creatorAccessRoutes} from './creator-invitations/context.js';
 import {focusedCreatorAccessPage} from './creator-invitations/access-page.js';
@@ -20,7 +22,7 @@ function passwordInput(f){const p=f.get('password')||'';if(p.length<8||p.length>
 async function body(req){if(!/^application\/x-www-form-urlencoded(?:;|$)/i.test(req.headers['content-type']||''))throw new InputError('Unsupported form.');let n=0,b=[];for await(const c of req){n+=c.length;if(n>8192)throw new InputError('Form too large.');b.push(c);}const f=new URLSearchParams(Buffer.concat(b).toString('utf8')),seen=new Set();for(const k of f.keys()){if(seen.has(k))throw new InputError('Duplicate field.');seen.add(k);}return f;}
 const hidden=(k,v)=>`<input type="hidden" name="${k}" value="${h(v)}">`;
 const memberDestinations=new Set(['/','/calendar/','/account/','/gold-almanac/','/plus/','/creator-invitation/']);
-const memberDestination=value=>memberDestinations.has(value)||almanacReturnPath(value)||connectionsReturnPath(value)?value:null;
+const memberDestination=value=>memberDestinations.has(value)||sourceForPath(value)||almanacReturnPath(value)||connectionsReturnPath(value)?value:null;
 const memberLanding=()=>'/account/';
 const input=(name,label,type='text',auto='',hint='')=>{
  const descriptions=[auto==='new-password'?'password-guidance':'',hint?'member-'+name+'-guidance':''].filter(Boolean).join(' ');
@@ -60,8 +62,9 @@ const form=(path,csrf,content,button)=>`<form ${path==='/signup/'?'data-async-si
 export function memberConfig(env=process.env){try{const raw=env.MEMBER_ORIGIN||env.ADMIN_ORIGIN;if(!raw)return null;const u=new URL(raw);return u.protocol==='https:'&&u.origin===raw&&!u.username&&!u.password?{origin:raw,open:env.MEMBER_SIGNUP_ENABLED==='true'}:null;}catch{return null;}}
 export function createMemberHandler({store=null,config=null,mail=null,invitations=null,log=console.error}){
  return async(req,res,url)=>{
-  if(routes.has(url.pathname+'/')){res.writeHead(308,{Location:url.pathname+'/'+url.search,'Cache-Control':'no-store'});res.end();return true;}
-  if(!routes.has(url.pathname))return false;
+  const source = sourceForPath(url.pathname);
+  if(routes.has(url.pathname+'/')||sourceForPath(url.pathname+'/')){res.writeHead(308,{Location:url.pathname+'/'+url.search,'Cache-Control':'no-store'});res.end();return true;}
+  if(!routes.has(url.pathname)&&!source)return false;
   let csrf=read(req,'form')||token(),newCookie=!read(req,'form'),creatorAccessFlow=req[creatorInvitationFlow]===true;const raw=read(req,'member');
   // Native POST forms need a non-null Origin. strict-origin preserves it on HTTPS
   // while never sending verification/reset tokens or other URL paths as referrers.
@@ -70,6 +73,12 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
   const emailLink=async(p,purpose)=>{const raw=await store.issue(p.id,purpose);await mail({to:p.email,purpose,url:`${config.origin}/${purpose==='verify_email'?'verify-email':'reset-password'}/?token=${raw}`});};
   try{
    if(!['GET','HEAD','POST'].includes(req.method)){send(405,'Use the form','<p>That action is unavailable.</p>',{Allow:'GET, HEAD, POST'});return true;}
+   if(source && (req.method==='GET'||req.method==='HEAD')){
+    const existing = raw&&store ? await store.session(raw) : null;
+    const member = existing&&equal(digest(csrf),existing.csrf_token_hash) ? existing : null;
+    res.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','Referrer-Policy':'strict-origin','X-Robots-Tag':'noindex, follow','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'none'; img-src 'self'; style-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'"});
+    res.end(req.method==='HEAD'?undefined:coloradoPreview(source,member,csrf));return true;
+   }
    const ready=store&&config&&await store.ready(),open=ready&&config.open&&Boolean(mail);let f;
    const inviteRaw=read(req,'creator-invite'),inviteName=creatorInvitationName(req);
    let invitation=null;
@@ -84,10 +93,20 @@ export function createMemberHandler({store=null,config=null,mail=null,invitation
    const inviteLogin=invitation?'/login/?next=%2Fcreator-invitation%2F':'/login/';
    if(privateInvitation&&url.pathname==='/signup/'){redirect('/creator-invitation/');return true;}
    if(req.method==='POST'){if(!ready){send(503,'Members coming soon','<p>Member access is being prepared.</p>');return true;}if(req.headers.origin!==config.origin){send(403,'Form expired','<p>Return to the page and try again.</p>');return true;}f=await body(req);if(!equal(read(req,'form'),f.get('csrf'))){send(403,'Form expired','<p>Refresh the form and try again.</p>');return true;}}
+   if(source){
+    const member = ready && raw ? await store.session(raw) : null;
+    if(!member || !equal(digest(csrf),member.csrf_token_hash)){redirect('/login/?next='+encodeURIComponent(url.pathname));return true;}
+    await store.creditColoradoReferral(member.id,source);
+    redirect('/plus/');return true;
+   }
    if(url.pathname==='/signup/'){
+    const via = invitation ? null : (f ? f.get('via') : url.searchParams.get('via'));
+    const referral = coloradoSources.has(via) ? via : null;
+    const credit = referral ? '<label><input type="checkbox" name="via" value="'+referral+'" checked> Credit '+coloradoSources.get(referral)+' if I buy Plus.</label>' : '';
+    const signin = referral ? '/login/?next='+encodeURIComponent('/co/'+referral+'/') : '/login/';
     if(!open){send(200,'Join the camp',`<p class="member-auth-intro">Create a free Gold Trails account to join the camp.</p><p>Registration is temporarily unavailable. Please return shortly, or sign in to an existing account.</p><fieldset disabled class="member-preview"><legend>Registration form</legend>${form('/signup/',csrf,signupFields(),'Create free account')}</fieldset><p>Already a member? <a href="/login/">Sign in</a>.</p>`);return true;}
-    if(req.method==='POST'){if(!await store.allow('signup')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}const data=memberIdentity(f);let p;try{p=await store.signup({...data,passwordHash:await hashPassword(data.password,{minLength:8})});}catch(e){if(e.code!=='ER_DUP_ENTRY')throw e;}if(p)await emailLink(p,'verify_email');send(200,'Check your email','<div class="member-confirmation" role="status"><h2>Your signup request was received</h2><p>If these details are available for a new account, a verification email is on its way. Already joined? Sign in or reset your existing password below. Creating another account does not change an existing password.</p></div><p><a href="/login/">Sign in</a> · <a href="/forgot-password/">Reset your existing password</a></p><p>Verification emails are for accounts that still need verification. <a href="/resend-verification/">Request another verification email</a>.</p>'+inviteNotice+(invitation?'':signupPlusOffer({autoOpen:true})));return true;}
-    send(200,'Join the camp',`<p class="member-auth-intro">${invitation?'Create your free account to accept complimentary Gold Trails Plus.':'Create a free Gold Trails account to join the camp.'} We’ll email a link to verify your address.</p>${inviteNotice}${form('/signup/',csrf,signupFields(true),'Create free account')}<p class="member-auth-signin">Already a member? <a href="/login/">Sign in</a>.</p>${invitation?'':signupPlusOffer()}`);return true;
+    if(req.method==='POST'){if(!await store.allow('signup')){send(429,'Take a short break','<p>Please try again in 15 minutes.</p>');return true;}const data=memberIdentity(f);let p;try{p=await store.signup({...data,referral,passwordHash:await hashPassword(data.password,{minLength:8})});}catch(e){if(e.code!=='ER_DUP_ENTRY')throw e;}if(p)await emailLink(p,'verify_email');send(200,'Check your email','<div class="member-confirmation" role="status"><h2>Your signup request was received</h2><p>If these details are available for a new account, a verification email is on its way. Already joined? Sign in or reset your existing password below. Creating another account does not change an existing password.</p></div><p><a href="/login/">Sign in</a> · <a href="/forgot-password/">Reset your existing password</a></p><p>Verification emails are for accounts that still need verification. <a href="/resend-verification/">Request another verification email</a>.</p>'+inviteNotice+(invitation?'':signupPlusOffer({autoOpen:true})));return true;}
+    send(200,'Join the camp',`<p class="member-auth-intro">${invitation?'Create your free account to accept complimentary Gold Trails Plus.':'Create a free Gold Trails account to join the camp.'} We’ll email a link to verify your address.</p>${inviteNotice}${form('/signup/',csrf,signupFields(true)+credit,'Create free account')}<p class="member-auth-signin">Already a member? <a href="${signin}">Sign in</a>.</p>${invitation?'':signupPlusOffer()}`);return true;
    }
    if(url.pathname==='/login/'){
     const next=memberDestination(req.method==='POST'?f.get('next'):url.searchParams.get('next'))||(invitation?'/creator-invitation/':null);

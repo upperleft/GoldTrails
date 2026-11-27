@@ -4,6 +4,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {randomUUID,createHmac} from 'node:crypto';
 import mariadb from 'mariadb';
+import {coloradoReport} from '../app/colorado-referrals.js';
 import {createBillingStore} from '../app/billing/store.js';
 import {createStripeProvider} from '../app/billing/provider.js';
 import {createBillingHandler} from '../app/billing/handler.js';
@@ -188,6 +189,30 @@ test('isolated MariaDB billing identity, transactions, concurrency and entitleme
   assert.equal((await sessions.session(session)).effective_level,'free');assert.equal((await request('/api/gold-almanac/nevada/')).status,403);
   providerStatus='active';invoiceStatus='paid';assert.equal((await webhook('customer.subscription.updated')).status,200);assert.equal((await sessions.session(session)).effective_level,'subscriber');
   assert.equal((await post('/billing/cancel/')).status,303);assert.equal((await billingStore.billingState(ids.flow)).subscription.cancelAtPeriodEnd,true);assert.equal((await sessions.session(session)).effective_level,'subscriber','Cancellation retains confirmed paid access.');
+ });
+ await t.test('Colorado counts each referred payer once and renewals once per paid term',async()=>{
+  const members=createMemberStore(db,{billing:config});
+  const referred={};
+  for(const source of ['nugget','goldputz']){
+   const id=randomUUID();referred[source]=id;
+   await db.query("INSERT INTO member_accounts(id,username,email,password_hash,status,email_verified_at) VALUES(?,?,?,?,'active',UTC_TIMESTAMP(6))",[id,'ref_'+source,source+'@example.invalid','x'.repeat(100)]);
+   await db.query('INSERT INTO member_memberships(account_id) VALUES(?)',[id]);
+   await members.creditColoradoReferral(id,source);
+   await members.creditColoradoReferral(id,source==='nugget'?'goldputz':'nugget');
+   await store.bindCustomer(id,'cus_'+source);
+  }
+  const counts=async()=>(await coloradoReport(db)).map(({members,renewals})=>[members,renewals]);
+  const paid=(source,extra={})=>snapshot(source,{accountId:referred[source],...extra});
+  const reconcile=(target,source,extra)=>target.reconcileSubscription({accountId:referred[source],subscriptionId:'sub_'+source},async()=>paid(source,extra));
+  await reconcile(store,'nugget',{status:'incomplete',latestInvoicePaid:false,paidThrough:null});
+  assert.deepEqual(await counts(),[[0,0],[0,0]]);
+  await Promise.all([reconcile(store,'nugget'),reconcile(store,'nugget'),reconcile(store,'goldputz')]);
+  assert.deepEqual(await counts(),[[1,0],[1,0]]);
+  const later=createBillingStore(db,{...config,now:()=>new Date('2030-12-03T12:00:00Z')});
+  const next={currentPeriodStart:'2030-12-01T00:00:00Z',currentPeriodEnd:'2031-01-01T00:00:00Z',paidThrough:'2031-01-01T00:00:00Z'};
+  await reconcile(later,'nugget',next); await reconcile(later,'nugget',next);
+  await members.creditColoradoReferral(ids.flow,'goldputz');
+  assert.deepEqual(await counts(),[[1,1],[1,0]]);
  });
  assert.ok((await store.listSubscriptions()).length>0);
 });

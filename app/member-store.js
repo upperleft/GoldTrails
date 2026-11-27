@@ -1,3 +1,4 @@
+import {creditSource} from './colorado-referrals.js';
 import {randomUUID} from 'node:crypto';
 import {digest,token} from './admin-auth.js';
 import {paidSubscriptionPredicate} from './billing/entitlements.js';
@@ -9,7 +10,13 @@ export function createMemberStore(db,{billing=null}={}){
  async ready(){return (await db.query("SELECT version FROM schema_migrations WHERE version='004_member_accounts'")).length>0;},
  async allow(action){const bucket=digest('member-'+action);await db.query(`INSERT INTO admin_login_limits(bucket,attempts,window_start) VALUES(?,1,UTC_TIMESTAMP(6)) ON DUPLICATE KEY UPDATE attempts=IF(window_start<DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 15 MINUTE),1,attempts+1),window_start=IF(window_start<DATE_SUB(UTC_TIMESTAMP(6),INTERVAL 15 MINUTE),UTC_TIMESTAMP(6),window_start)`,[bucket]);return (await db.query('SELECT attempts FROM admin_login_limits WHERE bucket=?',[bucket]))[0].attempts<=({login:30,signup:10,recovery:10,token:30}[action]||10);},
  async find(email){return (await db.query('SELECT id,password_hash,status,email,email_verified_at,auth_version FROM member_accounts WHERE email=? AND archived_at IS NULL',[email]))[0]||null;},
- async signup({username,email,passwordHash,displayName}){return tx(async c=>{const id=randomUUID();await c.query('INSERT INTO member_accounts(id,username,email,password_hash) VALUES(?,?,?,?)',[id,username,email,passwordHash]);await c.query('INSERT INTO member_profiles(account_id,display_name) VALUES(?,?)',[id,displayName]);await c.query('INSERT INTO member_memberships(account_id) VALUES(?)',[id]);await c.query("INSERT INTO member_role_grants(account_id,role_code) VALUES(?,'member')",[id]);await audit(c,id,'signup');return{id,email};});},
+ async signup({username,email,passwordHash,displayName,referral=null}){return tx(async c=>{const id=randomUUID();await c.query('INSERT INTO member_accounts(id,username,email,password_hash) VALUES(?,?,?,?)',[id,username,email,passwordHash]);await c.query('INSERT INTO member_profiles(account_id,display_name) VALUES(?,?)',[id,displayName]);await c.query('INSERT INTO member_memberships(account_id) VALUES(?)',[id]);await c.query("INSERT INTO member_role_grants(account_id,role_code) VALUES(?,'member')",[id]);await audit(c,id,'signup');if(referral)await creditSource(c,id,referral);return{id,email};});},
+ async creditColoradoReferral(id,source){
+  return tx(async c=>{
+   const rows=await c.query("SELECT id FROM member_accounts WHERE id=? AND status='active' AND archived_at IS NULL FOR UPDATE",[id]);
+   if(rows.length)await creditSource(c,id,source);
+  });
+ },
  async issue(id,purpose){return tx(async c=>{await c.query('SELECT id FROM member_accounts WHERE id=? FOR UPDATE',[id]);await c.query('UPDATE member_tokens SET revoked_at=UTC_TIMESTAMP(6) WHERE account_id=? AND purpose=? AND consumed_at IS NULL AND revoked_at IS NULL',[id,purpose]);const raw=token();await c.query('INSERT INTO member_tokens(token_hash,purpose,account_id,expires_at) VALUES(?,?,?,DATE_ADD(UTC_TIMESTAMP(6),INTERVAL ? SECOND))',[digest(raw),purpose,id,purpose==='reset_password'?1800:86400]);return raw;});},
  // A reset link can identify its own account for password-manager autofill without consuming it.
  async resetAccount(raw){if(!/^[a-f0-9]{64}$/.test(raw||''))return null;return (await db.query("SELECT a.email FROM member_tokens t JOIN member_accounts a ON a.id=t.account_id WHERE t.token_hash=? AND t.purpose='reset_password' AND t.consumed_at IS NULL AND t.revoked_at IS NULL AND t.expires_at>UTC_TIMESTAMP(6) AND a.status='active' AND a.email_verified_at IS NOT NULL AND a.archived_at IS NULL LIMIT 1",[digest(raw)]))[0]||null;},

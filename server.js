@@ -1,3 +1,4 @@
+import {coloradoReport} from './app/colorado-referrals.js';
 import {createHomepageHandler} from './app/homepage/handler.js';
 import {processEventPhoto} from './app/connections/photos.js';
 import {unsubscribeLinks} from './app/connections/notifications.js';
@@ -53,7 +54,7 @@ const creatorMail=creatorInvitationMail();
 const creatorReplyMailbox=process.env.CREATOR_REPLY_MAILBOX;
 const creatorReplies=db?createCreatorRepliesStore(db,{mailbox:creatorReplyMailbox}):null;
 const creatorRepliesImport=createCreatorRepliesImportHandler({store:creatorReplies,mailbox:creatorReplyMailbox});
-const admin=createAdminHandler({workspace:productWorkspace,store:ownerStore,config,analyticsStore,suggestionStore,creatorInvitations:invitationStore,creatorOutreach,creatorInvitationMail:creatorMail,creatorReplies,creatorRepliesSyncConfigured:creatorRepliesImport.configured});
+const admin=createAdminHandler({workspace:productWorkspace,store:ownerStore,config,analyticsStore,readColoradoReport:db?()=>coloradoReport(db):null,suggestionStore,creatorInvitations:invitationStore,creatorOutreach,creatorInvitationMail:creatorMail,creatorReplies,creatorRepliesSyncConfigured:creatorRepliesImport.configured});
 const subscriptionScope=billingScope();
 let stripeSettings=null;
 try{stripeSettings=stripeConfig();}catch{console.error('Gold Trails billing settings need attention');}

@@ -5,6 +5,7 @@ import {hasPremiumFeature} from './plus/entitlements.js';
 import {attachFeatureLabel,featureLabelPage,featureLabelMember} from './plus/feature-label.js';
 import {guestPlusAccess} from './plus/guest-access.js';
 import http from 'node:http';
+import {sourceForPath} from './colorado-referrals.js';
 import {attachAnalyticsMarkup} from './analytics/handler.js';
 import {createAlmanacHandler} from './almanac/handler.js';
 import {mergeCatalog,catalogBySlug,catalogProfile,withCatalogDescription} from './creator-catalog.js';
@@ -19,7 +20,7 @@ import {createGoldPriceFeed} from './gold-price.js';
 import {creatorInvitationHome,creatorInvitationFlow} from './creator-invitations/context.js';
 import {articleAudioMarkup} from './article-audio.js';
 
-const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon', '.mp3':'audio/mpeg' };
+const types = { '.pdf':'application/pdf', '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.png':'image/png', '.webp':'image/webp', '.svg':'image/svg+xml', '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.gif':'image/gif', '.ico':'image/x-icon', '.mp3':'audio/mpeg' };
 const samplePath = '/prospectors/jack-riverbend-morgan/';
 export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || process.env.ADMIN_ORIGIN, guests = guestPlusAccess, billing = null, plus = createPlusHandler(), creatorRepliesImport = null, creatorInvitations = null, suggestions = null, analytics = null, directory = null, admin = null, members = null, memberSessions = null, compass = null, products = null, calendar = null, connections = null, homepage = null, goldPrice = createGoldPriceFeed(), almanac = createAlmanacHandler({guests}), root = resolve('dist'), log = console.error } = {}) {
   root = resolve(root);
@@ -39,6 +40,8 @@ export function createServer({ canonicalOrigin = process.env.MEMBER_ORIGIN || pr
       else send(req,res,421,messagePage('Use GoldTrails.org','Open GoldTrails.org and submit the form there.'));
       return;
     }
+    // A scan opens the field note before the general site's navigation and widgets.
+    if(members && (sourceForPath(path)||sourceForPath(path+'/')) && await members(req,res,url))return;
     // Read Stripe's exact signed body before analytics or any public wrapper.
     if(billing&&await billing(req,res,url))return;
     // Private metadata imports never enter analytics, member sessions or public wrappers.

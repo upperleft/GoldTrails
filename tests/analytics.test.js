@@ -11,9 +11,9 @@ const origin='https://gold.test',visitor=randomUUID(),session=randomUUID();
 const event=(extra={})=>({version:1,consent:true,id:randomUUID(),visitor,session,type:'pageview',page:'/articles/',target:'',referrer:'https://example.org/private?email=secret@example.org',device:'desktop',...extra});
 const range=dateRange(new URLSearchParams('from=2026-10-01&to=2026-10-15'),new Date('2026-10-15T12:00Z'));
 function memory(){const events=[];let ready=true;return{events,setReady:v=>ready=v,ready:async()=>ready,record:async e=>{if(!events.some(x=>x.id===e.id))events.push({...e,created_at:'2026-10-15T12:00:00'});},report:async r=>({...summarizeEvents(events,r),earliest:events[0]?.created_at||null})};}
-async function fixture(t){
+async function fixture(t,adminOptions={}){
  const store=memory(),analytics=createAnalyticsHandler({store,origin,log:()=>{}});
- const admin=createAdminHandler({store:{session:async raw=>raw==='a'.repeat(64)?{authenticated:1,csrf_token:'b'.repeat(64)}:null},config:{origin,username:'owner'},analyticsStore:store,log:()=>{}});
+ const admin=createAdminHandler({store:{session:async raw=>raw==='a'.repeat(64)?{authenticated:1,csrf_token:'b'.repeat(64)}:null},config:{origin,username:'owner'},analyticsStore:store,log:()=>{},...adminOptions});
  const server=createServer({analytics,admin,goldPrice:async()=>({}),log:()=>{}});await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));
  const base='http://127.0.0.1:'+server.address().port;
  const request=(path,init={})=>fetch(base+path,{redirect:'manual',...init});
@@ -72,4 +72,19 @@ test('CSV neutralizes spreadsheet formulas and HTML reporting escapes untrusted 
 test('database collector uses bound values and aggregate queries, retains 90 days and drops duplicate IDs',async()=>{
  const calls=[];const db={query:async(sql,values=[])=>{calls.push({sql,values});if(sql.startsWith('SELECT version'))return[{version:'010_site_analytics'}];if(sql.includes('COUNT(*) AS total FROM site_usage_events WHERE visitor_hash'))return[{total:0n}];if(sql.startsWith('INSERT'))return{affectedRows:1};if(sql.startsWith('DELETE'))return{};if(sql.includes('MIN(created_at)'))return[{earliest:null}];return[];}};
  const store=createAnalyticsStore(db);assert.equal(await store.ready(),true);const clean=validateEvent(event(),origin);await store.record(clean);const result=await store.report(range);assert.doesNotThrow(()=>JSON.stringify(result));assert(calls.some(c=>c.sql.includes('INTERVAL 89 DAY')));assert(calls.some(c=>c.sql.startsWith('INSERT IGNORE')));assert(calls.some(c=>c.sql.includes('COUNT(DISTINCT')));assert(!calls.some(c=>c.sql.includes(visitor)||/member_accounts|email|ip_address/.test(c.sql)));assert(calls.filter(c=>c.sql.startsWith('SELECT')&&c.sql.includes('created_at>=?')).every(c=>c.values.length>=2));
+});
+
+test('Colorado payment totals require an owner session and stay read-only',async t=>{
+ const rows=[{name:'The Gold Nugget newsletter',members:2,renewals:1},{name:'Gold Putz creator referral',members:0,renewals:0}];
+ let reads=0;
+ const {request}=await fixture(t,{readColoradoReport:async()=>{reads++;return rows;}});
+ const path='/admin/colorado/',Cookie='__Host-gold-admin='+'a'.repeat(64);
+ assert.equal((await request(path)).headers.get('location'),'/admin/login/');
+ assert.equal(reads,0);
+ const report=await request(path,{headers:{Cookie}});
+ assert.equal(report.status,200);assert.match(report.headers.get('cache-control'),/no-store/);
+ const html=await report.text();assert.match(html,/Paying members/);
+ assert.match(html,/The Gold Nugget newsletter<.th><td>2<.td><td>1/);assert.match(html,/Gold Putz creator referral<.th><td>0<.td><td>0/);
+ const post=await request(path,{method:'POST',headers:{Cookie,Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:'csrf='+'b'.repeat(64)});
+ assert.equal(post.status,405);assert.equal(reads,1);
 });

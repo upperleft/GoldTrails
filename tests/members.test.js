@@ -273,3 +273,33 @@ test('missing or unavailable accepted-profile records leave the complimentary ac
   assert.doesNotMatch(html,/View your creator profile|PRIVATE_PROFILE_LOOKUP/);
  }
 });
+
+test('Colorado preview credits its own source through signup or signed-in continuation', async t => {
+ const signups = [], credits = [];
+ const cookies = {Cookie: `__Host-gold-member=${session}; __Host-gold-form=${csrf}`};
+ const request = await fixture(t, {mail: async()=>{}, store:{
+  ready: async()=>true, allow:async()=>true, issue:async()=>link,
+  signup:async data=>{signups.push(data.referral);return {id:'new',email:data.email};},
+  session:async raw=>raw===session?{id:'existing',csrf_token_hash:digest(csrf)}:null,
+  creditColoradoReferral:async(id,source)=>credits.push([id,source])
+ }});
+ for(const source of ['nugget','goldputz']){
+  const path='/co/'+source+'/';
+  assert.equal((await request(path.slice(0,-1))).headers.get('location'),path);
+  const sample=await (await request(path)).text();
+  assert.match(sample,/Ralston Creek/);
+  assert.ok(sample.includes('/signup/?via='+source));
+  const signup=await (await request('/signup/?via='+source)).text();
+  assert.ok(signup.includes('name="via" value="'+source+'"'));
+  const fields={username:'newmember',email:'test@example.invalid',password:'example password',confirmPassword:'example password',via:source};
+  assert.equal((await request('/signup/',fields)).status,200);
+  assert.equal(signups.at(-1),source);
+  assert.equal((await request('/login/?next='+encodeURIComponent(path),null,{headers:cookies})).headers.get('location'),path);
+  assert.ok((await (await request(path,null,{headers:cookies})).text()).includes('method="post" action="'+path+'"'));
+  assert.equal((await request(path,{}, {...cookies,Origin:'https://different.example'})).status,403);
+  assert.equal((await request(path,{},cookies)).headers.get('location'),'/plus/');
+ }
+ assert.deepEqual(credits,[['existing','nugget'],['existing','goldputz']]);
+ assert.equal((await request('/co/unknown/')).status,404);
+ assert.doesNotMatch(await (await request('/signup/?via=unknown')).text(),/name="via"/);
+});
